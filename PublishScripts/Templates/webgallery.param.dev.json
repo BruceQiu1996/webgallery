@@ -1,0 +1,32 @@
+{
+  "siteName": {
+    "value": "webgalleryprod"
+  },
+  "hostingPlanName": {
+    "value": "webgalleryprod"
+  },
+  "siteLocation": {
+    "value": "West US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "serverName": {
+    "value": "appgalleryserver"
+  },
+  "serverLocation": {
+    "value": "East US"
+  },
+  "administratorLogin": {
+    "value": "appgal"
+  },
+  "administratorLoginPassword": {
+    "value": "iis6!dfu"
+  },
+  "databaseName": {
+    "value": "webgalleryprod_db"
+  }
+}

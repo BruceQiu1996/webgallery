@@ -1,0 +1,43 @@
+﻿@model webgallery.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4>Use another service to log in.</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support logging in via external services.
+            </p>
+        </div>
+    }
+    else {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+                <p>
+                    <h4>Sign in with a Microsoft account</h4>
+
+                    We recommend using a Microsoft account to log in to Web App Gallery Submission portal.
+
+                    @foreach (AuthenticationDescription p in loginProviders) {
+                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    }
+
+
+                </p>
+                <ul id="signin-providerlist">
+                    <li class="signin-authprovider">
+                        <a class="btn btn-big signin-external-link" href="/users/account/authenticate/MicrosoftAccount?returnUrl=%2F">
+                            <i class="icon-windows signin-authprovider-icon"></i>
+                            Sign in with a Microsoft account
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        }
+    }
+}
