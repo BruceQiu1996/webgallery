@@ -47,9 +47,9 @@ namespace webgallery
             //app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-           //  app.UseMicrosoftAccountAuthentication(
-             //   clientId: "f0e6ec89-9f40-4d2c-b8c6-8629a313e9fc",
-               // clientSecret: "eTncbqCoJDmZ2rgcpfYmioX");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "f0e6ec89-9f40-4d2c-b8c6-8629a313e9fc",
+                clientSecret: "eTncbqCoJDmZ2rgcpfYmioX");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
