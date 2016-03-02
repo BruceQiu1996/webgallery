@@ -9,7 +9,7 @@
     <WebStackScaffolding_DbContextTypeFullName>webgallery.Models.mscomwebDBEntitiesDB</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <NameOfLastUsedPublishProfile>webgalleryprod</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>webappgalleryprod - Web Deploy</NameOfLastUsedPublishProfile>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />

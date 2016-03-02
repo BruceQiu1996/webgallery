@@ -86,3 +86,7 @@ C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\
 C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\Microsoft.Threading.Tasks.Extensions.dll
 C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\Microsoft.Threading.Tasks.xml
 C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\X.PagedList.dll
+C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\X.PagedList.Mvc.dll
+C:\Users\sumuth\Documents\Visual Studio 2015\Projects\webgallery\webgallery\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml

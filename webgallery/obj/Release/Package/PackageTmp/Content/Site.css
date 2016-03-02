@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.dev-box
+{
+    width:400px;
+    height:250px;
+    padding-left:50px;
+    padding-right:50px;
+}

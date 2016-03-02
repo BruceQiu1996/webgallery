@@ -598,6 +598,8 @@
     </Content>
     <Content Include="Grid.mvc.readme" />
     <Content Include="fonts\LiveSymbol.ttf" />
+    <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\webgalleryprod.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
