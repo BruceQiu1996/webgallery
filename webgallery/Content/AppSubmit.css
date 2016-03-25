@@ -1,0 +1,462 @@
+﻿p, select, input, caption, textarea,
+.submission-form-section .textbox-watermark,
+.submission-form-section .textbox-narrow-watermark,
+.submission-form-section .textbox-zip-watermark,
+.submission-form-section .textbox-direct-contact-data-watermark,
+.submission-form-section .textbox-hover,
+.submission-form-section .textbox-narrow-hover,
+.submission-form-section .textbox-label,
+.submission-form-section .dd-label,
+.submission-form-section .file-upload-label,
+.submission-form-section .general-validator,
+.submission-form-section .textbox-validator,
+.submission-form-section .word-count-validator,
+.submission-form-section .submitted-panel,
+.submission-form-section .package-change-imbalance-warning,
+.legalese,
+.legalese .general-validator,
+.legalese .textbox-watermark,
+.legalese .textbox-hover,
+.final-steps .textbox-watermark,
+.final-steps .textbox-hover
+{
+    font-size: 10pt;
+}
+.submission-form-section .dd-label,
+.submission-form-section .textbox-label,
+.submission-form-section .copy-from-package-label
+{
+    font-weight:normal
+}
+.submission-form-section .textbox-label,
+.submission-form-section .dd-label,
+.submission-form-section .file-upload-label,
+.submission-form-section .general-validator,
+.submission-form-section .textbox-validator,
+.submission-form-section .submitted-panel,
+.legalese,
+.legalese .general-validator
+{
+    line-height: 1.8em;
+}
+.introduction,
+.introduction p
+{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.submission-form-section .textbox-label,
+.submission-form-section .dd-label,
+.submission-form-section .file-upload-label
+{
+    position: relative;
+    overflow: visible;
+}
+.submission-form-section .validator-in-label
+{
+    position: absolute;
+    bottom: -6px;
+    right: 10px;
+    font-size: 10px;
+    line-height: 1.2em;
+}
+p, select, input, caption, textarea,
+.submission-form-section .textbox-label,
+.submission-form-section .dd-label,
+.submission-form-section .file-upload-label
+{
+    color: #4b4b4b;
+}
+.submission-form-section
+{
+    margin: 0.4em 54px 40px 54px;
+}
+.clear-dependencies
+{
+    margin-left:20px;
+}
+.clear-dependencies,
+.clear-image
+{    
+    font-size: 0.8em;
+}
+.clear-image
+{
+    float: right;
+    line-height:normal;
+}
+.validation-summary
+{
+    padding: 10px;
+    border: solid 1px #999999;
+    background: #F0F0F0;
+    line-height: 1.3em;
+}
+.validation-summary a,
+.validation-summary a:link,
+.validation-summary a:visited,
+.validation-summary a:active,
+.validation-summary a:hover
+{
+    color: Red !important;
+}
+.submission-form-section p,
+.submission-form-section caption,
+.validation-summary p,
+.legalese p,
+.final-steps p
+{
+    clear: both;
+}
+.submission-form-section .explanation,
+.legalese .explanation,
+.final-steps .explanation
+{
+    position:absolute;
+    visibility: hidden;
+    padding-left: 12px;
+    background: url(images/explanation-arrow.jpg) 0px 15px no-repeat;
+}
+.submission-form-section .explanation-inner,
+.legalese .explanation-inner,
+.final-steps .explanation-inner
+{
+    border-right: solid 2px #999999;
+    border-bottom: solid 2px #999999;
+    width: 220px;
+    min-height: 80px;
+    padding: 10px;
+    background: #DDDDDD;
+    font-size: 12px;
+    line-height: 1.2em;
+}
+.submission-form-section .textbox,
+.submission-form-section .textbox-narrow,
+.submission-form-section .textbox-zip,
+.submission-form-section .textbox-direct-contact-data,
+.submission-form-section .textbox-watermark,
+.submission-form-section .textbox-narrow-watermark,
+.submission-form-section .textbox-zip-watermark,
+.submission-form-section .textbox-direct-contact-data-watermark,
+.submission-form-section .textbox-hover,
+.submission-form-section .textbox-narrow-hover,
+.submission-form-section .file-upload-wrapper,
+.legalese .textbox,
+.legalese .textbox-watermark,
+.legalese .textbox-hover,
+.final-steps .textbox,
+.final-steps .textbox-watermark,
+.final-steps .textbox-hover
+{
+    padding-left: 1px;
+    margin: 0 0 10px 0;
+}
+.submission-form-section .textbox,
+.submission-form-section .textbox-zip,
+.submission-form-section .textbox-direct-contact-data,
+.submission-form-section .textbox-watermark,
+.submission-form-section .textbox-zip-watermark,
+.submission-form-section .textbox-direct-contact-data-watermark,
+.submission-form-section .textbox-hover,
+.submission-form-section .file-upload-wrapper,
+.submission-form-section .dd-language,
+.submission-form-section .dd-primary-category,
+.submission-form-section .dd-secondary-category,
+.submission-form-section .dd-state,
+.submission-form-section .dd-country,
+.submission-form-section .submitted-panel
+{
+    float: left;
+}
+.legalese .textbox
+{
+    float: none;
+}
+.submission-form-section .dropdown,
+.submission-form-section .dropdown-narrow,
+.submission-form-section .file-upload-wrapper
+{
+    margin: 0 0 10px 0;
+}
+.submission-form-section .textbox,
+.submission-form-section .textbox-watermark,
+.submission-form-section .textbox-zip,
+.submission-form-section .textbox-zip-watermark,
+.submission-form-section .textbox-hover,
+.submission-form-section .submitted-panel
+{
+    width: 350px;
+}
+.submission-form-section .dropdown,
+.submission-form-section .dd-state
+{
+    width: 350px;
+}
+.legalese .textbox,
+.legalese .textbox-watermark,
+.legalese .textbox-hover,
+.final-steps .textbox,
+.final-steps .textbox-watermark,
+.final-steps .textbox-hover
+{
+    width: 500px;
+}
+.submission-form-section .textbox-narrow,
+.submission-form-section .textbox-narrow-watermark
+{
+    width: 200px;
+}
+.submission-form-section .file-upload
+{
+    width: 350px;
+}
+.submission-form-section .textbox-label,
+.submission-form-section .dd-label,
+.submission-form-section .file-upload-label
+{
+    clear: both;
+    float: left;
+    width: 190px;
+    padding-right: 10px;
+    text-align: right;
+}
+.legalese .textbox-label,
+.final-steps .textbox-label
+{
+    display: block;
+    float: none;
+    width: 100%;
+    padding-right: 0;
+    text-align: left;
+}
+.submission-form-section p.screenshots-title
+{
+    margin-left: 75px;
+}
+.submission-form-section .textbox-watermark,
+.submission-form-section .textbox-narrow-watermark,
+.submission-form-section .textbox-zip-watermark,
+.submission-form-section .textbox-direct-contact-data-watermark
+{
+    color: #BBBBBB;
+}
+.dd-suffix
+{
+    clear: both;
+    display: block;
+}
+.dd-prefix,
+.dd-suffix
+{
+    position: relative;
+    left: 200px; /* equal to the label width and padding since there is no label here */
+}
+.image-set
+{
+    clear: both;
+    margin: 5px 0 10px 0;
+}
+.submission-form-section .general-validator,
+.submission-form-section .textbox-validator,
+.legalese .general-validator
+{
+}
+.submission-form-section .textbox-validator
+{
+    float: left;
+    width: 50px;
+    padding-left: 5px;
+}
+.submission-form-section .word-count-validator
+{
+    float: left;
+    padding-left: 5px;
+}
+.submission-form-section table
+{
+    clear: both;
+}
+.submission-form-section table caption
+{
+    line-height: 1.2em;
+    white-space: nowrap;
+    padding: 20px 0 10px 0;
+}
+.submission-form-section table thead th,
+.submission-form-section table tfoot td
+{
+    font-size: 0.8em;
+    font-weight: bold;
+    text-align: center;
+}
+.submission-form-section table thead th
+{
+    vertical-align: bottom;
+}
+
+/* Overrides of the default styling of tabs provided by the ASP.NET AJAX Toolkit */
+.ajax__tab_default .ajax__tab_header
+{
+    white-space: normal !important;
+}
+
+.image-set .ajax__tab_tab
+{
+    cursor:default !important;
+}
+
+.submission-form-section .meta-data-caption,
+.submission-form-section .package-caption
+{
+    text-align: center;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
+
+.submission-form-section .next-btn
+{
+    margin: 20px 0 30px 500px;
+}
+.submission-form-section .submitted-popup
+{
+    position: relative;
+    background: White;
+    border: solid 1px #999999;
+    padding: 35px;
+}
+.submission-form-section .submitted-image-close-btn
+{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+.submission-form-section .modal-background
+{
+    background: #333;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+.submission-form-section .low-count
+{
+    color: Gray;
+}
+.submission-form-section .high-count
+{
+    font-weight: bold;
+    color: Black;
+}
+.submission-form-section .exceeded-count
+{
+    font-weight: bold;
+    font-style: italic;
+    color: Red;
+}
+.submittion-cannot-be-modified p
+{
+    font-weight: bold;
+    color: Red !important;
+}
+.hidden-inner-package-tab-container .ajax__tab_header
+{
+    display: none;
+}
+.hidden-inner-package-tab-container .ajax__tab_body
+{
+    border: none !important;
+}
+.hidden-inner-package-tab-container .copy-package
+{
+    display: none;
+}
+.hidden-inner-package-tab-container .copy-from-package-btn
+{
+    margin-left: 65px;
+}
+.hidden-inner-package-tab-container .copy-from-package-label
+{
+    padding: 0 5px;
+}
+.hidden-inner-package-tab-container .clear-package
+{
+    margin-left: 80px;
+}
+.package-change-imbalance-warning
+{
+    margin-top: 20px;
+    padding: 10px;
+    border: solid 1px #400070;
+    color: #7030A0;
+}
+.package-change-imbalance-warning p
+{
+    color: #7030A0;
+    font-weight: bold;
+}
+.package-change-imbalance-warning .unchanged-warning-row
+{
+    font-weight: bold;
+}
+.package-change-imbalance-warning .x64-warning-row
+{
+    display: none;
+}
+.package-change-imbalance-warning td
+{
+    padding: 2px 10px 2px 0;
+}
+.submission-form-section .uneditable
+{
+    display: none;
+}
+.final-steps .submit-btn
+{
+    float: right;
+    margin-right: 250px;
+}
+.internal-error
+{
+    margin: 20px 0;
+    border: solid 2px red;
+    padding: 20px;
+    color: Red;
+}
+#dependencies select
+{
+    height: 135px;
+}
+
+/* OVERRIDES OF STYLES FROM app_themes\spring\style.css */
+
+h1, h2
+{
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-weight: bold !important;
+}
+h1
+{
+    font-size: 16pt !important;
+    margin-bottom: 5px !important;
+}
+h2
+{
+    font-size: 12pt !important;
+}
+h3, p
+{
+	padding: 0.7em 0px !important;
+	line-height: 1.3em !important;
+    font-size: 10pt !important;
+	font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif !important;
+}
+li
+{
+    font-size: 10pt !important;
+}
+.content
+{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}

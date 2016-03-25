@@ -1,0 +1,27 @@
+﻿/* default layout */
+.ajax__tab_default .ajax__tab_header {white-space:nowrap}
+.ajax__tab_default .ajax__tab_outer {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_inner {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_tab {margin-right:4px;overflow:hidden;text-align:center;cursor:pointer;display:-moz-inline-box;display:inline-block}
+
+/* added by v-jifan */
+.ajax__tab_header > span {display:inline-block;height:21px;vertical-align:bottom;margin:0px -3px 0px 0px}
+
+/* xp theme */
+.ajax__tab_xp .ajax__tab_header {font-family:verdana,tahoma,helvetica;font-size:11px;background:url(images/tab_xp/tab_header.gif) repeat-x bottom;}
+.ajax__tab_xp .ajax__tab_outer {padding-right:4px;background:url(images/tab_xp/tab_outer.gif) no-repeat right;height:21px}
+.ajax__tab_xp .ajax__tab_inner {padding-left:3px;background:url(images/tab_xp/tab_inner.gif) no-repeat;}
+.ajax__tab_xp .ajax__tab_tab {padding:4px;margin:0;background:url(images/tab_xp/tab_tab.gif) repeat-x;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_outer {background:url(images/tab_xp/tab_hover_outer.gif) no-repeat right;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_inner {background:url(images/tab_xp/tab_hover_inner.gif) no-repeat;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_tab {background:url(images/tab_xp/tab_hover_tab.gif) repeat-x;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_outer {background:url(images/tab_xp/tab_active_outer.gif) no-repeat right;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_inner {background:url(images/tab_xp/tab_active_inner.gif) no-repeat;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_tab {background:url(images/tab_xp/tab_active_tab.gif) repeat-x;}
+.ajax__tab_xp .ajax__tab_body {font-family:verdana,tahoma,helvetica;font-size:10pt;border:1px solid #999999;border-top:0;padding:8px;background-color:#ffffff;}
+
+/* scrolling */
+.ajax__scroll_horiz {overflow-x:scroll;}
+.ajax__scroll_vert {overflow-y:scroll;}
+.ajax__scroll_both {overflow:scroll}
+.ajax__scroll_auto {overflow:auto}
