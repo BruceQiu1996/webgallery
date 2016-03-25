@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using webgallery.Models;
 using System.Collections.Generic;
-
+using webgallery.ViewModels;
 
 namespace webgallery.Controllers
 {
@@ -137,21 +137,60 @@ namespace webgallery.Controllers
         {
             using (var db = new mscomwebDBEntitiesDB())
             {
+                var submissionToUpdate = from s in db.Submissions
+                                         where s.SubmissionID == id
+                                         select s;
 
-                IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
+                var metadata = from m in db.SubmissionLocalizedMetaDatas
+                               where m.SubmissionID == id
+                               select m;
 
-                Submission selectedsubmission = new Submission();
-                foreach (Submission submission in submissions)
-                {
-                    if (submission.SubmissionID == id)
-                        selectedsubmission = submission;
-                    break;
+                var packages = from p in db.Packages
+                               where p.SubmissionID == id
+                               select p;
 
-                }
+                var categories = from c in db.ProductOrAppCategories
+                                 orderby c.Name
+                                 select c;
 
-                return View("AppSubmit", selectedsubmission);
+                var frameworks = from f in db.FrameworksAndRuntimes
+                                 orderby f.Name
+                                 select f;
+                var dbServers = from d in db.DatabaseServers
+                                select d;
+
+                var webServerExtensions = from e in db.WebServerExtensions
+                                          select e;
+
+                var model = new AppSubmissionViewModel {
+                    Submission = submissionToUpdate.FirstOrDefault(),
+                    Metadata = metadata.ToList(),
+                    Packages = packages.ToList(),
+                    Languages = Language.SupportedLanguages.ToList(),
+                    Categories = categories.ToList(),
+                    Frameworks = frameworks.ToList(),
+                    DatabaseServers = dbServers.ToList(),
+                    WebServerExtensions = webServerExtensions.ToList()
+                };
+
+                ChangeDisplayOrder(model.DatabaseServers);
+
+                return View("AppSubmit", model);
             }
+        }
 
+        private void ChangeDisplayOrder(IList<DatabaseServer> dbServers)
+        {
+            // We always want "Microsoft SQL Driver for PHP" immediately after SQL Server Express because the 2 are related.
+            // See the line #1074 in the old AppSubmit.aspx.cs            
+            var sqlServerExpress = dbServers.FirstOrDefault(d => string.Compare("SQL Server Express", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
+            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => string.Compare("Microsoft SQL Driver for PHP", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
+
+            if (sqlServerExpress != null && microsoftSqlDriverForPhp != null)
+            {
+                dbServers.Remove(microsoftSqlDriverForPhp);
+                dbServers.Insert(dbServers.IndexOf(sqlServerExpress) + 1, microsoftSqlDriverForPhp);
+            }
         }
 
         public ActionResult Delete(int id)

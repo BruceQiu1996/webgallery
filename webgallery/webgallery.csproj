@@ -439,6 +439,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -575,12 +576,28 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AppSubmissionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AppSubmit.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\images\explanation-arrow.jpg" />
+    <Content Include="Content\images\tab_xp\tab_active_inner.gif" />
+    <Content Include="Content\images\tab_xp\tab_active_outer.gif" />
+    <Content Include="Content\images\tab_xp\tab_active_tab.gif" />
+    <Content Include="Content\images\tab_xp\tab_header.gif" />
+    <Content Include="Content\images\tab_xp\tab_hover_inner.gif" />
+    <Content Include="Content\images\tab_xp\tab_hover_outer.gif" />
+    <Content Include="Content\images\tab_xp\tab_hover_tab.gif" />
+    <Content Include="Content\images\tab_xp\tab_inner.gif" />
+    <Content Include="Content\images\tab_xp\tab_outer.gif" />
+    <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\tab_xp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -611,6 +628,11 @@
     </Content>
     <Content Include="Grid.mvc.readme" />
     <Content Include="fonts\LiveSymbol.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\webgalleryprod.pubxml" />
@@ -672,6 +694,11 @@
     <Content Include="Views\Home\Documentation.cshtml" />
     <Content Include="Views\Home\ContactConfirm.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Manage\AppSubmit.cshtml" />
+    <Content Include="Views\Manage\_AppSubmitIntroductionPartial.cshtml" />
+    <Content Include="Views\Manage\_AppSubmitDescriptionPartial.cshtml" />
+    <Content Include="Views\Manage\_AppSubmitReleaseNotePartial.cshtml" />
+    <Content Include="Views\Manage\_AppSubmitPackagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

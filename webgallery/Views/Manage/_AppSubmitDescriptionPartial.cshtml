@@ -1,0 +1,73 @@
+﻿@model webgallery.ViewModels.AppSubmissionViewModel
+
+<h2>Describe Your Application:</h2>
+<h3>At least one language is required.</h3>
+<div class="submission-form-section" id="submissionFormPanel1">
+    <p>
+        <a name="#MetaData"></a>
+        Describe your application for visitors who speak:
+        <span id="metaDataValidator" title="required" style="color:Red;display:none;">*</span>
+    </p>
+
+    <div class="ajax__tab_xp ajax__tab_default" id="metaDataTabContainer" RegClient="true">
+        <div class="ajax__tab_header" id="metaDataTabContainer_header">
+            @for(var i= 0; i < Model.Languages.Count; i++)
+            {
+                var lang = Model.Languages[i];
+                var classNames = i == 0 ? "ajax__tab_active" : string.Empty;
+
+                <span class="@classNames"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="@lang.Name">@lang.DisplayNameForTabHeader</span></span></span></span>
+            }
+        </div>
+        <div class="ajax__tab_body" id="metaDataTabContainer_body">
+            @for (var i = 0; i < Model.Languages.Count; i++)
+            {
+                var lang = Model.Languages[i];
+                var metadata = Model.Metadata.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0);
+                var appName = metadata == null ? string.Empty : metadata.Name;
+                var description = metadata == null ? string.Empty : metadata.Description;
+                var briefDescription = metadata == null ? string.Empty : metadata.BriefDescription;
+                var hideOrNot = i > 0 ? "style='display:none;visibility:hidden;'" : string.Empty;
+
+                <div id="metaDataTab_@lang.Name" @Html.Raw(hideOrNot)>
+                    <input type="hidden" name="metadata_@lang.Name" id="metadata_@lang.Name" value="@lang.Name" />
+                    <div class="meta-data-caption">@lang.CultureInfo.DisplayName</div>
+
+                    <label for="appNameTB_@lang.Name" class="textbox-label">App Name</label>
+                    <input name="appNameTB_@lang.Name" id="appNameTB_@lang.Name" type="text" value="@appName" title="App Name" class="textbox" dir="@lang.TextDirection" onchange="createNickname(this)" regclient="true" />
+                    <input type="hidden" name="appNameWatermark_ClientState_@lang.Name" id="appNameWatermark_ClientState_@lang.Name" />
+                    <div id="appNameExplanationPanel_@lang.Name" class="explanation">
+                        <div class='explanation-inner'>Provide the name of your application.</div>
+                    </div>
+
+                    <label for="descriptionTB_@lang.Name" class="textbox-label">Description<span id="descriptionLengthValidator_@lang.Name" title="too many characters" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
+                    <textarea name="descriptionTB_@lang.Name" id="DescriptionTB_@lang.Name"
+                              rows="10" cols="20" title="Description" class="textbox" dir="@lang.TextDirection"
+                              onkeyup="CharacterCountDown(1500, 'description-countdown_@lang.Name', 'descriptionTB_@lang.Name', 'descriptionWatermark_@lang.Name'); return true;"
+                              onpaste="CharacterCountDown(1500, 'description-countdown_@lang.Name', 'descriptionTB_@lang.Name', 'descriptionWatermark_@lang.Name'); return true;"
+                              regclient="true">@Html.Encode(description)</textarea>
+                    <input type="hidden" name="descriptionWatermark_ClientState_@lang.Name" id="descriptionWatermark_ClientState_@lang.Name" />
+                    <div id="descriptionExplanationPanel_@lang.Name" class="explanation">
+                        <div class='explanation-inner'>
+                            <span id="description-countdown_@lang.Name" class="low-count">1500</span> characters remaining<br /><br />
+                        </div>
+                    </div>
+
+                    <label for="briefDescriptionTB_@lang.Name" class="textbox-label">Brief Description<span id="briefDescriptionLengthValidator_@lang.Name" title="too many characters" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
+                    <textarea name="briefDescriptionTB_@lang.Name" id="briefDescriptionTB_@lang.Name"
+                              rows="10" cols="20" title="Brief Description" class="textbox" dir="@lang.TextDirection"
+                              onkeyup="CharacterCountDown(400, 'brief-description-countdown_@lang.Name', 'briefDescriptionTB_@lang.Name', 'briefDescriptionWatermark_@lang.Name'); return true;"
+                              onpaste="CharacterCountDown(400, 'brief-description-countdown_@lang.Name', 'briefDescriptionTB_@lang.Name', 'briefDescriptionWatermark_@lang.Name'); return true;"
+                              regclient="true">@Html.Encode(briefDescription)</textarea>
+                    <input type="hidden" name="briefDescriptionWatermark_ClientState_@lang.Name" id="briefDescriptionWatermark_ClientState_@lang.Name" />
+                    <div id="briefDescriptionExplanationPanel_@lang.Name" class="explanation">
+                        <div class='explanation-inner'>
+                            <span id="brief-description-countdown_@lang.Name" class="low-count">400</span> characters remaining<br /><br />
+                        </div>
+                    </div>
+                    <div class='clearing'>&nbsp;</div>
+                </div>
+            }            
+        </div>
+    </div>
+</div>
