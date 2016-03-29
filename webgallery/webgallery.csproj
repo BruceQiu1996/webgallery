@@ -579,12 +579,13 @@
     <Compile Include="ViewModels\AppSubmissionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\AppSubmit.css" />
+    <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\images\close-btn.png" />
     <Content Include="Content\images\explanation-arrow.jpg" />
     <Content Include="Content\images\tab_xp\tab_active_inner.gif" />
     <Content Include="Content\images\tab_xp\tab_active_outer.gif" />
@@ -597,11 +598,11 @@
     <Content Include="Content\images\tab_xp\tab_outer.gif" />
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\tab_xp.css" />
+    <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\_site.css" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -650,6 +651,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

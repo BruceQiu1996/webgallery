@@ -8,7 +8,7 @@ namespace webgallery.Models
     {
         public string Name { get; set; }
         public CultureInfo CultureInfo { get; set; }
-        public string DisplayNameForTabHeader { get; set; }
+        public string ShortDisplayName { get; set; }
         public string TextDirection { get; set; }
 
         public static IEnumerable<Language> SupportedLanguages
@@ -24,7 +24,7 @@ namespace webgallery.Models
                        {
                            Name = c.Name,
                            CultureInfo = c,
-                           DisplayNameForTabHeader = siblingsExist ? c.DisplayName : c.Parent.DisplayName,
+                           ShortDisplayName = siblingsExist ? c.DisplayName : c.Parent.DisplayName,
                            TextDirection = c.TextInfo.IsRightToLeft ? Right_To_Left : Left_To_Right
                        };
             }

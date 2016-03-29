@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="content">
+<div id="appSubmitContainer" class="content">
 
     @using (Html.BeginForm())
     {
@@ -26,8 +26,8 @@
         <div id="legalesePanel" class="legalese submission-form-section">
             Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.<br /><br />
 
-            <a name="#TermsAndConditionsCB"></a>
-            <span class="terms-and-conditions-cb" title="Do you agree with the Terms and Conditions?" RegClient="true" onkeypress="DoValidation();">
+            <a name="#TermsAndConditions"></a>
+            <span class="terms-and-conditions-cb" title="Do you agree with the Terms and Conditions?" onkeypress="DoValidation();">
                 <input id="termsAndConditionsCB" type="checkbox" name="termsAndConditionsCB" checked="checked" onclick="DoValidation();" />
             </span>
             I accept the Terms and Conditions of the Web Application <a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
@@ -35,22 +35,22 @@
             <br /><br />
 
             <label for="additionalInfoTB" class="textbox-label">Release Notes</label>
-            <textarea name="additionalInfoTB" rows="10" cols="20" id="additionalInfoTB" title="Release Notes" class="textbox">New version submitted. Multiple instances are now suppported in Windows Azure!</textarea>
-            <input type="hidden" name="additionalInfoWatermark_ClientState" id="additionalInfoWatermark_ClientState" />
+            <textarea name="additionalInfoTB" rows="10" cols="20" id="additionalInfoTB" title="Release Notes" class="textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
         </div>
 
-        <div id="finalSteps" class="final-steps submission-form-section" RegClient="true">
-            <p>
-                <input type="submit" name="submitBtn" value="Submit Your App" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('submitBtn', '', true, '', '', false, false))" id="submitBtn" title="Submit Your App" class="submit-btn" RegClient="true" />
-            </p>
+        <div id="finalSteps" class="final-steps submission-form-section">
+            
+                <input type="submit" name="submitBtn" value="Submit Your App" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('submitBtn', '', true, '', '', false, false))" id="submitBtn" title="Submit Your App" class="submit-btn" />
+            
         </div>
     }
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/js/submission-form")
 }
 
 @section Styles {
-    @Styles.Render("~/Content/appsubmit")
+    @Styles.Render("~/css/submission-form")
 }

@@ -137,9 +137,13 @@ namespace webgallery.Controllers
         {
             using (var db = new mscomwebDBEntitiesDB())
             {
-                var submissionToUpdate = from s in db.Submissions
-                                         where s.SubmissionID == id
-                                         select s;
+                var submission = (from s in db.Submissions
+                                  where s.SubmissionID == id
+                                  select s).FirstOrDefault();
+
+                var logo = from l in db.ProductOrAppImages
+                           where l.ImageID == submission.LogoID
+                           select l;
 
                 var metadata = from m in db.SubmissionLocalizedMetaDatas
                                where m.SubmissionID == id
@@ -163,7 +167,8 @@ namespace webgallery.Controllers
                                           select e;
 
                 var model = new AppSubmissionViewModel {
-                    Submission = submissionToUpdate.FirstOrDefault(),
+                    Submission = submission,
+                    Logo = logo.FirstOrDefault(),
                     Metadata = metadata.ToList(),
                     Packages = packages.ToList(),
                     Languages = Language.SupportedLanguages.ToList(),

@@ -1,8 +1,4 @@
 ﻿p, select, input, caption, textarea,
-.submission-form-section .textbox-watermark,
-.submission-form-section .textbox-narrow-watermark,
-.submission-form-section .textbox-zip-watermark,
-.submission-form-section .textbox-direct-contact-data-watermark,
 .submission-form-section .textbox-hover,
 .submission-form-section .textbox-narrow-hover,
 .submission-form-section .textbox-label,
@@ -15,9 +11,7 @@
 .submission-form-section .package-change-imbalance-warning,
 .legalese,
 .legalese .general-validator,
-.legalese .textbox-watermark,
 .legalese .textbox-hover,
-.final-steps .textbox-watermark,
 .final-steps .textbox-hover
 {
     font-size: 10pt;
@@ -103,8 +97,7 @@ p, select, input, caption, textarea,
 .submission-form-section p,
 .submission-form-section caption,
 .validation-summary p,
-.legalese p,
-.final-steps p
+.legalese p
 {
     clear: both;
 }
@@ -115,6 +108,7 @@ p, select, input, caption, textarea,
     position:absolute;
     visibility: hidden;
     padding-left: 12px;
+    background: transparent;
     background: url(images/explanation-arrow.jpg) 0px 15px no-repeat;
 }
 .submission-form-section .explanation-inner,
@@ -123,7 +117,7 @@ p, select, input, caption, textarea,
 {
     border-right: solid 2px #999999;
     border-bottom: solid 2px #999999;
-    width: 220px;
+    width: 260px;
     min-height: 80px;
     padding: 10px;
     background: #DDDDDD;
@@ -134,18 +128,12 @@ p, select, input, caption, textarea,
 .submission-form-section .textbox-narrow,
 .submission-form-section .textbox-zip,
 .submission-form-section .textbox-direct-contact-data,
-.submission-form-section .textbox-watermark,
-.submission-form-section .textbox-narrow-watermark,
-.submission-form-section .textbox-zip-watermark,
-.submission-form-section .textbox-direct-contact-data-watermark,
 .submission-form-section .textbox-hover,
 .submission-form-section .textbox-narrow-hover,
 .submission-form-section .file-upload-wrapper,
 .legalese .textbox,
-.legalese .textbox-watermark,
 .legalese .textbox-hover,
 .final-steps .textbox,
-.final-steps .textbox-watermark,
 .final-steps .textbox-hover
 {
     padding-left: 1px;
@@ -154,9 +142,6 @@ p, select, input, caption, textarea,
 .submission-form-section .textbox,
 .submission-form-section .textbox-zip,
 .submission-form-section .textbox-direct-contact-data,
-.submission-form-section .textbox-watermark,
-.submission-form-section .textbox-zip-watermark,
-.submission-form-section .textbox-direct-contact-data-watermark,
 .submission-form-section .textbox-hover,
 .submission-form-section .file-upload-wrapper,
 .submission-form-section .dd-language,
@@ -179,9 +164,7 @@ p, select, input, caption, textarea,
     margin: 0 0 10px 0;
 }
 .submission-form-section .textbox,
-.submission-form-section .textbox-watermark,
 .submission-form-section .textbox-zip,
-.submission-form-section .textbox-zip-watermark,
 .submission-form-section .textbox-hover,
 .submission-form-section .submitted-panel
 {
@@ -193,16 +176,13 @@ p, select, input, caption, textarea,
     width: 350px;
 }
 .legalese .textbox,
-.legalese .textbox-watermark,
 .legalese .textbox-hover,
 .final-steps .textbox,
-.final-steps .textbox-watermark,
 .final-steps .textbox-hover
 {
     width: 500px;
 }
-.submission-form-section .textbox-narrow,
-.submission-form-section .textbox-narrow-watermark
+.submission-form-section .textbox-narrow
 {
     width: 200px;
 }
@@ -232,13 +212,6 @@ p, select, input, caption, textarea,
 .submission-form-section p.screenshots-title
 {
     margin-left: 75px;
-}
-.submission-form-section .textbox-watermark,
-.submission-form-section .textbox-narrow-watermark,
-.submission-form-section .textbox-zip-watermark,
-.submission-form-section .textbox-direct-contact-data-watermark
-{
-    color: #BBBBBB;
 }
 .dd-suffix
 {
@@ -293,18 +266,6 @@ p, select, input, caption, textarea,
 {
     vertical-align: bottom;
 }
-
-/* Overrides of the default styling of tabs provided by the ASP.NET AJAX Toolkit */
-.ajax__tab_default .ajax__tab_header
-{
-    white-space: normal !important;
-}
-
-.image-set .ajax__tab_tab
-{
-    cursor:default !important;
-}
-
 .submission-form-section .meta-data-caption,
 .submission-form-section .package-caption
 {
@@ -356,11 +317,11 @@ p, select, input, caption, textarea,
     font-weight: bold;
     color: Red !important;
 }
-.hidden-inner-package-tab-container .ajax__tab_header
+.hidden-inner-package-tab-container .tab_header
 {
     display: none;
 }
-.hidden-inner-package-tab-container .ajax__tab_body
+.hidden-inner-package-tab-container .tab_body
 {
     border: none !important;
 }
@@ -378,7 +339,7 @@ p, select, input, caption, textarea,
 }
 .hidden-inner-package-tab-container .clear-package
 {
-    margin-left: 80px;
+    margin-left: 37px;
 }
 .package-change-imbalance-warning
 {
@@ -410,8 +371,7 @@ p, select, input, caption, textarea,
 }
 .final-steps .submit-btn
 {
-    float: right;
-    margin-right: 250px;
+    float: left;
 }
 .internal-error
 {
@@ -420,43 +380,15 @@ p, select, input, caption, textarea,
     padding: 20px;
     color: Red;
 }
-#dependencies select
+.input-mouseover 
+{
+    outline:thin 0.5px rgba(51, 152, 254, 1);
+}
+.image-set .tab_tab
+{
+    cursor:default !important;
+}
+#dependencies select 
 {
     height: 135px;
-}
-
-/* OVERRIDES OF STYLES FROM app_themes\spring\style.css */
-
-h1, h2
-{
-    margin-top: 20px !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    font-weight: bold !important;
-}
-h1
-{
-    font-size: 16pt !important;
-    margin-bottom: 5px !important;
-}
-h2
-{
-    font-size: 12pt !important;
-}
-h3, p
-{
-	padding: 0.7em 0px !important;
-	line-height: 1.3em !important;
-    font-size: 10pt !important;
-	font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif !important;
-}
-li
-{
-    font-size: 10pt !important;
-}
-.content
-{
-    margin-top: 0 !important;
-    padding-top: 0 !important;
 }
