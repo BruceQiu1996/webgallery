@@ -25,11 +25,12 @@ namespace webgallery
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/_site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/appsubmit").Include(
-                      "~/Content/appsubmit.css",
-                      "~/Content/tab_xp.css"));
+            bundles.Add(new ScriptBundle("~/js/submission-form").Include("~/scripts/_submission-form.js"));
+            bundles.Add(new StyleBundle("~/css/submission-form").Include(
+                      "~/Content/_submission-form.css",
+                      "~/Content/_tab.css"));
         }
     }
 }

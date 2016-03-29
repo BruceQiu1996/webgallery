@@ -1,71 +1,65 @@
 ﻿@model webgallery.ViewModels.AppSubmissionViewModel
 
 <h2>Provide Release Notes:</h2>
-<div id="submissionFormPanel2" class="submission-form-section">
+<div class="submission-form-section">
     <div id="appIDPanel">
-        <a name="#AppIDTB"></a>
+        <a name="#AppID"></a>
         <label for="appIDTB" class="textbox-label">App ID<span title="alphanumberic only" class="validator-in-label" style="color:Red;display:none;">alphanumberic only</span><span title="The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the App ID you have chosen." class="validator-in-label" style="color:Red;display:none;">not unique, please change</span></label>
-        <input name="appIDTB" type="text" value="@Model.Submission.Nickname" id="appIDTB" title="App ID" class="textbox" RegClient="true" />
-        <input type="hidden" name="appIDWatermark_ClientState" id="appIDWatermark_ClientState" />
-        <div id="appIDExplanationPanel" class="explanation">
-            <div class="explanation-inner">Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the <a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery</a>.<br /><br />You will not be able to change this ID with future edits of your application such as for version updates.</div>
+        <input name="appIDTB" type="text" value="@Model.Submission.Nickname" id="appIDTB" title="App ID" class="textbox" placeholder="Application" />
+        <div class="explanation">
+            <div class="explanation-inner">Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the <a href="https://www.microsoft.com/web/gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery</a>.<br /><br />You will not be able to change this ID with future edits of your application such as for version updates.</div>
         </div>
         <span id="appIDValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
     </div>
 
-    <a name="#VersionTB"></a>
+    <a name="#Version"></a>
     <label for="versionTB" class="textbox-label">Version</label>
-    <input name="versionTB" type="text" value="@Model.Submission.Version" id="versionTB" title="Version" class="textbox" RegClient="true" />
-    <input type="hidden" name="versionWatermark_ClientState" id="versionWatermark_ClientState" />
+    <input name="versionTB" type="text" value="@Model.Submission.Version" id="versionTB" title="Version" class="textbox" placeholder="1.2.3.4" />
     <span id="versionValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
-    <a name="#SubmittingEntityTB"></a>
+    <a name="#SubmittingEntity"></a>
     <label for="submittingEntityTB" class="textbox-label">Submitting Entity</label>
     <input name="submittingEntityTB" type="text" value="@Model.Submission.SubmittingEntity" id="submittingEntityTB" title="Submitting Entity" class="textbox" />
-    <div id="submittingEntityExplanationPanel" class="explanation">
+    <div class="explanation">
         <div class="explanation-inner">Submitting Entity is the name of the entity submitting the application.</div>
     </div>
     <span id="submittingEntityValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
-    <a name="#SubmittingEntityUrlTB"></a>
+    <a name="#SubmittingEntityUrl"></a>
     <label for="submittingEntityUrlTB" class="textbox-label">Submitting Entity URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="submittingEntityUrlTB" type="text" value="@Model.Submission.SubmittingEntityURL" id="submittingEntityUrlTB" title="Submitting Entity URL" class="textbox" RegClient="true" />
-    <input type="hidden" name="submittingEntityUrlWatermark_ClientState" id="submittingEntityUrlWatermark_ClientState" />
-    <div id="submittingEntityUrlExplanationPanel" class="explanation">
+    <input name="submittingEntityUrlTB" type="text" value="@Model.Submission.SubmittingEntityURL" id="submittingEntityUrlTB" title="Submitting Entity URL" class="textbox" placeholder="http://www.SubmittingEntity.org" />
+    <div class="explanation">
         <div class="explanation-inner">Provide the URL for the primary website for the Submitting Entity.</div>
     </div>
     <span id="submittingEntityUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
-    <a name="#AppWebSiteUrlTB"></a>
+    <a name="#AppWebSiteUrl"></a>
     <label for="appWebSiteUrlTB" class="textbox-label">App Web Site URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="appWebSiteUrlTB" type="text" value="@Model.Submission.AppURL" id="appWebSiteUrlTB" title="App Web Site URL" class="textbox" RegClient="true" />
-    <input type="hidden" name="appWebSiteUrlWatermark_ClientState" id="appWebSiteUrlWatermark_ClientState" />
-    <div id="appWebSiteUrlExplanationPanel" class="explanation">
+    <input name="appWebSiteUrlTB" type="text" value="@Model.Submission.AppURL" id="appWebSiteUrlTB" title="App Web Site URL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" />
+    <div class="explanation">
         <div class="explanation-inner">Provide an URL to your application's website homepage.</div>
     </div>
     <span id="appWebSiteUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
-    <a name="#SupportUrlTB"></a>
+    <a name="#SupportUrl"></a>
     <label for="supportUrlTB" class="textbox-label">Support URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="supportUrlTB" type="text" value="@Model.Submission.SupportURL" id="supportUrlTB" title="Support URL" class="textbox" RegClient="true" />
-    <input type="hidden" name="supportUrlWatermark_ClientState" id="supportUrlWatermark_ClientState" />
-    <div id="supportUrlExplanationPanel" class="explanation">
+    <input name="supportUrlTB" type="text" value="@Model.Submission.SupportURL" id="supportUrlTB" title="Support URL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" />
+    <div class="explanation">
         <div class="explanation-inner">The <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> require your application to provide free web based support to customers.</div>
     </div>
     <span id="supportUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
-    <a name="#ReleaseDateTB"></a>
+    <a name="#ReleaseDate"></a>
     <label for="releaseDateTB" class="textbox-label">Release Date<span id="releaseDateFormatValidator" title="M/d/yyyy" class="validator-in-label" style="color:Red;display:none;">M/d/yyyy</span></label>
-    <input name="releaseDateTB" type="text" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" id="releaseDateTB" title="Release Date" class="textbox" />
-    <input type="hidden" name="releaseDateWatermark_ClientState" id="releaseDateWatermark_ClientState" />
-    <div id="releaseDateExplanationPanel" class="explanation">
+    <input name="releaseDateTB" type="text" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" id="releaseDateTB" title="Release Date" class="textbox" placeholder="@DateTime.Now.ToString("M/d/yyyy")"/>
+    <div class="explanation">
         <div class="explanation-inner">The date that the submitted application has been or will be publically available.</div>
     </div>
     <span id="releaseDateValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
     <a name="#PrimaryCategory"></a>
     <label for="primaryCategoryDD" class="dd-label">Primary Category</label>
-    <select name="primaryCategoryDD" id="primaryCategoryDD" title="Primary Category" class="dropdown dd-primary-category" RegClient="true" onchange="DoValidation();">
+    <select name="primaryCategoryDD" id="primaryCategoryDD" title="Primary Category" class="dropdown dd-primary-category" onchange="DoValidation();">
         <option value="Pick one">Pick one</option>
         @foreach (var c in Model.Categories)
         {
@@ -79,13 +73,14 @@
             }
         }
     </select>
-    <div id="primaryCategoryExplanationPanel" class="explanation">
+    <div class="explanation">
         <div class="explanation-inner">Select the primary category for your application. Application may fall into more one or more categories. You have the option of associating your application with a second category.</div>
     </div>
     <span id="primaryCategoryValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
 
+    <a name="#SecondaryCategory"></a>
     <label for="secondaryCategoryDD" class="dd-label">Secondary Category</label>
-    <select name="secondaryCategoryDD" id="secondaryCategoryDD" title="Secondary Category" class="dropdown dd-secondary-category" RegClient="true" onchange="DoValidation();">
+    <select name="secondaryCategoryDD" id="secondaryCategoryDD" title="Secondary Category" class="dropdown dd-secondary-category" onchange="DoValidation();">
         <option value="None">None</option>
         @foreach (var c in Model.Categories)
         {
@@ -99,102 +94,106 @@
             }
         }
     </select>
-    <div id="secondaryCategoryExplanationPanel" class="explanation">
+    <div class="explanation">
         <div class="explanation-inner">Select a secondary category for your application.</div>
     </div>
 
-    <a name="#ProfessionalServicesUrlTB"></a>
+    <a name="#ProfessionalServicesUrl"></a>
     <label for="professionalServicesUrlTB" class="textbox-label">Professional Services URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="professionalServicesUrlTB" type="text" value="@Model.Submission.ProfessionalServicesURL" id="professionalServicesUrlTB" title="Professional Services URL" class="textbox" RegClient="true" />
-    <input type="hidden" name="professionalServicesUrlWatermark_ClientState" id="professionalServicesUrlWatermark_ClientState" />
-    <div id="professionalServicesUrlExplanationPanel" class="explanation">
+    <input name="professionalServicesUrlTB" type="text" value="@Model.Submission.ProfessionalServicesURL" id="professionalServicesUrlTB" title="Professional Services URL" class="textbox" placeholder="http://www.services.org/services.html" />
+    <div class="explanation">
         <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial services.</div>
     </div>
 
-    <a name="#CommercialProductUrlTB"></a>
+    <a name="#CommercialProductUrl"></a>
     <label for="commercialProductUrlTB" class="textbox-label">Commercial Product URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="commercialProductUrlTB" type="text" value="@Model.Submission.CommercialProductURL" id="commercialProductUrlTB" title="Commercial Product URL" class="textbox" RegClient="true" />
-    <input type="hidden" name="commercialProductUrlWatermark_ClientState" id="commercialProductUrlWatermark_ClientState" />
-    <div id="commercialProductUrlExplanationPanel" class="explanation">
+    <input name="commercialProductUrlTB" type="text" value="@Model.Submission.CommercialProductURL" id="commercialProductUrlTB" title="Commercial Product URL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" />
+    <div class="explanation">
         <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial products.</div>
     </div>
 
     <div class="image-set">
-        <div class="ajax__tab_xp ajax__tab_default" id="imagesTabContainer" style="visibility:visible;">
-            <div class="ajax__tab_header" id="imagesTabContainer_header">
-                <span class="ajax__tab_active"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab">Images</span></span></span></span>
+        <div class="tab_xp tab_default">
+            <div class="tab_header">
+                <span class="tab_active"><span class="tab_outer"><span class="tab_inner"><span class="tab_tab">Images</span></span></span></span>
             </div>
-            <div class="ajax__tab_body" id="imagesTabContainer_body">
+            <div class="tab_body">
                 <div>
-                    <a name="#LogoImageFU"></a>
+                    @{ 
+                        var logo = Model.Logo ?? new webgallery.Models.ProductOrAppImage {
+                            ImageID = 0,
+                            ImageGUID = Guid.Empty
+                        };
+                    }
+                    <a name="#LogoImage"></a>
                     <label for="logoImageFU" class="file-upload-label">Logo</label>
-                    <div id="logoImageFUWrapperPanel" class="file-upload-wrapper" style="display:none" RegClient="true">
-                        <input type="file" name="logoImageFU" id="logoImageFU" title="Logo" class="file-upload" RegClient="true" />
+                    <div id="logoImageFUWrapperPanel" class="file-upload-wrapper" style="display:none">
+                        <input type="file" name="logoImageFU" id="logoImageFU" title="Logo" class="file-upload" />
                     </div>
-                    <input type="hidden" name="logoImageGUID" id="logoImageGUID" value="08e9e504-7683-4a50-a19e-27689284511c" />
-                    <div id="ctl00_MainContent_ctl57_ctl00_LogoImageExplanationPanel" class="explanation">
+                    <div class="explanation">
                         <div class="explanation-inner">Your logo must be no more than 200px in width or height and provided in PNG format.</div>
                     </div>
+                    <input type="hidden" name="logoImageGUID" id="logoImageGUID" value="@logo.ImageGUID" />
 
-                    <span id="logoImageReqValidator" title="required" class="textbox-validator" RegClient="true" style="color:Red;display:none;">*</span>
-                    <a onclick="clearLogo(); return false;" id="logoImageReset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoImageReset', '', true, '', '', false, true))">reset</a>
+                    <span id="logoImageReqValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
+                    <a onclick="clearLogo(); return false;" id="logoImageReset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoImageReset', '', true, '', '', false, true))">reset</a>
 
-                    <div id="logoImageFUPanel" class="submitted-panel" RegClient="true">
+                    <div id="logoImageFUPanel" class="submitted-panel">
                         <input type="hidden" id="setLogoImage" name="setLogoImage" value="0" title="" />
                         <a id="logoTrigger" title="View last submission" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoTrigger', '', true, '', '', false, true))">View last submission</a>
                         /
                         <a onclick="replaceLogo(); return false;" id="needNewLogoTrigger" title="Submit a different logo" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('needNewLogoTrigger', '', true, '', '', false, true))">Submit a different logo</a>
-                        <div id="logoPopup" class="submitted-popup" style="display:none">
-                            <img id="logoImg" src="http://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=08e9e504-7683-4a50-a19e-27689284511c" style="border-width:0px;" />
-                            <input type="image" name="logoOK" id="logoOK" class="submitted-image-close-btn" src="http://www.microsoft.com/web/media/gallery/apps-images/close-btn.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoOK', '', true, '', '', false, false))" style="border-width:0px;" />
+                        <div id="logoPopup" class="submitted-popup" >
+                            <img id="logoImg" src="https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=@logo.ImageGUID" style="border-width:1px;" />
+                            <input type="image" name="logoOK" id="logoOK" class="submitted-image-close-btn" src="~/content/images/close-btn.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoOK', '', true, '', '', false, false))" style="border-width:0px;" />
                         </div>
                     </div>
 
                     <p class="screenshots-title">Screenshots (optional)</p>
                     <label for="screenshotImage1FU" class="file-upload-label">1</label>
-                    <div id="screenshotImageFU1WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage1FU" id="screenshotImage1FU" title="Screenshot Image 1" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU1WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage1FU" id="screenshotImage1FU" title="Screenshot Image 1" class="file-upload" />
                     </div>
-                    <input type="hidden" name="screenshotImage1GUID" id="screenshotImage1GUID" />
-                    <div id="screenshotImage1ExplanationPanel" class="explanation">
+                    <div class="explanation">
                         <div class="explanation-inner">Add up to 6 screenshots of your application. Screenshots should be no more than 800px in width or 600px in height and provided in PNG format.</div>
                     </div>
-                    <a onclick="clearScreenshot(1); return false;" id="screenshotImage1Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage1Reset', '', true, '', '', false, true))">reset</a>
+                    <input type="hidden" name="screenshotImage1GUID" id="screenshotImage1GUID" />
+                    <a onclick="clearScreenshot(1); return false;" id="screenshotImage1Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage1Reset', '', true, '', '', false, true))">reset</a>
 
                     <label for="screenshotImage2FU" class="file-upload-label">2</label>
-                    <div id="screenshotImageFU2WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage2FU" id="screenshotImage2FU" title="Screenshot Image 2" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU2WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage2FU" id="screenshotImage2FU" title="Screenshot Image 2" class="file-upload" />
                     </div>
                     <input type="hidden" name="screenshotImage2GUID" id="screenshotImage2GUID" />
-                    <a onclick="clearScreenshot(2); return false;" id="screenshotImage2Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage2Reset', '', true, '', '', false, true))">reset</a>
+                    <a onclick="clearScreenshot(2); return false;" id="screenshotImage2Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage2Reset', '', true, '', '', false, true))">reset</a>
 
                     <label for="screenshotImage3FU" class="file-upload-label">3</label>
-                    <div id="screenshotImageFU3WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage3FU" id="screenshotImage3FU" title="Screenshot Image 3" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU3WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage3FU" id="screenshotImage3FU" title="Screenshot Image 3" class="file-upload" />
                     </div>
                     <input type="hidden" name="screenshotImage3GUID" id="screenshotImage3GUID" />
-                    <a onclick="clearScreenshot(3); return false;" id="screenshotImage3Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage3Reset', '', true, '', '', false, true))">reset</a>
+                    <a onclick="clearScreenshot(3); return false;" id="screenshotImage3Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage3Reset', '', true, '', '', false, true))">reset</a>
 
                     <label for="screenshotImage4FU" class="file-upload-label">4</label>
-                    <div id="screenshotImageFU4WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage4FU" id="screenshotImage4FU" title="Screenshot Image 4" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU4WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage4FU" id="screenshotImage4FU" title="Screenshot Image 4" class="file-upload" />
                     </div>
                     <input type="hidden" name="screenshotImage4GUID" id="screenshotImage4GUID" />
-                    <a onclick="clearScreenshot(4); return false;" id="screenshotImage4Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage4Reset', '', true, '', '', false, true))">reset</a>
+                    <a onclick="clearScreenshot(4); return false;" id="screenshotImage4Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage4Reset', '', true, '', '', false, true))">reset</a>
 
                     <label for="screenshotImage5FU" class="file-upload-label">5</label>
-                    <div id="screenshotImageFU5WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage5FU" id="screenshotImage5FU" title="Screenshot Image 5" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU5WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage5FU" id="screenshotImage5FU" title="Screenshot Image 5" class="file-upload" />
                     </div>
                     <input type="hidden" name="screenshotImage5GUID" id="screenshotImage5GUID" />
-                    <a onclick="clearScreenshot(5); return false;" id="screenshotImage5Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage5Reset', '', true, '', '', false, true))">reset</a>
+                    <a onclick="clearScreenshot(5); return false;" id="screenshotImage5Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage5Reset', '', true, '', '', false, true))">reset</a>
 
                     <label for="screenshotImage6FU" class="file-upload-label">6</label>
-                    <div id="screenshotImageFU6WrapperPanel" class="file-upload-wrapper" RegClient="true">
-                        <input type="file" name="screenshotImage6FU" id="screenshotImage6FU" title="Screenshot Image 6" class="file-upload" RegClient="true" />
+                    <div id="screenshotImageFU6WrapperPanel" class="file-upload-wrapper">
+                        <input type="file" name="screenshotImage6FU" id="screenshotImage6FU" title="Screenshot Image 6" class="file-upload" />
                     </div>
                     <input type="hidden" name="screenshotImage6GUID" id="screenshotImage6GUID" />
-                    <a onclick="clearScreenshot(6); return false;" id="screenshotImage6Reset" class="clear-image" RegClient="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage6Reset', '', true, '', '', false, true))">reset</a>
+                    <a onclick="clearScreenshot(6); return false;" id="screenshotImage6Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage6Reset', '', true, '', '', false, true))">reset</a>
 
                     <div class="clearing">&nbsp;</div>
                 </div>

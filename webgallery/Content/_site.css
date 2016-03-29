@@ -1,0 +1,54 @@
+﻿h1, h2
+{
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-weight: bold !important;
+}
+h1
+{
+    font-size: 16pt !important;
+    margin-bottom: 5px !important;
+}
+h2
+{
+    font-size: 12pt !important;
+}
+h3, p
+{
+	padding: 0.7em 0px !important;
+	line-height: 1.3em !important;
+    font-size: 10pt !important;
+	font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif !important;
+}
+li
+{
+    font-size: 10pt !important;
+}
+
+/*----------*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #BBBBBB;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #BBBBBB;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #BBBBBB;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #BBBBBB;
+}
+
+/*----------*/
+.content
+{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.clearing{
+    clear:both
+}
