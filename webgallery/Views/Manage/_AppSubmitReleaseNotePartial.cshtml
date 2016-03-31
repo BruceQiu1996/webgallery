@@ -4,8 +4,8 @@
 <div class="submission-form-section">
     <div id="appIDPanel">
         <a name="#AppID"></a>
-        <label for="appIDTB" class="textbox-label">App ID<span title="alphanumberic only" class="validator-in-label" style="color:Red;display:none;">alphanumberic only</span><span title="The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the App ID you have chosen." class="validator-in-label" style="color:Red;display:none;">not unique, please change</span></label>
-        <input name="appIDTB" type="text" value="@Model.Submission.Nickname" id="appIDTB" title="App ID" class="textbox" placeholder="Application" />
+        <label for="appId" class="textbox-label">App ID<span title="alphanumberic only" class="validator-in-label" style="color:Red;display:none;">alphanumberic only</span><span title="The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the App ID you have chosen." class="validator-in-label" style="color:Red;display:none;">not unique, please change</span></label>
+        <input type="text" name="AppId" id="appId" value="@Model.Submission.Nickname" title="App Id" class="textbox" placeholder="Application" />
         <div class="explanation">
             <div class="explanation-inner">Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the <a href="https://www.microsoft.com/web/gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery</a>.<br /><br />You will not be able to change this ID with future edits of your application such as for version updates.</div>
         </div>
