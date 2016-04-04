@@ -6,26 +6,12 @@
     $("#appSubmitContainer input:text,textarea,select").focusout(function () { $(this).next(".explanation").css({ visibility: "hidden" }); });
     $("#appSubmitContainer input:file").focusin(function () { setExplanationPosition(this, $(this).parent().nextAll(".explanation:first")); });
     $("#appSubmitContainer input:file").focusout(function () { $(this).parent().nextAll(".explanation:first").css({ visibility: "hidden" }); });
-
-    //$("#appSubmitContainer input:text,textarea,select").each(function (i, sender) {
-    //    $(sender).focusin(function () {
-    //        setExplanationPosition(this, $(this).next(".explanation"));
-    //    });
-    //    $(sender).focusout(function () {
-    //        $(this).next(".explanation").css({ visibility: "hidden" });
-    //    });
-    //    $(sender).bind("mouseenter mouseleave", function () { $(sender).toggleClass("input-mouseover"); });
-    //});
-
-    //$("#appSubmitContainer input:file").each(function (i, sender) {
-    //    $(sender).focusin(function () {
-    //        
-    //    });
-    //    $(sender).focusout(function () {
-    //        
-    //    });
-    //    $(sender).bind("mouseenter mouseleave", function () { $(sender).toggleClass("input-mouseover"); });
-    //});
+ 
+    $(".low-count").each(function () {
+        var textContainer = $(this).parent().parent().prev();
+        var maxLength = $(this).html();
+        characterCountDown(maxLength, textContainer);
+    });
 });
 
 function setExplanationPosition(textContainer, explanationPanel)
@@ -65,15 +51,17 @@ function characterCountDown(maximum, textContainer)
     var countdownElement = $(textContainer).next(".explanation").find("span");
     if (countdownElement.length != 1) return;
 
+    countdownElement.removeClass();
+
     var remaining = maximum - $(textContainer).val().length;
     if (remaining > 10) {
-        countdownElement.className = "low-count";
+        countdownElement.addClass("low-count");
     }
     else if (remaining > -1) {
-        countdownElement.className = "high-count";
+        countdownElement.addClass("high-count");
     }
     else {
-        countdownElement.className = "exceeded-count";
+        countdownElement.addClass("exceeded-count");
     }
 
     countdownElement.html(remaining);
@@ -81,7 +69,17 @@ function characterCountDown(maximum, textContainer)
     // update form validator
 }
 
-function createNickname(nicknameContainer)
+function createNickname(appNameContainer)
 {
-    alert('Not implemented. Will code this later.');
+    // We don't have any value yet for the AppID (aka. Nickname). We can suggest a value
+    // by deriving a well formatted AppID from the AppName.
+
+    var appId = $("#appId").val();
+    if (appId.trim().length == 0) // if appId is empty or whitespaces
+    {
+        var re = new RegExp("\\W", "g");        
+        var appName = $(appNameContainer).val();
+        var suggestedAppId = appName.replace(re, "");
+        $("#appId").val(suggestedAppId);
+    }
 }
