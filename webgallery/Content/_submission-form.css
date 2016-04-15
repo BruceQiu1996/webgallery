@@ -87,6 +87,7 @@ p, select, input, caption, textarea,
 .validation-summary a:hover
 {
     color: Red !important;
+    font-size: 12px;
 }
 .submission-form-section p,
 .submission-form-section caption,

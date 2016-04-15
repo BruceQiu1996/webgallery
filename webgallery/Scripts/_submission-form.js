@@ -118,7 +118,9 @@ $("form").validate({
         AppWebSiteURL: { required: true, url: true },
         SupportURL: { required: true, url: true },
         ReleaseDate: { required: true },
-        PrimaryCategory: "required"
+        PrimaryCategory: "required",
+        ProfessionalServicesURL: { url: true },
+        CommercialProductURL: { url: true }
     },
     errorElement: "span",
     errorClass: "jqueryvalidation-error",
@@ -127,5 +129,26 @@ $("form").validate({
     errorPlacement: function (error, element) {
         error.addClass("validator-below");
         error.insertAfter(element);
+
+        // add to Validation Entries
+        var dataTitle = element.attr("data-title");
+        var elementId = element.attr("id");
+        var a = $("<a></a>").html(dataTitle + ": " + error.text())
+                    .attr("href", "#" + elementId);
+        var li = a.wrap("<li class='jqueryvalidation-error'></li>").parent();
+        li.attr("for", elementId);
+        li.appendTo("#validationEntriesPanel ul");
+    },
+    showErrors: function (errorMap, errorList) {
+        this.defaultShowErrors();
+
+        // refresh Validation Entries
+        var invlidElements = this.invalid;
+        $("#validationEntriesPanel ul li").each(function (i, liElement) {
+            var elementId = $(liElement).attr("for");
+            if (!invlidElements[elementId]) {
+                $(liElement).remove();
+            }
+        });
     }
 });
