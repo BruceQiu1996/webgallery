@@ -2,116 +2,127 @@
 
 <h2>Provide Release Notes:</h2>
 <div class="submission-form-section">
+    <input type="hidden" name="SubmissionId" id="SubmissionId" value="@Model.Submission.SubmissionID"/>
     <div id="appIDPanel">
-        <a name="#AppID"></a>
-        <label for="appId" class="textbox-label">App ID<span title="alphanumberic only" class="validator-in-label" style="color:Red;display:none;">alphanumberic only</span><span title="The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the App ID you have chosen." class="validator-in-label" style="color:Red;display:none;">not unique, please change</span></label>
-        <input type="text" name="AppId" id="appId" value="@Model.Submission.Nickname" title="App Id" class="textbox" placeholder="Application" />
+        <a href="#AppId"></a>@*Using "href" instead here as "name" is not supported in HTML5. See http://www.w3schools.com/tags/tag_a.asp.*@
+        <label for="AppId" class="textbox-label">App ID</label>
+        <input type="text" name="AppId" id="AppId" value="@Model.Submission.Nickname" title="App Id" class="textbox" placeholder="Application" 
+               data-msg-required="(*)"
+               data-msg-alphanumeric="Alphanumeric only."
+               data-msg-remote="Not unique, please change. The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the App ID you have chosen."/>
         <div class="explanation">
             <div class="explanation-inner">Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the <a href="https://www.microsoft.com/web/gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery</a>.<br /><br />You will not be able to change this ID with future edits of your application such as for version updates.</div>
+        </div>        
+    </div>
+    <div>
+        <a href="#Version"></a>
+        <label for="Version" class="textbox-label">Version</label>
+        <input type="text" name="Version" id="Version" value="@Model.Submission.Version" title="Version" class="textbox" placeholder="1.2.3.4" data-msg-required="(*)"/>
+    </div>
+    <div>
+        <a href="#SubmittingEntity"></a>
+        <label for="SubmittingEntity" class="textbox-label">Submitting Entity</label>
+        <input type="text" name="SubmittingEntity" id="SubmittingEntity" value="@Model.Submission.SubmittingEntity" title="Submitting Entity" class="textbox" data-msg-required="(*)"/>
+        <div class="explanation">
+            <div class="explanation-inner">Submitting Entity is the name of the entity submitting the application.</div>
         </div>
-        <span id="appIDValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
     </div>
-
-    <a name="#Version"></a>
-    <label for="versionTB" class="textbox-label">Version</label>
-    <input name="versionTB" type="text" value="@Model.Submission.Version" id="versionTB" title="Version" class="textbox" placeholder="1.2.3.4" />
-    <span id="versionValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#SubmittingEntity"></a>
-    <label for="submittingEntityTB" class="textbox-label">Submitting Entity</label>
-    <input name="submittingEntityTB" type="text" value="@Model.Submission.SubmittingEntity" id="submittingEntityTB" title="Submitting Entity" class="textbox" />
-    <div class="explanation">
-        <div class="explanation-inner">Submitting Entity is the name of the entity submitting the application.</div>
+    <div>
+        <a href="#SubmittingEntityURL"></a>
+        <label for="SubmittingEntityURL" class="textbox-label">Submitting Entity URL</label>
+        <input type="text" name="SubmittingEntityURL" id="SubmittingEntityURL" value="@Model.Submission.SubmittingEntityURL" title="Submitting Entity URL" class="textbox" placeholder="http://www.SubmittingEntity.org" 
+               data-msg-required="(*)"
+               data-msg-url="Unknown URL format."/>
+        <div class="explanation">
+            <div class="explanation-inner">Provide the URL for the primary website for the Submitting Entity.</div>
+        </div>
     </div>
-    <span id="submittingEntityValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#SubmittingEntityUrl"></a>
-    <label for="submittingEntityUrlTB" class="textbox-label">Submitting Entity URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="submittingEntityUrlTB" type="text" value="@Model.Submission.SubmittingEntityURL" id="submittingEntityUrlTB" title="Submitting Entity URL" class="textbox" placeholder="http://www.SubmittingEntity.org" />
-    <div class="explanation">
-        <div class="explanation-inner">Provide the URL for the primary website for the Submitting Entity.</div>
+    <div>
+        <a href="#AppWebSiteURL"></a>
+        <label for="AppWebSiteURL" class="textbox-label">App Web Site URL</label>
+        <input type="text" name="AppWebSiteURL" id="AppWebSiteURL" value="@Model.Submission.AppURL" title="App Web Site URL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" 
+               data-msg-required="(*)" 
+               data-msg-url="Unknown URL format."/>
+        <div class="explanation">
+            <div class="explanation-inner">Provide an URL to your application's website homepage.</div>
+        </div>
     </div>
-    <span id="submittingEntityUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#AppWebSiteUrl"></a>
-    <label for="appWebSiteUrlTB" class="textbox-label">App Web Site URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="appWebSiteUrlTB" type="text" value="@Model.Submission.AppURL" id="appWebSiteUrlTB" title="App Web Site URL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" />
-    <div class="explanation">
-        <div class="explanation-inner">Provide an URL to your application's website homepage.</div>
+    <div>
+        <a href="#SupportURL"></a>
+        <label for="SupportURL" class="textbox-label">Support URL</label>
+        <input type="text" name="SupportURL" id="SupportURL" value="@Model.Submission.SupportURL" title="Support URL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" 
+               data-msg-required="(*)"
+               data-msg-url="Unknown URL format."/>
+        <div class="explanation">
+            <div class="explanation-inner">The <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> require your application to provide free web based support to customers.</div>
+        </div>
     </div>
-    <span id="appWebSiteUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#SupportUrl"></a>
-    <label for="supportUrlTB" class="textbox-label">Support URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="supportUrlTB" type="text" value="@Model.Submission.SupportURL" id="supportUrlTB" title="Support URL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" />
-    <div class="explanation">
-        <div class="explanation-inner">The <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> require your application to provide free web based support to customers.</div>
+    <div>
+        <a href="#ReleaseDate"></a>
+        <label for="ReleaseDate" class="textbox-label">Release Date<span id="releaseDateFormatValidator" title="M/d/yyyy" class="validator-in-label" style="color:Red;display:none;">M/d/yyyy</span></label>
+        <input type="text" name="ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" title="Release Date" class="textbox datefield" placeholder="@DateTime.Now.ToString("M/d/yyyy")" data-msg-required="(*)"/>
+        <div class="explanation">
+            <div class="explanation-inner">The date that the submitted application has been or will be publically available.</div>
+        </div>
     </div>
-    <span id="supportUrlValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#ReleaseDate"></a>
-    <label for="releaseDateTB" class="textbox-label">Release Date<span id="releaseDateFormatValidator" title="M/d/yyyy" class="validator-in-label" style="color:Red;display:none;">M/d/yyyy</span></label>
-    <input name="releaseDateTB" type="text" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" id="releaseDateTB" title="Release Date" class="textbox" placeholder="@DateTime.Now.ToString("M/d/yyyy")"/>
-    <div class="explanation">
-        <div class="explanation-inner">The date that the submitted application has been or will be publically available.</div>
-    </div>
-    <span id="releaseDateValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#PrimaryCategory"></a>
-    <label for="primaryCategoryDD" class="dd-label">Primary Category</label>
-    <select name="primaryCategoryDD" id="primaryCategoryDD" title="Primary Category" class="dropdown dd-primary-category" onchange="DoValidation();">
-        <option value="Pick one">Pick one</option>
-        @foreach (var c in Model.Categories)
-        {
-            if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+    <div>
+        <a href="#PrimaryCategory"></a>
+        <label for="PrimaryCategory" class="dd-label">Primary Category</label>
+        <select name="PrimaryCategory" id="PrimaryCategory" title="Primary Category" class="dropdown dd-primary-category" data-msg-required="(*)">
+            <option value="">Pick one</option>
+            @foreach (var c in Model.Categories)
             {
-                <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+                {
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                }
+                else
+                {
+                    <option value="@c.CategoryID">@c.Name</option>
+                }
             }
-            else
+        </select>
+        <div class="explanation">
+            <div class="explanation-inner">Select the primary category for your application. Application may fall into more one or more categories. You have the option of associating your application with a second category.</div>
+        </div>
+    </div>
+    <div>
+        <a href="#SecondaryCategory"></a>
+        <label for="SecondaryCategory" class="dd-label">Secondary Category</label>
+        <select name="SecondaryCategory" id="SecondaryCategory" title="Secondary Category" class="dropdown dd-secondary-category">
+            <option value="">None</option>
+            @foreach (var c in Model.Categories)
             {
-                <option value="@c.CategoryID">@c.Name</option>
+                if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+                {
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                }
+                else
+                {
+                    <option value="@c.CategoryID">@c.Name</option>
+                }
             }
-        }
-    </select>
-    <div class="explanation">
-        <div class="explanation-inner">Select the primary category for your application. Application may fall into more one or more categories. You have the option of associating your application with a second category.</div>
+        </select>
+        <div class="explanation">
+            <div class="explanation-inner">Select a secondary category for your application.</div>
+        </div>
     </div>
-    <span id="primaryCategoryValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
-
-    <a name="#SecondaryCategory"></a>
-    <label for="secondaryCategoryDD" class="dd-label">Secondary Category</label>
-    <select name="secondaryCategoryDD" id="secondaryCategoryDD" title="Secondary Category" class="dropdown dd-secondary-category" onchange="DoValidation();">
-        <option value="None">None</option>
-        @foreach (var c in Model.Categories)
-        {
-            if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
-            {
-                <option selected="selected" value="@c.CategoryID">@c.Name</option>
-            }
-            else
-            {
-                <option value="@c.CategoryID">@c.Name</option>
-            }
-        }
-    </select>
-    <div class="explanation">
-        <div class="explanation-inner">Select a secondary category for your application.</div>
+    <div>
+        <a href="#ProfessionalServicesURL"></a>
+        <label for="ProfessionalServicesURL" class="textbox-label">Professional Services URL</label>
+        <input type="text" name="ProfessionalServicesURL" id="ProfessionalServicesURL" value="@Model.Submission.ProfessionalServicesURL" title="Professional Services URL" class="textbox" placeholder="http://www.services.org/services.html" data-msg-url="Unknown URL format."/>
+        <div class="explanation">
+            <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial services.</div>
+        </div>
     </div>
-
-    <a name="#ProfessionalServicesUrl"></a>
-    <label for="professionalServicesUrlTB" class="textbox-label">Professional Services URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="professionalServicesUrlTB" type="text" value="@Model.Submission.ProfessionalServicesURL" id="professionalServicesUrlTB" title="Professional Services URL" class="textbox" placeholder="http://www.services.org/services.html" />
-    <div class="explanation">
-        <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial services.</div>
+    <div>
+        <a href="#CommercialProductURL"></a>
+        <label for="CommercialProductURL" class="textbox-label">Commercial Product URL</label>
+        <input type="text" name="CommercialProductURL" id="CommercialProductURL" value="@Model.Submission.CommercialProductURL" title="Commercial Product URL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" data-msg-url="Unknown URL format."/>
+        <div class="explanation">
+            <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial products.</div>
+        </div>
     </div>
-
-    <a name="#CommercialProductUrl"></a>
-    <label for="commercialProductUrlTB" class="textbox-label">Commercial Product URL<span title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span></label>
-    <input name="commercialProductUrlTB" type="text" value="@Model.Submission.CommercialProductURL" id="commercialProductUrlTB" title="Commercial Product URL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" />
-    <div class="explanation">
-        <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial products.</div>
-    </div>
-
     <div class="image-set">
         <div class="tab_xp tab_default">
             <div class="tab_header">
@@ -125,7 +136,7 @@
                             ImageGUID = Guid.Empty
                         };
                     }
-                    <a name="#LogoImage"></a>
+                    <a href="#LogoImage"></a>
                     <label for="logoImageFU" class="file-upload-label">Logo</label>
                     <div id="logoImageFUWrapperPanel" class="file-upload-wrapper" style="display:none">
                         <input type="file" name="logoImageFU" id="logoImageFU" title="Logo" class="file-upload" />
@@ -135,7 +146,7 @@
                     </div>
                     <input type="hidden" name="logoImageGUID" id="logoImageGUID" value="@logo.ImageGUID" />
 
-                    <span id="logoImageReqValidator" title="required" class="textbox-validator" style="color:Red;display:none;">*</span>
+                    <span id="logoImageReqValidator" title="required" class="validator-inline" style="color:Red;display:none;">*</span>
                     <a onclick="clearLogo(); return false;" id="logoImageReset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoImageReset', '', true, '', '', false, true))">reset</a>
 
                     <div id="logoImageFUPanel" class="submitted-panel">

@@ -198,6 +198,26 @@ namespace webgallery.Controllers
             }
         }
 
+        static private string _UniqueAppIdValidationLock = "This is used to lock";
+        public JsonResult ValidateAppIdVersion(string appId, string version, int? submissionId)
+        {
+            lock (_UniqueAppIdValidationLock)
+            {
+                using (var db = new mscomwebDBEntitiesDB())
+                {
+                    var submission = db.Submissions.FirstOrDefault(
+                            s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
+                            && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
+
+                    var isUnique = (submission != null && submissionId.HasValue)
+                        ? submission.SubmissionID == submissionId
+                        : submission == null;
+
+                    return Json(isUnique);
+                }
+            }
+        }
+
         public ActionResult Delete(int id)
         {
             using (var db = new mscomwebDBEntitiesDB())

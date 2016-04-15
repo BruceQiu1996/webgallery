@@ -4,13 +4,10 @@
 .submission-form-section .textbox-label,
 .submission-form-section .dd-label,
 .submission-form-section .file-upload-label,
-.submission-form-section .general-validator,
-.submission-form-section .textbox-validator,
-.submission-form-section .word-count-validator,
+.submission-form-section .validator-inline,
 .submission-form-section .submitted-panel,
 .submission-form-section .package-change-imbalance-warning,
 .legalese,
-.legalese .general-validator,
 .legalese .textbox-hover,
 .final-steps .textbox-hover
 {
@@ -25,11 +22,8 @@
 .submission-form-section .textbox-label,
 .submission-form-section .dd-label,
 .submission-form-section .file-upload-label,
-.submission-form-section .general-validator,
-.submission-form-section .textbox-validator,
 .submission-form-section .submitted-panel,
-.legalese,
-.legalese .general-validator
+.legalese
 {
     line-height: 1.8em;
 }
@@ -229,21 +223,22 @@ p, select, input, caption, textarea,
     clear: both;
     margin: 5px 0 10px 0;
 }
-.submission-form-section .general-validator,
-.submission-form-section .textbox-validator,
-.legalese .general-validator
+.submission-form-section .validator-inline
 {
-}
-.submission-form-section .textbox-validator
-{
+    color: red;
     float: left;
-    width: 50px;
-    padding-left: 5px;
+    margin-left: 5px;
 }
-.submission-form-section .word-count-validator
+.submission-form-section .validator-below
 {
+    color: red;
+    clear: both;
     float: left;
-    padding-left: 5px;
+    width: 350px;
+    font-size: 9pt;
+    margin-left: 190px;
+    margin-top: -7px;
+    margin-bottom: 7px;
 }
 .submission-form-section table
 {
