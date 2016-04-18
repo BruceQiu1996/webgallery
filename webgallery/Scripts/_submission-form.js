@@ -6,7 +6,7 @@
     $("#appSubmitContainer input:text,textarea,select").focusout(function () { $(this).nextAll(".explanation:first").css({ visibility: "hidden" }); });
     $("#appSubmitContainer input:file").focusin(function () { setExplanationPosition(this, $(this).parent().nextAll(".explanation:first")); });
     $("#appSubmitContainer input:file").focusout(function () { $(this).parent().nextAll(".explanation:first").css({ visibility: "hidden" }); });
- 
+
     $(".low-count").each(function () {
         var textContainer = $(this).parent().parent().prev();
         var maxLength = $(this).html();
@@ -19,15 +19,13 @@
     });
 });
 
-function setExplanationPosition(textContainer, explanationPanel)
-{
+function setExplanationPosition(textContainer, explanationPanel) {
     var left = textContainer.offsetLeft + textContainer.offsetWidth + 20;
     var top = textContainer.offsetTop + (textContainer.offsetHeight / 2) - 28;
     explanationPanel.css({ visibility: "visible", left: left + "px", top: top + "px" });
 }
 
-function addHandlersForTab(tabContainer)
-{
+function addHandlersForTab(tabContainer) {
     $(tabContainer).children(":first").children().each(function (i, tabHeader) {
         $(tabHeader).bind("mouseenter mouseleave", function () {
             $(this).toggleClass("tab_hover");
@@ -51,8 +49,7 @@ function addHandlersForTab(tabContainer)
     });
 }
 
-function characterCountDown(maximum, textContainer)
-{
+function characterCountDown(maximum, textContainer) {
     var countdownElement = $(textContainer).next(".explanation").find("span");
     if (countdownElement.length != 1) return;
 
@@ -74,15 +71,14 @@ function characterCountDown(maximum, textContainer)
     // update form validator
 }
 
-function createNickname(appNameContainer)
-{
+function createNickname(appNameContainer) {
     // We don't have any value yet for the AppID (aka. Nickname). We can suggest a value
     // by deriving a well formatted AppID from the AppName.
 
     var appId = $("#AppId").val();
     if (appId.trim().length == 0) // if appId is empty or whitespaces
     {
-        var re = new RegExp("\\W", "g");        
+        var re = new RegExp("\\W", "g");
         var appName = $(appNameContainer).val();
         var suggestedAppId = appName.replace(re, "");
         $("#appId").val(suggestedAppId);
@@ -92,27 +88,26 @@ function createNickname(appNameContainer)
 $.validator.addMethod("alphanumeric", function (value, element) {
     return /^\w*$/.test(value);
 });
+var uniqueAppIdAndVersion = {
+    url: "/Manage/ValidateAppIdVersion",
+    type: "post",
+    data: {
+        appId: function () { return $("#AppId").val().trim(); },
+        version: function () { return $("#Version").val().trim(); },
+        submissionId: function () { return $("#SubmissionId").val().trim(); }
+    }
+};
 $("form").validate({
-    invalidHandler: function (e, validator) {
-        var errors = validator.numberOfInvalids();
-        if (errors)
-            $("#validationEntriesPanel").css("display", "block");
-    },
+    debug: true,
     rules: {
         AppId: {
             required: true,
             alphanumeric: true,
-            remote: {
-                url: "/Manage/ValidateAppIdVersion",
-                type: "post",
-                data: {
-                    appId: function () { return $("#AppId").val().trim(); },
-                    version: function () { return $("#Version").val().trim(); },
-                    submissionId: function () { return $("#SubmissionId").val().trim(); }
-                }
-            }
+            remote: uniqueAppIdAndVersion
         },
-        Version: "required",
+        Version: {
+            required: true
+        },
         SubmittingEntity: "required",
         SubmittingEntityURL: { required: true, url: true },
         AppWebSiteURL: { required: true, url: true },
@@ -122,33 +117,59 @@ $("form").validate({
         ProfessionalServicesURL: { url: true },
         CommercialProductURL: { url: true }
     },
+    errorContainer: "#validationEntriesContainer",
     errorElement: "span",
     errorClass: "jqueryvalidation-error",
     onkeyup: false,
-    debug: true,
+    onfocusout: function (element, event) {
+        $(element).valid();
+
+        // when validating Version, 
+        // we also need trigger AppId validation to see if the combination of they two is unique
+        if ($(element).attr("id") == "Version" && $(element).val().length > 0) {
+            $("#AppId").valid();
+        }
+    },
     errorPlacement: function (error, element) {
         error.addClass("validator-below");
         error.insertAfter(element);
-
-        // add to Validation Entries
-        var dataTitle = element.attr("data-title");
-        var elementId = element.attr("id");
-        var a = $("<a></a>").html(dataTitle + ": " + error.text())
-                    .attr("href", "#" + elementId);
-        var li = a.wrap("<li class='jqueryvalidation-error'></li>").parent();
-        li.attr("for", elementId);
-        li.appendTo("#validationEntriesPanel ul");
     },
     showErrors: function (errorMap, errorList) {
         this.defaultShowErrors();
 
-        // refresh Validation Entries
-        var invlidElements = this.invalid;
-        $("#validationEntriesPanel ul li").each(function (i, liElement) {
-            var elementId = $(liElement).attr("for");
-            if (!invlidElements[elementId]) {
-                $(liElement).remove();
+        //
+        // display errors in Validation Entries
+        //
+        var invalidElements = this.invalid;
+        $("#validationEntriesContainer ul li").each(function (index, li) {
+            var forVal = $(li).attr("for");
+            if (!invalidElements[forVal]) {
+                $(li).remove(); // remove the entries that pass the validation
             }
         });
+
+        // create/update error entry for each of invalid elements
+        for (var elementId in this.invalid) {
+            showErrorInValidationEntires(errorMap[elementId], elementId);
+        }
     }
 });
+
+function showErrorInValidationEntires(errorMessage, elementId) {
+    var dataTitle = $("#" + elementId).attr("data-title");
+
+    // try to find the error entry associated with the error element
+    var liQuery = $("#validationEntriesContainer ul").find("[for='" + elementId + "']");
+    if (liQuery.length == 0) { // if not found, create a new one
+        var a = $("<a></a>").html(dataTitle + ": " + errorMessage).attr("href", "#" + elementId);
+        var li = a.wrap("<li class='jqueryvalidation-error' data-title='" + dataTitle + "'></li>").parent();
+        li.attr("for", elementId);
+        li.appendTo("#validationEntriesContainer ul");
+    }
+    else { // if found,
+        // and if the error message is not undefined, then udpate the entry
+        if (errorMessage != undefined) {
+            var a = liQuery.find("a").html(dataTitle + ": " + errorMessage);
+        }
+    }
+}
