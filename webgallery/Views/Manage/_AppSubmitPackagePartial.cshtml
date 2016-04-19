@@ -1,13 +1,10 @@
 ﻿@model webgallery.ViewModels.AppSubmissionViewModel
 
-<h2>Provide Package Information:</h2>
+<h2 id="PackageInfo">Provide Package Information:</h2>
 <h3>Package details are required for at least one language.</h3>
 <div id="submissionFormPanel3" class="submission-form-section">
-    <p>
-        <a href="#PackageInformation"></a>
-        Package Information
-        <span id="packageValidator" title="required" style="color:Red;display:none;">*</span>
-    </p>
+    <p>Package Information<span id="packageValidator" title="required" style="color:Red;display:none;">*</span></p>
+
     <div class="tab_xp tab_default" id="outerPackageTabContainer">
         <div class="tab_header">
             @for (var i = 0; i < Model.Languages.Count; i++)
@@ -151,7 +148,6 @@
         </div>
     </div>
 
-    <a href="#FrameworksAndRuntimes"></a>
     <table id="dependencies">
         <caption>Dependencies<a href="javascript:void(0)" onclick="clearDependencies()" class="clear-dependencies">clear selections</a></caption>
         <thead>

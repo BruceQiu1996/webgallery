@@ -1,10 +1,9 @@
 ﻿@model webgallery.ViewModels.AppSubmissionViewModel
 
-<h2>Provide Release Notes:</h2>
+<h2 id="ReleaseNotes">Provide Release Notes:</h2>
 <div class="submission-form-section">
     <input type="hidden" name="SubmissionId" id="SubmissionId" value="@Model.Submission.SubmissionID"/>
     <div>
-        <a href="#AppId"></a>@*Using "href" instead here as "name" is not supported in HTML5. See http://www.w3schools.com/tags/tag_a.asp.*@
         <label for="AppId" class="textbox-label">App ID</label>
         <input type="text" name="AppId" id="AppId" value="@Model.Submission.Nickname" class="textbox" placeholder="Application" 
                data-title="App Id" 
@@ -16,12 +15,10 @@
         </div>
     </div>
     <div>
-        <a href="#Version"></a>
         <label for="Version" class="textbox-label">Version</label>
         <input type="text" name="Version" id="Version" value="@Model.Submission.Version" class="textbox" placeholder="1.2.3.4" data-title="Version" data-msg-required="(*)"/>
     </div>
     <div>
-        <a href="#SubmittingEntity"></a>
         <label for="SubmittingEntity" class="textbox-label">Submitting Entity</label>
         <input type="text" name="SubmittingEntity" id="SubmittingEntity" value="@Model.Submission.SubmittingEntity" class="textbox" data-title="Submitting Entity" data-msg-required="(*)"/>
         <div class="explanation">
@@ -29,7 +26,6 @@
         </div>
     </div>
     <div>
-        <a href="#SubmittingEntityURL"></a>
         <label for="SubmittingEntityURL" class="textbox-label">Submitting Entity URL</label>
         <input type="text" name="SubmittingEntityURL" id="SubmittingEntityURL" value="@Model.Submission.SubmittingEntityURL" class="textbox" placeholder="http://www.SubmittingEntity.org" 
                data-title="Submitting Entity URL" 
@@ -40,7 +36,6 @@
         </div>
     </div>
     <div>
-        <a href="#AppWebSiteURL"></a>
         <label for="AppWebSiteURL" class="textbox-label">App Web Site URL</label>
         <input type="text" name="AppWebSiteURL" id="AppWebSiteURL" value="@Model.Submission.AppURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" 
                data-title="App Web Site URL" 
@@ -51,7 +46,6 @@
         </div>
     </div>
     <div>
-        <a href="#SupportURL"></a>
         <label for="SupportURL" class="textbox-label">Support URL</label>
         <input type="text" name="SupportURL" id="SupportURL" value="@Model.Submission.SupportURL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" 
                data-title="Support URL" 
@@ -62,7 +56,6 @@
         </div>
     </div>
     <div>
-        <a href="#ReleaseDate"></a>
         <label for="ReleaseDate" class="textbox-label">Release Date<span id="releaseDateFormatValidator" title="M/d/yyyy" class="validator-in-label" style="color:Red;display:none;">M/d/yyyy</span></label>
         <input type="text" name="ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" class="textbox datefield" placeholder="@DateTime.Now.ToString("M/d/yyyy")" data-title="Release Date" data-msg-required="(*)"/>
         <div class="explanation">
@@ -70,7 +63,6 @@
         </div>
     </div>
     <div>
-        <a href="#PrimaryCategory"></a>
         <label for="PrimaryCategory" class="dd-label">Primary Category</label>
         <select name="PrimaryCategory" id="PrimaryCategory" class="dropdown dd-primary-category" data-title="Primary Category" data-msg-required="(*)">
             <option value="">Pick one</option>
@@ -91,7 +83,6 @@
         </div>
     </div>
     <div>
-        <a href="#SecondaryCategory"></a>
         <label for="SecondaryCategory" class="dd-label">Secondary Category</label>
         <select name="SecondaryCategory" id="SecondaryCategory" class="dropdown dd-secondary-category">
             <option value="">None</option>
@@ -112,7 +103,6 @@
         </div>
     </div>
     <div>
-        <a href="#ProfessionalServicesURL"></a>
         <label for="ProfessionalServicesURL" class="textbox-label">Professional Services URL</label>
         <input type="text" name="ProfessionalServicesURL" id="ProfessionalServicesURL" value="@Model.Submission.ProfessionalServicesURL" class="textbox" placeholder="http://www.services.org/services.html" data-title="Professional Services URL" data-msg-url="Unknown URL format."/>
         <div class="explanation">
@@ -120,7 +110,6 @@
         </div>
     </div>
     <div>
-        <a href="#CommercialProductURL"></a>
         <label for="CommercialProductURL" class="textbox-label">Commercial Product URL</label>
         <input type="text" name="CommercialProductURL" id="CommercialProductURL" value="@Model.Submission.CommercialProductURL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" data-title="Commercial Product URL" data-msg-url="Unknown URL format."/>
         <div class="explanation">
@@ -140,7 +129,6 @@
                             ImageGUID = Guid.Empty
                         };
                     }
-                    <a href="#LogoImage"></a>
                     <label for="logoImageFU" class="file-upload-label">Logo</label>
                     <div id="logoImageFUWrapperPanel" class="file-upload-wrapper" style="display:none">
                         <input type="file" name="logoImageFU" id="logoImageFU" title="Logo" class="file-upload" />
