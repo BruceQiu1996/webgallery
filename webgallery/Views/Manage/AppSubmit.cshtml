@@ -30,7 +30,7 @@
             Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.<br /><br />
 
             <span class="terms-and-conditions-cb" title="Do you agree with the Terms and Conditions?" onkeypress="DoValidation();">
-                <input id="termsAndConditionsCB" type="checkbox" name="termsAndConditionsCB" checked="checked" onclick="DoValidation();" />
+                <input type="checkbox" name="AcceptTermsAndConditions" id="AcceptTermsAndConditions" checked="checked" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-msg-required="(*)"/>
             </span>
             I accept the Terms and Conditions of the Web Application <a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
             <span id="termsAndConditionsValidator" title="required" class="validator-inline" style="color:Red;display:none;">*</span>
@@ -41,7 +41,7 @@
         </div>
 
         <div id="finalSteps" class="final-steps submission-form-section">
-            <input type="submit" value="Submit Your App" title="Submit Your App" class="submit-btn" />
+            <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();"/><br/><br /><br /><br />
         </div>
     }
 </div>

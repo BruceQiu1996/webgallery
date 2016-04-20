@@ -3,9 +3,17 @@
 <h2 id="PackageInfo">Provide Package Information:</h2>
 <h3>Package details are required for at least one language.</h3>
 <div id="submissionFormPanel3" class="submission-form-section">
-    <p>Package Information<span id="packageValidator" title="required" style="color:Red;display:none;">*</span></p>
+    <p>
+        Package Information
+        <input type="hidden" name="ProvidePackageInformation" id="ProvidePackageInformation"
+               data-anchor="PackageInfo"
+               data-msg-atLeastOnePackageCompleted="(*)"
+               data-msg-d-atLeastOnePackageCompleted="Package information for at least one language is required."
+               data-msg-eachPackageInfoCompleted="(*)"
+               data-msg-d-eachPackageInfoCompleted="Package information for a language is not completed."/>
+    </p>
 
-    <div class="tab_xp tab_default" id="outerPackageTabContainer">
+    <div class="tab_xp tab_default" id="packageTabContainer">
         <div class="tab_header">
             @for (var i = 0; i < Model.Languages.Count; i++)
             {
@@ -33,7 +41,7 @@
 
                 <div id="outerPackageTabBody_@lang.Name" @Html.Raw(hideOrNot)>
                     <div class='package-caption'>@lang.CultureInfo.DisplayName</div>
-                    <input type="hidden" name="package_@lang.Name" id="package_@lang.Name" value="@lang.Name" />
+                    <input type="hidden" name="PackageLanguage_@lang.Name" id="PackageLanguage_@lang.Name" value="@lang.Name" />
 
                     <div id="innerPackageTabContainer_@lang.Name" class="hidden-inner-package-tab-container">
                         <div id="innerPackageTabContainer_header_@lang.Name" style="display:none;">
@@ -42,25 +50,25 @@
                         </div>
                         <div id="innerPackageTabContainer_body_@lang.Name">
                             <div id="innerPackageTabBody_@langX86">
-                                <input type="hidden" name="package_@langX86" id="package_@langX86" value="@langX86" />
-                                <input type="hidden" name="packageID_@langX86" id="packageID_@langX86" value="@package.PackageID" />
-                                <input type="hidden" name="fileSize_@langX86" id="fileSize_@langX86" value="@package.FileSize" />
-                                <input type="hidden" name="architectureTypeName_@langX86" id="architectureTypeName_@langX86" value="x86" />
+                                <input type="hidden" name="PackageArchLang_@langX86" id="PackageArchLang_@langX86" value="@langX86" />
+                                <input type="hidden" name="PackageID_@langX86" id="PackageID_@langX86" value="@package.PackageID" />
+                                <input type="hidden" name="FileSize_@langX86" id="FileSize_@langX86" value="@package.FileSize" />
+                                <input type="hidden" name="ArchitectureTypeName_@langX86" id="ArchitectureTypeName_@langX86" value="x86" />
 
-                                <label for="packageLocationUrlTB_@langX86" class="textbox-label">Package Location URL<span id="packageLocationUrlValidator_@langX86" title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span><span id="packageLocationUrlCodePlexValidator_@langX86" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
-                                <input name="packageLocationUrlTB_@langX86" type="text" value="@package.PackageURL" id="packageLocationUrlTB_@langX86" title="Package Location URL (x86)" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" />
+                                <label for="PackageLocationUrl_@langX86" class="textbox-label">Package Location URL<span id="packageLocationUrlCodePlexValidator_@langX86" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
+                                <input type="text" name="PackageLocationUrl_@langX86" id="PackageLocationUrl_@langX86" value="@package.PackageURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" data-title="Package Location URL (@lang.ShortDisplayName)" data-msg-url="unknown URL format."/>
                                 <div class="explanation">
                                     <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong style="font-size:0.75em"> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
                                 </div>
 
-                                <label for="startPageTB_@langX86" class="textbox-label">Application Start Page URL</label>
-                                <input name="startPageTB_@langX86" type="text" value="@Html.Encode(package.StartPage)" id="startPageTB_@langX86" title="Application Start Page URL (x86)" class="textbox" placeholder="/Start.htm" />
+                                <label for="StartPage_@langX86" class="textbox-label">Application Start Page URL</label>
+                                <input type="text" name="StartPage_@langX86" id="StartPage_@langX86" value="@Html.Encode(package.StartPage)" title="Application Start Page URL (x86)" class="textbox" placeholder="/Start.htm" />
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the relative URL from the site root for the first page to load after the application is installed. For example:<br />/start.htm, /default.aspx or /install.php.</div>
                                 </div>
 
-                                <label for="sha1HashTB_@langX86" class="textbox-label">SHA-1 Hash</label>
-                                <input name="sha1HashTB_@langX86" type="text" value="@Html.Encode(package.SHA1Hash)" id="sha1HashTB_@langX86" title="SHA-1 Hash (x86)" class="textbox" placeholder="00000000000000000000000000000000" />
+                                <label for="Sha1Hash_@langX86" class="textbox-label">SHA-1 Hash</label>
+                                <input type="text" name="Sha1Hash_@langX86" id="Sha1Hash_@langX86" value="@Html.Encode(package.SHA1Hash)" title="SHA-1 Hash (x86)" class="textbox" placeholder="00000000000000000000000000000000" />
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
                                 </div>
@@ -81,14 +89,14 @@
                                 <div class='clearing'>&nbsp;</div>
                             </div>
 
-                            <div id="innerPackageTabBody_@langX64" style="display:none">
+                            @*<div id="innerPackageTabBody_@langX64" style="display:none">
                                 <input type="hidden" name="package_@langX64" id="package_@langX64" value="@langX64" />
                                 <input type="hidden" name="packageID_@langX64" id="packageID_@langX64" />
                                 <input type="hidden" name="fileSize_@langX64" id="fileSize_@langX64" />
                                 <input type="hidden" name="architectureTypeName_@langX64" id="architectureTypeName_@langX64" value="x64" />
 
-                                <label for="packageLocationUrlTB_@langX64" class="textbox-label">Package Location URL<span id="packageLocationUrlValidator_@langX64" title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span><span id="packageLocationUrlCodePlexValidator_@langX64" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
-                                <input name="packageLocationUrlTB_@langX64" type="text" id="packageLocationUrlTB_@langX64" title="Package Location URL (x64)" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" />
+                                <label for="PackageLocationUrl_@langX64" class="textbox-label">Package Location URL<span id="packageLocationUrlValidator_@langX64" title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span><span id="packageLocationUrlCodePlexValidator_@langX64" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
+                                <input name="PackageLocationUrl_@langX64" type="text" id="PackageLocationUrl_@langX64" title="Package Location URL (x64)" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" />
                                 <div class="explanation">
                                     <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong style="font-size:0.75em"> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
                                 </div>
@@ -99,8 +107,8 @@
                                     <div class='explanation-inner'>Provide the relative URL from the site root for the first page to load after the application is installed. For example:<br />/start.htm, /default.aspx or /install.php.</div>
                                 </div>
 
-                                <label for="sha1HashTB_@langX64" class="textbox-label">SHA-1 Hash</label>
-                                <input name="sha1HashTB_@langX64" type="text" id="sha1HashTB_@langX64" title="SHA-1 Hash (x64)" class="textbox" placeholder="00000000000000000000000000000000" />
+                                <label for="Sha1Hash_@langX64" class="textbox-label">SHA-1 Hash</label>
+                                <input name="Sha1Hash_@langX64" type="text" id="Sha1Hash_@langX64" title="SHA-1 Hash (x64)" class="textbox" placeholder="00000000000000000000000000000000" />
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
                                 </div>
@@ -117,7 +125,7 @@
                                 </select>
                                 <input type="button" name="clear_@langX64" value="Clear Values" onclick="clearPackageValues('@lang.Name'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('clear_@langX64', '', true, '', '', false, true))" id="clear_@langX64" class="clear-package" />
                                 <div class='clearing'>&nbsp;</div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>

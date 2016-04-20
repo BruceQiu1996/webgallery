@@ -3,9 +3,17 @@
 <h2 id="Metadata">Describe Your Application:</h2>
 <h3>At least one language is required.</h3>
 <div class="submission-form-section">
-    <p>Describe your application for visitors who speak:<span id="metaDataValidator" title="required" style="color:Red;display:none;">*</span></p>
+    <p>
+        Describe your application for visitors who speak:
+        <input type="hidden" name="DescribeYourApplication" id="DescribeYourApplication"
+               data-anchor="Metadata"
+               data-msg-englishMetadataRequired="(*)"
+               data-msg-d-englishMetadataRequired="Each defined package language and English must also have an App Name, Description and Brief Description."
+               data-msg-eachPackageHasMetadataForItsLanguage="(*)"
+               data-msg-d-eachPackageHasMetadataForItsLanguage="Each defined package language and English must also have an App Name, Description and Brief Description."/>
+    </p>
 
-    <div class="tab_xp tab_default" id="metaDataTabContainer">
+    <div id="metaDataTabContainer" class="tab_xp tab_default">
         <div class="tab_header">
             @for(var i= 0; i < Model.Languages.Count; i++)
             {
@@ -28,7 +36,7 @@
                 var hideOrNot = i > 0 ? "style='display:none'" : string.Empty;
 
                 <div id="metaDataTab_@lang.Name" @Html.Raw(hideOrNot)>
-                    <input type="hidden" name="metadata_@lang.Name" id="metadata_@lang.Name" value="@lang.Name" />
+                    <input type="hidden" name="MetadataLanguage_@lang.Name" id="MetadataLanguage_@lang.Name" value="@lang.Name" />
                     <div class="meta-data-caption">@lang.CultureInfo.DisplayName</div>
 
                     <label for="AppName_@lang.Name" class="textbox-label">App Name</label>
@@ -38,7 +46,7 @@
                     </div>
 
                     <label for="Description_@lang.Name" class="textbox-label">Description<span id="descriptionLengthValidator_@lang.Name" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
-                    <textarea name="Description_@lang.Name" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection"
+                    <textarea name="Description_@lang.Name" id="Description_@lang.Name" rows="10" cols="20" maxlength="1500" class="textbox" dir="@lang.TextDirection"
                               onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;"
                               placeholder="Description (1500 characters max)" data-title="Description">@metadata.Description</textarea>
                     <div class="explanation">
@@ -48,7 +56,7 @@
                     </div>
 
                     <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description<span id="briefDescriptionLengthValidator_@lang.Name" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
-                    <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description">@metadata.BriefDescription</textarea>
+                    <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" maxlength="400" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description">@metadata.BriefDescription</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
                             <span class="low-count">400</span> characters remaining<br /><br />
