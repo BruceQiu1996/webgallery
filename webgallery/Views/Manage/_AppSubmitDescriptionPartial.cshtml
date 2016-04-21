@@ -45,10 +45,10 @@
                         <div class='explanation-inner'>Provide the name of your application.</div>
                     </div>
 
-                    <label for="Description_@lang.Name" class="textbox-label">Description<span id="descriptionLengthValidator_@lang.Name" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
-                    <textarea name="Description_@lang.Name" id="Description_@lang.Name" rows="10" cols="20" maxlength="1500" class="textbox" dir="@lang.TextDirection"
+                    <label for="Description_@lang.Name" class="textbox-label">Description</label>
+                    <textarea name="Description_@lang.Name" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection"
                               onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;"
-                              placeholder="Description (1500 characters max)" data-title="Description">@metadata.Description</textarea>
+                              placeholder="Description (1500 characters max)" data-title="Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 1500 characters.">@metadata.Description</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
                             <span class="low-count">1500</span> characters remaining<br /><br />
@@ -56,7 +56,7 @@
                     </div>
 
                     <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description<span id="briefDescriptionLengthValidator_@lang.Name" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
-                    <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" maxlength="400" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description">@metadata.BriefDescription</textarea>
+                    <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 400 characters.">@metadata.BriefDescription</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
                             <span class="low-count">400</span> characters remaining<br /><br />

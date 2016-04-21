@@ -101,7 +101,7 @@ p, select, input, caption, textarea,
 .final-steps .explanation
 {
     position:absolute;
-    visibility: hidden;
+    display: none;
     padding-left: 12px;
     background: transparent;
     background: url(images/explanation-arrow.jpg) 0px 15px no-repeat;
@@ -227,7 +227,6 @@ p, select, input, caption, textarea,
 .submission-form-section .validator-inline
 {
     color: red;
-    float: left;
     margin-left: 5px;
 }
 .submission-form-section .validator-below
@@ -327,7 +326,8 @@ p, select, input, caption, textarea,
 }
 .hidden-inner-package-tab-container .copy-from-package-btn
 {
-    margin-left: 65px;
+    margin-left: 40px;
+    margin-right: 35px;
 }
 .hidden-inner-package-tab-container .copy-from-package-label
 {
@@ -335,7 +335,7 @@ p, select, input, caption, textarea,
 }
 .hidden-inner-package-tab-container .clear-package
 {
-    margin-left: 37px;
+    margin-left: 35px;
 }
 .package-change-imbalance-warning
 {
@@ -383,8 +383,4 @@ p, select, input, caption, textarea,
 .image-set .tab_tab
 {
     cursor:default !important;
-}
-#dependencies select 
-{
-    height: 135px;
 }

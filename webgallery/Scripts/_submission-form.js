@@ -1,12 +1,18 @@
-﻿$(function () {
+﻿$(document).ready(function () {
+    // bind mouseenter/mouseleave/click handlers for metadata and package tabs
     addHandlersForTab($("#metaDataTabContainer"));
     addHandlersForTab($("#packageTabContainer"));
-    $("#appSubmitContainer input:text,textarea,select,input:file").bind("mouseenter mouseleave", function () { $(this).toggleClass("input-mouseover"); });
-    $("#appSubmitContainer input:text,textarea,select").focusin(function () { setExplanationPosition(this, $(this).nextAll(".explanation:first")); });
-    $("#appSubmitContainer input:text,textarea,select").focusout(function () { $(this).nextAll(".explanation:first").css({ visibility: "hidden" }); });
-    $("#appSubmitContainer input:file").focusin(function () { setExplanationPosition(this, $(this).parent().nextAll(".explanation:first")); });
-    $("#appSubmitContainer input:file").focusout(function () { $(this).parent().nextAll(".explanation:first").css({ visibility: "hidden" }); });
 
+    // toggle a CSS class when mouse enter or leave those inputs
+    $("#appSubmitContainer input:text,textarea,select,input:file").bind("mouseenter mouseleave", function () { $(this).toggleClass("input-mouseover"); });
+
+    // for explanation panels, show/hide when focus in/out
+    $("#appSubmitContainer input:text,textarea,select").focusin(function () { showExplanation(this, $(this).nextAll(".explanation:first")); });
+    $("#appSubmitContainer input:text,textarea,select").focusout(function () { $(this).nextAll(".explanation:first").hide(); });
+    $("#appSubmitContainer input:file").focusin(function () { showExplanation(this, $(this).parent().nextAll(".explanation:first")); });
+    $("#appSubmitContainer input:file").focusout(function () { $(this).parent().nextAll(".explanation:first").hide(); });
+
+    // calcaulate the remaining characters
     $(".low-count").each(function () {
         var textContainer = $(this).parent().parent().prev();
         var maxLength = $(this).html();
@@ -18,16 +24,21 @@
         todayBtn: "linked"
     });
 
-    // trigger validating on blur
-    $("#appSubmitContainer input:text,input:checkbox,textarea,select").blur(function () { validate(); });
+    // bind validating logic to blur for those inputs
+    $("#appSubmitContainer input:text,textarea,select").blur(function () { validate(); });
+    $("#appSubmitContainer input:checkbox").change(function () { validate(); });
+    $("#packageTabContainer :button").click(function () { validate(); });
+    $("#clearDependencies").click(function () { validate(); });
 
+    // do a validating after page loading
     validate();
 });
 
-function setExplanationPosition(textContainer, explanationPanel) {
+function showExplanation(textContainer, explanationPanel) {
     var left = textContainer.offsetLeft + textContainer.offsetWidth + 20;
     var top = textContainer.offsetTop + (textContainer.offsetHeight / 2) - 28;
-    explanationPanel.css({ visibility: "visible", left: left + "px", top: top + "px" });
+    explanationPanel.css({ left: left + "px", top: top + "px" });
+    explanationPanel.show();
 }
 
 function addHandlersForTab(tabContainer) {
@@ -44,10 +55,10 @@ function addHandlersForTab(tabContainer) {
             $(this).parent().next().children().each(function (j, tabBody) {
                 var idStr = $(tabBody).attr("id");
                 if (idStr.indexOf(language) != -1) {
-                    $(tabBody).css({ display: "block" });
+                    $(tabBody).show();
                 }
                 else {
-                    $(tabBody).css({ display: "none" });
+                    $(tabBody).hide();
                 }
             });
         });
@@ -88,11 +99,16 @@ function createNickname(appNameContainer) {
     }
 }
 
+//
+// validation logic
+//
 function validate()
 {
     var errors = $([]);
 
     validateMetadata(errors);
+    validateDescription(errors);
+    validateBriefDescription(errors);
     validateAppId(errors);
     validateVersion(errors);
     validateSubmittingEntity(errors);
@@ -105,6 +121,7 @@ function validate()
     validateCommercialProductURL(errors);
     validatePackageInfo(errors);
     validatePackageLocationUrl(errors);
+    validateDependencies(errors);
     validateTermsAndConditions(errors);
 
     showErrors(errors);
@@ -128,7 +145,8 @@ function showErrors(errors) {
         var errorMessage = target.attr("data-msg-" + error.type);
         var errorClass = (errorMessage == "*" || errorMessage == "(*)") ? "validator-inline" : "validator-below";
         var errorElement = $("<span class='appgallery-validation-error'></span>").html(errorMessage).addClass(errorClass);
-        errorElement.insertAfter(target);
+        var errorTarget = target.attr("data-target");
+        errorElement.insertAfter(errorTarget ? $("#" + errorTarget) : target);
 
         //
         // display errors in Validation Entries
@@ -220,7 +238,30 @@ function isMetadataCompleted(metadata) {
     return metadata.appName != "" && metadata.description != "" && metadata.briefDescription != "";
 }
 
-// for app id
+// for Description
+function validateDescription(errors) {
+    var descriptions = $("#metaDataTabContainer textarea[name^='Description']");
+
+    descriptions.each(function (i, e) {
+        if ($(e).val().length > 1500)
+        {
+            errors.push({ id: $(e).attr("id"), type: "maxlength" });
+        }
+    });
+}
+
+// for Brief Description
+function validateBriefDescription(errors) {
+    var bds = $("#metaDataTabContainer textarea[name^='BriefDescription']");
+
+    bds.each(function (i, e) {
+        if ($(e).val().length > 400) {
+            errors.push({ id: $(e).attr("id"), type: "maxlength" });
+        }
+    });
+}
+
+// for App Id
 function validateAppId(errors) {
     var appId = $("#AppId").val();
 
@@ -252,7 +293,7 @@ function validateAppId(errors) {
     });
 }
 
-// for version
+// for Version
 function validateVersion(errors) {
     var version = $("#Version").val();
 
@@ -438,7 +479,7 @@ function pagecakgeHasInput(p) {
 
 // for Package Location Url
 function validatePackageLocationUrl(errors) {
-    var urls = $("input[name^='PackageLocationUrl']");
+    var urls = $("#packageTabContainer input[name^='PackageLocationUrl']");
 
     urls.each(function (i, u) {
         if ($(u).val().trim().length > 0 && !validateURL($(u).val()))
@@ -446,6 +487,16 @@ function validatePackageLocationUrl(errors) {
             errors.push({ id: $(u).attr("id"), type: "url" });
         }
     });
+}
+
+// for Dependencies
+function validateDependencies(errors) {
+    var selectedIndex = $("#FrameworksAndRuntimes").prop("selectedIndex");
+
+    if (selectedIndex == -1) {
+        errors.push({ id: "Dependencies", type: "required" });
+        return;
+    }
 }
 
 // for Terms And Conditions
@@ -458,10 +509,40 @@ function validateTermsAndConditions(errors) {
     }
 }
 
+//
 // common functions
+//
+
 function validateURL(url) {
     // This regular expression is a variation of the one found at http://regexlib.com/REDetails.aspx?regexp_id=1121.
     // Here, we've modified it so the protocol (e.g., http://) is not required.
     var re = new RegExp("^((([hH][tT][tT][pP][sS]?|[fF][tT][pP])\\:\\/\\/){0,1}([\\w\\.\\-]+(\\:[\\w\\.\\&%\\$\\-]+)*@)?((([^\\s\\(\\)\\<\\>\\\\\\\"\\.\\[\\]\\,@;:]+)(\\.[^\\s\\(\\)\\<\\>\\\\\\\"\\.\\[\\]\\,@;:]+)*(\\.[a-zA-Z]{2,4}))|((([01]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d{1,2}|2[0-4]\\d|25[0-5])))(\\b\\:(6553[0-5]|655[0-2]\\d|65[0-4]\\d{2}|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)\\b)?((\\/[^\\/][\\w\\.\\,\\?\\'\\\\\\/\\+&%\\$#\\=~_\\-@]*)*[^\\.\\,\\?\\\"\\'\\(\\)\\[\\]!;<>{}\\s\\x7F-\\xFF])?)$", "g");
     return re.test(url);
+}
+
+//
+// 
+//
+
+function copyValues(sender){
+    var lang = $(sender).next().val() + "_x86";
+    var sourcePackageLocationUrl = $("#PackageLocationUrl_" + lang).val();
+    var sourceStartPage = $("#StartPage_" + lang).val();
+    var sourceSha1Hash = $("#Sha1Hash_" + lang).val();
+
+    $(sender).siblings("input[name^='PackageLocationUrl']").val(sourcePackageLocationUrl);
+    $(sender).siblings("input[name^='StartPage_']").val(sourceStartPage);
+    $(sender).siblings("input[name^='Sha1Hash_']").val(sourceSha1Hash);
+}
+
+function clearValues(sender) {
+    $(sender).siblings("input[name^='PackageLocationUrl']").val("");
+    $(sender).siblings("input[name^='StartPage_']").val("");
+    $(sender).siblings("input[name^='Sha1Hash_']").val("");
+}
+
+function clearDependencies() {
+    $("#FrameworksAndRuntimes").prop("selectedIndex", -1);
+    $("#DatabaseServers").prop("selectedIndex", -1);
+    $("#WebServerExtensions").prop("selectedIndex", -1);
 }

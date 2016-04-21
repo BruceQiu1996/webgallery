@@ -13,7 +13,7 @@
                data-msg-d-eachPackageInfoCompleted="Package information for a language is not completed."/>
     </p>
 
-    <div class="tab_xp tab_default" id="packageTabContainer">
+    <div id="packageTabContainer" class="tab_xp tab_default">
         <div class="tab_header">
             @for (var i = 0; i < Model.Languages.Count; i++)
             {
@@ -37,17 +37,18 @@
                     };
                 var hideOrNot = i > 0 ? "style='display:none'" : string.Empty;
                 var langX86 = string.Format("{0}_x86", lang.Name);
-                var langX64 = string.Format("{0}_x64", lang.Name);
+                //var langX64 = string.Format("{0}_x64", lang.Name); //As only x86 is supported
 
                 <div id="outerPackageTabBody_@lang.Name" @Html.Raw(hideOrNot)>
                     <div class='package-caption'>@lang.CultureInfo.DisplayName</div>
                     <input type="hidden" name="PackageLanguage_@lang.Name" id="PackageLanguage_@lang.Name" value="@lang.Name" />
 
                     <div id="innerPackageTabContainer_@lang.Name" class="hidden-inner-package-tab-container">
-                        <div id="innerPackageTabContainer_header_@lang.Name" style="display:none;">
-                            <span id="innerPackageTabHeader_@langX86">X86</span>
-                            <span id="innerPackageTabHeader_@langX64">X64</span>
-                        </div>
+                        @*As only x86 is supported*@
+                        @*<div id="innerPackageTabContainer_header_@lang.Name" style="display:none;">
+                                <span id="innerPackageTabHeader_@langX86">X86</span>
+                                <span id="innerPackageTabHeader_@langX64">X64</span>
+                            </div>*@
                         <div id="innerPackageTabContainer_body_@lang.Name">
                             <div id="innerPackageTabBody_@langX86">
                                 <input type="hidden" name="PackageArchLang_@langX86" id="PackageArchLang_@langX86" value="@langX86" />
@@ -74,21 +75,21 @@
                                 </div>
                                 <div class='clearing'>&nbsp;</div>
 
-                                <input type="button" name="copyTo_@langX86" value="Copy information to x64 tab" onclick="copyToX64('@langX86'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX86', '', true, '', '', false, true))" id="copyTo_@langX86" class="copy-package" />
+                                @*As only x86 is supported*@
+                                @*<input type="button" name="copyTo_@langX86" value="Copy information to x64 tab" onclick="copyToX64('@langX86'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX86', '', true, '', '', false, true))" id="copyTo_@langX86" class="copy-package" />*@
 
-                                <input type="button" name="copyFrom_@langX86" value="Copy Values" onclick="copyValuesFromPackage('@lang.Name', '@langX86'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyFrom_@langX86', '', true, '', '', false, true))" id="copyFrom_@langX86" class="copy-from-package-btn" />
-
-                                <label for="packageLanguageDD_@langX86" class="copy-from-package-label">from</label>
-                                <select name="packageLanguageDD_@langX86" id="packageLanguageDD_@langX86" class="copy-from-package-language-list" onchange="DoValidation();">
+                                <input type="button" value="Copy values from" onclick="copyValues(this)" class="copy-from-package-btn" />
+                                <select name="packageLanguageDD_@langX86" id="packageLanguageDD_@langX86">
                                     @foreach (var l86 in Model.Languages)
                                     {
                                         <option value="@l86.Name">@l86.ShortDisplayName</option>
                                     }
                                 </select>
-                                <input type="button" name="clear_@langX86" value="Clear Values" onclick="clearPackageValues('@lang.Name'); return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('clear_@langX86', '', true, '', '', false, true))" id="clear_@langX86" class="clear-package" />
+                                <input type="button" value="Clear values" onclick="clearValues(this)" class="clear-package" />
                                 <div class='clearing'>&nbsp;</div>
                             </div>
 
+                            @*As only x86 is supported*@
                             @*<div id="innerPackageTabBody_@langX64" style="display:none">
                                 <input type="hidden" name="package_@langX64" id="package_@langX64" value="@langX64" />
                                 <input type="hidden" name="packageID_@langX64" id="packageID_@langX64" />
@@ -156,13 +157,13 @@
         </div>
     </div>
 
-    <table id="dependencies">
-        <caption>Dependencies<a href="javascript:void(0)" onclick="clearDependencies()" class="clear-dependencies">clear selections</a></caption>
+    <table>
+        <caption>Dependencies<a id="clearDependencies" href="javascript:void(0)" onclick="clearDependencies()" class="clear-dependencies">clear selections</a></caption>
         <thead>
             <tr>
                 <th>
-                    <label for="frameworksAndRuntimesLB">Frameworks<br />and Runtimes</label>
-                    <span id="frameworksAndRuntimesValidator" title="required" style="color:Red;display:none;">*</span>
+                    <label for="FrameworksAndRuntimes" style="clear:both">Frameworks<br />and Runtimes</label>
+                    <input type="hidden" name="Dependencies" id="Dependencies" data-title="Frameworks and Runtimes" data-msg-required="(*)"/>
                 </th>
                 <th>Database</th>
                 <th>Web Server<br />Extensions</th>
@@ -171,7 +172,7 @@
         <tbody>
             <tr>
                 <td>
-                    <select size="4" name="frameworksAndRuntimesLB" id="frameworksAndRuntimesLB" title="Frameworks and Runtimes" onchange="DoValidation();">
+                    <select size="7" name="FrameworksAndRuntimes" id="FrameworksAndRuntimes">
                         @foreach (var f in Model.Frameworks)
                         {
                             if (f.FrameworkOrRuntimeID == Model.Submission.FrameworkOrRuntimeID)
@@ -186,7 +187,7 @@
                     </select>
                 </td>
                 <td>
-                    <select size="4" name="databaseServersLB" multiple="multiple" id="databaseServersLB" title="Database" onchange="DoValidation();">                        
+                    <select size="7" name="DatabaseServers" id="DatabaseServers" multiple="multiple">                        
                         @foreach (var db in Model.DatabaseServers)
                         {
                             var dbServerIds = from idStr in Model.Submission.DatabaseServerIDs.Split('|')
@@ -203,7 +204,7 @@
                     </select>
                 </td>
                 <td>
-                    <select size="4" name="webServerExtensionsLB" multiple="multiple" id="webServerExtensionsLB" title="Web Server Extensions" onchange="DoValidation();">
+                    <select size="7" name="WebServerExtensions" id="WebServerExtensions" multiple="multiple">
                         @foreach (var extension in Model.WebServerExtensions)
                         {
                             var extensionIds = from idStr in Model.Submission.WebServerExtensionIDs.Split('|')
