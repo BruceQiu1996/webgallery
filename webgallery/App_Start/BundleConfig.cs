@@ -27,10 +27,13 @@ namespace webgallery
                       "~/Content/bootstrap.css",
                       "~/Content/_site.css"));
 
-            bundles.Add(new ScriptBundle("~/js/submission-form").Include("~/scripts/_submission-form.js"));
+            bundles.Add(new ScriptBundle("~/js/submission-form").Include(
+                        "~/scripts/_submission-form.js",
+                        "~/scripts/bootstrap-datepicker*"));
             bundles.Add(new StyleBundle("~/css/submission-form").Include(
                       "~/Content/_submission-form.css",
-                      "~/Content/_tab.css"));
+                      "~/Content/_tab.css",
+                      "~/Content/bootstrap-datepicker3*"));
         }
     }
 }

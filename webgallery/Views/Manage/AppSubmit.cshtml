@@ -18,30 +18,34 @@
         @Html.Partial("_AppSubmitReleaseNotePartial", Model)
 
         @Html.Partial("_AppSubmitPackagePartial", Model)
-
-        <h2>Validate Entries:</h2>
-        <div id="validationEntriesPanel" class="validation-summary submission-form-section" style="color:Red;display:none;"></div>
-
-        <h2>Review Terms and Conditions and Submit:</h2>
-        <div id="legalesePanel" class="legalese submission-form-section">
-            Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.<br /><br />
-
-            <a name="#TermsAndConditions"></a>
-            <span class="terms-and-conditions-cb" title="Do you agree with the Terms and Conditions?" onkeypress="DoValidation();">
-                <input id="termsAndConditionsCB" type="checkbox" name="termsAndConditionsCB" checked="checked" onclick="DoValidation();" />
-            </span>
-            I accept the Terms and Conditions of the Web Application <a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
-            <span id="termsAndConditionsValidator" title="required" class="general-validator" style="color:Red;display:none;">*</span>
-            <br /><br />
-
-            <label for="additionalInfoTB" class="textbox-label">Release Notes</label>
-            <textarea name="additionalInfoTB" rows="10" cols="20" id="additionalInfoTB" title="Release Notes" class="textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
+        
+        <h2 id="TermsAndConditions">Review Terms and Conditions and Submit:</h2>
+        <div class="submission-form-section ">
+            <p>
+                Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.
+            </p>
+            <p title="Do you agree with the Terms and Conditions?" class="p-accept-conditions">
+                <input type="checkbox" name="AcceptTermsAndConditions" id="AcceptTermsAndConditions" checked="checked" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
+                <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">
+                    I accept the Terms and Conditions of the Web Application <a href="https://www.microsoft.com/web/gallery/SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
+                </label>
+            </p>
+            <p>
+                <label for="AdditionalInfo" class="wider-textbox-label">Release Notes</label>
+                <textarea name="AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
+            </p>
         </div>
 
-        <div id="finalSteps" class="final-steps submission-form-section">
-            
-                <input type="submit" name="submitBtn" value="Submit Your App" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('submitBtn', '', true, '', '', false, false))" id="submitBtn" title="Submit Your App" class="submit-btn" />
-            
+        <div id="validationEntriesContainer" style="color:Red;display:none;">
+            <h2>Validation Entries:</h2>
+            <div class="submission-form-section validation-summary">
+                <P>Please fix the following field(s) before you can submit this application:</P>
+                <ul></ul>
+            </div>
+        </div>
+
+        <div class="submission-form-section">
+            <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();"/><br /><br /><br />
         </div>
     }
 </div>
