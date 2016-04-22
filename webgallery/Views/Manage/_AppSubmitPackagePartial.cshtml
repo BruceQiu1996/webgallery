@@ -2,7 +2,7 @@
 
 <h2 id="PackageInfo">Provide Package Information:</h2>
 <h3>Package details are required for at least one language.</h3>
-<div id="submissionFormPanel3" class="submission-form-section">
+<div class="submission-form-section">
     <p>
         Package Information
         <input type="hidden" name="ProvidePackageInformation" id="ProvidePackageInformation"
@@ -56,10 +56,10 @@
                                 <input type="hidden" name="FileSize_@langX86" id="FileSize_@langX86" value="@package.FileSize" />
                                 <input type="hidden" name="ArchitectureTypeName_@langX86" id="ArchitectureTypeName_@langX86" value="x86" />
 
-                                <label for="PackageLocationUrl_@langX86" class="textbox-label">Package Location URL<span id="packageLocationUrlCodePlexValidator_@langX86" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
+                                <label for="PackageLocationUrl_@langX86" class="textbox-label">Package Location URL<span id="packageLocationUrlCodePlexValidator_@langX86" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
                                 <input type="text" name="PackageLocationUrl_@langX86" id="PackageLocationUrl_@langX86" value="@package.PackageURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" data-title="Package Location URL (@lang.ShortDisplayName)" data-msg-url="unknown URL format."/>
                                 <div class="explanation">
-                                    <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong style="font-size:0.75em"> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
+                                    <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
                                 </div>
 
                                 <label for="StartPage_@langX86" class="textbox-label">Application Start Page URL</label>
@@ -79,54 +79,53 @@
                                 @*<input type="button" name="copyTo_@langX86" value="Copy information to x64 tab" onclick="copyToX64('@langX86'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX86', '', true, '', '', false, true))" id="copyTo_@langX86" class="copy-package" />*@
 
                                 <input type="button" value="Copy values from" onclick="copyValues(this)" class="copy-from-package-btn" />
-                                <select name="packageLanguageDD_@langX86" id="packageLanguageDD_@langX86">
+                                <select name="packageLanguageDD_@langX86" id="packageLanguageDD_@langX86" class="copy-from-package-dd">
                                     @foreach (var l86 in Model.Languages)
                                     {
                                         <option value="@l86.Name">@l86.ShortDisplayName</option>
                                     }
                                 </select>
-                                <input type="button" value="Clear values" onclick="clearValues(this)" class="clear-package" />
+                                <input type="button" value="Clear values" onclick="clearValues(this)" class="clear-package-btn" />
                                 <div class='clearing'>&nbsp;</div>
                             </div>
 
                             @*As only x86 is supported*@
                             @*<div id="innerPackageTabBody_@langX64" style="display:none">
-                                <input type="hidden" name="package_@langX64" id="package_@langX64" value="@langX64" />
-                                <input type="hidden" name="packageID_@langX64" id="packageID_@langX64" />
-                                <input type="hidden" name="fileSize_@langX64" id="fileSize_@langX64" />
-                                <input type="hidden" name="architectureTypeName_@langX64" id="architectureTypeName_@langX64" value="x64" />
+        <input type="hidden" name="package_@langX64" id="package_@langX64" value="@langX64" />
+        <input type="hidden" name="packageID_@langX64" id="packageID_@langX64" />
+        <input type="hidden" name="fileSize_@langX64" id="fileSize_@langX64" />
+        <input type="hidden" name="architectureTypeName_@langX64" id="architectureTypeName_@langX64" value="x64" />
 
-                                <label for="PackageLocationUrl_@langX64" class="textbox-label">Package Location URL<span id="packageLocationUrlValidator_@langX64" title="the format of this URL is not recognized" class="validator-in-label" style="color:Red;display:none;">unknown URL format</span><span id="packageLocationUrlCodePlexValidator_@langX64" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" class="validator-in-label" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
-                                <input name="PackageLocationUrl_@langX64" type="text" id="PackageLocationUrl_@langX64" title="Package Location URL (x64)" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" />
-                                <div class="explanation">
-                                    <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong style="font-size:0.75em"> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
-                                </div>
+        <label for="PackageLocationUrl_@langX64" class="textbox-label">Package Location URL<span id="packageLocationUrlValidator_@langX64" title="the format of this URL is not recognized" style="color:Red;display:none;">unknown URL format</span><span id="packageLocationUrlCodePlexValidator_@langX64" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
+        <input name="PackageLocationUrl_@langX64" type="text" id="PackageLocationUrl_@langX64" title="Package Location URL (x64)" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" />
+        <div class="explanation">
+            <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
+        </div>
 
-                                <label for="applicationStartPageUrlTB_@langX64" class="textbox-label">Application Start Page URL</label>
-                                <input name="applicationStartPageUrlTB_@langX64" type="text" id="applicationStartPageUrlTB_@langX64" title="Application Start Page URL (x64)" class="textbox" placeholder="/Start.htm" />
-                                <div class="explanation">
-                                    <div class='explanation-inner'>Provide the relative URL from the site root for the first page to load after the application is installed. For example:<br />/start.htm, /default.aspx or /install.php.</div>
-                                </div>
+        <label for="applicationStartPageUrlTB_@langX64" class="textbox-label">Application Start Page URL</label>
+        <input name="applicationStartPageUrlTB_@langX64" type="text" id="applicationStartPageUrlTB_@langX64" title="Application Start Page URL (x64)" class="textbox" placeholder="/Start.htm" />
+        <div class="explanation">
+            <div class='explanation-inner'>Provide the relative URL from the site root for the first page to load after the application is installed. For example:<br />/start.htm, /default.aspx or /install.php.</div>
+        </div>
 
-                                <label for="Sha1Hash_@langX64" class="textbox-label">SHA-1 Hash</label>
-                                <input name="Sha1Hash_@langX64" type="text" id="Sha1Hash_@langX64" title="SHA-1 Hash (x64)" class="textbox" placeholder="00000000000000000000000000000000" />
-                                <div class="explanation">
-                                    <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
-                                </div>
-                                <div class='clearing'>&nbsp;</div>
+        <label for="Sha1Hash_@langX64" class="textbox-label">SHA-1 Hash</label>
+        <input name="Sha1Hash_@langX64" type="text" id="Sha1Hash_@langX64" title="SHA-1 Hash (x64)" class="textbox" placeholder="00000000000000000000000000000000" />
+        <div class="explanation">
+            <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
+        </div>
+        <div class='clearing'>&nbsp;</div>
 
-                                <input type="button" name="copyTo_@langX64" value="Copy information to x86 tab" onclick="copyToX86('@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX64', '', true, '', '', false, true))" id="copyTo_@langX64" class="copy-package" />
-                                <input type="button" name="copyFrom_@langX64" value="Copy Values" onclick="copyValuesFromPackage('@lang.Name', '@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyFrom_@langX64', '', true, '', '', false, true))" id="copyFrom_@langX64" class="copy-from-package-btn" />
-                                <label for="packageLanguageDD_@langX64" class="copy-from-package-label">from</label>
-                                <select name="packageLanguageDD_@langX64" id="packageLanguageDD_@langX64" class="copy-from-package-language-list" onchange="DoValidation();">
-                                    @foreach (var lang64 in Model.Languages)
-                                    {
-                                        <option value="@lang64.Name">@lang64.ShortDisplayName</option>
-                                    }
-                                </select>
-                                <input type="button" name="clear_@langX64" value="Clear Values" onclick="clearPackageValues('@lang.Name'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('clear_@langX64', '', true, '', '', false, true))" id="clear_@langX64" class="clear-package" />
-                                <div class='clearing'>&nbsp;</div>
-                            </div>*@
+        <input type="button" name="copyTo_@langX64" value="Copy information to x86 tab" onclick="copyToX86('@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX64', '', true, '', '', false, true))" id="copyTo_@langX64" class="copy-package" />
+        <input type="button" name="copyFrom_@langX64" value="Copy values from" onclick="copyValuesFromPackage('@lang.Name', '@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyFrom_@langX64', '', true, '', '', false, true))" id="copyFrom_@langX64" class="copy-from-package-btn" />
+        <select name="packageLanguageDD_@langX64" id="packageLanguageDD_@langX64" class="copy-from-package-language-list" onchange="DoValidation();">
+            @foreach (var lang64 in Model.Languages)
+            {
+                <option value="@lang64.Name">@lang64.ShortDisplayName</option>
+            }
+        </select>
+        <input type="button" name="clear_@langX64" value="Clear Values" onclick="clearPackageValues('@lang.Name'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('clear_@langX64', '', true, '', '', false, true))" id="clear_@langX64" class="clear-package-btn" />
+        <div class='clearing'>&nbsp;</div>
+    </div>*@
                         </div>
                     </div>
                 </div>
@@ -134,23 +133,23 @@
         </div>
     </div>
 
-    <div id="packageChangeImbalanceWarningPanel" class="package-change-imbalance-warning" style="display:none;">
+    <div id="packageChangeImbalanceWarningPanel" class="package-change-imbalance-warning" >
         <p>Warning: Some but not all package language details have changed.</p>
         <div id="ctl00_MainContent_PackageChangeImbalanceWarningGrid">
-            <table cellpadding="0" cellspacing="0" summary="">
+            <table cellpadding="0" cellspacing="0">
                 <tbody>
                     @foreach (var lang in Model.Languages)
                     {
                         var langX86 = string.Format("{0}_x86", lang.Name);
-                        var langX64 = string.Format("{0}_x64", lang.Name);
+                        //var langX64 = string.Format("{0}_x64", lang.Name); // as only x86 is supported
                         <tr>
                             <td>@lang.ShortDisplayName</td>
                             <td><span id="packageChangedLBL_@langX86">modified</span><span id="packageUnchangedLBL_@langX86" class="unchanged-warning-row">unchanged</span><span id="packageNotSetLBL_@langX86">---</span><span id="packageNewlySetLBL_@langX86">new</span></td>
                         </tr>
-                        <tr class="x64-warning-row">
+                        @*<tr class="x64-warning-row">
                             <td>@lang.ShortDisplayName</td>
                             <td><span id="packageChangedLBL_@langX64">modified</span><span id="packageUnchangedLBL_@langX64" class="unchanged-warning-row">unchanged</span><span id="packageNotSetLBL_@langX64">---</span><span id="packageNewlySetLBL_@langX64">new</span></td>
-                        </tr>
+                        </tr>*@
                     }
                 </tbody>
             </table>
@@ -158,12 +157,12 @@
     </div>
 
     <table>
-        <caption>Dependencies<a id="clearDependencies" href="javascript:void(0)" onclick="clearDependencies()" class="clear-dependencies">clear selections</a></caption>
+        <caption id="captionDependencies">Dependencies<a id="clearDependencies" href="javascript:void(0)" onclick="clearDependencies()" class="clear-dependencies">clear selections</a></caption>
         <thead>
             <tr>
                 <th>
-                    <label for="FrameworksAndRuntimes" style="clear:both">Frameworks<br />and Runtimes</label>
-                    <input type="hidden" name="Dependencies" id="Dependencies" data-title="Frameworks and Runtimes" data-msg-required="(*)"/>
+                    Frameworks<br />and Runtimes
+                    <input type="hidden" name="Dependencies" id="Dependencies" data-anchor="captionDependencies" data-title="Frameworks and Runtimes" data-msg-required="(*)"/>
                 </th>
                 <th>Database</th>
                 <th>Web Server<br />Extensions</th>
@@ -172,7 +171,7 @@
         <tbody>
             <tr>
                 <td>
-                    <select size="7" name="FrameworksAndRuntimes" id="FrameworksAndRuntimes">
+                    <select size="7" name="FrameworksAndRuntimes" id="FrameworksAndRuntimes" onchange="autoSelectMicrosoftSqlDriverForPhp()">
                         @foreach (var f in Model.Frameworks)
                         {
                             if (f.FrameworkOrRuntimeID == Model.Submission.FrameworkOrRuntimeID)
@@ -187,7 +186,7 @@
                     </select>
                 </td>
                 <td>
-                    <select size="7" name="DatabaseServers" id="DatabaseServers" multiple="multiple">                        
+                    <select size="7" name="DatabaseServers" id="DatabaseServers" multiple="multiple" onchange="autoSelectMicrosoftSqlDriverForPhp()">                        
                         @foreach (var db in Model.DatabaseServers)
                         {
                             var dbServerIds = from idStr in Model.Submission.DatabaseServerIDs.Split('|')

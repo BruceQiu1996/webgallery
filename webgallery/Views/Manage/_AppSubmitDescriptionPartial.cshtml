@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description<span id="briefDescriptionLengthValidator_@lang.Name" class="validator-in-label" style="color:Red;display:none;">too many characters</span></label>
+                    <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description</label>
                     <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 400 characters.">@metadata.BriefDescription</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>

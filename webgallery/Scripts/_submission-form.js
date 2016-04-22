@@ -24,9 +24,9 @@
         todayBtn: "linked"
     });
 
-    // bind validating logic to blur for those inputs
-    $("#appSubmitContainer input:text,textarea,select").blur(function () { validate(); });
-    $("#appSubmitContainer input:checkbox").change(function () { validate(); });
+    // bind validating logic for those inputs
+    $("#appSubmitContainer :text,#appSubmitContainer textarea").blur(function () { validate(); });
+    $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions").change(function () { validate(); });
     $("#packageTabContainer :button").click(function () { validate(); });
     $("#clearDependencies").click(function () { validate(); });
 
@@ -521,9 +521,8 @@ function validateURL(url) {
 }
 
 //
-// 
+// for package values
 //
-
 function copyValues(sender){
     var lang = $(sender).next().val() + "_x86";
     var sourcePackageLocationUrl = $("#PackageLocationUrl_" + lang).val();
@@ -541,8 +540,56 @@ function clearValues(sender) {
     $(sender).siblings("input[name^='Sha1Hash_']").val("");
 }
 
+//
+// for dependencies
+//
 function clearDependencies() {
     $("#FrameworksAndRuntimes").prop("selectedIndex", -1);
     $("#DatabaseServers").prop("selectedIndex", -1);
     $("#WebServerExtensions").prop("selectedIndex", -1);
+}
+
+function autoSelectMicrosoftSqlDriverForPhp() {
+    // If the Framework/Runtime is PHP and the Database is SQL Server (including Express) then we also need (as a dependency)
+    // Microsoft SQL Driver for PHP. Otherwise, Microsoft SQL Driver for PHP is not a necessary dependency. 
+
+    // Start by de-selecting the dependency Microsoft SQL Driver for PHP. Then, if the framework is PHP and the DB is SQL Server, select it.
+    deselectMicrosoftSqlDriverForPhp();
+
+    if (isPhpSelected() && isSqlServerSelected()) {
+        selectMicrosoftSqlDriverForPhp();
+    }
+}
+
+function deselectMicrosoftSqlDriverForPhp() {
+    $("#DatabaseServers option").each(function (i, e) {
+        if (e.text.toLowerCase().indexOf("microsoft sql driver for php") == 0) {
+            e.selected = false;
+        }
+    });
+}
+
+function isPhpSelected() {
+    var selectedFramework = $("#FrameworksAndRuntimes option:selected");
+    return selectedFramework.text().toLowerCase().indexOf("php") == 0;
+}
+
+function isSqlServerSelected() {
+    var selected = false;
+    $("#DatabaseServers option").each(function (i, e) {
+        if (e.selected && e.text.toLowerCase().indexOf("sql server") == 0) {
+            selected = true;
+            return false; // if selected, then break out the loop immediately
+        }
+    });
+
+    return selected;
+}
+
+function selectMicrosoftSqlDriverForPhp() {
+    $("#DatabaseServers option").each(function (i, e) {
+        if (e.text.toLowerCase().indexOf("microsoft sql driver for php") == 0) {
+            e.selected = true;
+        }
+    });
 }

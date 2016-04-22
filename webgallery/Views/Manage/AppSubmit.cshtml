@@ -20,31 +20,31 @@
         @Html.Partial("_AppSubmitPackagePartial", Model)
         
         <h2 id="TermsAndConditions">Review Terms and Conditions and Submit:</h2>
-        <div id="legalesePanel" class="legalese submission-form-section">
+        <div class="submission-form-section ">
             <p>
                 Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.
             </p>
-            <p>
-                <span class="terms-and-conditions-cb" title="Do you agree with the Terms and Conditions?">
-                    <input type="checkbox" name="AcceptTermsAndConditions" id="AcceptTermsAndConditions" checked="checked" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
-                </span>
-                <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions">
+            <p title="Do you agree with the Terms and Conditions?" class="p-accept-conditions">
+                <input type="checkbox" name="AcceptTermsAndConditions" id="AcceptTermsAndConditions" checked="checked" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
+                <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">
                     I accept the Terms and Conditions of the Web Application <a href="https://www.microsoft.com/web/gallery/SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
                 </label>
             </p>
             <p>
-                <label for="AdditionalInfo" class="textbox-label">Release Notes</label>
-                <textarea name="AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
+                <label for="AdditionalInfo" class="wider-textbox-label">Release Notes</label>
+                <textarea name="AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
             </p>
         </div>
 
-        <div id="validationEntriesContainer" class="validation-summary submission-form-section" style="color:Red;display:none;">
+        <div id="validationEntriesContainer" style="color:Red;display:none;">
             <h2>Validation Entries:</h2>
-            <P>Please fix the following field(s) before you can submit this application:</P>
-            <ul></ul>
+            <div class="submission-form-section validation-summary">
+                <P>Please fix the following field(s) before you can submit this application:</P>
+                <ul></ul>
+            </div>
         </div>
 
-        <div id="finalSteps" class="final-steps submission-form-section">
+        <div class="submission-form-section">
             <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();"/><br /><br /><br />
         </div>
     }
