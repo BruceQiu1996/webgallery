@@ -24,6 +24,10 @@
         todayBtn: "linked"
     });
 
+    // bind warning changes logic for those textboxes in packageTabContainer
+    $("#packageTabContainer :text").change(function () { warnIfPackageInfoChanges(); });
+    $("#packageTabContainer :button").click(function () { warnIfPackageInfoChanges(); }); // clicking Copy/Clear buttons will change package info
+
     // bind validating logic for those inputs
     $("#appSubmitContainer :text,#appSubmitContainer textarea").blur(function () { validate(); });
     $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions").change(function () { validate(); });
@@ -592,4 +596,62 @@ function selectMicrosoftSqlDriverForPhp() {
             e.selected = true;
         }
     });
+}
+
+//
+// if some packages get changed, show warnings
+//
+function warnIfPackageInfoChanges()
+{
+    var numChangedX86 = 0;
+    var numUnchangedX86 = 0;
+
+    var packageTabs = $("#packageTabContainer .tab_body").children();
+    packageTabs.each(function (index, tab) {
+        var langArch = $(tab).find("input:hidden[name^='PackageLangArch_']").val();
+        var packageLocationUrl = $(tab).find("input[name^='PackageLocationUrl_']");
+        var startPage = $(tab).find("input[name^='StartPage_']");
+        var sha1Hash = $(tab).find("input[name^='Sha1Hash_']");
+
+
+        // Are the current package details different than they were originally?
+        var changed = (packageLocationUrl.val() != packageLocationUrl.attr("data-oldvalue")) ||
+                      (startPage.val() != startPage.attr("data-oldvalue")) ||
+                      (sha1Hash.val() != sha1Hash.attr("data-oldvalue"));
+
+        // If the there were no package details originally, then we don't consider them as having changed.
+        // Really, in this case, the user has simply set them for the first time, not changed them.
+        var newlySet = (packageLocationUrl.attr("data-oldvalue") == "") &&
+                       (startPage.attr("data-oldvalue") == "") &&
+                       (sha1Hash.attr("data-oldvalue") == "");
+
+        // If the current package details have been cleared, then we don't consider them as having changed.
+        var notSet = (packageLocationUrl.val() == "") &&
+                     (startPage.val() == "") &&
+                     (sha1Hash.val() == "");
+
+        $("#packageChanged_" + langArch).hide();
+        $("#packageUnchanged_" + langArch).hide();
+        $("#packageNotSet_" + langArch).hide();
+        $("#packageNewlySet_" + langArch).hide();
+
+        if (notSet) {
+            $("#packageNotSet_" + langArch).css("display", "inline");
+        }
+        else if (newlySet) {
+            $("#packageNewlySet_" + langArch).css("display", "inline");
+        }
+        else if (changed) {
+            $("#packageChanged_" + langArch).css("display", "inline");
+            numChangedX86++;
+        }
+        else {
+            $("#packageUnchanged_" + langArch).css("display", "inline");
+            numUnchangedX86++;
+        }
+    });
+    
+    ((numChangedX86 > 0) && (numUnchangedX86 > 0))
+        ? $("#packageChangeImbalanceWarningPanel").show()
+        : $("#packageChangeImbalanceWarningPanel").hide();
 }

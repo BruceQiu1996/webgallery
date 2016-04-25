@@ -51,25 +51,25 @@
                             </div>*@
                         <div id="innerPackageTabContainer_body_@lang.Name">
                             <div id="innerPackageTabBody_@langX86">
-                                <input type="hidden" name="PackageArchLang_@langX86" id="PackageArchLang_@langX86" value="@langX86" />
+                                <input type="hidden" name="PackageLangArch_@langX86" id="PackageLangArch_@langX86" value="@langX86" />
                                 <input type="hidden" name="PackageID_@langX86" id="PackageID_@langX86" value="@package.PackageID" />
                                 <input type="hidden" name="FileSize_@langX86" id="FileSize_@langX86" value="@package.FileSize" />
                                 <input type="hidden" name="ArchitectureTypeName_@langX86" id="ArchitectureTypeName_@langX86" value="x86" />
 
                                 <label for="PackageLocationUrl_@langX86" class="textbox-label">Package Location URL<span id="packageLocationUrlCodePlexValidator_@langX86" title="Please follow codeplex format: http://YourApplicationName.codeplex.com/Project/Download/FileDownload.aspx?DownloadId=nnnnn" style="color:Red;display:none;">Invalid CodePlex URL</span></label>
-                                <input type="text" name="PackageLocationUrl_@langX86" id="PackageLocationUrl_@langX86" value="@package.PackageURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" data-title="Package Location URL (@lang.ShortDisplayName)" data-msg-url="unknown URL format."/>
+                                <input type="text" name="PackageLocationUrl_@langX86" id="PackageLocationUrl_@langX86" value="@package.PackageURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app/package.zip" data-oldvalue="@package.PackageURL" data-title="Package Location URL (@lang.ShortDisplayName)" data-msg-url="unknown URL format."/>
                                 <div class="explanation">
                                     <div class='explanation-inner'>The package location is a direct, publically accessible web URL to your application package (<strong>zip</strong> file). This package should include the MSDeploy files you created as part of the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web Application Gallery packaging guidelines</a>.<br /><br />If your application is being hosted on CodePlex, a special URL for your package is required. Example:<br /><strong> http://YourApplicationName.codeplex.com/<br />Project/Download/FileDownload.aspx?<br />DownloadId=nnnnn</strong><br /> Substitute the name of the application at the beginning of the URL, and the DownloadID for the package in place of the <strong>nnnnn</strong>.</div>
                                 </div>
 
                                 <label for="StartPage_@langX86" class="textbox-label">Application Start Page URL</label>
-                                <input type="text" name="StartPage_@langX86" id="StartPage_@langX86" value="@Html.Encode(package.StartPage)" title="Application Start Page URL (x86)" class="textbox" placeholder="/Start.htm" />
+                                <input type="text" name="StartPage_@langX86" id="StartPage_@langX86" value="@package.StartPage" title="Application Start Page URL (x86)" class="textbox" placeholder="/Start.htm" data-oldvalue="@package.StartPage"/>
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the relative URL from the site root for the first page to load after the application is installed. For example:<br />/start.htm, /default.aspx or /install.php.</div>
                                 </div>
 
                                 <label for="Sha1Hash_@langX86" class="textbox-label">SHA-1 Hash</label>
-                                <input type="text" name="Sha1Hash_@langX86" id="Sha1Hash_@langX86" value="@Html.Encode(package.SHA1Hash)" title="SHA-1 Hash (x86)" class="textbox" placeholder="00000000000000000000000000000000" />
+                                <input type="text" name="Sha1Hash_@langX86" id="Sha1Hash_@langX86" value="@package.SHA1Hash" title="SHA-1 Hash (x86)" class="textbox" placeholder="00000000000000000000000000000000" data-oldvalue="@package.SHA1Hash"/>
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
                                 </div>
@@ -135,7 +135,7 @@
 
     <div id="packageChangeImbalanceWarningPanel" class="package-change-imbalance-warning" >
         <p>Warning: Some but not all package language details have changed.</p>
-        <div id="ctl00_MainContent_PackageChangeImbalanceWarningGrid">
+        <div>
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     @foreach (var lang in Model.Languages)
@@ -144,7 +144,7 @@
                         //var langX64 = string.Format("{0}_x64", lang.Name); // as only x86 is supported
                         <tr>
                             <td>@lang.ShortDisplayName</td>
-                            <td><span id="packageChangedLBL_@langX86">modified</span><span id="packageUnchangedLBL_@langX86" class="unchanged-warning-row">unchanged</span><span id="packageNotSetLBL_@langX86">---</span><span id="packageNewlySetLBL_@langX86">new</span></td>
+                            <td><span id="packageChanged_@langX86">modified</span><span id="packageUnchanged_@langX86" class="unchanged-warning-row">unchanged</span><span id="packageNotSet_@langX86">---</span><span id="packageNewlySet_@langX86">new</span></td>
                         </tr>
                         @*<tr class="x64-warning-row">
                             <td>@lang.ShortDisplayName</td>
