@@ -24,6 +24,10 @@
         todayBtn: "linked"
     });
 
+    // bind warning changes logic for those textboxes in packageTabContainer
+    $("#packageTabContainer :text").change(function () { warnIfPackageInfoChanges(); });
+    $("#packageTabContainer :button").click(function () { warnIfPackageInfoChanges(); }); // clicking Copy/Clear buttons will change package info
+
     // bind validating logic for those inputs
     $("#appSubmitContainer :text,#appSubmitContainer textarea").blur(function () { validate(); });
     $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions").change(function () { validate(); });
@@ -184,7 +188,7 @@ function validateMetadata(errors) {
 function englishMetadataRequired(metadataList) {
     var englishMetadata = null;
     metadataList.each(function (i, metadata) {
-        if (metadata.language == "en-US") {
+        if (metadata.language.toLowerCase() == "en-us") {
             englishMetadata = metadata;
             return false;
         }
@@ -218,10 +222,10 @@ function getMetadataList() {
 }
 
 function getMetadata(metadataTab) {
-    var language = metadataTab.find("input:hidden").val();
-    var appName = metadataTab.find("input[name^='AppName']").val().trim();
-    var description = metadataTab.find("textarea[name^='Description']").val().trim();
-    var briefDescription = metadataTab.find("textarea[name^='BriefDescription']").val().trim();
+    var language = metadataTab.find("input[name$='.Language']").val();
+    var appName = metadataTab.find("input[name$='.Name']").val().trim();
+    var description = metadataTab.find("textarea[name$='.Description']").val().trim();
+    var briefDescription = metadataTab.find("textarea[name$='.BriefDescription']").val().trim();
 
     return {
         language: language,
@@ -288,8 +292,10 @@ function validateAppId(errors) {
     };
 
     $.ajax(uniqueAppIdAndVersion).done(function (isUnique) {
-        if (!isUnique)
+        if (!isUnique) {
             errors.push({ id: "AppId", type: "unique" });
+            showErrors(errors);
+        }
     });
 }
 
@@ -450,10 +456,10 @@ function getPackageList() {
 }
 
 function getPackage(packageTab) {
-    var language = packageTab.find("input:hidden[name^='PackageLanguage_']").val();
-    var packageLocationUrl = packageTab.find("input[name^='PackageLocationUrl_']").val().trim();
-    var startPage = packageTab.find("input[name^='StartPage_']").val().trim();
-    var sha1Hash = packageTab.find("input[name^='Sha1Hash_']").val().trim();
+    var language = packageTab.find("input:hidden[name$='.Language']").val();
+    var packageLocationUrl = packageTab.find("input[name$='.PackageUrl']").val().trim();
+    var startPage = packageTab.find("input[name$='.StartPage']").val().trim();
+    var sha1Hash = packageTab.find("input[name$='.SHA1Hash']").val().trim();
 
     return {
         language: language,
@@ -479,7 +485,7 @@ function pagecakgeHasInput(p) {
 
 // for Package Location Url
 function validatePackageLocationUrl(errors) {
-    var urls = $("#packageTabContainer input[name^='PackageLocationUrl']");
+    var urls = $("#packageTabContainer input[name$='.PackageUrl']");
 
     urls.each(function (i, u) {
         if ($(u).val().trim().length > 0 && !validateURL($(u).val()))
@@ -529,15 +535,15 @@ function copyValues(sender){
     var sourceStartPage = $("#StartPage_" + lang).val();
     var sourceSha1Hash = $("#Sha1Hash_" + lang).val();
 
-    $(sender).siblings("input[name^='PackageLocationUrl']").val(sourcePackageLocationUrl);
-    $(sender).siblings("input[name^='StartPage_']").val(sourceStartPage);
-    $(sender).siblings("input[name^='Sha1Hash_']").val(sourceSha1Hash);
+    $(sender).siblings("input[name$='.PackageUrl']").val(sourcePackageLocationUrl);
+    $(sender).siblings("input[name$='.StartPage']").val(sourceStartPage);
+    $(sender).siblings("input[name$='.SHA1Hash']").val(sourceSha1Hash);
 }
 
 function clearValues(sender) {
-    $(sender).siblings("input[name^='PackageLocationUrl']").val("");
-    $(sender).siblings("input[name^='StartPage_']").val("");
-    $(sender).siblings("input[name^='Sha1Hash_']").val("");
+    $(sender).siblings("input[name$='.PackageUrl']").val("");
+    $(sender).siblings("input[name$='.StartPage']").val("");
+    $(sender).siblings("input[name$='.SHA1Hash']").val("");
 }
 
 //
@@ -592,4 +598,62 @@ function selectMicrosoftSqlDriverForPhp() {
             e.selected = true;
         }
     });
+}
+
+//
+// if some packages get changed, show warnings
+//
+function warnIfPackageInfoChanges()
+{
+    var numChangedX86 = 0;
+    var numUnchangedX86 = 0;
+
+    var packageTabs = $("#packageTabContainer .tab_body").children();
+    packageTabs.each(function (index, tab) {
+        var langArch = $(tab).find("input:hidden[name^='PackageLangArch_']").val();
+        var packageLocationUrl = $(tab).find("input[name$='.PackageUrl']");
+        var startPage = $(tab).find("input[name$='.StartPage']");
+        var sha1Hash = $(tab).find("input[name$='.SHA1Hash']");
+
+
+        // Are the current package details different than they were originally?
+        var changed = (packageLocationUrl.val() != packageLocationUrl.attr("data-oldvalue")) ||
+                      (startPage.val() != startPage.attr("data-oldvalue")) ||
+                      (sha1Hash.val() != sha1Hash.attr("data-oldvalue"));
+
+        // If the there were no package details originally, then we don't consider them as having changed.
+        // Really, in this case, the user has simply set them for the first time, not changed them.
+        var newlySet = (packageLocationUrl.attr("data-oldvalue") == "") &&
+                       (startPage.attr("data-oldvalue") == "") &&
+                       (sha1Hash.attr("data-oldvalue") == "");
+
+        // If the current package details have been cleared, then we don't consider them as having changed.
+        var notSet = (packageLocationUrl.val() == "") &&
+                     (startPage.val() == "") &&
+                     (sha1Hash.val() == "");
+
+        $("#packageChanged_" + langArch).hide();
+        $("#packageUnchanged_" + langArch).hide();
+        $("#packageNotSet_" + langArch).hide();
+        $("#packageNewlySet_" + langArch).hide();
+
+        if (notSet) {
+            $("#packageNotSet_" + langArch).css("display", "inline");
+        }
+        else if (newlySet) {
+            $("#packageNewlySet_" + langArch).css("display", "inline");
+        }
+        else if (changed) {
+            $("#packageChanged_" + langArch).css("display", "inline");
+            numChangedX86++;
+        }
+        else {
+            $("#packageUnchanged_" + langArch).css("display", "inline");
+            numUnchangedX86++;
+        }
+    });
+    
+    ((numChangedX86 > 0) && (numUnchangedX86 > 0))
+        ? $("#packageChangeImbalanceWarningPanel").show()
+        : $("#packageChangeImbalanceWarningPanel").hide();
 }

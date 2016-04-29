@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using System.Web;
 using System.Web.Mvc;
 
-namespace webgallery.Controllers
+namespace WebGallery.Controllers
 {
     public class AccountController : Controller
     {

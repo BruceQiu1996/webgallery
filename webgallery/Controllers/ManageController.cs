@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using webgallery.Models;
+using WebGallery.Models;
 using System.Collections.Generic;
-using webgallery.ViewModels;
+using WebGallery.ViewModels;
+using System.Text.RegularExpressions;
+using System.Data.Entity;
+using WebGallery.Extensions;
 
-namespace webgallery.Controllers
+namespace WebGallery.Controllers
 {
     [Authorize]
     public class ManageController : Controller
@@ -85,12 +88,12 @@ namespace webgallery.Controllers
         [Authorize]
         public ActionResult Dashboard()
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                
 
 
-                IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<webgallery.Models.GetAllSubmissionsInBrief_Result>();
+                IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
                 return View("Dashboard", applist);
             }
 
@@ -98,7 +101,7 @@ namespace webgallery.Controllers
         [Authorize]
         public ActionResult PublisherDetails(int id)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
 
                 IEnumerable<SubmissionOwner> owners = db.SubmissionOwners.ToList<SubmissionOwner>();
@@ -133,26 +136,231 @@ namespace webgallery.Controllers
             }
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            if (!id.HasValue) return View("Error");
+
+            AppSubmissionViewModel model = null;
+            using (var db = new MsComWebDbContext())
             {
                 var submission = (from s in db.Submissions
                                   where s.SubmissionID == id
                                   select s).FirstOrDefault();
 
-                var logo = from l in db.ProductOrAppImages
-                           where l.ImageID == submission.LogoID
-                           select l;
+                if (submission != null)
+                {
+                    var logo = from l in db.ProductOrAppImages
+                               where l.ImageID == submission.LogoID
+                               select l;
+                    var metadata = from m1 in db.SubmissionLocalizedMetaDatas
+                                   let ids = from m in db.SubmissionLocalizedMetaDatas
+                                             where m.SubmissionID == id
+                                             group m by new { m.SubmissionID, m.Language } into g
+                                             select g.Max(p => p.MetadataID)
+                                   where ids.Contains(m1.MetadataID)
+                                   select m1;
+                    var packages = from p1 in db.Packages
+                                   let ids = from p in db.Packages
+                                             where p.SubmissionID == id
+                                             group p by new { p.SubmissionID, p.Language } into g
+                                             select g.Max(e => e.PackageID)
+                                   where ids.Contains(p1.PackageID)
+                                   select p1;
 
-                var metadata = from m in db.SubmissionLocalizedMetaDatas
-                               where m.SubmissionID == id
-                               select m;
+                    model = new AppSubmissionViewModel
+                    {
+                        Submission = submission,
+                        Logo = logo.FirstOrDefault(),
+                        MetadataList = metadata.ToList(),
+                        Packages = packages.ToList()
+                    };
+                }
+                else
+                {
+                    model = new AppSubmissionViewModel();
+                }
 
-                var packages = from p in db.Packages
-                               where p.SubmissionID == id
-                               select p;
+                LoadViewDataForEdit();
 
+                return View("AppSubmit", model);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int? id, AppSubmissionViewModel model)
+        {
+            if (!id.HasValue) return View("Error");
+
+            try
+            {
+                // final check
+                var finalCheck = ValidateAppIdCharacters(model.Submission.Nickname) 
+                                && ValidateAppIdVersionIsUnique(model.Submission.Nickname, model.Submission.Version, id);
+                if (!finalCheck)
+                {
+                    LoadViewDataForEdit();
+                    ModelState.AddModelError("AppId", "unique");
+                    return View("AppSubmit", model);
+                }
+
+                // save
+                SaveAppSubmission(model);
+
+                // send email
+                // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
+
+                // go to the App Status page
+                // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
+                return RedirectToAction("Status");
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Manage", "Edit"));
+            }
+        }
+
+        private void SaveAppSubmission(AppSubmissionViewModel model)
+        {
+            using (var db = new MsComWebDbContext())
+            {
+                var submission = db.Submissions.FirstOrDefault(s => s.SubmissionID == model.Submission.SubmissionID);
+                if (submission == null)
+                {
+                    View("Error", new Exception(string.Format("Can't found the submission #{0}", model.Submission.SubmissionID)));
+                }
+
+                // update submission
+                UpdateSubmission(submission, model);
+                submission.Updated = DateTime.Now;
+
+                // update metadata
+                UpdateMetadata(db.SubmissionLocalizedMetaDatas, model.MetadataList, model.Submission.SubmissionID);
+
+                // update package information
+                UpdatePackage(db.Packages, model.Packages, model.Submission.SubmissionID);
+
+                db.SaveChanges();
+
+                // if save successfully {
+                // set owner of this submissioin if it's a new submission
+                // update values in submission dashboard 
+                //}
+
+                // Add a submisssion transaction
+                var description = "Submission State\n";
+                description += "    old: New Submission\n";
+                description += "    new: Pending Review";
+                db.SubmissionTransactions.Add(new SubmissionTransaction {
+                    SubmissionID = model.Submission.SubmissionID,
+                    SubmissionTaskID = 1,
+                    Description = description,
+                    RecordedAt = DateTime.Now
+                });
+                db.SaveChanges();
+            }
+        }
+
+        private void UpdatePackage(DbSet<Package> packageDbSet, IEnumerable<Package> packages, int submissionId)
+        {
+            var packagesInDb = packageDbSet.Where(m => m.SubmissionID == submissionId).ToList();
+
+            foreach (var package in packages)
+            {
+                var packageInDb = packagesInDb.FirstOrDefault(p=>p.PackageID == package.PackageID);
+                if (package.HasCompleteInput()) // if package has complete input
+                {
+                    if (packageInDb == null) // if the package doesn't exist in database, insert a new one
+                    {
+                        packageDbSet.Add(new Package
+                        {
+                            ArchitectureTypeID = 1, // 1 is for X86
+                            PackageURL = package.PackageURL,
+                            StartPage = package.StartPage,
+                            SHA1Hash = package.SHA1Hash,
+                            FileSize = package.FileSize,
+                            Language = package.Language,
+                            SubmissionID = package.SubmissionID                            
+                        });
+                    }
+                    else // if exists, then update the following 3 fields
+                    {
+                        packageInDb.PackageURL = package.PackageURL;
+                        packageInDb.StartPage = package.StartPage;
+                        packageInDb.SHA1Hash = package.SHA1Hash;
+                    }
+                }
+                else // if the package doesn't have complete input (removed by user, or it was empty)
+                {
+                    if (packageInDb != null) // and if the package exists in database, then remove it
+                    {
+                        packageDbSet.Remove(packageInDb);
+                    }
+                }
+            }
+        }
+
+        private void UpdateMetadata(DbSet<SubmissionLocalizedMetaData> metadataDbSet, IList<SubmissionLocalizedMetaData> metadataList, int submissionId)
+        {
+            var metadataListInDb = metadataDbSet.Where(m => m.SubmissionID == submissionId).ToList();
+
+            foreach(var metadata in metadataList)
+            {
+                var metadataInDb = metadataListInDb.FirstOrDefault(m => m.MetadataID == metadata.MetadataID);
+                if (metadata.HasCompleteInput()) // if metadata has complete input
+                {
+                    if (metadataInDb == null) // if the metadata doesn't exist in database, add a new one
+                    {
+                        metadataDbSet.Add(new SubmissionLocalizedMetaData
+                        {
+                            SubmissionID = metadata.SubmissionID,
+                            Language = metadata.Language,
+                            Name = metadata.Name,
+                            Description = metadata.Description,
+                            BriefDescription = metadata.BriefDescription
+                        });
+                    }
+                    else // if exists, then update the following 3 fields
+                    {
+                        metadataInDb.Name = metadata.Name;
+                        metadataInDb.Description = metadata.Description;
+                        metadataInDb.BriefDescription = metadata.BriefDescription;
+                    }
+                }
+                else // if the metadata doesn't have complete input (removed by user, or it was empty)
+                {
+                    if (metadataInDb != null) // and if the metadata exists in database, then remove it
+                    {
+                        metadataDbSet.Remove(metadataInDb);
+                    }
+                }
+            }
+        }        
+
+        private void UpdateSubmission(Submission submission, AppSubmissionViewModel model)
+        {
+            submission.Nickname = model.Submission.Nickname;
+            submission.Version = model.Submission.Version;
+            submission.SubmittingEntity = model.Submission.SubmittingEntity;
+            submission.SubmittingEntityURL = model.Submission.SubmittingEntityURL;
+            submission.AppURL = model.Submission.AppURL;
+            submission.SupportURL = model.Submission.SupportURL;
+            submission.ReleaseDate = model.Submission.ReleaseDate;
+            submission.FrameworkOrRuntimeID = model.Submission.FrameworkOrRuntimeID;
+            submission.DatabaseServerIDs = model.Submission.DatabaseServerIDs;
+            submission.WebServerExtensionIDs = model.Submission.WebServerExtensionIDs;
+            submission.CategoryID1 = model.Submission.CategoryID1;
+            submission.CategoryID2 = model.Submission.CategoryID2;
+            submission.ProfessionalServicesURL = model.Submission.ProfessionalServicesURL;
+            submission.CommercialProductURL = model.Submission.CommercialProductURL;
+            submission.AgreedToTerms = model.Submission.AgreedToTerms;
+            submission.AdditionalInfo = model.Submission.AdditionalInfo;
+        }
+
+        private void LoadViewDataForEdit()
+        {
+            using (var db = new MsComWebDbContext())
+            {
                 var categories = from c in db.ProductOrAppCategories
                                  orderby c.Name
                                  select c;
@@ -166,21 +374,13 @@ namespace webgallery.Controllers
                 var webServerExtensions = from e in db.WebServerExtensions
                                           select e;
 
-                var model = new AppSubmissionViewModel {
-                    Submission = submission,
-                    Logo = logo.FirstOrDefault(),
-                    Metadata = metadata.ToList(),
-                    Packages = packages.ToList(),
-                    Languages = Language.SupportedLanguages.ToList(),
-                    Categories = categories.ToList(),
-                    Frameworks = frameworks.ToList(),
-                    DatabaseServers = dbServers.ToList(),
-                    WebServerExtensions = webServerExtensions.ToList()
-                };
+                ViewBag.Languages = Language.SupportedLanguages.ToList();
+                ViewBag.Categories = categories.ToList();
+                ViewBag.Frameworks = frameworks.ToList();
+                ViewBag.DatabaseServers = dbServers.ToList();
+                ViewBag.WebServerExtensions = webServerExtensions.ToList();
 
-                ChangeDisplayOrder(model.DatabaseServers);
-
-                return View("AppSubmit", model);
+                ChangeDisplayOrder(ViewBag.DatabaseServers);
             }
         }
 
@@ -203,24 +403,32 @@ namespace webgallery.Controllers
         {
             lock (_UniqueAppIdValidationLock)
             {
-                using (var db = new mscomwebDBEntitiesDB())
-                {
-                    var submission = db.Submissions.FirstOrDefault(
-                            s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
-                            && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
-
-                    var isUnique = (submission != null && submissionId.HasValue)
-                        ? submission.SubmissionID == submissionId
-                        : submission == null;
-
-                    return Json(isUnique);
-                }
+                return Json(ValidateAppIdVersionIsUnique(appId, version, submissionId));
             }
+        }
+
+        static private bool ValidateAppIdVersionIsUnique(string appId, string version, int? submissionId)
+        {
+            using (var db = new MsComWebDbContext())
+            {
+                var submission = db.Submissions.FirstOrDefault(
+                        s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
+                        && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
+
+                return (submission != null && submissionId.HasValue)
+                    ? submission.SubmissionID == submissionId
+                    : submission == null;
+            }
+        }
+
+        static private bool ValidateAppIdCharacters(string appId)
+        {
+            return Regex.IsMatch(appId, @"^\w*$");
         }
 
         public ActionResult Delete(int id)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
 

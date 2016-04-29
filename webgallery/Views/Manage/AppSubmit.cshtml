@@ -1,4 +1,4 @@
-﻿@model webgallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmissionViewModel
 
 @{
     ViewBag.Title = "Submit Web App";
@@ -18,21 +18,24 @@
         @Html.Partial("_AppSubmitReleaseNotePartial", Model)
 
         @Html.Partial("_AppSubmitPackagePartial", Model)
-        
+
         <h2 id="TermsAndConditions">Review Terms and Conditions and Submit:</h2>
         <div class="submission-form-section ">
             <p>
                 Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.
             </p>
             <p title="Do you agree with the Terms and Conditions?" class="p-accept-conditions">
-                <input type="checkbox" name="AcceptTermsAndConditions" id="AcceptTermsAndConditions" checked="checked" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
+                @{
+                    var checkedProperty = Model.Submission.AgreedToTerms ? "checked='checked'" : string.Empty;
+                }
+                <input type="checkbox" name="Submission.AgreedToTerms" id="AcceptTermsAndConditions" @checkedProperty value="@Model.Submission.AgreedToTerms" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
                 <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">
                     I accept the Terms and Conditions of the Web Application <a href="https://www.microsoft.com/web/gallery/SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
                 </label>
             </p>
             <p>
                 <label for="AdditionalInfo" class="wider-textbox-label">Release Notes</label>
-                <textarea name="AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
+                <textarea name="Submission.AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
             </p>
         </div>
 

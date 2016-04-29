@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     public class DashboardController : Controller
     {
@@ -88,9 +88,9 @@ namespace webgallery.Models
 
         public ActionResult Publisher()
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
-                //List<webgallery.Models.GetAllSubmissionsInBrief_Result> applist = new List<webgallery.Models.GetAllSubmissionsInBrief_Result>();
+                //List<WebGallery.Models.GetAllSubmissionsInBrief_Result> applist = new List<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
                 //applist = db.GetAllSubmissionsInBrief().ToList();
                 IEnumerable<SubmissionOwner> owners = db.SubmissionOwners.ToList<SubmissionOwner>();
 

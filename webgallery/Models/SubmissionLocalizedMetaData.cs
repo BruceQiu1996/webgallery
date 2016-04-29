@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,5 +19,6 @@ namespace webgallery.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string BriefDescription { get; set; }
+        public int MetadataID { get; set; }
     }
 }

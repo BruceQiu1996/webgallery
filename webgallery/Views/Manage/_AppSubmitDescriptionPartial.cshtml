@@ -1,4 +1,4 @@
-﻿@model webgallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmissionViewModel
 
 <h2 id="Metadata">Describe Your Application:</h2>
 <h3>At least one language is required.</h3>
@@ -15,20 +15,23 @@
 
     <div id="metaDataTabContainer" class="tab_xp tab_default">
         <div class="tab_header">
-            @for(var i= 0; i < Model.Languages.Count; i++)
+            @for(var i= 0; i < ViewBag.Languages.Count; i++)
             {
-                var lang = Model.Languages[i];
+                var lang = ViewBag.Languages[i];
                 var classNames = i == 0 ? "tab_active" : string.Empty;
 
                 <span class="@classNames" data-language="@lang.Name"><span class="tab_outer"><span class="tab_inner"><span class="tab_tab">@lang.ShortDisplayName</span></span></span></span>
             }
         </div>
         <div class="tab_body">
-            @for (var i = 0; i < Model.Languages.Count; i++)
+            @for (var i = 0; i < ViewBag.Languages.Count; i++)
             {
-                var lang = Model.Languages[i];
-                var metadata = Model.Metadata.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                    ?? new webgallery.Models.SubmissionLocalizedMetaData {
+                var lang = ViewBag.Languages[i];
+                var metadata = Model.MetadataList.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                    ?? new WebGallery.Models.SubmissionLocalizedMetaData {
+                        MetadataID = 0,
+                        SubmissionID = Model.Submission.SubmissionID,
+                        Language = lang.Name,
                         Name = string.Empty,
                         Description = string.Empty,
                         BriefDescription = string.Empty
@@ -36,19 +39,20 @@
                 var hideOrNot = i > 0 ? "style='display:none'" : string.Empty;
 
                 <div id="metaDataTab_@lang.Name" @Html.Raw(hideOrNot)>
-                    <input type="hidden" name="MetadataLanguage_@lang.Name" id="MetadataLanguage_@lang.Name" value="@lang.Name" />
+                    <input type="hidden" name="MetadataList[@i].MetadataID" value="@metadata.MetadataID" />
+                    <input type="hidden" name="MetadataList[@i].SubmissionID" value="@metadata.SubmissionID" />
+                    <input type="hidden" name="MetadataList[@i].Language" value="@metadata.Language" />
+
                     <div class="meta-data-caption">@lang.CultureInfo.DisplayName</div>
 
                     <label for="AppName_@lang.Name" class="textbox-label">App Name</label>
-                    <input type="text" name="AppName_@lang.Name" id="AppName_@lang.Name" value="@metadata.Name" class="textbox" dir="@lang.TextDirection" placeholder="Application" onchange="createNickname(this)" data-title="App Name"/>
+                    <input type="text" name="MetadataList[@i].Name" id="AppName_@lang.Name" value="@metadata.Name" class="textbox" dir="@lang.TextDirection" placeholder="Application" onchange="createNickname(this)" data-title="App Name"/>
                     <div class="explanation">
                         <div class='explanation-inner'>Provide the name of your application.</div>
                     </div>
 
                     <label for="Description_@lang.Name" class="textbox-label">Description</label>
-                    <textarea name="Description_@lang.Name" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection"
-                              onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;"
-                              placeholder="Description (1500 characters max)" data-title="Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 1500 characters.">@metadata.Description</textarea>
+                    <textarea name="MetadataList[@i].Description" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;" placeholder="Description (1500 characters max)" data-title="Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 1500 characters.">@metadata.Description</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
                             <span class="low-count">1500</span> characters remaining<br /><br />
@@ -56,7 +60,7 @@
                     </div>
 
                     <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description</label>
-                    <textarea name="BriefDescription_@lang.Name" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 400 characters.">@metadata.BriefDescription</textarea>
+                    <textarea name="MetadataList[@i].BriefDescription" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 400 characters.">@metadata.BriefDescription</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
                             <span class="low-count">400</span> characters remaining<br /><br />

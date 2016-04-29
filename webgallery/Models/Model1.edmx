@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mscomwebDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mscomwebDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'mscomwebDB.dbo.AppDownloadStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AppDownloadStats">
@@ -588,21 +588,11 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
           <Property Name="TimeStamp" Type="datetime" Nullable="false" />
           <Property Name="Rating" Type="tinyint" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'mscomwebDB.dbo.SiteSettings' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SiteSettings">
-          <Property Name="CurrentIndexGuid" Type="uniqueidentifier" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'mscomwebDB.dbo.SubmissionLocalizedMetaData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SubmissionLocalizedMetaData">
           <Key>
-            <PropertyRef Name="SubmissionID" />
-            <PropertyRef Name="Language" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="BriefDescription" />
+            <PropertyRef Name="MetadataID" />
           </Key>
+          <Property Name="MetadataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubmissionID" Type="int" Nullable="false" />
           <Property Name="Language" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -2137,6 +2127,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <EntitySet Name="ProductOrAppImages" EntityType="Self.ProductOrAppImages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PullQuotes" EntityType="Self.PullQuotes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ratings" EntityType="Self.Ratings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubmissionLocalizedMetaData" EntityType="Self.SubmissionLocalizedMetaData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Submissions" EntityType="Self.Submissions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubmissionsStatus" EntityType="Self.SubmissionsStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubmissionStates" EntityType="Self.SubmissionStates" Schema="dbo" store:Type="Tables" />
@@ -2194,15 +2185,6 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
     [ProdDownloadStatsINVALID].[Referrer] AS [Referrer], 
     [ProdDownloadStatsINVALID].[Count] AS [Count]
     FROM [dbo].[ProdDownloadStatsINVALID] AS [ProdDownloadStatsINVALID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SubmissionLocalizedMetaData" EntityType="Self.SubmissionLocalizedMetaData" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SubmissionLocalizedMetaData].[SubmissionID] AS [SubmissionID], 
-    [SubmissionLocalizedMetaData].[Language] AS [Language], 
-    [SubmissionLocalizedMetaData].[Name] AS [Name], 
-    [SubmissionLocalizedMetaData].[Description] AS [Description], 
-    [SubmissionLocalizedMetaData].[BriefDescription] AS [BriefDescription]
-    FROM [dbo].[SubmissionLocalizedMetaData] AS [SubmissionLocalizedMetaData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="SubmissionOwners" EntityType="Self.SubmissionOwners" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2418,11 +2400,10 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <End Role="Hosters_State" EntitySet="Hosters_State" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="mscomwebDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="WebGallery.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <ComplexType Name="fnSplit_Result">
           <Property Name="item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </ComplexType>
@@ -3262,17 +3243,14 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
         </EntityType>
         <EntityType Name="SubmissionLocalizedMetaData">
           <Key>
-            <PropertyRef Name="SubmissionID" />
-            <PropertyRef Name="Language" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="BriefDescription" />
+            <PropertyRef Name="MetadataID" />
           </Key>
           <Property Name="SubmissionID" Type="Int32" Nullable="false" />
           <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BriefDescription" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetadataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="SubmissionOwner">
           <Key>
@@ -3843,7 +3821,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="mscomwebDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MsComWebDbContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ApplicationInGalleries" EntityType="Self.ApplicationInGallery" />
           <EntitySet Name="ArchitectureTypes" EntityType="Self.ArchitectureType" />
           <EntitySet Name="BlogPosts" EntityType="Self.BlogPost" />
@@ -4086,11 +4064,11 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <End Role="Hosters_Offers" EntitySet="Hosters_Offers" />
             <End Role="Hosters_Review" EntitySet="Hosters_Review" />
           </AssociationSet>
-          <FunctionImport Name="fnSplit" IsComposable="true" ReturnType="Collection(mscomwebDBModel.fnSplit_Result)">
+          <FunctionImport Name="fnSplit" IsComposable="true" ReturnType="Collection(WebGallery.Models.fnSplit_Result)">
             <Parameter Name="sInputList" Mode="In" Type="String" />
             <Parameter Name="sDelimiter" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(mscomwebDBModel.Split_Result)">
+          <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(WebGallery.Models.Split_Result)">
             <Parameter Name="String" Mode="In" Type="String" />
             <Parameter Name="Delimiter" Mode="In" Type="String" />
           </FunctionImport>
@@ -4170,14 +4148,14 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="puid" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DeleteSubmission">
-            <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
+          <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteTileFields" />
           <FunctionImport Name="DeleteTransaction">
-            <Parameter Name="SubmissionTransactionID" Mode="In" Type="Int32" />
+          <Parameter Name="SubmissionTransactionID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="get_PreviouslyDistributedPID" ReturnType="Collection(String)">
-            <Parameter Name="puid" Mode="In" Type="String" />
+          <Parameter Name="puid" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetAllAppDownloadCounts">
             <Parameter Name="WhenStart" Mode="In" Type="DateTime" />
@@ -4197,7 +4175,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="Country" Mode="In" Type="String" />
             <Parameter Name="Referrer" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetAllSubmissionsInBrief" ReturnType="Collection(mscomwebDBModel.GetAllSubmissionsInBrief_Result)" />
+          <FunctionImport Name="GetAllSubmissionsInBrief" ReturnType="Collection(WebGallery.Models.GetAllSubmissionsInBrief_Result)" />
           <FunctionImport Name="GetAllTags" ReturnType="Collection(String)" />
           <FunctionImport Name="GetAppDownloadCount">
             <Parameter Name="WhenStart" Mode="In" Type="DateTime" />
@@ -4210,25 +4188,25 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="Referrer" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetAudience">
-            <Parameter Name="ContentId" Mode="In" Type="String" />
+          <Parameter Name="ContentId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetBlogAudience">
-            <Parameter Name="ContentId" Mode="In" Type="String" />
+          <Parameter Name="ContentId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetBlogTag">
-            <Parameter Name="ContentId" Mode="In" Type="String" />
+          <Parameter Name="ContentId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetComments" ReturnType="Collection(mscomwebDBModel.GetComments_Result)">
+          <FunctionImport Name="GetComments" ReturnType="Collection(WebGallery.Models.GetComments_Result)">
             <Parameter Name="commentId" Mode="In" Type="Int32" />
             <Parameter Name="contentId" Mode="In" Type="String" />
             <Parameter Name="author" Mode="In" Type="String" />
             <Parameter Name="isActive" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetContactDetails" ReturnType="Collection(mscomwebDBModel.GetContactDetails_Result)">
+          <FunctionImport Name="GetContactDetails" ReturnType="Collection(WebGallery.Models.GetContactDetails_Result)">
             <Parameter Name="PersonalID" Mode="In" Type="String" />
             <Parameter Name="PersonalIDType" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetDashboardOffers" ReturnType="Collection(mscomwebDBModel.GetDashboardOffers_Result)">
+          <FunctionImport Name="GetDashboardOffers" ReturnType="Collection(WebGallery.Models.GetDashboardOffers_Result)">
             <Parameter Name="pageSize" Mode="In" Type="Int32" />
             <Parameter Name="offerType" Mode="In" Type="Int32" />
             <Parameter Name="currentPageIndex" Mode="In" Type="Int32" />
@@ -4237,13 +4215,13 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="isAdmin" Mode="In" Type="Boolean" />
             <Parameter Name="totalRecords" Mode="InOut" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetFeaturedOffersForHostingType" ReturnType="Collection(mscomwebDBModel.GetFeaturedOffersForHostingType_Result)">
+          <FunctionImport Name="GetFeaturedOffersForHostingType" ReturnType="Collection(WebGallery.Models.GetFeaturedOffersForHostingType_Result)">
             <Parameter Name="countryID" Mode="In" Type="Int32" />
             <Parameter Name="isRegion" Mode="In" Type="Boolean" />
             <Parameter Name="currencyCode" Mode="In" Type="String" />
             <Parameter Name="hostingTypeID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetFeaturedOffersSet" ReturnType="Collection(mscomwebDBModel.GetFeaturedOffersSet_Result)">
+          <FunctionImport Name="GetFeaturedOffersSet" ReturnType="Collection(WebGallery.Models.GetFeaturedOffersSet_Result)">
             <Parameter Name="countryID" Mode="In" Type="Int32" />
             <Parameter Name="isRegion" Mode="In" Type="Boolean" />
             <Parameter Name="currencyCode" Mode="In" Type="String" />
@@ -4252,12 +4230,12 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="dedicatedHostingTypeID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetHosterLogoImage" ReturnType="Collection(Binary)">
-            <Parameter Name="HosterId" Mode="In" Type="Int32" />
+          <Parameter Name="HosterId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetImage" ReturnType="Collection(mscomwebDBModel.GetImage_Result)">
-            <Parameter Name="ImageGUID" Mode="In" Type="Guid" />
+          <FunctionImport Name="GetImage" ReturnType="Collection(WebGallery.Models.GetImage_Result)">
+          <Parameter Name="ImageGUID" Mode="In" Type="Guid" />
           </FunctionImport>
-          <FunctionImport Name="GetMySubmissionsInBrief" ReturnType="Collection(mscomwebDBModel.GetMySubmissionsInBrief_Result)">
+          <FunctionImport Name="GetMySubmissionsInBrief" ReturnType="Collection(WebGallery.Models.GetMySubmissionsInBrief_Result)">
             <Parameter Name="PersonalID" Mode="In" Type="String" />
             <Parameter Name="PersonalIDType" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -4416,8 +4394,8 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="Country" Mode="In" Type="String" />
             <Parameter Name="Referrer" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetRelatedTags" ReturnType="Collection(mscomwebDBModel.GetRelatedTags_Result)">
-            <Parameter Name="Tag" Mode="In" Type="String" />
+          <FunctionImport Name="GetRelatedTags" ReturnType="Collection(WebGallery.Models.GetRelatedTags_Result)">
+          <Parameter Name="Tag" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetSearchData" ReturnType="Collection(Int32)">
             <Parameter Name="priceMin" Mode="In" Type="Double" />
@@ -4480,25 +4458,25 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="isBubble" Mode="InOut" Type="Boolean" />
             <Parameter Name="bubbleID" Mode="InOut" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetSliderValues" ReturnType="Collection(mscomwebDBModel.GetSliderValues_Result)">
+          <FunctionImport Name="GetSliderValues" ReturnType="Collection(WebGallery.Models.GetSliderValues_Result)">
             <Parameter Name="hostingTypeID" Mode="In" Type="Int32" />
             <Parameter Name="countryID" Mode="In" Type="Int32" />
             <Parameter Name="isRegion" Mode="In" Type="Boolean" />
             <Parameter Name="currencyCode" Mode="In" Type="String" />
             <Parameter Name="isOnlySpotlight" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="GetSubmittedDataForProductOrApp" ReturnType="Collection(mscomwebDBModel.GetSubmittedDataForProductOrApp_Result)">
-            <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
+          <FunctionImport Name="GetSubmittedDataForProductOrApp" ReturnType="Collection(WebGallery.Models.GetSubmittedDataForProductOrApp_Result)">
+          <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetTag" ReturnType="Collection(mscomwebDBModel.GetTag_Result)">
-            <Parameter Name="ContentId" Mode="In" Type="String" />
+          <FunctionImport Name="GetTag" ReturnType="Collection(WebGallery.Models.GetTag_Result)">
+          <Parameter Name="ContentId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetTransactions" ReturnType="Collection(mscomwebDBModel.GetTransactions_Result)">
+          <FunctionImport Name="GetTransactions" ReturnType="Collection(WebGallery.Models.GetTransactions_Result)">
             <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
             <Parameter Name="WhenStart" Mode="In" Type="DateTime" />
             <Parameter Name="WhenEnd" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="GetTransactionTypes" ReturnType="Collection(mscomwebDBModel.GetTransactionTypes_Result)" />
+          <FunctionImport Name="GetTransactionTypes" ReturnType="Collection(WebGallery.Models.GetTransactionTypes_Result)" />
           <FunctionImport Name="IncrementAppDownloadCount">
             <Parameter Name="When" Mode="In" Type="DateTime" />
             <Parameter Name="AppID" Mode="In" Type="String" />
@@ -4611,24 +4589,24 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImport>
           <FunctionImport Name="RefreshSyncTables" />
           <FunctionImport Name="ResetTagClick">
-            <Parameter Name="tag" Mode="In" Type="String" />
+          <Parameter Name="tag" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectAllReportingTables" ReturnType="Collection(mscomwebDBModel.SelectAllReportingTables_Result)" />
+          <FunctionImport Name="SelectAllReportingTables" ReturnType="Collection(WebGallery.Models.SelectAllReportingTables_Result)" />
           <FunctionImport Name="SelectBlogPosts" ReturnType="Collection(String)" />
           <FunctionImport Name="SelectBlogPostsLastUpdated" ReturnType="Collection(DateTime)" />
-          <FunctionImport Name="SelectChapterLog" ReturnType="Collection(mscomwebDBModel.SelectChapterLog_Result)" />
+          <FunctionImport Name="SelectChapterLog" ReturnType="Collection(WebGallery.Models.SelectChapterLog_Result)" />
           <FunctionImport Name="SelectCommentCount" ReturnType="Collection(Int32)">
-            <Parameter Name="contentId" Mode="In" Type="String" />
+          <Parameter Name="contentId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectComments" ReturnType="Collection(mscomwebDBModel.SelectComments_Result)">
-            <Parameter Name="contentId" Mode="In" Type="String" />
+          <FunctionImport Name="SelectComments" ReturnType="Collection(WebGallery.Models.SelectComments_Result)">
+          <Parameter Name="contentId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SelectContentByTag" ReturnType="Collection(String)">
             <Parameter Name="tag" Mode="In" Type="String" />
             <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SelectContentCounts" ReturnType="Collection(mscomwebDBModel.SelectContentCounts_Result)">
-            <Parameter Name="contentId" Mode="In" Type="String" />
+          <FunctionImport Name="SelectContentCounts" ReturnType="Collection(WebGallery.Models.SelectContentCounts_Result)">
+          <Parameter Name="contentId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SelectContentItems">
             <Parameter Name="channel" Mode="In" Type="String" />
@@ -4637,7 +4615,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="author" Mode="In" Type="String" />
             <Parameter Name="location" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectContentItemsAll" ReturnType="Collection(mscomwebDBModel.SelectContentItemsAll_Result)">
+          <FunctionImport Name="SelectContentItemsAll" ReturnType="Collection(WebGallery.Models.SelectContentItemsAll_Result)">
             <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
             <Parameter Name="channel" Mode="In" Type="String" />
             <Parameter Name="isFeatured" Mode="In" Type="Boolean" />
@@ -4649,20 +4627,20 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="author" Mode="In" Type="String" />
             <Parameter Name="location" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectFeaturedContent" ReturnType="Collection(mscomwebDBModel.SelectFeaturedContent_Result)">
+          <FunctionImport Name="SelectFeaturedContent" ReturnType="Collection(WebGallery.Models.SelectFeaturedContent_Result)">
             <Parameter Name="channel" Mode="In" Type="String" />
             <Parameter Name="tag" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectPageViews" ReturnType="Collection(mscomwebDBModel.SelectPageViews_Result)">
+          <FunctionImport Name="SelectPageViews" ReturnType="Collection(WebGallery.Models.SelectPageViews_Result)">
             <Parameter Name="puid" Mode="In" Type="String" />
             <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectPublicUsers" ReturnType="Collection(String)">
-            <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
+          <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SelectRandomPullQuote" ReturnType="Collection(mscomwebDBModel.SelectRandomPullQuote_Result)" />
+          <FunctionImport Name="SelectRandomPullQuote" ReturnType="Collection(WebGallery.Models.SelectRandomPullQuote_Result)" />
           <FunctionImport Name="SelectRating" ReturnType="Collection(Int32)">
-            <Parameter Name="contentId" Mode="In" Type="String" />
+          <Parameter Name="contentId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SelectRatingByReviewer" ReturnType="Collection(Byte)">
             <Parameter Name="ContentId" Mode="In" Type="String" />
@@ -4670,16 +4648,16 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImport>
           <FunctionImport Name="SelectSiteSettingsGuid" ReturnType="Collection(Guid)" />
           <FunctionImport Name="SelectTags" ReturnType="Collection(String)" />
-          <FunctionImport Name="SelectTopFeaturedContents" ReturnType="Collection(mscomwebDBModel.SelectTopFeaturedContents_Result)">
-            <Parameter Name="channel" Mode="In" Type="String" />
+          <FunctionImport Name="SelectTopFeaturedContents" ReturnType="Collection(WebGallery.Models.SelectTopFeaturedContents_Result)">
+          <Parameter Name="channel" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectTopTags" ReturnType="Collection(mscomwebDBModel.SelectTopTags_Result)">
+          <FunctionImport Name="SelectTopTags" ReturnType="Collection(WebGallery.Models.SelectTopTags_Result)">
             <Parameter Name="channel" Mode="In" Type="String" />
             <Parameter Name="numberOfRecords" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SelectTrainingLog" ReturnType="Collection(mscomwebDBModel.SelectTrainingLog_Result)" />
-          <FunctionImport Name="SelectUser" ReturnType="Collection(mscomwebDBModel.SelectUser_Result)">
-            <Parameter Name="puid" Mode="In" Type="String" />
+          <FunctionImport Name="SelectTrainingLog" ReturnType="Collection(WebGallery.Models.SelectTrainingLog_Result)" />
+          <FunctionImport Name="SelectUser" ReturnType="Collection(WebGallery.Models.SelectUser_Result)">
+          <Parameter Name="puid" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetImage">
             <Parameter Name="Data" Mode="In" Type="Binary" />
@@ -4728,7 +4706,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="removeFlag" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="UpdateSiteSettingsGuid">
-            <Parameter Name="guid" Mode="In" Type="Guid" />
+          <Parameter Name="guid" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="UpdateSubmissionDashboardValues">
             <Parameter Name="SubmissionID" Mode="In" Type="Int32" />
@@ -4762,7 +4740,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             <Parameter Name="country" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UserExists">
-            <Parameter Name="puid" Mode="In" Type="Guid" />
+          <Parameter Name="puid" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAllSubmissionsInBrief_Result">
@@ -5046,9 +5024,9 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="mscomwebDBModelStoreContainer" CdmEntityContainer="mscomwebDBEntities">
+        <EntityContainerMapping StorageEntityContainer="mscomwebDBModelStoreContainer" CdmEntityContainer="MsComWebDbContext">
           <EntitySetMapping Name="ApplicationInGalleries">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ApplicationInGallery">
+            <EntityTypeMapping TypeName="WebGallery.Models.ApplicationInGallery">
               <MappingFragment StoreEntitySet="ApplicationInGallery">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="GalleryTypeID" ColumnName="GalleryTypeID" />
@@ -5056,7 +5034,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ArchitectureTypes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ArchitectureType">
+            <EntityTypeMapping TypeName="WebGallery.Models.ArchitectureType">
               <MappingFragment StoreEntitySet="ArchitectureTypes">
                 <ScalarProperty Name="ArchitectureTypeID" ColumnName="ArchitectureTypeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5064,7 +5042,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BlogPosts">
-            <EntityTypeMapping TypeName="mscomwebDBModel.BlogPost">
+            <EntityTypeMapping TypeName="WebGallery.Models.BlogPost">
               <MappingFragment StoreEntitySet="BlogPosts">
                 <ScalarProperty Name="BlogPostsId" ColumnName="BlogPostsId" />
                 <ScalarProperty Name="BlogPostsXml" ColumnName="BlogPostsXml" />
@@ -5073,7 +5051,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChapterLogs">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ChapterLog">
+            <EntityTypeMapping TypeName="WebGallery.Models.ChapterLog">
               <MappingFragment StoreEntitySet="ChapterLog">
                 <ScalarProperty Name="ChapterLogId" ColumnName="ChapterLogId" />
                 <ScalarProperty Name="TrainingLogId" ColumnName="TrainingLogId" />
@@ -5083,7 +5061,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CommentModerations">
-            <EntityTypeMapping TypeName="mscomwebDBModel.CommentModeration">
+            <EntityTypeMapping TypeName="WebGallery.Models.CommentModeration">
               <MappingFragment StoreEntitySet="CommentModeration">
                 <ScalarProperty Name="CommentModerationId" ColumnName="CommentModerationId" />
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
@@ -5092,7 +5070,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Comment">
+            <EntityTypeMapping TypeName="WebGallery.Models.Comment">
               <MappingFragment StoreEntitySet="Comments">
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
@@ -5103,7 +5081,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ContentIndexes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ContentIndex">
+            <EntityTypeMapping TypeName="WebGallery.Models.ContentIndex">
               <MappingFragment StoreEntitySet="ContentIndex">
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
@@ -5113,7 +5091,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DatabaseServers">
-            <EntityTypeMapping TypeName="mscomwebDBModel.DatabaseServer">
+            <EntityTypeMapping TypeName="WebGallery.Models.DatabaseServer">
               <MappingFragment StoreEntitySet="DatabaseServers">
                 <ScalarProperty Name="DatabaseServerID" ColumnName="DatabaseServerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5122,7 +5100,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DirectContactMethods">
-            <EntityTypeMapping TypeName="mscomwebDBModel.DirectContactMethod">
+            <EntityTypeMapping TypeName="WebGallery.Models.DirectContactMethod">
               <MappingFragment StoreEntitySet="DirectContactMethods">
                 <ScalarProperty Name="DirectContactMethodID" ColumnName="DirectContactMethodID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5130,7 +5108,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FrameworksAndRuntimes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.FrameworksAndRuntime">
+            <EntityTypeMapping TypeName="WebGallery.Models.FrameworksAndRuntime">
               <MappingFragment StoreEntitySet="FrameworksAndRuntimes">
                 <ScalarProperty Name="FrameworkOrRuntimeID" ColumnName="FrameworkOrRuntimeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5139,7 +5117,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GalleryTypes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.GalleryType">
+            <EntityTypeMapping TypeName="WebGallery.Models.GalleryType">
               <MappingFragment StoreEntitySet="GalleryType">
                 <ScalarProperty Name="GalleryTypeID" ColumnName="GalleryTypeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5147,7 +5125,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_ActiveStatus">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_ActiveStatus">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_ActiveStatus">
               <MappingFragment StoreEntitySet="Hosters_ActiveStatus">
                 <ScalarProperty Name="ActiveStatusId" ColumnName="ActiveStatusId" />
                 <ScalarProperty Name="ActiveStatusType" ColumnName="ActiveStatusType" />
@@ -5155,7 +5133,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Admin">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Admin">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Admin">
               <MappingFragment StoreEntitySet="Hosters_Admin">
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -5164,7 +5142,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_City">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_City">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_City">
               <MappingFragment StoreEntitySet="Hosters_City">
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
@@ -5176,7 +5154,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CloudOfferCategory">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CloudOfferCategory">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CloudOfferCategory">
               <MappingFragment StoreEntitySet="Hosters_CloudOfferCategory">
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5185,7 +5163,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CloudOfferCategoryDetail">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CloudOfferCategoryDetail">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CloudOfferCategoryDetail">
               <MappingFragment StoreEntitySet="Hosters_CloudOfferCategoryDetail">
                 <ScalarProperty Name="CategoryDetailId" ColumnName="CategoryDetailId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -5195,7 +5173,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CloudOfferXmlPrice">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CloudOfferXmlPrice">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CloudOfferXmlPrice">
               <MappingFragment StoreEntitySet="Hosters_CloudOfferXmlPrice">
                 <ScalarProperty Name="XmlPriceId" ColumnName="XmlPriceId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5204,7 +5182,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Country">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Country">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Country">
               <MappingFragment StoreEntitySet="Hosters_Country">
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="RegionId" ColumnName="RegionId" />
@@ -5216,7 +5194,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CustomFeature">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CustomFeature">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CustomFeature">
               <MappingFragment StoreEntitySet="Hosters_CustomFeature">
                 <ScalarProperty Name="CustomFeatureId" ColumnName="CustomFeatureId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5227,7 +5205,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CustomField">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CustomField">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CustomField">
               <MappingFragment StoreEntitySet="Hosters_CustomField">
                 <ScalarProperty Name="CustomFieldId" ColumnName="CustomFieldId" />
                 <ScalarProperty Name="CustomFieldName" ColumnName="CustomFieldName" />
@@ -5244,7 +5222,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CustomFieldDomainValue">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CustomFieldDomainValue">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CustomFieldDomainValue">
               <MappingFragment StoreEntitySet="Hosters_CustomFieldDomainValue">
                 <ScalarProperty Name="CustomFieldDomainId" ColumnName="CustomFieldDomainId" />
                 <ScalarProperty Name="CustomFieldId" ColumnName="CustomFieldId" />
@@ -5258,7 +5236,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_CustomFieldType">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_CustomFieldType">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_CustomFieldType">
               <MappingFragment StoreEntitySet="Hosters_CustomFieldType">
                 <ScalarProperty Name="CustomFieldTypeId" ColumnName="CustomFieldTypeId" />
                 <ScalarProperty Name="CustomFieldTypeName" ColumnName="CustomFieldTypeName" />
@@ -5266,7 +5244,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_ExceptionDetail">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_ExceptionDetail">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_ExceptionDetail">
               <MappingFragment StoreEntitySet="Hosters_ExceptionDetail">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Message" ColumnName="Message" />
@@ -5276,7 +5254,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_FeaturedOffer">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_FeaturedOffer">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_FeaturedOffer">
               <MappingFragment StoreEntitySet="Hosters_FeaturedOffer">
                 <ScalarProperty Name="FeaturedOfferId" ColumnName="FeaturedOfferId" />
                 <ScalarProperty Name="OfferID" ColumnName="OfferID" />
@@ -5288,7 +5266,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_HostingProviderDetail">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_HostingProviderDetail">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_HostingProviderDetail">
               <MappingFragment StoreEntitySet="Hosters_HostingProviderDetail">
                 <ScalarProperty Name="HosterId" ColumnName="HosterId" />
                 <ScalarProperty Name="HostingProviderName" ColumnName="HostingProviderName" />
@@ -5317,7 +5295,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_HostingProviderLogo">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_HostingProviderLogo">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_HostingProviderLogo">
               <MappingFragment StoreEntitySet="Hosters_HostingProviderLogo">
                 <ScalarProperty Name="HostingProviderLogoID" ColumnName="HostingProviderLogoID" />
                 <ScalarProperty Name="HostingProviderID" ColumnName="HostingProviderID" />
@@ -5326,7 +5304,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_HostingProviderOwner">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_HostingProviderOwner">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_HostingProviderOwner">
               <MappingFragment StoreEntitySet="Hosters_HostingProviderOwner">
                 <ScalarProperty Name="HostingProviderOwnerId" ColumnName="HostingProviderOwnerId" />
                 <ScalarProperty Name="HosterId" ColumnName="HosterId" />
@@ -5339,7 +5317,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_HostingType">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_HostingType">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_HostingType">
               <MappingFragment StoreEntitySet="Hosters_HostingType">
                 <ScalarProperty Name="HostingTypeId" ColumnName="HostingTypeId" />
                 <ScalarProperty Name="HostingType" ColumnName="HostingType" />
@@ -5349,7 +5327,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_HostingTypeTileField">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_HostingTypeTileField">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_HostingTypeTileField">
               <MappingFragment StoreEntitySet="Hosters_HostingTypeTileField">
                 <ScalarProperty Name="HostingTypeTileFieldId" ColumnName="HostingTypeTileFieldId" />
                 <ScalarProperty Name="TileFieldId" ColumnName="TileFieldId" />
@@ -5361,7 +5339,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Language">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Language">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Language">
               <MappingFragment StoreEntitySet="Hosters_Language">
                 <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
                 <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
@@ -5370,7 +5348,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_LocalisedCustomFields">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_LocalisedCustomFields">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_LocalisedCustomFields">
               <MappingFragment StoreEntitySet="Hosters_LocalisedCustomFields">
                 <ScalarProperty Name="LocalisedCustomFieldId" ColumnName="LocalisedCustomFieldId" />
                 <ScalarProperty Name="CustomFieldId" ColumnName="CustomFieldId" />
@@ -5380,7 +5358,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferActiveStatus">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferActiveStatus">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferActiveStatus">
               <MappingFragment StoreEntitySet="Hosters_OfferActiveStatus">
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="ActiveStatusType" ColumnName="ActiveStatusType" />
@@ -5388,7 +5366,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferCountry">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferCountry">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferCountry">
               <MappingFragment StoreEntitySet="Hosters_OfferCountry">
                 <ScalarProperty Name="OfferCountryId" ColumnName="OfferCountryId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5399,7 +5377,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferCountryAdminExclude">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferCountryAdminExclude">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferCountryAdminExclude">
               <MappingFragment StoreEntitySet="Hosters_OfferCountryAdminExclude">
                 <ScalarProperty Name="OfferCountryId" ColumnName="OfferCountryId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5409,7 +5387,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferCustomFieldValue">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferCustomFieldValue">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferCustomFieldValue">
               <MappingFragment StoreEntitySet="Hosters_OfferCustomFieldValue">
                 <ScalarProperty Name="OfferCustomFieldValueId" ColumnName="OfferCustomFieldValueId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5421,7 +5399,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferPriceFrequency">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferPriceFrequency">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferPriceFrequency">
               <MappingFragment StoreEntitySet="Hosters_OfferPriceFrequency">
                 <ScalarProperty Name="OfferPriceFrequencyId" ColumnName="OfferPriceFrequencyId" />
                 <ScalarProperty Name="OfferPriceFrequencyText" ColumnName="OfferPriceFrequencyText" />
@@ -5429,7 +5407,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_OfferProfile">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_OfferProfile">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_OfferProfile">
               <MappingFragment StoreEntitySet="Hosters_OfferProfile">
                 <ScalarProperty Name="SerialId" ColumnName="SerialId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5439,7 +5417,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Offers">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Offers">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Offers">
               <MappingFragment StoreEntitySet="Hosters_Offers">
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
                 <ScalarProperty Name="HosterId" ColumnName="HosterId" />
@@ -5477,7 +5455,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_PartnerTypes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_PartnerTypes">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_PartnerTypes">
               <MappingFragment StoreEntitySet="Hosters_PartnerTypes">
                 <ScalarProperty Name="PartnerTypeId" ColumnName="PartnerTypeId" />
                 <ScalarProperty Name="PartnerTypeValue" ColumnName="PartnerTypeValue" />
@@ -5485,7 +5463,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Region">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Region">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Region">
               <MappingFragment StoreEntitySet="Hosters_Region">
                 <ScalarProperty Name="RegionId" ColumnName="RegionId" />
                 <ScalarProperty Name="RegionName" ColumnName="RegionName" />
@@ -5493,7 +5471,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Review">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Review">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Review">
               <MappingFragment StoreEntitySet="Hosters_Review">
                 <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5508,7 +5486,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_State">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_State">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_State">
               <MappingFragment StoreEntitySet="Hosters_State">
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
@@ -5519,7 +5497,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_TargetedCountry">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_TargetedCountry">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_TargetedCountry">
               <MappingFragment StoreEntitySet="Hosters_TargetedCountry">
                 <ScalarProperty Name="SerialId" ColumnName="SerialId" />
                 <ScalarProperty Name="HosterId" ColumnName="HosterId" />
@@ -5528,7 +5506,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_TileFields">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_TileFields">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_TileFields">
               <MappingFragment StoreEntitySet="Hosters_TileFields">
                 <ScalarProperty Name="TileFieldId" ColumnName="TileFieldId" />
                 <ScalarProperty Name="TileFieldName" ColumnName="TileFieldName" />
@@ -5537,7 +5515,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hosters_Validation">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Hosters_Validation">
+            <EntityTypeMapping TypeName="WebGallery.Models.Hosters_Validation">
               <MappingFragment StoreEntitySet="Hosters_Validation">
                 <ScalarProperty Name="ValidationId" ColumnName="ValidationId" />
                 <ScalarProperty Name="ValidationType" ColumnName="ValidationType" />
@@ -5546,7 +5524,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Packages">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Package">
+            <EntityTypeMapping TypeName="WebGallery.Models.Package">
               <MappingFragment StoreEntitySet="Packages">
                 <ScalarProperty Name="PackageID" ColumnName="PackageID" />
                 <ScalarProperty Name="ArchitectureTypeID" ColumnName="ArchitectureTypeID" />
@@ -5561,7 +5539,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PageViews">
-            <EntityTypeMapping TypeName="mscomwebDBModel.PageView">
+            <EntityTypeMapping TypeName="WebGallery.Models.PageView">
               <MappingFragment StoreEntitySet="PageViews">
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
@@ -5571,7 +5549,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductOrAppCategories">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ProductOrAppCategory">
+            <EntityTypeMapping TypeName="WebGallery.Models.ProductOrAppCategory">
               <MappingFragment StoreEntitySet="ProductOrAppCategories">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5579,7 +5557,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductOrAppImages">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ProductOrAppImage">
+            <EntityTypeMapping TypeName="WebGallery.Models.ProductOrAppImage">
               <MappingFragment StoreEntitySet="ProductOrAppImages">
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
                 <ScalarProperty Name="ImageGUID" ColumnName="ImageGUID" />
@@ -5588,7 +5566,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PullQuotes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.PullQuote">
+            <EntityTypeMapping TypeName="WebGallery.Models.PullQuote">
               <MappingFragment StoreEntitySet="PullQuotes">
                 <ScalarProperty Name="PullQuotesId" ColumnName="PullQuotesId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5599,7 +5577,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ratings">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Rating">
+            <EntityTypeMapping TypeName="WebGallery.Models.Rating">
               <MappingFragment StoreEntitySet="Ratings">
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
@@ -5609,7 +5587,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Submissions">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Submission">
+            <EntityTypeMapping TypeName="WebGallery.Models.Submission">
               <MappingFragment StoreEntitySet="Submissions">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
@@ -5641,7 +5619,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionsStatus">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionsStatu">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionsStatu">
               <MappingFragment StoreEntitySet="SubmissionsStatus">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="SubmissionStateID" ColumnName="SubmissionStateID" />
@@ -5649,7 +5627,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionStates">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionState">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionState">
               <MappingFragment StoreEntitySet="SubmissionStates">
                 <ScalarProperty Name="SubmissionStateID" ColumnName="SubmissionStateID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5659,7 +5637,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionTransactions">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionTransaction">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionTransaction">
               <MappingFragment StoreEntitySet="SubmissionTransactions">
                 <ScalarProperty Name="SubmissionTransactionID" ColumnName="SubmissionTransactionID" />
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
@@ -5670,7 +5648,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionTransactionTypes">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionTransactionType">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionTransactionType">
               <MappingFragment StoreEntitySet="SubmissionTransactionTypes">
                 <ScalarProperty Name="SubmissionTaskID" ColumnName="SubmissionTaskID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5678,7 +5656,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Submitters">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Submitter">
+            <EntityTypeMapping TypeName="WebGallery.Models.Submitter">
               <MappingFragment StoreEntitySet="Submitters">
                 <ScalarProperty Name="SubmitterID" ColumnName="SubmitterID" />
                 <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
@@ -5688,7 +5666,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmittersContactDetails">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmittersContactDetail">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmittersContactDetail">
               <MappingFragment StoreEntitySet="SubmittersContactDetails">
                 <ScalarProperty Name="SubmitterID" ColumnName="SubmitterID" />
                 <ScalarProperty Name="Prefix" ColumnName="Prefix" />
@@ -5713,7 +5691,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TagClicks">
-            <EntityTypeMapping TypeName="mscomwebDBModel.TagClick">
+            <EntityTypeMapping TypeName="WebGallery.Models.TagClick">
               <MappingFragment StoreEntitySet="TagClicks">
                 <ScalarProperty Name="TagClicksId" ColumnName="TagClicksId" />
                 <ScalarProperty Name="Tag" ColumnName="Tag" />
@@ -5724,7 +5702,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tags">
-            <EntityTypeMapping TypeName="mscomwebDBModel.Tag">
+            <EntityTypeMapping TypeName="WebGallery.Models.Tag">
               <MappingFragment StoreEntitySet="Tags">
                 <ScalarProperty Name="TagsId" ColumnName="TagsId" />
                 <ScalarProperty Name="Tag1" ColumnName="Tag" />
@@ -5734,7 +5712,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TrainingLogs">
-            <EntityTypeMapping TypeName="mscomwebDBModel.TrainingLog">
+            <EntityTypeMapping TypeName="WebGallery.Models.TrainingLog">
               <MappingFragment StoreEntitySet="TrainingLog">
                 <ScalarProperty Name="TrainingLogId" ColumnName="TrainingLogId" />
                 <ScalarProperty Name="DateLoaded" ColumnName="DateLoaded" />
@@ -5745,7 +5723,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="mscomwebDBModel.User">
+            <EntityTypeMapping TypeName="WebGallery.Models.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
@@ -5769,7 +5747,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WapCommunitySignups">
-            <EntityTypeMapping TypeName="mscomwebDBModel.WapCommunitySignup">
+            <EntityTypeMapping TypeName="WebGallery.Models.WapCommunitySignup">
               <MappingFragment StoreEntitySet="WapCommunitySignups">
                 <ScalarProperty Name="RecordId" ColumnName="RecordId" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
@@ -5785,7 +5763,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WebServerExtensions">
-            <EntityTypeMapping TypeName="mscomwebDBModel.WebServerExtension">
+            <EntityTypeMapping TypeName="WebGallery.Models.WebServerExtension">
               <MappingFragment StoreEntitySet="WebServerExtensions">
                 <ScalarProperty Name="WebServerExtensionID" ColumnName="WebServerExtensionID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5794,7 +5772,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AppDownloadStats">
-            <EntityTypeMapping TypeName="mscomwebDBModel.AppDownloadStat">
+            <EntityTypeMapping TypeName="WebGallery.Models.AppDownloadStat">
               <MappingFragment StoreEntitySet="AppDownloadStats">
                 <ScalarProperty Name="When" ColumnName="When" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
@@ -5808,7 +5786,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIDs">
-            <EntityTypeMapping TypeName="mscomwebDBModel.PID">
+            <EntityTypeMapping TypeName="WebGallery.Models.PID">
               <MappingFragment StoreEntitySet="PID">
                 <ScalarProperty Name="PID_ID" ColumnName="PID_ID" />
                 <ScalarProperty Name="PID1" ColumnName="PID" />
@@ -5819,7 +5797,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProdDownloadStats">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ProdDownloadStat">
+            <EntityTypeMapping TypeName="WebGallery.Models.ProdDownloadStat">
               <MappingFragment StoreEntitySet="ProdDownloadStats">
                 <ScalarProperty Name="When" ColumnName="When" />
                 <ScalarProperty Name="ProdID" ColumnName="ProdID" />
@@ -5833,7 +5811,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProdDownloadStatsINVALIDs">
-            <EntityTypeMapping TypeName="mscomwebDBModel.ProdDownloadStatsINVALID">
+            <EntityTypeMapping TypeName="WebGallery.Models.ProdDownloadStatsINVALID">
               <MappingFragment StoreEntitySet="ProdDownloadStatsINVALID">
                 <ScalarProperty Name="When" ColumnName="When" />
                 <ScalarProperty Name="ProdID" ColumnName="ProdID" />
@@ -5847,8 +5825,9 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionLocalizedMetaDatas">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionLocalizedMetaData">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionLocalizedMetaData">
               <MappingFragment StoreEntitySet="SubmissionLocalizedMetaData">
+                <ScalarProperty Name="MetadataID" ColumnName="MetadataID" />
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -5858,7 +5837,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionOwners">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionOwner">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionOwner">
               <MappingFragment StoreEntitySet="SubmissionOwners">
                 <ScalarProperty Name="SubmissionOwnerID" ColumnName="SubmissionOwnerID" />
                 <ScalarProperty Name="SubmitterID" ColumnName="SubmitterID" />
@@ -5867,7 +5846,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UnconfirmedSubmissionOwners">
-            <EntityTypeMapping TypeName="mscomwebDBModel.UnconfirmedSubmissionOwner">
+            <EntityTypeMapping TypeName="WebGallery.Models.UnconfirmedSubmissionOwner">
               <MappingFragment StoreEntitySet="UnconfirmedSubmissionOwners">
                 <ScalarProperty Name="UnconfirmedSubmissionOwnerID" ColumnName="UnconfirmedSubmissionOwnerID" />
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
@@ -5880,7 +5859,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AvgApplicationRatings">
-            <EntityTypeMapping TypeName="mscomwebDBModel.AvgApplicationRating">
+            <EntityTypeMapping TypeName="WebGallery.Models.AvgApplicationRating">
               <MappingFragment StoreEntitySet="AvgApplicationRating">
                 <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
                 <ScalarProperty Name="PreciseAvgRating" ColumnName="PreciseAvgRating" />
@@ -5890,7 +5869,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HostersV_OfferCountryAdminExclude">
-            <EntityTypeMapping TypeName="mscomwebDBModel.HostersV_OfferCountryAdminExclude">
+            <EntityTypeMapping TypeName="WebGallery.Models.HostersV_OfferCountryAdminExclude">
               <MappingFragment StoreEntitySet="HostersV_OfferCountryAdminExclude">
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
@@ -5902,7 +5881,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubmissionStateAlls">
-            <EntityTypeMapping TypeName="mscomwebDBModel.SubmissionStateAll">
+            <EntityTypeMapping TypeName="WebGallery.Models.SubmissionStateAll">
               <MappingFragment StoreEntitySet="SubmissionStateAll">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="SubmissionStateID" ColumnName="SubmissionStateID" />
@@ -5914,14 +5893,14 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </EntitySetMapping>
           <FunctionImportMapping FunctionName="mscomwebDBModel.Store.fnSplit" FunctionImportName="fnSplit">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.fnSplit_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.fnSplit_Result">
                 <ScalarProperty Name="item" ColumnName="item" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionName="mscomwebDBModel.Store.Split" FunctionImportName="Split">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.Split_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.Split_Result">
                 <ScalarProperty Name="Value" ColumnName="Value" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -5941,7 +5920,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="GetAllProdDownloadCounts" FunctionName="mscomwebDBModel.Store.GetAllProdDownloadCounts" />
           <FunctionImportMapping FunctionImportName="GetAllSubmissionsInBrief" FunctionName="mscomwebDBModel.Store.GetAllSubmissionsInBrief">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetAllSubmissionsInBrief_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetAllSubmissionsInBrief_Result">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
@@ -5977,7 +5956,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="GetBlogTag" FunctionName="mscomwebDBModel.Store.GetBlogTag" />
           <FunctionImportMapping FunctionImportName="GetComments" FunctionName="mscomwebDBModel.Store.GetComments">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetComments_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetComments_Result">
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -5991,7 +5970,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetContactDetails" FunctionName="mscomwebDBModel.Store.GetContactDetails">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetContactDetails_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetContactDetails_Result">
                 <ScalarProperty Name="SubmitterID" ColumnName="SubmitterID" />
                 <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
                 <ScalarProperty Name="PersonalIDType" ColumnName="PersonalIDType" />
@@ -6018,7 +5997,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetDashboardOffers" FunctionName="mscomwebDBModel.Store.GetDashboardOffers">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetDashboardOffers_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetDashboardOffers_Result">
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
                 <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -6033,7 +6012,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetFeaturedOffersForHostingType" FunctionName="mscomwebDBModel.Store.GetFeaturedOffersForHostingType">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetFeaturedOffersForHostingType_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetFeaturedOffersForHostingType_Result">
                 <ScalarProperty Name="offerid" ColumnName="offerid" />
                 <ScalarProperty Name="weightvalue" ColumnName="weightvalue" />
                 <ScalarProperty Name="HostingTypeID" ColumnName="HostingTypeID" />
@@ -6042,7 +6021,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetFeaturedOffersSet" FunctionName="mscomwebDBModel.Store.GetFeaturedOffersSet">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetFeaturedOffersSet_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetFeaturedOffersSet_Result">
                 <ScalarProperty Name="OfferId" ColumnName="OfferId" />
                 <ScalarProperty Name="WeightValue" ColumnName="WeightValue" />
                 <ScalarProperty Name="HostingTypeID" ColumnName="HostingTypeID" />
@@ -6052,7 +6031,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="GetHosterLogoImage" FunctionName="mscomwebDBModel.Store.GetHosterLogoImage" />
           <FunctionImportMapping FunctionImportName="GetImage" FunctionName="mscomwebDBModel.Store.GetImage">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetImage_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetImage_Result">
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
                 <ScalarProperty Name="ImageGUID" ColumnName="ImageGUID" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
@@ -6061,7 +6040,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetMySubmissionsInBrief" FunctionName="mscomwebDBModel.Store.GetMySubmissionsInBrief">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetMySubmissionsInBrief_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetMySubmissionsInBrief_Result">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
@@ -6098,7 +6077,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="GetProdDownloadCount" FunctionName="mscomwebDBModel.Store.GetProdDownloadCount" />
           <FunctionImportMapping FunctionImportName="GetRelatedTags" FunctionName="mscomwebDBModel.Store.GetRelatedTags">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetRelatedTags_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetRelatedTags_Result">
                 <ScalarProperty Name="tag" ColumnName="tag" />
                 <ScalarProperty Name="matches" ColumnName="matches" />
               </ComplexTypeMapping>
@@ -6108,7 +6087,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="GetSearchDataNew" FunctionName="mscomwebDBModel.Store.GetSearchDataNew" />
           <FunctionImportMapping FunctionImportName="GetSliderValues" FunctionName="mscomwebDBModel.Store.GetSliderValues">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetSliderValues_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetSliderValues_Result">
                 <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
                 <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
                 <ScalarProperty Name="MinBandwidth" ColumnName="MinBandwidth" />
@@ -6131,7 +6110,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetSubmittedDataForProductOrApp" FunctionName="mscomwebDBModel.Store.GetSubmittedDataForProductOrApp">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetSubmittedDataForProductOrApp_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetSubmittedDataForProductOrApp_Result">
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
@@ -6172,7 +6151,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTag" FunctionName="mscomwebDBModel.Store.GetTag">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetTag_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetTag_Result">
                 <ScalarProperty Name="Tag" ColumnName="Tag" />
                 <ScalarProperty Name="TagType" ColumnName="TagType" />
               </ComplexTypeMapping>
@@ -6180,7 +6159,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTransactions" FunctionName="mscomwebDBModel.Store.GetTransactions">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetTransactions_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetTransactions_Result">
                 <ScalarProperty Name="SubmissionTransactionID" ColumnName="SubmissionTransactionID" />
                 <ScalarProperty Name="SubmissionTaskID" ColumnName="SubmissionTaskID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -6191,7 +6170,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTransactionTypes" FunctionName="mscomwebDBModel.Store.GetTransactionTypes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.GetTransactionTypes_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.GetTransactionTypes_Result">
                 <ScalarProperty Name="SubmissionTaskID" ColumnName="SubmissionTaskID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </ComplexTypeMapping>
@@ -6216,7 +6195,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="ResetTagClick" FunctionName="mscomwebDBModel.Store.ResetTagClick" />
           <FunctionImportMapping FunctionImportName="SelectAllReportingTables" FunctionName="mscomwebDBModel.Store.SelectAllReportingTables">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectAllReportingTables_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectAllReportingTables_Result">
                 <ScalarProperty Name="TrainingLogId" ColumnName="TrainingLogId" />
                 <ScalarProperty Name="DateLoaded" ColumnName="DateLoaded" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
@@ -6229,7 +6208,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectBlogPostsLastUpdated" FunctionName="mscomwebDBModel.Store.SelectBlogPostsLastUpdated" />
           <FunctionImportMapping FunctionImportName="SelectChapterLog" FunctionName="mscomwebDBModel.Store.SelectChapterLog">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectChapterLog_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectChapterLog_Result">
                 <ScalarProperty Name="ChapterLogId" ColumnName="ChapterLogId" />
                 <ScalarProperty Name="TrainingLogId" ColumnName="TrainingLogId" />
                 <ScalarProperty Name="Chapter" ColumnName="Chapter" />
@@ -6240,7 +6219,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectCommentCount" FunctionName="mscomwebDBModel.Store.SelectCommentCount" />
           <FunctionImportMapping FunctionImportName="SelectComments" FunctionName="mscomwebDBModel.Store.SelectComments">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectComments_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectComments_Result">
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -6254,7 +6233,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectContentByTag" FunctionName="mscomwebDBModel.Store.SelectContentByTag" />
           <FunctionImportMapping FunctionImportName="SelectContentCounts" FunctionName="mscomwebDBModel.Store.SelectContentCounts">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectContentCounts_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectContentCounts_Result">
                 <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
                 <ScalarProperty Name="PageViewCount" ColumnName="PageViewCount" />
                 <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
@@ -6264,7 +6243,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectContentItems" FunctionName="mscomwebDBModel.Store.SelectContentItems" />
           <FunctionImportMapping FunctionImportName="SelectContentItemsAll" FunctionName="mscomwebDBModel.Store.SelectContentItemsAll">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectContentItemsAll_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectContentItemsAll_Result">
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -6275,7 +6254,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectContentItemsExclude" FunctionName="mscomwebDBModel.Store.SelectContentItemsExclude" />
           <FunctionImportMapping FunctionImportName="SelectFeaturedContent" FunctionName="mscomwebDBModel.Store.SelectFeaturedContent">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectFeaturedContent_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectFeaturedContent_Result">
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -6285,7 +6264,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectPageViews" FunctionName="mscomwebDBModel.Store.SelectPageViews">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectPageViews_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectPageViews_Result">
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
@@ -6296,7 +6275,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectPublicUsers" FunctionName="mscomwebDBModel.Store.SelectPublicUsers" />
           <FunctionImportMapping FunctionImportName="SelectRandomPullQuote" FunctionName="mscomwebDBModel.Store.SelectRandomPullQuote">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectRandomPullQuote_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectRandomPullQuote_Result">
                 <ScalarProperty Name="PullQuotesId" ColumnName="PullQuotesId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Quote" ColumnName="Quote" />
@@ -6311,7 +6290,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           <FunctionImportMapping FunctionImportName="SelectTags" FunctionName="mscomwebDBModel.Store.SelectTags" />
           <FunctionImportMapping FunctionImportName="SelectTopFeaturedContents" FunctionName="mscomwebDBModel.Store.SelectTopFeaturedContents">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectTopFeaturedContents_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectTopFeaturedContents_Result">
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="Isfeatured" ColumnName="Isfeatured" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -6321,7 +6300,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectTopTags" FunctionName="mscomwebDBModel.Store.SelectTopTags">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectTopTags_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectTopTags_Result">
                 <ScalarProperty Name="Tag" ColumnName="Tag" />
                 <ScalarProperty Name="TagCount" ColumnName="TagCount" />
               </ComplexTypeMapping>
@@ -6329,7 +6308,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectTrainingLog" FunctionName="mscomwebDBModel.Store.SelectTrainingLog">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectTrainingLog_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectTrainingLog_Result">
                 <ScalarProperty Name="TrainingLogId" ColumnName="TrainingLogId" />
                 <ScalarProperty Name="DateLoaded" ColumnName="DateLoaded" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
@@ -6340,7 +6319,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.SubmissionStateAll' does not have a
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectUser" FunctionName="mscomwebDBModel.Store.SelectUser">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="mscomwebDBModel.SelectUser_Result">
+              <ComplexTypeMapping TypeName="WebGallery.Models.SelectUser_Result">
                 <ScalarProperty Name="Puid" ColumnName="Puid" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="DateLastAccessed" ColumnName="DateLastAccessed" />

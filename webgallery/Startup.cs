@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(webgallery.Startup))]
-namespace webgallery
+[assembly: OwinStartupAttribute(typeof(WebGallery.Startup))]
+namespace WebGallery
 {
     public partial class Startup
     {

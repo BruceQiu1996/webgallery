@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     public class Language
     {
@@ -22,7 +22,7 @@ namespace webgallery.Models
                        let siblingsExist = supportedCultures.Any(a => a.Parent.Name == c.Parent.Name && a.Name != c.Name)
                        select new Language
                        {
-                           Name = c.Name,
+                           Name = c.Name.ToLower(),
                            CultureInfo = c,
                            ShortDisplayName = siblingsExist ? c.DisplayName : c.Parent.DisplayName,
                            TextDirection = c.TextInfo.IsRightToLeft ? Right_To_Left : Left_To_Right
