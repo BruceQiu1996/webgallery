@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     using System;
     

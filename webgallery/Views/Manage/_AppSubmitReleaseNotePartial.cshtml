@@ -1,4 +1,4 @@
-﻿@model webgallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmissionViewModel
 
 <h2 id="ReleaseNotes">Provide Release Notes:</h2>
 <div class="submission-form-section">
@@ -126,7 +126,7 @@
             <div class="tab_body">
                 <div>
                     @{ 
-                        var logo = Model.Logo ?? new webgallery.Models.ProductOrAppImage {
+                        var logo = Model.Logo ?? new WebGallery.Models.ProductOrAppImage {
                             ImageID = 0,
                             ImageGUID = Guid.Empty
                         };

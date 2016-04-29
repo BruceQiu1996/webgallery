@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     using System;
     using System.Data.Entity;
@@ -15,10 +15,10 @@ namespace webgallery.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class mscomwebDBEntitiesDB : DbContext
+    public partial class MsComWebDbContext : DbContext
     {
-        public mscomwebDBEntitiesDB()
-            : base("name=mscomwebDBEntitiesDB")
+        public MsComWebDbContext()
+            : base("name=MsComWebDbContext")
         {
         }
     
@@ -102,7 +102,7 @@ namespace webgallery.Models
         public virtual DbSet<HostersV_OfferCountryAdminExclude> HostersV_OfferCountryAdminExclude { get; set; }
         public virtual DbSet<SubmissionStateAll> SubmissionStateAlls { get; set; }
     
-        [DbFunction("mscomwebDBEntitiesDB", "fnSplit")]
+        [DbFunction("MsComWebDbContext", "fnSplit")]
         public virtual IQueryable<fnSplit_Result> fnSplit(string sInputList, string sDelimiter)
         {
             var sInputListParameter = sInputList != null ?
@@ -113,10 +113,10 @@ namespace webgallery.Models
                 new ObjectParameter("sDelimiter", sDelimiter) :
                 new ObjectParameter("sDelimiter", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnSplit_Result>("[mscomwebDBEntitiesDB].[fnSplit](@sInputList, @sDelimiter)", sInputListParameter, sDelimiterParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnSplit_Result>("[MsComWebDbContext].[fnSplit](@sInputList, @sDelimiter)", sInputListParameter, sDelimiterParameter);
         }
     
-        [DbFunction("mscomwebDBEntitiesDB", "Split")]
+        [DbFunction("MsComWebDbContext", "Split")]
         public virtual IQueryable<Split_Result> Split(string @string, string delimiter)
         {
             var stringParameter = @string != null ?
@@ -127,7 +127,7 @@ namespace webgallery.Models
                 new ObjectParameter("Delimiter", delimiter) :
                 new ObjectParameter("Delimiter", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Split_Result>("[mscomwebDBEntitiesDB].[Split](@String, @Delimiter)", stringParameter, delimiterParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Split_Result>("[MsComWebDbContext].[Split](@String, @Delimiter)", stringParameter, delimiterParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> AddOrChangeProductOrApp(Nullable<int> submissionID, string nickname, string version, string submittingEntity, string submittingEntityURL, string appURL, string supportURL, Nullable<System.DateTime> releaseDate, Nullable<int> frameworkOrRuntimeID, string databaseServerIDs, string webServerExtensionIDs, Nullable<int> categoryID1, Nullable<int> categoryID2, byte[] logoBits, Nullable<System.Guid> logoGUID, byte[] screenshotBits1, Nullable<System.Guid> screenshotGUID1, byte[] screenshotBits2, Nullable<System.Guid> screenshotGUID2, byte[] screenshotBits3, Nullable<System.Guid> screenshotGUID3, byte[] screenshotBits4, Nullable<System.Guid> screenshotGUID4, byte[] screenshotBits5, Nullable<System.Guid> screenshotGUID5, byte[] screenshotBits6, Nullable<System.Guid> screenshotGUID6, string professionalServicesURL, string commercialProductURL, Nullable<bool> agreedToTerms, string additionalInfo)

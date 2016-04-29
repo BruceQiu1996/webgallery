@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
     public class Language
     {

@@ -1,4 +1,4 @@
-﻿@model webgallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmissionViewModel
 
 <h2 id="PackageInfo">Provide Package Information:</h2>
 <h3>Package details are required for at least one language.</h3>
@@ -28,7 +28,7 @@
             {
                 var lang = ViewBag.Languages[i];
                 var package = Model.Packages.FirstOrDefault(p => string.Compare(p.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                    ?? new webgallery.Models.Package {
+                    ?? new WebGallery.Models.Package {
                         PackageID = 0,
                         ArchitectureTypeID = 1, // 1 for X86, and only X86 is supported.
                         PackageURL = string.Empty,
@@ -209,7 +209,8 @@
                     <select size="7" name="Submission.WebServerExtensionIDs" id="WebServerExtensions" multiple="multiple">
                         @foreach (var extension in ViewBag.WebServerExtensions)
                         {
-                            var extensionIds = from idStr in Model.Submission.WebServerExtensionIDs.Split('|')
+                            var webServerExtensionIDs = Model.Submission.WebServerExtensionIDs ?? string.Empty;
+                            var extensionIds = from idStr in webServerExtensionIDs.Split('|')
                                                select idStr.AsInt();
                             if (extensionIds.Any(id => id == extension.WebServerExtensionID))
                             {

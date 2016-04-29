@@ -8,7 +8,7 @@ using System.Configuration;
 using System.IdentityModel.Tokens;
 using System.Threading.Tasks;
 
-namespace webgallery
+namespace WebGallery
 {
     public partial class Startup
     {

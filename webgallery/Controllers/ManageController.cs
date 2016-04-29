@@ -6,14 +6,14 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using webgallery.Models;
+using WebGallery.Models;
 using System.Collections.Generic;
-using webgallery.ViewModels;
+using WebGallery.ViewModels;
 using System.Text.RegularExpressions;
 using System.Data.Entity;
-using webgallery.Extensions;
+using WebGallery.Extensions;
 
-namespace webgallery.Controllers
+namespace WebGallery.Controllers
 {
     [Authorize]
     public class ManageController : Controller
@@ -88,12 +88,12 @@ namespace webgallery.Controllers
         [Authorize]
         public ActionResult Dashboard()
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                
 
 
-                IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<webgallery.Models.GetAllSubmissionsInBrief_Result>();
+                IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
                 return View("Dashboard", applist);
             }
 
@@ -101,7 +101,7 @@ namespace webgallery.Controllers
         [Authorize]
         public ActionResult PublisherDetails(int id)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
 
                 IEnumerable<SubmissionOwner> owners = db.SubmissionOwners.ToList<SubmissionOwner>();
@@ -141,7 +141,7 @@ namespace webgallery.Controllers
             if (!id.HasValue) return View("Error");
 
             AppSubmissionViewModel model = null;
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 var submission = (from s in db.Submissions
                                   where s.SubmissionID == id
@@ -152,12 +152,20 @@ namespace webgallery.Controllers
                     var logo = from l in db.ProductOrAppImages
                                where l.ImageID == submission.LogoID
                                select l;
-                    var metadata = from m in db.SubmissionLocalizedMetaDatas
-                                   where m.SubmissionID == id
-                                   select m;
-                    var packages = from p in db.Packages
-                                   where p.SubmissionID == id
-                                   select p;
+                    var metadata = from m1 in db.SubmissionLocalizedMetaDatas
+                                   let ids = from m in db.SubmissionLocalizedMetaDatas
+                                             where m.SubmissionID == id
+                                             group m by new { m.SubmissionID, m.Language } into g
+                                             select g.Max(p => p.MetadataID)
+                                   where ids.Contains(m1.MetadataID)
+                                   select m1;
+                    var packages = from p1 in db.Packages
+                                   let ids = from p in db.Packages
+                                             where p.SubmissionID == id
+                                             group p by new { p.SubmissionID, p.Language } into g
+                                             select g.Max(e => e.PackageID)
+                                   where ids.Contains(p1.PackageID)
+                                   select p1;
 
                     model = new AppSubmissionViewModel
                     {
@@ -214,7 +222,7 @@ namespace webgallery.Controllers
 
         private void SaveAppSubmission(AppSubmissionViewModel model)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 var submission = db.Submissions.FirstOrDefault(s => s.SubmissionID == model.Submission.SubmissionID);
                 if (submission == null)
@@ -227,10 +235,10 @@ namespace webgallery.Controllers
                 submission.Updated = DateTime.Now;
 
                 // update metadata
-                UpdateMetadata(db.SubmissionLocalizedMetaDatas, model.MetadataList);
+                UpdateMetadata(db.SubmissionLocalizedMetaDatas, model.MetadataList, model.Submission.SubmissionID);
 
                 // update package information
-                UpdatePackage(db.Packages, model.Packages);
+                UpdatePackage(db.Packages, model.Packages, model.Submission.SubmissionID);
 
                 db.SaveChanges();
 
@@ -246,19 +254,20 @@ namespace webgallery.Controllers
                 db.SubmissionTransactions.Add(new SubmissionTransaction {
                     SubmissionID = model.Submission.SubmissionID,
                     SubmissionTaskID = 1,
-                    Description = description
+                    Description = description,
+                    RecordedAt = DateTime.Now
                 });
                 db.SaveChanges();
             }
         }
 
-        private void UpdatePackage(DbSet<Package> packageDbSet, IEnumerable<Package> packages)
+        private void UpdatePackage(DbSet<Package> packageDbSet, IEnumerable<Package> packages, int submissionId)
         {
+            var packagesInDb = packageDbSet.Where(m => m.SubmissionID == submissionId).ToList();
+
             foreach (var package in packages)
             {
-                var packageInDb = packageDbSet.Where(m => m.SubmissionID == package.SubmissionID && m.Language == package.Language)
-                                                .OrderByDescending(p=>p.PackageID)
-                                                .FirstOrDefault();
+                var packageInDb = packagesInDb.FirstOrDefault(p=>p.PackageID == package.PackageID);
                 if (package.HasCompleteInput()) // if package has complete input
                 {
                     if (packageInDb == null) // if the package doesn't exist in database, insert a new one
@@ -291,11 +300,13 @@ namespace webgallery.Controllers
             }
         }
 
-        private void UpdateMetadata(DbSet<SubmissionLocalizedMetaData> metadataDbSet, IList<SubmissionLocalizedMetaData> metadataList)
+        private void UpdateMetadata(DbSet<SubmissionLocalizedMetaData> metadataDbSet, IList<SubmissionLocalizedMetaData> metadataList, int submissionId)
         {
+            var metadataListInDb = metadataDbSet.Where(m => m.SubmissionID == submissionId).ToList();
+
             foreach(var metadata in metadataList)
             {
-                var metadataInDb = metadataDbSet.FirstOrDefault(m => m.SubmissionID == metadata.SubmissionID && m.Language == metadata.Language);
+                var metadataInDb = metadataListInDb.FirstOrDefault(m => m.MetadataID == metadata.MetadataID);
                 if (metadata.HasCompleteInput()) // if metadata has complete input
                 {
                     if (metadataInDb == null) // if the metadata doesn't exist in database, add a new one
@@ -348,7 +359,7 @@ namespace webgallery.Controllers
 
         private void LoadViewDataForEdit()
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 var categories = from c in db.ProductOrAppCategories
                                  orderby c.Name
@@ -398,7 +409,7 @@ namespace webgallery.Controllers
 
         static private bool ValidateAppIdVersionIsUnique(string appId, string version, int? submissionId)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 var submission = db.Submissions.FirstOrDefault(
                         s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
@@ -417,7 +428,7 @@ namespace webgallery.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (var db = new mscomwebDBEntitiesDB())
+            using (var db = new MsComWebDbContext())
             {
                 IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
 

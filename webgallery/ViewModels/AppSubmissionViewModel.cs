@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using webgallery.Models;
+using WebGallery.Models;
 
-namespace webgallery.ViewModels
+namespace WebGallery.ViewModels
 {
     public class AppSubmissionViewModel
     {

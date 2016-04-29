@@ -1,4 +1,4 @@
-﻿@model webgallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmissionViewModel
 
 <h2 id="Metadata">Describe Your Application:</h2>
 <h3>At least one language is required.</h3>
@@ -28,7 +28,8 @@
             {
                 var lang = ViewBag.Languages[i];
                 var metadata = Model.MetadataList.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                    ?? new webgallery.Models.SubmissionLocalizedMetaData {
+                    ?? new WebGallery.Models.SubmissionLocalizedMetaData {
+                        MetadataID = 0,
                         SubmissionID = Model.Submission.SubmissionID,
                         Language = lang.Name,
                         Name = string.Empty,
@@ -38,6 +39,7 @@
                 var hideOrNot = i > 0 ? "style='display:none'" : string.Empty;
 
                 <div id="metaDataTab_@lang.Name" @Html.Raw(hideOrNot)>
+                    <input type="hidden" name="MetadataList[@i].MetadataID" value="@metadata.MetadataID" />
                     <input type="hidden" name="MetadataList[@i].SubmissionID" value="@metadata.SubmissionID" />
                     <input type="hidden" name="MetadataList[@i].Language" value="@metadata.Language" />
 

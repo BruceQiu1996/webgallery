@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>webgallery</RootNamespace>
-    <AssemblyName>webgallery</AssemblyName>
+    <RootNamespace>WebGallery</RootNamespace>
+    <AssemblyName>WebGallery</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -624,6 +624,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -641,9 +642,15 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-datepicker3.min.css.map" />
     <Content Include="Content\bootstrap-datepicker3.css.map" />
-    <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\webgalleryprod.pubxml" />
+    <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\webgalleryprod.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -726,7 +733,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

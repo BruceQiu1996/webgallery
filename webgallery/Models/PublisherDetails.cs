@@ -1,7 +1,7 @@
 
 using System;
 
-namespace webgallery.Models
+namespace WebGallery.Models
 {
 
     public class PublisherDetails 
