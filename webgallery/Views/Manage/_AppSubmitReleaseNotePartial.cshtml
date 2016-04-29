@@ -2,10 +2,10 @@
 
 <h2 id="ReleaseNotes">Provide Release Notes:</h2>
 <div class="submission-form-section">
-    <input type="hidden" name="SubmissionId" id="SubmissionId" value="@Model.Submission.SubmissionID"/>
+    <input type="hidden" name="Submission.SubmissionID" id="SubmissionId" value="@Model.Submission.SubmissionID"/>
     <div class="clearing">
         <label for="AppId" class="textbox-label">App ID</label>
-        <input type="text" name="AppId" id="AppId" value="@Model.Submission.Nickname" class="textbox" placeholder="Application" 
+        <input type="text" name="Submission.Nickname" id="AppId" value="@Model.Submission.Nickname" class="textbox" placeholder="Application" 
                data-title="App Id" 
                data-msg-required="(*)"
                data-msg-alphanumeric="Alphanumeric only."
@@ -18,18 +18,18 @@
     </div>
     <div class="clearing">
         <label for="Version" class="textbox-label">Version</label>
-        <input type="text" name="Version" id="Version" value="@Model.Submission.Version" class="textbox" placeholder="1.2.3.4" data-title="Version" data-msg-required="(*)"/>
+        <input type="text" name="Submission.Version" id="Version" value="@Model.Submission.Version" class="textbox" placeholder="1.2.3.4" data-title="Version" data-msg-required="(*)"/>
     </div>
     <div class="clearing">
         <label for="SubmittingEntity" class="textbox-label">Submitting Entity</label>
-        <input type="text" name="SubmittingEntity" id="SubmittingEntity" value="@Model.Submission.SubmittingEntity" class="textbox" data-title="Submitting Entity" data-msg-required="(*)"/>
+        <input type="text" name="Submission.SubmittingEntity" id="SubmittingEntity" value="@Model.Submission.SubmittingEntity" class="textbox" data-title="Submitting Entity" data-msg-required="(*)"/>
         <div class="explanation">
             <div class="explanation-inner">Submitting Entity is the name of the entity submitting the application.</div>
         </div>
     </div>
     <div class="clearing">
         <label for="SubmittingEntityURL" class="textbox-label">Submitting Entity URL</label>
-        <input type="text" name="SubmittingEntityURL" id="SubmittingEntityURL" value="@Model.Submission.SubmittingEntityURL" class="textbox" placeholder="http://www.SubmittingEntity.org" 
+        <input type="text" name="Submission.SubmittingEntityURL" id="SubmittingEntityURL" value="@Model.Submission.SubmittingEntityURL" class="textbox" placeholder="http://www.SubmittingEntity.org" 
                data-title="Submitting Entity URL" 
                data-msg-required="(*)"
                data-msg-url="unknown URL format."/>
@@ -39,7 +39,7 @@
     </div>
     <div class="clearing">
         <label for="AppWebSiteURL" class="textbox-label">App Web Site URL</label>
-        <input type="text" name="AppWebSiteURL" id="AppWebSiteURL" value="@Model.Submission.AppURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" 
+        <input type="text" name="Submission.AppURL" id="AppWebSiteURL" value="@Model.Submission.AppURL" class="textbox" placeholder="http://www.SubmittingEntity.org/app" 
                data-title="App Web Site URL" 
                data-msg-required="(*)" 
                data-msg-url="unknown URL format."/>
@@ -49,7 +49,7 @@
     </div>
     <div class="clearing">
         <label for="SupportURL" class="textbox-label">Support URL</label>
-        <input type="text" name="SupportURL" id="SupportURL" value="@Model.Submission.SupportURL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" 
+        <input type="text" name="Submission.SupportURL" id="SupportURL" value="@Model.Submission.SupportURL" class="textbox" placeholder="http://www.SubmittingEntity.org/support" 
                data-title="Support URL" 
                data-msg-required="(*)"
                data-msg-url="unknown URL format."/>
@@ -59,16 +59,16 @@
     </div>
     <div class="clearing">
         <label for="ReleaseDate" class="textbox-label">Release Date</label>
-        <input type="text" name="ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" class="textbox datefield" placeholder="@DateTime.Now.ToString("M/d/yyyy")" data-title="Release Date" data-msg-required="(*)"/>
+        <input type="text" name="Submission.ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" class="textbox datefield" placeholder="@DateTime.Now.ToString("M/d/yyyy")" data-title="Release Date" data-msg-required="(*)"/>
         <div class="explanation">
             <div class="explanation-inner">The date that the submitted application has been or will be publically available.</div>
         </div>
     </div>
     <div class="clearing">
         <label for="PrimaryCategory" class="dd-label">Primary Category</label>
-        <select name="PrimaryCategory" id="PrimaryCategory" class="dropdown dd-primary-category" data-title="Primary Category" data-msg-required="(*)">
+        <select name="Submission.CategoryID1" id="PrimaryCategory" class="dropdown dd-primary-category" data-title="Primary Category" data-msg-required="(*)">
             <option value="">Pick one</option>
-            @foreach (var c in Model.Categories)
+            @foreach (var c in ViewBag.Categories)
             {
                 if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
                 {
@@ -86,9 +86,9 @@
     </div>
     <div class="clearing">
         <label for="SecondaryCategory" class="dd-label">Secondary Category</label>
-        <select name="SecondaryCategory" id="SecondaryCategory" class="dropdown dd-secondary-category">
+        <select name="Submission.CategoryID2" id="SecondaryCategory" class="dropdown dd-secondary-category">
             <option value="">None</option>
-            @foreach (var c in Model.Categories)
+            @foreach (var c in ViewBag.Categories)
             {
                 if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
                 {
@@ -106,14 +106,14 @@
     </div>
     <div class="clearing">
         <label for="ProfessionalServicesURL" class="textbox-label">Professional Services URL</label>
-        <input type="text" name="ProfessionalServicesURL" id="ProfessionalServicesURL" value="@Model.Submission.ProfessionalServicesURL" class="textbox" placeholder="http://www.services.org/services.html" data-title="Professional Services URL" data-msg-url="unknown URL format."/>
+        <input type="text" name="Submission.ProfessionalServicesURL" id="ProfessionalServicesURL" value="@Model.Submission.ProfessionalServicesURL" class="textbox" placeholder="http://www.services.org/services.html" data-title="Professional Services URL" data-msg-url="unknown URL format."/>
         <div class="explanation">
             <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial services.</div>
         </div>
     </div>
     <div class="clearing">
         <label for="CommercialProductURL" class="textbox-label">Commercial Product URL</label>
-        <input type="text" name="CommercialProductURL" id="CommercialProductURL" value="@Model.Submission.CommercialProductURL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" data-title="Commercial Product URL" data-msg-url="unknown URL format."/>
+        <input type="text" name="Submission.CommercialProductURL" id="CommercialProductURL" value="@Model.Submission.CommercialProductURL" class="textbox" placeholder="http://www.SubmittingEntity.org/professionalversion.html" data-title="Commercial Product URL" data-msg-url="unknown URL format."/>
         <div class="explanation">
             <div class="explanation-inner">Provide an URL to the Web page where you promote your commercial products.</div>
         </div>
