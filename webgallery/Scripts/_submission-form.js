@@ -7,10 +7,8 @@
     $("#appSubmitContainer input:text,textarea,select,input:file").bind("mouseenter mouseleave", function () { $(this).toggleClass("input-mouseover"); });
 
     // for explanation panels, show/hide when focus in/out
-    $("#appSubmitContainer input:text,textarea,select").focusin(function () { showExplanation(this, $(this).nextAll(".explanation:first")); });
-    $("#appSubmitContainer input:text,textarea,select").focusout(function () { $(this).nextAll(".explanation:first").hide(); });
-    $("#appSubmitContainer input:file").focusin(function () { showExplanation(this, $(this).parent().nextAll(".explanation:first")); });
-    $("#appSubmitContainer input:file").focusout(function () { $(this).parent().nextAll(".explanation:first").hide(); });
+    $("#appSubmitContainer input:text,textarea,select,input:file").focusin(function () { showExplanation(this, $(this).nextAll(".explanation:first")); });
+    $("#appSubmitContainer input:text,textarea,select,input:file").focusout(function () { $(this).nextAll(".explanation:first").hide(); });
 
     // calcaulate the remaining characters
     $(".low-count").each(function () {
@@ -30,9 +28,9 @@
 
     // bind validating logic for those inputs
     $("#appSubmitContainer :text,#appSubmitContainer textarea").blur(function () { validate(); });
-    $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions").change(function () { validate(); });
+    $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions,#LogoFile").change(function () { validate(); });
     $("#packageTabContainer :button").click(function () { validate(); });
-    $("#clearDependencies").click(function () { validate(); });
+    $("#clearDependencies,#resetLogo,#replaceLogo").click(function () { validate(); });
 
     // do a validating after page loading
     validate();
@@ -123,6 +121,7 @@ function validate()
     validatePrimaryCategory(errors);
     validateProfessionalServicesURL(errors);
     validateCommercialProductURL(errors);
+    validateLogo(errors);
     validatePackageInfo(errors);
     validatePackageLocationUrl(errors);
     validateDependencies(errors);
@@ -404,6 +403,15 @@ function validateCommercialProductURL(errors) {
     }
 }
 
+// for Logo
+function validateLogo(errors) {
+    var setLogo = $("#setLogo").val() == "1";
+    if (setLogo && $("#LogoFile").get(0).files.length == 0) {
+        errors.push({ id: "LogoFile", type: "required" });
+        return;
+    }
+}
+
 // for package info
 function validatePackageInfo(errors)
 {
@@ -656,4 +664,38 @@ function warnIfPackageInfoChanges()
     ((numChangedX86 > 0) && (numUnchangedX86 > 0))
         ? $("#packageChangeImbalanceWarningPanel").show()
         : $("#packageChangeImbalanceWarningPanel").hide();
+}
+
+//
+// Logo and screenshots
+//
+function replaceLogo() {
+    $("#panelSubmittedLogo").hide();
+    $("#panelEmptyLogo").show();
+    $("#setLogo").val("1");
+}
+
+function replaceScreenshot(index) {
+    index = index.toString();
+
+    $("#panelSubmittedScreenshot" + index).hide();
+    $("#panelEmtpyScreenshot" + index).show();
+    $("#setScreenshot" + index).val("1");
+}
+
+function resetFileUploader(sender) {
+    var thePanel = $(sender).parent();
+
+    // file uploader is the first child
+    var fu = thePanel.children(":first");
+
+    // if user select a file
+    if (fu.get(0).files.length > 0) {
+        fu.wrap("<div></div>");
+        var fuParent = fu.parent();
+        var fuHtml = fuParent.html();
+        fuParent.remove();
+        $(fuHtml).insertBefore(thePanel.children(":first"));
+        thePanel.children(":first").change(function () { validate(); });
+    }
 }

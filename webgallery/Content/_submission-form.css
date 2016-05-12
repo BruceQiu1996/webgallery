@@ -33,7 +33,7 @@
 .submission-form-section .validator-inline,
 .submission-form-section .validator-below,
 .submission-form-section .explanation-inner,
-.submission-form-section .clear-image,
+.submission-form-section .reset-file-uploader,
 .submission-form-section .clear-dependencies,
 .submission-form-section table thead th,
 .submission-form-section table tfoot td,
@@ -102,7 +102,8 @@
 .submission-form-section .dd-secondary-category,
 .submission-form-section .submitted-panel,
 .submission-form-section .validator-below,
-.submission-form-section .submit-btn
+.submission-form-section .submit-btn,
+.submission-form-section .file-upload
 {
     float: left;
 }
@@ -110,10 +111,6 @@
 .submission-form-section .wider-textbox
 {
     float: none;
-}
-.submission-form-section .clear-image
-{
-    float: right;
 }
 
 /* clear */
@@ -171,7 +168,8 @@
 }
 .submission-form-section .copy-from-package-dd,
 .submission-form-section .clear-package-btn,
-.submission-form-section .clear-dependencies
+.submission-form-section .clear-dependencies,
+.submission-form-section .reset-file-uploader
 {
     margin-left: 20px;
 }
@@ -188,7 +186,7 @@
 }
 
 /* border */
-.submission-form-section .submitted-popup,
+.submission-form-section .popup-foreground,
 .validation-summary
 {
     border: solid 1px #999999;
@@ -199,7 +197,7 @@
 .submission-form-section .dd-label,
 .submission-form-section .file-upload-label,
 .submission-form-section .submitted-panel,
-.submission-form-section .clear-image
+.submission-form-section .reset-file-uploader
 {
     line-height: 1.8em;
 }
@@ -215,6 +213,13 @@
 .package-change-imbalance-warning td
 {
    line-height: 1em;
+}
+
+/* cursor */
+.submission-form-section .reset-file-uploader,
+.submitted-panel a
+{
+    cursor: pointer;
 }
 
 /* ----------- */
@@ -276,24 +281,41 @@
     vertical-align: bottom;
 }
 
-.submission-form-section .submitted-popup
-{
-    position: relative;
-    background: White;
-    padding: 35px;
-}
-.submission-form-section .submitted-image-close-btn
-{
-    position: absolute;
-    right: 2px;
-    top: 2px;
-}
-.submission-form-section .modal-background
+.submission-form-section .popup-background
 {
     background: #333;
     opacity: 0.6;
     filter: alpha(opacity=60);
+    height: 100%; 
+    width: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    z-index: 10000
 }
+.submission-form-section .popup-foreground
+{
+    background: White;
+    padding: 35px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10001;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.submission-form-section .popup-foreground img
+{    
+    border-width: 1px;
+}
+.submission-form-section .popup-close-btn
+{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    border-width: 0px;
+}
+
 .hidden-inner-package-tab-container .tab_body
 {
     border: none !important;

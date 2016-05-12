@@ -125,81 +125,83 @@
             </div>
             <div class="tab_body">
                 <div>
-                    @{ 
-                        var logo = Model.Logo ?? new WebGallery.Models.ProductOrAppImage {
-                            ImageID = 0,
-                            ImageGUID = Guid.Empty
-                        };
+                    <!--Logo-->
+                    @{
+                        var showLogoUploader = Model.Logo.ImageID > 0 ? "display:none" : string.Empty;
                     }
-                    <label for="logoImageFU" class="file-upload-label">Logo</label>
-                    <div id="logoImageFUWrapperPanel" class="file-upload-wrapper" style="display:none">
-                        <input type="file" name="logoImageFU" id="logoImageFU" title="Logo" class="file-upload" />
-                    </div>
-                    <div class="explanation">
-                        <div class="explanation-inner">Your logo must be no more than 200px in width or height and provided in PNG format.</div>
-                    </div>
-                    <input type="hidden" name="logoImageGUID" id="logoImageGUID" value="@logo.ImageGUID" />
-
-                    <span id="logoImageReqValidator" title="required" class="validator-inline" style="color:Red;display:none;">*</span>
-                    <a onclick="clearLogo(); return false;" id="logoImageReset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoImageReset', '', true, '', '', false, true))">reset</a>
-
-                    <div id="logoImageFUPanel" class="submitted-panel">
-                        <input type="hidden" id="setLogoImage" name="setLogoImage" value="0" title="" />
-                        <a id="logoTrigger" title="View last submission" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoTrigger', '', true, '', '', false, true))">View last submission</a>
-                        /
-                        <a onclick="replaceLogo(); return false;" id="needNewLogoTrigger" title="Submit a different logo" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('needNewLogoTrigger', '', true, '', '', false, true))">Submit a different logo</a>
-                        <div id="logoPopup" class="submitted-popup" >
-                            <img id="logoImg" src="https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=@logo.ImageGUID" style="border-width:1px;" />
-                            <input type="image" name="logoOK" id="logoOK" class="submitted-image-close-btn" src="~/content/images/close-btn.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('logoOK', '', true, '', '', false, false))" style="border-width:0px;" />
+                    <input type="hidden" name="Logo.ImageID" id="Logo.ImageID" value="@Model.Logo.ImageID" />
+                    <input type="hidden" name="Logo.ImageGUID" id="Logo_ImageGUID" value="@Model.Logo.ImageGUID" />
+                    <input type="hidden" name="setLogo" id="setLogo" value="0" />
+                    <label for="LogoFile" class="file-upload-label">Logo</label>
+                    <div id="panelEmptyLogo" class="file-upload-wrapper" style="@showLogoUploader">
+                        <input type="file" name="LogoFile" id="LogoFile" title="Upload a logo" class="file-upload" data-title="Logo" data-msg-required="(*)" />
+                        <div class="explanation">
+                            <div class="explanation-inner">Your logo must be no more than 200px in width or height and provided in PNG format.</div>
                         </div>
+                        <a id="resetLogo" onclick="resetFileUploader(this);" class="reset-file-uploader">reset</a>
                     </div>
-
+                    @if (Model.Logo.ImageID > 0)
+                    {
+                        <div id="panelSubmittedLogo" class="submitted-panel">
+                            <a onclick="$(this).parent().children(':last').show()" title="View last submission">View last submission</a>
+                            /
+                            <a id="replaceLogo" onclick="replaceLogo()" title="Submit a different logo">Submit a different logo</a>
+                            <div style="display:none">
+                                <div class="popup-background">
+                                </div>
+                                <div class="popup-foreground">
+                                    <img src="http://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=@Model.Logo.ImageGUID" />
+                                    <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <!--Screenshots (1,2,3,4,5,6)-->
                     <p class="screenshots-title">Screenshots (optional)</p>
-                    <label for="screenshotImage1FU" class="file-upload-label">1</label>
-                    <div id="screenshotImageFU1WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage1FU" id="screenshotImage1FU" title="Screenshot Image 1" class="file-upload" />
-                    </div>
-                    <div class="explanation">
-                        <div class="explanation-inner">Add up to 6 screenshots of your application. Screenshots should be no more than 800px in width or 600px in height and provided in PNG format.</div>
-                    </div>
-                    <input type="hidden" name="screenshotImage1GUID" id="screenshotImage1GUID" />
-                    <a onclick="clearScreenshot(1); return false;" id="screenshotImage1Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage1Reset', '', true, '', '', false, true))">reset</a>
+                    @for (var index = 1; index <= 6; index++)
+                    {
+                        var screenshot = Model.Screenshots[index - 1]; // zero-based
+                        var hiddenNameForImageID = string.Format("Screenshot{0}.ImageID", index);
+                        var hiddenIdForImageID = string.Format("Screenshot{0}_ImageID", index);
+                        var hiddenNameForImageGuid = string.Format("Screenshot{0}.ImageGUID", index);
+                        var hiddenIdForImageGuid = string.Format("Screenshot{0}_ImageGUID", index);
+                        var hiddenNameForSetScreenshot = string.Format("setScreenshot{0}", index);
+                        var hiddenIdForSetScreenshot = hiddenNameForSetScreenshot;
+                        var fuName = string.Format("fuScreenshot{0}", index);
+                        var fuId = fuName;
+                        var panelIdForEmptyScreenshot = string.Format("panelEmtpyScreenshot{0}", index);
+                        var showScreenshotUploader = screenshot.ImageID > 0 ? "display:none" : string.Empty;
+                        var panelIdForSubmittedScreenshot = string.Format("panelSubmittedScreenshot{0}", index);
 
-                    <label for="screenshotImage2FU" class="file-upload-label">2</label>
-                    <div id="screenshotImageFU2WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage2FU" id="screenshotImage2FU" title="Screenshot Image 2" class="file-upload" />
-                    </div>
-                    <input type="hidden" name="screenshotImage2GUID" id="screenshotImage2GUID" />
-                    <a onclick="clearScreenshot(2); return false;" id="screenshotImage2Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage2Reset', '', true, '', '', false, true))">reset</a>
+                        <input type="hidden" name="@hiddenNameForImageID" id="@hiddenIdForImageID" value="@screenshot.ImageID" />
+                        <input type="hidden" name="@hiddenNameForImageGuid" id="@hiddenIdForImageGuid" value="@screenshot.ImageGUID" />
+                        <input type="hidden" name="@hiddenNameForSetScreenshot" id="@hiddenIdForSetScreenshot" value="0" />
+                        <label for="@fuId" class="file-upload-label">@index</label>
+                        <div id="@panelIdForEmptyScreenshot" class="file-upload-wrapper" style="@showScreenshotUploader">
+                            <input type="file" name="@fuName" id="@fuId" title="Screenshot @index" class="file-upload" />
+                            <div class="explanation">
+                                <div class="explanation-inner">Add up to 6 screenshots of your application. Screenshots should be no more than 800px in width or 600px in height and provided in PNG format.</div>
+                            </div>
+                            <a onclick="resetFileUploader(this);" class="reset-file-uploader">reset</a>
+                        </div>
 
-                    <label for="screenshotImage3FU" class="file-upload-label">3</label>
-                    <div id="screenshotImageFU3WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage3FU" id="screenshotImage3FU" title="Screenshot Image 3" class="file-upload" />
-                    </div>
-                    <input type="hidden" name="screenshotImage3GUID" id="screenshotImage3GUID" />
-                    <a onclick="clearScreenshot(3); return false;" id="screenshotImage3Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage3Reset', '', true, '', '', false, true))">reset</a>
-
-                    <label for="screenshotImage4FU" class="file-upload-label">4</label>
-                    <div id="screenshotImageFU4WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage4FU" id="screenshotImage4FU" title="Screenshot Image 4" class="file-upload" />
-                    </div>
-                    <input type="hidden" name="screenshotImage4GUID" id="screenshotImage4GUID" />
-                    <a onclick="clearScreenshot(4); return false;" id="screenshotImage4Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage4Reset', '', true, '', '', false, true))">reset</a>
-
-                    <label for="screenshotImage5FU" class="file-upload-label">5</label>
-                    <div id="screenshotImageFU5WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage5FU" id="screenshotImage5FU" title="Screenshot Image 5" class="file-upload" />
-                    </div>
-                    <input type="hidden" name="screenshotImage5GUID" id="screenshotImage5GUID" />
-                    <a onclick="clearScreenshot(5); return false;" id="screenshotImage5Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage5Reset', '', true, '', '', false, true))">reset</a>
-
-                    <label for="screenshotImage6FU" class="file-upload-label">6</label>
-                    <div id="screenshotImageFU6WrapperPanel" class="file-upload-wrapper">
-                        <input type="file" name="screenshotImage6FU" id="screenshotImage6FU" title="Screenshot Image 6" class="file-upload" />
-                    </div>
-                    <input type="hidden" name="screenshotImage6GUID" id="screenshotImage6GUID" />
-                    <a onclick="clearScreenshot(6); return false;" id="screenshotImage6Reset" class="clear-image" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('screenshotImage6Reset', '', true, '', '', false, true))">reset</a>
-
+                        if (screenshot.ImageID > 0)
+                        {
+                            <div id="@panelIdForSubmittedScreenshot" class="submitted-panel">
+                                <a onclick="$(this).parent().children(':last').show()" title="View last submission">View last submission</a>
+                                /
+                                <a href="javascript:replaceScreenshot(@index)" title="Delete or replace screenshot">Delete or replace screenshot</a>
+                                <div style="display:none">
+                                    <div class="popup-background">
+                                    </div>
+                                    <div class="popup-foreground">
+                                        <img src="http://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=@screenshot.ImageGUID" />
+                                        <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
                     <div class="clearing">&nbsp;</div>
                 </div>
             </div>
