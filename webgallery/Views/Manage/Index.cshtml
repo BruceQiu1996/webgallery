@@ -1,21 +1,13 @@
-﻿@model WebGallery.Models.IndexViewModel
-@{
+﻿@{
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
+@*<h2>@ViewBag.Title.</h2>*@
 
-@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    <h4> Welcome  @ViewBag.Username   !</h4>
-
-    @ViewBag.UserID
-
+    <h4> Welcome  @ViewBag.Name   !</h4>
+    <p>Your Preferred Username: @ViewBag.PreferredUsername</p>
+    <p>Your Email Address: @ViewBag.EmailAddress</p>
     @Html.ActionLink("View all apps", "Dashboard")
-
-
 }
-
-
-
