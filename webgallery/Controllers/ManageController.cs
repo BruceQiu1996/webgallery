@@ -149,9 +149,6 @@ namespace WebGallery.Controllers
 
                 if (submission != null)
                 {
-                    var logo = from l in db.ProductOrAppImages
-                               where l.ImageID == submission.LogoID
-                               select l;
                     var metadata = from m1 in db.SubmissionLocalizedMetaDatas
                                    let ids = from m in db.SubmissionLocalizedMetaDatas
                                              where m.SubmissionID == id
@@ -170,7 +167,13 @@ namespace WebGallery.Controllers
                     model = new AppSubmissionViewModel
                     {
                         Submission = submission,
-                        Logo = logo.FirstOrDefault(),
+                        Logo = GetImage(submission.LogoID, GetImageQuery(submission.LogoID, db.ProductOrAppImages)),
+                        Screenshot1 = GetImage(submission.ScreenshotID1, GetImageQuery(submission.ScreenshotID1, db.ProductOrAppImages)),
+                        Screenshot2 = GetImage(submission.ScreenshotID2, GetImageQuery(submission.ScreenshotID2, db.ProductOrAppImages)),
+                        Screenshot3 = GetImage(submission.ScreenshotID3, GetImageQuery(submission.ScreenshotID3, db.ProductOrAppImages)),
+                        Screenshot4 = GetImage(submission.ScreenshotID4, GetImageQuery(submission.ScreenshotID4, db.ProductOrAppImages)),
+                        Screenshot5 = GetImage(submission.ScreenshotID5, GetImageQuery(submission.ScreenshotID5, db.ProductOrAppImages)),
+                        Screenshot6 = GetImage(submission.ScreenshotID6, GetImageQuery(submission.ScreenshotID6, db.ProductOrAppImages)),
                         MetadataList = metadata.ToList(),
                         Packages = packages.ToList()
                     };
@@ -184,6 +187,16 @@ namespace WebGallery.Controllers
 
                 return View("AppSubmit", model);
             }
+        }
+
+        private IQueryable<ProductOrAppImage> GetImageQuery(int? imageId, IQueryable<ProductOrAppImage> images)
+        {
+            return from img in images where img.ImageID == imageId select img;
+        }
+
+        private ProductOrAppImage GetImage(int? imageId, IQueryable<ProductOrAppImage> query)
+        {
+            return imageId > 0 ? (query.FirstOrDefault() ?? AppSubmissionViewModel.EmptyImage()) : AppSubmissionViewModel.EmptyImage();
         }
 
         [HttpPost]
