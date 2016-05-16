@@ -14,7 +14,7 @@ namespace WebGallery.Controllers
             if (!Request.IsAuthenticated)
             {
                 HttpContext.GetOwinContext().Authentication.Challenge(
-                    new AuthenticationProperties { RedirectUri = "/" },
+                    new AuthenticationProperties { RedirectUri = "/manage" },
                     OpenIdConnectAuthenticationDefaults.AuthenticationType);
             }
         }
