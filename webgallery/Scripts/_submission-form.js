@@ -672,7 +672,7 @@ function warnIfPackageInfoChanges()
 function replaceLogo() {
     $("#panelSubmittedLogo").hide();
     $("#panelEmptyLogo").show();
-    $("#setLogo").val("1");
+    $("#SetLogo").val("True");
 }
 
 function replaceScreenshot(index) {
@@ -680,7 +680,7 @@ function replaceScreenshot(index) {
 
     $("#panelSubmittedScreenshot" + index).hide();
     $("#panelEmtpyScreenshot" + index).show();
-    $("#setScreenshot" + index).val("1");
+    $("#SetScreenshot" + index).val("True");
 }
 
 function resetFileUploader(sender) {

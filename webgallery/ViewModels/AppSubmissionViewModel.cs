@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WebGallery.Models;
 
 namespace WebGallery.ViewModels
@@ -7,33 +6,47 @@ namespace WebGallery.ViewModels
     public class AppSubmissionViewModel
     {
         public Submission Submission { get; set; }
-        public ProductOrAppImage Logo { get; set; }
-        public ProductOrAppImage Screenshot1 { get; set; }
-        public ProductOrAppImage Screenshot2 { get; set; }
-        public ProductOrAppImage Screenshot3 { get; set; }
-        public ProductOrAppImage Screenshot4 { get; set; }
-        public ProductOrAppImage Screenshot5 { get; set; }
-        public ProductOrAppImage Screenshot6 { get; set; }
         public IList<SubmissionLocalizedMetaData> MetadataList { get; set; }
         public IList<Package> Packages { get; set; }
 
-        public IList<ProductOrAppImage> Screenshots
+        public IList<string> ScreenshotUrls
         {
             get
             {
-                return new List<ProductOrAppImage> {
-                    Screenshot1,
-                    Screenshot2,
-                    Screenshot3,
-                    Screenshot4,
-                    Screenshot5,
-                    Screenshot6 };
+                return new List<string>
+                {
+                    Submission.ScreenshotUrl1,
+                    Submission.ScreenshotUrl2,
+                    Submission.ScreenshotUrl3,
+                    Submission.ScreenshotUrl4,
+                    Submission.ScreenshotUrl5,
+                    Submission.ScreenshotUrl6
+                };
             }
         }
 
-        static public ProductOrAppImage EmptyImage()
+        public IList<bool> SettingStatusOfScreenshots
         {
-            return new ProductOrAppImage { ImageID = 0, ImageGUID = Guid.Empty };
+            get
+            {
+                return new List<bool>
+                {
+                    SetScreenshot1,
+                    SetScreenshot2,
+                    SetScreenshot2,
+                    SetScreenshot4,
+                    SetScreenshot5,
+                    SetScreenshot6
+                };
+            }
         }
+
+        public bool SetLogo { get; set; } = false;
+        public bool SetScreenshot1 { get; set; } = false;
+        public bool SetScreenshot2 { get; set; } = false;
+        public bool SetScreenshot3 { get; set; } = false;
+        public bool SetScreenshot4 { get; set; } = false;
+        public bool SetScreenshot5 { get; set; } = false;
+        public bool SetScreenshot6 { get; set; } = false;
     }
 }
