@@ -88,7 +88,7 @@ namespace WebGallery.Models
 
         public ActionResult Publisher()
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 //List<WebGallery.Models.GetAllSubmissionsInBrief_Result> applist = new List<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
                 //applist = db.GetAllSubmissionsInBrief().ToList();

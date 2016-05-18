@@ -17,11 +17,6 @@ namespace WebGallery.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hosters_Country()
         {
-            this.Hosters_City = new HashSet<Hosters_City>();
-            this.Hosters_TargetedCountry = new HashSet<Hosters_TargetedCountry>();
-            this.Hosters_HostingProviderDetail = new HashSet<Hosters_HostingProviderDetail>();
-            this.Hosters_OfferCountry = new HashSet<Hosters_OfferCountry>();
-            this.Hosters_OfferCountryAdminExclude = new HashSet<Hosters_OfferCountryAdminExclude>();
             this.Hosters_State = new HashSet<Hosters_State>();
         }
     
@@ -32,17 +27,7 @@ namespace WebGallery.Models
         public string CurrencySymbol { get; set; }
         public string CountryCode { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_City> Hosters_City { get; set; }
         public virtual Hosters_Region Hosters_Region { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_TargetedCountry> Hosters_TargetedCountry { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_HostingProviderDetail> Hosters_HostingProviderDetail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_OfferCountry> Hosters_OfferCountry { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_OfferCountryAdminExclude> Hosters_OfferCountryAdminExclude { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hosters_State> Hosters_State { get; set; }
     }

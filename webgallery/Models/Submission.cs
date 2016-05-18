@@ -40,6 +40,13 @@ namespace WebGallery.Models
         public string AdditionalInfo { get; set; }
         public Nullable<System.DateTime> Created { get; set; }
         public Nullable<System.DateTime> Updated { get; set; }
+        public string LogoUrl { get; set; }
+        public string ScreenshotUrl1 { get; set; }
+        public string ScreenshotUrl2 { get; set; }
+        public string ScreenshotUrl3 { get; set; }
+        public string ScreenshotUrl4 { get; set; }
+        public string ScreenshotUrl5 { get; set; }
+        public string ScreenshotUrl6 { get; set; }
     
         public virtual ApplicationInGallery ApplicationInGallery { get; set; }
         public virtual ApplicationInGallery ApplicationInGallery1 { get; set; }

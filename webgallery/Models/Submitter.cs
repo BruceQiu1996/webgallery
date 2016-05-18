@@ -18,5 +18,6 @@ namespace WebGallery.Models
         public string PersonalID { get; set; }
         public int PersonalIDType { get; set; }
         public Nullable<bool> IsSuperSubmitter { get; set; }
+        public string MicrosoftAccount { get; set; }
     }
 }
