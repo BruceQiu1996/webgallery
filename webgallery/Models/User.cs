@@ -32,5 +32,6 @@ namespace WebGallery.Models
         public string State { get; set; }
         public string CountryCode { get; set; }
         public string Country { get; set; }
+        public string msa_email { get; set; }
     }
 }

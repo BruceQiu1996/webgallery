@@ -14,11 +14,11 @@ namespace WebGallery.Models
     
     public partial class SubmissionLocalizedMetaData
     {
+        public int MetadataID { get; set; }
         public int SubmissionID { get; set; }
         public string Language { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string BriefDescription { get; set; }
-        public int MetadataID { get; set; }
     }
 }

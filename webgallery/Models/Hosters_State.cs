@@ -14,23 +14,12 @@ namespace WebGallery.Models
     
     public partial class Hosters_State
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hosters_State()
-        {
-            this.Hosters_City = new HashSet<Hosters_City>();
-            this.Hosters_HostingProviderDetail = new HashSet<Hosters_HostingProviderDetail>();
-        }
-    
         public int StateId { get; set; }
         public int CountryId { get; set; }
         public string StateName { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime UpdatedDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_City> Hosters_City { get; set; }
         public virtual Hosters_Country Hosters_Country { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hosters_HostingProviderDetail> Hosters_HostingProviderDetail { get; set; }
     }
 }

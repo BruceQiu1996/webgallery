@@ -33,20 +33,63 @@ namespace WebGallery.Controllers
         [Authorize]
         public ActionResult Dashboard()
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
-               
 
 
-                IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
-                return View("Dashboard", applist);
+
+                //IEnumerable<GetAllSubmissionsInBrief_Result> applist = db.GetAllSubmissionsInBrief().ToList<WebGallery.Models.GetAllSubmissionsInBrief_Result>();
+                //return View("Dashboard", applist);
+
+                /*
+                 CREATE PROCEDURE [dbo].[GetAllSubmissionsInBrief]
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	
+    SELECT 
+		Submissions.SubmissionID AS SubmissionID,
+		Submissions.Nickname AS Nickname,
+		Submissions.Version AS Version,
+		Submissions.SubmittingEntity AS SubmittingEntity,
+		Submissions.SubmittingEntityURL AS SubmittingEntityURL,
+		Submissions.AppURL AS AppURL,
+		Submissions.SupportURL AS SupportURL,
+		Submissions.ReleaseDate AS ReleaseDate,
+		Submissions.FrameworkOrRuntimeID AS FrameworkOrRuntimeID,
+		FrameworksAndRuntimes.Name AS FrameworkOrRuntimeName,
+		Submissions.DatabaseServerIDs AS DatabaseServerIDs,
+		Submissions.WebServerExtensionIDs AS WebServerExtensionIDs,
+		Submissions.CategoryID1 AS CategoryID1,
+		CategoryName1 = ProductOrAppCategories.Name,
+		Submissions.CategoryID2 AS CategoryID2,
+		Submissions.LogoID AS LogoID,
+		Submissions.ProfessionalServicesURL AS ProfessionalServicesURL,
+		Submissions.CommercialProductURL AS CommercialProductURL,
+		Submissions.AgreedToTerms AS AgreedToTerms,
+		Submissions.AdditionalInfo AS AdditionalInfo,
+		SubmissionStateAll.Name AS SubmissionState,
+		SubmissionStateAll.SubmissionStateID AS SubmissionStateID,
+		SubmissionStateAll.SortOrder AS SubmissionStateSortOrder,
+		Submissions.Created AS Created,
+		Submissions.Updated AS Updated
+    FROM Submissions WITH (NOLOCK)
+		INNER JOIN FrameworksAndRuntimes WITH (NOLOCK) ON FrameworksAndRuntimes.FrameworkOrRuntimeID = Submissions.FrameworkOrRuntimeID
+		INNER JOIN ProductOrAppCategories WITH (NOLOCK) ON ProductOrAppCategories.CategoryID = Submissions.CategoryID1
+		INNER JOIN SubmissionStateAll WITH (NOLOCK) ON SubmissionStateAll.SubmissionID = Submissions.SubmissionID
+END
+                 */
+
+                return View("Dashboard", null);
             }
 
         }
         [Authorize]
         public ActionResult PublisherDetails(int id)
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
 
                 IEnumerable<SubmissionOwner> owners = db.SubmissionOwners.ToList<SubmissionOwner>();
@@ -86,7 +129,7 @@ namespace WebGallery.Controllers
             if (!id.HasValue) return View("Error");
 
             AppSubmissionViewModel model = null;
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 var submission = (from s in db.Submissions
                                   where s.SubmissionID == id
@@ -180,7 +223,7 @@ namespace WebGallery.Controllers
 
         private void SaveAppSubmission(AppSubmissionViewModel model)
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 var submission = db.Submissions.FirstOrDefault(s => s.SubmissionID == model.Submission.SubmissionID);
                 if (submission == null)
@@ -317,7 +360,7 @@ namespace WebGallery.Controllers
 
         private void LoadViewDataForEdit()
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 var categories = from c in db.ProductOrAppCategories
                                  orderby c.Name
@@ -367,7 +410,7 @@ namespace WebGallery.Controllers
 
         static private bool ValidateAppIdVersionIsUnique(string appId, string version, int? submissionId)
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 var submission = db.Submissions.FirstOrDefault(
                         s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
@@ -386,7 +429,7 @@ namespace WebGallery.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (var db = new MsComWebDbContext())
+            using (var db = new WebGalleryDbContext())
             {
                 IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
 
