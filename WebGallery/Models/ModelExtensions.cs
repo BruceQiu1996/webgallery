@@ -1,6 +1,4 @@
-﻿using WebGallery.Models;
-
-namespace WebGallery.Extensions
+﻿namespace WebGallery.Models
 {
     static public class ModelExtensions
     {

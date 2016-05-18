@@ -6,9 +6,7 @@
 }
 
 <div id="appSubmitContainer" class="content">
-
-    @using (Html.BeginForm())
-    {
+    <form method="post" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
 
         @Html.Partial("_AppSubmitIntroductionPartial")
@@ -48,9 +46,9 @@
         </div>
 
         <div class="submission-form-section">
-            <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();"/><br /><br /><br />
+            <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();" /><br /><br /><br />
         </div>
-    }
+    </form>
 </div>
 
 @section Scripts {
