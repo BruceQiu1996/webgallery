@@ -272,7 +272,6 @@
     <Compile Include="Models\ContentIndex.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DashboardController.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\DatabaseServer.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
