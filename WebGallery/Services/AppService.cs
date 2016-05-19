@@ -199,48 +199,19 @@ namespace WebGallery.Services
             }
 
             // screenshots
-            foreach (var image in images.Values)
+            for (var index = 1; index <= 6; index++)
             {
+                var image = images[$"{AppImage.SCREENSHOT_IMAGE_NAME_PREFIX}{index}"];
                 if (image.ContentLength > 0)
                 {
                     var url = imageStorageService.Upload(submission.SubmissionID, image.ImageName, images[image.ImageName].Content);
-                    UpdateImageUrl(submission, image.ImageName, url);
+                    submission.UpdateImageUrl(image.ImageName, url);
                 }
                 else if (settingStatusOfImages[image.ImageName].WannaDeleteOrReplace) // if the file input has nothing, and the flag of setting is true, then delete the image
                 {
-                    UpdateImageUrl(submission, image.ImageName, null);
+                    submission.UpdateImageUrl(image.ImageName, null);
                     imageStorageService.Delete(submission.SubmissionID, image.ImageName);
                 }
-            }
-        }
-
-        private void UpdateImageUrl(Submission submission, string imageName, string url)
-        {
-            switch (imageName)
-            {
-                case AppImage.LOGO_IMAGE_NAME:
-                    submission.LogoUrl = url;
-                    break;
-                case AppImage.SCREENSHOT_1_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_2_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_3_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_4_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_5_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_6_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                default:
-                    break;
             }
         }
 

@@ -12,6 +12,7 @@ namespace WebGallery.Controllers
     {
         public void SignIn()
         {
+            HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             // Send an OpenID Connect sign-in request.
             if (!Request.IsAuthenticated)
             {

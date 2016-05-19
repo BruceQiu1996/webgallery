@@ -28,7 +28,7 @@
 
     // bind validating logic for those inputs
     $("#appSubmitContainer :text,#appSubmitContainer textarea").blur(function () { validate(); });
-    $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions,#LogoFile").change(function () { validate(); });
+    $("#PrimaryCategory,#FrameworksAndRuntimes,#AcceptTermsAndConditions,#logo").change(function () { validate(); });
     $("#packageTabContainer :button").click(function () { validate(); });
     $("#clearDependencies,#resetLogo,#replaceLogo").click(function () { validate(); });
 
@@ -281,7 +281,7 @@ function validateAppId(errors) {
     }
 
     var uniqueAppIdAndVersion = {
-        url: "/Manage/ValidateAppIdVersion",
+        url: "/App/ValidateAppIdVersion",
         type: "post",
         data: {
             appId: function () { return $("#AppId").val().trim(); },
@@ -405,9 +405,9 @@ function validateCommercialProductURL(errors) {
 
 // for Logo
 function validateLogo(errors) {
-    var setLogo = $("#setLogo").val() == "1";
-    if (setLogo && $("#LogoFile").get(0).files.length == 0) {
-        errors.push({ id: "LogoFile", type: "required" });
+    var setLogo = $("#SetLogo").val() == "True";
+    if (setLogo && $("#logo").get(0).files.length == 0) {
+        errors.push({ id: "logo", type: "required" });
         return;
     }
 }
