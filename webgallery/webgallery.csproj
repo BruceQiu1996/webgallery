@@ -240,6 +240,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Extensions\HttpFileCollectionBaseExtensions.cs" />
@@ -392,7 +393,18 @@
     <Compile Include="Services\AppImageAzureStorageService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
+    <Compile Include="ViewModels\AccountProfileViewModel.cs" />
+    <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
+    <Compile Include="ViewModels\AppDetailViewModel.cs" />
+    <Compile Include="ViewModels\AppMineViewModel.cs" />
+    <Compile Include="ViewModels\AppOwnersViewModel.cs" />
+    <Compile Include="ViewModels\AppStatusViewModel.cs" />
     <Compile Include="ViewModels\AppSubmissionViewModel.cs" />
+    <Compile Include="ViewModels\AppSubmitViewModel.cs" />
+    <Compile Include="ViewModels\HomeAgreementViewModel.cs" />
+    <Compile Include="ViewModels\HomeDeveloperViewModel.cs" />
+    <Compile Include="ViewModels\HomeInstallViewModel.cs" />
+    <Compile Include="ViewModels\ManageSuperSubmittersViewModel.cs" />
     <Compile Include="ViewModels\ViewModelExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -581,10 +593,19 @@
     <Content Include="Views\Manage\_AppSubmitDescriptionPartial.cshtml" />
     <Content Include="Views\Manage\_AppSubmitReleaseNotePartial.cshtml" />
     <Content Include="Views\Manage\_AppSubmitPackagePartial.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\App\Owners.cshtml" />
+    <Content Include="Views\App\Status.cshtml" />
+    <Content Include="Views\App\Submit.cshtml" />
+    <Content Include="Views\App\Detail.cshtml" />
+    <Content Include="Views\App\Categorize.cshtml" />
+    <Content Include="Views\Home\Developer.cshtml" />
+    <Content Include="Views\Home\Install.cshtml" />
+    <Content Include="Views\App\Mine.cshtml" />
+    <Content Include="Views\Home\Agreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

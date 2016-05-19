@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
 using WebGallery.Models;
@@ -274,6 +275,13 @@ END
                 return View("AppSubmit", submissions);
             }
 
+        }
+
+        public async Task<ActionResult> SuperSubmitters()
+        {
+            var model = new ManageSuperSubmittersViewModel();
+
+            return View(model);
         }
     }
 }
