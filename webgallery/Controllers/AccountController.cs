@@ -1,8 +1,10 @@
 ﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WebGallery.ViewModels;
 
 namespace WebGallery.Controllers
 {
@@ -19,12 +21,33 @@ namespace WebGallery.Controllers
             }
         }
 
+        [Authorize]
         // BUGBUG: Ending a session with the v2.0 endpoint is not yet supported.  Here, we just end the session with the web app.
         public void SignOut()
         {
             // Send an OpenID Connect sign-out request.
             HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             Response.Redirect("/");
+        }
+
+        [Authorize]
+        [ActionName("Profile")]
+        public async Task<ActionResult> Me()
+        {
+            var model = new AccountProfileViewModel();
+
+            //
+
+            return View(model);
+        }
+
+        [Authorize]
+        [ActionName("Profile")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Me(AccountProfileViewModel model)
+        {
+            return View();
         }
     }
 }
