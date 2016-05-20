@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -12,6 +13,15 @@ namespace WebGallery.Controllers
 {
     public class AppController : Controller
     {
+        private IAppService _appService;
+        private ISubmitterService _submitterService;
+
+        public AppController(IAppService appService, ISubmitterService submitterService)
+        {
+            _appService = appService ?? new AppService();
+            _submitterService = submitterService ?? new SubmitterService();
+        }
+
         [AllowAnonymous]
         public async Task<ActionResult> Categorize()
         {
@@ -55,7 +65,43 @@ namespace WebGallery.Controllers
         [Authorize]
         public async Task<ActionResult> Submit(int? id)
         {
-            if (!id.HasValue) return View("Error");
+            // Check if the browser is IE and its version is less than 10.
+            // If yes, then the user will be prompted to upgrade IE because the page uses placeholder (a HTML 5 attribute) to show watermark text.
+            // See http://www.w3schools.com/tags/att_input_placeholder.asp.
+            var browser = Request.Browser.Browser.ToLowerInvariant();
+            if (browser.IndexOf("ie", StringComparison.Ordinal) > -1 && Request.Browser.MajorVersion < 10)
+            {
+                return View("UpgradeIE", HttpContext.GetGlobalResourceObject("Submit", "UpgradeIE"));
+            }
+
+            // Check if submitting app is enabled
+            if (ConfigurationManager.AppSettings["EnableSubmitApp"].ToLower() == "false")
+            {
+                return View("Error");
+            }
+
+            // Check if current submitter who is not Super Submitter has contact info.
+            if (!_submitterService.IsSuperSubmitter(User.GetMicrosoftAccount())
+                && _submitterService.HasContactInfo(User.GetMicrosoftAccount()))
+            {
+                return RedirectToAction("Profile", "Account");
+            }
+
+            int appId = id.Value;
+
+            // Check if current user can modify the app.
+            // Only the owner and a super submitter can do that.
+            if (_submitterService.CanModify(User.GetMicrosoftAccount(), appId))
+            {
+                return View("Error");
+            }
+
+            // Check if the app is locked.
+            if (_appService.IsLocked(appId))
+            {
+                // disable the form and display "This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time."
+                return View("Error");
+            }
 
             AppSubmitViewModel model = null;
             using (var db = new WebGalleryDbContext())
@@ -102,16 +148,13 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Submit(int? id, AppSubmitViewModel model)
+        public ActionResult Submit(int id, AppSubmitViewModel model)
         {
-            if (!id.HasValue) return View("Error");
-
-            var appService = new AppService();
             try
             {
                 // final check
-                var finalCheck = appService.ValidateAppIdCharacters(model.Submission.Nickname)
-                                && appService.ValidateAppIdVersionIsUnique(model.Submission.Nickname, model.Submission.Version, id);
+                var finalCheck = _appService.ValidateAppIdCharacters(model.Submission.Nickname)
+                                && _appService.ValidateAppIdVersionIsUnique(model.Submission.Nickname, model.Submission.Version, id);
                 if (!finalCheck)
                 {
                     LoadViewDataForEdit();
@@ -120,7 +163,7 @@ namespace WebGallery.Controllers
                 }
 
                 // save
-                var submission = appService.Submit(model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
+                var submission = _appService.Submit(model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
 
                 //
                 // send email
@@ -182,7 +225,7 @@ namespace WebGallery.Controllers
         {
             lock (_UniqueAppIdValidationLock)
             {
-                return Json(new AppService().ValidateAppIdVersionIsUnique(appId, version, submissionId));
+                return Json(_appService.ValidateAppIdVersionIsUnique(appId, version, submissionId));
             }
         }
 

@@ -19,5 +19,15 @@ namespace WebGallery.Extensions
         {
             return ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
         }
+
+        public static string GetNameIdentifier(this IPrincipal user)
+        {
+            return ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+        }
+
+        public static string GetMicrosoftAccount(this IPrincipal user)
+        {
+            return user.GetEmailAddress();
+        }
     }
 }

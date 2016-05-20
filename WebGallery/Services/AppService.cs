@@ -6,7 +6,7 @@ using WebGallery.Models;
 
 namespace WebGallery.Services
 {
-    public class AppService
+    public class AppService : IAppService
     {
         #region validation
 
@@ -217,5 +217,9 @@ namespace WebGallery.Services
 
         #endregion
 
+        public bool IsLocked(int appId)
+        {
+            throw new NotImplementedException();
+        }
     } // class
 }

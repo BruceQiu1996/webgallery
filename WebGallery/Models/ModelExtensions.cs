@@ -2,6 +2,14 @@
 {
     static public class ModelExtensions
     {
+        static public bool IsSuperSubmitter(this Submitter submitter)
+        {
+            if (submitter == null) return false;
+            if (!submitter.IsSuperSubmitter.HasValue) return false;
+
+            return submitter.IsSuperSubmitter.Value;
+        }
+
         static public bool HasCompleteInput(this SubmissionLocalizedMetaData metadata)
         {
             return metadata != null && !string.IsNullOrWhiteSpace(metadata.Name)

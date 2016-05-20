@@ -393,6 +393,8 @@
     <Compile Include="Services\IAppImageStorageService.cs" />
     <Compile Include="Services\AppImageAzureStorageService.cs" />
     <Compile Include="Services\IAppService.cs" />
+    <Compile Include="Services\ISubmitterService.cs" />
+    <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
@@ -602,6 +604,7 @@
     <Content Include="Views\Home\Install.cshtml" />
     <Content Include="Views\App\Mine.cshtml" />
     <Content Include="Views\Home\Agreement.cshtml" />
+    <Content Include="Views\Shared\UpgradeIE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
