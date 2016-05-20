@@ -22,9 +22,9 @@ namespace WebGallery.Controllers
         // GET: /Manage/Index
         public ActionResult Index()
         {
-            ViewBag.Name = ClaimsPrincipal.Current.FindFirst("name").Value;
-            ViewBag.PreferredUsername = ClaimsPrincipal.Current.FindFirst("preferred_username").Value;
-            ViewBag.EmailAddress = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
+            ViewBag.Name = User.GetName();
+            ViewBag.PreferredUsername = User.GetPreferredUsername();
+            ViewBag.EmailAddress = User.GetEmailAddress();
 
             return View();
         }
@@ -123,7 +123,7 @@ END
                 return View("PublisherDetails", publiserinfo);
             }
         }
-        
+
         public ActionResult Delete(int id)
         {
             using (var db = new WebGalleryDbContext())
