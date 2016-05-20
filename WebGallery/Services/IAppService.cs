@@ -6,7 +6,7 @@ namespace WebGallery.Services
     public interface IAppService
     {
         bool IsLocked(int submissionId);
-        Submission Submit(Submission submission,
+        Submission Submit(Submitter submitter, Submission submission,
             IList<SubmissionLocalizedMetaData> metadataList,
             IList<Package> packages,
             IDictionary<string, AppImage> images,

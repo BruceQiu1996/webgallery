@@ -80,9 +80,14 @@ namespace WebGallery.Controllers
                 return View("Error");
             }
 
+            var submitter = _submitterService.GetSubmitterByMicrosoftAccount(User.GetMicrosoftAccount());
+            if (submitter == null)
+            {
+                return View("Error");
+            }
+
             // Check if current submitter who is not Super Submitter has contact info.
-            if (!_submitterService.IsSuperSubmitter(User.GetMicrosoftAccount())
-                && _submitterService.HasContactInfo(User.GetMicrosoftAccount()))
+            if (!submitter.IsSuperSubmitter() && _submitterService.HasContactInfo(submitter.SubmitterID))
             {
                 return RedirectToAction("Profile", "Account");
             }
@@ -91,7 +96,7 @@ namespace WebGallery.Controllers
 
             // Check if current user can modify the app.
             // Only the owner and a super submitter can do that.
-            if (_submitterService.CanModify(User.GetMicrosoftAccount(), submissionId))
+            if (!submitter.IsSuperSubmitter() && !_submitterService.IsOwner(submitter.SubmitterID, submissionId))
             {
                 return View("Error");
             }
@@ -148,35 +153,40 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Submit(int id, AppSubmitViewModel model)
+        public ActionResult Submit(AppSubmitViewModel model)
         {
-            try
+            var submitter = _submitterService.GetSubmitterByMicrosoftAccount(User.GetMicrosoftAccount());
+            if (submitter == null)
             {
-                // final check
-                var finalCheck = _appService.ValidateAppIdCharacters(model.Submission.Nickname)
-                                && _appService.ValidateAppIdVersionIsUnique(model.Submission.Nickname, model.Submission.Version, id);
-                if (!finalCheck)
-                {
-                    LoadViewDataForEdit();
-                    ModelState.AddModelError("AppId", "unique");
-                    return View(model);
-                }
-
-                // save
-                var submission = _appService.Submit(model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
-
-                //
-                // send email
-                // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
-
-                // go to the App Status page
-                // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
-                return RedirectToAction("Status", new { id = submission.SubmissionID });
+                return View("Error");
             }
-            catch (Exception ex)
+
+            // Check if current user can modify the app.
+            if (!submitter.IsSuperSubmitter() && !_submitterService.IsOwner(submitter.SubmitterID, model.Submission.SubmissionID))
             {
-                return View("Error", new HandleErrorInfo(ex, "App", "Submit"));
+                return View("Error");
             }
+
+            // final check
+            var finalCheck = _appService.ValidateAppIdCharacters(model.Submission.Nickname)
+                                && _appService.ValidateAppIdVersionIsUnique(model.Submission.Nickname, model.Submission.Version, model.Submission.SubmissionID);
+            if (!finalCheck)
+            {
+                LoadViewDataForEdit();
+                ModelState.AddModelError("AppId", "unique");
+                return View(model);
+            }
+
+            // save
+            var submission = _appService.Submit(submitter, model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
+
+            //
+            // send email
+            // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
+
+            // go to the App Status page
+            // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
+            return RedirectToAction("Status", new { id = submission.SubmissionID });
         }
 
         private void LoadViewDataForEdit()
