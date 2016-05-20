@@ -219,7 +219,16 @@ namespace WebGallery.Services
 
         public bool IsLocked(int submissionId)
         {
-            throw new NotImplementedException();
+            using (var db = new WebGalleryDbContext())
+            {
+                string[] notLocked = { "pending review", "testing failed", "rejected", "published" };
+                var submissionStatus = (from state in db.SubmissionStates
+                                        join status in db.SubmissionsStatus on state.SubmissionStateID equals status.SubmissionStateID
+                                        where status.SubmissionID == submissionId
+                                        select state.Name).FirstOrDefault();
+
+                return !string.IsNullOrWhiteSpace(submissionStatus) && !notLocked.Contains(submissionStatus);
+            }
         }
     } // class
 }
