@@ -5,7 +5,7 @@ namespace WebGallery.Services
 {
     public interface IAppService
     {
-        bool IsLocked(int appId);
+        bool IsLocked(int submissionId);
         Submission Submit(Submission submission,
             IList<SubmissionLocalizedMetaData> metadataList,
             IList<Package> packages,
@@ -13,6 +13,6 @@ namespace WebGallery.Services
             IDictionary<string, AppImageSettingStatus> settingStatusOfImages,
             IAppImageStorageService imageStorageService);
         bool ValidateAppIdVersionIsUnique(string appId, string version, int? submissionId);
-        bool ValidateAppIdCharacters(string nickname);
+        bool ValidateAppIdCharacters(string appId);
     }
 }

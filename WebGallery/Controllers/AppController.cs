@@ -87,17 +87,17 @@ namespace WebGallery.Controllers
                 return RedirectToAction("Profile", "Account");
             }
 
-            int appId = id.Value;
+            int submissionId = id.Value;
 
             // Check if current user can modify the app.
             // Only the owner and a super submitter can do that.
-            if (_submitterService.CanModify(User.GetMicrosoftAccount(), appId))
+            if (_submitterService.CanModify(User.GetMicrosoftAccount(), submissionId))
             {
                 return View("Error");
             }
 
             // Check if the app is locked.
-            if (_appService.IsLocked(appId))
+            if (_appService.IsLocked(submissionId))
             {
                 // disable the form and display "This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time."
                 return View("Error");

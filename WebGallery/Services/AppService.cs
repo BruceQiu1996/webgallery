@@ -217,7 +217,7 @@ namespace WebGallery.Services
 
         #endregion
 
-        public bool IsLocked(int appId)
+        public bool IsLocked(int submissionId)
         {
             throw new NotImplementedException();
         }

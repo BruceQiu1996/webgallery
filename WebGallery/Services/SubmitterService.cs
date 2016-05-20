@@ -5,7 +5,7 @@ namespace WebGallery.Services
 {
     public class SubmitterService : ISubmitterService
     {
-        public bool CanModify(string submitterMicrosoftAccount, int appId)
+        public bool CanModify(string submitterMicrosoftAccount, int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -16,7 +16,7 @@ namespace WebGallery.Services
                 if (submitter.IsSuperSubmitter()) return true;
 
                 var ownerIds = (from s in db.SubmissionOwners
-                                where s.SubmissionID == appId
+                                where s.SubmissionID == submissionId
                                 select s.SubmissionOwnerID).ToList();
 
                 return ownerIds.Contains(submitter.SubmitterID);
