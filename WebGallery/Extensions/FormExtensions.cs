@@ -5,7 +5,7 @@ using WebGallery.Models;
 
 namespace WebGallery.Extensions
 {
-    public static class HttpFileCollectionBaseExtensions
+    public static class FormExtensions
     {
         public static IDictionary<string, AppImage> GetAppImages(this HttpFileCollectionBase collection)
         {

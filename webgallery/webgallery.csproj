@@ -243,7 +243,8 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Extensions\HttpFileCollectionBaseExtensions.cs" />
+    <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -391,6 +392,9 @@
     <Compile Include="Services\AppService.cs" />
     <Compile Include="Services\IAppImageStorageService.cs" />
     <Compile Include="Services\AppImageAzureStorageService.cs" />
+    <Compile Include="Services\IAppService.cs" />
+    <Compile Include="Services\ISubmitterService.cs" />
+    <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
@@ -399,7 +403,6 @@
     <Compile Include="ViewModels\AppMineViewModel.cs" />
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
     <Compile Include="ViewModels\AppStatusViewModel.cs" />
-    <Compile Include="ViewModels\AppSubmissionViewModel.cs" />
     <Compile Include="ViewModels\AppSubmitViewModel.cs" />
     <Compile Include="ViewModels\HomeAgreementViewModel.cs" />
     <Compile Include="ViewModels\HomeDeveloperViewModel.cs" />
@@ -587,11 +590,10 @@
     <Content Include="Views\Home\Documentation.cshtml" />
     <Content Include="Views\Home\ContactConfirm.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Manage\AppSubmit.cshtml" />
-    <Content Include="Views\Manage\_AppSubmitIntroductionPartial.cshtml" />
-    <Content Include="Views\Manage\_AppSubmitDescriptionPartial.cshtml" />
-    <Content Include="Views\Manage\_AppSubmitReleaseNotePartial.cshtml" />
-    <Content Include="Views\Manage\_AppSubmitPackagePartial.cshtml" />
+    <Content Include="Views\App\Submit_Introduction_Partial.cshtml" />
+    <Content Include="Views\App\Submit_Description_Partial.cshtml" />
+    <Content Include="Views\App\Submit_ReleaseNote_Partial.cshtml" />
+    <Content Include="Views\App\Submit_Package_Partial.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\App\Owners.cshtml" />
     <Content Include="Views\App\Status.cshtml" />
@@ -602,6 +604,7 @@
     <Content Include="Views\Home\Install.cshtml" />
     <Content Include="Views\App\Mine.cshtml" />
     <Content Include="Views\Home\Agreement.cshtml" />
+    <Content Include="Views\Shared\UpgradeIE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

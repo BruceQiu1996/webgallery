@@ -6,7 +6,7 @@ using WebGallery.Models;
 
 namespace WebGallery.Services
 {
-    public class AppService
+    public class AppService : IAppService
     {
         #region validation
 
@@ -33,7 +33,8 @@ namespace WebGallery.Services
 
         #region new submission or update an submission
 
-        public Submission Submit(Submission submission,
+        public Submission Submit(Submitter submitter,
+            Submission submission,
             IList<SubmissionLocalizedMetaData> metadataList,
             IList<Package> packages,
             IDictionary<string, AppImage> images,
@@ -45,21 +46,15 @@ namespace WebGallery.Services
                 var submissionInDb = db.Submissions.FirstOrDefault(s => s.SubmissionID == submission.SubmissionID);
                 if (submissionInDb == null)
                 {
-                    throw new ApplicationException($"Can't found the submission #{submission.SubmissionID}");
+                    throw new ApplicationException($"Can't find the submission #{submission.SubmissionID}");
                 }
 
-                // update submission
+                // update submission, metadata, packages
                 UpdateSubmission(submissionInDb, submission);
                 submissionInDb.Updated = DateTime.Now;
-
-                // update metadata
                 UpdateMetadata(db, metadataList, submission.SubmissionID);
-
-                // update package information
                 UpdatePackage(db, packages, submission.SubmissionID);
-
-                // save the major properties prior to images
-                db.SaveChanges();
+                db.SaveChanges(); // save the major properties prior to images
 
                 // upload images and update urls
                 UploadImages(submissionInDb, images, settingStatusOfImages, imageStorageService);
@@ -67,8 +62,11 @@ namespace WebGallery.Services
 
                 // if save successfully {
                 // set owner of this submissioin if it's a new submission
-                // update values in submission dashboard 
                 //}
+
+                // update submission status
+                UpdateSubmissionStatus(db, submitter, submission);
+                db.SaveChanges();
 
                 // Add a submisssion transaction
                 var description = "Submission State\n";
@@ -85,6 +83,27 @@ namespace WebGallery.Services
                 db.SaveChanges();
 
                 return submissionInDb;
+            }
+        }
+
+        private static void UpdateSubmissionStatus(WebGalleryDbContext db, Submitter submitter, Submission submission)
+        {
+            var submissionStateId = submitter.IsSuperSubmitter()
+                                ? 2 // "Testing"
+                                : 1 // "Pending Review"
+                                ;
+            var submisstionStatus = db.SubmissionsStatus.FirstOrDefault(s => s.SubmissionID == submission.SubmissionID);
+            if (submisstionStatus == null)
+            {
+                db.SubmissionsStatus.Add(new SubmissionsStatu
+                {
+                    SubmissionID = submission.SubmissionID,
+                    SubmissionStateID = submissionStateId
+                });
+            }
+            else
+            {
+                submisstionStatus.SubmissionStateID = submissionStateId;
             }
         }
 
@@ -199,52 +218,41 @@ namespace WebGallery.Services
             }
 
             // screenshots
-            foreach (var image in images.Values)
+            for (var index = 1; index <= 6; index++)
             {
+                var image = images[$"{AppImage.SCREENSHOT_IMAGE_NAME_PREFIX}{index}"];
                 if (image.ContentLength > 0)
                 {
                     var url = imageStorageService.Upload(submission.SubmissionID, image.ImageName, images[image.ImageName].Content);
-                    UpdateImageUrl(submission, image.ImageName, url);
+                    submission.UpdateImageUrl(image.ImageName, url);
                 }
                 else if (settingStatusOfImages[image.ImageName].WannaDeleteOrReplace) // if the file input has nothing, and the flag of setting is true, then delete the image
                 {
-                    UpdateImageUrl(submission, image.ImageName, null);
+                    submission.UpdateImageUrl(image.ImageName, null);
                     imageStorageService.Delete(submission.SubmissionID, image.ImageName);
                 }
             }
         }
 
-        private void UpdateImageUrl(Submission submission, string imageName, string url)
-        {
-            switch (imageName)
-            {
-                case AppImage.LOGO_IMAGE_NAME:
-                    submission.LogoUrl = url;
-                    break;
-                case AppImage.SCREENSHOT_1_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_2_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_3_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_4_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_5_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                case AppImage.SCREENSHOT_6_IMAGE_NAME:
-                    submission.ScreenshotUrl1 = url;
-                    break;
-                default:
-                    break;
-            }
-        }
-
         #endregion
 
+        public bool IsLocked(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                int[] stateIdsNotLocked = { 1, // "Pending Review"
+                                            3, // "Testing Failed"
+                                            5, // "Rejected"
+                                            7, // "Published"
+                };
+
+                var submissionState = (from state in db.SubmissionStates
+                                       join status in db.SubmissionsStatus on state.SubmissionStateID equals status.SubmissionStateID
+                                       where status.SubmissionID == submissionId
+                                       select state).FirstOrDefault();
+
+                return submissionState != null && !stateIdsNotLocked.Contains(submissionState.SubmissionStateID);
+            }
+        }
     } // class
 }

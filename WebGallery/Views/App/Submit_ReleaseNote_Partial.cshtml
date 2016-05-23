@@ -1,4 +1,4 @@
-﻿@model WebGallery.ViewModels.AppSubmissionViewModel
+﻿@model WebGallery.ViewModels.AppSubmitViewModel
 
 <h2 id="ReleaseNotes">Provide Release Notes:</h2>
 <div class="submission-form-section">
@@ -128,9 +128,10 @@
                     <!--Logo-->
                     @{
                         var showLogoUploader = string.IsNullOrWhiteSpace(Model.Submission.LogoUrl) ? string.Empty : "display:none";
+                        Model.SetLogo = string.IsNullOrWhiteSpace(Model.Submission.LogoUrl); // if logo url is null/empty, set logo for Required validation
                     }
-                    <input type="hidden" name="SetLogo" id="SetLogo" value="@Model.SetLogo" />
-                    <label for="LogoFile" class="file-upload-label">Logo</label>
+                    <input type="hidden" name="SetLogo" id="SetLogo" value="@Model.SetLogo.ToString()" />
+                    <label for="logo" class="file-upload-label">Logo</label>
                     <div id="panelEmptyLogo" class="file-upload-wrapper" style="@showLogoUploader">
                         <input type="file" name="logo" id="logo" title="Upload a logo" class="file-upload" data-title="Logo" data-msg-required="(*)" />
                         <div class="explanation">
@@ -169,7 +170,7 @@
                         var showScreenshotUploader = string.IsNullOrWhiteSpace(screenshotUrl) ? string.Empty : "display:none";
                         var panelIdForSubmittedScreenshot = string.Format("panelSubmittedScreenshot{0}", index);
 
-                        <input type="hidden" name="@hiddenNameForSetScreenshot" id="@hiddenIdForSetScreenshot" value="@setScreenshot" />
+                        <input type="hidden" name="@hiddenNameForSetScreenshot" id="@hiddenIdForSetScreenshot" value="@setScreenshot.ToString()" />
                         <label for="@fuId" class="file-upload-label">@index</label>
                         <div id="@panelIdForEmptyScreenshot" class="file-upload-wrapper" style="@showScreenshotUploader">
                             <input type="file" name="@fuName" id="@fuId" title="Screenshot @index" class="file-upload" />

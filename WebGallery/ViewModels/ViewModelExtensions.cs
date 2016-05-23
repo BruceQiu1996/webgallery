@@ -5,7 +5,7 @@ namespace WebGallery.ViewModels
 {
     public static class AppSubmissionViewModelExtensions
     {
-        public static IDictionary<string, AppImageSettingStatus> GetSettingStatusOfImages(this AppSubmissionViewModel model)
+        public static IDictionary<string, AppImageSettingStatus> GetSettingStatusOfImages(this AppSubmitViewModel model)
         {
             return new Dictionary<string, AppImageSettingStatus>()
             {
