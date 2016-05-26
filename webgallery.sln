@@ -20,8 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", "{A943F828-42C9-4361-9287-E5D56A8D884C}"
 	ProjectSection(SolutionItems) = preProject
-		SqlScripts\add.primay.key.for.SubmissionLocalizedMetaData.sql = SqlScripts\add.primay.key.for.SubmissionLocalizedMetaData.sql
-		..\..\Documents\SQL Server Management Studio\add.URL.columns.to.submissions.sql = ..\..\Documents\SQL Server Management Studio\add.URL.columns.to.submissions.sql
+		SqlScripts\add.primary.key.for.SubmissionLocalizedMetaData.sql = SqlScripts\add.primary.key.for.SubmissionLocalizedMetaData.sql
+		SqlScripts\add.primary.key.for.SubmissionOwners.sql = SqlScripts\add.primary.key.for.SubmissionOwners.sql
+		SqlScripts\add.URL.columns.to.submissions.sql = SqlScripts\add.URL.columns.to.submissions.sql
 	EndProjectSection
 EndProject
 Global

@@ -5,53 +5,52 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a23b6c7499f4498499a26530c5b34851" Name="Diagram1" ZoomLevel="91">
-        <EntityTypeShape EntityType="WebGallery.Models.ApplicationInGallery" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ArchitectureType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.BlogPost" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ChapterLog" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.CommentModeration" Width="1.5" PointX="5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Comment" Width="1.5" PointX="2.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ContentIndex" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.DatabaseServer" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.DirectContactMethod" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.FrameworksAndRuntime" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.GalleryType" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Hosters_Country" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Hosters_Region" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Hosters_State" Width="1.5" PointX="10.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Package" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.PageView" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ProductOrAppCategory" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ProductOrAppImage" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.PullQuote" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Rating" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionLocalizedMetaData" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Submission" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionsStatu" Width="1.5" PointX="13.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionState" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionTransaction" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionTransactionType" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Submitter" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmittersContactDetail" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.TagClick" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.Tag" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.TrainingLog" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.User" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.WapCommunitySignup" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.WebServerExtension" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.AppDownloadStat" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.PID" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ProdDownloadStat" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.ProdDownloadStatsINVALID" Width="1.5" PointX="12.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.SubmissionOwner" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
-        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Galle__361203C5" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Submi__370627FE" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Submi__37FA4C37" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK_ChapterLog_TrainingLog" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK_CommentModeration_Comments" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK_Country_Region" ManuallyRouted="false" />
-        <AssociationConnector Association="WebGallery.Models.FK_State_Country" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebGallery.Models.ApplicationInGallery" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="WebGallery.Models.ArchitectureType" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.BlogPost" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.ChapterLog" Width="1.5" PointX="8" PointY="5" />
+        <EntityTypeShape EntityType="WebGallery.Models.CommentModeration" Width="1.5" PointX="5" PointY="9.125" />
+        <EntityTypeShape EntityType="WebGallery.Models.Comment" Width="1.5" PointX="2.75" PointY="8.875" />
+        <EntityTypeShape EntityType="WebGallery.Models.ContentIndex" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.DatabaseServer" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.DirectContactMethod" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.FrameworksAndRuntime" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.GalleryType" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="WebGallery.Models.Hosters_Country" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="WebGallery.Models.Hosters_Region" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="WebGallery.Models.Hosters_State" Width="1.5" PointX="10.25" PointY="1.125" />
+        <EntityTypeShape EntityType="WebGallery.Models.Package" Width="1.5" PointX="11.75" PointY="7.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.PageView" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.ProductOrAppCategory" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.ProductOrAppImage" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.PullQuote" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.Rating" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionLocalizedMetaData" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionOwner" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.Submission" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionsStatu" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionState" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionTransaction" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmissionTransactionType" Width="1.5" PointX="4.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.Submitter" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.SubmittersContactDetail" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.TagClick" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.Tag" Width="1.5" PointX="10.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.TrainingLog" Width="1.5" PointX="5.75" PointY="4.875" />
+        <EntityTypeShape EntityType="WebGallery.Models.WapCommunitySignup" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.WebServerExtension" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.AppDownloadStat" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.PID" Width="1.5" PointX="16.75" PointY="13.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.ProdDownloadStat" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.ProdDownloadStatsINVALID" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" Width="1.5" PointX="2.75" PointY="17.75" />
+        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Galle__361203C5" />
+        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Submi__370627FE" />
+        <AssociationConnector Association="WebGallery.Models.FK__Applicati__Submi__37FA4C37" />
+        <AssociationConnector Association="WebGallery.Models.FK_ChapterLog_TrainingLog" />
+        <AssociationConnector Association="WebGallery.Models.FK_CommentModeration_Comments" />
+        <AssociationConnector Association="WebGallery.Models.FK_Country_Region" />
+        <AssociationConnector Association="WebGallery.Models.FK_State_Country" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

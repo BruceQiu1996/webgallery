@@ -3,7 +3,10 @@
 <h2 id="ReleaseNotes">Provide Release Notes:</h2>
 <div class="submission-form-section">
     <input type="hidden" name="Submission.SubmissionID" id="SubmissionId" value="@Model.Submission.SubmissionID" />
-    <div class="clearing">
+    @{
+        var showNickname = (Model.CanEditNickname) ? string.Empty : "display:none";
+    }    
+    <div class="clearing" style="@showNickname">
         <label for="AppId" class="textbox-label">App ID</label>
         <input type="text" name="Submission.Nickname" id="AppId" value="@Model.Submission.Nickname" class="textbox" placeholder="Application"
                data-title="App Id"
@@ -72,11 +75,11 @@
             {
                 if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
                 {
-            <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
                 }
                 else
                 {
-            <option value="@c.CategoryID">@c.Name</option>
+                    <option value="@c.CategoryID">@c.Name</option>
                 }
             }
         </select>
@@ -92,11 +95,11 @@
             {
                 if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
                 {
-            <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
                 }
                 else
                 {
-            <option value="@c.CategoryID">@c.Name</option>
+                    <option value="@c.CategoryID">@c.Name</option>
                 }
             }
         </select>
@@ -161,14 +164,14 @@
                     @for (var index = 1; index <= 6; index++)
                     {
                         var screenshotUrl = Model.ScreenshotUrls[index - 1]; // zero-based
-                        var hiddenNameForSetScreenshot = string.Format("SetScreenshot{0}", index);
+                        var hiddenNameForSetScreenshot = $"SetScreenshot{index}";
                         var hiddenIdForSetScreenshot = hiddenNameForSetScreenshot;
                         var setScreenshot = Model.SettingStatusOfScreenshots[index - 1];
-                        var fuName = string.Format("screenshot{0}", index);
+                        var fuName = $"screenshot{index}";
                         var fuId = fuName;
-                        var panelIdForEmptyScreenshot = string.Format("panelEmtpyScreenshot{0}", index);
+                        var panelIdForEmptyScreenshot = $"panelEmtpyScreenshot{index}";
                         var showScreenshotUploader = string.IsNullOrWhiteSpace(screenshotUrl) ? string.Empty : "display:none";
-                        var panelIdForSubmittedScreenshot = string.Format("panelSubmittedScreenshot{0}", index);
+                        var panelIdForSubmittedScreenshot = $"panelSubmittedScreenshot{index}";
 
                         <input type="hidden" name="@hiddenNameForSetScreenshot" id="@hiddenIdForSetScreenshot" value="@setScreenshot.ToString()" />
                         <label for="@fuId" class="file-upload-label">@index</label>

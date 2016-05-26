@@ -46,6 +46,7 @@ namespace WebGallery.Models
         public virtual DbSet<PullQuote> PullQuotes { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<SubmissionLocalizedMetaData> SubmissionLocalizedMetaDatas { get; set; }
+        public virtual DbSet<SubmissionOwner> SubmissionOwners { get; set; }
         public virtual DbSet<Submission> Submissions { get; set; }
         public virtual DbSet<SubmissionsStatu> SubmissionsStatus { get; set; }
         public virtual DbSet<SubmissionState> SubmissionStates { get; set; }
@@ -56,14 +57,12 @@ namespace WebGallery.Models
         public virtual DbSet<TagClick> TagClicks { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<TrainingLog> TrainingLogs { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<WapCommunitySignup> WapCommunitySignups { get; set; }
         public virtual DbSet<WebServerExtension> WebServerExtensions { get; set; }
         public virtual DbSet<AppDownloadStat> AppDownloadStats { get; set; }
         public virtual DbSet<PID> PIDs { get; set; }
         public virtual DbSet<ProdDownloadStat> ProdDownloadStats { get; set; }
         public virtual DbSet<ProdDownloadStatsINVALID> ProdDownloadStatsINVALIDs { get; set; }
-        public virtual DbSet<SubmissionOwner> SubmissionOwners { get; set; }
         public virtual DbSet<UnconfirmedSubmissionOwner> UnconfirmedSubmissionOwners { get; set; }
     }
 }

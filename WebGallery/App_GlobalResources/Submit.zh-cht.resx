@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>請提供應用程式的 ID。此 ID 只能以字母和數字組成，其中不可包含空白或標點符號。此 ID 將用來做為您的應用程式在 &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt; 中的頁面名稱。</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>應用程式 ID</value>
+  </data>
+  <data name="AppIDValidationMessage" xml:space="preserve">
+    <value>應用程式 ID 只能以字母和數字組成</value>
+  </data>
+  <data name="AppIDValidationText" xml:space="preserve">
+    <value>僅可使用英文字母和數字</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>應用程式</value>
+  </data>
+  <data name="ApplicationHeader" xml:space="preserve">
+    <value>應用程式</value>
+  </data>
+  <data name="ApplicationStatus" xml:space="preserve">
+    <value>應用程式</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>請提供應用程式的名稱。</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>應用程式名稱</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>應用程式</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>請提供應用程式網站首頁的網址。</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>應用程式網站網址</value>
+  </data>
+  <data name="AppWebSiteUrlValidationMessage" xml:space="preserve">
+    <value>無效的應用程式網站網址</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="ContactHeader" xml:space="preserve">
+    <value>連絡人</value>
+  </data>
+  <data name="ContactStatus" xml:space="preserve">
+    <value>連絡人</value>
+  </data>
+  <data name="ProductHeader" xml:space="preserve">
+    <value>產品</value>
+  </data>
+  <data name="ProductStatus" xml:space="preserve">
+    <value>產品</value>
+  </data>
+  <data name="RequiredValidationText" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredValidationTooltip" xml:space="preserve">
+    <value>必要資訊</value>
+  </data>
+  <data name="SubmitIntro" xml:space="preserve">
+    <value>感謝您使用 Web App Gallery。為了在應用程式庫中列出您的應用程式，我們需要收集與該應用程式有關的資訊，以便在 Web App Gallery 和網絡平台安裝工具中使用。此外，請您提供連絡資訊，以便 Microsoft 或我們的廠商在檢視您提交的項目時與您連絡。</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>「提交實體」指的是提交應用程式之實體的名稱。</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>提交實體</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>請提供「提交實體」之主要網站的網址。</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>提交實體的網址</value>
+  </data>
+  <data name="SubmittingEntityUrlValidationMessage" xml:space="preserve">
+    <value>無效的提交實體網址</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>提交 Web 應用程式</value>
+  </data>
+  <data name="UnknownUrlFormatValidationText" xml:space="preserve">
+    <value>未知的網址格式</value>
+  </data>
+  <data name="UnknownUrlFormatValidationTooltip" xml:space="preserve">
+    <value>無法辨識此網址的格式</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>額外資訊</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>還有其他我們應該知道的資訊嗎？</value>
+  </data>
+  <data name="Address1Label" xml:space="preserve">
+    <value>地址 1</value>
+  </data>
+  <data name="Address2Label" xml:space="preserve">
+    <value>地址 2</value>
+  </data>
+  <data name="Address3Label" xml:space="preserve">
+    <value>地址 3</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>請提供第一個網頁在網站根目錄上的相對網址，該網址會在應用程式安裝後載入。範例：&lt;br /&gt;/start.htm、/default.aspx 或 /install.php。</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>應用程式起始網頁的網址</value>
+  </data>
+  <data name="ApplicationStartPageUrlTT_x64" xml:space="preserve">
+    <value>應用程式起始網頁的網址 (x64)</value>
+  </data>
+  <data name="ApplicationStartPageUrlTT_x86" xml:space="preserve">
+    <value>應用程式起始網頁的網址 (x86)</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppWebSiteUrlStatus" xml:space="preserve">
+    <value>應用程式網站網址</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>尚可輸入 &lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; 個字元&lt;br /&gt;&lt;br /&gt;</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>簡短描述</value>
+  </data>
+  <data name="BriefDescriptionValidationMessage" xml:space="preserve">
+    <value>簡短描述的長度不可超過 400 個字元</value>
+  </data>
+  <data name="BriefDescriptionValidationText" xml:space="preserve">
+    <value>字元過多</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>簡短描述 (最多 400 個字元)</value>
+  </data>
+  <data name="CityLabel" xml:space="preserve">
+    <value>城市</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>請提供您用來宣傳商品之網頁的網址。</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>商品網址</value>
+  </data>
+  <data name="CommercialProductUrlStatus" xml:space="preserve">
+    <value>商品網址</value>
+  </data>
+  <data name="CommercialProductUrlValidationMessage" xml:space="preserve">
+    <value>無效的商品網址</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CommercialServicesCaption" xml:space="preserve">
+    <value>商務/商品</value>
+  </data>
+  <data name="CopyToX64" xml:space="preserve">
+    <value>把資訊複製到 x64 標籤</value>
+  </data>
+  <data name="CopyToX86" xml:space="preserve">
+    <value>把資訊複製到 x86 標籤</value>
+  </data>
+  <data name="CountryLabel" xml:space="preserve">
+    <value>國家/地區</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>相依性</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>資料庫</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>資料庫</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>架構&lt;br /&gt;和執行階段</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>架構和執行階段</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>網頁伺服器&lt;br /&gt;擴充功能</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>網頁伺服器擴充功能</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>尚可輸入 &lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 個字元&lt;br /&gt;&lt;br /&gt;</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="DescriptionValidationMessage" xml:space="preserve">
+    <value>描述的長度不可超過 1500 個字元</value>
+  </data>
+  <data name="DescriptionValidationText" xml:space="preserve">
+    <value>字元過多</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>描述 (最多可包含 1500 個字元)</value>
+  </data>
+  <data name="DirectContact1ValidationMessage" xml:space="preserve">
+    <value>直接連絡人 (1) 電話號碼無效</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationMessage" xml:space="preserve">
+    <value>直接連絡人資料 2</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationText" xml:space="preserve">
+    <value>不可輸入重複資訊</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationTooltip" xml:space="preserve">
+    <value>您必須提供兩個不同的直接連絡人</value>
+  </data>
+  <data name="DirectContact2ValidationMessage" xml:space="preserve">
+    <value>直接連絡人 (2) 的電話號碼無效</value>
+  </data>
+  <data name="DirectContactData1TT" xml:space="preserve">
+    <value>直接連絡人資料 1</value>
+  </data>
+  <data name="DirectContactData2TT" xml:space="preserve">
+    <value>直接連絡人資料 2</value>
+  </data>
+  <data name="DirectContactExplanation" xml:space="preserve">
+    <value>請提供兩個額外的直接連絡方式，以便我們針對您提交的應用程式相關事宜與您聯繫。</value>
+  </data>
+  <data name="DirectContactHeader" xml:space="preserve">
+    <value>直接連絡方法</value>
+  </data>
+  <data name="DirectContactMethod1TT" xml:space="preserve">
+    <value>直接連絡方法 1</value>
+  </data>
+  <data name="DirectContactMethod2TT" xml:space="preserve">
+    <value>直接連絡方法 2</value>
+  </data>
+  <data name="DirectContactValidationText" xml:space="preserve">
+    <value>未知的電話號碼格式</value>
+  </data>
+  <data name="DirectContactValidationTooltip" xml:space="preserve">
+    <value>無法辨識此電話號碼格式</value>
+  </data>
+  <data name="DropdownDefaultText" xml:space="preserve">
+    <value>請挑選一項</value>
+  </data>
+  <data name="DropdownNoChoiceText" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="eMailLabel" xml:space="preserve">
+    <value>電子郵件</value>
+  </data>
+  <data name="eMailValidationMessage" xml:space="preserve">
+    <value>無效的電子郵件</value>
+  </data>
+  <data name="eMailValidationText" xml:space="preserve">
+    <value>未知的電子郵件格式</value>
+  </data>
+  <data name="eMailValidationTooltip" xml:space="preserve">
+    <value>無法辨識的電子郵件地址格式</value>
+  </data>
+  <data name="FileSizeLabel" xml:space="preserve">
+    <value>檔案大小 (單位為位元組)</value>
+  </data>
+  <data name="FileSizeLabel_x64" xml:space="preserve">
+    <value>檔案大小 (單位為位元組) (x64)</value>
+  </data>
+  <data name="FileSizeLabel_x86" xml:space="preserve">
+    <value>檔案大小 (單位為位元組) (x86)</value>
+  </data>
+  <data name="FileSizeTT_x64" xml:space="preserve">
+    <value>檔案大小 (x64)</value>
+  </data>
+  <data name="FileSizeTT_x86" xml:space="preserve">
+    <value>檔案大小 (x86)</value>
+  </data>
+  <data name="FileSizeValidationMessage_x64" xml:space="preserve">
+    <value>檔案大小 (x64) 必須是小於 250000000 的正整數 (僅包括數字)</value>
+  </data>
+  <data name="FileSizeValidationMessage_x86" xml:space="preserve">
+    <value>檔案大小 (x86) 必須是小於 250000000 的正整數 (僅包括數字)</value>
+  </data>
+  <data name="FileSizeWatermark" xml:space="preserve">
+    <value>100000</value>
+  </data>
+  <data name="FileSizeStatus_x64" xml:space="preserve">
+    <value>檔案大小 (x64)</value>
+  </data>
+  <data name="FileSizeStatus_x86" xml:space="preserve">
+    <value>檔案大小 (x86)</value>
+  </data>
+  <data name="FinalStepsIntro" xml:space="preserve">
+    <value>所有項目都檢查通過。就快完成了，別放棄！</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>名字</value>
+  </data>
+  <data name="FixupSubmitButtonText" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="GoToSubmitFormLinkText" xml:space="preserve">
+    <value>檢查並編輯所有已提交的資料</value>
+  </data>
+  <data name="MD5HashExplanation" xml:space="preserve">
+    <value>請針對位在封裝位置網址中的應用程式封裝，提供與其相關聯的 MD5 雜湊資料。您可以在&lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="雜湊值計算公用程式" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;這裡&lt;/a&gt;下載用來計算雜湊值的軟體。如 &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web 應用程式封裝方針" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web 應用程式封裝逐步解說和開發人員指南&lt;/a&gt;所述，如果您在提交後針對封裝進行任何變更，將造成提交項目和封裝無效的情況。</value>
+  </data>
+  <data name="MD5HashLabel" xml:space="preserve">
+    <value>MD5 雜湊資料</value>
+  </data>
+  <data name="MD5HashLabel_x64" xml:space="preserve">
+    <value>封裝 MD5 雜湊資料 (x64)</value>
+  </data>
+  <data name="MD5HashLabel_x86" xml:space="preserve">
+    <value>封裝 MD5 雜湊資料 (x86)</value>
+  </data>
+  <data name="MD5HashStatus_x64" xml:space="preserve">
+    <value>MD5 雜湊資料 (x64)</value>
+  </data>
+  <data name="MD5HashStatus_x86" xml:space="preserve">
+    <value>MD5 雜湊資料 (x86)</value>
+  </data>
+  <data name="MD5HashTT_x64" xml:space="preserve">
+    <value>MD5 雜湊資料 (x64)</value>
+  </data>
+  <data name="MD5HashTT_x86" xml:space="preserve">
+    <value>MD5 雜湊資料 (x86)</value>
+  </data>
+  <data name="MD5HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="ImagesHeader" xml:space="preserve">
+    <value>圖像</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="LanguageTT_x64" xml:space="preserve">
+    <value>語言 (x64)</value>
+  </data>
+  <data name="LanguageTT_x86" xml:space="preserve">
+    <value>語言 (x86)</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>英文</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value>姓氏</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>請檢視您的應用程式，確保它完全符合作業系統和 WebPI 相容性等 &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery 規範&lt;/a&gt;。</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>您只能選取&lt;br /&gt;一項</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>如要選取多個項目，請使&lt;br /&gt;用 Ctrl/Cmd 鍵</value>
+  </data>
+  <data name="LogoDimensionsStatus" xml:space="preserve">
+    <value>標誌圖像尺寸</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>您的標誌尺寸必須是 200 x 200 像素，並使用 PNG 格式。</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>標誌</value>
+  </data>
+  <data name="LogoTypeStatus" xml:space="preserve">
+    <value>標誌圖像類型</value>
+  </data>
+  <data name="ManifestExistsStatus_x64" xml:space="preserve">
+    <value>ZIP 中的資訊清單 (x64)</value>
+  </data>
+  <data name="ManifestExistsStatus_x86" xml:space="preserve">
+    <value>ZIP 中的資訊清單 (x86)</value>
+  </data>
+  <data name="MiddleNameLabel" xml:space="preserve">
+    <value>中間名</value>
+  </data>
+  <data name="NextButtonText" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>或是</value>
+  </data>
+  <data name="PacakageValidationMessage" xml:space="preserve">
+    <value>您必須完整填寫 x86 或 x64 (或兩者均有) 的封裝資料</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>封裝資訊</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>封裝位置直接公開連結至您的應用程式封裝 (&lt;strong&gt;zip&lt;/strong&gt; 檔案) 的網址，可供全部的人進行存取。此封裝應包含您建立的 MSDeploy 檔案 (包含在 &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery 封裝方針" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Application Gallery 封裝方針&lt;/a&gt;中)。</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>封裝位置網址</value>
+  </data>
+  <data name="PackageLocationUrlLabel_x64" xml:space="preserve">
+    <value>封裝位置網址 (x64)</value>
+  </data>
+  <data name="PackageLocationUrlLabel_x86" xml:space="preserve">
+    <value>封裝位置網址 (x86)</value>
+  </data>
+  <data name="PackageLocationUrlStatus_x64" xml:space="preserve">
+    <value>封裝位置網址 (x64)</value>
+  </data>
+  <data name="PackageLocationUrlStatus_x86" xml:space="preserve">
+    <value>封裝位置網址 (x86)</value>
+  </data>
+  <data name="PackageLocationUrlTT_x64" xml:space="preserve">
+    <value>封裝位置網址 (x64)</value>
+  </data>
+  <data name="PackageLocationUrlTT_x86" xml:space="preserve">
+    <value>封裝位置網址 (x86)</value>
+  </data>
+  <data name="PackageLocationUrlValidationMessage_x64" xml:space="preserve">
+    <value>無效的封裝位置網址 (x64)</value>
+  </data>
+  <data name="PackageLocationUrlValidationMessage_x86" xml:space="preserve">
+    <value>無效的封裝位置網址 (x86)</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PackagesHeader" xml:space="preserve">
+    <value>封裝</value>
+  </data>
+  <data name="PositiveIntegersOnlyValidationText" xml:space="preserve">
+    <value>1 至 250000000</value>
+  </data>
+  <data name="PrefixDefaultText" xml:space="preserve">
+    <value>稱謂</value>
+  </data>
+  <data name="PrefixDrText" xml:space="preserve">
+    <value>博士</value>
+  </data>
+  <data name="PrefixMissText" xml:space="preserve">
+    <value>小姐</value>
+  </data>
+  <data name="PrefixMrsText" xml:space="preserve">
+    <value>太太</value>
+  </data>
+  <data name="PrefixMrText" xml:space="preserve">
+    <value>先生</value>
+  </data>
+  <data name="PrefixMsText" xml:space="preserve">
+    <value>女士</value>
+  </data>
+  <data name="PrefixTT" xml:space="preserve">
+    <value>稱謂</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>請選取應用程式的主要類別。由於應用程式可能符合一個或多個類別，您可以選擇另外為該程式與次要類別建立關聯。</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>主要類別</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>請提供您用來宣傳商務之網頁的網址。</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>專業服務網址</value>
+  </data>
+  <data name="ProfessionalServicesUrlStatus" xml:space="preserve">
+    <value>專業服務網址</value>
+  </data>
+  <data name="ProfessionalServicesUrlValidationMessage" xml:space="preserve">
+    <value>無效的專業服務網址</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ProvinceLabel" xml:space="preserve">
+    <value>州、省等等</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>提交的應用程式將來推出供大眾使用的日期 (如果應用程式已經公開，您仍然需要提供其之前的推出日期)。</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>發行日期</value>
+  </data>
+  <data name="Screenshot1DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 1 的尺寸</value>
+  </data>
+  <data name="Screenshot1Label" xml:space="preserve">
+    <value>螢幕擷取畫面 1</value>
+  </data>
+  <data name="Screenshot1TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 1 的類型</value>
+  </data>
+  <data name="Screenshot2DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 2 的尺寸</value>
+  </data>
+  <data name="Screenshot2Label" xml:space="preserve">
+    <value>螢幕擷取畫面 2</value>
+  </data>
+  <data name="Screenshot2TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 2 的類型</value>
+  </data>
+  <data name="Screenshot3DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 3 的尺寸</value>
+  </data>
+  <data name="Screenshot3Label" xml:space="preserve">
+    <value>螢幕擷取畫面 3</value>
+  </data>
+  <data name="Screenshot3TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 3 的類型</value>
+  </data>
+  <data name="Screenshot4DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 4 的尺寸</value>
+  </data>
+  <data name="Screenshot4Label" xml:space="preserve">
+    <value>螢幕擷取畫面 4</value>
+  </data>
+  <data name="Screenshot4TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 4 的類型</value>
+  </data>
+  <data name="Screenshot5DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 5 的尺寸</value>
+  </data>
+  <data name="Screenshot5Label" xml:space="preserve">
+    <value>螢幕擷取畫面 5</value>
+  </data>
+  <data name="Screenshot5TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 5 的類型</value>
+  </data>
+  <data name="Screenshot6DimensionsStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 6 的尺寸</value>
+  </data>
+  <data name="Screenshot6Label" xml:space="preserve">
+    <value>螢幕擷取畫面 6</value>
+  </data>
+  <data name="Screenshot6TypeStatus" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 6 的類型</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>您最多可以加入 6 張應用程式的螢幕擷取畫面。畫面尺寸必須是 800 x 600 像素，並使用 PNG 格式。</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>螢幕擷取畫面 (選擇性)</value>
+  </data>
+  <data name="ScreenshotTT_1" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 1</value>
+  </data>
+  <data name="ScreenshotTT_2" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 2</value>
+  </data>
+  <data name="ScreenshotTT_3" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 3</value>
+  </data>
+  <data name="ScreenshotTT_4" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 4</value>
+  </data>
+  <data name="ScreenshotTT_5" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 5</value>
+  </data>
+  <data name="ScreenshotTT_6" xml:space="preserve">
+    <value>螢幕擷取畫面圖像 6</value>
+  </data>
+  <data name="Screenshot_1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Screenshot_2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Screenshot_3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Screenshot_4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Screenshot_5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Screenshot_6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>選取應用程式的次要類別。</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>次要類別</value>
+  </data>
+  <data name="StateLabel" xml:space="preserve">
+    <value>州/省</value>
+  </data>
+  <data name="StateProvinceValidationMessage" xml:space="preserve">
+    <value>州、省等等</value>
+  </data>
+  <data name="StatusCheckingIntro" xml:space="preserve">
+    <value>我們目前正針對您提交的項目進行簡要驗證程序。如果發現任何問題，我們將透過此網頁和電子郵件通知您。如果應用程式封裝通過測試，我們將透過電子郵件通知您其狀態。</value>
+  </data>
+  <data name="StatusIntro" xml:space="preserve">
+    <value>感謝您提交 Web 應用程式！</value>
+  </data>
+  <data name="StatusNotAuthorizedIntro" xml:space="preserve">
+    <value>很抱歉，您尚未取得授權，無法編輯您需要的應用程式或產品資料。</value>
+  </data>
+  <data name="SubmitButtonText" xml:space="preserve">
+    <value>提交您的應用程式</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>提交不同的標誌</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>刪除或取代螢幕擷取畫面</value>
+  </data>
+  <data name="SubmittingEntityUrlStatus" xml:space="preserve">
+    <value>提交實體的網址</value>
+  </data>
+  <data name="SuffixDefaultText" xml:space="preserve">
+    <value>稱謂</value>
+  </data>
+  <data name="SuffixJrText" xml:space="preserve">
+    <value>先生|太太|女士|小姐|博士|醫師|教授|老師</value>
+  </data>
+  <data name="SuffixSrText" xml:space="preserve">
+    <value>先生|太太|女士|小姐|博士|醫師|教授|老師</value>
+  </data>
+  <data name="SuffixTT" xml:space="preserve">
+    <value>稱謂</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>按照 &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery 原則" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery 規範&lt;/a&gt;要求，您的應用程式必須提供客戶免費的網路支援服務。</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>支援服務網址</value>
+  </data>
+  <data name="SupportUrlStatus" xml:space="preserve">
+    <value>支援服務網址</value>
+  </data>
+  <data name="SupportUrlValidationMessage" xml:space="preserve">
+    <value>無效的支援服務網址</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>我同意遵守 Web 應用程式&lt;a href="SubmissionAgreement.aspx" title="提交合約" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;提交合約&lt;/a&gt;中的《條款和條件》。</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>您是否同意遵守《條款和條件》？</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>條款和條件</value>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="URLsHeader" xml:space="preserve">
+    <value>網址</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>&lt;p&gt;提交此應用程式前，請您先提供下列資訊：&lt;/p&gt;</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>檢視最新的提交項目</value>
+  </data>
+  <data name="ZipRegionCodeLabel" xml:space="preserve">
+    <value>郵遞區號或地區碼</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>清除選項</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>重設</value>
+  </data>
+  <data name="MustBeZipValidationMessage_x64" xml:space="preserve">
+    <value>封裝位置網址 (x64) 必須包含 ZIP 副檔名</value>
+  </data>
+  <data name="MustBeZipValidationMessage_x86" xml:space="preserve">
+    <value>封裝位置網址 (x86) 必須包含 ZIP 副檔名</value>
+  </data>
+  <data name="MustBeZipValidationText" xml:space="preserve">
+    <value>必須包含 ZIP 副檔名</value>
+  </data>
+  <data name="MustBeZipValidationTooltip" xml:space="preserve">
+    <value>指定網址的結尾必須使用 ZIP 副檔名</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>請針對位在封裝位置網址中的應用程式封裝，提供與其相關聯的 SHA-1 雜湊資料。您可以在&lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="雜湊值計算公用程式" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;這裡&lt;/a&gt;下載用來計算雜湊值的軟體。如 &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web 應用程式封裝方針" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web 應用程式封裝逐步解說和開發人員指南&lt;/a&gt;所述，如果您在提交後針對封裝進行任何變更，將造成提交項目和封裝無效的情況。</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>SHA-1 雜湊資料</value>
+  </data>
+  <data name="SHA1HashLabel_x64" xml:space="preserve">
+    <value>封裝 SHA-1 雜湊資料 (x64)</value>
+  </data>
+  <data name="SHA1HashLabel_x86" xml:space="preserve">
+    <value>封裝 SHA-1 雜湊資料 (x86)</value>
+  </data>
+  <data name="SHA1HashStatus_x64" xml:space="preserve">
+    <value>SHA-1 雜湊資料 (x64)</value>
+  </data>
+  <data name="SHA1HashStatus_x86" xml:space="preserve">
+    <value>SHA-1 雜湊資料 (x86)</value>
+  </data>
+  <data name="SHA1HashTT_x64" xml:space="preserve">
+    <value>SHA-1 雜湊資料 (x64)</value>
+  </data>
+  <data name="SHA1HashTT_x86" xml:space="preserve">
+    <value>SHA-1 雜湊資料 (x86)</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="DateFormatText" xml:space="preserve">
+    <value>mm/dd/yyyy</value>
+  </data>
+  <data name="ReleaseDateValidationMessage" xml:space="preserve">
+    <value>無效的發行日期格式</value>
+  </data>
+  <data name="DashboardNotAuthorizedIntro" xml:space="preserve">
+    <value>很抱歉，您尚未取得授權，因此無法使用此網頁。</value>
+  </data>
+  <data name="DashboardStatusCheckerText" xml:space="preserve">
+    <value>驗證資料</value>
+  </data>
+  <data name="DashboardSubmissionFormText" xml:space="preserve">
+    <value>提交表單</value>
+  </data>
+</root>

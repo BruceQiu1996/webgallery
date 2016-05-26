@@ -97,7 +97,7 @@ function createNickname(appNameContainer) {
         var re = new RegExp("\\W", "g");
         var appName = $(appNameContainer).val();
         var suggestedAppId = appName.replace(re, "");
-        $("#appId").val(suggestedAppId);
+        $("#AppId").val(suggestedAppId);
     }
 }
 

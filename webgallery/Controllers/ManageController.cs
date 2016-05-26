@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using WebGallery.Extensions;
 using WebGallery.Models;
-using WebGallery.Services;
+using WebGallery.Security;
 using WebGallery.ViewModels;
 
 namespace WebGallery.Controllers
