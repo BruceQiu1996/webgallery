@@ -32,7 +32,7 @@ namespace WebGallery.Models
 
         private static readonly string[] SupportedLanguageNames = new string[]
         {
-            "en-us",
+            CODE_ENGLISH_US,
             "ar-eg",
             "zh-chs",
             "zh-cht",
@@ -50,6 +50,8 @@ namespace WebGallery.Models
             "es-es",
             "tr-tr"
         };
+
+        public const string CODE_ENGLISH_US = "en-us";
 
         // See http://www.w3schools.com/tags/att_global_dir.asp
         private const string Left_To_Right = "ltr";

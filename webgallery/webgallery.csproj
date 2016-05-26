@@ -235,6 +235,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Submit.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.es-es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.es-es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.ja-jp.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.ja-jp.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.ko-kr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.ko-kr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.ru-ru.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.ru-ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.tr-TR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.tr-TR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.zh-chs.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.zh-chs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Submit.zh-cht.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Submit.zh-cht.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -243,15 +283,12 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
-    <Compile Include="Extensions\IdentityExtensions.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Models\AppDownloadStat.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AppImage.cs" />
     <Compile Include="Models\ApplicationInGallery.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -270,11 +307,9 @@
     <Compile Include="Models\CommentModeration.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContentIndex.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\DatabaseServer.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -296,7 +331,6 @@
     <Compile Include="Models\Hosters_State.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Package.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -318,7 +352,6 @@
     <Compile Include="Models\ProductOrAppImage.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PublisherDetails.cs" />
     <Compile Include="Models\PullQuote.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -364,12 +397,21 @@
     <Compile Include="Models\UnconfirmedSubmissionOwner.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>WebGallery.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\WapCommunitySignup.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WebServerExtension.cs">
+      <DependentUpon>WebGallery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Security\IdentityExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppImage.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ModelExtensions.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\PublisherDetails.cs" />
     <Compile Include="Models\WebGallery.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -385,10 +427,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\WebServerExtension.cs">
-      <DependentUpon>WebGallery.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\SubmitterClaims.cs" />
     <Compile Include="Services\AppService.cs" />
     <Compile Include="Services\IAppImageStorageService.cs" />
     <Compile Include="Services\AppImageAzureStorageService.cs" />
@@ -605,6 +645,9 @@
     <Content Include="Views\App\Mine.cshtml" />
     <Content Include="Views\Home\Agreement.cshtml" />
     <Content Include="Views\Shared\UpgradeIE.cshtml" />
+    <Content Include="Views\Shared\NeedPermission.cshtml" />
+    <Content Include="Views\Shared\ModificationLocked.cshtml" />
+    <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,6 +664,40 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Submit.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.es-es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Submit.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Submit.zh-cht.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

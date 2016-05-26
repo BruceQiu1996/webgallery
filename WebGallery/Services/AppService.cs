@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using WebGallery.Models;
 
 namespace WebGallery.Services
@@ -10,17 +11,18 @@ namespace WebGallery.Services
     {
         #region validation
 
-        public bool ValidateAppIdVersionIsUnique(string appId, string version, int? submissionId)
+        public Task<bool> ValidateAppIdVersionIsUniqueAsync(string appId, string version, int? submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var submission = db.Submissions.FirstOrDefault(
                         s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
                         && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
-
-                return (submission != null && submissionId.HasValue)
+                var isUnique = (submission != null && submissionId.HasValue)
                     ? submission.SubmissionID == submissionId
                     : submission == null;
+
+                return Task.FromResult(isUnique);
             }
         }
 
@@ -33,7 +35,7 @@ namespace WebGallery.Services
 
         #region new submission or update an submission
 
-        public Submission Submit(Submitter submitter,
+        public Task<Submission> CreateAsync(Submitter submitter,
             Submission submission,
             IList<SubmissionLocalizedMetaData> metadataList,
             IList<Package> packages,
@@ -43,61 +45,116 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
-                var submissionInDb = db.Submissions.FirstOrDefault(s => s.SubmissionID == submission.SubmissionID);
+                submission.Created = DateTime.Now;
+
+                // add submission
+                db.Submissions.Add(submission);
+                db.SaveChanges();
+
+                // record the relation between the submitter and the submisssion
+                db.SubmissionOwners.Add(new SubmissionOwner
+                {
+                    SubmitterID = submitter.SubmitterID,
+                    SubmissionID = submission.SubmissionID
+                });
+                db.SaveChanges();
+
+                // update metadata/packages with new submission id (> 0)
+                foreach (var m in metadataList) m.SubmissionID = submission.SubmissionID;
+                foreach (var p in packages) p.SubmissionID = submission.SubmissionID;
+
+                // only complete metadata/pacakges can be saved
+                db.SubmissionLocalizedMetaDatas.AddRange(metadataList.Where(m => m.HasCompleteInput()));
+                db.Packages.AddRange(packages.Where(p => p.HasCompleteInput()));
+                db.SaveChanges();
+
+                // upload images and update urls
+                UploadImages(submission, images, settingStatusOfImages, imageStorageService);
+                db.SaveChanges();
+
+                // update submission status
+                UpdateSubmissionStatus(db, submitter, submission.SubmissionID);
+                db.SaveChanges();
+
+                // Add a submisssion transaction
+                RecordTransaction(db, submission.SubmissionID);
+                db.SaveChanges();
+
+                return Task.FromResult(submission);
+            }
+        }
+
+        public Task<Submission> UpdateAsync(Submitter submitter,
+            Submission submissionInForm,
+            IList<SubmissionLocalizedMetaData> metadataList,
+            IList<Package> packages,
+            IDictionary<string, AppImage> images,
+            IDictionary<string, AppImageSettingStatus> settingStatusOfImages,
+            IAppImageStorageService imageStorageService)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submissionInDb = db.Submissions.FirstOrDefault(s => s.SubmissionID == submissionInForm.SubmissionID);
                 if (submissionInDb == null)
                 {
-                    throw new ApplicationException($"Can't find the submission #{submission.SubmissionID}");
+                    throw new ApplicationException($"Can't find the submission #{submissionInForm.SubmissionID}.");
                 }
 
-                // update submission, metadata, packages
-                UpdateSubmission(submissionInDb, submission);
+                // update submission
+                if (submitter.IsSuperSubmitter())
+                {
+                    submissionInDb.Nickname = submissionInForm.Nickname; // Only super submitter can change the Nickname(AppId).
+                }
                 submissionInDb.Updated = DateTime.Now;
-                UpdateMetadata(db, metadataList, submission.SubmissionID);
-                UpdatePackage(db, packages, submission.SubmissionID);
+                SyncOtherProperties(submissionInDb, submissionInForm);
+
+                // update metadata, packages
+                UpdateMetadata(db, metadataList, submissionInForm.SubmissionID);
+                UpdatePackage(db, packages, submissionInForm.SubmissionID);
                 db.SaveChanges(); // save the major properties prior to images
 
                 // upload images and update urls
                 UploadImages(submissionInDb, images, settingStatusOfImages, imageStorageService);
                 db.SaveChanges();
 
-                // if save successfully {
-                // set owner of this submissioin if it's a new submission
-                //}
-
                 // update submission status
-                UpdateSubmissionStatus(db, submitter, submission);
+                UpdateSubmissionStatus(db, submitter, submissionInDb.SubmissionID);
                 db.SaveChanges();
 
                 // Add a submisssion transaction
-                var description = "Submission State\n";
-                description += "    old: New Submission\n";
-                description += "    new: Pending Review";
-                db.SubmissionTransactions.Add(new SubmissionTransaction
-                {
-                    SubmissionID = submission.SubmissionID,
-                    SubmissionTaskID = 1,
-                    Description = description,
-                    RecordedAt = DateTime.Now
-                });
-
+                RecordTransaction(db, submissionInDb.SubmissionID);
                 db.SaveChanges();
 
-                return submissionInDb;
+                return Task.FromResult(submissionInDb);
             }
         }
 
-        private static void UpdateSubmissionStatus(WebGalleryDbContext db, Submitter submitter, Submission submission)
+        private static void RecordTransaction(WebGalleryDbContext db, int submissionId)
+        {
+            var description = "Submission State\n";
+            description += "    old: New Submission\n";
+            description += "    new: Pending Review";
+            db.SubmissionTransactions.Add(new SubmissionTransaction
+            {
+                SubmissionID = submissionId,
+                SubmissionTaskID = 1,
+                Description = description,
+                RecordedAt = DateTime.Now
+            });
+        }
+
+        private static void UpdateSubmissionStatus(WebGalleryDbContext db, Submitter submitter, int submissionId)
         {
             var submissionStateId = submitter.IsSuperSubmitter()
                                 ? 2 // "Testing"
                                 : 1 // "Pending Review"
                                 ;
-            var submisstionStatus = db.SubmissionsStatus.FirstOrDefault(s => s.SubmissionID == submission.SubmissionID);
+            var submisstionStatus = db.SubmissionsStatus.FirstOrDefault(s => s.SubmissionID == submissionId);
             if (submisstionStatus == null)
             {
                 db.SubmissionsStatus.Add(new SubmissionsStatu
                 {
-                    SubmissionID = submission.SubmissionID,
+                    SubmissionID = submissionId,
                     SubmissionStateID = submissionStateId
                 });
             }
@@ -107,27 +164,26 @@ namespace WebGallery.Services
             }
         }
 
-        private void UpdateSubmission(Submission submissionInDb, Submission submissionFromUser)
+        private static void SyncOtherProperties(Submission submissionInDb, Submission submissionInFrom)
         {
-            submissionInDb.Nickname = submissionFromUser.Nickname;
-            submissionInDb.Version = submissionFromUser.Version;
-            submissionInDb.SubmittingEntity = submissionFromUser.SubmittingEntity;
-            submissionInDb.SubmittingEntityURL = submissionFromUser.SubmittingEntityURL;
-            submissionInDb.AppURL = submissionFromUser.AppURL;
-            submissionInDb.SupportURL = submissionFromUser.SupportURL;
-            submissionInDb.ReleaseDate = submissionFromUser.ReleaseDate;
-            submissionInDb.FrameworkOrRuntimeID = submissionFromUser.FrameworkOrRuntimeID;
-            submissionInDb.DatabaseServerIDs = submissionFromUser.DatabaseServerIDs;
-            submissionInDb.WebServerExtensionIDs = submissionFromUser.WebServerExtensionIDs;
-            submissionInDb.CategoryID1 = submissionFromUser.CategoryID1;
-            submissionInDb.CategoryID2 = submissionFromUser.CategoryID2;
-            submissionInDb.ProfessionalServicesURL = submissionFromUser.ProfessionalServicesURL;
-            submissionInDb.CommercialProductURL = submissionFromUser.CommercialProductURL;
-            submissionInDb.AgreedToTerms = submissionFromUser.AgreedToTerms;
-            submissionInDb.AdditionalInfo = submissionFromUser.AdditionalInfo;
+            submissionInDb.Version = submissionInFrom.Version;
+            submissionInDb.SubmittingEntity = submissionInFrom.SubmittingEntity;
+            submissionInDb.SubmittingEntityURL = submissionInFrom.SubmittingEntityURL;
+            submissionInDb.AppURL = submissionInFrom.AppURL;
+            submissionInDb.SupportURL = submissionInFrom.SupportURL;
+            submissionInDb.ReleaseDate = submissionInFrom.ReleaseDate;
+            submissionInDb.FrameworkOrRuntimeID = submissionInFrom.FrameworkOrRuntimeID;
+            submissionInDb.DatabaseServerIDs = submissionInFrom.DatabaseServerIDs;
+            submissionInDb.WebServerExtensionIDs = submissionInFrom.WebServerExtensionIDs;
+            submissionInDb.CategoryID1 = submissionInFrom.CategoryID1;
+            submissionInDb.CategoryID2 = submissionInFrom.CategoryID2;
+            submissionInDb.ProfessionalServicesURL = submissionInFrom.ProfessionalServicesURL;
+            submissionInDb.CommercialProductURL = submissionInFrom.CommercialProductURL;
+            submissionInDb.AgreedToTerms = submissionInFrom.AgreedToTerms;
+            submissionInDb.AdditionalInfo = submissionInFrom.AdditionalInfo;
         }
 
-        private void UpdateMetadata(WebGalleryDbContext db, IList<SubmissionLocalizedMetaData> metadataList, int submissionId)
+        private static void UpdateMetadata(WebGalleryDbContext db, IList<SubmissionLocalizedMetaData> metadataList, int submissionId)
         {
             var metadataListInDb = db.SubmissionLocalizedMetaDatas.Where(m => m.SubmissionID == submissionId).ToList();
 
@@ -164,7 +220,7 @@ namespace WebGallery.Services
             }
         }
 
-        private void UpdatePackage(WebGalleryDbContext db, IEnumerable<Package> packages, int submissionId)
+        private static void UpdatePackage(WebGalleryDbContext db, IEnumerable<Package> packages, int submissionId)
         {
             var packagesInDb = db.Packages.Where(m => m.SubmissionID == submissionId).ToList();
 
@@ -203,7 +259,7 @@ namespace WebGallery.Services
             }
         }
 
-        private void UploadImages(Submission submission, IDictionary<string, AppImage> images, IDictionary<string, AppImageSettingStatus> settingStatusOfImages, IAppImageStorageService imageStorageService)
+        private static void UploadImages(Submission submission, IDictionary<string, AppImage> images, IDictionary<string, AppImageSettingStatus> settingStatusOfImages, IAppImageStorageService imageStorageService)
         {
             if (imageStorageService == null
                 || submission == null
@@ -236,7 +292,7 @@ namespace WebGallery.Services
 
         #endregion
 
-        public bool IsLocked(int submissionId)
+        public Task<bool> IsModificationLockedAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -245,13 +301,123 @@ namespace WebGallery.Services
                                             5, // "Rejected"
                                             7, // "Published"
                 };
-
                 var submissionState = (from state in db.SubmissionStates
                                        join status in db.SubmissionsStatus on state.SubmissionStateID equals status.SubmissionStateID
                                        where status.SubmissionID == submissionId
                                        select state).FirstOrDefault();
+                var locked = submissionState != null && !stateIdsNotLocked.Contains(submissionState.SubmissionStateID);
 
-                return submissionState != null && !stateIdsNotLocked.Contains(submissionState.SubmissionStateID);
+                return Task.FromResult(locked);
+            }
+        }
+
+        public Task<Submission> GetSubmissionAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submission = (from s in db.Submissions
+                                  where s.SubmissionID == submissionId
+                                  select s).FirstOrDefault();
+
+                return Task.FromResult(submission);
+            }
+        }
+
+        public Task<List<SubmissionLocalizedMetaData>> GetMetadataAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var metadata = (from m1 in db.SubmissionLocalizedMetaDatas
+                                let ids = from m in db.SubmissionLocalizedMetaDatas
+                                          where m.SubmissionID == submissionId
+                                          group m by new { m.SubmissionID, m.Language } into g
+                                          select g.Max(p => p.MetadataID)
+                                where ids.Contains(m1.MetadataID)
+                                select m1).ToList();
+
+                return Task.FromResult(metadata);
+            }
+        }
+
+        public Task<List<Package>> GetPackagesAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var packages = (from p1 in db.Packages
+                                let ids = from p in db.Packages
+                                          where p.SubmissionID == submissionId
+                                          group p by new { p.SubmissionID, p.Language } into g
+                                          select g.Max(e => e.PackageID)
+                                where ids.Contains(p1.PackageID)
+                                select p1).ToList();
+
+                return Task.FromResult(packages);
+            }
+        }
+
+        public Task<List<Language>> GetSupportedLanguagesAsync()
+        {
+            return Task.FromResult(Language.SupportedLanguages.ToList());
+        }
+
+        public Task<List<ProductOrAppCategory>> GetCategoriesAsync()
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var categories = (from c in db.ProductOrAppCategories
+                                  orderby c.Name
+                                  select c).ToList();
+
+                return Task.FromResult(categories);
+            }
+        }
+
+        public Task<List<FrameworksAndRuntime>> GetFrameworksAsync()
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var frameworks = (from f in db.FrameworksAndRuntimes
+                                  orderby f.Name
+                                  select f).ToList();
+
+                return Task.FromResult(frameworks);
+            }
+        }
+
+        public Task<List<DatabaseServer>> GetDbServersAsync()
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var dbServers = (from d in db.DatabaseServers
+                                 select d).ToList();
+                ChangeDisplayOrder(dbServers);
+
+                return Task.FromResult(dbServers);
+            }
+        }
+
+        private static void ChangeDisplayOrder(IList<DatabaseServer> dbServers)
+        {
+            // We always want "Microsoft SQL Driver for PHP" immediately after SQL Server Express because the 2 are related.
+            // See the line #1074 in the old AppSubmit.aspx.cs            
+            var sqlServerExpress = dbServers.FirstOrDefault(d => string.Compare("SQL Server Express", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
+            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => string.Compare("Microsoft SQL Driver for PHP", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
+
+            if (sqlServerExpress != null && microsoftSqlDriverForPhp != null)
+            {
+                dbServers.Remove(microsoftSqlDriverForPhp);
+                dbServers.Insert(dbServers.IndexOf(sqlServerExpress) + 1, microsoftSqlDriverForPhp);
+            }
+        }
+
+        public Task<List<WebServerExtension>> GetWebServerExtensionsAsync()
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var extensions = (from e in db.WebServerExtensions
+                                  select e).ToList();
+
+                return Task.FromResult(extensions);
             }
         }
     } // class

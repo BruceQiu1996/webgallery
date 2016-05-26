@@ -192,7 +192,7 @@
                     <select size="7" name="Submission.DatabaseServerIDs" id="DatabaseServers" multiple="multiple" onchange="autoSelectMicrosoftSqlDriverForPhp()">                        
                         @foreach (var db in ViewBag.DatabaseServers)
                         {
-                            var dbServerIds = from idStr in Model.Submission.DatabaseServerIDs.Split('|')
+                            var dbServerIds = from idStr in (Model.Submission.DatabaseServerIDs??string.Empty).Split('|')
                                               select idStr.AsInt();
                             if (dbServerIds.Any(id=> id == (db.DatabaseServerID)))
                             {

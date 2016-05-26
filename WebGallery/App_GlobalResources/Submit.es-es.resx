@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>Proporcione un identificador para su aplicación. Use sólo letras y números, no utilice espacios en blanco o signos de puntuación. Este identificador se usa como nombre de página para su aplicación en &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>Id. de la aplicación</value>
+  </data>
+  <data name="AppIDValidationMessage" xml:space="preserve">
+    <value>Id. de la aplicación sólo puede usar letras y números</value>
+  </data>
+  <data name="AppIDValidationText" xml:space="preserve">
+    <value>sólo alfanumérico</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="ApplicationHeader" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="ApplicationStatus" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>Indique el nombre de su aplicación.</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>Nombre de aplicación</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>Proporcione una dirección URL para la página principal del sitio web de su aplicación.</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>Dirección URL del sitio web de la aplicación</value>
+  </data>
+  <data name="AppWebSiteUrlValidationMessage" xml:space="preserve">
+    <value>Dirección URL del sitio web de la aplicación no válida</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="ContactHeader" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="ContactStatus" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="ProductHeader" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="ProductStatus" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="RequiredValidationText" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredValidationTooltip" xml:space="preserve">
+    <value>obligatorio</value>
+  </data>
+  <data name="SubmitIntro" xml:space="preserve">
+    <value>Gracias por su interés en Web App Gallery. Para incluir su aplicación en Gallery, es necesario recopilar información sobre la misma. Dicha información se usará en Web App Gallery y Web Platform Installer. También necesitamos su información de contacto para que Microsoft o nuestros proveedores puedan ponerse en contacto durante la revisión de su publicación.</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>Entidad de publicación es el nombre de la entidad que publica la aplicación.</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>Entidad de publicación</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>Proporcione la dirección URL del sitio web primario de la Entidad de publicación.</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>Dirección URL de la Entidad de publicación</value>
+  </data>
+  <data name="SubmittingEntityUrlValidationMessage" xml:space="preserve">
+    <value>Dirección URL de la Entidad de publicación no válida</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>Publicar la aplicación web</value>
+  </data>
+  <data name="UnknownUrlFormatValidationText" xml:space="preserve">
+    <value>formato de dirección URL desconocido</value>
+  </data>
+  <data name="UnknownUrlFormatValidationTooltip" xml:space="preserve">
+    <value>el formato de esta dirección URL no se reconoce</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Versión</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>Información adicional</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>¿Hay más información que deberíamos conocer?</value>
+  </data>
+  <data name="Address1Label" xml:space="preserve">
+    <value>Dirección 1</value>
+  </data>
+  <data name="Address2Label" xml:space="preserve">
+    <value>Dirección 2</value>
+  </data>
+  <data name="Address3Label" xml:space="preserve">
+    <value>Dirección 3</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>Proporcione la dirección URL relativa desde la raíz del sitio para cargar la primera página después de instalar la aplicación. Por ejemplo:&lt;br /&gt;/start.htm, /default.aspx o /install.php.</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>Dirección URL de la página de inicio de la aplicación</value>
+  </data>
+  <data name="ApplicationStartPageUrlTT_x64" xml:space="preserve">
+    <value>Dirección URL de la página de inicio de la aplicación (x64)</value>
+  </data>
+  <data name="ApplicationStartPageUrlTT_x86" xml:space="preserve">
+    <value>Dirección URL de la página de inicio de la aplicación (x86)</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppWebSiteUrlStatus" xml:space="preserve">
+    <value>Dirección URL del sitio web de la aplicación</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>faltan &lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; caracteres&lt;br /&gt;&lt;br /&gt;</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>Descripción breve</value>
+  </data>
+  <data name="BriefDescriptionValidationMessage" xml:space="preserve">
+    <value>Descripción breve no deben tener más de 400 caracteres</value>
+  </data>
+  <data name="BriefDescriptionValidationText" xml:space="preserve">
+    <value>demasiados caracteres</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>Descripción breve (400 caracteres como máximo)</value>
+  </data>
+  <data name="CityLabel" xml:space="preserve">
+    <value>Población</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>Proporcione una dirección URL a la página web donde promocionar los productos comerciales.</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>Dirección URL de productos comerciales</value>
+  </data>
+  <data name="CommercialProductUrlStatus" xml:space="preserve">
+    <value>Dirección URL de productos comerciales</value>
+  </data>
+  <data name="CommercialProductUrlValidationMessage" xml:space="preserve">
+    <value>Dirección URL de productos comerciales no válida</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CommercialServicesCaption" xml:space="preserve">
+    <value>Productos o servicios comerciales</value>
+  </data>
+  <data name="CopyToX64" xml:space="preserve">
+    <value>Ficha Copiar información a x64</value>
+  </data>
+  <data name="CopyToX86" xml:space="preserve">
+    <value>Ficha Copiar información a x86</value>
+  </data>
+  <data name="CountryLabel" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>Dependencias</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>Base de datos</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>Base de datos</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>Marcos de trabajo&lt;br /&gt;y tiempos de ejecución</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>Marcos de trabajo y tiempos de ejecución</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>Web Server&lt;br /&gt;Extensions</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>Web Server Extensions</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>faltan &lt;span id="description-countdown" class="low-count"&gt;1.500&lt;/span&gt; caracteres&lt;br /&gt;&lt;br /&gt;</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="DescriptionValidationMessage" xml:space="preserve">
+    <value>Descripción no deben tener más de 1500 caracteres</value>
+  </data>
+  <data name="DescriptionValidationText" xml:space="preserve">
+    <value>demasiados caracteres</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>Descripción (1500 caracteres como máximo)</value>
+  </data>
+  <data name="DirectContact1ValidationMessage" xml:space="preserve">
+    <value>Número de teléfono de contacto directo (1) no válido</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationMessage" xml:space="preserve">
+    <value>Datos de Contacto directo 2</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationText" xml:space="preserve">
+    <value>debe ser distinto</value>
+  </data>
+  <data name="DirectContact2UniquenessValidationTooltip" xml:space="preserve">
+    <value>se requieren dos contactos directos distintos</value>
+  </data>
+  <data name="DirectContact2ValidationMessage" xml:space="preserve">
+    <value>Número de teléfono de contacto directo (2) no válido</value>
+  </data>
+  <data name="DirectContactData1TT" xml:space="preserve">
+    <value>Datos de Contacto directo 1</value>
+  </data>
+  <data name="DirectContactData2TT" xml:space="preserve">
+    <value>Datos de Contacto directo 2</value>
+  </data>
+  <data name="DirectContactExplanation" xml:space="preserve">
+    <value>Proporciónenos 2 métodos de contacto directo adicionales que podamos usar para ponernos en contacto en relación a la publicación de su aplicación.</value>
+  </data>
+  <data name="DirectContactHeader" xml:space="preserve">
+    <value>Métodos de contacto directo</value>
+  </data>
+  <data name="DirectContactMethod1TT" xml:space="preserve">
+    <value>Método de contacto directo 1</value>
+  </data>
+  <data name="DirectContactMethod2TT" xml:space="preserve">
+    <value>Método de contacto directo 2</value>
+  </data>
+  <data name="DirectContactValidationText" xml:space="preserve">
+    <value>formato teléfono desconocido</value>
+  </data>
+  <data name="DirectContactValidationTooltip" xml:space="preserve">
+    <value>el formato de este número de teléfono no se reconoce</value>
+  </data>
+  <data name="DropdownDefaultText" xml:space="preserve">
+    <value>Elija uno</value>
+  </data>
+  <data name="DropdownNoChoiceText" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="eMailLabel" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="eMailValidationMessage" xml:space="preserve">
+    <value>Correo electrónico no válido</value>
+  </data>
+  <data name="eMailValidationText" xml:space="preserve">
+    <value>formato de correo electrónico desconocido</value>
+  </data>
+  <data name="eMailValidationTooltip" xml:space="preserve">
+    <value>el formato de esta dirección de correo electrónico no se reconoce</value>
+  </data>
+  <data name="FileSizeLabel" xml:space="preserve">
+    <value>Tamaño del archivo (en bytes)</value>
+  </data>
+  <data name="FileSizeLabel_x64" xml:space="preserve">
+    <value>Tamaño del archivo (en bytes) (x64)</value>
+  </data>
+  <data name="FileSizeLabel_x86" xml:space="preserve">
+    <value>Tamaño del archivo (en bytes) (x86)</value>
+  </data>
+  <data name="FileSizeTT_x64" xml:space="preserve">
+    <value>Tamaño del archivo (x64)</value>
+  </data>
+  <data name="FileSizeTT_x86" xml:space="preserve">
+    <value>Tamaño del archivo (x86)</value>
+  </data>
+  <data name="FileSizeValidationMessage_x64" xml:space="preserve">
+    <value>Tamaño del archivo (x64) debe ser un número entero positivo (solo números) inferior a 250.000.000</value>
+  </data>
+  <data name="FileSizeValidationMessage_x86" xml:space="preserve">
+    <value>Tamaño del archivo (x86) debe ser un número entero positivo (solo números) inferior a 250.000.000</value>
+  </data>
+  <data name="FileSizeWatermark" xml:space="preserve">
+    <value>100.000</value>
+  </data>
+  <data name="FileSizeStatus_x64" xml:space="preserve">
+    <value>Tamaño del archivo (x64)</value>
+  </data>
+  <data name="FileSizeStatus_x86" xml:space="preserve">
+    <value>Tamaño del archivo (x86)</value>
+  </data>
+  <data name="FinalStepsIntro" xml:space="preserve">
+    <value>Comprobado. Casi hemos terminado.</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="FixupSubmitButtonText" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="GoToSubmitFormLinkText" xml:space="preserve">
+    <value>Revisar y modificar todos los datos enviados</value>
+  </data>
+  <data name="MD5HashExplanation" xml:space="preserve">
+    <value>Proporcione el hash MD5 asociado con la aplicación empaquetada que se encuentra en la dirección URL de ubicación del paquete.  El software para calcular los valores hash se puede descargar en &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Utilidad para el cálculo de valores hash" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;aquí&lt;/a&gt;.  Como se ha indicado en &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Instrucciones de empaquetado de aplicaciones web" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Guía del programador e información detallada del empaquetado de aplicaciones web&lt;/a&gt; los cambios realizados en el paquete después de su publicación invalidarán la misma y el paquete.</value>
+  </data>
+  <data name="MD5HashLabel" xml:space="preserve">
+    <value>Hash MD5</value>
+  </data>
+  <data name="MD5HashLabel_x64" xml:space="preserve">
+    <value>Paquete Hash MD5 (x64)</value>
+  </data>
+  <data name="MD5HashLabel_x86" xml:space="preserve">
+    <value>Hash MD5 del paquete (x86)</value>
+  </data>
+  <data name="MD5HashStatus_x64" xml:space="preserve">
+    <value>Hash MD5 (x64)</value>
+  </data>
+  <data name="MD5HashStatus_x86" xml:space="preserve">
+    <value>Hash MD5 (x86)</value>
+  </data>
+  <data name="MD5HashTT_x64" xml:space="preserve">
+    <value>Hash MD5 (x64)</value>
+  </data>
+  <data name="MD5HashTT_x86" xml:space="preserve">
+    <value>Hash MD5 (x86)</value>
+  </data>
+  <data name="MD5HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="ImagesHeader" xml:space="preserve">
+    <value>Imágenes</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="LanguageTT_x64" xml:space="preserve">
+    <value>Idioma (x64)</value>
+  </data>
+  <data name="LanguageTT_x86" xml:space="preserve">
+    <value>Idioma (x86)</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>Compruebe que su aplicación cumple los &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Principios de Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Principios de Windows Web App Gallery&lt;/a&gt; incluido el sistema operativo y la compatibilidad WebPI.</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>Seleccione uno&lt;br /&gt; solo</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>Use la tecla Ctrl o Cmd &lt;br /&gt;para seleccionar varios</value>
+  </data>
+  <data name="LogoDimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen del logotipo</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>Su logotipo debe tener un tamaño de 200 x 200 píxeles y suministrarse en formato PNG.</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="LogoTypeStatus" xml:space="preserve">
+    <value>Tipo de imagen del logotipo</value>
+  </data>
+  <data name="ManifestExistsStatus_x64" xml:space="preserve">
+    <value>Existe un archivo manifest en ZIP (x64)</value>
+  </data>
+  <data name="ManifestExistsStatus_x86" xml:space="preserve">
+    <value>Existe un archivo manifest en ZIP (x86)</value>
+  </data>
+  <data name="MiddleNameLabel" xml:space="preserve">
+    <value>1º Apellido</value>
+  </data>
+  <data name="NextButtonText" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>o</value>
+  </data>
+  <data name="PacakageValidationMessage" xml:space="preserve">
+    <value>Debe rellenarse toda la información del paquete para x86 o x64 (o ambos)</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>Información del paquete</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>La ubicación del paquete es una dirección URL de la web directa y accesible por el público al paquete de su aplicación (archivo &lt;strong&gt;zip&lt;/strong&gt;). Este paquete debe incluir los archivos MSDeploy que creó como parte de la &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Instrucciones de empaquetado de Windows Web Application Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Instrucciones de empaquetado de Windows Web Application Gallery&lt;/a&gt;.</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete</value>
+  </data>
+  <data name="PackageLocationUrlLabel_x64" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x64)</value>
+  </data>
+  <data name="PackageLocationUrlLabel_x86" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x86)</value>
+  </data>
+  <data name="PackageLocationUrlStatus_x64" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x64)</value>
+  </data>
+  <data name="PackageLocationUrlStatus_x86" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x86)</value>
+  </data>
+  <data name="PackageLocationUrlTT_x64" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x64)</value>
+  </data>
+  <data name="PackageLocationUrlTT_x86" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x86)</value>
+  </data>
+  <data name="PackageLocationUrlValidationMessage_x64" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x64) no válida</value>
+  </data>
+  <data name="PackageLocationUrlValidationMessage_x86" xml:space="preserve">
+    <value>Dirección URL de ubicación del paquete (x86) no válida</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PackagesHeader" xml:space="preserve">
+    <value>Paquetes</value>
+  </data>
+  <data name="PositiveIntegersOnlyValidationText" xml:space="preserve">
+    <value>1 hasta 250.000.000</value>
+  </data>
+  <data name="PrefixDefaultText" xml:space="preserve">
+    <value>Prefijo</value>
+  </data>
+  <data name="PrefixDrText" xml:space="preserve">
+    <value>Dr.</value>
+  </data>
+  <data name="PrefixMissText" xml:space="preserve">
+    <value>Srta.</value>
+  </data>
+  <data name="PrefixMrsText" xml:space="preserve">
+    <value>Srta.</value>
+  </data>
+  <data name="PrefixMrText" xml:space="preserve">
+    <value>Sr.</value>
+  </data>
+  <data name="PrefixMsText" xml:space="preserve">
+    <value>Sra.</value>
+  </data>
+  <data name="PrefixTT" xml:space="preserve">
+    <value>Prefijo</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>Seleccione la categoría principal de su aplicación. La aplicación puede incluirse en una o varias categorías. Tiene la posibilidad de asociar su aplicación a una categoría secundaria.</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>Categoría principal</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>Proporcione una dirección URL a la página web donde promocionar sus servicios comerciales.</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>Dirección URL de servicios profesionales</value>
+  </data>
+  <data name="ProfessionalServicesUrlStatus" xml:space="preserve">
+    <value>Dirección URL de servicios profesionales</value>
+  </data>
+  <data name="ProfessionalServicesUrlValidationMessage" xml:space="preserve">
+    <value>Dirección URL de servicios profesionales no válida</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ProvinceLabel" xml:space="preserve">
+    <value>Región, Provincia, etc.</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>La fecha que se ha publicado la aplicación o en la que estará disponible al público.</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>Fecha de lanzamiento</value>
+  </data>
+  <data name="Screenshot1DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 1</value>
+  </data>
+  <data name="Screenshot1Label" xml:space="preserve">
+    <value>Captura de pantalla 1</value>
+  </data>
+  <data name="Screenshot1TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 1</value>
+  </data>
+  <data name="Screenshot2DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 2</value>
+  </data>
+  <data name="Screenshot2Label" xml:space="preserve">
+    <value>Captura de pantalla 2</value>
+  </data>
+  <data name="Screenshot2TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 2</value>
+  </data>
+  <data name="Screenshot3DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 3</value>
+  </data>
+  <data name="Screenshot3Label" xml:space="preserve">
+    <value>Captura de pantalla 3</value>
+  </data>
+  <data name="Screenshot3TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 3</value>
+  </data>
+  <data name="Screenshot4DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 4</value>
+  </data>
+  <data name="Screenshot4Label" xml:space="preserve">
+    <value>Captura de pantalla 4</value>
+  </data>
+  <data name="Screenshot4TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 4</value>
+  </data>
+  <data name="Screenshot5DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 5</value>
+  </data>
+  <data name="Screenshot5Label" xml:space="preserve">
+    <value>Captura de pantalla 5</value>
+  </data>
+  <data name="Screenshot5TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 5</value>
+  </data>
+  <data name="Screenshot6DimensionsStatus" xml:space="preserve">
+    <value>Dimensiones de la imagen de la captura de pantalla 6</value>
+  </data>
+  <data name="Screenshot6Label" xml:space="preserve">
+    <value>Captura de pantalla 6</value>
+  </data>
+  <data name="Screenshot6TypeStatus" xml:space="preserve">
+    <value>Tipo de la imagen de la captura de pantalla 6</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>Agregue hasta 6 capturas de pantalla de su aplicación. Las captura de pantalla debe tener un tamaño de 800 x 600 píxeles y suministrarse en formato PNG.</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>Capturas de pantalla (opcional)</value>
+  </data>
+  <data name="ScreenshotTT_1" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 1</value>
+  </data>
+  <data name="ScreenshotTT_2" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 2</value>
+  </data>
+  <data name="ScreenshotTT_3" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 3</value>
+  </data>
+  <data name="ScreenshotTT_4" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 4</value>
+  </data>
+  <data name="ScreenshotTT_5" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 5</value>
+  </data>
+  <data name="ScreenshotTT_6" xml:space="preserve">
+    <value>Imagen de la captura de pantalla 6</value>
+  </data>
+  <data name="Screenshot_1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Screenshot_2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Screenshot_3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Screenshot_4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Screenshot_5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Screenshot_6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>Seleccione la categoría secundaria de su aplicación.</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>Categoría secundaria</value>
+  </data>
+  <data name="StateLabel" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+  <data name="StateProvinceValidationMessage" xml:space="preserve">
+    <value>Región, Provincia, etc.</value>
+  </data>
+  <data name="StatusCheckingIntro" xml:space="preserve">
+    <value>Estamos realizando una validación rápida de su publicación. Si detectamos problemas, se le informará en esta página y mediante correo electrónico. Si el paquete de la aplicación pasa esta prueba, se le comunicará el estado a mediante un el correo electrónico.</value>
+  </data>
+  <data name="StatusIntro" xml:space="preserve">
+    <value>Gracias por publicar su aplicación web.</value>
+  </data>
+  <data name="StatusNotAuthorizedIntro" xml:space="preserve">
+    <value>No está autorizado a modificar los datos solicitados de producto o aplicación.</value>
+  </data>
+  <data name="SubmitButtonText" xml:space="preserve">
+    <value>Publicar su aplicación</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>Publicar otro logotipo</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>Eliminar o reemplazar una captura de pantalla</value>
+  </data>
+  <data name="SubmittingEntityUrlStatus" xml:space="preserve">
+    <value>Dirección URL de la Entidad de publicación</value>
+  </data>
+  <data name="SuffixDefaultText" xml:space="preserve">
+    <value>Sufijo</value>
+  </data>
+  <data name="SuffixJrText" xml:space="preserve">
+    <value>Hijo</value>
+  </data>
+  <data name="SuffixSrText" xml:space="preserve">
+    <value>Padre</value>
+  </data>
+  <data name="SuffixTT" xml:space="preserve">
+    <value>Sufijo</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>Los &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Principios de Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Principios de Windows Web App Gallery&lt;/a&gt; requieren que su aplicación proporcione soporte gratuito basado en web a los clientes.</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>Dirección URL de soporte</value>
+  </data>
+  <data name="SupportUrlStatus" xml:space="preserve">
+    <value>Dirección URL de soporte</value>
+  </data>
+  <data name="SupportUrlValidationMessage" xml:space="preserve">
+    <value>Dirección URL de soporte no válida</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Acepto los Términos y condiciones de la aplicación web &lt;a href="SubmissionAgreement.aspx" title="Acuerdo de publicación" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Acuerdo de publicación&lt;/a&gt;.</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>¿Acepta los Términos y condiciones?</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>Términos y condiciones</value>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="URLsHeader" xml:space="preserve">
+    <value>Direcciones URL</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>&lt;p&gt;Antes de publicar esta aplicación necesita proporcionar la siguiente información:&lt;/p&gt;</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>Ver última publicación</value>
+  </data>
+  <data name="ZipRegionCodeLabel" xml:space="preserve">
+    <value>Código postal</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>borrar selecciones</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>limpiar</value>
+  </data>
+  <data name="MustBeZipValidationMessage_x64" xml:space="preserve">
+    <value>La dirección URL de ubicación del paquete (x64) debe tener una extensión ZIP</value>
+  </data>
+  <data name="MustBeZipValidationMessage_x86" xml:space="preserve">
+    <value>La dirección URL de ubicación del paquete (x86) debe tener una extensión ZIP</value>
+  </data>
+  <data name="MustBeZipValidationText" xml:space="preserve">
+    <value>debe tener una extensión ZIP–</value>
+  </data>
+  <data name="MustBeZipValidationTooltip" xml:space="preserve">
+    <value>La dirección URL especificada debe terminar con una extensión ZIP</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>Proporcione el hash SHA-1 asociado con la aplicación empaquetada que se encuentra en la dirección URL de ubicación del paquete.  El software para calcular los valores hash se puede descargar en &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Utilidad para el cálculo de valores hash" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;aquí&lt;/a&gt;. Como se ha indicado en &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Instrucciones de empaquetado de aplicaciones web" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Guía del programador e información detallada del empaquetado de aplicaciones web&lt;/a&gt; los cambios realizados en el paquete después de su publicación invalidarán la misma y el paquete.</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>Hash SHA-1</value>
+  </data>
+  <data name="SHA1HashLabel_x64" xml:space="preserve">
+    <value>Hash SHA-1 del paquete (x64)</value>
+  </data>
+  <data name="SHA1HashLabel_x86" xml:space="preserve">
+    <value>Hash SHA-1 del paquete (x86)</value>
+  </data>
+  <data name="SHA1HashStatus_x64" xml:space="preserve">
+    <value>Hash SHA-1 (x64)</value>
+  </data>
+  <data name="SHA1HashStatus_x86" xml:space="preserve">
+    <value>Hash SHA-1 (x86)</value>
+  </data>
+  <data name="SHA1HashTT_x64" xml:space="preserve">
+    <value>Hash SHA-1 (x64)</value>
+  </data>
+  <data name="SHA1HashTT_x86" xml:space="preserve">
+    <value>Hash SHA-1 (x86)</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="DateFormatText" xml:space="preserve">
+    <value>dd/mm/aaaa</value>
+  </data>
+  <data name="ReleaseDateValidationMessage" xml:space="preserve">
+    <value>Formato de fecha de lanzamiento no válido</value>
+  </data>
+  <data name="DashboardNotAuthorizedIntro" xml:space="preserve">
+    <value>No está autorizado a usar esta página.</value>
+  </data>
+  <data name="DashboardStatusCheckerText" xml:space="preserve">
+    <value>validar datos</value>
+  </data>
+  <data name="DashboardSubmissionFormText" xml:space="preserve">
+    <value>formulario de envío</value>
+  </data>
+</root>

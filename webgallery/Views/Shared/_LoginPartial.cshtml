@@ -1,9 +1,11 @@
-﻿@if (Request.IsAuthenticated)
+﻿@using WebGallery.Security;
+
+@if (Request.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
         <li class="navbar-text">
             @*The 'preferred_username' claim can be used for showing the user's primary way of identifying themselves.*@
-            Hello, @(System.Security.Claims.ClaimsPrincipal.Current.FindFirst("preferred_username").Value)!
+            Hello, @(User.GetName())!
         </li>
         <li>
             @Html.ActionLink("Sign out", "SignOut", "Account")
