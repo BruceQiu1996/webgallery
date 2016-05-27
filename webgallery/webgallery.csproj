@@ -403,6 +403,7 @@
     <Compile Include="Models\WebServerExtension.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
+    <Compile Include="Security\AuthenticationExtensions.cs" />
     <Compile Include="Security\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

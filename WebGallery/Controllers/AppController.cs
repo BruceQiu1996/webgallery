@@ -78,7 +78,7 @@ namespace WebGallery.Controllers
 
             // Check if current user can clone the app specified by the submission id.
             // Only the owner and a super submitter can do that.
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmitterId(), submissionId))
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
             {
                 return View("NeedPermission");
             }
@@ -153,7 +153,7 @@ namespace WebGallery.Controllers
 
             // Check if current user can modify the app.
             // Only the owner and a super submitter can do that.
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmitterId(), submissionId))
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
             {
                 return View("NeedPermission");
             }
@@ -185,7 +185,7 @@ namespace WebGallery.Controllers
         public async Task<ActionResult> Edit(AppSubmitViewModel model)
         {
             // Check if current user can modify the app.
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmitterId(), model.Submission.SubmissionID))
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, model.Submission.SubmissionID))
             {
                 return View("NeedPermission");
             }
@@ -229,15 +229,14 @@ namespace WebGallery.Controllers
             }
 
             // If the user is currently not a submtter, then go to account/profile.
-            var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(User.GetEmailAddress());
-            if (submitter == null)
+            if (!User.IsSubmitter())
             {
                 return RedirectToAction("Profile", "Account");
             }
 
             // If current user is not Super Submitter, and there haven't recorded his/her contact info in this system,
             // then go to account/profile.
-            if (!submitter.IsSuperSubmitter() && !await _submitterService.HasContactInfoAsync(submitter.SubmitterID))
+            if (!User.IsSuperSubmitter() && !await _submitterService.HasContactInfoAsync(User.GetSubmittership().SubmitterID))
             {
                 return RedirectToAction("Profile", "Account");
             }
