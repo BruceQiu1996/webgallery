@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Protocols;
-using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Notifications;
@@ -7,7 +6,10 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
 using System.Configuration;
 using System.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using WebGallery.Security;
+using WebGallery.Services;
 
 namespace WebGallery
 {
@@ -22,7 +24,7 @@ namespace WebGallery
             var redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
 
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-            app.UseCookieAuthentication(new CookieAuthenticationOptions { LoginPath = new PathString("/Account/Signin") });
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
             {
                 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
@@ -36,8 +38,27 @@ namespace WebGallery
                 ResponseType = "id_token",
                 PostLogoutRedirectUri = redirectUri,
                 TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false },
-                Notifications = new OpenIdConnectAuthenticationNotifications { AuthenticationFailed = OnAuthenticationFailed }
+                Notifications = new OpenIdConnectAuthenticationNotifications
+                {
+                    AuthenticationFailed = OnAuthenticationFailed,
+                    SecurityTokenValidated = OnSecurityTokenValidated
+                }
             });
+        }
+
+        private async Task OnSecurityTokenValidated(SecurityTokenValidatedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> arg)
+        {
+            var userIdentity = arg.AuthenticationTicket.Identity as ClaimsIdentity;
+            if (userIdentity != null)
+            {
+                var emailAddress = userIdentity.GetEmailAddress();
+                var _submitterService = new SubmitterService();
+                var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(emailAddress);
+                if (submitter != null)
+                {
+                    userIdentity.AddClaims(SubmitterClaims.GenerateClaims(submitter));
+                }
+            }
         }
 
         private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)

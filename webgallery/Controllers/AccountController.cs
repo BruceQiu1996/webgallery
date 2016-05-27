@@ -1,10 +1,10 @@
 ﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WebGallery.Models;
 using WebGallery.Security;
 using WebGallery.Services;
 using WebGallery.ViewModels;
@@ -28,28 +28,9 @@ namespace WebGallery.Controllers
             if (!Request.IsAuthenticated)
             {
                 HttpContext.GetOwinContext().Authentication.Challenge(
-                    new AuthenticationProperties { RedirectUri = "/account/submittership" },
+                    new AuthenticationProperties { RedirectUri = "/app/mine" },
                     OpenIdConnectAuthenticationDefaults.AuthenticationType);
             }
-        }
-
-        [Authorize]
-        public async Task<ActionResult> Submittership()
-        {
-            var authenticationManager = HttpContext.GetOwinContext().Authentication;
-            var userIdentity = authenticationManager.User.Identity as ClaimsIdentity;
-            if (userIdentity != null)
-            {
-                var emailAddress = authenticationManager.User.GetEmailAddress();
-                var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(emailAddress);
-                if (submitter != null)
-                {
-                    SubmitterClaims.AddSubmitterClaims(userIdentity, submitter);
-                    authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, userIdentity);
-                }
-            }
-
-            return RedirectToAction("Index", "Manage");
         }
 
         [Authorize]
@@ -78,6 +59,10 @@ namespace WebGallery.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Me(AccountProfileViewModel model)
         {
+
+            Submitter submitter = null; // get the submitter
+            HttpContext.GetOwinContext().Authentication.SignInAsSubmitter(submitter);
+
             return View();
         }
     }
