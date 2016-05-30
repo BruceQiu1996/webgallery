@@ -13,13 +13,15 @@ namespace WebGallery.Controllers
     {
         private IAppService _appService;
         private ISubmitterService _submitterService;
+        private IEmailService _emailService;
 
-        public AppController() : this(new AppService(), new SubmitterService()) { }
+        public AppController() : this(new AppService(), new SubmitterService(), new EmailService()) { }
 
-        public AppController(IAppService appService, ISubmitterService submitterService)
+        public AppController(IAppService appService, ISubmitterService submitterService, IEmailService emailService)
         {
             _appService = appService;
             _submitterService = submitterService;
+            _emailService = emailService;
         }
 
         #region create/edit/clone submission
@@ -116,9 +118,9 @@ namespace WebGallery.Controllers
             // save
             var submission = await _appService.CreateAsync(User.GetSubmittership(), model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
 
-            //
             // send email
             // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
+            _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, true);
 
             // go to the App Status page
             // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);

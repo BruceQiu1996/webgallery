@@ -53,4 +53,42 @@
             }
         }
     }
+
+    public partial class SubmittersContactDetail
+    {
+        public string FullName
+        {
+            get
+            {
+                return MakeFullName(Prefix, FirstName, MiddleName, LastName, Suffix);
+            }
+        }
+
+        private static string MakeFullName(string prefix, string first, string middle, string last, string suffix)
+        {
+            string result = "";
+            if (!string.IsNullOrEmpty(prefix) && !prefix.Equals("Prefix"))
+            {
+                result += prefix + " ";
+            }
+            if (!string.IsNullOrEmpty(first))
+            {
+                result += first + " ";
+            }
+            if (!string.IsNullOrEmpty(middle))
+            {
+                result += middle + " ";
+            }
+            if (!string.IsNullOrEmpty(last))
+            {
+                result += last + " ";
+            }
+            if (!string.IsNullOrEmpty(suffix) && !suffix.Equals("Suffix"))
+            {
+                result += suffix;
+            }
+
+            return result;
+        }
+    }
 }
