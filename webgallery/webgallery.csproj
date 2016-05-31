@@ -412,7 +412,6 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\Language.cs" />
-    <Compile Include="Models\PublisherDetails.cs" />
     <Compile Include="Models\WebGallery.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -455,6 +454,7 @@
     <Compile Include="ViewModels\ViewModelExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\USstates.xml" />
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\_submission-form.css" />
@@ -606,6 +606,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_account-profile.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -629,7 +630,6 @@
     <Content Include="Views\Manage\Dashboard.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
-    <Content Include="Views\Manage\PublisherDetails.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Documentation.cshtml" />
     <Content Include="Views\Home\ContactConfirm.cshtml" />
@@ -653,9 +653,7 @@
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

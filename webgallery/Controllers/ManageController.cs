@@ -83,44 +83,7 @@ END
             }
 
         }
-        [Authorize]
-        public ActionResult PublisherDetails(int id)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-
-                IEnumerable<SubmissionOwner> owners = db.SubmissionOwners.ToList<SubmissionOwner>();
-                var detailspublisher = (from owner in db.SubmissionOwners
-                                        join details in db.SubmittersContactDetails on owner.SubmitterID equals details.SubmitterID
-                                        where owner.SubmissionID == id
-                                        select new
-                                        {
-                                            SubmissionID = owner.SubmissionID,
-                                            OnwerFirstName = details.FirstName,
-                                            OnwerLastName = details.LastName,
-                                            OnwerEmail = details.EMail,
-                                            OnwerAddress1 = details.Address1,
-                                            OnwerAddress2 = details.Address2,
-                                            OnwerAddress3 = details.Address3,
-                                            OnwerCity = details.City,
-                                            OnwerCountry = details.Country,
-                                            OnwerMiddleName = details.MiddleName,
-                                            OnwerState = details.StateOrProvince,
-                                            OnwerZipCode = details.ZipOrRegionCode,
-                                            OnwerTitle = details.Title,
-                                            OnwerPrefix = details.Prefix,
-                                            OnwerSuffix = details.Suffix,
-                                            OnwerSubmitterID = details.SubmitterID
-
-                                        }).SingleOrDefault();
-
-
-                PublisherDetails publiserinfo = new PublisherDetails(detailspublisher.SubmissionID, detailspublisher.OnwerSubmitterID, detailspublisher.OnwerTitle, detailspublisher.OnwerPrefix, detailspublisher.OnwerSuffix, detailspublisher.OnwerFirstName, detailspublisher.OnwerLastName, detailspublisher.OnwerMiddleName, detailspublisher.OnwerEmail, detailspublisher.OnwerAddress1, detailspublisher.OnwerAddress2, detailspublisher.OnwerAddress3, detailspublisher.OnwerCity, detailspublisher.OnwerCountry, detailspublisher.OnwerState, detailspublisher.OnwerZipCode);
-
-                return View("PublisherDetails", publiserinfo);
-            }
-        }
-
+       
         public ActionResult Delete(int id)
         {
             using (var db = new WebGalleryDbContext())
