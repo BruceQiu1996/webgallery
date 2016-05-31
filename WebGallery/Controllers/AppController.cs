@@ -120,7 +120,7 @@ namespace WebGallery.Controllers
 
             // send email
             // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
-            _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, true);
+            _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, true, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
             // go to the App Status page
             // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
@@ -205,12 +205,10 @@ namespace WebGallery.Controllers
             // save
             var submission = await _appService.UpdateAsync(User.GetSubmittership(), model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
 
-            //
             // send email
-            // old site -> AppSubmissionEMailer.SendAppSubmissionMessage(id, ID > 0);
+            _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, false, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
             // go to the App Status page
-            // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
             return RedirectToAction("Status", new { id = submission.SubmissionID });
         }
 
