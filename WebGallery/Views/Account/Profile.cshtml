@@ -5,4 +5,149 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Profile</h2>
+<style type="text/css">
+    label.error {
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @id = "publisherdetailsform" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h1>My Contact Information</h1>
+        <hr />
+        <h3>Thank you for your interest in the Web App Gallery. In order to list your application in the Gallery we need your contact information so that Microsoft or our vendors may contact you during the review of your submission.</h3>
+        <br /><br />
+
+        <div class="form-group">
+            @Html.Label(" ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ContactDetail.Prefix, new List<SelectListItem> { new SelectListItem { Text = "Prefix" }, new SelectListItem { Text = "Mr." }, new SelectListItem { Text = "Mrs." }, new SelectListItem { Text = "Ms." }, new SelectListItem { Text = "Miss" }, new SelectListItem { Text = "Dr." } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("First Name", htmlAttributes: new { @class = "control-label col-md-2", })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Middle Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.MiddleName, new { htmlAttributes = new { @class = "form-control", placeholder = "Middle Name" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(" ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ContactDetail.Suffix, new List<SelectListItem> { new SelectListItem { Text = "Suffix" }, new SelectListItem { Text = "Jr." }, new SelectListItem { Text = "Sr." } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Title", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("eMail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.EMail, new { htmlAttributes = new { @class = "form-control", placeholder = "eMail" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.EMail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Address 1", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.Address1, new { htmlAttributes = new { @class = "form-control", placeholder = "Address 1" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.Address1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Address 2", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.Address2, new { htmlAttributes = new { @class = "form-control", placeholder = "Address 2" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Address 3", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.Address3, new { htmlAttributes = new { @class = "form-control", placeholder = "Address 3" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.City, new { htmlAttributes = new { @class = "form-control", placeholder = "City" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Country", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ContactDetail.Country, new List<SelectListItem> { new SelectListItem { Value = "0", Text = "Pick one" } }.Concat(Model.Countries), new { htmlAttributes = new { @class = "form-control", @id = "selectcountry" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2", @id = "LBState" })
+            <div class="col-md-10">
+                @Html.DropDownList("State", new SelectList(new List<SelectListItem> { new SelectListItem { Value = "", Text = "Pick one" } }.Concat(Model.States), "Value", "Text", "0"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.StateOrProvince, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("", "State,Province,etc.", new { @class = "control-label col-md-2", @id = "LBProvince" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.StateOrProvince, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("ZIP or Region Code", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactDetail.ZipOrRegionCode, new { htmlAttributes = new { @class = "form-control", placeholder = "ZIP or Region Code" } })
+                @Html.ValidationMessageFor(model => model.ContactDetail.ZipOrRegionCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Your Contact Information" id="submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Dashboard")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/js/contact-detail-form")
+}

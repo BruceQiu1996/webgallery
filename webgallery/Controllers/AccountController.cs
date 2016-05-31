@@ -4,7 +4,6 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WebGallery.Models;
 using WebGallery.Security;
 using WebGallery.Services;
 using WebGallery.ViewModels;
@@ -48,9 +47,13 @@ namespace WebGallery.Controllers
         {
             var model = new AccountProfileViewModel();
 
-            //
+            var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(User.GetEmailAddress());
+            if (submitter != null)
+            {
+                model.ContactDetail = await _submitterService.GetContactDetailAsync(submitter.SubmitterID);
+            }
 
-            return View(model);
+            return View("Profile", model);
         }
 
         [Authorize]
@@ -59,11 +62,48 @@ namespace WebGallery.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Me(AccountProfileViewModel model)
         {
+            if (!ValidateContactDetail(model)) return View(model);
 
-            Submitter submitter = null; // get the submitter
+            var submitter = await _submitterService.SaveContactDetailAsync(User.GetEmailAddress(), model.ContactDetail);
+
+            // add submitter claims
             HttpContext.GetOwinContext().Authentication.SignInAsSubmitter(submitter);
 
-            return View();
+            return RedirectToAction("Profile");
+        }
+
+        private bool ValidateContactDetail(AccountProfileViewModel model)
+        {
+            Requires(model.ContactDetail.FirstName, "ContactDetail.FirstName", "*");
+            Requires(model.ContactDetail.LastName, "ContactDetail.LastName", "*");
+            Requires(model.ContactDetail.City, "ContactDetail.City", "*");
+            Requires(model.ContactDetail.Address1, "ContactDetail.Address1", "*");
+            Requires(model.ContactDetail.EMail, "ContactDetail.EMail", "*");
+
+            if (model.ContactDetail.Country == "0")
+            {
+                ModelState.AddModelError("ContactDetail.Country", "*");
+            }
+
+            if (model.ContactDetail.Country == "USA" && string.IsNullOrWhiteSpace(model.ContactDetail.ZipOrRegionCode))
+            {
+                ModelState.AddModelError("ContactDetail.ZipOrRegionCode", "*");
+            }
+
+            if (model.ContactDetail.Country == "USA" && string.IsNullOrWhiteSpace(model.ContactDetail.StateOrProvince))
+            {
+                ModelState.AddModelError("State", "*");
+            }
+
+            return ModelState.IsValid;
+        }
+
+        private void Requires(string element, string field, string message)
+        {
+            if (string.IsNullOrWhiteSpace(element))
+            {
+                ModelState.AddModelError(field, message);
+            }
         }
     }
 }

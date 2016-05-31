@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE states [
+  <!ENTITY nbsp   "&#160;">
+]>
+<states>
+  <state code="AL" statename="Alabama" />
+  <state code="AK" statename="Alaska" />
+  <state code="AS" statename="American Samoa" />
+  <state code="AZ" statename="Arizona" />
+  <state code="AR" statename="Arkansas" />
+  <state code="CA" statename="California" />
+  <state code="CO" statename="Colorado" />
+  <state code="CT" statename="Connecticut" />
+  <state code="DE" statename="Delaware" />
+  <state code="DC" statename="District of Columbia" />
+  <state code="FM" statename="Federated States of Micronesia" />
+  <state code="FL" statename="Florida" />
+  <state code="GA" statename="Georgia" />
+  <state code="GU" statename="Guam" />
+  <state code="HI" statename="Hawaii" />
+  <state code="ID" statename="Idaho" />
+  <state code="IL" statename="Illinois" />
+  <state code="IN" statename="Indiana" />
+  <state code="IA" statename="Iowa" />
+  <state code="KS" statename="Kansas" />
+  <state code="KY" statename="Kentucky" />
+  <state code="LA" statename="Louisiana" />
+  <state code="ME" statename="Maine" />
+  <state code="MH" statename="Marshall Islands" />
+  <state code="MD" statename="Maryland" />
+  <state code="MA" statename="Massachusetts" />
+  <state code="MI" statename="Michigan" />
+  <state code="MN" statename="Minnesota" />
+  <state code="MS" statename="Mississippi" />
+  <state code="MO" statename="Missouri" />
+  <state code="MT" statename="Montana" />
+  <state code="NE" statename="Nebraska" />
+  <state code="NV" statename="Nevada" />
+  <state code="NH" statename="New Hampshire" />
+  <state code="NJ" statename="New Jersey" />
+  <state code="NM" statename="New Mexico" />
+  <state code="NY" statename="New York" />
+  <state code="NC" statename="North Carolina" />
+  <state code="ND" statename="North Dakota" />
+  <state code="MP" statename="Northern Mariana Islands " />
+  <state code="OH" statename="Ohio" />
+  <state code="OK" statename="Oklahoma" />
+  <state code="OR" statename="Oregon" />
+  <state code="PW" statename="Palau" />
+  <state code="PA" statename="Pennsylvania" />
+  <state code="PR" statename="Puerto Rico" />
+  <state code="RI" statename="Rhode Island" />
+  <state code="SC" statename="South Carolina" />
+  <state code="SD" statename="South Dakota" />
+  <state code="TN" statename="Tennessee" />
+  <state code="TX" statename="Texas" />
+  <state code="UT" statename="Utah" />
+  <state code="VT" statename="Vermont" />
+  <state code="VI" statename="Virgin Islands" />
+  <state code="VA" statename="Virginia" />
+  <state code="WA" statename="Washington" />
+  <state code="WV" statename="West Virginia" />
+  <state code="WI" statename="Wisconsin" />
+  <state code="WY" statename="Wyoming" />
+</states>

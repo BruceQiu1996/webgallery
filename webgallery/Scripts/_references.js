@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="_account-profile.js" />
 /// <reference path="_submission-form.js" />
 /// <reference path="ai.0.15.0-build58334.min.js" />
 /// <reference path="bootstrap.js" />
