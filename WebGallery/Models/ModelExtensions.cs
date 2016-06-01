@@ -66,29 +66,33 @@
 
         private static string MakeFullName(string prefix, string first, string middle, string last, string suffix)
         {
-            string result = "";
-            if (!string.IsNullOrEmpty(prefix) && !prefix.Equals("Prefix"))
+            var fullname = "";
+            if (!string.IsNullOrEmpty(prefix) && !prefix.ToLowerInvariant().Equals("prefix"))
             {
-                result += prefix + " ";
-            }
-            if (!string.IsNullOrEmpty(first))
-            {
-                result += first + " ";
-            }
-            if (!string.IsNullOrEmpty(middle))
-            {
-                result += middle + " ";
-            }
-            if (!string.IsNullOrEmpty(last))
-            {
-                result += last + " ";
-            }
-            if (!string.IsNullOrEmpty(suffix) && !suffix.Equals("Suffix"))
-            {
-                result += suffix;
+                fullname += prefix + " ";
             }
 
-            return result;
+            if (!string.IsNullOrEmpty(first))
+            {
+                fullname += first + " ";
+            }
+
+            if (!string.IsNullOrEmpty(middle))
+            {
+                fullname += middle + " ";
+            }
+
+            if (!string.IsNullOrEmpty(last))
+            {
+                fullname += last + " ";
+            }
+
+            if (!string.IsNullOrEmpty(suffix) && !suffix.ToLowerInvariant().Equals("suffix"))
+            {
+                fullname += suffix;
+            }
+
+            return fullname;
         }
     }
 }
