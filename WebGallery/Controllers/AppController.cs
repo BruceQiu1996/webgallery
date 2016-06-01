@@ -124,7 +124,7 @@ namespace WebGallery.Controllers
 
             // go to the App Status page
             // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
-            return RedirectToAction("Status", new { id = submission.SubmissionID });
+            return RedirectToAction("Verify", new { id = submission.SubmissionID });
         }
 
         [Authorize]
@@ -209,7 +209,7 @@ namespace WebGallery.Controllers
             _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, false, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
             // go to the App Status page
-            return RedirectToAction("Status", new { id = submission.SubmissionID });
+            return RedirectToAction("Verify", new { id = submission.SubmissionID });
         }
 
         private async Task<ActionResult> Precheck()
@@ -298,9 +298,9 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Status(int id)
+        public async Task<ActionResult> Verify(int id)
         {
-            var model = new AppStatusViewModel();
+            var model = new AppVerifyViewModel();
 
             return View(model);
         }
