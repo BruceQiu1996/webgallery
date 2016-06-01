@@ -231,14 +231,14 @@ namespace WebGallery.Controllers
             // If the user is currently not a submtter, then go to account/profile.
             if (!User.IsSubmitter())
             {
-                return RedirectToAction("Profile", "Account");
+                return RedirectToAction("Profile", "Account", new { returnUrl = Request.RawUrl });
             }
 
             // If current user is not Super Submitter, and there haven't recorded his/her contact info in this system,
             // then go to account/profile.
             if (!User.IsSuperSubmitter() && !await _submitterService.HasContactInfoAsync(User.GetSubmittership().SubmitterID))
             {
-                return RedirectToAction("Profile", "Account");
+                return RedirectToAction("Profile", "Account", new { returnUrl = Request.RawUrl });
             }
 
             return null;
