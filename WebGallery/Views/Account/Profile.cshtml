@@ -14,6 +14,7 @@
 @using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @id = "publisherdetailsform" }))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ReturnUrl)
 
     <div class="form-horizontal">
         <h1>My Contact Information</h1>

@@ -86,7 +86,6 @@
             $("#LBProvince").show();
             $("#State").hide();
             $("#LBState").hide();
-            $("#ContactDetail_StateOrProvince").val("");
         }
         $("#publisherdetailsform").valid();
     }).ready(function () {
@@ -107,8 +106,10 @@
     $("#State").change(function () {
         $("#publisherdetailsform").valid();
     }).ready(function () {
-        if ($("#ContactDetail_Country option:selected").val() == "USA")
+        if ($("#ContactDetail_Country option:selected").val() == "USA") {
             $("#State").val($("#ContactDetail_StateOrProvince").val());
+            $("#ContactDetail_StateOrProvince").val("");
+        }
         $("#publisherdetailsform").valid();
     })
     $("#submit").click(function () {
