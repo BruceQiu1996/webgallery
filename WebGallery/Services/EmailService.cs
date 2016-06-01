@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -60,12 +61,16 @@ namespace WebGallery.Services
 
                 var subject = GetSubject(submission, action);
                 var body = GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
+                body += "Submission:<br/>";
+                body += JsonConvert.SerializeObject(submission, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
+                body += "<hr/><br/><br/>Submission Metadata:<br/>";
+                body += JsonConvert.SerializeObject(metadata, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
 
-                var fromSetting = ConfigurationManager.AppSettings["AppSubmissionMessageFrom"];
+                var fromSetting = ConfigurationManager.AppSettings["Message:From"];
                 var from = fromSetting.Split('|')[0];
                 var fromName = fromSetting.Contains("|") ? fromSetting.Split('|')[1] : string.Empty;
                 var to = from; // notify microsoft first
-                Office365EmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
+                SendGridEmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
 
                 // Second, send email externally (to the app owners). Here, we don't include the XML.
                 foreach (var owner in owners)
@@ -74,7 +79,7 @@ namespace WebGallery.Services
                     body = GetSubmissionNote(htmlEncode(owner.FullName), from, submission.Nickname, submission.Version, urlAuthority)
                         + GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
 
-                    Office365EmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
+                    SendGridEmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
                 }
             }
         }
