@@ -11,6 +11,7 @@ namespace WebGallery.ViewModels
 {
     public class AccountProfileViewModel
     {
+        public string ReturnUrl { get; set; }
         public SubmittersContactDetail ContactDetail { get; set; }
 
         public List<SelectListItem> Countries
