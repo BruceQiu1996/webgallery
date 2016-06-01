@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace WebGallery.Services
 {
     public class EmailService : IEmailService
     {
-        public void SendAppSubmissionMessage(Submitter submitter, Submission submission, bool newApp)
+        public void SendAppSubmissionMessage(Submitter submitter, Submission submission, bool newApp, string urlAuthority, Func<string, string> htmlEncode)
         {
             if (submitter == null || submission == null) return;
 
             using (var db = new WebGalleryDbContext())
             {
+                // First send email internally (to folks at MS).
                 var action = newApp ? "CREATED" : "MODIFIED";
-                var subject = GetSubject(submission, action);
 
                 var contactInfo = (from c in db.SubmittersContactDetails
                                    where c.SubmitterID == submitter.SubmitterID
@@ -36,26 +37,44 @@ namespace WebGallery.Services
                 var categoryName2 = (from c in db.ProductOrAppCategories
                                      where c.CategoryID.ToString() == submission.CategoryID2
                                      select c.Name).FirstOrDefault();
-                var body = GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action);
-
-                // First send email internally (to folks at MS).
-                var from = ConfigurationManager.AppSettings["AppSubmissionMessageFrom"];
-                var fromEmailAddress = from.Split('|')[0];
-                var fromName = from.Contains("|") ? from.Split('|')[1] : string.Empty;
-                var to = from; // notify microsoft first
-                EmailHelper.Send(from, fromName, to, subject, GetHtmlStyles() + body);
-
-                // Second, send email externally (to the app owners). Here, we don't include the XML.
                 var owners = (from o in db.SubmissionOwners
                               join d in db.SubmittersContactDetails on o.SubmitterID equals d.SubmitterID
                               where o.SubmissionID == submission.SubmissionID
                               select d).ToList();
+
+                // html encode some fields
+                submission.Version = htmlEncode(submission.Version);
+                submission.SubmittingEntity = htmlEncode(submission.SubmittingEntity);
+                submission.AdditionalInfo = htmlEncode(submission.AdditionalInfo);
+                foreach (var m in metadata)
+                {
+                    m.Name = htmlEncode(m.Name);
+                    m.Description = htmlEncode(m.Description);
+                    m.BriefDescription = htmlEncode(m.BriefDescription);
+                }
+                foreach (var p in packages)
+                {
+                    p.StartPage = htmlEncode(p.StartPage);
+                    p.SHA1Hash = htmlEncode(p.SHA1Hash);
+                }
+
+                var subject = GetSubject(submission, action);
+                var body = GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
+
+                var fromSetting = ConfigurationManager.AppSettings["AppSubmissionMessageFrom"];
+                var from = fromSetting.Split('|')[0];
+                var fromName = fromSetting.Contains("|") ? fromSetting.Split('|')[1] : string.Empty;
+                var to = from; // notify microsoft first
+                Office365EmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
+
+                // Second, send email externally (to the app owners). Here, we don't include the XML.
                 foreach (var owner in owners)
                 {
-                    body = GetSubmissionNote(owner.FullName, from, submission.Nickname, submission.Version)
-                        + GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action);
+                    to = owner.EMail;
+                    body = GetSubmissionNote(htmlEncode(owner.FullName), from, submission.Nickname, submission.Version, urlAuthority)
+                        + GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
 
-                    EmailHelper.Send(from, fromName, owner.EMail, subject, GetHtmlStyles() + body);
+                    Office365EmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
                 }
             }
         }
@@ -65,14 +84,14 @@ namespace WebGallery.Services
             return $"SUBMISSION {action}: {submission.SubmittingEntity} {submission.Nickname} {submission.Version}";
         }
 
-        private static string GetBody(Submitter submitter, SubmittersContactDetail contactInfo, Submission submission, string categoryName1, string categoryName2, string frameworkName, IList<SubmissionLocalizedMetaData> metadata, IList<Package> packages, string action)
+        private static string GetBody(Submitter submitter, SubmittersContactDetail contactInfo, Submission submission, string categoryName1, string categoryName2, string frameworkName, IList<SubmissionLocalizedMetaData> metadata, IList<Package> packages, string action, string urlAuthority)
         {
             var body = new StringBuilder();
             body.Append($"SUBMISSION {action}: {submission.Nickname}<br /><br />");
 
-            body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='/account/profile'>{contactInfo.FullName}'s contact information</a><br />");
-            body.Append($"<a href='/app/edit/{submission.SubmissionID}'>View submission form</a><br />");
-            body.Append($"<a href='/app/status/{submission.SubmissionID}'>Validate submission</a><br />");
+            body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='https://{urlAuthority}/account/profile'>{contactInfo.FullName}'s contact information</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/app/edit/{submission.SubmissionID}'>View submission form</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/app/status/{submission.SubmissionID}'>Validate submission</a><br />");
 
             // logo and screenshots
             body.Append($"<a href='{submission.LogoUrl}'>Logo</a><br />");
@@ -88,14 +107,14 @@ namespace WebGallery.Services
             body.Append($"<tr><td class='name'>Nickname</td><td>{submission.Nickname}</td></tr>");
             body.Append($"<tr><td class='name'>Version</td><td>{submission.Version}</td></tr>");
             body.Append($"<tr><td class='name'>Submitting Entity</td><td>{submission.SubmittingEntity}</td></tr>");
-            body.Append($"<tr><td class='name'>Submitting Entity URL</td><td>{submission.SubmittingEntityURL}</td></tr>");
-            body.Append($"<tr><td class='name'>App URL</td><td>{submission.AppURL}</td></tr>");
-            body.Append($"<tr><td class='name'>Support URL</td><td>{submission.SupportURL}</td></tr>");
+            body.Append($"<tr><td class='name'>Submitting Entity URL</td><td>{GenerateLink(submission.SubmittingEntityURL)}</td></tr>");
+            body.Append($"<tr><td class='name'>App URL</td><td>{GenerateLink(submission.AppURL)}</td></tr>");
+            body.Append($"<tr><td class='name'>Support URL</td><td>{GenerateLink(submission.SupportURL)}</td></tr>");
             body.Append($"<tr><td class='name'>Release Date</td><td>{submission.ReleaseDate.ToShortDateString()}</td></tr>");
             body.Append($"<tr><td class='name'>Primary Category</td><td>{categoryName1}</td></tr>");
             body.Append($"<tr><td class='name'>Secondary Category</td><td>{categoryName2}</td></tr>");
-            body.Append($"<tr><td class='name'>Professional Services URL</td><td>{submission.ProfessionalServicesURL}</td></tr>");
-            body.Append($"<tr><td class='name'>Commercial Product URL</td><td>{submission.CommercialProductURL}</td></tr>");
+            body.Append($"<tr><td class='name'>Professional Services URL</td><td>{GenerateLink(submission.ProfessionalServicesURL)}</td></tr>");
+            body.Append($"<tr><td class='name'>Commercial Product URL</td><td>{GenerateLink(submission.CommercialProductURL)}</td></tr>");
             body.Append($"<tr><td class='name'>Release Notes</td><td>{submission.AdditionalInfo}</td></tr>");
             body.Append("</table>");
 
@@ -137,23 +156,25 @@ namespace WebGallery.Services
             foreach (var lang in Language.SupportedLanguages)
             {
                 var package = packages.FirstOrDefault(p => p.Language == lang.Name && p.SubmissionID == submission.SubmissionID);
+                if (package != null)
+                {
+                    body.Append("<table>");
+                    body.Append($"<caption>{lang.ShortDisplayName}</caption>");
+                    body.Append("<tr>");
+                    body.Append("<td>");
 
-                body.Append("<table>");
-                body.Append($"<caption>{lang.ShortDisplayName}</caption>");
-                body.Append("<tr>");
-                body.Append("<td>");
+                    body.Append("<table><caption>x86 Package</caption>");
+                    body.Append($"<tr><td class='name'>Package URL</td><td>{GenerateLink(package.PackageURL)}</td></tr>");
+                    body.Append($"<tr><td class='name'>Start Page</td><td>{package.StartPage}</td></tr>");
+                    body.Append($"<tr><td class='name'>SHA-1 Hash</td><td>{package.SHA1Hash}</td></tr>");
+                    body.Append($"<tr><td class='name'>File Size</td><td>{package.FileSize}</td></tr>");
+                    body.Append($"<tr><td class='name'>Language</td><td>{package.Language}</td></tr>");
+                    body.Append("</table>");
 
-                body.Append("<table><caption>x86 Package</caption>");
-                body.Append($"<tr><td class='name'>Package URL</td><td>{package.PackageURL}</td></tr>");
-                body.Append($"<tr><td class='name'>Start Page</td><td>{package.StartPage}</td></tr>");
-                body.Append($"<tr><td class='name'>SHA-1 Hash</td><td>{package.SHA1Hash}</td></tr>");
-                body.Append($"<tr><td class='name'>File Size</td><td>{package.FileSize}</td></tr>");
-                body.Append($"<tr><td class='name'>Language</td><td>{package.Language}</td></tr>");
-                body.Append("</table>");
-
-                body.Append("</td>");
-                body.Append("</tr>");
-                body.Append("</table>");
+                    body.Append("</td>");
+                    body.Append("</tr>");
+                    body.Append("</table>");
+                }
             }
             body.Append("</td></tr>");
             body.Append("</table>");
@@ -162,6 +183,16 @@ namespace WebGallery.Services
             body.Append("<hr /><br /><br />");
 
             return body.ToString();
+        }
+
+        private static string GetSubmissionNote(string who, string eMailAddressOfSubmitter, string appID, string appVersion, string urlAuthority)
+        {
+            return $"<p>{who},</p>"
+                + $"<p>Thanks for your interest in the Windows Web Application Gallery! As we mention at <a href='https://{urlAuthority}/home/documentation'>Windows Web Application Gallery for Developers</a>, all applications in the Web Application Gallery follow the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Web Application Gallery Principles</a>. We will take a look to see if the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Principles</a> have been applied to {appID} {appVersion} for Web App Gallery integration.</p>"
+                + $"<p>We also want to confirm the submission information that we received from {eMailAddressOfSubmitter} about {appID} {appVersion} in the Windows Web Application Gallery.  If the information below in this email is incorrect, please email appgal@microsoft.com so we can make changes.</p>"
+                + "<p>Thanks,<br />The Web Application Gallery team</p>"
+                + "<p>PS:  Microsoft respects your privacy.  If you feel you’ve received this e-mail in error, contact us at <a href='mailto:appgal@microsoft.com'>appgal@microsoft.com</a>.</p>"
+                + "<hr /><br /><br />";
         }
 
         private static string GetHtmlStyles()
@@ -228,14 +259,13 @@ table tr td.parent-of-table
 ";
         }
 
-        private static string GetSubmissionNote(string who, string eMailAddressOfSubmitter, string appID, string appVersion)
+        private static string GenerateLink(string url)
         {
-            return $"<p>{who},</p>"
-                + $"<p>Thanks for your interest in the Windows Web Application Gallery! As we mention at <a href='/home/documentation'>Windows Web Application Gallery for Developers</a>, all applications in the Web Application Gallery follow the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Web Application Gallery Principles</a>. We will take a look to see if the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Principles</a> have been applied to {appID} {appVersion} for Web App Gallery integration.</p>"
-                + $"<p>We also want to confirm the submission information that we received from {eMailAddressOfSubmitter} about {appID} {appVersion} in the Windows Web Application Gallery.  If the information below in this email is incorrect, please email appgal@microsoft.com so we can make changes.</p>"
-                + "<p>Thanks,<br />The Web Application Gallery team</p>"
-                + "<p>PS:  Microsoft respects your privacy.  If you feel you’ve received this e-mail in error, contact us at <a href='mailto:appgal@microsoft.com'>appgal@microsoft.com</a>.</p>"
-                + "<hr /><br /><br />";
+            if (string.IsNullOrWhiteSpace(url)) return string.Empty;
+
+            if (!url.ToLower().StartsWith("http://") && !url.ToLower().StartsWith("https://")) url = "http://" + url;
+
+            return $"<a href='{url}' titl='{url}'>{url}</a>";
         }
     }
 }
