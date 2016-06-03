@@ -38,6 +38,8 @@ namespace WebGallery
 
             bundles.Add(new ScriptBundle("~/js/contact-detail-form").Include(
                         "~/scripts/_account-profile.js"));
+            bundles.Add(new StyleBundle("~/css/contact-detail-form").Include(
+                "~/Content/_contact-detail.css"));
         }
     }
 }
