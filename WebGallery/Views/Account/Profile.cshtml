@@ -82,7 +82,7 @@
                 @{
                     var displayStates = string.Empty;
                     var displayProvince = string.Empty;
-                    if (Model.ContactDetail.Country == "USA")
+                    if (Model.ContactDetail != null && Model.ContactDetail.Country == "USA")
                     {
                         displayProvince = "dispaly:none";
                     }
