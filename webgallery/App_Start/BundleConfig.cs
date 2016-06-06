@@ -36,10 +36,10 @@ namespace WebGallery
                       "~/Content/_tab.css",
                       "~/Content/bootstrap-datepicker3*"));
 
-            bundles.Add(new ScriptBundle("~/js/contact-detail-form").Include(
+            bundles.Add(new ScriptBundle("~/js/account-profile-form").Include(
                         "~/scripts/_account-profile.js"));
-            bundles.Add(new StyleBundle("~/css/contact-detail-form").Include(
-                "~/Content/_contact-detail.css"));
+            bundles.Add(new StyleBundle("~/css/account-profile-form").Include(
+                "~/Content/_account-profile.css"));
         }
     }
 }
