@@ -1,0 +1,74 @@
+﻿.contact-detail-form {
+    margin: 32px 54px 40px 54px;
+    font-size: 10pt;
+    line-height: 1;
+}
+
+.dropdown {
+    width: 356px;
+}
+
+.dropdown,
+.dropdown-narrow {
+    margin: 0 0 10px 0;
+}
+
+.dd-prefix,
+.dd-suffix {
+    position: relative;
+    left: 35%;
+    clear: both;
+    display: block;
+}
+
+select {
+    color: #4b4b4b;
+    font-size: 10pt;
+}
+
+.textbox-label {
+    float: left;
+    width: 35%;
+    text-align: right;
+    color: #4b4b4b;
+    line-height: 1.8em;
+    font-weight: inherit;
+    padding-right: 10px;
+}
+
+.textbox {
+    padding-left: 1px;
+    margin: 0 0 10px 0;
+    width: 356px;
+    float: left;
+}
+
+input {
+    color: #4b4b4b;
+    font-size: 10pt;
+}
+
+label.error {
+    color: red;
+    display: inline;
+    float: left;
+    padding-left: 5px;
+    line-height: 1.8em;
+    font-size: 10pt;
+}
+
+.dd-country {
+    float: left;
+}
+
+.contact-detail-field {
+    clear: both;
+}
+
+.submit-button {
+    margin-top: 25px;
+    float: left;
+    margin-left: 35%;
+    height: 25px;
+    font-size: 10pt;
+}
