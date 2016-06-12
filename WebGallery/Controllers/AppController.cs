@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
+using WebGallery.Filters;
 using WebGallery.Models;
 using WebGallery.Security;
 using WebGallery.Services;
@@ -12,14 +13,19 @@ namespace WebGallery.Controllers
     public class AppController : Controller
     {
         private IAppService _appService;
+        private IAppValidationService _validationService;
         private ISubmitterService _submitterService;
         private IEmailService _emailService;
 
-        public AppController() : this(new AppService(), new SubmitterService(), new EmailService()) { }
+        public AppController() : this(new AppService(), new AppValidationService(), new SubmitterService(), new EmailService()) { }
 
-        public AppController(IAppService appService, ISubmitterService submitterService, IEmailService emailService)
+        public AppController(IAppService appService,
+            IAppValidationService validationService,
+            ISubmitterService submitterService,
+            IEmailService emailService)
         {
             _appService = appService;
+            _validationService = validationService;
             _submitterService = submitterService;
             _emailService = emailService;
         }
@@ -124,7 +130,7 @@ namespace WebGallery.Controllers
 
             // go to the App Status page
             // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
-            return RedirectToAction("Verify", new { id = submission.SubmissionID });
+            return RedirectToAction("Verify", new { id = submission.SubmissionID, showThanks = true });
         }
 
         [Authorize]
@@ -209,7 +215,7 @@ namespace WebGallery.Controllers
             _emailService.SendAppSubmissionMessage(User.GetSubmittership(), submission, false, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
             // go to the App Status page
-            return RedirectToAction("Verify", new { id = submission.SubmissionID });
+            return RedirectToAction("Verify", new { id = submission.SubmissionID, showThanks = true });
         }
 
         private async Task<ActionResult> Precheck()
@@ -298,12 +304,70 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Verify(int id)
+        [HttpGet]
+        [RequireSubmittership]
+        public async Task<ActionResult> Verify(int? id, bool? showThanks)
         {
-            var model = new AppVerifyViewModel();
+            if (!id.HasValue) return View("ResourceNotFound");
+
+            var submissionId = id.Value;
+            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId);
+            if (!User.IsSuperSubmitter() && !isOwner)
+            {
+                return View("NeedPermission");
+            }
+
+            var submission = await _appService.GetSubmissionAsync(submissionId);
+            if (submission == null)
+            {
+                return View("ResourceNotFound");
+            }
+
+            var model = new AppVerifyViewModel
+            {
+                ValidationItems = await _validationService.GetValidationItemsAsync(submission),
+                ShowThanks = showThanks ?? false
+            };
 
             return View(model);
         }
 
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> VerifyUrl(string url)
+        {
+            var status = await _validationService.ValidateUrlAsync(url);
+
+            return Json(new { status = status.ToString() });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> VerifyPackage(string url, string hash)
+        {
+            var packageValidationResult = await _validationService.ValidatePackageAsync(url, hash);
+
+            return Json(new
+            {
+                ManifestStatus = packageValidationResult.ManifestStatus.ToString(),
+                HashStatus = packageValidationResult.HashStatus.ToString()
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> VerifyImage(string url, bool isLogo)
+        {
+            var imageValidationResult = await _validationService.ValidateImageAsync(url, isLogo);
+
+            return Json(new
+            {
+                TypeStatus = imageValidationResult.TypeStatus.ToString(),
+                DimensionStatus = imageValidationResult.DimensionStatus.ToString()
+            });
+        }
     } // end class
 }

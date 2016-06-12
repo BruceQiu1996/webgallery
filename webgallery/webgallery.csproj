@@ -49,6 +49,10 @@
       <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.9.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.9\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -302,12 +306,16 @@
     <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
+    <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
+    <Compile Include="Filters\RequireSubmittingAppEnabled.cs" />
     <Compile Include="Models\AppDownloadStat.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationInGallery.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppValidationItem.cs" />
     <Compile Include="Models\ArchitectureType.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -446,16 +454,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SubmitterClaims.cs" />
     <Compile Include="Services\AppService.cs" />
+    <Compile Include="Services\AppValidationService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\IAppImageStorageService.cs" />
     <Compile Include="Services\AppImageAzureStorageService.cs" />
     <Compile Include="Services\IAppService.cs" />
+    <Compile Include="Services\IAppValidationService.cs" />
     <Compile Include="Services\IEmailService.cs" />
     <Compile Include="Services\ISubmitterService.cs" />
     <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
+    <Compile Include="Utilities\HashHelper.cs" />
+    <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\SendGridEmailHelper.cs" />
+    <Compile Include="Utilities\StreamHelper.cs" />
+    <Compile Include="Utilities\UrlHelper.cs" />
+    <Compile Include="Utilities\ZipFileHelper.cs" />
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
     <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
     <Compile Include="ViewModels\AppDetailViewModel.cs" />
@@ -473,6 +488,10 @@
     <Content Include="App_Data\USstates.xml" />
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\images\validating-fail.gif" />
+    <Content Include="Content\images\validating-pass.gif" />
+    <Content Include="Content\images\validating.gif" />
+    <Content Include="Content\_app-verify.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -623,6 +642,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
+    <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -668,6 +688,7 @@
     <Content Include="Views\Shared\NeedPermission.cshtml" />
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
+    <Content Include="Views\Shared\ResourceNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

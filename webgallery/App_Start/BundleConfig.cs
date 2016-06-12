@@ -36,6 +36,11 @@ namespace WebGallery
                       "~/Content/_tab.css",
                       "~/Content/bootstrap-datepicker3*"));
 
+            bundles.Add(new ScriptBundle("~/js/app-verify").Include(
+                        "~/scripts/_app-verify.js"));
+            bundles.Add(new StyleBundle("~/css/app-verify").Include(
+                      "~/Content/_app-verify.css"));
+
             bundles.Add(new ScriptBundle("~/js/contact-detail-form").Include(
                         "~/scripts/_account-profile.js"));
         }

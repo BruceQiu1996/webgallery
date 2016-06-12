@@ -1,0 +1,117 @@
+﻿.validation-panel {
+    margin: 30px 0;
+    padding: 10px;
+    border: solid 1px #999999;
+    background: #F0F0F0;
+}
+
+    .validation-panel ul {
+        margin:0px;
+        padding:0px;
+    }
+
+    .validation-panel li {
+        list-style: none;
+        font-size: 12px;
+        line-height: 1.8;
+        margin: 0px;
+        padding-left: 20px;
+    }
+
+.validation-validating {
+    color: Black;
+    font-weight: bold;
+    background: transparent url(images/validating.gif) center left no-repeat;
+}
+
+.validation-pass {
+    color: Green;
+    background: transparent url(images/validating-pass.gif) center left no-repeat;
+}
+
+.validation-unknown {
+    color: Gray;
+}
+
+.validation-fail {
+    color: Red;
+    background: transparent url(images/validating-fail.gif) center left no-repeat;
+}
+
+.fix-up-panel,
+.fix-up-panel .textbox,
+.fix-up-panel .file-upload-wrapper {
+    font-size: 12px;
+    color: #4b4b4b;
+    padding-left: 1px;
+    margin: 0 0 10px 0;
+}
+
+    .fix-up-panel .textbox,
+    .fix-up-panel .textbox-label,
+    .fix-up-panel .file-upload-wrapper,
+    .fix-up-panel .file-upload-label,
+    .fix-up-panel .submitted-panel {
+        float: left;
+    }
+
+    .fix-up-panel .textbox {
+        width: 400px;
+    }
+
+    .fix-up-panel .file-upload-wrapper {
+        width: 400px;
+    }
+
+    .fix-up-panel .file-upload {
+        width: 395px;
+    }
+
+    .fix-up-panel .submitted-panel {
+        width: 350px;
+        margin-left: 10px;
+        line-height: 1.8em;
+    }
+
+    .fix-up-panel .submitted-popup {
+        position: relative;
+        background: White;
+        border: solid 1px #999999;
+        padding: 35px;
+    }
+
+    .fix-up-panel .submitted-image-close-btn {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+    }
+
+    .fix-up-panel .textbox-label,
+    .fix-up-panel .file-upload-label {
+        clear: both;
+        width: 300px;
+        padding-right: 10px;
+        text-align: right;
+        line-height: 1.8em;
+    }
+
+    .fix-up-panel .link-to-edit-submission {
+        font-weight: bold;
+    }
+
+    .fix-up-panel .clear-image {
+        float: right;
+        padding-left: 20px;
+        font-size: 0.8em;
+    }
+
+.submittion-cannot-be-modified p {
+    font-weight: bold;
+    color: Red !important;
+}
+
+.modal-background {
+    background: #333;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}

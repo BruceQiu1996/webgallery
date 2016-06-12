@@ -5,4 +5,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Verify</h2>
+<div class="content">
+    @if (Model.ShowThanks)
+    {
+        <h2>@Resources.Submit.StatusIntro</h2>
+    }
+    <p>@Resources.Submit.StatusCheckingIntro</p>
+
+    @Html.AntiForgeryToken()
+    <div class="validation-panel">
+        <h3>URLs</h3>
+        <ul id="ulUrls">
+            @foreach (var item in Model.Urls)
+            {
+                var globalizatinoStr = HttpContext.GetGlobalResourceObject("Submit", item.KeyInGlobalizationResources);
+                var lang = string.IsNullOrEmpty(item.LanguageAndCountryCode) ? string.Empty : $" ({item.LanguageAndCountryCode})";
+                var itemStr = $"{globalizatinoStr}{lang}";
+                <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@itemStr</li>
+            }
+        </ul>
+        <h3>Packages</h3>
+        <ul id="ulPackages">
+            @foreach (var item in Model.Packages)
+            {
+                var globalizatinoStr = HttpContext.GetGlobalResourceObject("Submit", item.KeyInGlobalizationResources);
+                var lang = string.IsNullOrEmpty(item.LanguageAndCountryCode) ? string.Empty : $" ({item.LanguageAndCountryCode})";
+                var itemStr = $"{globalizatinoStr}{lang}";
+                <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@itemStr</li>
+            }
+        </ul>
+        <h3>Images</h3>
+        <ul id="ulImages">
+            @foreach (var item in Model.Images)
+            {
+                <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@HttpContext.GetGlobalResourceObject("Submit", item.KeyInGlobalizationResources)</li>
+            }
+        </ul>
+    </div>
+    <div></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/js/app-verify")
+}
+
+@section Styles {
+    @Styles.Render("~/css/app-verify")
+}
