@@ -61,8 +61,7 @@ namespace WebGallery.Services
                 var submitter = (from s in db.Submitters
                                  where s.MicrosoftAccount == email
                                  select s).FirstOrDefault();
-
-                if (submitter == null) // add new submitter and contact detail
+                if (submitter == null)
                 {
                     submitter = new Submitter
                     {
@@ -72,17 +71,19 @@ namespace WebGallery.Services
                         IsSuperSubmitter = null
                     };
                     db.Submitters.Add(submitter);
-                    db.SaveChanges();
+                    db.SaveChanges(); // save to database for new submitter id.
+                }
 
+                var contactDetailInDb = (from c in db.SubmittersContactDetails
+                                         where c.SubmitterID == submitter.SubmitterID
+                                         select c).FirstOrDefault();
+                if (contactDetailInDb == null)
+                {
                     contactDetail.SubmitterID = submitter.SubmitterID;
                     db.SubmittersContactDetails.Add(contactDetail);
                 }
-                else // update contact detail
+                else
                 {
-                    var contactDetailInDb = (from c in db.SubmittersContactDetails
-                                             where c.SubmitterID == submitter.SubmitterID
-                                             select c).FirstOrDefault();
-
                     SyncContactDetailProperties(contactDetailInDb, contactDetail);
                 }
 

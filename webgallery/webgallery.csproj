@@ -492,6 +492,7 @@
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
     <Content Include="Content\_app-verify.css" />
+    <Content Include="Content\_account-profile.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

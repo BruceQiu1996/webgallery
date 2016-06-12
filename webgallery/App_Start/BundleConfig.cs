@@ -41,8 +41,10 @@ namespace WebGallery
             bundles.Add(new StyleBundle("~/css/app-verify").Include(
                       "~/Content/_app-verify.css"));
 
-            bundles.Add(new ScriptBundle("~/js/contact-detail-form").Include(
+            bundles.Add(new ScriptBundle("~/js/account-profile-form").Include(
                         "~/scripts/_account-profile.js"));
+            bundles.Add(new StyleBundle("~/css/account-profile-form").Include(
+                "~/Content/_account-profile.css"));
         }
     }
 }
