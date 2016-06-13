@@ -7,5 +7,812 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMnQET6bmZkCNVTE0kgm1WQAAAAACAAAAAAADZgAAwAAAABAAAACC/YmGUFXGhQBWvmlpdggBAAAAAASAAACgAAAAEAAAAMRoiykWkLwP0VECShoMYhCAAAAAVtP5Ks6txi+lA97xc1mln/ypehdGZxZjKszdT7pamP2xSFDxBvfjZG410cnXBime+RXA1y8Y8xZ2kgwR0zIVFpdPs82t8/fE7pSxxt0ft6KcYNd2mbOP7r1S3s/6RFu86f94zBi0Wrdu8onqj8gnuJMplMxqmpsKe1hJRxu0HFAUAAAAhGawolAYm0hLaqupffNWOlhLDuc=</EncryptedPassword>
+    <_PublishTargetUrl>ftp://waws-prod-bay-045.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="App_Data/USstates.xml">
+      <publishTime>06/01/2016 12:34:01</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.es-es.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.ja-jp.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.ko-kr.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.ru-ru.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.tr-TR.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.zh-chs.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="App_GlobalResources/Submit.zh-cht.resx">
+      <publishTime>06/01/2016 11:27:00</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/GridMvc.dll">
+      <publishTime>09/25/2013 14:34:54</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>08/06/2015 12:16:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>10/29/2015 20:45:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>10/29/2015 20:58:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>10/29/2015 20:49:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>10/28/2015 17:10:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.KeyVault.Core.dll">
+      <publishTime>07/29/2015 12:56:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>03/26/2015 01:40:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Services.Client.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocol.Extensions.dll">
+      <publishTime>03/04/2016 13:29:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2015 13:16:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2015 13:16:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2015 13:16:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OpenIdConnect.dll">
+      <publishTime>03/04/2016 13:29:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.Desktop.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Configuration.dll">
+      <publishTime>02/03/2016 16:22:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
+      <publishTime>04/06/2016 15:02:28</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/22/2015 11:06:54</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/13/2012 12:19:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>03/14/2016 15:48:55</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>03/14/2016 15:48:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>03/14/2016 15:48:54</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>03/14/2016 15:48:55</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>03/14/2016 15:48:56</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/SendGrid.dll">
+      <publishTime>12/15/2015 08:04:56</publishTime>
+    </File>
+    <File Include="bin/SendGrid.SmtpApi.dll">
+      <publishTime>04/22/2015 17:24:48</publishTime>
+    </File>
+    <File Include="bin/SendGridMail.dll">
+      <publishTime>12/15/2015 08:04:56</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>03/04/2016 13:29:47</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>03/14/2016 15:48:52</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>03/14/2016 15:48:51</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>03/14/2016 15:48:52</publishTime>
+    </File>
+    <File Include="bin/WebGallery.dll">
+      <publishTime>06/01/2016 18:32:40</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="bin/X.PagedList.dll">
+      <publishTime>12/20/2015 17:35:22</publishTime>
+    </File>
+    <File Include="bin/X.PagedList.Mvc.dll">
+      <publishTime>12/20/2015 17:43:52</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/26/2015 01:42:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/26/2015 01:40:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/26/2015 01:42:08</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>03/26/2015 01:42:02</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datepicker3.css">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datepicker3.css.map">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datepicker3.min.css">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datepicker3.min.css.map">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>03/25/2016 19:12:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/Gridmvc.css">
+      <publishTime>03/02/2016 17:05:29</publishTime>
+    </File>
+    <File Include="Content/images/close-btn.png">
+      <publishTime>03/30/2016 13:11:38</publishTime>
+    </File>
+    <File Include="Content/images/explanation-arrow.jpg">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_active_inner.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_active_outer.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_active_tab.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_header.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_hover_inner.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_hover_outer.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_hover_tab.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_inner.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_outer.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/images/tab_xp/tab_tab.gif">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>03/02/2016 17:05:29</publishTime>
+    </File>
+    <File Include="Content/_site.css">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Content/_submission-form.css">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Content/_tab.css">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/02/2016 17:05:32</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/05/2016 09:38:22</publishTime>
+    </File>
+    <File Include="Grid.mvc.readme">
+      <publishTime>03/02/2016 17:05:29</publishTime>
+    </File>
+    <File Include="Models/WebGallery.edmx.diagram">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/01/2016 17:41:34</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.15.0-build58334.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.15.0-build58334.min.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datepicker.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datepicker.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/25/2016 19:12:29</publishTime>
+    </File>
+    <File Include="Scripts/gridmvc.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/gridmvc.lang.ru.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/gridmvc.min.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.3.js">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.3.min.js">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.3.min.map">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>05/13/2016 16:21:59</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>05/13/2016 16:21:59</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ar.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.az.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.bg.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.bs.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ca.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.cs.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.cy.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.da.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.de.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.el.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.en-AU.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.en-GB.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.eo.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.es.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.et.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.eu.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.fa.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.fi.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.fo.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.fr-CH.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.fr.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.gl.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.he.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.hr.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.hu.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.hy.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.id.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.is.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.it-CH.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.it.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ja.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ka.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.kh.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.kk.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ko.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.kr.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.lt.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.lv.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.me.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.mk.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.mn.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ms.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.nb.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.nl-BE.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.nl.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.no.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.pl.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.pt-BR.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.pt.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ro.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.rs-latin.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.rs.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.ru.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sk.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sl.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sq.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sr-latin.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sr.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sv.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.sw.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.th.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.tr.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.uk.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.vi.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.zh-CN.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/locales/bootstrap-datepicker.zh-TW.min.js">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Scripts/_account-profile.js">
+      <publishTime>06/01/2016 17:41:34</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>06/01/2016 12:34:01</publishTime>
+    </File>
+    <File Include="Scripts/_submission-form.js">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Service References/Application Insights/ConnectedService.json">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Account/Profile.cshtml">
+      <publishTime>06/01/2016 17:41:34</publishTime>
+    </File>
+    <File Include="Views/App/Categorize.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Detail.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Mine.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Owners.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Submit.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Submit_Description_Partial.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Submit_Introduction_Partial.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Submit_Package_Partial.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Submit_ReleaseNote_Partial.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/App/Verify.cshtml">
+      <publishTime>06/01/2016 18:30:30</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/Agreement.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>05/05/2016 09:38:23</publishTime>
+    </File>
+    <File Include="Views/Home/ContactConfirm.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/Developer.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Home/Documentation.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/Gallery.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/Install.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Manage/Dashboard.cshtml">
+      <publishTime>05/05/2016 09:38:24</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>05/26/2016 13:10:51</publishTime>
+    </File>
+    <File Include="Views/Shared/ModificationLocked.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Shared/NeedPermission.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Shared/SubmittingDisabled.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Shared/UpgradeIE.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Shared/_Grid.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_GridPager.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>03/29/2016 20:12:09</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>06/01/2016 11:27:01</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/05/2016 09:38:24</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>03/02/2016 17:05:30</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/01/2016 18:33:09</publishTime>
+    </File>
+  </ItemGroup>
 </Project>
