@@ -6,10 +6,11 @@ namespace WebGallery.Utilities
 {
     public class StreamHelper
     {
-        public static MemoryStream FromUrl(string url)
+        public static Stream FromUrl(string url)
         {
             try
             {
+                int patience = 240; // seconds until we run out of patience waiting for generating a memory stream/tributary from a response to complete
                 var start = DateTime.Now;
 
                 var request = (HttpWebRequest)WebRequest.Create(url);
@@ -19,9 +20,8 @@ namespace WebGallery.Utilities
                 request.Accept = "*/*";
                 request.KeepAlive = true;
                 request.CookieContainer = new CookieContainer();
-                int patience = 90; // seconds until we run out of patience waiting for this validation to complete
 
-                // Even if we get a response within our allotted timeout (1.5 minutes, see above)
+                // Even if we get a response within our allotted timeout (1.5 minutes, see above),
                 // we still have to actually get all of the bits for the package. That means
                 // going back and forth from this Web server to the server where the package
                 // is kept, requesting a buffer's worth of bits at a time. If this takes
@@ -33,26 +33,33 @@ namespace WebGallery.Utilities
                 // time ourselves here. If we take more than 4 minutes overall we are going to
                 // bail out.
                 AbortIfDelayed(start, patience);
+
                 using (var response = (HttpWebResponse)request.GetResponse())
                 {
                     AbortIfDelayed(start, patience);
-                    using (Stream responseStream = response.GetResponseStream())
+
+                    using (var responseStream = response.GetResponseStream())
                     {
                         AbortIfDelayed(start, patience);
 
-                        var memoryStream = new MemoryStream();
+                        var m = new MemoryTributary();
                         var count = 0;
                         var buffer = new byte[4096];
                         do
                         {
                             AbortIfDelayed(start, patience);
+
                             count = responseStream.Read(buffer, 0, buffer.Length);
-                            memoryStream.Write(buffer, 0, count);
+                            m.Write(buffer, 0, count);
                         } while (count != 0);
-                        
-                        return memoryStream;
+
+                        return m;
                     }
                 }
+            }
+            catch(AbortGeneratingStreamException e)
+            {
+                throw e;
             }
             catch
             {
@@ -64,8 +71,15 @@ namespace WebGallery.Utilities
         {
             if (DateTime.Now.Subtract(start).TotalSeconds > patienceInSeconds)
             {
-                throw new ApplicationException("Time out");
+                throw new AbortGeneratingStreamException(patienceInSeconds);
             }
         }
+    }
+
+    public class AbortGeneratingStreamException : Exception
+    {
+        public AbortGeneratingStreamException(int patienceInSeconds)
+            : base($"Generating a stream aborted as it took more time than we expect ({patienceInSeconds}).")
+        { }
     }
 }

@@ -28,7 +28,7 @@ namespace WebGallery.Utilities
 
     public static class StreamExtensions
     {
-        public static bool MatchHash(this MemoryStream stream, string givenSha1Hash)
+        public static bool MatchHash(this Stream stream, string givenSha1Hash)
         {
             if (stream == null) return false;
             if (string.IsNullOrWhiteSpace(givenSha1Hash)) return false;

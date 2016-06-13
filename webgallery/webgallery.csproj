@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -467,6 +468,7 @@
     <Compile Include="Utilities\AzureStorageHelper.cs" />
     <Compile Include="Utilities\HashHelper.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
+    <Compile Include="Utilities\MemoryTributary.cs" />
     <Compile Include="Utilities\SendGridEmailHelper.cs" />
     <Compile Include="Utilities\StreamHelper.cs" />
     <Compile Include="Utilities\UrlHelper.cs" />
