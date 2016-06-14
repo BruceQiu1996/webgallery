@@ -1,0 +1,34 @@
+﻿.app-name {
+    padding: 50px 0 20px 110px;
+    width: 100%;
+    font-size: 28px;
+}
+
+.app-icon {
+    margin-left: 110px;
+}
+
+.app-image {
+    float: left;
+    width: 200px;
+    max-height: 200px;
+}
+
+.image-description {
+    margin-bottom: 50px;
+}
+
+.detail-list {
+    padding-right: 50px;
+    width: 50%;
+    margin-bottom: 0;
+}
+
+.desription {
+    padding: 40px 50px 50px 110px;
+}
+
+.screenshot-link {
+    margin-left: 120px;
+    padding-top: 10px;
+}

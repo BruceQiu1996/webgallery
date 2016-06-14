@@ -494,7 +494,13 @@
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
     <Content Include="Content\_app-verify.css" />
+    <Content Include="Content\images\free-icon.png" />
+    <Content Include="Content\images\install-btn.jpg" />
+    <Content Include="Content\images\next-btn.png" />
+    <Content Include="Content\images\prev-btn.png" />
+    <Content Include="Content\images\search-btn.jpg" />
     <Content Include="Content\_account-profile.css" />
+    <Content Include="Content\_app-detail.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -692,6 +698,8 @@
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
     <Content Include="Views\Shared\ResourceNotFound.cshtml" />
+    <Content Include="Views\App\Categorize_Top_Tabs.cshtml" />
+    <Content Include="Views\Shared\NeedAppNameAndDescription.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

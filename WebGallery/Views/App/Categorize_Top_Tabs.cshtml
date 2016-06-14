@@ -1,0 +1,14 @@
+﻿<div class="tab-header">
+    <div class="tab-content">
+        @Html.ActionLink("Featured", "Index","Home")
+    </div>
+
+    <div class="tab-content">
+        @Html.ActionLink("All Categories", "Categorize")
+    </div>
+
+    <div calss="search-form">
+            <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" class="search-btn" onclick="if (jQuery.trim($('#SearchText').val()) != '') { window.location.href = 'http://www.bing.com/search?q=' + encodeURIComponent(jQuery.trim($('#SearchText').val())) + '+%28site%3Ahttp%3A%2F%2Fwww.microsoft.com%2Fweb%2Fgallery%29'}" />
+            <input type="text" id="SearchText" class="search-textbox" />
+    </div>
+</div>

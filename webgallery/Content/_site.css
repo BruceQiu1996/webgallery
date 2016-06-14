@@ -11,7 +11,7 @@ h3 {
 }
 
 p, select, input, textarea, label, table,
-.font-size-095em  {
+.font-size-095em {
     font-size: 0.95em;
 }
 
@@ -20,7 +20,7 @@ p, select, input, textarea, label, table,
 }
 
 h1, h2,
-.font-weight-700  {
+.font-weight-700 {
     font-weight: 700;
 }
 
@@ -54,4 +54,69 @@ p, select, input, textarea, label, caption {
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #BBBBBB;
+}
+
+/* popup-image */
+.popup-foreground {
+    background: White;
+    border: solid 1px #999999;
+    padding: 35px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10001;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.popup-background {
+    background: #333;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 10000;
+}
+
+.popup-foreground img {
+    border-width: 1px;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.popup-close-btn {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    border-width: 0px;
+}
+
+.popup-foreground img {
+    border-width: 1px;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+/* Categorize top tabs and search box */
+.tab-content {
+    float: left;
+    margin: 5px 30px 0 14px;
+}
+
+.search-textbox,
+.search-btn {
+    float: right;
+    margin-left: 4px;
+}
+
+.search-textbox {
+    width: 197px;
+    height: 24px;
+}
+
+.search-btn {
+    width: 23px;
 }

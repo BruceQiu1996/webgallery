@@ -1,8 +1,109 @@
 ﻿@model WebGallery.ViewModels.AppDetailViewModel
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Windows Web App Gallery" + "-" + Model.MetaData.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="content">
 
-<h2>Detail</h2>
+    @Html.Partial("Categorize_Top_Tabs")
+
+    <div class="clearing"></div>
+    <div class="app-detail-section">
+        <div class="app-name" style="width:100%">
+            <lable>@Model.MetaData.Name</lable>
+        </div>
+        <div class="app-icon pull-left">
+            <img src=@Model.Submission.LogoUrl class="app-image" />
+        </div>
+        <div class="pull-left screenshot-links">
+            @{
+                var i = 0;
+                foreach (var screenshot in Model.ScreenshotUrls)
+                {
+                    if (screenshot != null)
+                    {
+                        i++;
+                        <div style="display:none" class="clearing">
+                            <div class="popup-background"></div>
+                            <div class="popup-foreground">
+                                <img src=@screenshot />
+                                <div class="clearing" style="text-align:center;margin-top:10px">
+                                    @if (i > 1)
+                                    {
+                                        <input type="image" onclick="$(this).parent().parent().parent().prev().show(); $(this).parent().parent().parent().hide()" src="~/Content/images/prev-btn.png" class="image-nav" />
+                                    }
+                                    @if (i < 6 && Model.ScreenshotUrls.ElementAt(i) != null)
+                                    {
+                                        <input type="image" onclick="$(this).parent().parent().parent().next().show(); $(this).parent().parent().parent().hide()" src="~/Content/images/next-btn.png" class="iamge-next" />
+                                    }
+                                </div>
+                                <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+        <div class="detail-list pull-right" style="width:45%">
+            <div>
+                <div class="pull-left">
+                    <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
+                </div>
+                <div class="pull-right">
+                    @using (Html.BeginForm("install", "app", new { id = Model.Submission.SubmissionID }))
+                    {
+                        <input type="image" src="~/content/images/install-btn.jpg" alt="Submit" />
+                    }
+                </div>
+            </div>
+            <div class="clearing">
+                <div class="pull-left">Category:</div>
+                <div class="pull-right">
+                    @{
+                        var name1 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID1).Name;
+                        @Html.ActionLink(name1, "Categorize", new { category = name1 });
+                        <br />
+                        if (Model.Submission.CategoryID2 != null && Model.Submission.CategoryID2 != "0" && Model.Submission.CategoryID1 != Model.Submission.CategoryID2)
+                        {
+                            var name2 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID2).Name;
+                            @Html.ActionLink(name2, "Categorize", new { category = name2 });
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+            <div class="clearing">
+                <div class="pull-left">Publisher:</div>
+                <div class="pull-right">
+                    <a href=@Model.Submission.SubmittingEntityURL>@Model.Submission.SubmittingEntity</a>
+                </div>
+            </div>
+            <div class="clearing">
+                <div class="pull-left">Version:</div>
+                <div class="pull-right">@Model.Submission.Version</div>
+            </div>
+            <div class="clearing">
+                <div class="pull-left">Release Date:</div>
+                <div class="pull-right">@Model.Submission.ReleaseDate.ToString("dd/MM/yyyy")</div>
+            </div>
+        </div>
+        <div class="screenshot-link clearing">
+            <a onclick="$(this).parent().prev().prev().children(':first').show()">view applicaiton screenshots</a>
+        </div>
+        <div class="desription clearing">
+            @if (Model.MetaData.Description.Trim() != "")
+            {
+                <p>@Model.MetaData.Description</p>
+            }
+            else
+            {
+                <p>@Model.MetaData.BriefDescription</p>
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/app-detail")
+}
