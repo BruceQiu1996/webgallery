@@ -100,15 +100,13 @@ p, select, input, textarea, label, caption {
     max-height: 600px;
 }
 
-/* Categorize top tabs and search box */
+/* Top Tabs and Search Box */
 .tab-content {
-    float: left;
     margin: 5px 30px 0 14px;
 }
 
 .search-textbox,
 .search-btn {
-    float: right;
     margin-left: 4px;
 }
 

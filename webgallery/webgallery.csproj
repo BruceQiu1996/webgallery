@@ -698,8 +698,8 @@
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
     <Content Include="Views\Shared\ResourceNotFound.cshtml" />
-    <Content Include="Views\App\Categorize_Top_Tabs.cshtml" />
-    <Content Include="Views\Shared\NeedAppNameAndDescription.cshtml" />
+    <Content Include="Views\Shared\_TopTabs_SearchBox.cshtml" />
+    <Content Include="Views\App\NeedAppNameAndDescription.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

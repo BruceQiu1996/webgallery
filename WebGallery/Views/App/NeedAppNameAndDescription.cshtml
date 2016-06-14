@@ -1,0 +1,16 @@
+﻿@model int
+@{
+    ViewBag.Title = "This App Need a Name";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>This App lacks a Name And Description</h2>
+    <p>We are sorry that this app lacks essential information. If you are the submitter of this app, please go to edit page and add at least the <strong>application name</strong> and <strong>a description in Enlish</strong>.</p>
+    <div>
+        @Html.ActionLink("Go to edit it now", "Edit", new { id = Model })
+    </div>
+    <div>
+        @Html.ActionLink("See other apps", "Categorize")
+    </div>
+</div>
