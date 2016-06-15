@@ -1,7 +1,9 @@
 ﻿$(document).ready(function () {
     var page = 1;
     var imageurls = new Array();
-    imageurls = $("#screenurls").val().trim().split(" ");
+    $("#shoturls").children().each(function () {
+        imageurls.push($(this).val());
+    })
     if (imageurls.length > 0) {
         $("#screenshot").attr("src", imageurls[0]);
     }

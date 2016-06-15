@@ -496,8 +496,6 @@
     <Content Include="Content\_app-verify.css" />
     <Content Include="Content\images\free-icon.png" />
     <Content Include="Content\images\install-btn.jpg" />
-    <Content Include="Content\images\next-btn.png" />
-    <Content Include="Content\images\prev-btn.png" />
     <Content Include="Content\images\search-btn.jpg" />
     <Content Include="Content\_account-profile.css" />
     <Content Include="Content\_app-detail.css" />

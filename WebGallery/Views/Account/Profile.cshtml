@@ -38,8 +38,7 @@
             <div class="contact-detail-field">
                 @Html.DropDownListFor(model => model.ContactDetail.Suffix, new List<SelectListItem> { new SelectListItem { Text = "Suffix" }, new SelectListItem { Text = "Jr." }, new SelectListItem { Text = "Sr." } }, htmlAttributes: new { @class = "dropdown-narrow dd-suffix" })
             </div>
-
-            <div>&nbsp;</div>
+            <br />
 
             <div class="contact-detail-field">
                 @Html.Label("Title", htmlAttributes: new { @class = "textbox-label" })
@@ -80,20 +79,16 @@
                 @Html.ValidationMessageFor(model => model.ContactDetail.Country, "", new { @class = "text-danger" })
             </div>
 
-            <div>
-                @{
-                    var displayStates = string.Empty;
-                    var displayProvince = string.Empty;
-                    if (Model.ContactDetail != null && Model.ContactDetail.Country == "USA")
-                    {
-                        displayProvince = "dispaly:none";
-                    }
-                    else
-                    {
-                        displayStates = "dispaly:none";
-                    }
-                }
-            </div>
+            var displayStates = string.Empty;
+            var displayProvince = string.Empty;
+            if (Model.ContactDetail != null && Model.ContactDetail.Country == "USA")
+            {
+                displayProvince = "dispaly:none";
+            }
+            else
+            {
+                displayStates = "dispaly:none";
+            }
 
             <div class="contact-detail-field" style="@displayStates">
                 @Html.Label("State", htmlAttributes: new { @class = "textbox-label", @id = "LBState" })
@@ -115,7 +110,7 @@
             <div class="contact-detail-field">
                 <input type="submit" value="Submit Your Contact Information" id="submit" class="submit-button" />
             </div>
-                    }
+        }
     </div>
 </div>
 
