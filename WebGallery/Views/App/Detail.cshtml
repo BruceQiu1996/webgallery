@@ -59,7 +59,10 @@
         </div>
     </div>
     <div class="screenshot-link">
-        <a id="screenshothref">view applicaiton screenshots</a>
+        @{
+            var displayornot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
+        }
+        <a id="screenshothref" style="@displayornot">applicaiton screenshots</a>
     </div>
     <div class="description">
         @if (Model.MetaData.Description.Trim() != "")
@@ -84,14 +87,18 @@
         </div>
     </div>
 
-    @{
-        var urls = "";
-        foreach (var screenshoturl in Model.ScreenshotUrls)
-        {
-            urls += screenshoturl + " ";
+    <div id="shoturls">
+        @{
+            foreach (var url in Model.ScreenshotUrls)
+            {
+                if (!string.IsNullOrWhiteSpace(url))
+                {
+                    @Html.Hidden("screenshoturl", url);
+                }
+            }
         }
-        <input type="text" id="screenurls" value="@urls" style="display:none" />
-    }
+    </div>
+
 </div>
 
 @section Styles {
