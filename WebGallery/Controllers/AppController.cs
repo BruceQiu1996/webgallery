@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
@@ -279,10 +280,27 @@ namespace WebGallery.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [AllowAnonymous]
         public async Task<ActionResult> Detail(int id)
         {
-            var model = new AppDetailViewModel();
+            var submision = await _appService.GetSubmissionAsync(id);
+            if (submision == null)
+            {
+                return View("ResourceNotFound");
+            }
+
+            var metaData = await _appService.GetMetadataAsync(id);
+            if (metaData.Count() == 0)
+            {
+                return View("NeedAppNameAndDescription", submision.SubmissionID);
+            }
+
+            var model = new AppDetailViewModel
+            {
+                Submission = submision,
+                Categories = await _appService.GetCategoriesAsync(),
+                MetaData = metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault()
+            };
 
             return View(model);
         }

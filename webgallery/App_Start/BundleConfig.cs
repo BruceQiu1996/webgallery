@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace WebGallery
 {
@@ -45,6 +44,11 @@ namespace WebGallery
                         "~/scripts/_account-profile.js"));
             bundles.Add(new StyleBundle("~/css/account-profile-form").Include(
                 "~/Content/_account-profile.css"));
+
+            bundles.Add(new StyleBundle("~/css/app-detail").Include(
+                "~/Content/_app-detail.css"));
+            bundles.Add(new ScriptBundle("~/js/app-detail").Include(
+                        "~/scripts/_app-detail.js"));
         }
     }
 }

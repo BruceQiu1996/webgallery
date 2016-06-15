@@ -494,7 +494,13 @@
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
     <Content Include="Content\_app-verify.css" />
+    <Content Include="Content\images\free-icon.png" />
+    <Content Include="Content\images\install-btn.jpg" />
+    <Content Include="Content\images\next-btn.png" />
+    <Content Include="Content\images\prev-btn.png" />
+    <Content Include="Content\images\search-btn.jpg" />
     <Content Include="Content\_account-profile.css" />
+    <Content Include="Content\_app-detail.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -646,6 +652,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
     <Content Include="Scripts\_app-verify.js" />
+    <Content Include="Scripts\_app-detail.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -692,6 +699,8 @@
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
     <Content Include="Views\Shared\ResourceNotFound.cshtml" />
+    <Content Include="Views\Shared\_TopTabs_SearchBox.cshtml" />
+    <Content Include="Views\App\NeedAppNameAndDescription.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
