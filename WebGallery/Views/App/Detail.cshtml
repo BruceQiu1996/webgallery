@@ -14,35 +14,7 @@
     <div class="app-icon pull-left">
         <img src="@Model.Submission.LogoUrl" class="app-image" />
     </div>
-    <div class="pull-left">
-        @{
-            var i = 0;
-            foreach (var screenshot in Model.ScreenshotUrls)
-            {
-                if (screenshot != null)
-                {
-                    i++;
-                    <div style="display:none">
-                        <div class="popup-background"></div>
-                        <div class="popup-foreground">
-                            <img src="@screenshot" />
-                            <div class="page-btn">
-                                @if (i > 1)
-                                {
-                                    <input type="image" onclick="$(this).parent().parent().parent().prev().show(); $(this).parent().parent().parent().hide()" src="~/Content/images/prev-btn.png" />
-                                }
-                                @if (i < 6 && Model.ScreenshotUrls.ElementAt(i) != null)
-                                {
-                                    <input type="image" onclick="$(this).parent().parent().parent().next().show(); $(this).parent().parent().parent().hide()" src="~/Content/images/next-btn.png" />
-                                }
-                            </div>
-                            <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
-                        </div>
-                    </div>
-                }
-            }
-        }
-    </div>
+
     <div class="detail-list pull-right">
         <div>
             <span class="pull-left">
@@ -87,7 +59,7 @@
         </div>
     </div>
     <div class="screenshot-link">
-        <a onclick="$(this).parent().prev().prev().children(':first').show()">view applicaiton screenshots</a>
+        <a id="screenshothref">view applicaiton screenshots</a>
     </div>
     <div class="description">
         @if (Model.MetaData.Description.Trim() != "")
@@ -99,8 +71,34 @@
             <p>@Model.MetaData.BriefDescription</p>
         }
     </div>
+
+    <div style="display:none" id="screenshot-block">
+        <div class="popup-background"></div>
+        <div class="popup-foreground">
+            <img id="screenshot" />
+            <div class="page-btn">
+                <input type="image" id="pre-btn" src="~/Content/images/prev-btn.png" />
+                <input type="image" id="next-btn" src="~/Content/images/next-btn.png" />
+            </div>
+            <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+        </div>
+    </div>
+
+    @{
+        var urls = "";
+        foreach (var screenshoturl in Model.ScreenshotUrls)
+        {
+            urls += screenshoturl + " ";
+        }
+        <input type="text" id="screenurls" value="@urls" style="display:none" />
+    }
 </div>
 
 @section Styles {
     @Styles.Render("~/css/app-detail")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/js/app-detail")
 }

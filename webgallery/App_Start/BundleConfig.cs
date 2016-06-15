@@ -47,6 +47,8 @@ namespace WebGallery
 
             bundles.Add(new StyleBundle("~/css/app-detail").Include(
                 "~/Content/_app-detail.css"));
+            bundles.Add(new ScriptBundle("~/js/app-detail").Include(
+                        "~/scripts/_app-detail.js"));
         }
     }
 }
