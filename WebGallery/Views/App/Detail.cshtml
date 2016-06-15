@@ -65,14 +65,10 @@
         <a id="screenshothref" style="@displayornot">applicaiton screenshots</a>
     </div>
     <div class="description">
-        @if (Model.MetaData.Description.Trim() != "")
-            {
-            <p>@Model.MetaData.Description</p>
+        @{
+            var description = Model.MetaData.Description.Trim() == "" ? Model.MetaData.BriefDescription : Model.MetaData.Description;
         }
-        else
-        {
-            <p>@Model.MetaData.BriefDescription</p>
-        }
+        <p>@description</p>
     </div>
 
     <div style="display:none" id="screenshot-block">
@@ -80,8 +76,8 @@
         <div class="popup-foreground">
             <img id="screenshot" />
             <div class="page-btn">
-                <input type="image" id="pre-btn" src="~/Content/images/prev-btn.png" />
-                <input type="image" id="next-btn" src="~/Content/images/next-btn.png" />
+                <a id="pre-btn" class="pull-left">< Previous</a>
+                <a id="next-btn" class="pull-right">Next ></a>
             </div>
             <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
         </div>
@@ -98,7 +94,6 @@
             }
         }
     </div>
-
 </div>
 
 @section Styles {
