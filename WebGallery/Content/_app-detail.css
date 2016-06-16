@@ -5,7 +5,7 @@
 }
 
 .detail-list div {
-    clear:both;
+    clear: both;
 }
 
 .app-icon {
@@ -37,6 +37,9 @@
 }
 
 .page-btn {
-    text-align: center;
     margin-top: 10px;
+}
+
+.page-btn a:hover {
+    text-decoration: none;
 }
