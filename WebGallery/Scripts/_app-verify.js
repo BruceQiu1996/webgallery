@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    alert("starting validation...");
     verifyUrls();
     verifyPackages();
     verifyImages($("#ulImages li:lt(2)"), true);
@@ -45,6 +46,7 @@ verifyImages = function (imageLis, isLogo) {
                 });
             }
             else if (verification.TypeStatus == "Fail") {
+                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for image type
                 });
@@ -61,6 +63,7 @@ verifyImages = function (imageLis, isLogo) {
                 });
             }
             else if (verification.DimensionStatus == "Fail") {
+                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for image dimension
                 });
@@ -111,7 +114,8 @@ verifyPackages = function () {
             dataType: 'json',
             data: addAntiForgeryToken({
                 url: theUrl,
-                hash: theHash
+                hash: theHash,
+                submissionId: $("#hiddenSubmissionId").val()
             })
         };
 
@@ -122,6 +126,7 @@ verifyPackages = function () {
                 });
             }
             else if (verification.ManifestStatus == "Fail") {
+                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for package manifest
                 });
@@ -138,6 +143,7 @@ verifyPackages = function () {
                 });
             }
             else if (verification.HashStatus == "Fail") {
+                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for hash
                 });
@@ -178,6 +184,7 @@ verifyUrls = function () {
                 validatingLis.removeClass("validation-validating").addClass("validation-pass");
             }
             else if (verification.status == "Fail") {
+                showGoToFix();
                 validatingLis.removeClass("validation-validating").addClass("validation-fail");
             }
             else {
@@ -190,4 +197,41 @@ verifyUrls = function () {
 addAntiForgeryToken = function (data) {
     data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
     return data;
+}
+
+showGoToFix = function () {
+    $("#panelFail").show();
+    $("#panelPass").hide();
+}
+
+showPublishPanel = function () {
+    var isValidatingDone = true;
+    var hasValidationFails = false;
+
+    $(".validation-panel li").each(function (index, li) {
+        var hasValidationFails = $(li).hasClass("validation-fail");
+        if (hasValidationFails)
+        {
+            return false;
+        }
+
+        if (li.className != "validation-pass" && li.className != "validation-fail" && li.className == "validation-unknown")
+        {
+            isValidatingDone = false;
+            return false;
+        }
+    });
+
+    if (hasValidationFails)
+    {
+        $("#panelFail").show();
+        $("#panelPass").hide();
+        return;
+    }
+
+    if (isValidatingDone)
+    {
+        $("#panelFail").hide();
+        $("#panelPass").show();
+    }        
 }

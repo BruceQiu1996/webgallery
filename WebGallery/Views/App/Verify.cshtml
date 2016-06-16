@@ -42,7 +42,20 @@
             }
         </ul>
     </div>
-    <div></div>
+    <div id="panelFail" style="display:none">
+        @Html.ActionLink("Go back to fix these errors", "edit", new { id = Model.Submission.SubmissionID }, new { target = "_blank", })
+    </div>
+    <div id="panelPass" style="display:none">
+        @using (Html.BeginForm("MoveToTesting", "app", FormMethod.Post))
+        {
+            <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
+            <p>
+                This app has passed verification, you can submit it now for further testing. If you do so, this submission will be locked from modification for a while until we finish the testing.
+            </p>
+            <input type="submit" value="Ready for further testing" />
+            @Html.ActionLink("Not now, I'll submit this later", "mine")
+        }
+    </div>
 </div>
 
 @section Scripts {
