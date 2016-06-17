@@ -421,7 +421,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IQueryable<AppAbstract>> GetAppList(string q)
+        public Task<IQueryable<AppAbstract>> GetApps(string searchingString)
         {
             var db = new WebGalleryDbContext();
             var appList = from s in db.Submissions

@@ -244,8 +244,8 @@ namespace WebGallery.Controllers
         {
             var model = new AppGalleryViewModel
             {
-                TotalPage = Convert.ToInt32(Math.Ceiling((double)(await _appService.GetAppList(searchString)).Count() / 20.0)),
-                AppList = (await _appService.GetAppList(searchString)).Skip((page - 1) * 20).Take(20),
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)(await _appService.GetApps(searchString)).Count() / 20.0)),
+                AppList = (await _appService.GetApps(searchString)).Skip((page - 1) * 20).Take(20),
                 CurrentPage = page,
                 Keyword = searchString
             };
