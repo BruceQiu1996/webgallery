@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
@@ -34,15 +33,12 @@ namespace WebGallery.Controllers
         #region create/edit/clone submission
 
         [Authorize]
+        [HttpGet]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
+        [RequireBrowserVersion]
         public async Task<ActionResult> New(bool? testMode)
         {
-            // do common checks before submitting an app
-            var failureResult = await Precheck();
-            if (failureResult != null)
-            {
-                return failureResult;
-            }
-
             var model = (testMode.HasValue && testMode.Value)
                         ? AppSubmitViewModel.Fake()
                         : AppSubmitViewModel.Empty();
@@ -55,12 +51,18 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
         public async Task<ActionResult> New(AppSubmitViewModel model)
         {
             return await Create(model);
         }
 
         [Authorize]
+        [HttpGet]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
+        [RequireBrowserVersion]
         public async Task<ActionResult> Clone(int? id)
         {
             if (!id.HasValue)
@@ -77,12 +79,6 @@ namespace WebGallery.Controllers
             if (submission == null)
             {
                 return RedirectToAction("New");
-            }
-
-            var failureResult = await Precheck();
-            if (failureResult != null)
-            {
-                return failureResult;
             }
 
             // Check if current user can clone the app specified by the submission id.
@@ -105,6 +101,8 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
         public async Task<ActionResult> Clone(AppSubmitViewModel model)
         {
             return await Create(model);
@@ -135,6 +133,10 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
+        [RequireBrowserVersion]
         public async Task<ActionResult> Edit(int? id)
         {
             if (!id.HasValue)
@@ -151,13 +153,6 @@ namespace WebGallery.Controllers
             if (submission == null)
             {
                 return RedirectToAction("New");
-            }
-
-            // do common check before editing an app submission
-            var failureResult = await Precheck();
-            if (failureResult != null)
-            {
-                return failureResult;
             }
 
             // Check if current user can modify the app.
@@ -191,6 +186,8 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittingAppEnabled]
+        [RequireSubmittership]
         public async Task<ActionResult> Edit(AppSubmitViewModel model)
         {
             // Check if current user can modify the app.
@@ -217,38 +214,6 @@ namespace WebGallery.Controllers
 
             // go to the App Status page
             return RedirectToAction("Verify", new { id = submission.SubmissionID, showThanks = true });
-        }
-
-        private async Task<ActionResult> Precheck()
-        {
-            // Check if the browser is IE and its version is less than 10.
-            // If yes, then the user will be prompted to upgrade IE because the page uses placeholder (a HTML 5 attribute) to show watermark text.
-            // See http://www.w3schools.com/tags/att_input_placeholder.asp.
-            if (Request.Browser.IsInternetExplorer() && Request.Browser.MajorVersion < 10)
-            {
-                return View("UpgradeIE", HttpContext.GetGlobalResourceObject("Submit", "UpgradeIE"));
-            }
-
-            // Check if submitting app is enabled.
-            if (ConfigurationManager.AppSettings["EnableSubmitApp"].ToLower() == "false")
-            {
-                return View("SubmittingDisabled");
-            }
-
-            // If the user is currently not a submtter, then go to account/profile.
-            if (!User.IsSubmitter())
-            {
-                return RedirectToAction("Profile", "Account", new { returnUrl = Request.RawUrl });
-            }
-
-            // If current user is not Super Submitter, and there haven't recorded his/her contact info in this system,
-            // then go to account/profile.
-            if (!User.IsSuperSubmitter() && !await _submitterService.HasContactInfoAsync(User.GetSubmittership().SubmitterID))
-            {
-                return RedirectToAction("Profile", "Account", new { returnUrl = Request.RawUrl });
-            }
-
-            return null;
         }
 
         private async Task LoadViewDataForSubmit()
