@@ -168,7 +168,7 @@ namespace WebGallery.Controllers
             }
 
             // Check if modification of this submission is locked.
-            if (await _appService.IsModificationLockedAsync(submissionId))
+            if (!User.IsSuperSubmitter() && await _appService.IsModificationLockedAsync(submissionId))
             {
                 // old: disable the form and display "This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time."
                 // new: go to a warning page
@@ -180,7 +180,7 @@ namespace WebGallery.Controllers
                 Submission = submission,
                 MetadataList = await _appService.GetMetadataAsync(submissionId),
                 Packages = await _appService.GetPackagesAsync(submissionId),
-                CanEditNickname = false
+                CanEditNickname = User.IsSuperSubmitter()
             };
 
             await LoadViewDataForSubmit();
