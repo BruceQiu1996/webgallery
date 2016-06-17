@@ -42,5 +42,7 @@ namespace WebGallery.Services
         Task<List<DatabaseServer>> GetDbServersAsync();
 
         Task<List<WebServerExtension>> GetWebServerExtensionsAsync();
+
+        Task MoveToTestingAsync(Submission submission);
     }
 }

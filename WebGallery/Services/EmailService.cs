@@ -11,15 +11,17 @@ namespace WebGallery.Services
 {
     public class EmailService : IEmailService
     {
-        public void SendAppSubmissionMessage(Submitter submitter, Submission submission, bool newApp, string urlAuthority, Func<string, string> htmlEncode)
+        public void SendMessageForSubmissionVerified(Submitter submitter, Submission submission, string urlAuthority, Func<string, string> htmlEncode)
+        {
+            SendMessageForSubmission(submitter, submission, "VERIFIED", urlAuthority, htmlEncode);
+        }
+
+        public void SendMessageForSubmission(Submitter submitter, Submission submission, string action, string urlAuthority, Func<string, string> htmlEncode)
         {
             if (submitter == null || submission == null) return;
 
             using (var db = new WebGalleryDbContext())
             {
-                // First send email internally (to folks at MS).
-                var action = newApp ? "CREATED" : "MODIFIED";
-
                 var contactInfo = (from c in db.SubmittersContactDetails
                                    where c.SubmitterID == submitter.SubmitterID
                                    select c).FirstOrDefault();
@@ -69,7 +71,9 @@ namespace WebGallery.Services
                 var fromSetting = ConfigurationManager.AppSettings["Message:From"];
                 var from = fromSetting.Split('|')[0];
                 var fromName = fromSetting.Contains("|") ? fromSetting.Split('|')[1] : string.Empty;
-                var to = from; // notify microsoft first
+
+                // First send email internally (to folks at MS).
+                var to = from;
                 SendGridEmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
 
                 // Second, send email externally (to the app owners). Here, we don't include the XML.
@@ -96,7 +100,7 @@ namespace WebGallery.Services
 
             body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='https://{urlAuthority}/account/profile'>{contactInfo.FullName}'s contact information</a><br />");
             body.Append($"<a href='https://{urlAuthority}/app/edit/{submission.SubmissionID}'>View submission form</a><br />");
-            body.Append($"<a href='https://{urlAuthority}/app/status/{submission.SubmissionID}'>Validate submission</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/app/verify/{submission.SubmissionID}'>Validate submission</a><br />");
 
             // logo and screenshots
             body.Append($"<a href='{submission.LogoUrl}'>Logo</a><br />");
