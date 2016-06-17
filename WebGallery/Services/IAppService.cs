@@ -23,6 +23,8 @@ namespace WebGallery.Services
 
         Task<Submission> GetSubmissionAsync(int submissionId);
 
+        Task<IList<Submission>> GetMySubmissions(Submitter submitter);
+
         Task<List<SubmissionLocalizedMetaData>> GetMetadataAsync(int submissionId);
 
         Task<List<Package>> GetPackagesAsync(int submissionId);
