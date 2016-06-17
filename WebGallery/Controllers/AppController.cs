@@ -240,14 +240,16 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Gallery(string searchString, int page = 1)
+        public async Task<ActionResult> Gallery(string keyword, int page = 1)
         {
+            var count = 0;
+            var pageSize = 20;
             var model = new AppGalleryViewModel
             {
-                TotalPage = Convert.ToInt32(Math.Ceiling((double)(await _appService.GetApps(searchString)).Count() / 20.0)),
-                AppList = (await _appService.GetApps(searchString)).Skip((page - 1) * 20).Take(20),
+                AppList = (await _appService.GetApps(keyword, page, pageSize, out count)),
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
                 CurrentPage = page,
-                Keyword = searchString
+                Keyword = keyword
             };
 
             return View(model);
@@ -279,9 +281,14 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        [RequireSubmittership]
         public async Task<ActionResult> Mine()
         {
-            var model = new AppMineViewModel();
+            var model = new AppMineViewModel
+            {
+                MySubmissions = await _appService.GetMySubmissions(User.GetSubmittership())
+            };
 
             return View(model);
         }

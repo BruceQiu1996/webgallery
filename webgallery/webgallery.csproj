@@ -310,7 +310,6 @@
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
     <Compile Include="Filters\RequireSubmittingAppEnabled.cs" />
-    <Compile Include="Models\AppAbstract.cs" />
     <Compile Include="Models\AppDownloadStat.cs">
       <DependentUpon>WebGallery.tt</DependentUpon>
     </Compile>
@@ -493,9 +492,11 @@
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\images\no-logo.png" />
+    <Content Include="Content\bootstrap-sortable.css" />
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
+    <Content Include="Content\_app-mine.css" />
     <Content Include="Content\_app-verify.css" />
     <Content Include="Content\images\free-icon.png" />
     <Content Include="Content\images\install-btn.jpg" />
@@ -541,6 +542,7 @@
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-sortable.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -650,10 +652,15 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
     <Content Include="Scripts\_app-gallery.js" />
+    <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_app-detail.js" />
     <Content Include="Scripts\_submission-form.js" />

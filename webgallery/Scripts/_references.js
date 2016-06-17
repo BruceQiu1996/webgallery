@@ -1,12 +1,17 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="_account-profile.js" />
 /// <reference path="_app-detail.js" />
+<<<<<<< HEAD
 /// <reference path="_app-gallery.js" />
+=======
+/// <reference path="_app-mine.js" />
+>>>>>>> b194ece8b80c9904f3f7d9e868e2d92b43423822
 /// <reference path="_app-verify.js" />
 /// <reference path="_submission-form.js" />
 /// <reference path="ai.0.15.0-build58334.min.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="bootstrap-datepicker.min.js" />
+/// <reference path="bootstrap-sortable.js" />
 /// <reference path="gridmvc.lang.ru.js" />
 /// <reference path="gridmvc.min.js" />
 /// <reference path="jquery.validate.min.js" />
@@ -79,4 +84,6 @@
 /// <reference path="locales/bootstrap-datepicker.zh-cn.min.js" />
 /// <reference path="locales/bootstrap-datepicker.zh-tw.min.js" />
 /// <reference path="modernizr-2.6.2.js" />
+/// <reference path="moment.min.js" />
+/// <reference path="moment-with-langs.min.js" />
 /// <reference path="respond.js" />

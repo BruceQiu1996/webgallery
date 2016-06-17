@@ -40,6 +40,14 @@ namespace WebGallery
             bundles.Add(new StyleBundle("~/css/app-verify").Include(
                       "~/Content/_app-verify.css"));
 
+            bundles.Add(new ScriptBundle("~/js/app-mine").Include(
+                                    "~/scripts/_app-mine.js",
+                                    "~/scripts/moment.*",
+                                    "~/scripts/bootstrap-sortable.*"));
+            bundles.Add(new StyleBundle("~/css/app-mine").Include(
+                      "~/Content/_app-mine.css",
+                      "~/Content/bootstrap-sortable.css"));
+
             bundles.Add(new ScriptBundle("~/js/account-profile-form").Include(
                         "~/scripts/_account-profile.js"));
             bundles.Add(new StyleBundle("~/css/account-profile-form").Include(

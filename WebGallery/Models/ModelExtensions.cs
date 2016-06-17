@@ -95,4 +95,10 @@
             return fullname;
         }
     }
+
+    public partial class Submission
+    {
+        public string Name { get; set; }
+        public string BriefDescription { get; set; }
+    }
 }

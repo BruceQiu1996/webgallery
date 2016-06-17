@@ -421,28 +421,39 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IQueryable<AppAbstract>> GetApps(string searchingString)
+        public Task<IList<Submission>> GetApps(string keyword, int page, int pageSize, out int count)
         {
             var db = new WebGalleryDbContext();
-            var appList = from s in db.Submissions
-                          join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
-                          join m in db.SubmissionLocalizedMetaDatas on t.SubmissionID equals m.SubmissionID
-                          let a = from l in db.SubmissionLocalizedMetaDatas
-                                  group l by new { l.SubmissionID, l.Language } into b
-                                  select b.Max(p => p.MetadataID)
-                          where m.Language == Language.CODE_ENGLISH_US && t.SubmissionStateID == 7 && a.Contains(m.MetadataID) && (q == null || q == "" || m.Name.Contains(q))
-                          orderby s.ReleaseDate descending
-                          select new AppAbstract
-                          {
-                              ReleaseDate = s.ReleaseDate,
-                              SubmissionId = s.SubmissionID,
-                              Name = m.Name,
-                              Version = s.Version,
-                              LogoUrl = s.LogoUrl,
-                              BriefDescription = m.BriefDescription
-                          };
+            var query = from s in db.Submissions
+                        join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                        join m in db.SubmissionLocalizedMetaDatas on t.SubmissionID equals m.SubmissionID
+                        let a = from l in db.SubmissionLocalizedMetaDatas
+                                group l by new { l.SubmissionID, l.Language } into b
+                                select b.Max(p => p.MetadataID)
+                        where m.Language == Language.CODE_ENGLISH_US && t.SubmissionStateID == 7 && a.Contains(m.MetadataID) && (keyword == null || keyword == "" || m.Name.Contains(keyword))
+                        orderby s.ReleaseDate descending
+                        select new
+                        {
+                            ReleaseDate = s.ReleaseDate,
+                            SubmissionID = s.SubmissionID,
+                            Name = m.Name,
+                            Version = s.Version,
+                            LogoUrl = s.LogoUrl,
+                            BriefDescription = m.BriefDescription
+                        };
+            count = query.Count();
+            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
 
-            return Task.FromResult(appList);
+            return Task.FromResult<IList<Submission>>((from a in apps
+                                                       select new Submission
+                                                       {
+                                                           ReleaseDate = a.ReleaseDate,
+                                                           SubmissionID = a.SubmissionID,
+                                                           Name = a.Name,
+                                                           Version = a.Version,
+                                                           LogoUrl = a.LogoUrl,
+                                                           BriefDescription = a.BriefDescription
+                                                       }).ToList());
         }
 
         public Task MoveToTestingAsync(Submission submission)
@@ -477,6 +488,11 @@ namespace WebGallery.Services
 
                 return Task.FromResult(0);
             }
+        }
+
+        public Task<IList<Submission>> GetMySubmissions(Submitter submitter)
+        {
+            throw new NotImplementedException();
         }
     } // class
 
