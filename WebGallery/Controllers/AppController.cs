@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -276,6 +277,20 @@ namespace WebGallery.Controllers
         public async Task<ActionResult> Categorize()
         {
             var model = new AppCategorizeViewModel();
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> Gallery(string searchString, int page = 1)
+        {
+            var model = new AppGalleryViewModel
+            {
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)(await _appService.GetAppList(searchString)).Count() / 20.0)),
+                AppList = (await _appService.GetAppList(searchString)).Skip((page - 1) * 20).Take(20),
+                CurrentPage = page,
+                Keyword = searchString
+            };
 
             return View(model);
         }

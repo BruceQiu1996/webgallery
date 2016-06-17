@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Models;
 
@@ -42,5 +43,7 @@ namespace WebGallery.Services
         Task<List<DatabaseServer>> GetDbServersAsync();
 
         Task<List<WebServerExtension>> GetWebServerExtensionsAsync();
+
+        Task<IQueryable<AppAbstract>> GetAppList(string q);
     }
 }
