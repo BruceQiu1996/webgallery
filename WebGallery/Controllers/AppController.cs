@@ -264,9 +264,14 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        [RequireSubmittership]
         public async Task<ActionResult> Mine()
         {
-            var model = new AppMineViewModel();
+            var model = new AppMineViewModel
+            {
+                MySubmissions = await _appService.GetMySubmissions(User.GetSubmittership())
+            };
 
             return View(model);
         }

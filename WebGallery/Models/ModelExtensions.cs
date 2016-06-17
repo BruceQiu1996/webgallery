@@ -95,4 +95,9 @@
             return fullname;
         }
     }
+
+    public partial class Submission
+    {
+        public string Status { get; set; }
+    }
 }
