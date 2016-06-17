@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    alert("starting validation...");
     verifyUrls();
     verifyPackages();
     verifyImages($("#ulImages li:lt(2)"), true);
@@ -46,7 +45,6 @@ verifyImages = function (imageLis, isLogo) {
                 });
             }
             else if (verification.TypeStatus == "Fail") {
-                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for image type
                 });
@@ -63,7 +61,6 @@ verifyImages = function (imageLis, isLogo) {
                 });
             }
             else if (verification.DimensionStatus == "Fail") {
-                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for image dimension
                 });
@@ -73,6 +70,8 @@ verifyImages = function (imageLis, isLogo) {
                     $(li).next().removeClass("validation-validating").addClass("validation-unknown"); // the li for image dimension
                 });
             }
+
+            showPassPanel();
         });
     });
 }
@@ -126,7 +125,6 @@ verifyPackages = function () {
                 });
             }
             else if (verification.ManifestStatus == "Fail") {
-                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for package manifest
                 });
@@ -143,7 +141,6 @@ verifyPackages = function () {
                 });
             }
             else if (verification.HashStatus == "Fail") {
-                showGoToFix();
                 theUrlLis.each(function (i, li) {
                     $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for hash
                 });
@@ -153,6 +150,8 @@ verifyPackages = function () {
                     $(li).next().removeClass("validation-validating").addClass("validation-unknown"); // the li for hash
                 });
             }
+
+            showPassPanel();
         });
     });
 }
@@ -184,12 +183,13 @@ verifyUrls = function () {
                 validatingLis.removeClass("validation-validating").addClass("validation-pass");
             }
             else if (verification.status == "Fail") {
-                showGoToFix();
                 validatingLis.removeClass("validation-validating").addClass("validation-fail");
             }
             else {
                 validatingLis.removeClass("validation-validating").addClass("validation-unknown");
             }
+
+            showPassPanel();
         });
     });
 }
@@ -199,12 +199,7 @@ addAntiForgeryToken = function (data) {
     return data;
 }
 
-showGoToFix = function () {
-    $("#panelFail").show();
-    $("#panelPass").hide();
-}
-
-showPublishPanel = function () {
+showPassPanel = function () {
     var isValidatingDone = true;
     var hasValidationFails = false;
 
