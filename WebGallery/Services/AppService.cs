@@ -443,7 +443,45 @@ namespace WebGallery.Services
                           };
 
             return Task.FromResult(appList);
-
         }
+
+        public Task MoveToTestingAsync(Submission submission)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var testingStateName = "Testing";
+                var testingState = (from s in db.SubmissionStates
+                                    where s.Name == testingStateName
+                                    select s).FirstOrDefault();
+
+                if (testingState == null) throw new TestingStateMissingException();
+
+                var submissionStatus = (from s in db.SubmissionsStatus
+                                        where s.SubmissionID == submission.SubmissionID
+                                        select s).FirstOrDefault();
+
+                if (submissionStatus == null)
+                {
+                    db.SubmissionsStatus.Add(new SubmissionsStatu
+                    {
+                        SubmissionID = submission.SubmissionID,
+                        SubmissionStateID = testingState.SubmissionStateID
+                    });
+                }
+                else
+                {
+                    submissionStatus.SubmissionStateID = testingState.SubmissionStateID;
+                }
+
+                db.SaveChanges();
+
+                return Task.FromResult(0);
+            }
+        }
+    } // class
+
+    public class TestingStateMissingException : Exception
+    {
+        public TestingStateMissingException() : base("") { }
     }
 }

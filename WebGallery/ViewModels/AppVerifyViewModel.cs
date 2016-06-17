@@ -6,6 +6,7 @@ namespace WebGallery.ViewModels
 {
     public class AppVerifyViewModel
     {
+        public Submission Submission { get; set; }
         public bool ShowThanks { get; set; }
         public IList<AppValidationItem> ValidationItems { get; set; }
         public IEnumerable<AppValidationItem> Urls { get { return from i in ValidationItems where i.Type == AppValidationItemType.Url select i; } }

@@ -81,40 +81,65 @@ namespace WebGallery.Services
                 : Task.FromResult(ValiadationStatus.Fail);
         }
 
-        public Task<PackageValidationResult> ValidatePackageAsync(string url, string hash)
+        public Task<PackageValidationResult> ValidatePackageAsync(string packageUrl, string hash, int submissionId)
         {
-            using (var stream = StreamHelper.FromUrl(url))
+            if (string.IsNullOrWhiteSpace(packageUrl))
             {
-                var hashMatches = stream.MatchHash(hash);
+                return Task.FromResult(PackageValidationResult.CreateFail());
+            }
 
+            using (var stream = StreamHelper.FromUrl(packageUrl))
+            {
+                // if we cant get a stream from the package url, 
+                // then we can't continue with the validation.
+                if (stream == null) return Task.FromResult(PackageValidationResult.CreateFail());
+
+                // 1. save FileSize for the package(s) specified by the url
+                UpdateFileSizeForPackage(packageUrl, (int)stream.Length, submissionId);
+
+                var result = PackageValidationResult.CreateFail();
+
+                // 2. check if the hashes matches
+                result.HashStatus = stream.MatchHash(hash) ? ValiadationStatus.Pass : ValiadationStatus.Fail;
+
+                // 3 .check if the manifest.xml exists
                 using (var zipFile = ZipFileHelper.FromStream(stream))
                 {
-                    var manifestExists = zipFile.ContainsEntry(MANIFEST_FILE_NAME, true);
-
-                    return Task.FromResult(new PackageValidationResult
-                    {
-                        HashStatus = hashMatches ? ValiadationStatus.Pass : ValiadationStatus.Fail,
-                        ManifestStatus = manifestExists ? ValiadationStatus.Pass : ValiadationStatus.Fail
-                    });
+                    result.ManifestStatus = zipFile.ContainsEntry(MANIFEST_FILE_NAME, true) ? ValiadationStatus.Pass : ValiadationStatus.Fail;
                 }
+
+                return Task.FromResult(result);
             }
         }
 
-        public Task<ImageValidationResult> ValidateImageAsync(string url, bool isLogo)
+        private static void UpdateFileSizeForPackage(string packageUrl, int fileSize, int submissionId)
         {
-            if (string.IsNullOrWhiteSpace(url))
+            using (var db = new WebGalleryDbContext())
             {
-                return Task.FromResult(new ImageValidationResult
+                var packages = (from p in db.Packages
+                                where p.SubmissionID == submissionId
+                                select p).ToList();
+
+                foreach (var p in packages.Where(p => p.PackageURL == packageUrl))
                 {
-                    TypeStatus = ValiadationStatus.Unknown,
-                    DimensionStatus = ValiadationStatus.Unknown
-                });
+                    p.FileSize = fileSize;
+                }
+
+                db.SaveChanges();
+            }
+        }
+
+        public Task<ImageValidationResult> ValidateImageAsync(string imageUrl, bool isLogo)
+        {
+            if (string.IsNullOrWhiteSpace(imageUrl))
+            {
+                return Task.FromResult(ImageValidationResult.CreateUnknown());
             }
 
             var maxWidth = isLogo ? LOGO_MAX_WIDTH : SCREENSHOT_MAX_WIDTH;
             var maxHeight = isLogo ? LOGO_MAX_HEIGHT : SCREENSHOT_MAX_HEIGHT;
 
-            using (var img = ImageHelper.FromStream(StreamHelper.FromUrl(url)))
+            using (var img = ImageHelper.FromStream(StreamHelper.FromUrl(imageUrl)))
             {
                 return Task.FromResult(new ImageValidationResult
                 {

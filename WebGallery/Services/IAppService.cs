@@ -45,5 +45,7 @@ namespace WebGallery.Services
         Task<List<WebServerExtension>> GetWebServerExtensionsAsync();
 
         Task<IQueryable<AppAbstract>> GetAppList(string q);
+
+        Task MoveToTestingAsync(Submission submission);
     }
 }
