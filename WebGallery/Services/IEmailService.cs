@@ -5,6 +5,6 @@ namespace WebGallery.Services
 {
     public interface IEmailService
     {
-        void SendAppSubmissionMessage(Submitter submitter, Submission submission, bool newApp, string urlAuthority, Func<string, string> htmlEncode);
+        void SendMessageForSubmissionVerified(Submitter submitter, Submission submission, string urlAuthority, Func<string, string> htmlEncode);
     }
 }

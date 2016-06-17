@@ -10,7 +10,7 @@ namespace WebGallery.Services
 
         Task<ValiadationStatus> ValidateUrlAsync(string url);
 
-        Task<PackageValidationResult> ValidatePackageAsync(string url, string hash);
+        Task<PackageValidationResult> ValidatePackageAsync(string url, string hash, int submissionId);
 
         Task<ImageValidationResult> ValidateImageAsync(string url, bool isLogo);
     }
