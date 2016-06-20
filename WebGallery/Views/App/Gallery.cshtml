@@ -4,6 +4,7 @@
     ViewBag.Title = "Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @using (Html.BeginForm("Gallery", "App", new { page = 1 }, FormMethod.Post, null))
 {
     <div class="container-fluid header">
@@ -24,9 +25,9 @@
         <hr />
         <div class="pull-left ">
             @{
-                var logurl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
+                var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
             }
-            <img src="~/Content/images/no-logo.png" class="small-icon" />
+            <img src=@Url.Content(logourl) class="small-icon" />
         </div>
         <div>
             <lable class="app-title">@Html.ActionLink(app.Name, "Detail", new { id = app.SubmissionID })</lable>
