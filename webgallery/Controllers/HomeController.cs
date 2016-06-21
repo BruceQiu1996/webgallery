@@ -12,11 +12,6 @@ namespace WebGallery.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
-        {
-            return View();
-        }
-
         public ActionResult Documentation()
         {
             return View();

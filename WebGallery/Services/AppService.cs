@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
+using System.Xml.Linq;
 using WebGallery.Models;
 
 namespace WebGallery.Services
@@ -323,22 +326,6 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetMySubmissions(Submitter submitter)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-                var submissions = (from s in db.Submissions
-                                   join status in db.SubmissionsStatus on s.SubmissionID equals status.SubmissionID
-                                   join state in db.SubmissionStates on status.SubmissionStateID equals state.SubmissionStateID
-                                   join u in db.SubmissionOwners on s.SubmissionID equals u.SubmissionID
-                                   where u.SubmitterID == submitter.SubmitterID
-                                   orderby s.SubmissionID
-                                   select new { SubmissionID = s.SubmissionID, Nickname = s.Nickname, Version = s.Version, Status = state.Name }).Distinct().AsEnumerable();
-
-                return Task.FromResult<IList<Submission>>((from s in submissions select new Submission { SubmissionID = s.SubmissionID, Nickname = s.Nickname, Version = s.Version, Status = s.Status }).ToList());
-            }
-        }
-
         public Task<List<SubmissionLocalizedMetaData>> GetMetadataAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
@@ -437,6 +424,60 @@ namespace WebGallery.Services
             }
         }
 
+        public Task<IList<Submission>> GetApps(string keyword, int page, int pageSize, out int count)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
+                var ns = xdoc.Root.GetDefaultNamespace();
+                var query = from e in xdoc.Root.Descendants(ns + "entry")
+                            let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
+                            let title = e.Element(ns + "title").Value
+                            where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || keyword == "" || title.ToLower().Contains(keyword.ToLower()))
+                            orderby releaseDate descending
+                            select new
+                            {
+                                nickName = e.Element(ns + "productId").Value,
+                                ReleaseDate = releaseDate,
+                                Name = title,
+                                Version = e.Element(ns + "version").Value,
+                                LogoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                                BriefDescription = e.Element(ns + "summary").Value
+                            };
+                count = query.Count();
+                var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+
+                return Task.FromResult<IList<Submission>>((from a in apps
+                                                           select new Submission
+                                                           {
+                                                               Nickname = a.nickName,
+                                                               ReleaseDate = a.ReleaseDate,
+                                                               Name = a.Name,
+                                                               Version = a.Version,
+                                                               LogoUrl = a.LogoUrl,
+                                                               BriefDescription = a.BriefDescription
+                                                           }).ToList());
+            }
+        }
+
+        public Task<int> GetSubmissionIdByAppId(string appid)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
+                var ns = xdoc.Root.GetDefaultNamespace();
+                var version = (from e in xdoc.Root.Descendants(ns + "entry")
+                               where e.Element(ns + "productId").Value == appid
+                               select e.Element(ns + "version").Value).FirstOrDefault();
+
+                var submissionId = (from s in db.Submissions
+                                    where s.Nickname.ToLower() == appid.ToLower() && s.Version == version
+                                    select s.SubmissionID).FirstOrDefault();
+
+                return Task.FromResult(submissionId);
+            }
+        }
+
         public Task MoveToTestingAsync(Submission submission)
         {
             using (var db = new WebGalleryDbContext())
@@ -469,6 +510,11 @@ namespace WebGallery.Services
 
                 return Task.FromResult(0);
             }
+        }
+
+        public Task<IList<Submission>> GetMySubmissions(Submitter submitter)
+        {
+            throw new NotImplementedException();
         }
     } // class
 

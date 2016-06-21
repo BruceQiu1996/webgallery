@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
@@ -239,8 +240,30 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Detail(int id)
+        public async Task<ActionResult> Gallery(string keyword, int page = 1)
         {
+            var count = 0;
+            var pageSize = 20;
+            var model = new AppGalleryViewModel
+            {
+                AppList = (await _appService.GetApps(keyword, page, pageSize, out count)),
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
+                CurrentPage = page,
+                Keyword = keyword,
+                TotalCount = count
+            };
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> Detail(string appid, int id = 0)
+        {
+            if (!string.IsNullOrWhiteSpace(appid))
+            {
+                id = await _appService.GetSubmissionIdByAppId(appid);
+            }
+
             var submision = await _appService.GetSubmissionAsync(id);
             if (submision == null)
             {

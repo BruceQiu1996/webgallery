@@ -476,6 +476,7 @@
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
     <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
     <Compile Include="ViewModels\AppDetailViewModel.cs" />
+    <Compile Include="ViewModels\AppGalleryViewModel.cs" />
     <Compile Include="ViewModels\AppMineViewModel.cs" />
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
     <Compile Include="ViewModels\AppVerifyViewModel.cs" />
@@ -488,8 +489,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\USstates.xml" />
+    <Content Include="Feed\WebApplicationList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\images\no-logo.png" />
     <Content Include="Content\bootstrap-sortable.css" />
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
@@ -501,6 +507,7 @@
     <Content Include="Content\images\search-btn.jpg" />
     <Content Include="Content\_account-profile.css" />
     <Content Include="Content\_app-detail.css" />
+    <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -656,6 +663,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
+    <Content Include="Scripts\_app-gallery.js" />
     <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_app-detail.js" />
@@ -682,7 +690,6 @@
     <Content Include="Views\Manage\Dashboard.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
-    <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Documentation.cshtml" />
     <Content Include="Views\Home\ContactConfirm.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -707,6 +714,7 @@
     <Content Include="Views\Shared\ResourceNotFound.cshtml" />
     <Content Include="Views\Shared\_TopTabs_SearchBox.cshtml" />
     <Content Include="Views\App\NeedAppNameAndDescription.cshtml" />
+    <Content Include="Views\App\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

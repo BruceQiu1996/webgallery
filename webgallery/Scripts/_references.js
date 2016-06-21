@@ -1,7 +1,11 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="_account-profile.js" />
 /// <reference path="_app-detail.js" />
+<<<<<<< HEAD
+/// <reference path="_app-gallery.js" />
+=======
 /// <reference path="_app-mine.js" />
+>>>>>>> b194ece8b80c9904f3f7d9e868e2d92b43423822
 /// <reference path="_app-verify.js" />
 /// <reference path="_submission-form.js" />
 /// <reference path="ai.0.15.0-build58334.min.js" />

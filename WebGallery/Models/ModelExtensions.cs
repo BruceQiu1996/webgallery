@@ -98,6 +98,7 @@
 
     public partial class Submission
     {
-        public string Status { get; set; }
+        public string Name { get; set; }
+        public string BriefDescription { get; set; }
     }
 }
