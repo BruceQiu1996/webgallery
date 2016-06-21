@@ -9,5 +9,6 @@ namespace WebGallery.ViewModels
         public int CurrentPage;
         public int TotalPage;
         public string Keyword;
+        public int TotalCount;
     }
 }

@@ -249,15 +249,21 @@ namespace WebGallery.Controllers
                 AppList = (await _appService.GetApps(keyword, page, pageSize, out count)),
                 TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
                 CurrentPage = page,
-                Keyword = keyword
+                Keyword = keyword,
+                TotalCount = count
             };
 
             return View(model);
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Detail(int id)
+        public async Task<ActionResult> Detail(string appid, int id = 0)
         {
+            if (!string.IsNullOrWhiteSpace(appid))
+            {
+                id = await _appService.GetSubmissionIdByAppId(appid);
+            }
+
             var submision = await _appService.GetSubmissionAsync(id);
             if (submision == null)
             {
