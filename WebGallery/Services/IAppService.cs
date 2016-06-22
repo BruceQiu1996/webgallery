@@ -49,6 +49,8 @@ namespace WebGallery.Services
 
         Task MoveToTestingAsync(Submission submission);
 
-        Task<int> GetSubmissionIdByAppId(string appid);
+        Task<int> GetSubmissionIdByAppId(string appId);
+
+        Task<int> FindAnotherVersionOfApp(string appId);
     }
 }

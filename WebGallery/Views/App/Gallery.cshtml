@@ -27,12 +27,12 @@
             @{
                 var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
             }
-            <a href="@Url.Action("Detail", new { appid = app.Nickname })">
+            <a href="@Url.Action("Detail", new { appId = app.Nickname })">
                 <img src=@Url.Content(logourl) class="small-icon" />
             </a>
         </div>
         <div>
-            <lable class="app-title">@Html.ActionLink(app.Name, "Detail", new { appid = app.Nickname })</lable>
+            <lable class="app-title">@Html.ActionLink(app.AppName, "Detail", new { appId = app.Nickname })</lable>
             <span class="version">@app.Version </span>
             <span class="release-date">Released at: @app.ReleaseDate.ToShortDateString()</span>
         </div>
@@ -40,7 +40,7 @@
             @{
                 var description = app.BriefDescription.Length > 310 ? app.BriefDescription.Substring(0, 310) + "..." : app.BriefDescription;
             }
-            <p>@description<span>@Html.ActionLink("More Information", "Detail", new { id = app.SubmissionID })</span></p>
+            <p>@description<span>@Html.ActionLink("More Information", "Detail", new { appId = app.Nickname })</span></p>
         </div>
     </div>
                 }

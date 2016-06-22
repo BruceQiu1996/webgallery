@@ -452,7 +452,7 @@ namespace WebGallery.Services
                                                            {
                                                                Nickname = a.nickName,
                                                                ReleaseDate = a.ReleaseDate,
-                                                               Name = a.Name,
+                                                               AppName = a.Name,
                                                                Version = a.Version,
                                                                LogoUrl = a.LogoUrl,
                                                                BriefDescription = a.BriefDescription
@@ -460,19 +460,32 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<int> GetSubmissionIdByAppId(string appid)
+        public Task<int> GetSubmissionIdByAppId(string appId)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
                 var ns = xdoc.Root.GetDefaultNamespace();
                 var version = (from e in xdoc.Root.Descendants(ns + "entry")
-                               where e.Element(ns + "productId").Value == appid
+                               where e.Element(ns + "productId").Value == appId
                                select e.Element(ns + "version").Value).FirstOrDefault();
 
                 var submissionId = (from s in db.Submissions
-                                    where s.Nickname.ToLower() == appid.ToLower() && s.Version == version
+                                    where s.Nickname.ToLower() == appId.ToLower() && s.Version == version
                                     select s.SubmissionID).FirstOrDefault();
+
+                return Task.FromResult(submissionId);
+            }
+        }
+
+        public Task<int> FindAnotherVersionOfApp(string appId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                int submissionId = (from s in db.Submissions
+                                    join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                                    where t.SubmissionStateID == 7 && s.Nickname.ToLower() == appId.ToLower()
+                                    select s.SubmissionID).Max();
 
                 return Task.FromResult(submissionId);
             }

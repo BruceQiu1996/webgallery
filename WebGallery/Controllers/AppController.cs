@@ -257,20 +257,27 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Detail(string appid, int id = 0)
+        public async Task<ActionResult> Detail(int? id, string appId)
         {
-            if (!string.IsNullOrWhiteSpace(appid))
+            if (!string.IsNullOrWhiteSpace(appId) && id == null)
             {
-                id = await _appService.GetSubmissionIdByAppId(appid);
+                id = await _appService.GetSubmissionIdByAppId(appId);
             }
 
-            var submision = await _appService.GetSubmissionAsync(id);
+            if (!string.IsNullOrWhiteSpace(appId) && id == 0)
+            {
+                id = await _appService.FindAnotherVersionOfApp(appId);
+                return View("CanNotFindVersion", id);
+            }
+
+            var submissionId = id.Value;
+            var submision = await _appService.GetSubmissionAsync(submissionId);
             if (submision == null)
             {
                 return View("ResourceNotFound");
             }
 
-            var metaData = await _appService.GetMetadataAsync(id);
+            var metaData = await _appService.GetMetadataAsync(submissionId);
             if (metaData.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submision.SubmissionID);
