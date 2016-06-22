@@ -424,7 +424,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetApps(string keyword, int page, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsAsync(string keyword, int page, int pageSize, out int count)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -438,11 +438,11 @@ namespace WebGallery.Services
                             select new
                             {
                                 nickName = e.Element(ns + "productId").Value,
-                                ReleaseDate = releaseDate,
-                                Name = title,
-                                Version = e.Element(ns + "version").Value,
-                                LogoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                                BriefDescription = e.Element(ns + "summary").Value
+                                releaseDate = releaseDate,
+                                appName = title,
+                                version = e.Element(ns + "version").Value,
+                                logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                                briefDescription = e.Element(ns + "summary").Value
                             };
                 count = query.Count();
                 var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
@@ -451,43 +451,66 @@ namespace WebGallery.Services
                                                            select new Submission
                                                            {
                                                                Nickname = a.nickName,
-                                                               ReleaseDate = a.ReleaseDate,
-                                                               AppName = a.Name,
-                                                               Version = a.Version,
-                                                               LogoUrl = a.LogoUrl,
-                                                               BriefDescription = a.BriefDescription
+                                                               ReleaseDate = a.releaseDate,
+                                                               AppName = a.appName,
+                                                               Version = a.version,
+                                                               LogoUrl = a.logoUrl,
+                                                               BriefDescription = a.briefDescription
                                                            }).ToList());
             }
         }
 
-        public Task<int> GetSubmissionIdByAppId(string appId)
+        public Task<Submission> GetSubmissionFromFeedAsync(string appId)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
                 var ns = xdoc.Root.GetDefaultNamespace();
-                var version = (from e in xdoc.Root.Descendants(ns + "entry")
-                               where e.Element(ns + "productId").Value == appId
-                               select e.Element(ns + "version").Value).FirstOrDefault();
+                var element = (from e in xdoc.Root.Descendants(ns + "entry")
+                               where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
+                               select e).FirstOrDefault();
+                Submission submission = null;
+                if (element != null)
+                {
+                    var longSummmary = element.Element(ns + "longSummary").Value;
+                    var celement1 = element.Element(ns + "keywords").Elements(ns + "keywordId").ElementAtOrDefault(0);
+                    var categoryId1 = celement1 != null ? celement1.Value : string.Empty;
+                    var keyword1 = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(d => d.Attribute("id").Value == categoryId1);
+                    var categoryName1 = keyword1 != null ? keyword1.Value : string.Empty;
+                    var category1 = db.ProductOrAppCategories.FirstOrDefault(c => c.Name.ToLower() == categoryName1.ToLower());
+                    var celement2 = element.Element(ns + "keywords").Elements(ns + "keywordId").ElementAtOrDefault(1);
+                    var categoryId2 = celement2 != null ? celement2.Value : string.Empty;
+                    var keyword2 = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(d => d.Attribute("id").Value == categoryId2);
+                    var categoryName2 = keyword2 != null ? keyword2.Value : string.Empty;
+                    var category2 = db.ProductOrAppCategories.FirstOrDefault(c => c.Name.ToLower() == categoryName2.ToLower());
+                    var selement1 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(0);
+                    var selement2 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(1);
+                    var selement3 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(2);
+                    var selement4 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(3);
+                    var selement5 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(4);
+                    var selement6 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(5);
+                    submission = new Submission
+                    {
+                        Nickname = element.Element(ns + "productId").Value,
+                        AppName = element.Element(ns + "title").Value,
+                        Version = element.Element(ns + "version").Value,
+                        SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
+                        SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
+                        ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
+                        CategoryID1 = category1 != null ? category1.CategoryID.ToString() : "0",
+                        CategoryID2 = category2 != null ? category2.CategoryID.ToString() : "0",
+                        LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                        ScreenshotUrl1 = selement1 != null ? selement1.Value : string.Empty,
+                        ScreenshotUrl2 = selement2 != null ? selement2.Value : string.Empty,
+                        ScreenshotUrl3 = selement3 != null ? selement3.Value : string.Empty,
+                        ScreenshotUrl4 = selement4 != null ? selement4.Value : string.Empty,
+                        ScreenshotUrl5 = selement5 != null ? selement5.Value : string.Empty,
+                        ScreenshotUrl6 = selement6 != null ? selement6.Value : string.Empty,
+                        BriefDescription = longSummmary != string.Empty ? longSummmary : element.Element(ns + "summary").Value
+                    };
+                }
 
-                var submissionId = (from s in db.Submissions
-                                    where s.Nickname.ToLower() == appId.ToLower() && s.Version == version
-                                    select s.SubmissionID).FirstOrDefault();
-
-                return Task.FromResult(submissionId);
-            }
-        }
-
-        public Task<int> FindAnotherVersionOfApp(string appId)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-                int submissionId = (from s in db.Submissions
-                                    join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
-                                    where t.SubmissionStateID == 7 && s.Nickname.ToLower() == appId.ToLower()
-                                    select s.SubmissionID).Max();
-
-                return Task.FromResult(submissionId);
+                return Task.FromResult(submission);
             }
         }
 
