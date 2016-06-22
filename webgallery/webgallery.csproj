@@ -715,6 +715,7 @@
     <Content Include="Views\Shared\_TopTabs_SearchBox.cshtml" />
     <Content Include="Views\App\NeedAppNameAndDescription.cshtml" />
     <Content Include="Views\App\Gallery.cshtml" />
+    <Content Include="Views\App\CanNotFindVersion.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
