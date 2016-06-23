@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using System.Xml.Linq;
 using WebGallery.Models;
-using System.Configuration;
 
 namespace WebGallery.Services
 {
@@ -323,6 +322,14 @@ namespace WebGallery.Services
                                   where s.SubmissionID == submissionId
                                   select s).FirstOrDefault();
 
+                var categories = from c in db.ProductOrAppCategories
+                                 select c;
+                submission.Categories = new List<string> { categories.FirstOrDefault(c => c.CategoryID.ToString() == submission.CategoryID1).Name };
+                if (!string.IsNullOrWhiteSpace(submission.CategoryID2) && submission.CategoryID2 != "0" && submission.CategoryID1 != submission.CategoryID2)
+                {
+                    submission.Categories.Add(categories.FirstOrDefault(c => c.CategoryID.ToString() == submission.CategoryID2).Name);
+                }
+
                 return Task.FromResult(submission);
             }
         }
@@ -425,85 +432,92 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetAppsAsync(string keyword, int page, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, int page, int pageSize, out int count)
         {
-            using (var db = new WebGalleryDbContext())
-            {
-                var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
-                var ns = xdoc.Root.GetDefaultNamespace();
-                var query = from e in xdoc.Root.Descendants(ns + "entry")
-                            let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
-                            let title = e.Element(ns + "title").Value
-                            where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower()))
-                            orderby releaseDate descending
-                            select new
-                            {
-                                nickName = e.Element(ns + "productId").Value,
-                                releaseDate = releaseDate,
-                                appName = title,
-                                version = e.Element(ns + "version").Value,
-                                logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                                briefDescription = e.Element(ns + "summary").Value
-                            };
-                count = query.Count();
-                var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+            var query = from e in xdoc.Root.Descendants(ns + "entry")
+                        let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
+                        let title = e.Element(ns + "title").Value
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower()))
+                        orderby releaseDate descending
+                        select new
+                        {
+                            nickName = e.Element(ns + "productId").Value,
+                            releaseDate = releaseDate,
+                            appName = title,
+                            version = e.Element(ns + "version").Value,
+                            logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                            briefDescription = e.Element(ns + "summary").Value
+                        };
+            count = query.Count();
+            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
 
-                return Task.FromResult<IList<Submission>>((from a in apps
-                                                           select new Submission
-                                                           {
-                                                               Nickname = a.nickName,
-                                                               ReleaseDate = a.releaseDate,
-                                                               AppName = a.appName,
-                                                               Version = a.version,
-                                                               LogoUrl = a.logoUrl,
-                                                               BriefDescription = a.briefDescription
-                                                           }).ToList());
-            }
+            return Task.FromResult<IList<Submission>>((from a in apps
+                                                       select new Submission
+                                                       {
+                                                           Nickname = a.nickName,
+                                                           ReleaseDate = a.releaseDate,
+                                                           AppName = a.appName,
+                                                           Version = a.version,
+                                                           LogoUrl = a.logoUrl,
+                                                           BriefDescription = a.briefDescription
+                                                       }).ToList());
         }
 
         public Task<Submission> GetSubmissionFromFeedAsync(string appId)
         {
-            using (var db = new WebGalleryDbContext())
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+            var element = (from e in xdoc.Root.Descendants(ns + "entry")
+                           where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
+                           select e).FirstOrDefault();
+            Submission submission = null;
+            if (element != null)
             {
-                var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
-                var ns = xdoc.Root.GetDefaultNamespace();
-                var element = (from e in xdoc.Root.Descendants(ns + "entry")
-                               where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
-                               select e).FirstOrDefault();
-                Submission submission = null;
-                if (element != null)
+                var categories = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
+                                 join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
+                                 select x.Value;
+                var screenshots = new List<string>();
+                foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
                 {
-                    var longSummmary = element.Element(ns + "longSummary").Value;
-                    var categories = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
-                                     join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
-                                     select x.Value;
-                    var screenshots = new List<string>();
-                    foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
-                    {
-                        screenshots.Add(e.Value);
-                    }
-                    submission = new Submission
-                    {
-                        Nickname = element.Element(ns + "productId").Value,
-                        AppName = element.Element(ns + "title").Value,
-                        Version = element.Element(ns + "version").Value,
-                        SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
-                        SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
-                        ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
-                        Categories = categories.ToList(),
-                        LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                        ScreenshotUrl1 = screenshots.ElementAtOrDefault(0),
-                        ScreenshotUrl2 = screenshots.ElementAtOrDefault(1),
-                        ScreenshotUrl3 = screenshots.ElementAtOrDefault(2),
-                        ScreenshotUrl4 = screenshots.ElementAtOrDefault(3),
-                        ScreenshotUrl5 = screenshots.ElementAtOrDefault(4),
-                        ScreenshotUrl6 = screenshots.ElementAtOrDefault(5),
-                        BriefDescription = !string.IsNullOrWhiteSpace(longSummmary) ? longSummmary : element.Element(ns + "summary").Value
-                    };
+                    screenshots.Add(e.Value);
                 }
-
-                return Task.FromResult(submission);
+                submission = new Submission
+                {
+                    Nickname = element.Element(ns + "productId").Value,
+                    Version = element.Element(ns + "version").Value,
+                    SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
+                    SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
+                    ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
+                    Categories = categories.ToList(),
+                    LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                    ScreenshotUrl1 = screenshots.ElementAtOrDefault(0),
+                    ScreenshotUrl2 = screenshots.ElementAtOrDefault(1),
+                    ScreenshotUrl3 = screenshots.ElementAtOrDefault(2),
+                    ScreenshotUrl4 = screenshots.ElementAtOrDefault(3),
+                    ScreenshotUrl5 = screenshots.ElementAtOrDefault(4),
+                    ScreenshotUrl6 = screenshots.ElementAtOrDefault(5)
+                };
             }
+
+            return Task.FromResult(submission);
+        }
+
+        public Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId)
+        {
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+            var metadata = (from e in xdoc.Root.Descendants(ns + "entry")
+                            where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
+                            select new SubmissionLocalizedMetaData
+                            {
+                                Name = e.Element(ns + "title").Value,
+                                Description = e.Element(ns + "longSummary").Value,
+                                BriefDescription = e.Element(ns + "summary").Value
+                            }).ToList();
+
+            return Task.FromResult(metadata);
         }
 
         public Task MoveToTestingAsync(Submission submission)

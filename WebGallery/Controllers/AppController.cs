@@ -246,7 +246,7 @@ namespace WebGallery.Controllers
             var pageSize = 20;
             var model = new AppGalleryViewModel
             {
-                AppList = (await _appService.GetAppsAsync(keyword, page, pageSize, out count)),
+                AppList = (await _appService.GetAppsFromFeedAsync(keyword, page, pageSize, out count)),
                 TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
                 CurrentPage = page,
                 Keyword = keyword,
@@ -264,15 +264,16 @@ namespace WebGallery.Controllers
             {
                 return View("ResourceNotFound");
             }
-            var metaData = await _appService.GetMetadataAsync(submission.SubmissionID);
-            if (submission.SubmissionID != 0 && metaData.Count() == 0)
+
+            var metaData = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
+            if (metaData.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
+
             var model = new AppDetailViewModel
             {
                 Submission = submission,
-                allCategories = await _appService.GetCategoriesAsync(),
                 MetaData = metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault()
             };
 

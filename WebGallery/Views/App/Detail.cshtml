@@ -1,7 +1,7 @@
 ﻿@model WebGallery.ViewModels.AppDetailViewModel
 
 @{
-    ViewBag.Title = Model.AppName;
+    ViewBag.Title = Model.MetaData.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
@@ -9,7 +9,7 @@
     @Html.Partial("_TopTabs_SearchBox")
 
     <div class="app-name">
-        <lable>@Model.AppName</lable>
+        <lable>@Model.MetaData.Name</lable>
     </div>
     <div class="app-icon pull-left">
         <img src="@Model.Submission.LogoUrl" class="app-image" />
@@ -29,7 +29,7 @@
         <div>
             <span class="pull-left">Category:</span>
             <span class="pull-right">
-                @foreach (var c in Model.Categories)
+                @foreach (var c in Model.Submission.Categories)
                 {
                     @Html.ActionLink(c, "Categorize", new { category = c }, new { @class = "pull-right" });
                     <br />
