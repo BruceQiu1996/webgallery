@@ -39,5 +39,3 @@ FROM [dbo].[SubmissionOwners_BACKUP]
 
 
 GO
-
-

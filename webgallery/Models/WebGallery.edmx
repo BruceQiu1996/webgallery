@@ -403,16 +403,9 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
           <Property Name="SilverlightLoad" Type="bit" Nullable="false" />
           <Property Name="Chapters" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UnconfirmedSubmissionOwners">
           <Key>
             <PropertyRef Name="UnconfirmedSubmissionOwnerID" />
-            <PropertyRef Name="SubmissionID" />
-            <PropertyRef Name="RequestID" />
-            <PropertyRef Name="RequestDate" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
           </Key>
           <Property Name="UnconfirmedSubmissionOwnerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubmissionID" Type="int" Nullable="false" />
@@ -562,6 +555,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
           <EntitySet Name="TagClicks" EntityType="Self.TagClicks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrainingLog" EntityType="Self.TrainingLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnconfirmedSubmissionOwners" EntityType="Self.UnconfirmedSubmissionOwners" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WapCommunitySignups" EntityType="Self.WapCommunitySignups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WebServerExtensions" EntityType="Self.WebServerExtensions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppDownloadStats" EntityType="Self.AppDownloadStats" store:Type="Tables" store:Schema="dbo">
@@ -608,17 +602,6 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
     [ProdDownloadStatsINVALID].[Referrer] AS [Referrer], 
     [ProdDownloadStatsINVALID].[Count] AS [Count]
     FROM [dbo].[ProdDownloadStatsINVALID] AS [ProdDownloadStatsINVALID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="UnconfirmedSubmissionOwners" EntityType="Self.UnconfirmedSubmissionOwners" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UnconfirmedSubmissionOwners].[UnconfirmedSubmissionOwnerID] AS [UnconfirmedSubmissionOwnerID], 
-    [UnconfirmedSubmissionOwners].[SubmissionID] AS [SubmissionID], 
-    [UnconfirmedSubmissionOwners].[RequestID] AS [RequestID], 
-    [UnconfirmedSubmissionOwners].[RequestDate] AS [RequestDate], 
-    [UnconfirmedSubmissionOwners].[FirstName] AS [FirstName], 
-    [UnconfirmedSubmissionOwners].[LastName] AS [LastName], 
-    [UnconfirmedSubmissionOwners].[IsSuperSubmitterRequest] AS [IsSuperSubmitterRequest]
-    FROM [dbo].[UnconfirmedSubmissionOwners] AS [UnconfirmedSubmissionOwners]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Applicati__Galle__361203C5" Association="Self.FK__Applicati__Galle__361203C5">
             <End Role="GalleryType" EntitySet="GalleryType" />
@@ -692,7 +675,6 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
           <EntitySet Name="PIDs" EntityType="WebGallery.Models.PID" />
           <EntitySet Name="ProdDownloadStats" EntityType="WebGallery.Models.ProdDownloadStat" />
           <EntitySet Name="ProdDownloadStatsINVALIDs" EntityType="WebGallery.Models.ProdDownloadStatsINVALID" />
-          <EntitySet Name="UnconfirmedSubmissionOwners" EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" />
           <AssociationSet Name="FK__Applicati__Galle__361203C5" Association="WebGallery.Models.FK__Applicati__Galle__361203C5">
             <End Role="GalleryType" EntitySet="GalleryTypes" />
             <End Role="ApplicationInGallery" EntitySet="ApplicationInGalleries" />
@@ -721,6 +703,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
             <End Role="Hosters_Country" EntitySet="Hosters_Country" />
             <End Role="Hosters_State" EntitySet="Hosters_State" />
           </AssociationSet>
+          <EntitySet Name="UnconfirmedSubmissionOwners" EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" />
         </EntityContainer>
         <EntityType Name="ApplicationInGallery">
           <Key>
@@ -1149,23 +1132,6 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
           <Property Name="Referrer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="UnconfirmedSubmissionOwner">
-          <Key>
-            <PropertyRef Name="UnconfirmedSubmissionOwnerID" />
-            <PropertyRef Name="SubmissionID" />
-            <PropertyRef Name="RequestID" />
-            <PropertyRef Name="RequestDate" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-          </Key>
-          <Property Name="UnconfirmedSubmissionOwnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubmissionID" Type="Int32" Nullable="false" />
-          <Property Name="RequestID" Type="Guid" Nullable="false" />
-          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IsSuperSubmitterRequest" Type="Boolean" />
-        </EntityType>
         <Association Name="FK__Applicati__Galle__361203C5">
           <End Type="WebGallery.Models.GalleryType" Role="GalleryType" Multiplicity="1" />
           <End Type="WebGallery.Models.ApplicationInGallery" Role="ApplicationInGallery" Multiplicity="*" />
@@ -1250,6 +1216,18 @@ warning 6002: The table/view 'mscomwebDB.dbo.UnconfirmedSubmissionOwners' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UnconfirmedSubmissionOwner">
+          <Key>
+            <PropertyRef Name="UnconfirmedSubmissionOwnerID" />
+          </Key>
+          <Property Name="UnconfirmedSubmissionOwnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubmissionID" Type="Int32" Nullable="false" />
+          <Property Name="RequestID" Type="Guid" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuperSubmitterRequest" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

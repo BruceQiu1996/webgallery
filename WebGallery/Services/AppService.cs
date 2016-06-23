@@ -326,6 +326,22 @@ namespace WebGallery.Services
             }
         }
 
+        public Task<IList<Submission>> GetMySubmissions(Submitter submitter)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submissions = (from s in db.Submissions
+                                   join status in db.SubmissionsStatus on s.SubmissionID equals status.SubmissionID
+                                   join state in db.SubmissionStates on status.SubmissionStateID equals state.SubmissionStateID
+                                   join u in db.SubmissionOwners on s.SubmissionID equals u.SubmissionID
+                                   where u.SubmitterID == submitter.SubmitterID
+                                   orderby s.SubmissionID
+                                   select new { SubmissionID = s.SubmissionID, Nickname = s.Nickname, Version = s.Version, Status = state.Name }).Distinct().AsEnumerable();
+
+                return Task.FromResult<IList<Submission>>((from s in submissions select new Submission { SubmissionID = s.SubmissionID, Nickname = s.Nickname, Version = s.Version, Status = s.Status }).ToList());
+            }
+        }
+
         public Task<List<SubmissionLocalizedMetaData>> GetMetadataAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
@@ -421,6 +437,67 @@ namespace WebGallery.Services
                                   select e).ToList();
 
                 return Task.FromResult(extensions);
+            }
+        }
+
+        public Task<IList<SubmittersContactDetail>> GetOwnersAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var owners = (from o in db.SubmissionOwners
+                              join c in db.SubmittersContactDetails on o.SubmitterID equals c.SubmitterID
+                              where o.SubmissionID == submissionId
+                              orderby o.SubmissionOwnerID
+                              select c).ToList();
+
+                return Task.FromResult<IList<SubmittersContactDetail>>(owners);
+            }
+        }
+
+        public Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var invitations = (from i in db.UnconfirmedSubmissionOwners
+                                   where i.SubmissionID == submissionId
+                                   orderby i.UnconfirmedSubmissionOwnerID
+                                   select i).ToList();
+
+                return Task.FromResult<IList<UnconfirmedSubmissionOwner>>(invitations);
+            }
+        }
+
+        public Task MoveToTestingAsync(Submission submission)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var testingStateName = "Testing";
+                var testingState = (from s in db.SubmissionStates
+                                    where s.Name == testingStateName
+                                    select s).FirstOrDefault();
+
+                if (testingState == null) throw new TestingStateMissingException();
+
+                var submissionStatus = (from s in db.SubmissionsStatus
+                                        where s.SubmissionID == submission.SubmissionID
+                                        select s).FirstOrDefault();
+
+                if (submissionStatus == null)
+                {
+                    db.SubmissionsStatus.Add(new SubmissionsStatu
+                    {
+                        SubmissionID = submission.SubmissionID,
+                        SubmissionStateID = testingState.SubmissionStateID
+                    });
+                }
+                else
+                {
+                    submissionStatus.SubmissionStateID = testingState.SubmissionStateID;
+                }
+
+                db.SaveChanges();
+
+                return Task.FromResult(0);
             }
         }
 
@@ -530,45 +607,6 @@ namespace WebGallery.Services
 
                 return Task.FromResult<IList<ProductOrAppCategory>>(categories.ToList());
             }
-        }
-
-        public Task MoveToTestingAsync(Submission submission)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-                var testingStateName = "Testing";
-                var testingState = (from s in db.SubmissionStates
-                                    where s.Name == testingStateName
-                                    select s).FirstOrDefault();
-
-                if (testingState == null) throw new TestingStateMissingException();
-
-                var submissionStatus = (from s in db.SubmissionsStatus
-                                        where s.SubmissionID == submission.SubmissionID
-                                        select s).FirstOrDefault();
-
-                if (submissionStatus == null)
-                {
-                    db.SubmissionsStatus.Add(new SubmissionsStatu
-                    {
-                        SubmissionID = submission.SubmissionID,
-                        SubmissionStateID = testingState.SubmissionStateID
-                    });
-                }
-                else
-                {
-                    submissionStatus.SubmissionStateID = testingState.SubmissionStateID;
-                }
-
-                db.SaveChanges();
-
-                return Task.FromResult(0);
-            }
-        }
-
-        public Task<IList<Submission>> GetMySubmissions(Submitter submitter)
-        {
-            throw new NotImplementedException();
         }
     } // class
 

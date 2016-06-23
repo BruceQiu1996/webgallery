@@ -45,14 +45,18 @@ namespace WebGallery.Services
 
         Task<List<WebServerExtension>> GetWebServerExtensionsAsync();
 
-        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, int page, int pageSize, out int count);
+        Task<IList<SubmittersContactDetail>> GetOwnersAsync(int submissionId);
 
-        Task MoveToTestingAsync(Submission submission);
+        Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId);
+
+        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, int page, int pageSize, out int count);
 
         Task<Submission> GetSubmissionFromFeedAsync(string appId);
 
         Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId);
 
         Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
+
+        Task MoveToTestingAsync(Submission submission);
     }
 }

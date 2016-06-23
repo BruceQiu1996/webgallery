@@ -100,6 +100,7 @@ namespace WebGallery.Models
 
     public partial class Submission
     {
+        public string Status { get; set; }
         public string AppName { get; set; }
         public string BriefDescription { get; set; }
         public IList<ProductOrAppCategory> Categories { get; set; }

@@ -1,0 +1,15 @@
+﻿@model WebGallery.ViewModels.InvitationSendViewModel
+
+@{
+    ViewBag.Title = "Already Has Ownership";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Already Has Ownership</h2>
+    <p>The invitee (@Model.FirstName @Model.LastName) is already an owner of the app (<a href="/app/detail/@Model.Submission.SubmissionID">@Model.Submission.Nickname</a>).</p>
+    <ul>
+        <li><a href="/app/owners/@Model.Submission.SubmissionID">Re-assign an owner</a></li>
+        <li><a href="/app/mine">Go to my portal</a></li>
+    </ul>
+</div>

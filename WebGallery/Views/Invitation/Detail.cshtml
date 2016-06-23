@@ -1,0 +1,31 @@
+﻿@model WebGallery.ViewModels.InvitationDetailViewModel
+
+@{
+    ViewBag.Title = "Ownership Invitation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Ownership Invitation</h2>
+    <p>You have been invited to become a co-owner of an application.</p>
+    <div class="main-panel">
+        <p>
+            <strong>App ID</strong>: @Model.Submission.Nickname<br />
+            <strong>Version</strong>: @Model.Submission.Version
+        </p>
+        <p>Do you wish to accept or decline the invitation?</p>
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="invitationGuid" value="@Model.Invitation.RequestID" />
+                <input type="submit" value="I Accept" formmethod="post" formaction="/invitation/accept" />
+                <input type="submit" value="I Decline" formmethod="post" formaction="/invitation/decline" />
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/invitation-detail")
+}

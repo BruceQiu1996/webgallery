@@ -5,4 +5,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Owners</h2>
+<div class="content">
+    <h2>Assign Additional Owners</h2>
+    <p>All owners will be able to modify application details and will be included on communications from Microsoft concerning the status of the application in the app gallery.</p>
+    <div class="owners-table-panel">
+        <table cellpadding="0" cellspacing="0">
+            <caption>@Model.Submission.Nickname - @Model.Submission.Version</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var index = 0; index < Model.Owners.Count; index++)
+                {
+                    var owner = Model.Owners[index];
+
+                    <tr>
+                        <td>@owner.FullName</td>
+                        <td>@Resources.Submit.OwnerStatus_Active</td>
+                        <td>
+                            @if (Model.Owners.Count > 1)
+                            {
+                                using (Html.BeginForm("Remove", "Ownership", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="submissionId" value="@Model.Submission.SubmissionID" />
+                                    <input type="hidden" name="submitterId" value="@owner.SubmitterID" />
+                                    <input type="submit" value="Remove" />
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+
+                @for (var index = 0; index < Model.OwnershipInvitations.Count; index++)
+                {
+                    var invitaion = Model.OwnershipInvitations[index];
+
+                    <tr>
+                        <td>@invitaion.FirstName @invitaion.LastName</td>
+                        <td>@Resources.Submit.OwnerStatus_Pending</td>
+                        <td>
+                            @using (Html.BeginForm("Revoke", "Invitation", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="submissionId" value="@invitaion.SubmissionID" />
+                                <input type="hidden" name="invitationGuid" value="@invitaion.RequestID" />
+                                <input type="submit" value="Remove" title="Revoke this ownership invitation." />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="links-panel">
+        <a href="/invitation/send/@Model.Submission.SubmissionID">Create a new invitation</a>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/app-owners")
+}

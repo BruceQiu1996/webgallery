@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 using WebGallery.Models;
 using WebGallery.Utilities;
 
@@ -11,6 +13,8 @@ namespace WebGallery.Services
 {
     public class EmailService : IEmailService
     {
+        #region send message when a submission gets PASS in verification
+
         public void SendMessageForSubmissionVerified(Submitter submitter, Submission submission, string urlAuthority, Func<string, string> htmlEncode)
         {
             SendMessageForSubmission(submitter, submission, "VERIFIED", urlAuthority, htmlEncode);
@@ -61,39 +65,39 @@ namespace WebGallery.Services
                     p.SHA1Hash = htmlEncode(p.SHA1Hash);
                 }
 
-                var subject = GetSubject(submission, action);
-                var body = GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
+                // build subject and body
+                var subject = BuildSubject(submission, action);
+                var body = BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
                 body += "Submission:<br/>";
                 body += JsonConvert.SerializeObject(submission, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
                 body += "<hr/><br/><br/>Submission Metadata:<br/>";
                 body += JsonConvert.SerializeObject(metadata, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
 
-                var fromSetting = ConfigurationManager.AppSettings["Message:From"];
-                var from = fromSetting.Split('|')[0];
-                var fromName = fromSetting.Contains("|") ? fromSetting.Split('|')[1] : string.Empty;
+                // get the from email address
+                var from = GetFromMailAddress();
 
                 // First send email internally (to folks at MS).
-                var to = from;
-                SendGridEmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
+                var to = from.Address;
+                SendGridEmailHelper.SendAsync(to, from.Address, from.DisplayName, subject, BuildHtmlStyles() + body);
 
                 // Second, send email externally (to the app owners). Here, we don't include the XML.
                 foreach (var owner in owners)
                 {
                     to = owner.EMail;
-                    body = GetSubmissionNote(htmlEncode(owner.FullName), from, submission.Nickname, submission.Version, urlAuthority)
-                        + GetBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
+                    body = BuildSubmissionNote(htmlEncode(owner.FullName), from.Address, submission.Nickname, submission.Version, urlAuthority)
+                        + BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
 
-                    SendGridEmailHelper.SendAsync(to, from, fromName, subject, GetHtmlStyles() + body);
+                    SendGridEmailHelper.SendAsync(to, from.Address, from.DisplayName, subject, BuildHtmlStyles() + body);
                 }
             }
         }
 
-        private static string GetSubject(Submission submission, string action)
+        private static string BuildSubject(Submission submission, string action)
         {
             return $"SUBMISSION {action}: {submission.SubmittingEntity} {submission.Nickname} {submission.Version}";
         }
 
-        private static string GetBody(Submitter submitter, SubmittersContactDetail contactInfo, Submission submission, string categoryName1, string categoryName2, string frameworkName, IList<SubmissionLocalizedMetaData> metadata, IList<Package> packages, string action, string urlAuthority)
+        private static string BuildBody(Submitter submitter, SubmittersContactDetail contactInfo, Submission submission, string categoryName1, string categoryName2, string frameworkName, IList<SubmissionLocalizedMetaData> metadata, IList<Package> packages, string action, string urlAuthority)
         {
             var body = new StringBuilder();
             body.Append($"SUBMISSION {action}: {submission.Nickname}<br /><br />");
@@ -194,7 +198,7 @@ namespace WebGallery.Services
             return body.ToString();
         }
 
-        private static string GetSubmissionNote(string who, string eMailAddressOfSubmitter, string appID, string appVersion, string urlAuthority)
+        private static string BuildSubmissionNote(string who, string eMailAddressOfSubmitter, string appID, string appVersion, string urlAuthority)
         {
             return $"<p>{who},</p>"
                 + $"<p>Thanks for your interest in the Windows Web Application Gallery! As we mention at <a href='https://{urlAuthority}/home/documentation'>Windows Web Application Gallery for Developers</a>, all applications in the Web Application Gallery follow the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Web Application Gallery Principles</a>. We will take a look to see if the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Principles</a> have been applied to {appID} {appVersion} for Web App Gallery integration.</p>"
@@ -204,7 +208,7 @@ namespace WebGallery.Services
                 + "<hr /><br /><br />";
         }
 
-        private static string GetHtmlStyles()
+        private static string BuildHtmlStyles()
         {
             return @"
 <style>
@@ -275,6 +279,68 @@ table tr td.parent-of-table
             if (!url.ToLower().StartsWith("http://") && !url.ToLower().StartsWith("https://")) url = "http://" + url;
 
             return $"<a href='{url}' titl='{url}'>{url}</a>";
+        }
+
+        #endregion
+
+        #region send ownership invitation
+
+        public Task SendOwnershipInvitation(string emailAddressOfInvitee, UnconfirmedSubmissionOwner unconfirmedSubmissionOwner, string urlAuthority, Func<string, string> htmlEncode)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submission = (from s in db.Submissions
+                                  where s.SubmissionID == unconfirmedSubmissionOwner.SubmissionID
+                                  select s).FirstOrDefault();
+
+                if (submission == null) return Task.FromResult(0);
+
+                // html encode some strings
+                submission.Nickname = htmlEncode(submission.Nickname);
+                submission.Version = htmlEncode(submission.Version);
+                unconfirmedSubmissionOwner.FirstName = htmlEncode(unconfirmedSubmissionOwner.FirstName);
+                unconfirmedSubmissionOwner.LastName = htmlEncode(unconfirmedSubmissionOwner.LastName);
+                var invitationGuid = htmlEncode(unconfirmedSubmissionOwner.RequestID.ToString());
+
+                // build the body of the email
+                var bodyBuilder = new StringBuilder();
+                bodyBuilder.Append($"<p>{unconfirmedSubmissionOwner.FirstName} {unconfirmedSubmissionOwner.LastName}:</p>");
+                bodyBuilder.Append($"<p>You have been invited to take co-ownership of an application intended for inclusion in Microsoft's <a href='https://{urlAuthority}' title='Web App Gallery'>Web App Gallery</a>.</p>");
+                bodyBuilder.Append("<p>");
+                bodyBuilder.Append($"The ID of the application is {submission.Nickname}.<br />");
+                bodyBuilder.Append($"The version is {submission.Version}.");
+                bodyBuilder.Append("</p>");
+                bodyBuilder.Append("<p>");
+                bodyBuilder.Append($"To accept this invitation please visit <a href='https://{urlAuthority}/invitation/detail/{invitationGuid}' title='go here to accept this invitation'>this Web page</a> and follow these steps:");
+                bodyBuilder.Append("</p>");
+                bodyBuilder.Append("<ol>");
+                bodyBuilder.Append("<li>Log into Live ID. If you do not yet have a Live ID account you will be able to create one from the log-in page.</li>");
+                bodyBuilder.Append("<li>Provide us with your contact information (unless you have done so in the past).</li>");
+                bodyBuilder.Append("<li>Click the appropriate button to accept or decline this invitation.</li>");
+                bodyBuilder.Append("</ol>");
+                bodyBuilder.Append("<p>");
+                bodyBuilder.Append("Best regards,<br />");
+                bodyBuilder.Append("Web Application Gallery Team");
+                bodyBuilder.Append("</p>");
+
+                var subject = "You are invited to be a co-owner of an Web App Gallery application";
+                var from = GetFromMailAddress();
+
+                SendGridEmailHelper.SendAsync(emailAddressOfInvitee, from.Address, from.DisplayName, subject, bodyBuilder.ToString());
+
+                return Task.FromResult(0);
+            }
+        }
+
+        #endregion
+
+        private static MailAddress GetFromMailAddress()
+        {
+            var fromSetting = ConfigurationManager.AppSettings["Message:From"];
+            var from = fromSetting.Split('|')[0];
+            var fromName = fromSetting.Contains("|") ? fromSetting.Split('|')[1] : string.Empty;
+
+            return new MailAddress(from, fromName);
         }
     }
 }

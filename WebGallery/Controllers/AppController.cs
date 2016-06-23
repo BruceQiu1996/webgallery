@@ -299,9 +299,31 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Owners(int id)
+        [HttpGet]
+        [RequireSubmittership]
+        public async Task<ActionResult> Owners(int? id)
         {
-            var model = new AppOwnersViewModel();
+            if (!id.HasValue) return View("ResourceNotFound");
+
+            var submissionId = id.Value;
+            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId);
+            if (!User.IsSuperSubmitter() && !isOwner)
+            {
+                return View("NeedPermission");
+            }
+
+            var submission = await _appService.GetSubmissionAsync(submissionId);
+            if (submission == null)
+            {
+                return View("ResourceNotFound");
+            }
+
+            var model = new AppOwnersViewModel()
+            {
+                Submission = submission,
+                Owners = await _appService.GetOwnersAsync(submissionId),
+                OwnershipInvitations = await _appService.GetOwnershipInvitationsAsync(submissionId)
+            };
 
             return View(model);
         }
