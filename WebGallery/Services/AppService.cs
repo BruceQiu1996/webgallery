@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
 using WebGallery.Models;
+using System.Configuration;
 
 namespace WebGallery.Services
 {
@@ -428,12 +429,12 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
-                var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
+                var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
                 var ns = xdoc.Root.GetDefaultNamespace();
                 var query = from e in xdoc.Root.Descendants(ns + "entry")
                             let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
                             let title = e.Element(ns + "title").Value
-                            where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || keyword == "" || title.ToLower().Contains(keyword.ToLower()))
+                            where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower()))
                             orderby releaseDate descending
                             select new
                             {
@@ -464,7 +465,7 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
-                var xdoc = XDocument.Load(Path.Combine(HttpContext.Current.Server.MapPath("~/Feed"), "WebApplicationList.xml"));
+                var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["WebApplicationListFeedPath"]));
                 var ns = xdoc.Root.GetDefaultNamespace();
                 var element = (from e in xdoc.Root.Descendants(ns + "entry")
                                where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
@@ -473,13 +474,9 @@ namespace WebGallery.Services
                 if (element != null)
                 {
                     var longSummmary = element.Element(ns + "longSummary").Value;
-                    var name = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
-                               join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
-                               select x.Value;
-                    var categories = from n in name
-                                     join c in db.ProductOrAppCategories
-                                     on n.ToLower() equals c.Name.ToLower()
-                                     select c.CategoryID.ToString();
+                    var categories = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
+                                     join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
+                                     select x.Value;
                     var screenshots = new List<string>();
                     foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
                     {
@@ -493,8 +490,7 @@ namespace WebGallery.Services
                         SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
                         SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
                         ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
-                        CategoryID1 = categories.ElementAtOrDefault(0),
-                        CategoryID2 = categories.ElementAtOrDefault(1),
+                        Categories = categories.ToList(),
                         LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
                         ScreenshotUrl1 = screenshots.ElementAtOrDefault(0),
                         ScreenshotUrl2 = screenshots.ElementAtOrDefault(1),
@@ -502,7 +498,7 @@ namespace WebGallery.Services
                         ScreenshotUrl4 = screenshots.ElementAtOrDefault(3),
                         ScreenshotUrl5 = screenshots.ElementAtOrDefault(4),
                         ScreenshotUrl6 = screenshots.ElementAtOrDefault(5),
-                        BriefDescription = longSummmary != string.Empty ? longSummmary : element.Element(ns + "summary").Value
+                        BriefDescription = !string.IsNullOrWhiteSpace(longSummmary) ? longSummmary : element.Element(ns + "summary").Value
                     };
                 }
 

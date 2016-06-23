@@ -264,16 +264,16 @@ namespace WebGallery.Controllers
             {
                 return View("ResourceNotFound");
             }
-            var metaData = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : null;
-            if (id.HasValue && metaData.Count() == 0)
+            var metaData = await _appService.GetMetadataAsync(submission.SubmissionID);
+            if (submission.SubmissionID != 0 && metaData.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
             var model = new AppDetailViewModel
             {
                 Submission = submission,
-                Categories = await _appService.GetCategoriesAsync(),
-                MetaData = metaData != null ? metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault() : null
+                allCategories = await _appService.GetCategoriesAsync(),
+                MetaData = metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault()
             };
 
             return View(model);
