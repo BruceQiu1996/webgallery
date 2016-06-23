@@ -92,10 +92,12 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
+                // remove invitation
                 db.UnconfirmedSubmissionOwners.RemoveRange(from u in db.UnconfirmedSubmissionOwners
                                                            where u.RequestID == invitation.RequestID
                                                            select u);
 
+                // if the invitee has no ownership for this app, add one
                 var alreadyHasOwnership = db.SubmissionOwners.Any(o =>
                             o.SubmissionID == submission.SubmissionID &&
                             o.SubmitterID == invitee.SubmitterID);
