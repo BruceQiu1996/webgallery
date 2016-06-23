@@ -467,9 +467,14 @@ namespace WebGallery.Services
             Submission submission = null;
             if (element != null)
             {
-                var categories = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
-                                 join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
-                                 select x.Value;
+                var categoryNames = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
+                                    join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
+                                    select x.Value;
+                var categories = new List<ProductOrAppCategory>();
+                foreach (var c in categoryNames)
+                {
+                    categories.Add(new ProductOrAppCategory { Name = c });
+                }
                 var screenshots = new List<string>();
                 foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
                 {
@@ -482,7 +487,7 @@ namespace WebGallery.Services
                     SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
                     SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
                     ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
-                    Categories = categories.ToList(),
+                    Categories = categories,
                     LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
                     ScreenshotUrl1 = screenshots.ElementAtOrDefault(0),
                     ScreenshotUrl2 = screenshots.ElementAtOrDefault(1),
@@ -512,30 +517,22 @@ namespace WebGallery.Services
             return Task.FromResult(metadata);
         }
 
-        public Task<Submission> GetSubmissionWithCategoriesAsync(int submissionId)
+        public Task<List<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var submission = (from s in db.Submissions
                                   where s.SubmissionID == submissionId
                                   select s).FirstOrDefault();
-
-                if (submission == null) return Task.FromResult(submission);
-
-                var categories = from c in db.ProductOrAppCategories
-                                 select c;
-                submission.Categories = new List<string>();
-                if (!string.IsNullOrWhiteSpace(submission.CategoryID1) && submission.CategoryID1 != "0")
+                var categories = new List<ProductOrAppCategory>();
+                if (submission != null)
                 {
-                    submission.Categories.Add(categories.FirstOrDefault(c => c.CategoryID.ToString() == submission.CategoryID1).Name);
+                    categories = (from c in db.ProductOrAppCategories
+                                  where c.CategoryID.ToString() == submission.CategoryID1 || c.CategoryID.ToString() == submission.CategoryID2
+                                  select c).ToList();
                 }
 
-                if (!string.IsNullOrWhiteSpace(submission.CategoryID2) && submission.CategoryID2 != "0" && submission.CategoryID1 != submission.CategoryID2)
-                {
-                    submission.Categories.Add(categories.FirstOrDefault(c => c.CategoryID.ToString() == submission.CategoryID2).Name);
-                }
-
-                return Task.FromResult(submission);
+                return Task.FromResult(categories);
             }
         }
 

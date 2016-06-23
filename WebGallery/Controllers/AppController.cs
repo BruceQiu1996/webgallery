@@ -259,10 +259,15 @@ namespace WebGallery.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Detail(int? id, string appId)
         {
-            var submission = id.HasValue ? await _appService.GetSubmissionWithCategoriesAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
+            var submission = id.HasValue ? await _appService.GetSubmissionAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
             if (submission == null)
             {
                 return View("ResourceNotFound");
+            }
+
+            if (id.HasValue)
+            {
+                submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
             }
 
             var metadata = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);

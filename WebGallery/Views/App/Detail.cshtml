@@ -31,7 +31,7 @@
             <span class="pull-right">
                 @foreach (var c in Model.Submission.Categories)
                 {
-                    @Html.ActionLink(c, "Categorize", new { category = c }, new { @class = "pull-right" });
+                    @Html.ActionLink(c.Name, "Categorize", new { category = c.Name }, new { @class = "pull-right" });
                     <br />
                 }
             </span>

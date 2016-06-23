@@ -102,6 +102,6 @@ namespace WebGallery.Models
     {
         public string AppName { get; set; }
         public string BriefDescription { get; set; }
-        public IList<string> Categories { get; set; }
+        public IList<ProductOrAppCategory> Categories { get; set; }
     }
 }
