@@ -473,22 +473,18 @@ namespace WebGallery.Services
                 if (element != null)
                 {
                     var longSummmary = element.Element(ns + "longSummary").Value;
-                    var celement1 = element.Element(ns + "keywords").Elements(ns + "keywordId").ElementAtOrDefault(0);
-                    var categoryId1 = celement1 != null ? celement1.Value : string.Empty;
-                    var keyword1 = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(d => d.Attribute("id").Value == categoryId1);
-                    var categoryName1 = keyword1 != null ? keyword1.Value : string.Empty;
-                    var category1 = db.ProductOrAppCategories.FirstOrDefault(c => c.Name.ToLower() == categoryName1.ToLower());
-                    var celement2 = element.Element(ns + "keywords").Elements(ns + "keywordId").ElementAtOrDefault(1);
-                    var categoryId2 = celement2 != null ? celement2.Value : string.Empty;
-                    var keyword2 = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(d => d.Attribute("id").Value == categoryId2);
-                    var categoryName2 = keyword2 != null ? keyword2.Value : string.Empty;
-                    var category2 = db.ProductOrAppCategories.FirstOrDefault(c => c.Name.ToLower() == categoryName2.ToLower());
-                    var selement1 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(0);
-                    var selement2 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(1);
-                    var selement3 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(2);
-                    var selement4 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(3);
-                    var selement5 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(4);
-                    var selement6 = element.Element(ns + "images").Elements(ns + "screenshot").ElementAtOrDefault(5);
+                    var name = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
+                               join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
+                               select x.Value;
+                    var categories = from n in name
+                                     join c in db.ProductOrAppCategories
+                                     on n.ToLower() equals c.Name.ToLower()
+                                     select c.CategoryID.ToString();
+                    var screenshots = new List<string>();
+                    foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
+                    {
+                        screenshots.Add(e.Value);
+                    }
                     submission = new Submission
                     {
                         Nickname = element.Element(ns + "productId").Value,
@@ -497,15 +493,15 @@ namespace WebGallery.Services
                         SubmittingEntity = element.Element(ns + "author").Element(ns + "name").Value,
                         SubmittingEntityURL = element.Element(ns + "author").Element(ns + "uri").Value,
                         ReleaseDate = DateTime.Parse(element.Element(ns + "published").Value),
-                        CategoryID1 = category1 != null ? category1.CategoryID.ToString() : "0",
-                        CategoryID2 = category2 != null ? category2.CategoryID.ToString() : "0",
+                        CategoryID1 = categories.ElementAtOrDefault(0),
+                        CategoryID2 = categories.ElementAtOrDefault(1),
                         LogoUrl = element.Element(ns + "images").Element(ns + "icon") != null ? element.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                        ScreenshotUrl1 = selement1 != null ? selement1.Value : string.Empty,
-                        ScreenshotUrl2 = selement2 != null ? selement2.Value : string.Empty,
-                        ScreenshotUrl3 = selement3 != null ? selement3.Value : string.Empty,
-                        ScreenshotUrl4 = selement4 != null ? selement4.Value : string.Empty,
-                        ScreenshotUrl5 = selement5 != null ? selement5.Value : string.Empty,
-                        ScreenshotUrl6 = selement6 != null ? selement6.Value : string.Empty,
+                        ScreenshotUrl1 = screenshots.ElementAtOrDefault(0),
+                        ScreenshotUrl2 = screenshots.ElementAtOrDefault(1),
+                        ScreenshotUrl3 = screenshots.ElementAtOrDefault(2),
+                        ScreenshotUrl4 = screenshots.ElementAtOrDefault(3),
+                        ScreenshotUrl5 = screenshots.ElementAtOrDefault(4),
+                        ScreenshotUrl6 = screenshots.ElementAtOrDefault(5),
                         BriefDescription = longSummmary != string.Empty ? longSummmary : element.Element(ns + "summary").Value
                     };
                 }
