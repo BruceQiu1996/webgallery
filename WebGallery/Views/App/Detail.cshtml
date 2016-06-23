@@ -1,7 +1,7 @@
 ﻿@model WebGallery.ViewModels.AppDetailViewModel
 
 @{
-    ViewBag.Title = "Windows Web App Gallery" + "-" + Model.MetaData.Name;
+    ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
@@ -9,7 +9,7 @@
     @Html.Partial("_TopTabs_SearchBox")
 
     <div class="app-name">
-        <lable>@Model.MetaData.Name</lable>
+        <lable>@Model.Metadata.Name</lable>
     </div>
     <div class="app-icon pull-left">
         <img src="@Model.Submission.LogoUrl" class="app-image" />
@@ -21,25 +21,18 @@
                 <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
             </span>
             <span class="pull-right">
-                @using (Html.BeginForm("install", "app", new { id = Model.Submission.SubmissionID }))
-                {
-                    <input type="image" src="~/content/images/install-btn.jpg" alt="Submit" />
-                }
+                <a href="@Url.Action("install", new { appId = Model.Submission.Nickname })">
+                    <img src="~/content/images/install-btn.jpg" />
+                </a>
             </span>
         </div>
         <div>
             <span class="pull-left">Category:</span>
             <span class="pull-right">
-                @{
-                    var name1 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID1).Name;
-                    @Html.ActionLink(name1, "Categorize", new { category = name1 });
+                @foreach (var c in Model.Submission.Categories)
+                {
+                    @Html.ActionLink(c.Name, "Categorize", new { category = c.Name }, new { @class = "pull-right" });
                     <br />
-                    if (Model.Submission.CategoryID2 != null && Model.Submission.CategoryID2 != "0" && Model.Submission.CategoryID1 != Model.Submission.CategoryID2)
-                    {
-                        var name2 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID2).Name;
-                        @Html.ActionLink(name2, "Categorize", new { category = name2 });
-                        <br />
-                    }
                 }
             </span>
         </div>
@@ -60,24 +53,21 @@
     </div>
     <div class="screenshot-link">
         @{
-            var displayornot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
+            var displayOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
         }
-        <a id="screenshothref" style="@displayornot">applicaiton screenshots</a>
+        <a id="screenshothref" style="@displayOrNot">applicaiton screenshots</a>
     </div>
     <div class="description">
-        @{
-            var description = Model.MetaData.Description.Trim() == "" ? Model.MetaData.BriefDescription : Model.MetaData.Description;
-        }
-        <p>@description</p>
+        <p>@Model.Description</p>
     </div>
 
     <div style="display:none" id="screenshot-block">
         <div class="popup-background"></div>
         <div class="popup-foreground">
             <img id="screenshot" />
-            <div class="page-btn">
-                <a id="pre-btn" class="pull-left">< Previous</a>
-                <a id="next-btn" class="pull-right">Next ></a>
+            <div class="container-fluid">
+                <a id="pre-btn" class="pull-left page-btn">< Previous</a>
+                <a id="next-btn" class="pull-right page-btn">Next ></a>
             </div>
             <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
         </div>

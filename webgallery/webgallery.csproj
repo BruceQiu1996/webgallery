@@ -480,6 +480,7 @@
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
     <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
     <Compile Include="ViewModels\AppDetailViewModel.cs" />
+    <Compile Include="ViewModels\AppGalleryViewModel.cs" />
     <Compile Include="ViewModels\AppMineViewModel.cs" />
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
     <Compile Include="ViewModels\AppVerifyViewModel.cs" />
@@ -500,7 +501,9 @@
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
+    <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-mine.css" />
+    <Content Include="Content\_invitation-detail.css" />
     <Content Include="Content\_invitation-send.css" />
     <Content Include="Content\_app-owners.css" />
     <Content Include="Content\_app-verify.css" />
@@ -530,6 +533,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Feed\WebApplicationList.xml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\_site.css" />
@@ -664,6 +668,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
+    <Content Include="Scripts\_app-gallery.js" />
     <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_app-detail.js" />
@@ -722,6 +727,8 @@
     <Content Include="Views\Invitation\InvitationAppNotFound.cshtml" />
     <Content Include="Views\Invitation\InvitationExpired.cshtml" />
     <Content Include="Views\Invitation\Send.cshtml" />
+    <Content Include="Views\App\Gallery.cshtml" />
+    <Content Include="Views\App\CanNotFindVersion.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

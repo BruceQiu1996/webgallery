@@ -67,6 +67,11 @@ namespace WebGallery
                 "~/Content/_app-detail.css"));
             bundles.Add(new ScriptBundle("~/js/app-detail").Include(
                         "~/scripts/_app-detail.js"));
+
+            bundles.Add(new StyleBundle("~/css/app-gallery").Include(
+                "~/Content/_app-gallery.css"));
+            bundles.Add(new ScriptBundle("~/js/app-gallery").Include(
+                        "~/scripts/_app-gallery.js"));
         }
     }
 }

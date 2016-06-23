@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
@@ -239,25 +240,46 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Detail(int id)
+        public async Task<ActionResult> Gallery(string keyword, int page = 1)
         {
-            var submision = await _appService.GetSubmissionAsync(id);
-            if (submision == null)
+            var count = 0;
+            var pageSize = 20;
+            var model = new AppGalleryViewModel
+            {
+                AppList = (await _appService.GetAppsFromFeedAsync(keyword, page, pageSize, out count)),
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
+                CurrentPage = page,
+                Keyword = keyword,
+                TotalCount = count
+            };
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> Detail(int? id, string appId)
+        {
+            var submission = id.HasValue ? await _appService.GetSubmissionAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
+            if (submission == null)
             {
                 return View("ResourceNotFound");
             }
 
-            var metaData = await _appService.GetMetadataAsync(id);
-            if (metaData.Count() == 0)
+            if (id.HasValue)
             {
-                return View("NeedAppNameAndDescription", submision.SubmissionID);
+                submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
+            }
+
+            var metadata = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
+            if (metadata.Count() == 0)
+            {
+                return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
 
             var model = new AppDetailViewModel
             {
-                Submission = submision,
-                Categories = await _appService.GetCategoriesAsync(),
-                MetaData = metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault()
+                Submission = submission,
+                Metadata = metadata.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metadata.FirstOrDefault()
             };
 
             return View(model);

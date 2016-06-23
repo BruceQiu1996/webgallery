@@ -1,0 +1,74 @@
+﻿.header {
+    margin-bottom: 0px;
+}
+
+.app-amount {
+    clear: both;
+    font-size: 15px;
+    color: gray;
+    margin: 40px 0 0px 70px;
+}
+
+.title {
+    font-size: 28px;
+    padding-left: 70px;
+}
+
+.search-icon,
+.search-box {
+    height: 32px;
+    margin-top: 5px;
+}
+
+.search-box {
+    margin-left: 50px;
+    width: 400px;
+    font-size: 20px;
+}
+
+.app-title {
+    font-size: 20px;
+}
+
+.version,
+.release-date {
+    color: grey;
+}
+
+.version {
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+.release-date {
+    font-size: 12px;
+}
+
+.small-icon {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.search-icon {
+    margin-left: 5px;
+}
+
+.link-disabled {
+    color: grey;
+}
+
+.pre-page,
+.next-page {
+    font-size: 20px;
+    padding: 7px;
+}
+
+.page-switch {
+    text-align: center;
+}
+
+.link-disabled:hover {
+    text-decoration: none;
+    color: gray;
+}
