@@ -1,4 +1,6 @@
-﻿namespace WebGallery.Models
+﻿using System.Collections.Generic;
+
+namespace WebGallery.Models
 {
     static public class ModelExtensions
     {
@@ -100,5 +102,6 @@
     {
         public string AppName { get; set; }
         public string BriefDescription { get; set; }
+        public IList<ProductOrAppCategory> Categories { get; set; }
     }
 }

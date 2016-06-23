@@ -1,7 +1,7 @@
 ﻿@model WebGallery.ViewModels.AppDetailViewModel
 
 @{
-    ViewBag.Title = "Windows Web App Gallery" + "-" + (Model.MetaData != null ? Model.MetaData.Name : Model.Submission.AppName);
+    ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
@@ -9,10 +9,7 @@
     @Html.Partial("_TopTabs_SearchBox")
 
     <div class="app-name">
-        @{
-            var appName = Model.MetaData != null ? Model.MetaData.Name : Model.Submission.AppName;
-        }
-        <lable>@appName</lable>
+        <lable>@Model.Metadata.Name</lable>
     </div>
     <div class="app-icon pull-left">
         <img src="@Model.Submission.LogoUrl" class="app-image" />
@@ -32,16 +29,10 @@
         <div>
             <span class="pull-left">Category:</span>
             <span class="pull-right">
-                @{
-                    var category1 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID1).Name;
-                    @Html.ActionLink(category1, "Categorize", new { category = category1 });
+                @foreach (var c in Model.Submission.Categories)
+                {
+                    @Html.ActionLink(c.Name, "Categorize", new { category = c.Name }, new { @class = "pull-right" });
                     <br />
-                    if (!string.IsNullOrEmpty(Model.Submission.CategoryID2) && Model.Submission.CategoryID2 != "0" && Model.Submission.CategoryID1 != Model.Submission.CategoryID2)
-                    {
-                        var category2 = Model.Categories.FirstOrDefault(p => p.CategoryID.ToString() == Model.Submission.CategoryID2).Name;
-                        @Html.ActionLink(category2, "Categorize", new { category = category2 });
-                        <br />
-                    }
                 }
             </span>
         </div>
@@ -62,15 +53,12 @@
     </div>
     <div class="screenshot-link">
         @{
-            var displayornot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
+            var displayOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
         }
-        <a id="screenshothref" style="@displayornot">applicaiton screenshots</a>
+        <a id="screenshothref" style="@displayOrNot">applicaiton screenshots</a>
     </div>
     <div class="description">
-        @{
-            var description = Model.MetaData != null ? (Model.MetaData.Description.Trim() == "" ? Model.MetaData.BriefDescription : Model.MetaData.Description) : Model.Submission.BriefDescription;
-        }
-        <p>@description</p>
+        <p>@Model.Description</p>
     </div>
 
     <div style="display:none" id="screenshot-block">
