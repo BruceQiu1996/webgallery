@@ -259,14 +259,14 @@ namespace WebGallery.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Detail(int? id, string appId)
         {
-            var submission = id.HasValue ? await _appService.GetSubmissionAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
+            var submission = id.HasValue ? await _appService.GetSubmissionWithCategoriesAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
             if (submission == null)
             {
                 return View("ResourceNotFound");
             }
 
-            var metaData = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
-            if (metaData.Count() == 0)
+            var metadata = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
+            if (metadata.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
@@ -274,7 +274,7 @@ namespace WebGallery.Controllers
             var model = new AppDetailViewModel
             {
                 Submission = submission,
-                MetaData = metaData.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metaData.FirstOrDefault()
+                Metadata = metadata.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metadata.FirstOrDefault()
             };
 
             return View(model);

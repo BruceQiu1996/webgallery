@@ -1,7 +1,7 @@
 ﻿@model WebGallery.ViewModels.AppDetailViewModel
 
 @{
-    ViewBag.Title = Model.MetaData.Name;
+    ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
@@ -9,7 +9,7 @@
     @Html.Partial("_TopTabs_SearchBox")
 
     <div class="app-name">
-        <lable>@Model.MetaData.Name</lable>
+        <lable>@Model.Metadata.Name</lable>
     </div>
     <div class="app-icon pull-left">
         <img src="@Model.Submission.LogoUrl" class="app-image" />
