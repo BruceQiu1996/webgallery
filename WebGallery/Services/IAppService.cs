@@ -53,6 +53,6 @@ namespace WebGallery.Services
 
         Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId);
 
-        Task<List<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
+        Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
     }
 }

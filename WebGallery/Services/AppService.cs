@@ -517,22 +517,18 @@ namespace WebGallery.Services
             return Task.FromResult(metadata);
         }
 
-        public Task<List<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId)
+        public Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var submission = (from s in db.Submissions
                                   where s.SubmissionID == submissionId
                                   select s).FirstOrDefault();
-                var categories = new List<ProductOrAppCategory>();
-                if (submission != null)
-                {
-                    categories = (from c in db.ProductOrAppCategories
-                                  where c.CategoryID.ToString() == submission.CategoryID1 || c.CategoryID.ToString() == submission.CategoryID2
-                                  select c).ToList();
-                }
+                var categories = from c in db.ProductOrAppCategories
+                                 where c.CategoryID.ToString() == submission.CategoryID1 || c.CategoryID.ToString() == submission.CategoryID2
+                                 select c;
 
-                return Task.FromResult(categories);
+                return Task.FromResult<IList<ProductOrAppCategory>>(categories.ToList());
             }
         }
 
