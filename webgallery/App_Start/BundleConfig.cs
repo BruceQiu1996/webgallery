@@ -48,6 +48,16 @@ namespace WebGallery
                       "~/Content/_app-mine.css",
                       "~/Content/bootstrap-sortable.css"));
 
+            bundles.Add(new ScriptBundle("~/js/app-owners").Include(
+                        "~/scripts/_app-owners.js"));
+            bundles.Add(new StyleBundle("~/css/app-owners").Include(
+                      "~/Content/_app-owners.css"));
+
+            bundles.Add(new StyleBundle("~/css/invitation-send").Include(
+                      "~/Content/_invitation-send.css"));
+            bundles.Add(new StyleBundle("~/css/invitation-detail").Include(
+                      "~/Content/_invitation-detail.css"));
+
             bundles.Add(new ScriptBundle("~/js/account-profile-form").Include(
                         "~/scripts/_account-profile.js"));
             bundles.Add(new StyleBundle("~/css/account-profile-form").Include(

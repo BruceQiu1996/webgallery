@@ -1,0 +1,42 @@
+﻿.owners-table-panel,
+.links-panel {
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 4%;
+}
+
+    .owners-table-panel table {
+        width: 100%;
+    }
+
+        .owners-table-panel table caption {
+            font-size: 1.65em;
+            text-align: center;
+        }
+
+        .owners-table-panel table thead tr {
+            border-bottom: 2px solid #333333;
+        }
+
+        .owners-table-panel table tbody tr {
+            border-bottom: 1px solid #999999;
+        }
+
+        .owners-table-panel table thead th,
+        .owners-table-panel table tbody td {
+            padding: 3px 10px;
+        }
+
+            .owners-table-panel table thead th:last-child,
+            .owners-table-panel table tbody td:last-child {
+                width: 100px;
+            }
+
+        .owners-table-panel table tbody tr:nth-of-type(2n) {
+            background: #eeeeee;
+        }
+
+        .owners-table-panel table input {
+            height: 25px;
+            vertical-align: top;
+        }

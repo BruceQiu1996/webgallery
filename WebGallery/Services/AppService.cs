@@ -437,6 +437,33 @@ namespace WebGallery.Services
             }
         }
 
+        public Task<IList<SubmittersContactDetail>> GetOwnersAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var owners = (from o in db.SubmissionOwners
+                              join c in db.SubmittersContactDetails on o.SubmitterID equals c.SubmitterID
+                              where o.SubmissionID == submissionId
+                              orderby o.SubmissionOwnerID
+                              select c).ToList();
+
+                return Task.FromResult<IList<SubmittersContactDetail>>(owners);
+            }
+        }
+
+        public Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var invitations = (from i in db.UnconfirmedSubmissionOwners
+                                   where i.SubmissionID == submissionId
+                                   orderby i.UnconfirmedSubmissionOwnerID
+                                   select i).ToList();
+
+                return Task.FromResult<IList<UnconfirmedSubmissionOwner>>(invitations);
+            }
+        }
+
         public Task MoveToTestingAsync(Submission submission)
         {
             using (var db = new WebGalleryDbContext())

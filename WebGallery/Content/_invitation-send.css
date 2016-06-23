@@ -1,0 +1,26 @@
+﻿.form-panel,
+.links-panel {
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 4%;
+}
+
+.form-panel div:nth-child(2n){
+    margin-bottom:10px;
+}
+
+.form-panel div:last-child{
+    margin-top: 30px;
+}
+
+.form-panel input[type=text],
+.form-panel input[type=email]
+{
+    width: 300px;
+}
+
+.form-panel .field-validation-error
+{
+    font-size: 0.9em;
+    color: red;
+}

@@ -1,0 +1,30 @@
+﻿@model WebGallery.ViewModels.InvitationDetailViewModel
+
+@{
+    ViewBag.Title = "Ownership Invitation Expired";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Ownership Invitation Expired</h2>
+    <p>You have been invited to become a co-owner of an application.</p>
+    <div class="main-panel">
+        <p>
+            <strong>App ID</strong>: @Model.Submission.Nickname<br />
+            <strong>Version</strong>: @Model.Submission.Version
+        </p>
+        <p>We're sorry but this invitation has expired. It was issued more than a week ago. The issuer will need to submit a new invitation. Please acknowledge this message by clicking OK now.</p>
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="invitationGuid" value="@Model.Invitation.RequestID" />
+                <input type="submit" value="OK" formmethod="post" formaction="/invitation/decline" />
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/invitation-detail")
+}

@@ -45,6 +45,10 @@ namespace WebGallery.Services
 
         Task<List<WebServerExtension>> GetWebServerExtensionsAsync();
 
+        Task<IList<SubmittersContactDetail>> GetOwnersAsync(int submissionId);
+
+        Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId);
+
         Task MoveToTestingAsync(Submission submission);
     }
 }

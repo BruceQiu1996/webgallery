@@ -1,0 +1,15 @@
+﻿@model WebGallery.ViewModels.InvitationSendViewModel
+
+@{
+    ViewBag.Title = "Already Been Invited";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Already Been Invited</h2>
+    <p>You've already sent an ownership invitation to @Model.FirstName @Model.LastName for the app (<a href="/app/detail/@Model.Submission.SubmissionID">@Model.Submission.Nickname</a>). Please wait for his/her response.</p>
+    <ul>
+        <li><a href="/app/owners/@Model.Submission.SubmissionID">Re-assign an owner</a></li>
+        <li><a href="/app/mine">Go to my portal</a></li>
+    </ul>
+</div>
