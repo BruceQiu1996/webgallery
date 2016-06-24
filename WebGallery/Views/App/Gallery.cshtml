@@ -27,8 +27,8 @@
             @{
                 var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
             }
-            <a href="@Url.Action("Detail", new { appId = app.Nickname })" >
-                <img src=@Url.Content(logourl) class="small-icon" />
+            <a href="@Url.Action("Detail", new { appId = app.Nickname })">
+                <img src="@Url.Content(logourl)" class="small-icon" />
             </a>
         </div>
         <div>
