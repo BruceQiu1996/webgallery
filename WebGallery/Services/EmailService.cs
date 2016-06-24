@@ -69,7 +69,44 @@ namespace WebGallery.Services
                 var subject = BuildSubject(submission, action);
                 var body = BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
                 body += "Submission:<br/>";
-                body += JsonConvert.SerializeObject(submission, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
+
+                // create a new anonymous object for serialization
+                // to avoid the error "The ObjectContext instance has been disposed ..."
+                var submissionJson = new
+                {
+                    SubmissionID = submission.SubmissionID,
+                    Nickname = submission.Nickname,
+                    Version = submission.Version,
+                    SubmittingEntity = submission.SubmittingEntity,
+                    SubmittingEntityURL = submission.SubmittingEntityURL,
+                    AppURL = submission.AppURL,
+                    SupportURL = submission.SupportURL,
+                    ReleaseDate = submission.ReleaseDate,
+                    ProfessionalServicesURL = submission.ProfessionalServicesURL,
+                    CommercialProductURL = submission.CommercialProductURL,
+                    CategoryID1 = submission.CategoryID1,
+                    CategoryID2 = submission.CategoryID2,
+
+                    LogoUrl = submission.LogoUrl,
+                    ScreenshotUrl1 = submission.ScreenshotUrl1,
+                    ScreenshotUrl2 = submission.ScreenshotUrl2,
+                    ScreenshotUrl3 = submission.ScreenshotUrl3,
+                    ScreenshotUrl4 = submission.ScreenshotUrl4,
+                    ScreenshotUrl5 = submission.ScreenshotUrl5,
+                    ScreenshotUrl6 = submission.ScreenshotUrl6,
+
+                    FrameworkOrRuntimeID = submission.FrameworkOrRuntimeID,
+                    DatabaseServerIDs = submission.DatabaseServerIDs,
+                    WebServerExtensionIDs = submission.WebServerExtensionIDs,
+
+                    AgreedToTerms = submission.AgreedToTerms,
+                    AdditionalInfo = submission.AdditionalInfo,
+
+                    Created = submission.Created,
+                    Updated = submission.Updated,
+                };
+
+                body += JsonConvert.SerializeObject(submissionJson, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
                 body += "<hr/><br/><br/>Submission Metadata:<br/>";
                 body += JsonConvert.SerializeObject(metadata, Formatting.Indented).Replace(" ", "&nbsp").Replace("\r\n", "<br/>");
 

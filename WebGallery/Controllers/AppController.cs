@@ -361,38 +361,40 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyUrl(string url)
+        public async Task<ActionResult> VerifyUrl(string url, string key)
         {
             var status = await _validationService.ValidateUrlAsync(url);
 
-            return Json(new { status = status.ToString() });
+            return Json(new { status = status.ToString(), Key = key });
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyPackage(string url, string hash, int submissionId)
+        public async Task<ActionResult> VerifyPackage(string url, string hash, int submissionId, string key)
         {
             var packageValidationResult = await _validationService.ValidatePackageAsync(url, hash, submissionId);
 
             return Json(new
             {
                 ManifestStatus = packageValidationResult.ManifestStatus.ToString(),
-                HashStatus = packageValidationResult.HashStatus.ToString()
+                HashStatus = packageValidationResult.HashStatus.ToString(),
+                Key = key
             });
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyImage(string url, bool isLogo)
+        public async Task<ActionResult> VerifyImage(string url, bool isLogo, string key)
         {
             var imageValidationResult = await _validationService.ValidateImageAsync(url, isLogo);
 
             return Json(new
             {
                 TypeStatus = imageValidationResult.TypeStatus.ToString(),
-                DimensionStatus = imageValidationResult.DimensionStatus.ToString()
+                DimensionStatus = imageValidationResult.DimensionStatus.ToString(),
+                Key = key
             });
         }
 
