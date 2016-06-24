@@ -23,11 +23,11 @@
 {
     <div class="container-fluid">
         <hr />
-        <div class="pull-left ">
+        <div class="pull-left  icon-block">
             @{
                 var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
             }
-            <a href="@Url.Action("Detail", new { appId = app.Nickname })">
+            <a href="@Url.Action("Detail", new { appId = app.Nickname })" >
                 <img src=@Url.Content(logourl) class="small-icon" />
             </a>
         </div>
