@@ -23,6 +23,7 @@ namespace WebGallery.Filters
             if (!user.IsSubmitter())
             {
                 filterContext.Result = new RedirectResult($"/account/profile?returnUrl={filterContext.HttpContext.Request.RawUrl}");
+                return;
             }
 
             // If current user is not Super Submitter, and there haven't recorded his/her contact info in this system,
@@ -31,6 +32,7 @@ namespace WebGallery.Filters
             if (!user.IsSuperSubmitter() && !hasContactInfo)
             {
                 filterContext.Result = new RedirectResult($"/account/profile?returnUrl={filterContext.HttpContext.Request.RawUrl}");
+                return;
             }
 
             base.OnActionExecuting(filterContext);

@@ -12,9 +12,15 @@ namespace WebGallery.Utilities
         {
             if (stream == null) return null;
 
-            stream.Seek(0, SeekOrigin.Begin);
-
-            return ZipFile.Read(stream);
+            try
+            {
+                stream.Seek(0, SeekOrigin.Begin);
+                return ZipFile.Read(stream);
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 

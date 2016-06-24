@@ -1,4 +1,13 @@
-﻿$(document).ready(function () {
+﻿var itemsToValidate = $([]);
+
+updateValidationItems = function (key) {
+    itemsToValidate.each(function (index, item) {
+        if (item.key == key)
+            item.status = "done";
+    });
+}
+
+$(document).ready(function () {
     verifyUrls();
     verifyPackages();
     verifyImages($("#ulImages li:lt(2)"), true);
@@ -28,17 +37,24 @@ verifyImages = function (imageLis, isLogo) {
             $(li).next().addClass("validation-validating"); // the li for image dimension
         });
 
+        // recored the validating item and its status
+        var validatingItemKey = "image@" + theUrl;
+        itemsToValidate.push({ key: validatingItemKey, status: "validating" });
+
         var ajaxOption = {
             url: "/app/verifyimage",
             type: "post",
             dataType: 'json',
             data: addAntiForgeryToken({
                 url: theUrl,
-                isLogo: isLogo
+                isLogo: isLogo,
+                key: validatingItemKey,
             })
         };
 
         $.ajax(ajaxOption).done(function (verification) {
+            updateValidationItems(verification.Key);
+
             if (verification.TypeStatus == "Pass") {
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-pass"); // the li for image type
@@ -107,6 +123,11 @@ verifyPackages = function () {
             $(li).next().addClass("validation-validating"); // the li for hash
         });
 
+
+        // recored the validating item and its status
+        var validatingItemKey = "package@" + theUrl + "@" + theHash;
+        itemsToValidate.push({ key: validatingItemKey, status: "validating" });
+
         var ajaxOption = {
             url: "/app/verifypackage",
             type: "post",
@@ -114,11 +135,14 @@ verifyPackages = function () {
             data: addAntiForgeryToken({
                 url: theUrl,
                 hash: theHash,
-                submissionId: $("#hiddenSubmissionId").val()
+                submissionId: $("#hiddenSubmissionId").val(),
+                key: validatingItemKey,
             })
         };
 
         $.ajax(ajaxOption).done(function (verification) {
+            updateValidationItems(verification.Key);
+
             if (verification.ManifestStatus == "Pass") {
                 theUrlLis.each(function (i, li) {
                     $(li).removeClass("validation-validating").addClass("validation-pass"); // the li for package manifest
@@ -165,20 +189,27 @@ verifyUrls = function () {
         urlArr.push(theUrl);
     });
 
-    $(urlArr).each(function (index, url) {
-        var validatingLis = $('#ulUrls li[data-value="' + url + '"]');
+    $(urlArr).each(function (index, theUrl) {
+        var validatingLis = $('#ulUrls li[data-value="' + theUrl + '"]');
         validatingLis.addClass("validation-validating");
+
+        // recored the validating item and its status
+        var validatingItemKey = "url@" + theUrl;
+        itemsToValidate.push({ key: validatingItemKey, status: "validating" });
 
         var ajaxOption = {
             url: "/app/verifyurl",
             type: "post",
             dataType: 'json',
             data: addAntiForgeryToken({
-                url: url
+                url: theUrl,
+                key: validatingItemKey
             })
         };
 
         $.ajax(ajaxOption).done(function (verification) {
+            updateValidationItems(verification.Key);
+
             if (verification.status == "Pass") {
                 validatingLis.removeClass("validation-validating").addClass("validation-pass");
             }
@@ -200,33 +231,28 @@ addAntiForgeryToken = function (data) {
 }
 
 showPassPanel = function () {
-    var isValidatingDone = true;
-    var hasValidationFails = false;
-
-    $(".validation-panel li").each(function (index, li) {
-        var hasValidationFails = $(li).hasClass("validation-fail");
-        if (hasValidationFails)
-        {
-            return false;
-        }
-
-        if (li.className != "validation-pass" && li.className != "validation-fail" && li.className == "validation-unknown")
-        {
-            isValidatingDone = false;
-            return false;
-        }
+    var allValidationsDone = true;
+    itemsToValidate.each(function (index, item) {
+        allValidationsDone = allValidationsDone && item.status == "done";
     });
 
-    if (hasValidationFails)
-    {
-        $("#panelFail").show();
-        $("#panelPass").hide();
-        return;
-    }
+    if (allValidationsDone) {
+        var hasValidationFails = false;
 
-    if (isValidatingDone)
-    {
-        $("#panelFail").hide();
-        $("#panelPass").show();
-    }        
+        $(".validation-panel li").each(function (index, li) {
+            hasValidationFails = $(li).hasClass("validation-fail");
+            if (hasValidationFails) {
+                return false;
+            }
+        });
+
+        if (hasValidationFails) {
+            $("#panelFail").show();
+            $("#panelPass").hide();
+        }
+        else {
+            $("#panelFail").hide();
+            $("#panelPass").show();
+        }
+    }
 }

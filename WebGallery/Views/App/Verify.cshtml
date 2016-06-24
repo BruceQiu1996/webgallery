@@ -48,6 +48,7 @@
     <div id="panelPass" style="display:none">
         @using (Html.BeginForm("MoveToTesting", "app", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
             <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
             <p>
                 This app has passed verification, you can submit it now for further testing. If you do so, this submission will be locked from modification for a while until we finish the testing.
