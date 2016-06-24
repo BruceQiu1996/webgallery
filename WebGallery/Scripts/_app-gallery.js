@@ -7,4 +7,12 @@
         $("#nextlink").removeAttr("href");
         $("#nextlink").addClass("link-disabled");
     }
+    if (localStorage['page'] == document.URL) {
+        $(document).scrollTop(localStorage['scrollTop']);
+    }
 })
+
+$(document).scroll(function () {
+    localStorage['page'] = document.URL;
+    localStorage['scrollTop'] = $(document).scrollTop();
+});
