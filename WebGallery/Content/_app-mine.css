@@ -1,4 +1,11 @@
-﻿.submissions-table-container {
+﻿.warning-panel
+{
+    margin:20px;
+    padding:20px;
+    border:2px solid red;
+}
+
+.submissions-table-container {
     margin-top: 50px;
 }
 
