@@ -15,17 +15,6 @@ namespace WebGallery.Controllers
         {
         }
 
-        //
-        // GET: /Manage/Index
-        public ActionResult Index()
-        {
-            ViewBag.Name = User.GetName();
-            ViewBag.PreferredUsername = User.GetPreferredUsername();
-            ViewBag.EmailAddress = User.GetEmailAddress();
-
-            return View();
-        }
-
         //GET 
         [Authorize]
         public ActionResult Dashboard()
