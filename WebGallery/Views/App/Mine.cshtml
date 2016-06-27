@@ -7,6 +7,16 @@
 
 <div class="content">
     <h2>Web App Gallery Submission Portal</h2>
+    @if (!Model.HasSubmittership)
+    {
+        <div class="warning-panel">
+            <p>If you have existing applications that are not visible, please contact <a href="mailto:appgal@microsoft.com">appgal@microsoft.com</a> and share the following information:</p>
+            <ul>
+                <li>Send the Application Name for all your applications if you manage more than one.</li>
+                <li>Send you email address that you used to login to access the submissions.</li>
+            </ul>
+        </div>
+    }
     <div>
         <p>Welcome! From this page you can:</p>
         <ul>
@@ -17,44 +27,47 @@
             <li>Edit your @Html.ActionLink("contact information", "Profile", "Account").</li>
         </ul>
     </div>
-    <div class="submissions-table-container">
-        <table cellpadding="0" cellspacing="0" class="submissions-table sortable">
-            <thead>
-                <tr>
-                    <th><a>App ID</a></th>
-                    <th data-defaultsort='disabled'>Ver</th>
-                    <th data-firstsort="desc"><a>ID</a></th>
-                    <th data-defaultsort='disabled'>Status</th>
-                    <th data-defaultsort='disabled'></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (var index = 0; index < Model.MySubmissions.Count; index++)
+    @if (Model.HasSubmittership)
+    {
+        <div class="submissions-table-container">
+            <table cellpadding="0" cellspacing="0" class="submissions-table sortable">
+                <thead>
+                    <tr>
+                        <th><a>App ID</a></th>
+                        <th data-defaultsort='disabled'>Ver</th>
+                        <th data-firstsort="desc"><a>ID</a></th>
+                        <th data-defaultsort='disabled'>Status</th>
+                        <th data-defaultsort='disabled'></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var index = 0; index < Model.MySubmissions.Count; index++)
                 {
                     var submission = Model.MySubmissions[index];
 
-                    <tr>
-                        <td class="sortOnThisCol">@submission.Nickname</td>
-                        <td>@submission.Version</td>
-                        <td class="sortOnThisCol">@submission.SubmissionID</td>
-                        <td>@submission.Status</td>
-                        <td>
-                            <a>actions</a>
-                            <div class="actions-panel">
-                                <ul>
-                                    <li>@Html.ActionLink("edit", "Edit", new { id = submission.SubmissionID })</li>
-                                    <li>@Html.ActionLink("verify", "Verify", new { id = submission.SubmissionID })</li>
-                                    <li>@Html.ActionLink("owners", "Owners", new { id = submission.SubmissionID })</li>
-                                    <li>@Html.ActionLink("clone", "Clone", new { id = submission.SubmissionID })</li>
-                                    <li>@Html.ActionLink("preview in gallery", "Detail", new { id = submission.SubmissionID })</li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                        <tr>
+                            <td class="sortOnThisCol">@submission.Nickname</td>
+                            <td>@submission.Version</td>
+                            <td class="sortOnThisCol">@submission.SubmissionID</td>
+                            <td>@submission.Status</td>
+                            <td>
+                                <a>actions</a>
+                                <div class="actions-panel">
+                                    <ul>
+                                        <li>@Html.ActionLink("edit", "Edit", new { id = submission.SubmissionID })</li>
+                                        <li>@Html.ActionLink("verify", "Verify", new { id = submission.SubmissionID })</li>
+                                        <li>@Html.ActionLink("owners", "Owners", new { id = submission.SubmissionID })</li>
+                                        <li>@Html.ActionLink("clone", "Clone", new { id = submission.SubmissionID })</li>
+                                        <li>@Html.ActionLink("preview in gallery", "Detail", new { id = submission.SubmissionID })</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 @section Scripts {
