@@ -72,27 +72,6 @@ END
             }
 
         }
-       
-        public ActionResult Delete(int id)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-                IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
-
-                Submission selectedsubmission = new Submission();
-                foreach (Submission submission in submissions)
-                {
-                    if (submission.SubmissionID == id)
-                        selectedsubmission = submission;
-                    break;
-
-                }
-                // Delete a submission
-
-                return View("AppSubmit", submissions);
-            }
-
-        }
 
         public async Task<ActionResult> SuperSubmitters()
         {
