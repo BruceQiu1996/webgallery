@@ -62,13 +62,6 @@ namespace WebGallery.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> Developer()
-        {
-            var model = new HomeDeveloperViewModel();
-
-            return View(model);
-        }
-
         public async Task<ActionResult> Install()
         {
             var model = new HomeInstallViewModel();
