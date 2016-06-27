@@ -15,17 +15,6 @@ namespace WebGallery.Controllers
         {
         }
 
-        //
-        // GET: /Manage/Index
-        public ActionResult Index()
-        {
-            ViewBag.Name = User.GetName();
-            ViewBag.PreferredUsername = User.GetPreferredUsername();
-            ViewBag.EmailAddress = User.GetEmailAddress();
-
-            return View();
-        }
-
         //GET 
         [Authorize]
         public ActionResult Dashboard()
@@ -80,27 +69,6 @@ END
                  */
 
                 return View("Dashboard", null);
-            }
-
-        }
-       
-        public ActionResult Delete(int id)
-        {
-            using (var db = new WebGalleryDbContext())
-            {
-                IEnumerable<Submission> submissions = db.Submissions.ToList<Submission>();
-
-                Submission selectedsubmission = new Submission();
-                foreach (Submission submission in submissions)
-                {
-                    if (submission.SubmissionID == id)
-                        selectedsubmission = submission;
-                    break;
-
-                }
-                // Delete a submission
-
-                return View("AppSubmit", submissions);
             }
 
         }
