@@ -72,6 +72,12 @@ namespace WebGallery
                 "~/Content/_app-gallery.css"));
             bundles.Add(new ScriptBundle("~/js/app-gallery").Include(
                         "~/scripts/_app-gallery.js"));
+
+            bundles.Add(new StyleBundle("~/css/manage-dashboard").Include(
+                "~/Content/_manage-dashboard.css",
+                "~/Content/bootstrap-sortable.css"));
+            bundles.Add(new ScriptBundle("~/js/manage-dashboard").Include(
+                        "~/scripts/_manage-dashboard.js"));
         }
     }
 }

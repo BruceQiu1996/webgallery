@@ -1,0 +1,52 @@
+﻿.submissions-table-container {
+    margin-top: 30px;
+}
+
+.submissions-table thead tr {
+    border-bottom: 2px solid #333333;
+}
+
+.submissions-table tbody tr {
+    border-bottom: 1px solid #999999;
+}
+
+.submissions-table thead th,
+.submissions-table tbody td {
+    padding: 2px 20px;
+}
+
+    .submissions-table tbody td a {
+        padding-right: 5px;
+    }
+
+.submissions-table tbody tr:nth-of-type(2n) {
+    background: #bbbbbb;
+}
+
+.submissions-table .actions-panel {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #BBBBBB;
+}
+
+.submissions-table select {
+    display: none;
+    width: 120px;
+}
+
+.submissions-table .actions-panel ul {
+    padding: 5px;
+}
+
+.submissions-table .actions-panel li,
+.sync-option ul {
+    list-style: none;
+}
+
+.search-form input,
+.search-form select,
+.sync-option input {
+    margin-right: 5px;
+    margin-left: 5px;
+}
