@@ -7,9 +7,9 @@
 
 <div class="content">
     <h2>Already Has Ownership</h2>
-    <p>The invitee (@Model.FirstName @Model.LastName) is already an owner of the app (<a href="/app/detail/@Model.Submission.SubmissionID">@Model.Submission.Nickname</a>).</p>
+    <p>The invitee (@Model.FirstName @Model.LastName) is already an owner of the app (@Html.RouteLink(Model.Submission.Nickname, SiteRouteNames.App_Preview, new { submissionId = Model.Submission.SubmissionID })).</p>
     <ul>
-        <li><a href="/app/owners/@Model.Submission.SubmissionID">Re-assign an owner</a></li>
-        <li><a href="/app/mine">Go to my portal</a></li>
+        <li>@Html.RouteLink("Re-assign an owner", SiteRouteNames.App_Owners, new { submissionId = Model.Submission.SubmissionID })</li>
+        <li>@Html.RouteLink("Go to my portal", SiteRouteNames.Portal)</li>
     </ul>
 </div>

@@ -139,9 +139,10 @@ namespace WebGallery.Services
             var body = new StringBuilder();
             body.Append($"SUBMISSION {action}: {submission.Nickname}<br /><br />");
 
-            body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='https://{urlAuthority}/account/profile'>{contactInfo.FullName}'s contact information</a><br />");
-            body.Append($"<a href='https://{urlAuthority}/app/edit/{submission.SubmissionID}'>View submission form</a><br />");
-            body.Append($"<a href='https://{urlAuthority}/app/verify/{submission.SubmissionID}'>Validate submission</a><br />");
+            body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='https://{urlAuthority}/profiles/{submitter.SubmitterID}'>{contactInfo.FullName}'s contact information</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/apps/edit/{submission.SubmissionID}'>Edit this submission</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/apps/{submission.SubmissionID}'>Preview this submission</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/apps/verify/{submission.SubmissionID}'>Verify this submission again</a><br />");
 
             // logo and screenshots
             body.Append($"<a href='{submission.LogoUrl}'>Logo</a><br />");
@@ -238,7 +239,7 @@ namespace WebGallery.Services
         private static string BuildSubmissionNote(string who, string eMailAddressOfSubmitter, string appID, string appVersion, string urlAuthority)
         {
             return $"<p>{who},</p>"
-                + $"<p>Thanks for your interest in the Windows Web Application Gallery! As we mention at <a href='https://{urlAuthority}/home/documentation'>Windows Web Application Gallery for Developers</a>, all applications in the Web Application Gallery follow the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Web Application Gallery Principles</a>. We will take a look to see if the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Principles</a> have been applied to {appID} {appVersion} for Web App Gallery integration.</p>"
+                + $"<p>Thanks for your interest in the Windows Web Application Gallery! As we mention at <a href='https://{urlAuthority}/docs'>Windows Web Application Gallery for Developers</a>, all applications in the Web Application Gallery follow the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Web Application Gallery Principles</a>. We will take a look to see if the <a href='http://learn.iis.net/page.aspx/605/windows-web-application-gallery-principles/'>Principles</a> have been applied to {appID} {appVersion} for Web App Gallery integration.</p>"
                 + $"<p>We also want to confirm the submission information that we received from {eMailAddressOfSubmitter} about {appID} {appVersion} in the Windows Web Application Gallery.  If the information below in this email is incorrect, please email appgal@microsoft.com so we can make changes.</p>"
                 + "<p>Thanks,<br />The Web Application Gallery team</p>"
                 + "<p>PS:  Microsoft respects your privacy.  If you feel you’ve received this e-mail in error, contact us at <a href='mailto:appgal@microsoft.com'>appgal@microsoft.com</a>.</p>"
@@ -348,7 +349,7 @@ table tr td.parent-of-table
                 bodyBuilder.Append($"The version is {submission.Version}.");
                 bodyBuilder.Append("</p>");
                 bodyBuilder.Append("<p>");
-                bodyBuilder.Append($"To accept this invitation please visit <a href='https://{urlAuthority}/invitation/detail/{invitationGuid}' title='go here to accept this invitation'>this Web page</a> and follow these steps:");
+                bodyBuilder.Append($"To accept this invitation please visit <a href='https://{urlAuthority}/ownership/invitations/{invitationGuid}' title='go here to accept this invitation'>this Web page</a> and follow these steps:");
                 bodyBuilder.Append("</p>");
                 bodyBuilder.Append("<ol>");
                 bodyBuilder.Append("<li>Log into Live ID. If you do not yet have a Live ID account you will be able to create one from the log-in page.</li>");

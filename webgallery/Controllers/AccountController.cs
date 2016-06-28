@@ -27,7 +27,7 @@ namespace WebGallery.Controllers
             if (!Request.IsAuthenticated)
             {
                 HttpContext.GetOwinContext().Authentication.Challenge(
-                    new AuthenticationProperties { RedirectUri = "/app/mine" },
+                    new AuthenticationProperties { RedirectUri = SiteUrls.Portal },
                     OpenIdConnectAuthenticationDefaults.AuthenticationType);
             }
         }
@@ -38,11 +38,18 @@ namespace WebGallery.Controllers
         {
             // Send an OpenID Connect sign-out request.
             HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            Response.Redirect("/");
+            Response.Redirect(SiteUrls.Home);
         }
 
         [Authorize]
-        [ActionName("Profile")]
+        [HttpGet]
+        public async Task<ActionResult> View(int? submitterId)
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
         public async Task<ActionResult> Me(string returnUrl)
         {
             var model = new AccountProfileViewModel { ReturnUrl = returnUrl };
@@ -57,7 +64,6 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
-        [ActionName("Profile")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Me(AccountProfileViewModel model, string returnUrl)
@@ -70,9 +76,9 @@ namespace WebGallery.Controllers
             HttpContext.GetOwinContext().Authentication.SignInAsSubmitter(submitter);
 
             if (string.IsNullOrEmpty(returnUrl))
-                return RedirectToAction("mine", "app");
+                return RedirectToRoute(SiteRouteNames.Portal);
             else
-                return new RedirectResult(returnUrl);
+                return Redirect(returnUrl);
         }
 
         private bool ValidateContactDetail(AccountProfileViewModel model)

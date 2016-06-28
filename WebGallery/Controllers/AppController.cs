@@ -68,7 +68,7 @@ namespace WebGallery.Controllers
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("New");
+                return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
             int submissionId = id.Value;
@@ -79,7 +79,7 @@ namespace WebGallery.Controllers
             // the page will show an empty form and allow user to submit a new app.
             if (submission == null)
             {
-                return RedirectToAction("New");
+                return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
             // Check if current user can clone the app specified by the submission id.
@@ -126,7 +126,7 @@ namespace WebGallery.Controllers
 
             // go to the App Status page
             // old site -> Response.Redirect("AppStatus.aspx?mode=thanks&id=" + id);
-            return RedirectToAction("Verify", new { id = submission.SubmissionID, showThanks = true });
+            return RedirectToRoute(SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID, showThanks = true });
         }
 
         [Authorize]
@@ -138,7 +138,7 @@ namespace WebGallery.Controllers
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("New");
+                return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
             int submissionId = id.Value;
@@ -149,7 +149,7 @@ namespace WebGallery.Controllers
             // the page will show an empty form and allow user to submit a new app.
             if (submission == null)
             {
-                return RedirectToAction("New");
+                return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
             // Check if current user can modify the app.
@@ -206,8 +206,8 @@ namespace WebGallery.Controllers
             // save
             var submission = await _appService.UpdateAsync(User.GetSubmittership(), model.Submission, model.MetadataList, model.Packages, Request.Files.GetAppImages(), model.GetSettingStatusOfImages(), new AppImageAzureStorageService());
 
-            // go to the App Status page
-            return RedirectToAction("Verify", new { id = submission.SubmissionID, showThanks = true });
+            // go to App Verify
+            return RedirectToRoute(SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID, showThanks = true });
         }
 
         private async Task LoadViewDataForSubmit()
@@ -232,7 +232,7 @@ namespace WebGallery.Controllers
         #endregion
 
         [AllowAnonymous]
-        public async Task<ActionResult> Categorize()
+        public async Task<ActionResult> Categorize(string category)
         {
             var model = new AppCategorizeViewModel();
 
@@ -257,7 +257,7 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Detail(int? id, string appId)
+        public async Task<ActionResult> Preview(int? id, string appId)
         {
             var submission = id.HasValue ? await _appService.GetSubmissionAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
             if (submission == null)
@@ -332,18 +332,17 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpGet]
         [RequireSubmittership]
-        public async Task<ActionResult> Verify(int? id, bool? showThanks)
+        public async Task<ActionResult> Verify(int? submissionId, bool? showThanks)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!submissionId.HasValue) return View("ResourceNotFound");
 
-            var submissionId = id.Value;
-            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId);
+            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId.Value);
             if (!User.IsSuperSubmitter() && !isOwner)
             {
                 return View("NeedPermission");
             }
 
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
             if (submission == null)
             {
                 return View("ResourceNotFound");
@@ -421,7 +420,7 @@ namespace WebGallery.Controllers
             // send email
             _emailService.SendMessageForSubmissionVerified(User.GetSubmittership(), submission, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
-            return RedirectToAction("mine");
+            return RedirectToRoute(SiteRouteNames.Portal);
         }
     } // end class
 }

@@ -704,7 +704,7 @@
     <Content Include="Views\App\Owners.cshtml" />
     <Content Include="Views\App\Verify.cshtml" />
     <Content Include="Views\App\Submit.cshtml" />
-    <Content Include="Views\App\Detail.cshtml" />
+    <Content Include="Views\App\Preview.cshtml" />
     <Content Include="Views\App\Categorize.cshtml" />
     <Content Include="Views\Home\Install.cshtml" />
     <Content Include="Views\App\Mine.cshtml" />

@@ -7,6 +7,6 @@
     <h2>App Related to this Invitation not Found</h2>
     <p>You were invited to become a co-owner of an application but the application is no longer active. It should be removed by its owners. The Id of this app submission is: @Model.</p>
     <ul>
-        <li><a href="/app/mine">Go to my portal</a></li>
+        <li>@Html.RouteLink("Go to my portal", SiteRouteNames.Portal)</li>
     </ul>
 </div>
