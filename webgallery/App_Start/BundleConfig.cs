@@ -74,8 +74,7 @@ namespace WebGallery
                         "~/scripts/_app-gallery.js"));
 
             bundles.Add(new StyleBundle("~/css/manage-dashboard").Include(
-                "~/Content/_manage-dashboard.css",
-                "~/Content/bootstrap-sortable.css"));
+                "~/Content/_manage-dashboard.css"));
             bundles.Add(new ScriptBundle("~/js/manage-dashboard").Include(
                         "~/scripts/_manage-dashboard.js"));
         }
