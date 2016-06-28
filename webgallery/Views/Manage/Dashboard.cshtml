@@ -8,7 +8,7 @@
 
 <div class="content">
     <div class="search-form">
-        @using (Html.BeginForm("Dashboard", "Manage", new { page = 1 }, FormMethod.Get))
+        @using (Html.BeginForm("Dashboard", "Manage", FormMethod.Get))
         {
             <p>List only apps whose App ID contains:@Html.TextBox("keyword", Model.Keyword)</p>
             <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "10", Value = "10" }, new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "100", Value = "100" }, new SelectListItem { Text = "1000", Value = "1000" } })</p>
@@ -32,13 +32,12 @@
                 @for (var index = 0; index < Model.Submissions.Count(); index++)
                 {
                     var submission = Model.Submissions[index];
+                    var creatDate = submission.Created.HasValue ? submission.Created.Value.ToString("dd/MM/yyyy") : "---";
+                    var updatedDate = submission.Updated.HasValue ? submission.Updated.Value.ToString("dd/MM/yyyy") : "---";
+
                     <tr>
                         <td class="sortOnThisCol">@submission.Nickname</td>
                         <td>@submission.Version</td>
-                        @{
-                            var creatDate = submission.Created.HasValue ? submission.Created.Value.ToString("dd/MM/yyyy") : "---";
-                            var updatedDate = submission.Updated.HasValue ? submission.Updated.Value.ToString("dd/MM/yyyy") : "---";
-                        }
                         <td class="sortOnThisCol">@creatDate</td>
                         <td class="sortOnThisCol">@updatedDate</td>
                         <td class="sortOnThisCol">@submission.SubmissionID</td>
@@ -66,7 +65,7 @@
                             </div>
                         </td>
                     </tr>
-                            }
+                }
             </tbody>
         </table>
         <div>
