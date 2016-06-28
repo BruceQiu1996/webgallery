@@ -36,12 +36,12 @@
                     var updatedDate = submission.Updated.HasValue ? submission.Updated.Value.ToString("dd/MM/yyyy") : "---";
 
                     <tr>
-                        <td class="sortOnThisCol">@submission.Nickname</td>
+                        <td>@submission.Nickname</td>
                         <td>@submission.Version</td>
-                        <td class="sortOnThisCol">@creatDate</td>
-                        <td class="sortOnThisCol">@updatedDate</td>
-                        <td class="sortOnThisCol">@submission.SubmissionID</td>
-                        <td class="sortOnThisCol">
+                        <td>@creatDate</td>
+                        <td>@updatedDate</td>
+                        <td>@submission.SubmissionID</td>
+                        <td>
                             <span>@submission.Status</span>
                             @using (Html.BeginForm("Dashboard", "Manage", new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
                             {
