@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PagedList;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebGallery.Models;
 
@@ -58,5 +59,11 @@ namespace WebGallery.Services
         Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
 
         Task MoveToTestingAsync(Submission submission);
+
+        Task<IPagedList<Submission>> GetSubmissions(string keyword, int? page, int? pageSize, string sortOrder);
+
+        Task<IList<SubmissionState>> GetAllStatus();
+
+        Task<int> UpdateSubmissionStatus(int submissionId, int statusId);
     }
 }

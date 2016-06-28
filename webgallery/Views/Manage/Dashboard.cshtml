@@ -15,17 +15,17 @@
         }
     </div>
     <div class="submissions-table-container">
-        <table cellpadding="0" cellspacing="0" class="submissions-table sortable">
+        <table cellpadding="0" cellspacing="0" class="submissions-table">
             <thead>
                 <tr>
-                    <th>@Html.ActionLink("App ID", "Dashboard", new { sortOrder = Model.AppIdSortParam, keyword = Model.Keyword, pageSize = Convert.ToInt32(Model.PageSize) })</th>
+                    <th>@Html.ActionLink("App ID", "Dashboard", new { sortOrder = Model.AppIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th>Ver</th>
                     <th>@Html.ActionLink("Created", "Dashboard", new { sortOrder = Model.CreatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th>@Html.ActionLink("Updated", "Dashboard", new { sortOrder = Model.UpdatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th>@Html.ActionLink("ID", "Dashboard", new { sortOrder = Model.SubmissionIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th>@Html.ActionLink("Status", "Dashboard", new { sortOrder = Model.StatusSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
-                    <th data-defaultsort='disabled'></th>
-                    <th data-defaultsort='disabled'></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
                             <span>@submission.Status</span>
                             @using (Html.BeginForm("Dashboard", "Manage", new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
                             {
-                                @Html.DropDownList("newStatus", new SelectList(Model.Status, "Name", "Name", submission.Status))
+                                @Html.DropDownList("statusId", new SelectList(Model.Status, "SubmissionStateID", "Name", Model.Status.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
                                 @Html.Hidden("submissionId", submission.SubmissionID)
                             }
                         </td>

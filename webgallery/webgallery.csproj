@@ -464,10 +464,8 @@
     <Compile Include="Services\IAppService.cs" />
     <Compile Include="Services\IAppValidationService.cs" />
     <Compile Include="Services\IEmailService.cs" />
-    <Compile Include="Services\IManageService.cs" />
     <Compile Include="Services\IOwnershipService.cs" />
     <Compile Include="Services\ISubmitterService.cs" />
-    <Compile Include="Services\ManageService.cs" />
     <Compile Include="Services\OwnershipService.cs" />
     <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />

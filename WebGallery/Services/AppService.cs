@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -608,10 +609,123 @@ namespace WebGallery.Services
                 return Task.FromResult<IList<ProductOrAppCategory>>(categories.ToList());
             }
         }
-    } // class
 
-    public class TestingStateMissingException : Exception
-    {
-        public TestingStateMissingException() : base("") { }
+        public Task<IPagedList<Submission>> GetSubmissions(string keyword, int? page, int? pageSize, string sortOrder)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var searchstring = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
+                var query = (from s in db.Submissions
+                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
+                             where searchstring == "" || s.Nickname.Contains(searchstring)
+                             select new
+                             {
+                                 submissionID = s.SubmissionID,
+                                 nickname = s.Nickname,
+                                 version = s.Version,
+                                 created = s.Created,
+                                 updated = s.Updated,
+                                 status = d.Name,
+                                 statusSortOrder = d.SortOrder
+                             }).AsEnumerable();
+                switch (sortOrder)
+                {
+                    case "appid":
+                        query = query.OrderBy(q => q.nickname);
+                        break;
+                    case "appid_desc":
+                        query = query.OrderByDescending(q => q.nickname);
+                        break;
+                    case "created":
+                        query = query.OrderBy(q => q.created);
+                        break;
+                    case "created_desc":
+                        query = query.OrderByDescending(q => q.created);
+                        break;
+                    case "updated":
+                        query = query.OrderBy(q => q.updated);
+                        break;
+                    case "submissionid":
+                        query = query.OrderBy(q => q.submissionID);
+                        break;
+                    case "submissionid_desc":
+                        query = query.OrderByDescending(q => q.submissionID);
+                        break;
+                    case "status":
+                        query = query.OrderBy(q => q.statusSortOrder);
+                        break;
+                    case "status_desc":
+                        query = query.OrderByDescending(q => q.statusSortOrder);
+                        break;
+                    default:
+                        query = query.OrderByDescending(q => q.updated);
+                        break;
+                }
+
+                return Task.FromResult((from a in query
+                                        select new Submission
+                                        {
+                                            SubmissionID = a.submissionID,
+                                            Nickname = a.nickname,
+                                            Version = a.version,
+                                            Created = a.created,
+                                            Updated = a.updated,
+                                            Status = a.status
+                                        }).ToPagedList(page.HasValue ? page.Value : 1, pageSize.HasValue ? pageSize.Value : 10));
+            }
+        }
+
+        public Task<IList<SubmissionState>> GetAllStatus()
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var status = (from s in db.SubmissionStates
+                              select s).ToList();
+
+                return Task.FromResult<IList<SubmissionState>>(status);
+            }
+        }
+
+        public Task<int> UpdateSubmissionStatus(int submissionId, int statusId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var status = (from s in db.SubmissionsStatus
+                              where s.SubmissionID == submissionId
+                              select s).FirstOrDefault();
+
+                var oldStateName = (from t in db.SubmissionStates
+                                    where t.SubmissionStateID == status.SubmissionStateID
+                                    select t.Name).FirstOrDefault();
+
+                var newStateName = (from n in db.SubmissionStates
+                                    where n.SubmissionStateID == statusId
+                                    select n.Name).FirstOrDefault();
+
+                status.SubmissionStateID = statusId;
+
+                var taskId = (from t in db.SubmissionTransactionTypes
+                              where t.Name == "General"
+                              select t.SubmissionTaskID).FirstOrDefault();
+
+                var transaction = new SubmissionTransaction
+                {
+                    SubmissionID = submissionId,
+                    SubmissionTaskID = taskId,
+                    Description = "Submission State\n" + "    old: " + oldStateName + "\n" + "    new: " + newStateName,
+                    RecordedAt = DateTime.Now
+                };
+
+                db.SubmissionTransactions.Add(transaction);
+
+                return Task.FromResult(db.SaveChanges());
+            }
+        } // class
+
+        public class TestingStateMissingException : Exception
+        {
+            public TestingStateMissingException() : base("") { }
+        }
     }
 }

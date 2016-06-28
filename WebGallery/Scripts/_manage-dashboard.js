@@ -27,6 +27,7 @@
         $(this).prev().prev().show();
         $(this).hide();
         $(this).prev().hide();
+        $(this).parent().prev().find('select').find('option:selected').removeAttr("selected");
         $(this).parent().prev().find('select').find('option').each(function () {
             if ($(this).text() == $(this).parent().parent().prev().text()) {
                 $(this).attr("selected", "selected");
