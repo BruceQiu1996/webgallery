@@ -21,7 +21,7 @@
                 <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
             </span>
             <span class="pull-right">
-                <a href="@Url.Action("install", new { appId = Model.Submission.Nickname })">
+                <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
                     <img src="~/content/images/install-btn.jpg" />
                 </a>
             </span>
@@ -31,7 +31,7 @@
             <span class="pull-right">
                 @foreach (var c in Model.Submission.Categories)
                 {
-                    @Html.ActionLink(c.Name, "Categorize", new { category = c.Name }, new { @class = "pull-right" });
+                    @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
                     <br />
                 }
             </span>

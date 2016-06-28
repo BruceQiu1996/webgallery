@@ -28,7 +28,7 @@
                 }
                 <input type="checkbox" name="Submission.AgreedToTerms" id="AcceptTermsAndConditions" @checkedProperty value="@Model.Submission.AgreedToTerms" onchange="this.value = (this.checked) ? 'true' : 'false'" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
                 <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">
-                    I accept the Terms and Conditions of the Web Application <a href="https://www.microsoft.com/web/gallery/SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
+                    I accept the Terms and Conditions of the Web Application <a href='@Url.RouteUrl(SiteRouteNames.Agreement)' title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
                 </label>
             </p>
             <p>

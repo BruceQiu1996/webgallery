@@ -1,14 +1,15 @@
 ﻿@model int
+
 @{
     ViewBag.Title = "Can Not Find Specific Version";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Can not Find Specific Version</h2>
-<p>We can not find the specific version of this application. Would you want to scan another version of this app. </p>
+<p>The specific version of this application can't be found. Would you like to see another version of this app?</p>
 <div>
-    @Html.ActionLink("See Another Version", "Detail", new { id = Model })
+    @Html.RouteLink("See another version", SiteRouteNames.App_Preview, new { submissionId = Model })
 </div>
 <div>
-    @Html.ActionLink("Back", "Gallery")
+    @Html.RouteLink("Back", SiteRouteNames.Gallery)
 </div>

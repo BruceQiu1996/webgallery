@@ -7,9 +7,9 @@
 
 <div class="content">
     <h2>New Ownership Invitation</h2>
-    <p>Fill the form below to invite the one to be the owner of this app: <a href="/app/detail/@Model.Submission.SubmissionID"><strong>@Model.Submission.Nickname</strong> - <strong>@Model.Submission.Version</strong></a>.</p>
+    <p>Fill the form below to invite the one to be the owner of this app: <a href="@Url.RouteUrl(SiteRouteNames.App_Preview, new { submissionId = Model.Submission.SubmissionID })"><strong>@Model.Submission.Nickname</strong> - <strong>@Model.Submission.Version</strong></a>.</p>
     <div class="form-panel">
-        @using (Html.BeginForm("Send", "Invitation", FormMethod.Post))
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Owners_Invite, FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <input type="hidden" name="Submission.SubmissionID" value="@Model.Submission.SubmissionID" />
@@ -47,7 +47,7 @@
         }
     </div>
     <div class="links-panel">
-        <a href="/app/owners/@Model.Submission.SubmissionID">Back to App Owners</a>
+        @Html.RouteLink("Back to App Owners", SiteRouteNames.App_Owners, new { submissionId = Model.Submission.SubmissionID })
     </div>
 </div>
 
