@@ -29,7 +29,7 @@
                         <td>
                             @if (Model.Owners.Count > 1)
                             {
-                                using (Html.BeginForm("Remove", "Ownership", FormMethod.Post))
+                                using (Html.BeginRouteForm(SiteRouteNames.App_Owners_Remove, FormMethod.Post))
                                 {
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="submissionId" value="@Model.Submission.SubmissionID" />
@@ -49,7 +49,7 @@
                         <td>@invitaion.FirstName @invitaion.LastName</td>
                         <td>@Resources.Submit.OwnerStatus_Pending</td>
                         <td>
-                            @using (Html.BeginForm("Revoke", "Invitation", FormMethod.Post))
+                            @using (Html.BeginRouteForm(SiteRouteNames.Invitation_Revoke, FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="submissionId" value="@invitaion.SubmissionID" />
@@ -63,7 +63,7 @@
         </table>
     </div>
     <div class="links-panel">
-        <a href="/invitation/send/@Model.Submission.SubmissionID">Create a new invitation</a>
+        @Html.RouteLink("Create a new invitation", SiteRouteNames.App_Owners_Invite, new { submissionId = Model.Submission.SubmissionID })
     </div>
 </div>
 

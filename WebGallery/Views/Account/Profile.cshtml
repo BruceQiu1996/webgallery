@@ -9,7 +9,7 @@
     <p>Thank you for your interest in the Web App Gallery. In order to list your application in the Gallery we need your contact information so that Microsoft or our vendors may contact you during the review of your submission.</p>
 
     <div class="contact-detail-form">
-        @using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @id = "publisherdetailsform" }))
+        @using (Html.BeginRouteForm(SiteRouteNames.Profile, FormMethod.Post, new { @id = "publisherdetailsform" }))
         {
             @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.ReturnUrl)

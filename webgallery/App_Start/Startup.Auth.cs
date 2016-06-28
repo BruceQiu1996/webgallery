@@ -64,7 +64,7 @@ namespace WebGallery
         private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
         {
             notification.HandleResponse();
-            notification.Response.Redirect("/Error?message=" + notification.Exception.Message);
+            notification.Response.Redirect("/error?message=" + notification.Exception.Message);
             return Task.FromResult(0);
         }
     }

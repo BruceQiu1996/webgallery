@@ -20,11 +20,11 @@
     <div>
         <p>Welcome! From this page you can:</p>
         <ul>
-            <li>@Html.ActionLink("Submit a new application", "New").</li>
+            <li>@Html.RouteLink("Submit a new application", SiteRouteNames.App_Submit).</li>
             <li>Edit your previous submissions.</li>
             <li>Verify the validity of your application data.</li>
             <li>Designate co-owners for your submissions.</li>
-            <li>Edit your @Html.ActionLink("contact information", "Profile", "Account").</li>
+            <li>Edit your @Html.RouteLink("contact information", SiteRouteNames.Profile).</li>
         </ul>
     </div>
     @if (Model.HasSubmittership)
@@ -41,7 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for (var index = 0; index < Model.MySubmissions.Count; index++)
+                @for (var index = 0; index < Model.MySubmissions.Count; index++)
                 {
                     var submission = Model.MySubmissions[index];
 
@@ -54,11 +54,11 @@
                                 <a>actions</a>
                                 <div class="actions-panel">
                                     <ul>
-                                        <li>@Html.ActionLink("edit", "Edit", new { id = submission.SubmissionID })</li>
-                                        <li>@Html.ActionLink("verify", "Verify", new { id = submission.SubmissionID })</li>
-                                        <li>@Html.ActionLink("owners", "Owners", new { id = submission.SubmissionID })</li>
-                                        <li>@Html.ActionLink("clone", "Clone", new { id = submission.SubmissionID })</li>
-                                        <li>@Html.ActionLink("preview in gallery", "Detail", new { id = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink("verify", SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink("clone", SiteRouteNames.App_Clone, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink("preview in gallery", SiteRouteNames.App_Preview, new { submissionId = submission.SubmissionID })</li>
                                     </ul>
                                 </div>
                             </td>

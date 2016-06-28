@@ -86,7 +86,7 @@ namespace WebGallery.Controllers
             // email the ownership invitation
             await _emailService.SendOwnershipInvitation(model.EmailAddress, unconfirmedSubmissionOwner, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
-            return RedirectToAction("Owners", "App", new { id = model.Submission.SubmissionID });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = model.Submission.SubmissionID });
         }
 
         [Authorize]
@@ -124,7 +124,7 @@ namespace WebGallery.Controllers
             {
                 // if current user has the submittership, and is already the owner of the app within the invitation
                 // redirect him/her to the portal
-                return RedirectToAction("mine", "app");
+                return RedirectToRoute(SiteRouteNames.Portal);
             }
 
             return View(model);
@@ -151,7 +151,7 @@ namespace WebGallery.Controllers
             var invitee = User.GetSubmittership();
             await _ownershipService.CreateAsync(invitee, submission, invitation);
 
-            return RedirectToAction("Mine", "App");
+            return RedirectToRoute(SiteRouteNames.Portal);
         }
 
         [Authorize]
@@ -161,7 +161,7 @@ namespace WebGallery.Controllers
         {
             await _ownershipService.RemoveInvitationAsync(invitationGuid);
 
-            return RedirectToAction("Mine", "App");
+            return RedirectToRoute(SiteRouteNames.Portal);
         }
 
         [Authorize]
@@ -177,7 +177,7 @@ namespace WebGallery.Controllers
 
             await _ownershipService.RemoveInvitationAsync(invitationGuid);
 
-            return RedirectToAction("Owners", "App", new { id = submissionId });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = submissionId });
         }
     }
 }
