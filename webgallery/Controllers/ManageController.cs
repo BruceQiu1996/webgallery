@@ -17,7 +17,6 @@ namespace WebGallery.Controllers
         public ManageController(IManageService manageSerivce)
         {
             _manageService = manageSerivce;
-
         }
         //
         // GET: /Manage/Index
@@ -29,7 +28,6 @@ namespace WebGallery.Controllers
 
             return View();
         }
-
         //GET 
         [HttpGet]
         [Authorize]
@@ -51,6 +49,7 @@ namespace WebGallery.Controllers
 
             return View("Dashboard", model);
         }
+
         [HttpPost]
         [Authorize]
         public async Task<ActionResult> Dashboard(string sortOrder, string keyword, int submissionId, string newStatus, int? pageSize, int? page)
@@ -78,7 +77,6 @@ namespace WebGallery.Controllers
 
                 return View("AppSubmit", submissions);
             }
-
         }
 
         public async Task<ActionResult> SuperSubmitters()

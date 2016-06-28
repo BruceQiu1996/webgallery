@@ -17,13 +17,6 @@ namespace WebGallery.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
         public ActionResult Contact()
         {
             return View(new ContactModel());
@@ -58,13 +51,6 @@ namespace WebGallery.Controllers
         public async Task<ActionResult> Agreement()
         {
             var model = new HomeAgreementViewModel();
-
-            return View(model);
-        }
-
-        public async Task<ActionResult> Developer()
-        {
-            var model = new HomeDeveloperViewModel();
 
             return View(model);
         }
