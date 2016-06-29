@@ -25,6 +25,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = "App", action = "Edit" });
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = "App", action = "Verify" });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = "App", action = "Delete" });
+            routes.MapRoute(name: SiteRouteNames.App_UpdateStatus, url: SiteRouteUrlPatterns.App_UpdateStatus, defaults: new { controller = "App", action = "UpdateStatus" });
             routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = "App", action = "Categorize" });
             routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = "App", action = "Preview" });
             routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = "App", action = "Install" });
@@ -66,6 +67,7 @@ namespace WebGallery
         public const string App_Edit = "apps/edit/{submissionId}";
         public const string App_Verify = "apps/verify/{submissionId}";
         public const string App_Delete = "apps/delete/{submissionId}";
+        public const string App_UpdateStatus = "apps/{submissionId}/update/status";
         public const string App_Categorize = "apps/categorize/{category}";
         public const string App_Preview = "apps/preview/{submissionId}";
         public const string App_Install = "apps/install/{appId}";
@@ -81,6 +83,8 @@ namespace WebGallery
 
         public const string Dashboard = "admin/dashboard";
         public const string Supersubmitter = "admin/supersubmitters";
+
+
     }
 
     public class SiteRouteNames
@@ -101,6 +105,7 @@ namespace WebGallery
         public const string App_Edit = nameof(App_Edit);
         public const string App_Verify = nameof(App_Verify);
         public const string App_Delete = nameof(App_Delete);
+        public const string App_UpdateStatus = nameof(App_UpdateStatus);
         public const string App_Categorize = nameof(App_Categorize);
         public const string App_Preview = nameof(App_Preview);
         public const string App_Install = nameof(App_Install);
@@ -108,6 +113,7 @@ namespace WebGallery
         public const string App_Owners_Invite = nameof(App_Owners_Invite);
         public const string App_Owners_Remove = nameof(App_Owners_Remove);
         public const string App_View = nameof(App_View);
+
 
         public const string Invitation_Revoke = nameof(Invitation_Revoke);
         public const string Invitation_Accept = nameof(Invitation_Accept);

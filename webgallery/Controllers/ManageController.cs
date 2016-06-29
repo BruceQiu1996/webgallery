@@ -8,7 +8,6 @@ using WebGallery.ViewModels;
 
 namespace WebGallery.Controllers
 {
-    [Authorize]
     public class ManageController : Controller
     {
         private IAppService _appService;
@@ -19,8 +18,8 @@ namespace WebGallery.Controllers
         }
 
         //GET 
-        [HttpGet]
         [Authorize]
+        [HttpGet]
         public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder)
         {
             if (!User.IsSuperSubmitter())
@@ -34,7 +33,7 @@ namespace WebGallery.Controllers
             var apps = await _appService.GetSubmissionsAsync(keyword, pageNumber, size, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
-                PageSize = pageSize.HasValue ? pageSize.Value : 10,
+                PageSize = size,
                 Keyword = keyword,
                 CurrentSort = sortOrder,
                 Submissions = new StaticPagedList<Submission>(apps, pageNumber, size, count),
@@ -42,23 +41,6 @@ namespace WebGallery.Controllers
             };
 
             return View("Dashboard", model);
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder, int submissionId, int? statusId, bool? isDelete)
-        {
-            if (statusId.HasValue)
-            {
-                await _appService.UpdateStatusAsync(submissionId, statusId.Value);
-            }
-
-            if (isDelete.HasValue && isDelete.Value == true)
-            {
-                await _appService.DeleteAsync(submissionId);
-            }
-
-            return RedirectToAction("dashboard", new { keyword = keyword, page = page, pageSize = pageSize, sortOrder = sortOrder });
         }
 
         public async Task<ActionResult> SuperSubmitters()

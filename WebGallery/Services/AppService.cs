@@ -613,11 +613,10 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
-                var searchstring = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
                 var query = from s in db.Submissions
                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
-                            where searchstring == "" || s.Nickname.Contains(searchstring)
+                            where keyword == null || keyword == string.Empty || s.Nickname.Contains(keyword.Trim())
                             select new
                             {
                                 submissionID = s.SubmissionID,
@@ -698,8 +697,11 @@ namespace WebGallery.Services
                               where s.SubmissionID == submissionId
                               select s).FirstOrDefault();
 
+                //We don not delete the submission record from database, we set its status to "Inactive",
+                //the SubmissionStateID of state "Inactive" is 9 in table SubmissionStates
                 status.SubmissionStateID = 9;
 
+                //There is only one record in table SubmissionTransactionTypes and its Name is "General"
                 var taskId = (from t in db.SubmissionTransactionTypes
                               where t.Name == "General"
                               select t.SubmissionTaskID).FirstOrDefault();

@@ -43,10 +43,10 @@
                         <td>@submission.SubmissionID</td>
                         <td>
                             <span>@submission.Status</span>
-                            @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
+                            @using (Html.BeginRouteForm(SiteRouteNames.App_UpdateStatus, new { submissionId = submission.SubmissionID }, FormMethod.Post))
                             {
+                                @Html.AntiForgeryToken()
                                 @Html.DropDownList("statusId", new SelectList(Model.Status, "SubmissionStateID", "Name", Model.Status.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
-                                @Html.Hidden("submissionId", submission.SubmissionID)
                             }
                         </td>
                         <td>
@@ -61,10 +61,9 @@
                                     <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
                                     <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
                                     <li><a>delete</a></li>
-                                    @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
+                                    @using (Html.BeginRouteForm(SiteRouteNames.App_Delete, new { submissionId = submission.SubmissionID }, FormMethod.Post))
                                     {
-                                        @Html.Hidden("isDelete", true)
-                                        @Html.Hidden("submissionId", submission.SubmissionID)
+                                        @Html.AntiForgeryToken()
                                     }
                                 </ul>
                             </div>

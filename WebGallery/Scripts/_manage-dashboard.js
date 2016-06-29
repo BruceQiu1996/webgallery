@@ -19,7 +19,6 @@
             $(this).next().hide();
         }
         else {
-            $(this).parent().prev().find('form').find('input:first-child').val($(this).parent().prev().find('select').find('option:selected').text());
             $(this).parent().prev().find('form').submit();
         }
     });
@@ -45,6 +44,14 @@
     $(".search-form form p select").change(function () {
         $(this).parent().parent().submit();
     });
+    if (localStorage['page'] == document.URL) {
+        $(document).scrollTop(localStorage['scrollTop']);
+    }
+});
+
+$(document).scroll(function () {
+    localStorage['page'] = document.URL;
+    localStorage['scrollTop'] = $(document).scrollTop();
 });
 
 function showActions(target, panelActions) {
