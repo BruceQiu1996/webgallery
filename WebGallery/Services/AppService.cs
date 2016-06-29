@@ -754,11 +754,11 @@ namespace WebGallery.Services
 
                 return Task.FromResult(db.SaveChanges());
             }
-        } // class
-
-        public class TestingStateMissingException : Exception
-        {
-            public TestingStateMissingException() : base("") { }
         }
+    } // class
+
+    public class TestingStateMissingException : Exception
+    {
+        public TestingStateMissingException() : base("") { }
     }
 }
