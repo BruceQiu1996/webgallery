@@ -64,15 +64,14 @@ namespace WebGallery.Controllers
         [RequireSubmittingAppEnabled]
         [RequireSubmittership]
         [RequireBrowserVersion]
-        public async Task<ActionResult> Clone(int? id)
+        public async Task<ActionResult> Clone(int? submissionId)
         {
-            if (!id.HasValue)
+            if (!submissionId.HasValue)
             {
                 return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
-            int submissionId = id.Value;
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
 
             // Per the rule in the old site, 
             // if the submission id doesn't refer to a submission in database, 
@@ -84,14 +83,14 @@ namespace WebGallery.Controllers
 
             // Check if current user can clone the app specified by the submission id.
             // Only the owner and a super submitter can do that.
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submission.SubmissionID))
             {
                 return View("NeedPermission");
             }
 
             var model = AppSubmitViewModel.Clone(submission,
-                    await _appService.GetMetadataAsync(submissionId),
-                    await _appService.GetPackagesAsync(submissionId)
+                    await _appService.GetMetadataAsync(submission.SubmissionID),
+                    await _appService.GetPackagesAsync(submission.SubmissionID)
             );
 
             await LoadViewDataForSubmit();
@@ -134,15 +133,14 @@ namespace WebGallery.Controllers
         [RequireSubmittingAppEnabled]
         [RequireSubmittership]
         [RequireBrowserVersion]
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int? submissionId)
         {
-            if (!id.HasValue)
+            if (!submissionId.HasValue)
             {
                 return RedirectToRoute(SiteRouteNames.App_Submit);
             }
 
-            int submissionId = id.Value;
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
 
             // Per the rule in the old site, 
             // if the submission id doesn't refer to a submission in database, 
@@ -154,13 +152,13 @@ namespace WebGallery.Controllers
 
             // Check if current user can modify the app.
             // Only the owner and a super submitter can do that.
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submission.SubmissionID))
             {
                 return View("NeedPermission");
             }
 
             // Check if modification of this submission is locked.
-            if (!User.IsSuperSubmitter() && await _appService.IsModificationLockedAsync(submissionId))
+            if (!User.IsSuperSubmitter() && await _appService.IsModificationLockedAsync(submission.SubmissionID))
             {
                 // old: disable the form and display "This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time."
                 // new: go to a warning page
@@ -170,8 +168,8 @@ namespace WebGallery.Controllers
             var model = new AppSubmitViewModel
             {
                 Submission = submission,
-                MetadataList = await _appService.GetMetadataAsync(submissionId),
-                Packages = await _appService.GetPackagesAsync(submissionId),
+                MetadataList = await _appService.GetMetadataAsync(submission.SubmissionID),
+                Packages = await _appService.GetPackagesAsync(submission.SubmissionID),
                 CanEditNickname = User.IsSuperSubmitter()
             };
 
@@ -257,20 +255,20 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Preview(int? id, string appId)
+        public async Task<ActionResult> Preview(int? submissionId, string appId)
         {
-            var submission = id.HasValue ? await _appService.GetSubmissionAsync(id.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
+            var submission = submissionId.HasValue ? await _appService.GetSubmissionAsync(submissionId.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
             if (submission == null)
             {
                 return View("ResourceNotFound");
             }
 
-            if (id.HasValue)
+            if (submissionId.HasValue)
             {
                 submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
             }
 
-            var metadata = id.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
+            var metadata = submissionId.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
             if (metadata.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
@@ -302,18 +300,17 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpGet]
         [RequireSubmittership]
-        public async Task<ActionResult> Owners(int? id)
+        public async Task<ActionResult> Owners(int? submissionId)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!submissionId.HasValue) return View("ResourceNotFound");
 
-            var submissionId = id.Value;
-            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId);
+            var isOwner = await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId.Value);
             if (!User.IsSuperSubmitter() && !isOwner)
             {
                 return View("NeedPermission");
             }
 
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
             if (submission == null)
             {
                 return View("ResourceNotFound");
@@ -322,8 +319,8 @@ namespace WebGallery.Controllers
             var model = new AppOwnersViewModel()
             {
                 Submission = submission,
-                Owners = await _appService.GetOwnersAsync(submissionId),
-                OwnershipInvitations = await _appService.GetOwnershipInvitationsAsync(submissionId)
+                Owners = await _appService.GetOwnersAsync(submission.SubmissionID),
+                OwnershipInvitations = await _appService.GetOwnershipInvitationsAsync(submission.SubmissionID)
             };
 
             return View(model);

@@ -30,12 +30,11 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpGet]
         [RequireSubmittership]
-        public async Task<ActionResult> Send(int? id)
+        public async Task<ActionResult> Send(int? submissionId)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!submissionId.HasValue) return View("ResourceNotFound");
 
-            var submissionId = id.Value;
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
             if (submission == null)
             {
                 return View("ResourceNotFound");
@@ -91,15 +90,14 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> Detail(Guid? id)
+        public async Task<ActionResult> Detail(Guid? invitationGuid)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!invitationGuid.HasValue) return View("ResourceNotFound");
 
-            var invitationGuid = id.Value;
-            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid);
+            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid.Value);
             if (invitation == null)
             {
-                return View("InvitationNotFound", invitationGuid);
+                return View("InvitationNotFound", invitation.RequestID);
             }
 
             var submission = await _appService.GetSubmissionAsync(invitation.SubmissionID);
