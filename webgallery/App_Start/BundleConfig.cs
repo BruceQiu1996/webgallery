@@ -27,6 +27,9 @@ namespace WebGallery
                       "~/Content/bootstrap.css",
                       "~/Content/_site.css"));
 
+            bundles.Add(new StyleBundle("~/css/home-index").Include(
+                      "~/Content/_home-index.css"));
+
             bundles.Add(new ScriptBundle("~/js/submission-form").Include(
                         "~/scripts/_submission-form.js",
                         "~/scripts/bootstrap-datepicker*"));

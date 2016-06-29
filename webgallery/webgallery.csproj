@@ -498,6 +498,15 @@
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap-sortable.css" />
+    <Content Include="Content\images\header-developer.png" />
+    <Content Include="Content\images\no-logo.png" />
+    <Content Include="Content\images\step1-hero.png" />
+    <Content Include="Content\images\step1.png" />
+    <Content Include="Content\images\step2-hero.png" />
+    <Content Include="Content\images\step2.png" />
+    <Content Include="Content\images\step3-hero.png" />
+    <Content Include="Content\images\step3.png" />
+    <Content Include="Content\images\submit-webapp-btn.png" />
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
@@ -531,6 +540,7 @@
     <Content Include="Content\images\tab_xp\tab_outer.gif" />
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\_home-index.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
     <Content Include="Feed\WebApplicationList.xml" />
