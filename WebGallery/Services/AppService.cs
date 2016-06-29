@@ -609,7 +609,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetSubmissions(string keyword, int page, int pageSize, string sortOrder, out int count)
+        public Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortOrder, out int count)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -665,6 +665,7 @@ namespace WebGallery.Services
                 }
 
                 var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+
                 return Task.FromResult<IList<Submission>>((from a in apps
                                                            select new Submission
                                                            {
@@ -678,7 +679,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<SubmissionState>> GetAllStatus()
+        public Task<IList<SubmissionState>> GetStatusAsync()
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -689,7 +690,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<int> DeleteSubmission(int submissionId)
+        public Task<int> DeleteAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -717,7 +718,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<int> UpdateSubmissionStatus(int submissionId, int statusId)
+        public Task<int> UpdateStatusAsync(int submissionId, int statusId)
         {
             using (var db = new WebGalleryDbContext())
             {

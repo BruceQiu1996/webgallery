@@ -31,14 +31,14 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page.HasValue ? page.Value : 1;
             var size = pageSize.HasValue ? pageSize.Value : 10;
-            var apps = await _appService.GetSubmissions(keyword, pageNumber, size, sortOrder, out count);
+            var apps = await _appService.GetSubmissionsAsync(keyword, pageNumber, size, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
                 PageSize = pageSize.HasValue ? pageSize.Value : 10,
                 Keyword = keyword,
                 CurrentSort = sortOrder,
                 Submissions = new StaticPagedList<Submission>(apps, pageNumber, size, count),
-                Status = await _appService.GetAllStatus()
+                Status = await _appService.GetStatusAsync()
             };
 
             return View("Dashboard", model);
@@ -50,12 +50,12 @@ namespace WebGallery.Controllers
         {
             if (statusId.HasValue)
             {
-                await _appService.UpdateSubmissionStatus(submissionId, statusId.Value);
+                await _appService.UpdateStatusAsync(submissionId, statusId.Value);
             }
 
             if (isDelete.HasValue && isDelete.Value == true)
             {
-                await _appService.DeleteSubmission(submissionId);
+                await _appService.DeleteAsync(submissionId);
             }
 
             return RedirectToAction("dashboard", new { keyword = keyword, page = page, pageSize = pageSize, sortOrder = sortOrder });
