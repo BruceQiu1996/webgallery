@@ -8,13 +8,13 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("Styles", required: false)
     <script type="text/javascript">
-        var appInsights=window.appInsights||function(config){
-            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
         }({
-            instrumentationKey:"bccdb41c-d62b-4d36-aaa9-e0de37878af2"
+            instrumentationKey: "bccdb41c-d62b-4d36-aaa9-e0de37878af2"
         });
-        
-        window.appInsights=appInsights;
+
+        window.appInsights = appInsights;
         appInsights.trackPageView();
     </script>
 </head>
@@ -24,22 +24,22 @@
             <div class="navbar-header"></div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Gallery", "Gallery", "App")</li>
-                    <li>@Html.ActionLink("Documentation", "Documentation", "Home")</li>
-                    <li>@Html.ActionLink("Report an issue", "Contact", "Home")</li>                                      
+                    <li>@Html.RouteLink("Home", SiteRouteNames.Home)</li>
+                    <li>@Html.RouteLink("Gallery", SiteRouteNames.Gallery)</li>
+                    <li>@Html.RouteLink("Documents", SiteRouteNames.Docs)</li>
+                    <li>@Html.RouteLink("Report an issue", SiteRouteNames.Issue_Report)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
-            </div>          
+            </div>
         </div>
     </div>
-            
-    <div class="container body-content">
-        @RenderBody()        
+
+    <div class="container">
+        @RenderBody()
         <hr />
-      <!--<footer>
-            <p>Windows Web App Gallery</p>
-        </footer>-->
+        <!--<footer>
+              <p>Windows Web App Gallery</p>
+          </footer>-->
     </div>
 
     @Scripts.Render("~/bundles/jquery")

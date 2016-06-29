@@ -43,10 +43,10 @@
         </ul>
     </div>
     <div id="panelFail" style="display:none">
-        @Html.ActionLink("Go back to fix these errors", "edit", new { id = Model.Submission.SubmissionID }, new { target = "_blank", })
+        @Html.RouteLink("Go back to fix these errors", SiteRouteNames.App_Edit, new { submissionId = Model.Submission.SubmissionID }, new { target = "_blank", })
     </div>
     <div id="panelPass" style="display:none">
-        @using (Html.BeginForm("MoveToTesting", "app", FormMethod.Post))
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Verify, FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
@@ -54,7 +54,7 @@
                 This app has passed verification, you can submit it now for further testing. If you do so, this submission will be locked from modification for a while until we finish the testing.
             </p>
             <input type="submit" value="Ready for further testing" />
-            @Html.ActionLink("Not now, I'll submit this later", "mine")
+            @Html.RouteLink("Not now, I'll submit this later", SiteRouteNames.Portal)
         }
     </div>
 </div>

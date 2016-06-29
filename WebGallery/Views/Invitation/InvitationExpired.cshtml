@@ -18,8 +18,7 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <input type="hidden" name="invitationGuid" value="@Model.Invitation.RequestID" />
-                <input type="submit" value="OK" formmethod="post" formaction="/invitation/decline" />
+                <input type="submit" value="OK" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID })" />
             }
         </div>
     </div>

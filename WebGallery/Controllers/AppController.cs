@@ -217,6 +217,8 @@ namespace WebGallery.Controllers
             ViewBag.WebServerExtensions = await _appService.GetWebServerExtensionsAsync();
         }
 
+        [Authorize]
+        [HttpPost]
         public JsonResult ValidateAppIdVersion(string appId, string version, int? submissionId)
         {
             lock (_UniqueAppIdValidationLock)
@@ -279,6 +281,14 @@ namespace WebGallery.Controllers
                 Submission = submission,
                 Metadata = metadata.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metadata.FirstOrDefault()
             };
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> Install(string appId)
+        {
+            var model = new AppInstallViewModel();
 
             return View(model);
         }
@@ -399,7 +409,7 @@ namespace WebGallery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
-        public async Task<ActionResult> MoveToTesting(int submissionId)
+        public async Task<ActionResult> Verify(int submissionId)
         {
             var submission = await _appService.GetSubmissionAsync(submissionId);
             if (submission == null)

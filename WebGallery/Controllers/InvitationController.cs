@@ -85,7 +85,7 @@ namespace WebGallery.Controllers
             // email the ownership invitation
             await _emailService.SendOwnershipInvitation(model.EmailAddress, unconfirmedSubmissionOwner, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
-            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = model.Submission.SubmissionID });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { submissionId = model.Submission.SubmissionID });
         }
 
         [Authorize]
@@ -97,7 +97,7 @@ namespace WebGallery.Controllers
             var invitation = await _ownershipService.GetInvitationAsync(invitationGuid.Value);
             if (invitation == null)
             {
-                return View("InvitationNotFound", invitation.RequestID);
+                return View("InvitationNotFound", invitationGuid);
             }
 
             var submission = await _appService.GetSubmissionAsync(invitation.SubmissionID);
@@ -166,16 +166,22 @@ namespace WebGallery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
-        public async Task<ActionResult> Revoke(Guid invitationGuid, int submissionId)
+        public async Task<ActionResult> Revoke(Guid invitationGuid)
         {
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
+            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid);
+            if (invitation == null)
+            {
+                return View("InvitationNotFound", invitationGuid);
+            }
+
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, invitation.SubmissionID))
             {
                 return View("NeedPermission");
             }
 
             await _ownershipService.RemoveInvitationAsync(invitationGuid);
 
-            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = submissionId });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { submissionId = invitation.SubmissionID });
         }
     }
 }
