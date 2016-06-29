@@ -294,6 +294,44 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequireSubmittership]
+        public async Task<ActionResult> Delete(int? submissionId)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            if (submissionId.HasValue)
+            {
+                await _appService.DeleteAsync(submissionId.Value);
+            }
+
+            return RedirectToRoute(SiteRouteNames.Dashboard);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequireSubmittership]
+        public async Task<ActionResult> UpdateStatus(int? submissionId, int? statusId)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            if (submissionId.HasValue && statusId.HasValue)
+            {
+                await _appService.UpdateStatusAsync(submissionId.Value, statusId.Value);
+            }
+
+            return RedirectToRoute(SiteRouteNames.Dashboard);
+        }
+
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> Mine()
         {

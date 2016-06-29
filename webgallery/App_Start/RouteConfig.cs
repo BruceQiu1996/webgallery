@@ -27,6 +27,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = "App", action = "Edit" });
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = "App", action = "Verify" });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = "App", action = "Delete" });
+            routes.MapRoute(name: SiteRouteNames.App_Update_Status, url: SiteRouteUrlPatterns.App_Update_Status, defaults: new { controller = "App", action = "UpdateStatus" });
             routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = "App", action = "Categorize" });
             routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = "App", action = "Preview" });
             routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = "App", action = "Install" });
@@ -76,6 +77,7 @@ namespace WebGallery
         public const string App_Edit = "apps/{submissionId}/edit";
         public const string App_Verify = "apps/{submissionId}/verify";
         public const string App_Delete = "apps/{submissionId}/delete";
+        public const string App_Update_Status = "apps/{submissionId}/status/update";
         public const string App_Categorize = "apps/categorize/{category}";
         public const string App_Preview = "apps/{submissionId}/preview";
         public const string App_Install = "apps/{appId}/install";
@@ -119,6 +121,7 @@ namespace WebGallery
         public const string App_Edit = nameof(App_Edit);
         public const string App_Verify = nameof(App_Verify);
         public const string App_Delete = nameof(App_Delete);
+        public const string App_Update_Status = nameof(App_Update_Status);
         public const string App_Categorize = nameof(App_Categorize);
         public const string App_Preview = nameof(App_Preview);
         public const string App_Install = nameof(App_Install);
