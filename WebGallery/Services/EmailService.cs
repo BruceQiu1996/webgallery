@@ -140,9 +140,9 @@ namespace WebGallery.Services
             body.Append($"SUBMISSION {action}: {submission.Nickname}<br /><br />");
 
             body.Append(submitter.IsSuperSubmitter() ? string.Empty : $"<a href='https://{urlAuthority}/profiles/{submitter.SubmitterID}'>{contactInfo.FullName}'s contact information</a><br />");
-            body.Append($"<a href='https://{urlAuthority}/apps/edit/{submission.SubmissionID}'>Edit this submission</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/apps/{submission.SubmissionID}/edit'>Edit this submission</a><br />");
             body.Append($"<a href='https://{urlAuthority}/apps/{submission.SubmissionID}'>Preview this submission</a><br />");
-            body.Append($"<a href='https://{urlAuthority}/apps/verify/{submission.SubmissionID}'>Verify this submission again</a><br />");
+            body.Append($"<a href='https://{urlAuthority}/apps/{submission.SubmissionID}/verify'>Verify this submission again</a><br />");
 
             // logo and screenshots
             body.Append($"<a href='{submission.LogoUrl}'>Logo</a><br />");
