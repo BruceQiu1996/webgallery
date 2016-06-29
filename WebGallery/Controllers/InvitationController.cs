@@ -30,12 +30,11 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpGet]
         [RequireSubmittership]
-        public async Task<ActionResult> Send(int? id)
+        public async Task<ActionResult> Send(int? submissionId)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!submissionId.HasValue) return View("ResourceNotFound");
 
-            var submissionId = id.Value;
-            var submission = await _appService.GetSubmissionAsync(submissionId);
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
             if (submission == null)
             {
                 return View("ResourceNotFound");
@@ -86,17 +85,16 @@ namespace WebGallery.Controllers
             // email the ownership invitation
             await _emailService.SendOwnershipInvitation(model.EmailAddress, unconfirmedSubmissionOwner, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
-            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = model.Submission.SubmissionID });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { submissionId = model.Submission.SubmissionID });
         }
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> Detail(Guid? id)
+        public async Task<ActionResult> Detail(Guid? invitationGuid)
         {
-            if (!id.HasValue) return View("ResourceNotFound");
+            if (!invitationGuid.HasValue) return View("ResourceNotFound");
 
-            var invitationGuid = id.Value;
-            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid);
+            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid.Value);
             if (invitation == null)
             {
                 return View("InvitationNotFound", invitationGuid);
@@ -168,16 +166,22 @@ namespace WebGallery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
-        public async Task<ActionResult> Revoke(Guid invitationGuid, int submissionId)
+        public async Task<ActionResult> Revoke(Guid invitationGuid)
         {
-            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId))
+            var invitation = await _ownershipService.GetInvitationAsync(invitationGuid);
+            if (invitation == null)
+            {
+                return View("InvitationNotFound", invitationGuid);
+            }
+
+            if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, invitation.SubmissionID))
             {
                 return View("NeedPermission");
             }
 
             await _ownershipService.RemoveInvitationAsync(invitationGuid);
 
-            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = submissionId });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { submissionId = invitation.SubmissionID });
         }
     }
 }

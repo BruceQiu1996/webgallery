@@ -32,6 +32,9 @@ p, select, input, textarea, label, caption {
     color: #4b4b4b;
 }
 
+/*--------*/
+.content {
+}
 
 .clearing {
     clear: both;

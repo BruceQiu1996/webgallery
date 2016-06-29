@@ -281,7 +281,7 @@ function validateAppId(errors) {
     }
 
     var uniqueAppIdAndVersion = {
-        url: "/App/ValidateAppIdVersion",
+        url: "/app/nickname/version/validate",
         type: "post",
         data: {
             appId: function () { return $("#AppId").val().trim(); },

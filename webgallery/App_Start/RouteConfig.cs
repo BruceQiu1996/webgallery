@@ -12,7 +12,9 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.Home, url: SiteRouteUrlPatterns.Home, defaults: new { controller = "Home", action = "Index" });
             routes.MapRoute(name: SiteRouteNames.Gallery, url: SiteRouteUrlPatterns.Gallery, defaults: new { controller = "App", action = "Gallery" });
             routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = "Home", action = "Documentation" });
+            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = "Home", action = "ReportIssue" });
             routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = "Home", action = "Agreement" });
+            routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = "Home", action = "Error" });
 
             routes.MapRoute(name: SiteRouteNames.SignIn, url: SiteRouteUrlPatterns.SignIn, defaults: new { controller = "Account", action = "SignIn" });
             routes.MapRoute(name: SiteRouteNames.SignOut, url: SiteRouteUrlPatterns.SignOut, defaults: new { controller = "Account", action = "SignOut" });
@@ -40,6 +42,12 @@ namespace WebGallery
 
             routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = "Manage", action = "Dashboard" });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = "Manage", action = "Supersubmitters" });
+
+            // for ajax requests
+            routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = "App", action = "VerifyUrl" });
+            routes.MapRoute(name: SiteRouteNames.App_Package_Verify, url: SiteRouteUrlPatterns.App_Package_Verify, defaults: new { controller = "App", action = "VerifyPackage" });
+            routes.MapRoute(name: SiteRouteNames.App_Image_Verify, url: SiteRouteUrlPatterns.App_Image_Verify, defaults: new { controller = "App", action = "VerifyImage" });
+            routes.MapRoute(name: SiteRouteNames.App_Nickname_Version_Validate, url: SiteRouteUrlPatterns.App_Nickname_Version_Validate, defaults: new { controller = "App", action = "ValidateAppIdVersion" });
             // default route
             //routes.MapRoute(
             //    name: "Default",
@@ -53,7 +61,9 @@ namespace WebGallery
         public const string Home = "";
         public const string Gallery = "gallery";
         public const string Docs = "docs";
+        public const string Issue_Report = "issues/report";
         public const string Agreement = "agreement";
+        public const string Error = "error";
 
         public const string SignIn = "signin";
         public const string SignOut = "signout";
@@ -62,25 +72,31 @@ namespace WebGallery
 
         public const string Portal = "portal";
         public const string App_Submit = "apps/submit";
-        public const string App_Clone = "apps/clone/{submissionId}";
-        public const string App_Edit = "apps/edit/{submissionId}";
-        public const string App_Verify = "apps/verify/{submissionId}";
-        public const string App_Delete = "apps/delete/{submissionId}";
+        public const string App_Clone = "apps/{submissionId}/clone";
+        public const string App_Edit = "apps/{submissionId}/edit";
+        public const string App_Verify = "apps/{submissionId}/verify";
+        public const string App_Delete = "apps/{submissionId}/delete";
         public const string App_Categorize = "apps/categorize/{category}";
-        public const string App_Preview = "apps/preview/{submissionId}";
-        public const string App_Install = "apps/install/{appId}";
+        public const string App_Preview = "apps/{submissionId}/preview";
+        public const string App_Install = "apps/{appId}/install";
         public const string App_Owners = "apps/{submissionId}/owners";
         public const string App_Owners_Invite = "apps/{submissionId}/owners/invite";
         public const string App_Owners_Remove = "apps/{submissionId}/owners/remove/{submitterId}";
         public const string App_View = "apps/{appId}";
 
-        public const string Invitation_Revoke = "ownership/invitations/revoke/{invitationGuid}";
-        public const string Invitation_Accept = "ownership/invitations/accept/{invitationGuid}";
-        public const string Invitation_Decline = "ownership/invitations/decline/{invitationGuid}";
+        public const string Invitation_Revoke = "ownership/invitations/{invitationGuid}/revoke";
+        public const string Invitation_Accept = "ownership/invitations/{invitationGuid}/accept";
+        public const string Invitation_Decline = "ownership/invitations/{invitationGuid}/decline";
         public const string Invitation_Detail = "ownership/invitations/{invitationGuid}";
 
         public const string Dashboard = "admin/dashboard";
         public const string Supersubmitter = "admin/supersubmitters";
+
+        // for ajax requests
+        public const string App_Url_Verify = "app/urls/verify";
+        public const string App_Package_Verify = "app/packages/verify";
+        public const string App_Image_Verify = "app/images/verify/";
+        public const string App_Nickname_Version_Validate = "app/nickname/version/validate";
     }
 
     public class SiteRouteNames
@@ -88,7 +104,9 @@ namespace WebGallery
         public const string Home = nameof(Home);
         public const string Gallery = nameof(Gallery);
         public const string Docs = nameof(Docs);
+        public const string Issue_Report = nameof(Issue_Report);
         public const string Agreement = nameof(Agreement);
+        public const string Error = nameof(Error);
 
         public const string SignIn = nameof(SignIn);
         public const string SignOut = nameof(SignOut);
@@ -116,6 +134,12 @@ namespace WebGallery
 
         public const string Dashboard = nameof(Dashboard);
         public const string Supersubmitter = nameof(Supersubmitter);
+
+        // for ajax requests
+        public const string App_Url_Verify = nameof(App_Url_Verify);
+        public const string App_Package_Verify = nameof(App_Package_Verify);
+        public const string App_Image_Verify = nameof(App_Image_Verify);
+        public const string App_Nickname_Version_Validate = nameof(App_Nickname_Version_Validate);
     }
 
     public class SiteUrls
