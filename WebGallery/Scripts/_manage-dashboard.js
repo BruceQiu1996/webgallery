@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $(".submissions-table tbody tr td:last-child").mouseenter(function () { showActions($(this).find("a").get(0), $(this).find("div")); });
     $(".submissions-table tbody tr td:last-child").mouseleave(function () { $(this).find("div").hide(); });
-    $(".submissions-table tbody tr td a:first-child").click(function () {
+    $(".submissions-table tbody tr td:nth-last-child(2)").find("a:first").click(function () {
         $(this).parent().prev().find('select').show();
         $(this).parent().prev().find('span').hide();
         $(this).hide();
@@ -10,7 +10,7 @@
         $(this).next().show();
         $(this).next().next().show();
     });
-    $(".submissions-table tbody tr td a:first-child").next().click(function () {
+    $(".submissions-table tbody tr td:nth-last-child(2)").find("a:first").next().click(function () {
         if ($(this).parent().prev().find('select').find('option:selected').text() == $(this).parent().prev().find('span').text()) {
             $(this).parent().prev().find('select').hide();
             $(this).parent().prev().find('span').show();
@@ -23,7 +23,7 @@
             $(this).parent().prev().find('form').submit();
         }
     });
-    $(".submissions-table tbody tr td a:last-child").click(function () {
+    $(".submissions-table tbody tr td:nth-last-child(2)").find("a:last").click(function () {
         $(this).prev().prev().show();
         $(this).hide();
         $(this).prev().hide();
@@ -35,6 +35,9 @@
         });
         $(this).parent().prev().find('span').show();
         $(this).parent().prev().find('select').hide();
+    });
+    $(".submissions-table tbody tr td:last-child").find("ul").find("li:last").find("a").click(function () {
+        $(this).parent().parent().find("form").submit();
     });
     $(".search-form form p input").change(function () {
         $(this).parent().parent().submit();

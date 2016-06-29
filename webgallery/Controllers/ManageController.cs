@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using PagedList;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Models;
 using WebGallery.Security;
@@ -27,12 +28,16 @@ namespace WebGallery.Controllers
                 return RedirectToAction("mine", "app");
             }
 
+            var count = 0;
+            var pageNumber = page.HasValue ? page.Value : 1;
+            var size = pageSize.HasValue ? pageSize.Value : 10;
+            var apps = await _appService.GetSubmissions(keyword, pageNumber, size, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
-                PageSize = pageSize.HasValue ? pageSize.Value.ToString() : "10",
+                PageSize = pageSize.HasValue ? pageSize.Value : 10,
                 Keyword = keyword,
                 CurrentSort = sortOrder,
-                Submissions = await _appService.GetSubmissions(keyword, page, pageSize, sortOrder),
+                Submissions = new StaticPagedList<Submission>(apps, pageNumber, size, count),
                 Status = await _appService.GetAllStatus()
             };
 
@@ -41,9 +46,17 @@ namespace WebGallery.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder, int submissionId, int statusId)
+        public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder, int submissionId, int? statusId, bool? isDelete)
         {
-            await _appService.UpdateSubmissionStatus(submissionId, statusId);
+            if (statusId.HasValue)
+            {
+                await _appService.UpdateSubmissionStatus(submissionId, statusId.Value);
+            }
+
+            if (isDelete.HasValue && isDelete.Value == true)
+            {
+                await _appService.DeleteSubmission(submissionId);
+            }
 
             return RedirectToAction("dashboard", new { keyword = keyword, page = page, pageSize = pageSize, sortOrder = sortOrder });
         }

@@ -1,5 +1,4 @@
-﻿using PagedList;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -610,25 +609,27 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IPagedList<Submission>> GetSubmissions(string keyword, int? page, int? pageSize, string sortOrder)
+        public Task<IList<Submission>> GetSubmissions(string keyword, int page, int pageSize, string sortOrder, out int count)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var searchstring = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
-                var query = (from s in db.Submissions
-                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
-                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
-                             where searchstring == "" || s.Nickname.Contains(searchstring)
-                             select new
-                             {
-                                 submissionID = s.SubmissionID,
-                                 nickname = s.Nickname,
-                                 version = s.Version,
-                                 created = s.Created,
-                                 updated = s.Updated,
-                                 status = d.Name,
-                                 statusSortOrder = d.SortOrder
-                             }).AsEnumerable();
+                var query = from s in db.Submissions
+                            join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                            join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
+                            where searchstring == "" || s.Nickname.Contains(searchstring)
+                            select new
+                            {
+                                submissionID = s.SubmissionID,
+                                nickname = s.Nickname,
+                                version = s.Version,
+                                created = s.Created,
+                                updated = s.Updated,
+                                status = d.Name,
+                                statusSortOrder = d.SortOrder
+                            };
+                count = query.Count();
+
                 switch (sortOrder)
                 {
                     case "appid":
@@ -663,16 +664,17 @@ namespace WebGallery.Services
                         break;
                 }
 
-                return Task.FromResult((from a in query
-                                        select new Submission
-                                        {
-                                            SubmissionID = a.submissionID,
-                                            Nickname = a.nickname,
-                                            Version = a.version,
-                                            Created = a.created,
-                                            Updated = a.updated,
-                                            Status = a.status
-                                        }).ToPagedList(page.HasValue ? page.Value : 1, pageSize.HasValue ? pageSize.Value : 10));
+                var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+                return Task.FromResult<IList<Submission>>((from a in apps
+                                                           select new Submission
+                                                           {
+                                                               SubmissionID = a.submissionID,
+                                                               Nickname = a.nickname,
+                                                               Version = a.version,
+                                                               Created = a.created,
+                                                               Updated = a.updated,
+                                                               Status = a.status
+                                                           }).ToList());
             }
         }
 
@@ -684,6 +686,34 @@ namespace WebGallery.Services
                               select s).ToList();
 
                 return Task.FromResult<IList<SubmissionState>>(status);
+            }
+        }
+
+        public Task<int> DeleteSubmission(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var status = (from s in db.SubmissionsStatus
+                              where s.SubmissionID == submissionId
+                              select s).FirstOrDefault();
+
+                status.SubmissionStateID = 9;
+
+                var taskId = (from t in db.SubmissionTransactionTypes
+                              where t.Name == "General"
+                              select t.SubmissionTaskID).FirstOrDefault();
+
+                var transaction = new SubmissionTransaction
+                {
+                    SubmissionID = submissionId,
+                    SubmissionTaskID = taskId,
+                    Description = "Delete this submission by setting its status to Inactive",
+                    RecordedAt = DateTime.Now
+                };
+
+                db.SubmissionTransactions.Add(transaction);
+
+                return Task.FromResult(db.SaveChanges());
             }
         }
 

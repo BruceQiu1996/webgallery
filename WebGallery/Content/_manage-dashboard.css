@@ -15,9 +15,9 @@
     padding: 2px 20px;
 }
 
-    .submissions-table tbody td a {
-        padding-right: 5px;
-    }
+.submissions-table tbody td a {
+    padding-right: 5px;
+}
 
 .submissions-table tbody tr:nth-of-type(2n) {
     background: #bbbbbb;

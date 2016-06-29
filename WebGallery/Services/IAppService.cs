@@ -1,5 +1,4 @@
-﻿using PagedList;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebGallery.Models;
 
@@ -51,7 +50,7 @@ namespace WebGallery.Services
         Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId);
 
         Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, int page, int pageSize, out int count);
-
+    
         Task<Submission> GetSubmissionFromFeedAsync(string appId);
 
         Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId);
@@ -60,10 +59,12 @@ namespace WebGallery.Services
 
         Task MoveToTestingAsync(Submission submission);
 
-        Task<IPagedList<Submission>> GetSubmissions(string keyword, int? page, int? pageSize, string sortOrder);
+        Task<IList<Submission>> GetSubmissions(string keyword, int page, int pageSize, string sortOrder, out int count);
 
         Task<IList<SubmissionState>> GetAllStatus();
 
         Task<int> UpdateSubmissionStatus(int submissionId, int statusId);
+
+        Task<int> DeleteSubmission(int submissionId);
     }
 }

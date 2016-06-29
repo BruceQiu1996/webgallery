@@ -8,7 +8,7 @@
 
 <div class="content">
     <div class="search-form">
-        @using (Html.BeginForm("Dashboard", "Manage", FormMethod.Get))
+        @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, FormMethod.Get))
         {
             <p>List only apps whose App ID contains:@Html.TextBox("keyword", Model.Keyword)</p>
             <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "10", Value = "10" }, new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "100", Value = "100" }, new SelectListItem { Text = "1000", Value = "1000" } })</p>
@@ -18,12 +18,12 @@
         <table cellpadding="0" cellspacing="0" class="submissions-table">
             <thead>
                 <tr>
-                    <th>@Html.ActionLink("App ID", "Dashboard", new { sortOrder = Model.AppIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("App ID", SiteRouteNames.Dashboard, new { sortOrder = Model.AppIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th>Ver</th>
-                    <th>@Html.ActionLink("Created", "Dashboard", new { sortOrder = Model.CreatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
-                    <th>@Html.ActionLink("Updated", "Dashboard", new { sortOrder = Model.UpdatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
-                    <th>@Html.ActionLink("ID", "Dashboard", new { sortOrder = Model.SubmissionIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
-                    <th>@Html.ActionLink("Status", "Dashboard", new { sortOrder = Model.StatusSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Created", SiteRouteNames.Dashboard, new { sortOrder = Model.CreatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Updated", SiteRouteNames.Dashboard, new { sortOrder = Model.UpdatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("ID", SiteRouteNames.Dashboard, new { sortOrder = Model.SubmissionIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Status", SiteRouteNames.Dashboard, new { sortOrder = Model.StatusSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -43,7 +43,7 @@
                         <td>@submission.SubmissionID</td>
                         <td>
                             <span>@submission.Status</span>
-                            @using (Html.BeginForm("Dashboard", "Manage", new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
+                            @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
                             {
                                 @Html.DropDownList("statusId", new SelectList(Model.Status, "SubmissionStateID", "Name", Model.Status.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
                                 @Html.Hidden("submissionId", submission.SubmissionID)
@@ -58,9 +58,14 @@
                             <a>actions</a>
                             <div class="actions-panel">
                                 <ul>
-                                    <li>@Html.ActionLink("edit", "Edit", "App", new { id = submission.SubmissionID }, null)</li>
-                                    <li>@Html.ActionLink("owners", "Owners", "App", new { id = submission.SubmissionID }, null)</li>
-                                    <li>@Html.ActionLink("delete", "Delete", new { id = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
+                                    <li><a>delete</a></li>
+                                    @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, new { sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize, page = Model.Submissions.PageNumber }, FormMethod.Post))
+                                    {
+                                        @Html.Hidden("isDelete", true)
+                                        @Html.Hidden("submissionId", submission.SubmissionID)
+                                    }
                                 </ul>
                             </div>
                         </td>
@@ -70,7 +75,7 @@
         </table>
         <div>
             <p>Page @(Model.Submissions.PageCount < Model.Submissions.PageNumber ? 0 : Model.Submissions.PageNumber) of @Model.Submissions.PageCount</p>
-            @Html.PagedListPager(Model.Submissions, page => Url.Action("Dashboard", new { page = page, sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize }))
+            @Html.PagedListPager(Model.Submissions, page => Url.Action(SiteRouteNames.Dashboard, new { page = page, sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize }))
         </div>
     </div>
 </div>
