@@ -63,8 +63,8 @@ namespace WebGallery.Services
 
         Task<IList<SubmissionState>> GetStatusAsync();
 
-        Task<int> UpdateStatusAsync(int submissionId, int statusId);
+        Task UpdateStatusAsync(int submissionId, int statusId);
 
-        Task<int> DeleteAsync(int submissionId);
+        Task DeleteAsync(int submissionId);
     }
 }

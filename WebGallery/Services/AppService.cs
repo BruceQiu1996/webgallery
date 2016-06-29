@@ -689,7 +689,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<int> DeleteAsync(int submissionId)
+        public Task DeleteAsync(int submissionId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -715,12 +715,13 @@ namespace WebGallery.Services
                 };
 
                 db.SubmissionTransactions.Add(transaction);
+                db.SaveChanges();
 
-                return Task.FromResult(db.SaveChanges());
+                return Task.FromResult(0);
             }
         }
 
-        public Task<int> UpdateStatusAsync(int submissionId, int statusId)
+        public Task UpdateStatusAsync(int submissionId, int statusId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -751,8 +752,9 @@ namespace WebGallery.Services
                 };
 
                 db.SubmissionTransactions.Add(transaction);
+                db.SaveChanges();
 
-                return Task.FromResult(db.SaveChanges());
+                return Task.FromResult(0);
             }
         }
     } // class
