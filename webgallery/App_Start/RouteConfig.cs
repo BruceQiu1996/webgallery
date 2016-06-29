@@ -35,6 +35,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = app, action = nameof(AppController.Edit) });
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = app, action = nameof(AppController.Verify) });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = app, action = nameof(AppController.Delete) });
+            routes.MapRoute(name: SiteRouteNames.App_Update_Status, url: SiteRouteUrlPatterns.App_Update_Status, defaults: new { controller = app, action = nameof(AppController.UpdateStatus) });
             routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize) });
             routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = app, action = nameof(AppController.Preview) });
             routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = app, action = nameof(AppController.Install) });
@@ -56,14 +57,9 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Package_Verify, url: SiteRouteUrlPatterns.App_Package_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyPackage) });
             routes.MapRoute(name: SiteRouteNames.App_Image_Verify, url: SiteRouteUrlPatterns.App_Image_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyImage) });
             routes.MapRoute(name: SiteRouteNames.App_Nickname_Version_Validate, url: SiteRouteUrlPatterns.App_Nickname_Version_Validate, defaults: new { controller = app, action = nameof(AppController.ValidateAppIdVersion) });
-            // default route
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = home, action = "Index", id = UrlParameter.Optional }
-            //);
         }
     }
+
     public class SiteRouteUrlPatterns
     {
         public const string Home = "";
@@ -84,6 +80,7 @@ namespace WebGallery
         public const string App_Edit = "apps/{submissionId}/edit";
         public const string App_Verify = "apps/{submissionId}/verify";
         public const string App_Delete = "apps/{submissionId}/delete";
+        public const string App_Update_Status = "apps/{submissionId}/status/update";
         public const string App_Categorize = "apps/categorize/{category}";
         public const string App_Preview = "apps/{submissionId}/preview";
         public const string App_Install = "apps/{appId}/install";
@@ -127,6 +124,7 @@ namespace WebGallery
         public const string App_Edit = nameof(App_Edit);
         public const string App_Verify = nameof(App_Verify);
         public const string App_Delete = nameof(App_Delete);
+        public const string App_Update_Status = nameof(App_Update_Status);
         public const string App_Categorize = nameof(App_Categorize);
         public const string App_Preview = nameof(App_Preview);
         public const string App_Install = nameof(App_Install);

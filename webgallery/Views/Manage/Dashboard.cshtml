@@ -1,34 +1,89 @@
-﻿@using GridMvc.Html
-@model IEnumerable<WebGallery.Models.GetAllSubmissionsInBrief_Result>
+﻿@using PagedList.Mvc;
+@model WebGallery.ViewModels.ManageDashboardViewModel
 
 @{
-    ViewBag.Title = "Dashboard";
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dashboard</h2>
-
-<div style="">
-
-@Html.Grid(Model).Columns(columns =>
-{
-
-columns.Add(model => model.SubmissionID).Titled("SubmissionID").SetWidth(30);
-columns.Add(model => model.Nickname).Titled("AppID").SetWidth(50);
-columns.Add(model => model.Version).Titled("Version").SetWidth(50);
-columns.Add(model => model.SubmittingEntity).Titled("Publisher").SetWidth(50);
-columns.Add(model => model.SubmissionState).Titled("Status").SetWidth(35);
-columns.Add()
-.Titled("Actions")
-.Encoded(false)
-.Sanitized(false)
-.SetWidth(30)
-.RenderValueAs(d =>
-@<b>
-    @Html.ActionLink("Edit", "Edit", new { id = d.SubmissionID })<br/>@Html.ActionLink("Owners", "PublisherDetails", new { id= d.SubmissionID})<br/>@Html.ActionLink("Delete", "Delete", new { id = d.SubmissionID })<br/> @Html.ActionLink("Change Status", "ChangeAppstatus", new { id = d.SubmissionID }) 
-</b>);
-
-}).WithPaging(20).Sortable().Filterable()
-
-   
-
+<div class="content">
+    <div class="search-form">
+        @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, FormMethod.Get))
+        {
+            <p>List only apps whose App ID contains:@Html.TextBox("keyword", Model.Keyword)</p>
+            <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
+        }
     </div>
+    <div class="submissions-table-container">
+        <table cellpadding="0" cellspacing="0" class="submissions-table">
+            <thead>
+                <tr>
+                    <th>@Html.RouteLink("App ID", SiteRouteNames.Dashboard, new { sortOrder = Model.AppIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>Ver</th>
+                    <th>@Html.RouteLink("Created", SiteRouteNames.Dashboard, new { sortOrder = Model.CreatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Updated", SiteRouteNames.Dashboard, new { sortOrder = Model.UpdatedSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("ID", SiteRouteNames.Dashboard, new { sortOrder = Model.SubmissionIdSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Status", SiteRouteNames.Dashboard, new { sortOrder = Model.StatusSortParam, keyword = Model.Keyword, pageSize = Model.PageSize })</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var index = 0; index < Model.Submissions.Count(); index++)
+                {
+                    var submission = Model.Submissions[index];
+                    var creatDate = submission.Created.HasValue ? submission.Created.Value.ToString("dd/MM/yyyy") : "---";
+                    var updatedDate = submission.Updated.HasValue ? submission.Updated.Value.ToString("dd/MM/yyyy") : "---";
+
+                    <tr>
+                        <td>@submission.Nickname</td>
+                        <td>@submission.Version</td>
+                        <td>@creatDate</td>
+                        <td>@updatedDate</td>
+                        <td>@submission.SubmissionID</td>
+                        <td>
+                            <span>@submission.Status</span>
+                            @using (Html.BeginRouteForm(SiteRouteNames.App_Update_Status, new { submissionId = submission.SubmissionID }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.DropDownList("statusId", new SelectList(Model.StatusList, "SubmissionStateID", "Name", Model.StatusList.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
+                            }
+                        </td>
+                        <td>
+                            <a>change status</a>
+                            <a class="hide">update</a>
+                            <a class="hide">cancel</a>
+                        </td>
+                        <td>
+                            <a>actions</a>
+                            <div class="actions-panel">
+                                <ul>
+                                    <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
+                                    <li><a>delete</a></li>
+                                    @using (Html.BeginRouteForm(SiteRouteNames.App_Delete, new { submissionId = submission.SubmissionID }, FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                    }
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            @Html.PagedListPager(Model.Submissions, page => Url.Action(SiteRouteNames.Dashboard, new { page = page, sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize }))
+            <span>Total Pages: <strong>@Model.Submissions.PageCount</strong></span>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/manage-dashboard")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/js/manage-dashboard")
+}

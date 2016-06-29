@@ -58,5 +58,13 @@ namespace WebGallery.Services
         Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
 
         Task MoveToTestingAsync(Submission submission);
+
+        Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortBy, out int count);
+
+        Task<IList<SubmissionState>> GetStatusAsync();
+
+        Task UpdateStatusAsync(int submissionId, int statusId);
+
+        Task DeleteAsync(int submissionId);
     }
 }
