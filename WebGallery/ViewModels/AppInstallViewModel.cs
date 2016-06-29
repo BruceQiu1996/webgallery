@@ -1,6 +1,6 @@
 ﻿namespace WebGallery.ViewModels
 {
-    public class HomeDeveloperViewModel
+    public class AppInstallViewModel
     {
     }
 }

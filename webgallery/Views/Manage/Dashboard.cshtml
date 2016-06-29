@@ -11,7 +11,7 @@
         @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, FormMethod.Get))
         {
             <p>List only apps whose App ID contains:@Html.TextBox("keyword", Model.Keyword)</p>
-            <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "10", Value = "10" }, new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "100", Value = "100" }, new SelectListItem { Text = "1000", Value = "1000" } })</p>
+            <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
         }
     </div>
     <div class="submissions-table-container">
@@ -43,7 +43,7 @@
                         <td>@submission.SubmissionID</td>
                         <td>
                             <span>@submission.Status</span>
-                            @using (Html.BeginRouteForm(SiteRouteNames.App_UpdateStatus, new { submissionId = submission.SubmissionID }, FormMethod.Post))
+                            @using (Html.BeginRouteForm(SiteRouteNames.App_Update_Status, new { submissionId = submission.SubmissionID }, FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
                                 @Html.DropDownList("statusId", new SelectList(Model.StatusList, "SubmissionStateID", "Name", Model.StatusList.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
@@ -73,8 +73,8 @@
             </tbody>
         </table>
         <div>
-            <p>Page @(Model.Submissions.PageCount < Model.Submissions.PageNumber ? 0 : Model.Submissions.PageNumber) of @Model.Submissions.PageCount</p>
             @Html.PagedListPager(Model.Submissions, page => Url.Action(SiteRouteNames.Dashboard, new { page = page, sortOrder = Model.CurrentSort, keyword = Model.Keyword, pageSize = Model.PageSize }))
+            <span>Total Pages: <strong>@Model.Submissions.PageCount</strong></span>
         </div>
     </div>
 </div>

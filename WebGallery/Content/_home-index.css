@@ -1,0 +1,49 @@
+﻿.for-developer-panel,
+.steps-panel {
+    margin-top: 40px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .steps-panel > div {
+        float: left;
+        width: 30%;
+    }
+
+    .steps-panel .step1-panel,
+    .steps-panel .step2-panel {
+        margin-right: 5%;
+    }
+
+    .steps-panel h3 {
+        padding: 10px 0px 10px 45px;
+        text-align: left;
+        font-size: 1.2em;
+        color: #333333;
+        margin: 0px;
+    }
+
+    .steps-panel .step1-panel > h3 {
+        background: transparent url(/content/images/step1.png) 0 50% no-repeat;
+    }
+
+    .steps-panel .step2-panel > h3 {
+        background: transparent url(/content/images/step2.png) 0 50% no-repeat;
+    }
+
+    .steps-panel .step3-panel > h3 {
+        background: transparent url(/content/images/step3.png) 0 50% no-repeat;
+    }
+
+    .steps-panel img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .steps-panel .important-note{
+        font-style:italic;
+        font-weight:600;
+        color: #111111;
+    }

@@ -32,7 +32,7 @@ namespace WebGallery.Controllers
 
             await _ownershipService.RemoveAsync(submitterId, submissionId);
 
-            return RedirectToRoute(SiteRouteNames.App_Owners, new { id = submissionId });
+            return RedirectToRoute(SiteRouteNames.App_Owners, new { submissionId = submissionId });
         }
     }
 }

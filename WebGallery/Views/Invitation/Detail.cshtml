@@ -18,9 +18,8 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <input type="hidden" name="invitationGuid" value="@Model.Invitation.RequestID" />
-                <input type="submit" value="I Accept" formmethod="post" formaction="/invitation/accept" />
-                <input type="submit" value="I Decline" formmethod="post" formaction="/invitation/decline" />
+                <input type="submit" value="I Accept" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Accept, new { invitationGuid = Model.Invitation.RequestID})" />
+                <input type="submit" value="I Decline" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID})" />
             }
         </div>
     </div>

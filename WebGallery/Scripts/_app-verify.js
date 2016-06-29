@@ -42,7 +42,7 @@ verifyImages = function (imageLis, isLogo) {
         itemsToValidate.push({ key: validatingItemKey, status: "validating" });
 
         var ajaxOption = {
-            url: "/app/verifyimage",
+            url: "/app/images/verify",
             type: "post",
             dataType: 'json',
             data: addAntiForgeryToken({
@@ -129,7 +129,7 @@ verifyPackages = function () {
         itemsToValidate.push({ key: validatingItemKey, status: "validating" });
 
         var ajaxOption = {
-            url: "/app/verifypackage",
+            url: "/app/packages/verify",
             type: "post",
             dataType: 'json',
             data: addAntiForgeryToken({
@@ -198,7 +198,7 @@ verifyUrls = function () {
         itemsToValidate.push({ key: validatingItemKey, status: "validating" });
 
         var ajaxOption = {
-            url: "/app/verifyurl",
+            url: "/app/urls/verify",
             type: "post",
             dataType: 'json',
             data: addAntiForgeryToken({

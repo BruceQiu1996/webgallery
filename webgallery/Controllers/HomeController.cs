@@ -17,13 +17,14 @@ namespace WebGallery.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        public ActionResult ReportIssue()
         {
-            return View(new ContactModel());
+            return View("Contact", new ContactModel());
         }
 
         [HttpPost]
-        public ActionResult Contact(ContactModel contactVM)
+        public ActionResult ReportIssue(ContactModel contactVM)
         {
             if (!ModelState.IsValid)
             {
@@ -55,11 +56,9 @@ namespace WebGallery.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> Install()
+        public ActionResult Error(string message)
         {
-            var model = new HomeInstallViewModel();
-
-            return View(model);
+            return View(message);
         }
     }
 }

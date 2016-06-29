@@ -2,47 +2,59 @@
     margin-top: 30px;
 }
 
-.submissions-table thead tr {
-    border-bottom: 2px solid #333333;
+.submissions-table {
+    width: 100%;
 }
 
-.submissions-table tbody tr {
-    border-bottom: 1px solid #999999;
-}
-
-.submissions-table thead th,
-.submissions-table tbody td {
-    padding: 2px 20px;
-}
-
-    .submissions-table tbody td a {
-        padding-right: 5px;
+    .submissions-table thead tr {
+        border-bottom: 2px solid #333333;
     }
 
-.submissions-table tbody tr:nth-of-type(2n) {
-    background: #bbbbbb;
+    .submissions-table tbody tr {
+        border-bottom: 1px solid #999999;
+    }
+
+    .submissions-table thead th,
+    .submissions-table tbody td {
+        padding: 2px 10px;
+    }
+
+        .submissions-table tbody td a {
+            padding-right: 5px;
+        }
+
+    .submissions-table tbody tr:nth-of-type(2n) {
+        background: #bbbbbb;
+    }
+
+    .submissions-table .actions-panel {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 1px solid #BBBBBB;
+    }
+
+    .submissions-table select {
+        display: none;
+        width: 120px;
+    }
+
+    .submissions-table .actions-panel ul {
+        padding: 5px;
+    }
+
+    .submissions-table .actions-panel li,
+    .sync-option ul {
+        list-style: none;
+    }
+
+.submissions-table-container > div {
+    margin-top: 30px;
 }
 
-.submissions-table .actions-panel {
-    display: none;
-    position: absolute;
-    background: white;
-    border: 1px solid #BBBBBB;
-}
-
-.submissions-table select {
-    display: none;
-    width: 120px;
-}
-
-.submissions-table .actions-panel ul {
-    padding: 5px;
-}
-
-.submissions-table .actions-panel li,
-.sync-option ul {
-    list-style: none;
-}
+    .submissions-table-container > div > span {
+        margin-left: 10px;
+    }
 
 .search-form input,
 .search-form select,
@@ -51,11 +63,15 @@
     margin-left: 5px;
 }
 
+.pagination-container {
+    float: left;
+}
+
 .pagination {
     margin: 0;
 }
 
-.pagination > li > a,
-.pagination > li > span {
-    padding: 0 5px;
-}
+    .pagination > li > a,
+    .pagination > li > span {
+        padding: 0 5px;
+    }
