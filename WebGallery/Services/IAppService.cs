@@ -59,7 +59,7 @@ namespace WebGallery.Services
 
         Task MoveToTestingAsync(Submission submission);
 
-        Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortOrder, out int count);
+        Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortBy, out int count);
 
         Task<IList<SubmissionState>> GetStatusAsync();
 

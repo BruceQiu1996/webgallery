@@ -609,14 +609,14 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortOrder, out int count)
+        public Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortBy, out int count)
         {
             using (var db = new WebGalleryDbContext())
             {
                 var query = from s in db.Submissions
                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
-                            where keyword == null || keyword == string.Empty || s.Nickname.Contains(keyword)
+                            where keyword == string.Empty || s.Nickname.Contains(keyword.Trim())
                             select new
                             {
                                 submissionID = s.SubmissionID,
@@ -629,7 +629,7 @@ namespace WebGallery.Services
                             };
                 count = query.Count();
 
-                switch (sortOrder)
+                switch (sortBy)
                 {
                     case "appid":
                         query = query.OrderBy(q => q.nickname);

@@ -7,7 +7,7 @@ namespace WebGallery.ViewModels
     public class ManageDashboardViewModel
     {
         public StaticPagedList<Submission> Submissions { get; set; }
-        public IList<SubmissionState> Status { get; set; }
+        public IList<SubmissionState> StatusList { get; set; }
         public string Keyword { get; set; }
         public int PageSize { get; set; }
         public string CurrentSort { get; set; }

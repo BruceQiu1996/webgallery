@@ -30,6 +30,7 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page.HasValue ? page.Value : 1;
             var size = pageSize.HasValue ? pageSize.Value : 10;
+            keyword = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword;
             var apps = await _appService.GetSubmissionsAsync(keyword, pageNumber, size, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
@@ -37,7 +38,7 @@ namespace WebGallery.Controllers
                 Keyword = keyword,
                 CurrentSort = sortOrder,
                 Submissions = new StaticPagedList<Submission>(apps, pageNumber, size, count),
-                Status = await _appService.GetStatusAsync()
+                StatusList = await _appService.GetStatusAsync()
             };
 
             return View("Dashboard", model);

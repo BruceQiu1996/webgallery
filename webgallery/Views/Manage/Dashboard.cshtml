@@ -46,7 +46,7 @@
                             @using (Html.BeginRouteForm(SiteRouteNames.App_UpdateStatus, new { submissionId = submission.SubmissionID }, FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
-                                @Html.DropDownList("statusId", new SelectList(Model.Status, "SubmissionStateID", "Name", Model.Status.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
+                                @Html.DropDownList("statusId", new SelectList(Model.StatusList, "SubmissionStateID", "Name", Model.StatusList.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
                             }
                         </td>
                         <td>
