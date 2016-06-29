@@ -616,7 +616,7 @@ namespace WebGallery.Services
                 var query = from s in db.Submissions
                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
-                            where keyword == null || keyword == string.Empty || s.Nickname.Contains(keyword.Trim())
+                            where keyword == null || keyword == string.Empty || s.Nickname.Contains(keyword)
                             select new
                             {
                                 submissionID = s.SubmissionID,
