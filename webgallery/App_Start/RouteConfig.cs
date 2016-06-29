@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using WebGallery.Controllers;
 
 namespace WebGallery
 {
@@ -9,50 +10,57 @@ namespace WebGallery
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(name: SiteRouteNames.Home, url: SiteRouteUrlPatterns.Home, defaults: new { controller = "Home", action = "Index" });
-            routes.MapRoute(name: SiteRouteNames.Gallery, url: SiteRouteUrlPatterns.Gallery, defaults: new { controller = "App", action = "Gallery" });
-            routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = "Home", action = "Documentation" });
-            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = "Home", action = "ReportIssue" });
-            routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = "Home", action = "Agreement" });
-            routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = "Home", action = "Error" });
+            var home = nameof(HomeController).Replace("Controller", string.Empty);
+            var app = nameof(AppController).Replace("Controller", string.Empty);
+            var invitation = nameof(InvitationController).Replace("Controller", string.Empty);
+            var ownership = nameof(OwnershipController).Replace("Controller", string.Empty);
+            var account = nameof(AccountController).Replace("Controller", string.Empty);
+            var manage = nameof(ManageController).Replace("Controller", string.Empty);
 
-            routes.MapRoute(name: SiteRouteNames.SignIn, url: SiteRouteUrlPatterns.SignIn, defaults: new { controller = "Account", action = "SignIn" });
-            routes.MapRoute(name: SiteRouteNames.SignOut, url: SiteRouteUrlPatterns.SignOut, defaults: new { controller = "Account", action = "SignOut" });
-            routes.MapRoute(name: SiteRouteNames.Profile, url: SiteRouteUrlPatterns.Profile, defaults: new { controller = "Account", action = "Me" });
-            routes.MapRoute(name: SiteRouteNames.Profile_View, url: SiteRouteUrlPatterns.Profile_View, defaults: new { controller = "Account", action = "View" });
+            routes.MapRoute(name: SiteRouteNames.Home, url: SiteRouteUrlPatterns.Home, defaults: new { controller = home, action = nameof(HomeController.Index) });
+            routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = home, action = nameof(HomeController.Documents) });
+            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = home, action = nameof(HomeController.ReportIssue) });
+            routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = home, action = nameof(HomeController.Agreement) });
+            routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = home, action = nameof(HomeController.Error) });
 
-            routes.MapRoute(name: SiteRouteNames.Portal, url: SiteRouteUrlPatterns.Portal, defaults: new { controller = "App", action = "Mine" });
-            routes.MapRoute(name: SiteRouteNames.App_Submit, url: SiteRouteUrlPatterns.App_Submit, defaults: new { controller = "App", action = "new" });
-            routes.MapRoute(name: SiteRouteNames.App_Clone, url: SiteRouteUrlPatterns.App_Clone, defaults: new { controller = "App", action = "Clone" });
-            routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = "App", action = "Edit" });
-            routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = "App", action = "Verify" });
-            routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = "App", action = "Delete" });
-            routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = "App", action = "Categorize" });
-            routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = "App", action = "Preview" });
-            routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = "App", action = "Install" });
-            routes.MapRoute(name: SiteRouteNames.App_Owners, url: SiteRouteUrlPatterns.App_Owners, defaults: new { controller = "App", action = "Owners" });
-            routes.MapRoute(name: SiteRouteNames.App_Owners_Invite, url: SiteRouteUrlPatterns.App_Owners_Invite, defaults: new { controller = "Invitation", action = "Send" });
-            routes.MapRoute(name: SiteRouteNames.App_Owners_Remove, url: SiteRouteUrlPatterns.App_Owners_Remove, defaults: new { controller = "Ownership", action = "Remove" });
-            routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = "App", action = "Preview" });
+            routes.MapRoute(name: SiteRouteNames.SignIn, url: SiteRouteUrlPatterns.SignIn, defaults: new { controller = account, action = nameof(AccountController.SignIn) });
+            routes.MapRoute(name: SiteRouteNames.SignOut, url: SiteRouteUrlPatterns.SignOut, defaults: new { controller = account, action = nameof(AccountController.SignOut) });
+            routes.MapRoute(name: SiteRouteNames.Profile, url: SiteRouteUrlPatterns.Profile, defaults: new { controller = account, action = nameof(AccountController.Me) });
+            routes.MapRoute(name: SiteRouteNames.Profile_View, url: SiteRouteUrlPatterns.Profile_View, defaults: new { controller = account, action = nameof(AccountController.View) });
 
-            routes.MapRoute(name: SiteRouteNames.Invitation_Revoke, url: SiteRouteUrlPatterns.Invitation_Revoke, defaults: new { controller = "Invitation", action = "Revoke" });
-            routes.MapRoute(name: SiteRouteNames.Invitation_Accept, url: SiteRouteUrlPatterns.Invitation_Accept, defaults: new { controller = "Invitation", action = "Accept" });
-            routes.MapRoute(name: SiteRouteNames.Invitation_Decline, url: SiteRouteUrlPatterns.Invitation_Decline, defaults: new { controller = "Invitation", action = "Decline" });
-            routes.MapRoute(name: SiteRouteNames.Invitation_Detail, url: SiteRouteUrlPatterns.Invitation_Detail, defaults: new { controller = "Invitation", action = "Detail" });
+            routes.MapRoute(name: SiteRouteNames.Gallery, url: SiteRouteUrlPatterns.Gallery, defaults: new { controller = app, action = nameof(AppController.Gallery) });
+            routes.MapRoute(name: SiteRouteNames.Portal, url: SiteRouteUrlPatterns.Portal, defaults: new { controller = app, action = nameof(AppController.Mine) });
+            routes.MapRoute(name: SiteRouteNames.App_Submit, url: SiteRouteUrlPatterns.App_Submit, defaults: new { controller = app, action = nameof(AppController.New) });
+            routes.MapRoute(name: SiteRouteNames.App_Clone, url: SiteRouteUrlPatterns.App_Clone, defaults: new { controller = app, action = nameof(AppController.Clone) });
+            routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = app, action = nameof(AppController.Edit) });
+            routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = app, action = nameof(AppController.Verify) });
+            routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = app, action = nameof(AppController.Delete) });
+            routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize) });
+            routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = app, action = nameof(AppController.Preview) });
+            routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = app, action = nameof(AppController.Install) });
+            routes.MapRoute(name: SiteRouteNames.App_Owners, url: SiteRouteUrlPatterns.App_Owners, defaults: new { controller = app, action = nameof(AppController.Owners) });
+            routes.MapRoute(name: SiteRouteNames.App_Owners_Invite, url: SiteRouteUrlPatterns.App_Owners_Invite, defaults: new { controller = invitation, action = nameof(InvitationController.Send) });
+            routes.MapRoute(name: SiteRouteNames.App_Owners_Remove, url: SiteRouteUrlPatterns.App_Owners_Remove, defaults: new { controller = ownership, action = nameof(OwnershipController.Remove) });
+            routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = app, action = nameof(AppController.Preview) });
 
-            routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = "Manage", action = "Dashboard" });
-            routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = "Manage", action = "Supersubmitters" });
+            routes.MapRoute(name: SiteRouteNames.Invitation_Revoke, url: SiteRouteUrlPatterns.Invitation_Revoke, defaults: new { controller = invitation, action = nameof(InvitationController.Revoke) });
+            routes.MapRoute(name: SiteRouteNames.Invitation_Accept, url: SiteRouteUrlPatterns.Invitation_Accept, defaults: new { controller = invitation, action = nameof(InvitationController.Accept) });
+            routes.MapRoute(name: SiteRouteNames.Invitation_Decline, url: SiteRouteUrlPatterns.Invitation_Decline, defaults: new { controller = invitation, action = nameof(InvitationController.Decline) });
+            routes.MapRoute(name: SiteRouteNames.Invitation_Detail, url: SiteRouteUrlPatterns.Invitation_Detail, defaults: new { controller = invitation, action = nameof(InvitationController.Detail) });
+
+            routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = manage, action = nameof(ManageController.Dashboard) });
+            routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = manage, action = nameof(ManageController.SuperSubmitters) });
 
             // for ajax requests
-            routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = "App", action = "VerifyUrl" });
-            routes.MapRoute(name: SiteRouteNames.App_Package_Verify, url: SiteRouteUrlPatterns.App_Package_Verify, defaults: new { controller = "App", action = "VerifyPackage" });
-            routes.MapRoute(name: SiteRouteNames.App_Image_Verify, url: SiteRouteUrlPatterns.App_Image_Verify, defaults: new { controller = "App", action = "VerifyImage" });
-            routes.MapRoute(name: SiteRouteNames.App_Nickname_Version_Validate, url: SiteRouteUrlPatterns.App_Nickname_Version_Validate, defaults: new { controller = "App", action = "ValidateAppIdVersion" });
+            routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyUrl) });
+            routes.MapRoute(name: SiteRouteNames.App_Package_Verify, url: SiteRouteUrlPatterns.App_Package_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyPackage) });
+            routes.MapRoute(name: SiteRouteNames.App_Image_Verify, url: SiteRouteUrlPatterns.App_Image_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyImage) });
+            routes.MapRoute(name: SiteRouteNames.App_Nickname_Version_Validate, url: SiteRouteUrlPatterns.App_Nickname_Version_Validate, defaults: new { controller = app, action = nameof(AppController.ValidateAppIdVersion) });
             // default route
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //    defaults: new { controller = home, action = "Index", id = UrlParameter.Optional }
             //);
         }
     }

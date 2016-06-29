@@ -12,7 +12,7 @@ namespace WebGallery.Controllers
             return View();
         }
 
-        public ActionResult Documentation()
+        public ActionResult Documents()
         {
             return View();
         }

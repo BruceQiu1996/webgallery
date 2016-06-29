@@ -498,6 +498,13 @@
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap-sortable.css" />
     <Content Include="Content\images\header-developer.png" />
+    <Content Include="Content\images\icon-controlpanel.png" />
+    <Content Include="Content\images\icon-iisnet.png" />
+    <Content Include="Content\images\icon-iisphp.png" />
+    <Content Include="Content\images\icon-packaging.png" />
+    <Content Include="Content\images\icon-requirements.png" />
+    <Content Include="Content\images\icon-supportcontrol.png" />
+    <Content Include="Content\images\icon-supportdev.png" />
     <Content Include="Content\images\no-logo.png" />
     <Content Include="Content\images\step1-hero.png" />
     <Content Include="Content\images\step1.png" />
@@ -702,7 +709,7 @@
     <Content Include="Views\Manage\Dashboard.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
-    <Content Include="Views\Home\Documentation.cshtml" />
+    <Content Include="Views\Home\Documents.cshtml" />
     <Content Include="Views\Home\ContactConfirm.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\App\Submit_Introduction_Partial.cshtml" />
