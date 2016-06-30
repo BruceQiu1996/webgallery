@@ -24,7 +24,7 @@
                     var owner = Model.Owners[index];
 
                     <tr>
-                        <td>@owner.FullName</td>
+                        <td>@Html.RouteLink(owner.FullName, SiteRouteNames.Profile_View, new { submitterId = owner.SubmitterID })</td>
                         <td>@Resources.Submit.OwnerStatus_Active</td>
                         <td>
                             @if (Model.Owners.Count > 1)
