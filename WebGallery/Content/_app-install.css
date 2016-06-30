@@ -19,10 +19,6 @@
         margin-right: 20px;
     }
 
-        .install-container > a :hover {
-            opacity: .5;
-        }
-
     .install-container p:nth-of-type(2) {
         clear: both;
         margin-top: 100px;
