@@ -283,7 +283,11 @@ namespace WebGallery.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Install(string appId)
         {
-            var model = new AppInstallViewModel();
+            var model = new AppInstallViewModel
+            {
+                Submission = await _appService.GetSubmissionFromFeedAsync(appId),
+                Metadata = (await _appService.GetMetadataFromFeedAsync(appId)).FirstOrDefault()
+            };
 
             return View(model);
         }

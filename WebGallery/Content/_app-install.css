@@ -6,6 +6,7 @@
 
     .install-container > h3 {
         font-style: italic;
+        font-size: 18px;
         margin-bottom: 50px;
     }
 
@@ -28,19 +29,30 @@
         margin-top: 10px;
     }
 
-.app-detail > div {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 100%;
-    text-align: center;
+.app-detail {
+    float: left;
+    width: 40%;
 }
 
-    .app-detail > div > img {
-        max-height: 200px;
-        max-width: 200px;
+    .app-detail > div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 100%;
+        text-align: center;
     }
+
+        .app-detail > div > img {
+            max-height: 200px;
+            max-width: 200px;
+        }
 
 .while-installing {
     display: none;
     margin-top: 50px;
+    text-align: center;
 }
+
+    .while-installing > p {
+        margin-top: 20px;
+        font-size: 18px;
+    }

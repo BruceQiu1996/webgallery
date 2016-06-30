@@ -8,7 +8,7 @@
 <div class="content">
     <div class="install-container">
         <h3>Installs powered by the Microsoft Web Platform Installer</h3>
-        <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=WordPress"
+        <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=@Model.Submission.Nickname"
            onclick="$(this).parent().hide(); $(this).parent().next().hide(); $(this).parent().next().next().removeClass('display'); $(this).parent().next().next().show()"></a>
         <p>By downloading and using the Web Platform Installer (Web PI), you agree to the <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank">license terms</a> for the Web PI.</p>
         <p>Please leave this window open until the Microsoft Web Platform Installer starts. </p>
@@ -22,15 +22,15 @@
     <div class="app-detail">
         <h2>You are about to install:</h2>
         <div>
-            <img src="http://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=1bbd4e7e-26bb-4cd4-b34a-8daa81e014ce" />
-            <h2>Virto Commerce</h2>
+            <img src="@Model.Submission.LogoUrl" />
+            <h2>@Model.Metadata.Name</h2>
         </div>
-        <p>Virto Commerce is the only enterprise level e-commerce product fully available under Open Source license. Virto Commerce is based on .NET 4.5 with extensive use of MVC, IoC, EF, AngularJS, Liquid and many other cutting edge technologies. The product can easily handle millions of products and has the following features: master & virtual catalogs, separate price lists, multiple stores, advanced template engine, dynamic marketing content, fulfillment centers, multiple product types (product, variation, bundle, package, dynamic kit), returns and exchanges and many more.</p>
-        <a>More information</a>
+        <p>@Model.Metadata.Description</p>
+        <a href="@Url.RouteUrl(SiteRouteNames.App_View,new {appId = Model.Submission.Nickname })" target="_blank">More inforamtion</a>
     </div>
     <div class="while-installing">
         <h1>Launching Web Platform Installer. Please wait.</h1>
-        <p>To return to the page you were viewing, please click <a>here</a>.</p>
+        <p>To return to the page you were viewing, please click <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = Model.Submission.Nickname })">here</a>.</p>
     </div>
 </div>
 

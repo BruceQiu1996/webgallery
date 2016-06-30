@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <hr />
             <div class="pull-left  icon-block">
-                <a href="@Url.RouteUrl(SiteRouteNames.App_Preview, new { appId = app.Nickname })"><img src=@Url.Content(logourl) class="small-icon" /></a>
+                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src=@Url.Content(logourl) class="small-icon" /></a>
             </div>
             <div>
                 <lable class="app-title">@Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })</lable>
