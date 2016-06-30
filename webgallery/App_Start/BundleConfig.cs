@@ -83,6 +83,9 @@ namespace WebGallery
                 "~/Content/_manage-dashboard.css"));
             bundles.Add(new ScriptBundle("~/js/manage-dashboard").Include(
                         "~/scripts/_manage-dashboard.js"));
+
+            bundles.Add(new StyleBundle("~/css/app-install").Include(
+                "~/Content/_app-install.css"));
         }
     }
 }

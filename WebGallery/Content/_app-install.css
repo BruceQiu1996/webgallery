@@ -1,0 +1,46 @@
+﻿.install-container {
+    width: 50%;
+    float: left;
+    margin-right: 10%;
+}
+
+    .install-container > h3 {
+        font-style: italic;
+        margin-bottom: 50px;
+    }
+
+    .install-container > a {
+        display: block;
+        float: left;
+        width: 213px;
+        height: 70px;
+        background: url(images/btn-install-now-bkgd.png) left top no-repeat;
+        margin-right: 20px;
+    }
+
+    .install-container p:nth-of-type(2) {
+        clear: both;
+        margin-top: 100px;
+    }
+
+    .install-container > ul > li {
+        list-style-type: none;
+        margin-top: 10px;
+    }
+
+.app-detail > div {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+    .app-detail > div > img {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+.while-installing {
+    display: none;
+    margin-top: 50px;
+}
