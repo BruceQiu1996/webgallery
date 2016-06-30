@@ -691,7 +691,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
     <Content Include="Scripts\_app-gallery.js" />
-    <Content Include="Scripts\_app-install.js" />
     <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_app-detail.js" />
