@@ -45,7 +45,26 @@ namespace WebGallery.Controllers
         [HttpGet]
         public async Task<ActionResult> View(int? submitterId)
         {
-            return View();
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Profile);
+            }
+
+            if (!submitterId.HasValue) return View("ResourceNotFound");
+
+            var theSubmitter = await _submitterService.GetSubmitterAsync(submitterId.Value);
+            if (theSubmitter == null)
+            {
+                return View("ResourceNotFound");
+            }
+
+            var model = new AccountDetailViewModel
+            {
+                Submittership = theSubmitter,
+                ContactInfo = await _submitterService.GetContactDetailAsync(theSubmitter.SubmitterID)
+            };
+
+            return View(model);
         }
 
         [Authorize]

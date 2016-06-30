@@ -5,6 +5,8 @@ namespace WebGallery.Services
 {
     public interface ISubmitterService
     {
+        Task<Submitter> GetSubmitterAsync(int submitterId);
+
         Task<Submitter> GetSubmitterByMicrosoftAccountAsync(string submitterMicrosoftAccount);
 
         Task<bool> HasContactInfoAsync(int submitterId);

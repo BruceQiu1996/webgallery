@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Models;
 
@@ -6,6 +7,18 @@ namespace WebGallery.Services
 {
     public class SubmitterService : ISubmitterService
     {
+        public Task<Submitter> GetSubmitterAsync(int submitterId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submitter = (from s in db.Submitters
+                                 where s.SubmitterID == submitterId
+                                 select s).FirstOrDefault();
+
+                return Task.FromResult(submitter);
+            }
+        }
+
         public Task<Submitter> GetSubmitterByMicrosoftAccountAsync(string submitterMicrosoftAccount)
         {
             using (var db = new WebGalleryDbContext())

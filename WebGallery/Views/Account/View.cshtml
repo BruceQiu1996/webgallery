@@ -1,0 +1,69 @@
+﻿@model WebGallery.ViewModels.AccountDetailViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Account Details for @Model.ContactInfo.FullName</h2>
+    <div class="main-panel">
+        <h3>Submittership:</h3>
+        <div>
+            <span>Microsoft Account:</span>
+            <span>@Model.Submittership.MicrosoftAccount</span>
+        </div>
+        <div>
+            <span>Is Super Submitter?</span>
+            <span>@((Model.Submittership.IsSuperSubmitter ?? false) ? "Yes" : "No")</span>
+        </div>
+        <div>
+            <span>PUID (Unique ID):</span>
+            <span>@Model.Submittership.PersonalID</span>
+        </div>
+
+        <hr />
+
+        <h3>Contact Info:</h3>
+        <div>
+            <span>Title:</span>
+            <span>@Model.ContactInfo.Title</span>
+        </div>
+        <div>
+            <span>Email:</span>
+            <span>@Model.ContactInfo.EMail</span>
+        </div>
+        <div>
+            <span>Address 1:</span>
+            <span>@Model.ContactInfo.Address1</span>
+        </div>
+        <div>
+            <span>Address 2:</span>
+            <span>@Model.ContactInfo.Address2</span>
+        </div>
+        <div>
+            <span>Address 3:</span>
+            <span>@Model.ContactInfo.Address3</span>
+        </div>
+        <div>
+            <span>City:</span>
+            <span>@Model.ContactInfo.City</span>
+        </div>
+        <div>
+            <span>State or Province:</span>
+            <span>@Model.ContactInfo.StateOrProvince</span>
+        </div>
+        <div>
+            <span>Country:</span>
+            <span>@Model.ContactInfo.Country</span>
+        </div>
+        <div>
+            <span>ZIP or Region Code:</span>
+            <span>@Model.ContactInfo.ZipOrRegionCode</span>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/account-view")
+}
