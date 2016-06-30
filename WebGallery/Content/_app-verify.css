@@ -37,3 +37,7 @@
     color: Red;
     background: transparent url(images/validating-fail.gif) center left no-repeat;
 }
+
+#panelPass input[type=submit]{
+    margin-right: 30px;
+}
