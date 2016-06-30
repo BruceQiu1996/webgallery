@@ -10,7 +10,7 @@ h3 {
     font-size: 1em;
 }
 
-p, select, input, textarea, label, table, ul,
+p, select, input, textarea, label, table, li,
 .font-size-095em {
     font-size: 0.95em;
 }
