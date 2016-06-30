@@ -498,6 +498,9 @@
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap-sortable.css" />
+    <Content Include="Content\images\4x4-box-top.jpg" />
+    <Content Include="Content\images\btn-install-now-bkgd.png" />
+    <Content Include="Content\images\dotnet-icon.png" />
     <Content Include="Content\images\header-developer.png" />
     <Content Include="Content\images\icon-controlpanel.png" />
     <Content Include="Content\images\icon-iisnet.png" />
@@ -507,6 +510,7 @@
     <Content Include="Content\images\icon-supportcontrol.png" />
     <Content Include="Content\images\icon-supportdev.png" />
     <Content Include="Content\images\no-logo.png" />
+    <Content Include="Content\images\sql-icon.png" />
     <Content Include="Content\images\step1-hero.png" />
     <Content Include="Content\images\step1.png" />
     <Content Include="Content\images\step2-hero.png" />
@@ -517,7 +521,11 @@
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
+    <Content Include="Content\images\webpi-tools.png" />
+    <Content Include="Content\images\webpi-windows.png" />
+    <Content Include="Content\images\webx-bkg.jpg" />
     <Content Include="Content\_app-gallery.css" />
+    <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />
     <Content Include="Content\_invitation-detail.css" />
     <Content Include="Content\_invitation-send.css" />
@@ -687,6 +695,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_account-profile.js" />
     <Content Include="Scripts\_app-gallery.js" />
+    <Content Include="Scripts\_app-install.js" />
     <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
     <Content Include="Scripts\_app-detail.js" />

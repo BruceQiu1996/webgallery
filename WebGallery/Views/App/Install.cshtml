@@ -1,8 +1,39 @@
-﻿@model WebGallery.ViewModels.HomeInstallViewModel
+﻿@model WebGallery.ViewModels.AppInstallViewModel
 
 @{
     ViewBag.Title = "Install";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Install</h2>
+<div class="content">
+    <div class="install-container">
+        <h3>Installs powered by the Microsoft Web Platform Installer</h3>
+        <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=WordPress"
+           onclick="$(this).parent().hide(); $(this).parent().next().hide(); $(this).parent().next().next().removeClass('display'); $(this).parent().next().next().show()"></a>
+        <p>By downloading and using the Web Platform Installer (Web PI), you agree to the <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank">license terms</a> for the Web PI.</p>
+        <p>Please leave this window open until the Microsoft Web Platform Installer starts. </p>
+        <h4>System requirements</h4>
+        <ul>
+            <li>Supported Operating Systems are Windows 8, Windows 7, Windows Vista SP2, Windows XP SP3+, Windows Server 2003 SP2+, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012.</li>
+            <li>You must have a live Internet connection.</li>
+            <li>You must have administrator privileges on your computer to run the Web Platform Installer.</li>
+        </ul>
+    </div>
+    <div class="app-detail">
+        <h2>You are about to install:</h2>
+        <div>
+            <img src="http://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=1bbd4e7e-26bb-4cd4-b34a-8daa81e014ce" />
+            <h2>Virto Commerce</h2>
+        </div>
+        <p>Virto Commerce is the only enterprise level e-commerce product fully available under Open Source license. Virto Commerce is based on .NET 4.5 with extensive use of MVC, IoC, EF, AngularJS, Liquid and many other cutting edge technologies. The product can easily handle millions of products and has the following features: master & virtual catalogs, separate price lists, multiple stores, advanced template engine, dynamic marketing content, fulfillment centers, multiple product types (product, variation, bundle, package, dynamic kit), returns and exchanges and many more.</p>
+        <a>More information</a>
+    </div>
+    <div class="while-installing">
+        <h1>Launching Web Platform Installer. Please wait.</h1>
+        <p>To return to the page you were viewing, please click <a>here</a>.</p>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/app-install")
+}
