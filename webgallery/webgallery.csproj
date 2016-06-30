@@ -478,6 +478,7 @@
     <Compile Include="Utilities\UrlHelper.cs" />
     <Compile Include="Utilities\ZipFileHelper.cs" />
     <Compile Include="ViewModels\AccountProfileViewModel.cs" />
+    <Compile Include="ViewModels\AccountDetailViewModel.cs" />
     <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
     <Compile Include="ViewModels\AppDetailViewModel.cs" />
     <Compile Include="ViewModels\AppGalleryViewModel.cs" />
@@ -524,6 +525,7 @@
     <Content Include="Content\images\webpi-tools.png" />
     <Content Include="Content\images\webpi-windows.png" />
     <Content Include="Content\images\webx-bkg.jpg" />
+    <Content Include="Content\_account-view.css" />
     <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />
@@ -753,6 +755,7 @@
     <Content Include="Views\Invitation\Send.cshtml" />
     <Content Include="Views\App\Gallery.cshtml" />
     <Content Include="Views\App\CanNotFindVersion.cshtml" />
+    <Content Include="Views\Account\View.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

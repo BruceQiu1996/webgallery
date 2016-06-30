@@ -613,10 +613,12 @@ namespace WebGallery.Services
         {
             using (var db = new WebGalleryDbContext())
             {
+                keyword = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
+
                 var query = from s in db.Submissions
                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
-                            where keyword == string.Empty || s.Nickname.Contains(keyword.Trim())
+                            where keyword == string.Empty || s.Nickname.Contains(keyword)
                             select new
                             {
                                 submissionID = s.SubmissionID,
@@ -627,6 +629,7 @@ namespace WebGallery.Services
                                 status = d.Name,
                                 statusSortOrder = d.SortOrder
                             };
+
                 count = query.Count();
 
                 switch (sortBy)

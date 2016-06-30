@@ -61,6 +61,9 @@ namespace WebGallery
             bundles.Add(new StyleBundle("~/css/invitation-detail").Include(
                       "~/Content/_invitation-detail.css"));
 
+            bundles.Add(new StyleBundle("~/css/account-view").Include(
+                "~/Content/_account-view.css"));
+
             bundles.Add(new ScriptBundle("~/js/account-profile-form").Include(
                         "~/scripts/_account-profile.js"));
             bundles.Add(new StyleBundle("~/css/account-profile-form").Include(
