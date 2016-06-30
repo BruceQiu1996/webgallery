@@ -523,6 +523,7 @@
     <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />
+    <Content Include="Content\_home-agreement.css" />
     <Content Include="Content\_invitation-detail.css" />
     <Content Include="Content\_invitation-send.css" />
     <Content Include="Content\_app-owners.css" />
