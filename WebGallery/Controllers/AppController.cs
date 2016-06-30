@@ -219,15 +219,10 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpPost]
-        public JsonResult ValidateAppIdVersion(string appId, string version, int? submissionId)
+        public async Task<JsonResult> ValidateAppIdVersion(string appId, string version, int? submissionId)
         {
-            lock (_UniqueAppIdValidationLock)
-            {
-                return Json(_appService.ValidateAppIdVersionIsUniqueAsync(appId, version, submissionId));
-            }
+            return Json(await _appService.ValidateAppIdVersionIsUniqueAsync(appId, version, submissionId));
         }
-
-        static private string _UniqueAppIdValidationLock = "This is used to lock";
 
         #endregion
 
