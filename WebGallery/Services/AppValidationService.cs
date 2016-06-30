@@ -41,19 +41,22 @@ namespace WebGallery.Services
                 new AppValidationItem {Type= AppValidationItemType.Image, Name = "Screenshot6Dimensions", Value = submission.ScreenshotUrl6},
             };
 
-            var packageList = new List<Package>();
+            IEnumerable<Package> packages = null;
             using (var db = new WebGalleryDbContext())
             {
-                packageList = (from p in db.Packages
-                               where p.SubmissionID == submission.SubmissionID
-                               select p).ToList();
+                packages = (from p in db.Packages
+                            where p.SubmissionID == submission.SubmissionID
+                            select p).ToList();
             }
+
+            // sort on a in-memory collection, that way will speed somehow
+            packages = packages.OrderByDescending(p => p.PackageID);
 
             var packageUrlValidationItems = new List<AppValidationItem>();
             var packageValidationItems = new List<AppValidationItem>();
             foreach (var lang in Language.SupportedLanguages)
             {
-                var package = packageList.FirstOrDefault(p => p.Language == lang.Name);
+                var package = packages.FirstOrDefault(p => p.Language == lang.Name);
                 if (package != null)
                 {
                     packageUrlValidationItems.Add(new AppValidationItem { Name = "PackageLocationUrl", Type = AppValidationItemType.Url, LanguageAndCountryCode = lang.Name, Value = package.PackageURL });

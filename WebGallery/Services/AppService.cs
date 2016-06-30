@@ -16,18 +16,27 @@ namespace WebGallery.Services
 
         public Task<bool> ValidateAppIdVersionIsUniqueAsync(string appId, string version, int? submissionId)
         {
-            using (var db = new WebGalleryDbContext())
+            lock (_UniqueAppIdValidationLock)
             {
-                var submission = db.Submissions.FirstOrDefault(
-                        s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
-                        && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
-                var isUnique = (submission != null && submissionId.HasValue)
-                    ? submission.SubmissionID == submissionId
-                    : submission == null;
+                using (var db = new WebGalleryDbContext())
+                {
+                    var submission = db.Submissions.FirstOrDefault(
+                            s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
+                            && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
 
-                return Task.FromResult(isUnique);
+                    // if not found, then it's unique
+                    if (submission == null) return Task.FromResult(true);
+
+                    // if the found submission is itself, then it's unique
+                    if (submission.SubmissionID == submissionId) return Task.FromResult(true);
+
+                    // else it's not unique
+                    return Task.FromResult(false);
+                }
             }
         }
+
+        static private string _UniqueAppIdValidationLock = "This is used to lock";
 
         public bool ValidateAppIdCharacters(string appId)
         {
