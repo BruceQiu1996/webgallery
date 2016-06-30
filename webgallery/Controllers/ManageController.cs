@@ -24,24 +24,25 @@ namespace WebGallery.Controllers
         {
             if (!User.IsSuperSubmitter())
             {
-                return RedirectToAction("mine", "app");
+                return RedirectToRoute(SiteRouteNames.Portal);
             }
 
+            var defaultPageSize = 20;
+            pageSize = pageSize ?? defaultPageSize;
+            page = page ?? 1;
+
             var count = 0;
-            var pageNumber = page.HasValue ? page.Value : 1;
-            var size = pageSize.HasValue ? pageSize.Value : 10;
-            keyword = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword;
-            var apps = await _appService.GetSubmissionsAsync(keyword, pageNumber, size, sortOrder, out count);
+            var apps = await _appService.GetSubmissionsAsync(keyword, page.Value, pageSize.Value, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
-                PageSize = size,
+                PageSize = pageSize.Value,
                 Keyword = keyword,
                 CurrentSort = sortOrder,
-                Submissions = new StaticPagedList<Submission>(apps, pageNumber, size, count),
+                Submissions = new StaticPagedList<Submission>(apps, page.Value, pageSize.Value, count),
                 StatusList = await _appService.GetStatusAsync()
             };
 
-            return View("Dashboard", model);
+            return View(model);
         }
 
         public async Task<ActionResult> SuperSubmitters()
