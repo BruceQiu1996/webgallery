@@ -5,4 +5,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Categorize</h2>
+<div class="content">
+    <div class="header">
+        <a>All Categories</a>
+        @Html.TextBox("keyword", null, new { placeholder = "Search Apps" })
+        <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
+        <hr />
+    </div>
+    <div class="categories">
+        @{
+            for (var i = 0; i < 6; i++)
+            {
+                <div><a>eCommerce</a></div>
+                <hr />
+            }
+        }
+    </div>
+    <div class="app-list">
+        @for (var i = 0; i < 10; i++)
+        {
+            <div>
+                <div>
+                    <a><img src="~/Content/images/icon-iisphp.png" class="small-icon" /></a>
+                </div>
+                <div>
+                    <a>nopCommerce</a>
+                    <span>1.2.3.4</span>
+                    <span>Released at:1/2/2015 </span>
+                </div>
+                <div>
+                    <p>WordPress started in 2003 with a single bit of code to enhance the typography of everyday writing and with fewer users than you can count on your fingers and toes. Since then it has grown to be the largest self-hosted blogging tool in the world, used on hundreds of thousands of sites. <a>More Information</a></p>
+                </div>
+                <hr />
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/app-categorize")
+}

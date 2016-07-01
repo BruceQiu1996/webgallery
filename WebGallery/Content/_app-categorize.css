@@ -1,0 +1,63 @@
+﻿.hearder > h1 {
+    float: left;
+}
+
+.header > a,
+.categories a {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.header > input {
+    height: 30px;
+    font-size: 19px;
+}
+
+.header input,
+.header > p {
+    position: absolute;
+}
+
+    .header input:nth-child(2),
+    .header > p {
+        left: 35%;
+    }
+
+    .header input:nth-child(2) {
+        width: 25%;
+    }
+
+    .header input:nth-child(3) {
+        left: 60%;
+        margin-left: 3px;
+    }
+
+.categories {
+    float: left;
+    width: 20%;
+}
+
+.app-list {
+    margin-left: 10%;
+    float: left;
+    width: 70%;
+}
+
+    .app-list div div:first-child {
+        width: 70px;
+        height: 70px;
+        float: left;
+    }
+
+    .app-list > div > div > a > img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+
+    .app-list > div > div > a {
+        font-size: 20px;
+    }
+
+    .app-list div div span:first-of-type {
+        font-size: 18px;
+    }
