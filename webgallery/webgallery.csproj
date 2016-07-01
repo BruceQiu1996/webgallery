@@ -520,6 +520,7 @@
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
     <Content Include="Content\_account-view.css" />
+    <Content Include="Content\_app-categorize.css" />
     <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />

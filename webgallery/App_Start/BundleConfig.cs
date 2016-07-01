@@ -89,6 +89,9 @@ namespace WebGallery
 
             bundles.Add(new StyleBundle("~/css/app-install").Include(
                 "~/Content/_app-install.css"));
+
+            bundles.Add(new StyleBundle("~/css/app-categorize").Include(
+                "~/Content/_app-categorize.css"));
         }
     }
 }
