@@ -3,45 +3,65 @@
 @{
     ViewBag.Title = "Categorize";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var firstIndex = Model.Submissions.Count() == 0 ? (Model.CurrentPage - 1) * 20 : (Model.CurrentPage - 1) * 20 + 1;
+    var lastIndex = (Model.CurrentPage - 1) * 20 + Model.Submissions.Count();
 }
 
 <div class="content">
     <div class="header">
-        <a>All Categories</a>
-        @Html.TextBox("keyword", null, new { placeholder = "Search Apps" })
-        <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
-        <hr />
+        @Html.RouteLink("Go Back to Gallery", SiteRouteNames.Gallery)
+        <label>Display Results @firstIndex - @lastIndex For Your Searching , @Model.TotalCount Totally</label>
     </div>
+    <hr />
     <div class="categories">
+        @Html.HiddenFor(model => model.CurrentCategory)
         @{
-            for (var i = 0; i < 6; i++)
+            foreach (var c in Model.FilteredCategories)
             {
-                <div><a>eCommerce</a></div>
+                <div>
+                    @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name })
+                </div>
                 <hr />
             }
         }
     </div>
     <div class="app-list">
-        @for (var i = 0; i < 10; i++)
+        @foreach (var app in Model.Submissions)
         {
+            var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
+            var description = app.BriefDescription.Length > 310 ? app.BriefDescription.Substring(0, 310) + "..." : app.BriefDescription;
+
             <div>
                 <div>
-                    <a><img src="~/Content/images/icon-iisphp.png" class="small-icon" /></a>
+                    <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src="@Url.Content(logourl)" class="small-icon" /></a>
                 </div>
                 <div>
-                    <a>nopCommerce</a>
-                    <span>1.2.3.4</span>
-                    <span>Released at:1/2/2015 </span>
+                    @Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })
+                    <span>@app.Version</span>
+                    <span>Released at: @app.ReleaseDate.ToShortDateString() </span>
                 </div>
                 <div>
-                    <p>WordPress started in 2003 with a single bit of code to enhance the typography of everyday writing and with fewer users than you can count on your fingers and toes. Since then it has grown to be the largest self-hosted blogging tool in the world, used on hundreds of thousands of sites. <a>More Information</a></p>
+                    <p>@description @Html.RouteLink("More Information", SiteRouteNames.App_View, new { appId = app.Nickname })</p>
                 </div>
                 <hr />
             </div>
         }
     </div>
+
+    <div class="page-switch">
+        @Html.Hidden("currentpage", Model.CurrentPage)
+        @Html.Hidden("totalpage", Model.TotalPage)
+        @Html.RouteLink("Next", SiteRouteNames.App_Categorize, new { page = Model.CurrentPage + 1 }, new { id = "nextlink" })
+        @Html.RouteLink("Previous", SiteRouteNames.App_Categorize, new { page = Model.CurrentPage - 1 }, new { id = "prelink" })
+    </div>
 </div>
 
 @section Styles {
     @Styles.Render("~/css/app-categorize")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/js/app-categorize")
 }

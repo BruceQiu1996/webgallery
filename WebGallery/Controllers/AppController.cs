@@ -227,9 +227,20 @@ namespace WebGallery.Controllers
         #endregion
 
         [AllowAnonymous]
-        public async Task<ActionResult> Categorize(string category)
+        public async Task<ActionResult> Categorize(string category, int? page)
         {
-            var model = new AppCategorizeViewModel();
+            var count = 0;
+            var pageNumber = page ?? 1;
+            var pageSize = 20;
+            var model = new AppCategorizeViewModel
+            {
+                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, pageNumber, pageSize, out count),
+                Categories = await _appService.GetCategoriesAsync(),
+                TotalPage = Convert.ToInt32(Math.Ceiling((double)count / pageSize)),
+                CurrentPage = pageNumber,
+                CurrentCategory = category,
+                TotalCount = count
+            };
 
             return View(model);
         }
@@ -241,8 +252,8 @@ namespace WebGallery.Controllers
             var pageSize = 20;
             var model = new AppGalleryViewModel
             {
-                AppList = (await _appService.GetAppsFromFeedAsync(keyword, page, pageSize, out count)),
-                TotalPage = Convert.ToInt32(Math.Ceiling((double)((double)count / pageSize))),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, string.Empty, page, pageSize, out count),
+                TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),
                 CurrentPage = page,
                 Keyword = keyword,
                 TotalCount = count
