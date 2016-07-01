@@ -1,36 +1,19 @@
-﻿.hearder > h1 {
+﻿.header > a {
     float: left;
+    margin-top: 20px;
 }
 
-.header > a,
+.header label {
+    margin-top: 22px;
+    margin-left: 15%;
+    font-size: 18px;
+}
+
+.header a,
 .categories a {
     text-decoration: none;
     font-size: 22px;
 }
-
-.header > input {
-    height: 30px;
-    font-size: 19px;
-}
-
-.header input,
-.header > p {
-    position: absolute;
-}
-
-    .header input:nth-child(2),
-    .header > p {
-        left: 35%;
-    }
-
-    .header input:nth-child(2) {
-        width: 25%;
-    }
-
-    .header input:nth-child(3) {
-        left: 60%;
-        margin-left: 3px;
-    }
 
 .categories {
     float: left;
@@ -47,6 +30,7 @@
         width: 70px;
         height: 70px;
         float: left;
+        margin-right: 10px;
     }
 
     .app-list > div > div > a > img {
@@ -58,6 +42,36 @@
         font-size: 20px;
     }
 
-    .app-list div div span:first-of-type {
-        font-size: 18px;
+    .app-list div div span {
+        color: grey;
     }
+
+        .app-list div div span:first-of-type {
+            font-size: 17px;
+        }
+
+        .app-list div div span:nth-of-type(2) {
+            font-size: 12px;
+            padding-left: 10px;
+        }
+
+.page-switch > a {
+    font-size: 22px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.link-disabled {
+    color: grey;
+}
+
+    .link-disabled:hover {
+        text-decoration: none;
+        color: gray;
+    }
+
+.this-category,
+.this-category:hover {
+    color: black;
+}

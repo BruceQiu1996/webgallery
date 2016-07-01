@@ -92,6 +92,8 @@ namespace WebGallery
 
             bundles.Add(new StyleBundle("~/css/app-categorize").Include(
                 "~/Content/_app-categorize.css"));
+            bundles.Add(new ScriptBundle("~/js/app-categorize").Include(
+                        "~/scripts/_app-categorize.js"));
         }
     }
 }

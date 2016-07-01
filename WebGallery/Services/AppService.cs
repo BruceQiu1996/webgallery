@@ -510,14 +510,19 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, int page, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, int page, int pageSize, out int count)
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
+            var categoryId = (from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
+                              where x.Value == category
+                              select x.Attribute("id").Value).FirstOrDefault();
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
                         let title = e.Element(ns + "title").Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (keyword == null || string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower()))
+                        let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
+                                         select c.Value
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && (string.IsNullOrWhiteSpace(category) || categories.Contains(categoryId))
                         orderby releaseDate descending
                         select new
                         {
