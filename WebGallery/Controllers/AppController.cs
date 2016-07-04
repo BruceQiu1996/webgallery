@@ -227,16 +227,20 @@ namespace WebGallery.Controllers
         #endregion
 
         [AllowAnonymous]
-        public async Task<ActionResult> Categorize(string category, int? page)
+        public async Task<ActionResult> Categorize(int? page, string category = "All", string supportedLanguage = Language.CODE_ENGLISH_US)
         {
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
             var model = new AppCategorizeViewModel
             {
-                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, pageNumber, pageSize, out count),
-                Categories = await _appService.GetCategoriesAsync(),
+                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, pageNumber, pageSize, out count),
+
+                //We won't show cateogries list with "Templates" and "AppFrameworks" whose CategoryID are 8 and 9 in database 
+                Categories = (await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList(),
+                SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 TotalPage = Convert.ToInt32(Math.Ceiling((double)count / pageSize)),
+                CurrentSupportedLanguage = supportedLanguage,
                 CurrentPage = pageNumber,
                 CurrentCategory = category,
                 TotalCount = count
@@ -246,15 +250,18 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Gallery(string keyword, int page = 1)
+        public async Task<ActionResult> Gallery(string keyword, int? page, string supportedLanguage = Language.CODE_ENGLISH_US)
         {
             var count = 0;
+            var pageNumber = page ?? 1;
             var pageSize = 20;
             var model = new AppGalleryViewModel
             {
-                AppList = await _appService.GetAppsFromFeedAsync(keyword, string.Empty, page, pageSize, out count),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, pageNumber, pageSize, out count),
+                SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
+                CurrentSupportedLanguage = supportedLanguage,
                 TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),
-                CurrentPage = page,
+                CurrentPage = pageNumber,
                 Keyword = keyword,
                 TotalCount = count
             };

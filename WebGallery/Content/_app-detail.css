@@ -1,5 +1,5 @@
 ﻿.app-name {
-    padding: 50px 0 20px 110px;
+    padding: 50px 0 20px 20px;
     margin-bottom: 20px;
     font-size: 28px;
 }
@@ -9,7 +9,7 @@
 }
 
 .app-icon {
-    margin-left: 110px;
+    margin-left: 20px;
 }
 
 .app-image {
@@ -27,11 +27,11 @@
 }
 
 .description {
-    padding: 40px 50px 50px 110px;
+    padding: 40px 50px 50px 20px;
 }
 
 .screenshot-link {
-    margin-left: 132px;
+    margin-left: 45px;
     padding-top: 10px;
     clear: both;
 }

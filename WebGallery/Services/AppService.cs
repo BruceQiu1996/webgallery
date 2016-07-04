@@ -510,7 +510,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, int page, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, int page, int pageSize, out int count)
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
@@ -521,8 +521,15 @@ namespace WebGallery.Services
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
                         let title = e.Element(ns + "title").Value
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
+                                         where c.Value == categoryId
                                          select c.Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && (string.IsNullOrWhiteSpace(category) || categories.Contains(categoryId))
+                        let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
+
+                                              // The languageIds in feed are always the substring ofthe relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
+                                              // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
+                                          where supportedLanguage.Contains(l.Value) || (supportedLanguage == "zh-chs" && l.Value == "zh-cn") || (supportedLanguage == "zh-cht" && l.Value == "zh-tw")
+                                          select l.Value
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && (categoryId == null || categories.Count() > 0) && languageIds.Count() > 0
                         orderby releaseDate descending
                         select new
                         {
@@ -774,6 +781,38 @@ namespace WebGallery.Services
                 return Task.FromResult(0);
             }
         }
+
+        public Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync()
+        {
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+            var languageIds = from e in xdoc.Root.Elements(ns + "entry").Elements(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
+                              select e.Value;
+            var supportedLanguages = new List<KeyValuePair<string, string>>();
+            foreach (var s in Language.SupportedLanguages)
+            {
+                // If there is no apps in feed support the language ,we won't show it.
+                // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
+                // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
+                if (languageIds.Any(i => s.Name.Contains(i) || (s.Name == "zh-chs" && i == "zh-cn") || (s.Name == "zh-cht" && i == "zh-tw")))
+                {
+                    // We don't want to include any long explanations next to the country. For example, in .Net 4, es-es comes out as
+                    // Español (España, alfabetización internacional)
+                    // But what we really want is something simpler like
+                    // Español (España)
+                    // So remove everything after the comma and before the closing parenthesis.
+                    var nativeName = Regex.Replace(s.CultureInfo.NativeName, ",[^)]*\\)", ")");
+
+                    // Also in .Net 4, after the parentheses, there is sometimes additional information that we consider superfluous to our needs.
+                    // For example, the NameName for zh-cht and zh-chs includes "Legacy" after the closing parenthesis. We want to strip that out.
+                    nativeName = Regex.Replace(nativeName, "\\).*", ")");
+                    supportedLanguages.Add(new KeyValuePair<string, string>(nativeName, s.Name));
+                }
+            }
+
+            return Task.FromResult<IList<KeyValuePair<string, string>>>(supportedLanguages);
+        }
+
     } // class
 
     public class TestingStateMissingException : Exception
