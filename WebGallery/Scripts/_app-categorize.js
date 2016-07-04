@@ -13,7 +13,10 @@
             $(this).addClass("this-category");
             $(this).removeAttr("href");
         }
-    })
+    });
+    $(".categories div select").change(function () {
+        $(this).parent().submit();
+    });
     if (localStorage['page'] == document.URL) {
         $(document).scrollTop(localStorage['scrollTop']);
     }

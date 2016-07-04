@@ -2,12 +2,27 @@
     margin-bottom: 0px;
 }
 
-.app-amount {
-    clear: both;
-    font-size: 15px;
-    color: gray;
-    margin: 40px 0 0px 70px;
-}
+    .header div {
+        clear: both;
+        margin-left: 70px;
+    }
+
+    .header h2 {
+        float: left;
+    }
+
+    .header select {
+        float: left;
+        margin-top: 18px;
+        margin-left: 15px;
+    }
+
+    .header p {
+        float: left;
+        font-size: 15px;
+        color: gray;
+        margin: 16px 0 0px 35px;
+    }
 
 .title {
     font-size: 28px;

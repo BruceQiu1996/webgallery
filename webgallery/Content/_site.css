@@ -105,20 +105,24 @@ p, select, input, textarea, label, caption {
 
 /* Top Tabs and Search Box */
 .tab-content {
-    margin: 0 30px 0 14px;
-    font-size: 19px;
+    margin: 0 30px 0 20px;
+    font-size: 22px;
 }
 
-.search-textbox,
-.search-btn {
-    margin-left: 4px;
-}
+    .tab-content > a {
+        float: left;
+    }
 
-.search-textbox {
-    width: 220px;
-    height: 30px;
-}
+    .tab-content input {
+        height: 30px;
+        float: right;
+    }
 
-.search-btn {
-    width: 30px;
-}
+        .tab-content input[type=text] {
+            width: 300px;
+        }
+
+        .tab-content input[type=image] {
+            margin-left: 4px;
+            margin-right: 20px;
+        }

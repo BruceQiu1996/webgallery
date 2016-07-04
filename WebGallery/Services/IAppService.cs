@@ -49,7 +49,7 @@ namespace WebGallery.Services
 
         Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId);
 
-        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string cateogry, int page, int pageSize, out int count);
+        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string cateogry, string supportedLanguage, int page, int pageSize, out int count);
 
         Task<Submission> GetSubmissionFromFeedAsync(string appId);
 
@@ -66,5 +66,7 @@ namespace WebGallery.Services
         Task UpdateStatusAsync(int submissionId, int statusId);
 
         Task DeleteAsync(int submissionId);
+
+        Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync();
     }
 }
