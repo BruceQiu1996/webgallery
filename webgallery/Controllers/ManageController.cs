@@ -11,10 +11,12 @@ namespace WebGallery.Controllers
     public class ManageController : Controller
     {
         private IAppService _appService;
-        public ManageController() : this(new AppService()) { }
-        public ManageController(IAppService appSerivce)
+        private ISubmitterService _submitterService;
+        public ManageController() : this(new AppService(), new SubmitterService()) { }
+        public ManageController(IAppService appSerivce, ISubmitterService submitterService)
         {
             _appService = appSerivce;
+            _submitterService = submitterService;
         }
 
         //GET 
@@ -45,11 +47,51 @@ namespace WebGallery.Controllers
             return View(model);
         }
 
+        [Authorize]
+        [HttpGet]
         public async Task<ActionResult> SuperSubmitters()
         {
-            var model = new ManageSuperSubmittersViewModel();
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var model = new ManageSuperSubmittersViewModel
+            {
+                SuperSubmitters = await _submitterService.GetSuperSubmittersAsync()
+            };
 
             return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RemoveSuperSubmitter(int submitterId)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            await _submitterService.RemoveSuperSubmitter(submitterId);
+
+            return RedirectToRoute(SiteRouteNames.Supersubmitter);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AddSuperSubmitter(string microsoftAccount, string firstName, string lastName)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            await _submitterService.AddSuperSubmitter(microsoftAccount, firstName, lastName);
+
+            return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
     }
 }

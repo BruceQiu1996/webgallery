@@ -51,6 +51,8 @@ namespace WebGallery
 
             routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = manage, action = nameof(ManageController.Dashboard) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = manage, action = nameof(ManageController.SuperSubmitters) });
+            routes.MapRoute(name: SiteRouteNames.Supersubmitter_Add, url: SiteRouteUrlPatterns.Supersubmitter_Add, defaults: new { controller = manage, action = nameof(ManageController.AddSuperSubmitter) });
+            routes.MapRoute(name: SiteRouteNames.Supersubmitter_Remove, url: SiteRouteUrlPatterns.Supersubmitter_Remove, defaults: new { controller = manage, action = nameof(ManageController.RemoveSuperSubmitter) });
 
             // for ajax requests
             routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyUrl) });
@@ -96,6 +98,8 @@ namespace WebGallery
 
         public const string Dashboard = "admin/dashboard";
         public const string Supersubmitter = "admin/supersubmitters";
+        public const string Supersubmitter_Add = "admin/supersubmitters/add";
+        public const string Supersubmitter_Remove = "admin/supersubmitters/remove";
 
         // for ajax requests
         public const string App_Url_Verify = "app/urls/verify";
@@ -140,6 +144,8 @@ namespace WebGallery
 
         public const string Dashboard = nameof(Dashboard);
         public const string Supersubmitter = nameof(Supersubmitter);
+        public const string Supersubmitter_Add = nameof(Supersubmitter_Add);
+        public const string Supersubmitter_Remove = nameof(Supersubmitter_Remove);
 
         // for ajax requests
         public const string App_Url_Verify = nameof(App_Url_Verify);
