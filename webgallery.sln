@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", 
 		SqlScripts\add.primary.key.for.SubmissionOwners.sql = SqlScripts\add.primary.key.for.SubmissionOwners.sql
 		SqlScripts\add.primary.key.to.unconfirmedsubmissionowners.sql = SqlScripts\add.primary.key.to.unconfirmedsubmissionowners.sql
 		SqlScripts\add.URL.columns.to.submissions.sql = SqlScripts\add.URL.columns.to.submissions.sql
+		SqlScripts\create_table_Issues.sql = SqlScripts\create_table_Issues.sql
 	EndProjectSection
 EndProject
 Global

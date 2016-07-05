@@ -33,6 +33,9 @@ namespace WebGallery
             bundles.Add(new StyleBundle("~/css/home-agreement").Include(
                       "~/Content/_home-agreement.css"));
 
+            bundles.Add(new StyleBundle("~/css/issue-report").Include(
+                      "~/Content/_issue-report.css"));
+
             bundles.Add(new ScriptBundle("~/js/submission-form").Include(
                         "~/scripts/_submission-form.js",
                         "~/scripts/bootstrap-datepicker*"));

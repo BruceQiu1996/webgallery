@@ -64,5 +64,6 @@ namespace WebGallery.Models
         public virtual DbSet<ProdDownloadStat> ProdDownloadStats { get; set; }
         public virtual DbSet<ProdDownloadStatsINVALID> ProdDownloadStatsINVALIDs { get; set; }
         public virtual DbSet<UnconfirmedSubmissionOwner> UnconfirmedSubmissionOwners { get; set; }
+        public virtual DbSet<Issue> Issues { get; set; }
     }
 }

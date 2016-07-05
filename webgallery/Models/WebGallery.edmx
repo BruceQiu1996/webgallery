@@ -21,7 +21,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.AppDownloadStats' does not have a p
           <Property Name="ArchitectureTypeID" Type="int" />
           <Property Name="Language" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Referrer" Type="text" />
+          <Property Name="Referrer" Type="varchar" MaxLength="100" />
           <Property Name="Count" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ApplicationInGallery">
@@ -139,6 +139,19 @@ warning 6002: The table/view 'mscomwebDB.dbo.AppDownloadStats' does not have a p
           <Property Name="StateName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Issues">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IssueType" Type="int" Nullable="false" />
+          <Property Name="AppId" Type="nvarchar" MaxLength="255" />
+          <Property Name="IssueDescription" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ReporterEmail" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ReporterFirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ReporterLastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateReported" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Packages">
           <Key>
@@ -537,6 +550,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
           <EntitySet Name="Hosters_Country" EntityType="Self.Hosters_Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hosters_Region" EntityType="Self.Hosters_Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hosters_State" EntityType="Self.Hosters_State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issues" EntityType="Self.Issues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PageViews" EntityType="Self.PageViews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductOrAppCategories" EntityType="Self.ProductOrAppCategories" Schema="dbo" store:Type="Tables" />
@@ -704,6 +718,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
             <End Role="Hosters_State" EntitySet="Hosters_State" />
           </AssociationSet>
           <EntitySet Name="UnconfirmedSubmissionOwners" EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" />
+          <EntitySet Name="Issues" EntityType="WebGallery.Models.Issue" />
         </EntityContainer>
         <EntityType Name="ApplicationInGallery">
           <Key>
@@ -1084,7 +1099,7 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
           <Property Name="ArchitectureTypeID" Type="Int32" />
           <Property Name="Language" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Referrer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Referrer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PID">
@@ -1227,6 +1242,19 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsSuperSubmitterRequest" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Issue">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IssueType" Type="Int32" Nullable="false" />
+          <Property Name="AppId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IssueDescription" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ReporterEmail" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReporterFirstName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReporterLastName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateReported" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1680,6 +1708,20 @@ warning 6002: The table/view 'mscomwebDB.dbo.ProdDownloadStatsINVALID' does not 
                 <ScalarProperty Name="RequestID" ColumnName="RequestID" />
                 <ScalarProperty Name="SubmissionID" ColumnName="SubmissionID" />
                 <ScalarProperty Name="UnconfirmedSubmissionOwnerID" ColumnName="UnconfirmedSubmissionOwnerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issues">
+            <EntityTypeMapping TypeName="WebGallery.Models.Issue">
+              <MappingFragment StoreEntitySet="Issues">
+                <ScalarProperty Name="DateReported" ColumnName="DateReported" />
+                <ScalarProperty Name="ReporterLastName" ColumnName="ReporterLastName" />
+                <ScalarProperty Name="ReporterFirstName" ColumnName="ReporterFirstName" />
+                <ScalarProperty Name="ReporterEmail" ColumnName="ReporterEmail" />
+                <ScalarProperty Name="IssueDescription" ColumnName="IssueDescription" />
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="IssueType" ColumnName="IssueType" />
+                <ScalarProperty Name="IssueID" ColumnName="IssueID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
