@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebGallery.Models
 {
@@ -104,5 +105,14 @@ namespace WebGallery.Models
         public string AppName { get; set; }
         public string BriefDescription { get; set; }
         public IList<ProductOrAppCategory> Categories { get; set; }
+    }
+
+    public enum IssueType
+    {
+        [Display(Name = "Portal Issue")]
+        PortalIssue = 1,
+
+        [Display(Name = "App Issue")]
+        AppIssue = 2
     }
 }

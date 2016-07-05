@@ -1,0 +1,83 @@
+﻿@model WebGallery.ViewModels.IssueReportViewModel
+
+@{
+    ViewBag.Title = "Report issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    @if (string.IsNullOrWhiteSpace(Model.AppId))
+    {
+        <h2>Report issue(s) for this portal</h2>
+    }
+    else
+    {
+        <h2>Report issue(s) for the app: @Html.RouteLink(Model.AppId, SiteRouteNames.App_View, new { AppId = Model.AppId }, new { target = "_blank" })</h2>
+    }
+    <hr />
+    @using (Html.BeginRouteForm(SiteRouteNames.Issue_Report, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IssueType)
+            @Html.HiddenFor(model => model.AppId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IssueDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.IssueDescription)
+                    @Html.ValidationMessageFor(model => model.IssueDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YourEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.YourEmail)
+                    @Html.ValidationMessageFor(model => model.YourEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConfirmYourEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ConfirmYourEmail)
+                    @Html.ValidationMessageFor(model => model.ConfirmYourEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Report" class="btn btn-default" />
+                    @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@section Styles {
+    @Styles.Render("~/css/issue-report")
+}

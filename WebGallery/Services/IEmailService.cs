@@ -9,5 +9,7 @@ namespace WebGallery.Services
         void SendMessageForSubmissionVerified(Submitter submitter, Submission submission, string urlAuthority, Func<string, string> htmlEncode);
 
         Task SendOwnershipInvitation(string emailAddress, UnconfirmedSubmissionOwner unconfirmedSubmissionOwner, string urlAuthority, Func<string, string> htmlEncode);
+
+        Task SendMessageForIssueReported(Issue issue, Func<string, string> htmlEncode);
     }
 }

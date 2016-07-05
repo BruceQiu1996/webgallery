@@ -115,7 +115,7 @@ namespace WebGallery.Services
 
                 // First send email internally (to folks at MS).
                 var to = from.Address;
-                SendGridEmailHelper.SendAsync(to, from.Address, from.DisplayName, subject, BuildHtmlStyles() + body);
+                SendGridEmailHelper.SendAsync(subject, BuildHtmlStyles() + body, from.Address, from.DisplayName, to);
 
                 // Second, send email externally (to the app owners). Here, we don't include the XML.
                 foreach (var owner in owners)
@@ -124,7 +124,7 @@ namespace WebGallery.Services
                     body = BuildSubmissionNote(htmlEncode(owner.FullName), from.Address, submission.Nickname, submission.Version, urlAuthority)
                         + BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
 
-                    SendGridEmailHelper.SendAsync(to, from.Address, from.DisplayName, subject, BuildHtmlStyles() + body);
+                    SendGridEmailHelper.SendAsync(subject, BuildHtmlStyles() + body, from.Address, from.DisplayName, to);
                 }
             }
         }
@@ -363,10 +363,97 @@ table tr td.parent-of-table
                 var subject = "You are invited to be a co-owner of an Web App Gallery application";
                 var from = GetFromMailAddress();
 
-                SendGridEmailHelper.SendAsync(emailAddressOfInvitee, from.Address, from.DisplayName, subject, bodyBuilder.ToString());
+                SendGridEmailHelper.SendAsync(subject, bodyBuilder.ToString(), from.Address, from.DisplayName, emailAddressOfInvitee);
 
                 return Task.FromResult(0);
             }
+        }
+
+        #endregion
+
+        #region send message when an issue reported
+
+        public Task SendMessageForIssueReported(Issue issue, Func<string, string> htmlEncode)
+        {
+            // html encode user inputs
+            issue.ReporterFirstName = htmlEncode(issue.ReporterFirstName);
+            issue.ReporterLastName = htmlEncode(issue.ReporterLastName);
+            issue.IssueDescription = htmlEncode(issue.IssueDescription);
+
+            var subject = $"Ticket #{issue.IssueID} [{Enum.GetName(typeof(IssueType), issue.IssueType)}]";
+            var from = GetFromMailAddress();
+
+            // first, send email to the user who reported the issue
+            var messageBodyToUser = new StringBuilder();
+            messageBodyToUser.Append($"<p>Hello {issue.ReporterFirstName} {issue.ReporterLastName}</p>");
+            messageBodyToUser.Append("<p>Thank you for contacting Web App Gallery team! Your request has been received, and is being reviewed by our team.  If you haven’t already, please check out our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery'>documentation</a> or our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery/frequently-asked-questions'>FAQ</a> where you can find answers to the most common questions.</p>");
+            messageBodyToUser.Append("<p>Please expect a response from us in 3-5 business days.</p>");
+            messageBodyToUser.Append("<p>Thanks</p>");
+            messageBodyToUser.Append("<p>App Gallery Team</p>");
+
+            SendGridEmailHelper.SendAsync(subject, messageBodyToUser.ToString(), from.Address, from.DisplayName, issue.ReporterEmail);
+
+            // second, send email to Microsoft and/or the app owners
+            var messageBodyToMicrosoftOrOwners = new StringBuilder();
+            messageBodyToMicrosoftOrOwners.Append("<p>Hello</p>");
+            messageBodyToMicrosoftOrOwners.Append($"<p>An issue was reported by <a href='mailto:{issue.ReporterEmail}'>{issue.ReporterFirstName} {issue.ReporterLastName}</a>.</p>");
+            messageBodyToMicrosoftOrOwners.Append("<p><table cellpadding='0' cellspacing='0'>");
+            var appIdStatement = string.IsNullOrWhiteSpace(issue.AppId) ? string.Empty : $" for the app: {issue.AppId}";
+            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Category</th><td>{Enum.GetName(typeof(IssueType), issue.IssueType)}{appIdStatement}</td></tr>");
+            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Details</th><td>{issue.IssueDescription}</td></tr>");
+            messageBodyToMicrosoftOrOwners.Append("</table></p>");
+            messageBodyToMicrosoftOrOwners.Append("<p>Thanks</p>");
+            messageBodyToMicrosoftOrOwners.Append("<p>App Gallery Team</p>");
+
+            // set the table's style
+            var style = @"
+<style>
+table tr
+{
+    margin: 0;
+    padding: 0;
+}
+table tr th,
+table tr td
+{
+    padding: 2px;
+    margin: 0;
+    border: solid 1px #666666;
+    text-align: left;
+    font-family: Segoe UI, Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.2em;
+}
+</style>
+";
+
+            // get the email addresses of the owners of the app in this issue
+            var emailAddressesOfOwners = string.Empty;
+            using (var db = new WebGalleryDbContext())
+            {
+                var addresses = (from s in db.Submissions
+                                 join o in db.SubmissionOwners on s.SubmissionID equals o.SubmissionID
+                                 join c in db.Submitters on o.SubmitterID equals c.SubmitterID // If App Issue , send the above email to appgal team and application owner email in submitters table .
+                                 where s.Nickname == issue.AppId
+                                 select c.MicrosoftAccount).AsEnumerable();
+
+                emailAddressesOfOwners = string.Join(",", addresses);
+            }
+
+            if (string.IsNullOrWhiteSpace(emailAddressesOfOwners))
+            {
+                // if found no email addresses of owners, then send to only Microsoft
+                var to = from.Address;
+                SendGridEmailHelper.SendAsync(subject, style + messageBodyToMicrosoftOrOwners.ToString(), from.Address, from.DisplayName, to);
+            }
+            else
+            {
+                // or send to the owners and cc to Microsoft
+                var cc = from.Address;
+                SendGridEmailHelper.SendAsync(subject, style + messageBodyToMicrosoftOrOwners.ToString(), from.Address, from.DisplayName, emailAddressesOfOwners, cc);
+            }
+
+            return Task.FromResult(0);
         }
 
         #endregion

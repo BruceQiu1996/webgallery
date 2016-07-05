@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using WebGallery.Models;
 
 namespace WebGallery.ViewModels
@@ -9,11 +8,11 @@ namespace WebGallery.ViewModels
         public Submission Submission { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [DisplayName("First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [DisplayName("Last Name")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
