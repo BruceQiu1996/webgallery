@@ -23,7 +23,7 @@
     });
     $("#add-submitter").find("input").blur(function () {
         if ($("#add-submitter").valid()) {
-            $(this).parent().parent().children().last().prev().find("input").removeAttr("disabled");
+            $(this).parent().parent().children().last().find("input").removeAttr("disabled");
         }
     });
 })

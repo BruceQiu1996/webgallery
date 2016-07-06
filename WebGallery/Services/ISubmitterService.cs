@@ -20,8 +20,8 @@ namespace WebGallery.Services
 
         Task<IList<SubmittersContactDetail>> GetSuperSubmittersAsync();
 
-        Task RemoveSuperSubmitter(int submitterId);
+        Task RemoveSuperSubmitterAsync(int submitterId);
 
-        Task AddSuperSubmitter(string microsoftAccount, string firstName, string lastName);
+        Task AddSuperSubmitterAsync(string microsoftAccount, string firstName, string lastName);
     }
 }

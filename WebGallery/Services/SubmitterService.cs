@@ -158,7 +158,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task RemoveSuperSubmitter(int submitterId)
+        public Task RemoveSuperSubmitterAsync(int submitterId)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -168,15 +168,14 @@ namespace WebGallery.Services
                 if (submitter != null)
                 {
                     submitter.IsSuperSubmitter = false;
+                    db.SaveChanges();
                 }
-
-                db.SaveChanges();
 
                 return Task.FromResult(0);
             }
         }
 
-        public Task AddSuperSubmitter(string microsoftAccount, string firstName, string lastName)
+        public Task AddSuperSubmitterAsync(string microsoftAccount, string firstName, string lastName)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -184,7 +183,7 @@ namespace WebGallery.Services
                                  where s.MicrosoftAccount == microsoftAccount
                                  select s).FirstOrDefault();
 
-                // If there is not exist a record in table Sumitters for the user, we have to add a new one
+                // If the super submitter to be added hasn't had a submittership yet, add a new one first in the Submitters table.
                 if (submitter == null)
                 {
                     submitter = new Submitter
@@ -202,14 +201,13 @@ namespace WebGallery.Services
                     submitter.IsSuperSubmitter = true;
                 }
 
-                // If we add a new submitter who have no record in table SubmitterContactDetails, 
-                // we should also add a contact detail with first name and last name for her/him
+                // For a new super submitter who has no record in table SubmitterContactDetails, 
+                // make a new one with the parameters firstName and lastName.
+                // If the super submitter already has contact details in the table SubmittersContactDetails, we do nothing here.
                 var contactDetail = (from c in db.SubmittersContactDetails
                                      where c.SubmitterID == submitter.SubmitterID
                                      select c).FirstOrDefault();
 
-                //If a submitter already have record in table SubmitterContactDetails,
-                //we won't use the firstName and lastName to update her/his contact details
                 if (contactDetail == null)
                 {
                     contactDetail = new SubmittersContactDetail

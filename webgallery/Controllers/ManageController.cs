@@ -74,7 +74,7 @@ namespace WebGallery.Controllers
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
 
-            await _submitterService.RemoveSuperSubmitter(submitterId);
+            await _submitterService.RemoveSuperSubmitterAsync(submitterId);
 
             return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
@@ -89,7 +89,7 @@ namespace WebGallery.Controllers
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
 
-            await _submitterService.AddSuperSubmitter(microsoftAccount, firstName, lastName);
+            await _submitterService.AddSuperSubmitterAsync(microsoftAccount, firstName, lastName);
 
             return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
