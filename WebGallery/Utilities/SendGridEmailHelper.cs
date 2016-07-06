@@ -1,5 +1,6 @@
 ﻿using SendGrid;
 using System;
+using System.Linq;
 using System.Configuration;
 using System.Net.Mail;
 
@@ -7,7 +8,12 @@ namespace WebGallery.Utilities
 {
     public class SendGridEmailHelper
     {
-        public static void SendAsync(string to, string from, string fromName, string subject, string body)
+        public static void SendAsync(string subject, string body, string from, string fromName, string to)
+        {
+            SendAsync(subject, body, from, fromName, to, null);
+        }
+
+        public static void SendAsync(string subject, string body, string from, string fromName, string to, string cc)
         {
             var apiKey = ConfigurationManager.AppSettings["SendGrid:ApiKey"];
             if (string.IsNullOrWhiteSpace(apiKey))
@@ -16,10 +22,10 @@ namespace WebGallery.Utilities
             }
 
             var transportWeb = new Web(apiKey);
-            transportWeb.DeliverAsync(CreateMessage(to, from, fromName, subject, body));
+            transportWeb.DeliverAsync(CreateMessage(subject, body, from, fromName, to, cc));
         }
 
-        public static SendGridMessage CreateMessage(string to, string from, string fromName, string subject, string body)
+        public static SendGridMessage CreateMessage(string subject, string body, string from, string fromName, string to, string cc)
         {
             if (string.IsNullOrWhiteSpace(to)) throw new ArgumentException($"Invalid argument: {nameof(to)}");
             if (string.IsNullOrWhiteSpace(from)) throw new ArgumentException($"Invalid argument: {nameof(from)}");
@@ -27,10 +33,11 @@ namespace WebGallery.Utilities
             if (string.IsNullOrWhiteSpace(body)) throw new ArgumentException($"Invalid argument: {nameof(body)}");
 
             var message = new SendGridMessage();
-            message.AddTo(to.Trim().Trim(',').Replace(';', ',').Split(','));
-            message.From = new MailAddress(from, fromName);
             message.Subject = subject;
             message.Html = body;
+            message.From = new MailAddress(from, fromName);
+            message.AddTo(to.Trim().Trim(',').Replace(';', ',').Split(',').Distinct());
+            if (!string.IsNullOrWhiteSpace(cc)) message.AddCc(cc);
 
             return message;
         }

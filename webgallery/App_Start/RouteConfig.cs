@@ -11,6 +11,7 @@ namespace WebGallery
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             var home = nameof(HomeController).Replace("Controller", string.Empty);
+            var issue = nameof(IssueController).Replace("Controller", string.Empty);
             var app = nameof(AppController).Replace("Controller", string.Empty);
             var invitation = nameof(InvitationController).Replace("Controller", string.Empty);
             var ownership = nameof(OwnershipController).Replace("Controller", string.Empty);
@@ -19,7 +20,7 @@ namespace WebGallery
 
             routes.MapRoute(name: SiteRouteNames.Home, url: SiteRouteUrlPatterns.Home, defaults: new { controller = home, action = nameof(HomeController.Index) });
             routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = home, action = nameof(HomeController.Documents) });
-            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = home, action = nameof(HomeController.ReportIssue) });
+            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
             routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = home, action = nameof(HomeController.Agreement) });
             routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = home, action = nameof(HomeController.Error) });
 
@@ -42,6 +43,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Owners, url: SiteRouteUrlPatterns.App_Owners, defaults: new { controller = app, action = nameof(AppController.Owners) });
             routes.MapRoute(name: SiteRouteNames.App_Owners_Invite, url: SiteRouteUrlPatterns.App_Owners_Invite, defaults: new { controller = invitation, action = nameof(InvitationController.Send) });
             routes.MapRoute(name: SiteRouteNames.App_Owners_Remove, url: SiteRouteUrlPatterns.App_Owners_Remove, defaults: new { controller = ownership, action = nameof(OwnershipController.Remove) });
+            routes.MapRoute(name: SiteRouteNames.App_Issues_Report, url: SiteRouteUrlPatterns.App_Issues_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
             routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = app, action = nameof(AppController.Preview) });
 
             routes.MapRoute(name: SiteRouteNames.Invitation_Revoke, url: SiteRouteUrlPatterns.Invitation_Revoke, defaults: new { controller = invitation, action = nameof(InvitationController.Revoke) });
@@ -89,6 +91,7 @@ namespace WebGallery
         public const string App_Owners = "apps/{submissionId}/owners";
         public const string App_Owners_Invite = "apps/{submissionId}/owners/invite";
         public const string App_Owners_Remove = "apps/{submissionId}/owners/remove/{submitterId}";
+        public const string App_Issues_Report = "apps/{appId}/issues/report";
         public const string App_View = "apps/{appId}";
 
         public const string Invitation_Revoke = "ownership/invitations/{invitationGuid}/revoke";
@@ -135,6 +138,7 @@ namespace WebGallery
         public const string App_Owners = nameof(App_Owners);
         public const string App_Owners_Invite = nameof(App_Owners_Invite);
         public const string App_Owners_Remove = nameof(App_Owners_Remove);
+        public const string App_Issues_Report = nameof(App_Issues_Report);
         public const string App_View = nameof(App_View);
 
         public const string Invitation_Revoke = nameof(Invitation_Revoke);

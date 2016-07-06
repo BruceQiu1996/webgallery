@@ -51,6 +51,7 @@
         <AssociationConnector Association="WebGallery.Models.FK_Country_Region" />
         <AssociationConnector Association="WebGallery.Models.FK_State_Country" />
         <EntityTypeShape EntityType="WebGallery.Models.UnconfirmedSubmissionOwner" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="WebGallery.Models.Issue" Width="1.5" PointX="3.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
