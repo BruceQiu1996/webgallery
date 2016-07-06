@@ -541,7 +541,7 @@
     <Content Include="Content\images\install-btn.jpg" />
     <Content Include="Content\images\search-btn.jpg" />
     <Content Include="Content\_account-profile.css" />
-    <Content Include="Content\_app-detail.css" />
+    <Content Include="Content\_app-preview.css" />
     <Content Include="Content\_manage-dashboard.css" />
     <Content Include="Content\_submission-form.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -705,7 +705,7 @@
     <Content Include="Scripts\_app-gallery.js" />
     <Content Include="Scripts\_app-mine.js" />
     <Content Include="Scripts\_app-verify.js" />
-    <Content Include="Scripts\_app-detail.js" />
+    <Content Include="Scripts\_app-preview.js" />
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
@@ -748,7 +748,6 @@
     <Content Include="Views\Shared\ModificationLocked.cshtml" />
     <Content Include="Views\Shared\SubmittingDisabled.cshtml" />
     <Content Include="Views\Shared\ResourceNotFound.cshtml" />
-    <Content Include="Views\Shared\_TopTabs_SearchBox.cshtml" />
     <Content Include="Views\App\NeedAppNameAndDescription.cshtml" />
     <Content Include="Views\Invitation\AlreadyHasOwnership.cshtml" />
     <Content Include="Views\Invitation\AlreadyBeenInvited.cshtml" />

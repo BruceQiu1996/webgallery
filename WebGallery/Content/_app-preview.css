@@ -1,0 +1,62 @@
+﻿.panel-search {
+    margin: 0px;
+    float: right;
+}
+
+    .panel-search input {
+        height: 24px;
+        vertical-align: top;
+    }
+
+        .panel-search input[type=text] {
+            width: 300px;
+        }
+
+        .panel-search input[type=image] {
+            margin-left: 5px;
+        }
+
+.panel-app-icon img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.panel-app-properties {
+    width: 50%;
+}
+
+    .panel-app-properties > div {
+        padding: 5px 0px;
+        clear: both;
+    }
+
+    .panel-app-properties span.pull-right {
+        font-style: italic;
+    }
+
+.panel-screenshot-link {
+    margin: 15px 0px;
+}
+
+    .panel-screenshot-link a {
+        cursor: pointer;
+    }
+
+.panel-description {
+    margin: 20px 0px;
+}
+
+.panel-link-go-back,
+.panel-link-report-issue {
+    margin: 10px 0px;
+    font-size: 12px;
+    font-style: italic;
+    float: right;
+}
+
+.page-btn {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}

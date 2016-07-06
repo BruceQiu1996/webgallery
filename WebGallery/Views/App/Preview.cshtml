@@ -5,60 +5,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
-
-    @Html.Partial("_TopTabs_SearchBox")
-
-    <div class="app-name">
-        <lable>@Model.Metadata.Name</lable>
-    </div>
-    <div class="app-icon pull-left">
-        <img src="@Model.Submission.LogoUrl" class="app-image" />
-    </div>
-
-    <div class="detail-list pull-right">
-        <div>
-            <span class="pull-left">
-                <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
-            </span>
-            <span class="pull-right">
-                <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
-                    <img src="~/content/images/install-btn.jpg" />
-                </a>
-            </span>
-        </div>
-        <div>
-            <span class="pull-left">Category:</span>
-            <span class="pull-right">
-                @foreach (var c in Model.Submission.Categories)
-                {
-                    @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
-                    <br />
-                }
-            </span>
-        </div>
-        <div>
-            <span class="pull-left">Publisher:</span>
-            <span class="pull-right">
-                <a href="@Model.Submission.SubmittingEntityURL">@Model.Submission.SubmittingEntity</a>
-            </span>
-        </div>
-        <div>
-            <span class="pull-left">Version:</span>
-            <span class="pull-right">@Model.Submission.Version</span>
-        </div>
-        <div>
-            <span class="pull-left">Release Date:</span>
-            <span class="pull-right">@Model.Submission.ReleaseDate.ToString("dd/MM/yyyy")</span>
+    <div class="clearfix">
+        <div class="panel-search">
+            @using (Html.BeginRouteForm(SiteRouteNames.Gallery))
+            {
+                <input type="text" id="SearchText" name="keyword" placeholder="Search Apps" />
+                <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
+            }
         </div>
     </div>
-    <div class="screenshot-link">
+
+    <h1>@Model.Metadata.Name</h1>
+
+    <div class="clearfix">
+        <div class="panel-app-icon pull-left">
+            <img src="@Model.Submission.LogoUrl" />
+        </div>
+
+        <div class="panel-app-properties pull-right">
+            <div>
+                <span class="pull-left">
+                    <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
+                </span>
+                <span class="pull-right">
+                    <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
+                        <img src="~/content/images/install-btn.jpg" />
+                    </a>
+                </span>
+            </div>
+            <div>
+                <span class="pull-left">Version:</span>
+                <span class="pull-right">@Model.Submission.Version</span>
+            </div>
+            <div>
+                <span class="pull-left">Release Date:</span>
+                <span class="pull-right">@Model.Submission.ReleaseDate.ToString("dd/MM/yyyy")</span>
+            </div>
+            <div>
+                <span class="pull-left">Publisher:</span>
+                <span class="pull-right">
+                    <a href="@Model.Submission.SubmittingEntityURL">@Model.Submission.SubmittingEntity</a>
+                </span>
+            </div>
+            <div>
+                <span class="pull-left">Category:</span>
+                <span class="pull-right">
+                    @foreach (var c in Model.Submission.Categories)
+                    {
+                        @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
+                        <br />
+                    }
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-screenshot-link">
         @{
             var displayOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
         }
         <a id="screenshothref" style="@displayOrNot">applicaiton screenshots</a>
     </div>
-    <div class="description">
+
+    <div class="panel-description">
         <p>@Model.Description</p>
+    </div>
+
+    <div class="clearfix">
+        <div class="panel-link-go-back">
+            @{
+                if (Request.UrlReferrer == null)
+                {
+                    @Html.RouteLink("Go Back to Gallery", SiteRouteNames.Gallery)
+                }
+                else
+                {
+                    <a href="@Request.UrlReferrer">Go Back</a>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <div class="panel-link-report-issue">
+            If you meet issues on this app, please click @Html.RouteLink("here", SiteRouteNames.App_Issues_Report, new { appId = Model.Submission.Nickname }) to contact us and the owner.
+        </div>
     </div>
 
     <div style="display:none" id="screenshot-block">
@@ -73,7 +104,7 @@
         </div>
     </div>
 
-    <div id="shoturls">
+    <div id="shoturls" style="display:none">
         @{
             foreach (var url in Model.ScreenshotUrls)
             {
@@ -87,10 +118,10 @@
 </div>
 
 @section Styles {
-    @Styles.Render("~/css/app-detail")
+    @Styles.Render("~/css/app-preview")
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/js/app-detail")
+    @Scripts.Render("~/js/app-preview")
 }
