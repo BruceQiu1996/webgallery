@@ -9,16 +9,20 @@
 }
 
 <div class="content">
-    <div class="container-fluid header">
-        <label class="pull-left title">Windows Web App Gallery</label>
+    <div class="panel-search-header">
         @using (Html.BeginRouteForm(SiteRouteNames.Gallery))
         {
-            @Html.TextBox("keyword", Model.Keyword, new { id = "SearchText", @class = "search-box pull-left", placeholder = "Searh Apps" })
-            <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" class="search-icon pull-left" />
             <div>
-                <h2>Show Applications in</h2>
-                @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
-                <p>Display Results @firstIndex - @lastIndex For Your Searching , @Model.TotalCount Totally</p>
+                <h1>Windows Web App Gallery</h1>
+                @Html.TextBox("keyword", Model.Keyword, new { id = "SearchText", placeholder = "Searh Apps" })
+                <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
+            </div>
+            <div>
+                <span><strong>Show applications in</strong></span>
+                <span>
+                    @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
+                </span>
+                <span>Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong> for your searching , <strong>@Model.TotalCount</strong> in total</span>
             </div>
         }
     </div>
@@ -28,28 +32,30 @@
         var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
         var description = app.BriefDescription.Length > 310 ? app.BriefDescription.Substring(0, 310) + "..." : app.BriefDescription;
 
-        <div class="container-fluid">
+        <div class="clearfix">
             <hr />
-            <div class="pull-left  icon-block">
-                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src=@Url.Content(logourl) class="small-icon" /></a>
+            <div class="panel-logo">
+                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src="@Url.Content(logourl)" /></a>
             </div>
             <div>
-                <lable class="app-title">@Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })</lable>
+                <span class="app-title">@Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })</span>
                 <span class="version">@app.Version </span>
-                <span class="release-date">Released at: @app.ReleaseDate.ToShortDateString()</span>
+                <span class="release-date">Released at @app.ReleaseDate.ToShortDateString()</span>
             </div>
             <div>
-                <p>@description<span>@Html.RouteLink("More Information", SiteRouteNames.App_View, new { appId = app.Nickname })</span></p>
+                <p>
+                    @description
+                    <span>@Html.RouteLink("More Information", SiteRouteNames.App_View, new { appId = app.Nickname })</span>
+                </p>
             </div>
         </div>
     }
 
-    <div class="container-fluid page-switch">
-        <hr />
+    <div class="panel-pager">
         @Html.Hidden("currentpage", Model.CurrentPage)
         @Html.Hidden("totalpage", Model.TotalPage)
-        @Html.RouteLink("Previous", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage - 1 }, new { id = "prelink", @class = "pre-page" })
-        @Html.RouteLink("Next", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage + 1 }, new { id = "nextlink", @class = "next-page" })
+        @Html.RouteLink("Previous", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage - 1 }, new { id = "prelink" })
+        @Html.RouteLink("Next", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage + 1 }, new { id = "nextlink" })
     </div>
 </div>
 

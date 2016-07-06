@@ -1,9 +1,6 @@
 ﻿.for-developer-panel,
 .steps-panel {
     margin-top: 40px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
     .steps-panel > div {
@@ -42,8 +39,8 @@
         margin-right: auto;
     }
 
-    .steps-panel .important-note{
-        font-style:italic;
-        font-weight:600;
+    .steps-panel .important-note {
+        font-style: italic;
+        font-weight: 600;
         color: #111111;
     }
