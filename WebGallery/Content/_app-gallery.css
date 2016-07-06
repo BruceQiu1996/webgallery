@@ -1,48 +1,58 @@
-﻿.header {
-    margin-bottom: 0px;
+﻿.panel-search-header {
+    margin-top: 20px;
 }
 
-    .header div {
-        clear: both;
-        margin-left: 70px;
-    }
-
-    .header h2 {
+    .panel-search-header h1 {
+        font-size: 26px;
+        margin: 0px;
         float: left;
     }
 
-    .header select {
-        float: left;
-        margin-top: 18px;
-        margin-left: 15px;
+    .panel-search-header input {
+        height: 28px;
+        vertical-align: middle;
     }
 
-    .header p {
-        float: left;
-        font-size: 15px;
-        color: gray;
-        margin: 16px 0 0px 35px;
+        .panel-search-header input[type=text] {
+            width: 300px;
+            margin-left: 50px;
+        }
+
+        .panel-search-header input[type=image] {
+            width: 28px;
+        }
+
+    .panel-search-header div:last-of-type {
+        margin-top: 20px;
     }
 
-.title {
-    font-size: 28px;
-    padding-left: 70px;
+    .panel-search-header select {
+        margin: 0px 50px 0px 5px;
+    }
+
+.panel-logo {
+    width: 65px;
+    height: 65px;
+    margin: 5px 10px 0px 0px;
+    float: left;
 }
 
-.search-icon,
-.search-box {
-    height: 32px;
-    margin-top: 5px;
-}
-
-.search-box {
-    margin-left: 50px;
-    width: 400px;
-    font-size: 20px;
-}
+    .panel-logo img {
+        max-height: 65px;
+        max-width: 65px;
+    }
 
 .app-title {
     font-size: 20px;
+}
+
+.version {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.release-date {
+    font-size: 12px;
 }
 
 .version,
@@ -50,45 +60,21 @@
     color: grey;
 }
 
-.version {
-    font-size: 18px;
-    padding-right: 10px;
-}
-
-.release-date {
-    font-size: 12px;
-}
-
-.icon-block {
-    width: 65px;
-    height: 65px;
-    margin: 5px 10px 0 0;
-}
-
-.small-icon {
-    max-height: 65px;
-    max-width: 65px;
-}
-
-.search-icon {
-    margin-left: 5px;
-}
-
-.link-disabled {
-    color: grey;
-}
-
-.pre-page,
-.next-page {
-    font-size: 20px;
-    padding: 7px;
-}
-
-.page-switch {
+.panel-pager {
+    margin-top: 30px;
     text-align: center;
 }
 
-.link-disabled:hover {
-    text-decoration: none;
-    color: gray;
-}
+    .panel-pager a {
+        margin: 10px;
+        font-size: 18px;
+    }
+
+    .panel-pager .link-disabled {
+        color: grey;
+    }
+
+        .panel-pager .link-disabled:hover {
+            text-decoration: none;
+            color: gray;
+        }

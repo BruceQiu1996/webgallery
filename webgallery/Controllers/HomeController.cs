@@ -16,7 +16,7 @@ namespace WebGallery.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Agreement()
+        public ActionResult Agreement()
         {
             var model = new HomeAgreementViewModel();
 

@@ -1,9 +1,6 @@
 ﻿.for-developer-panel,
 .steps-panel {
     margin-top: 40px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
     .steps-panel > div {
@@ -13,7 +10,7 @@
 
     .steps-panel .step1-panel,
     .steps-panel .step2-panel {
-        margin-right: 5%;
+        margin-right: 4%;
     }
 
     .steps-panel h3 {

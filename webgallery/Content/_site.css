@@ -34,8 +34,7 @@ p, select, input, textarea, label, caption {
 
 /*--------*/
 .content {
-    width: 95%;
-    margin-left: 2.5%;
+    margin-left: 15px;
 }
 
 .clearing {

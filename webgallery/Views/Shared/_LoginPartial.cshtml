@@ -1,20 +1,17 @@
 ﻿@using WebGallery.Security;
 
-@if (Request.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-link">
-            @*The 'preferred_username' claim can be used for showing the user's primary way of identifying themselves.*@
+<ul class="nav navbar-nav navbar-right">
+    @if (Request.IsAuthenticated)
+    {
+        <li>
             @Html.RouteLink(User.GetName(), SiteRouteNames.Portal)
         </li>
-        <li class="navbar-link">
+        <li>
             @Html.RouteLink("Sign out", SiteRouteNames.SignOut)
         </li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-link">@Html.RouteLink("Sign in", SiteRouteNames.SignIn)</li>
-    </ul>
-}
+    }
+    else
+    {
+        <li>@Html.RouteLink("Sign in", SiteRouteNames.SignIn)</li>
+    }
+</ul>
