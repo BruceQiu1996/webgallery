@@ -10,7 +10,7 @@
 
     .steps-panel .step1-panel,
     .steps-panel .step2-panel {
-        margin-right: 4%;
+        margin-right: 5%;
     }
 
     .steps-panel h3 {
@@ -39,8 +39,8 @@
         margin-right: auto;
     }
 
-    .steps-panel .important-note{
-        font-style:italic;
-        font-weight:600;
+    .steps-panel .important-note {
+        font-style: italic;
+        font-weight: 600;
         color: #111111;
     }

@@ -35,7 +35,7 @@
         <div class="clearfix">
             <hr />
             <div class="panel-logo">
-                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src=@Url.Content(logourl) /></a>
+                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src="@Url.Content(logourl)" /></a>
             </div>
             <div>
                 <span class="app-title">@Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })</span>
@@ -54,8 +54,8 @@
     <div class="panel-pager">
         @Html.Hidden("currentpage", Model.CurrentPage)
         @Html.Hidden("totalpage", Model.TotalPage)
-        @Html.RouteLink("Previous", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage - 1 }, new { id = "prelink", @class = "prev-page" })
-        @Html.RouteLink("Next", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage + 1 }, new { id = "nextlink", @class = "next-page" })
+        @Html.RouteLink("Previous", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage - 1 }, new { id = "prelink" })
+        @Html.RouteLink("Next", SiteRouteNames.Gallery, new { keyword = Model.Keyword, supportedLanguage = Model.CurrentSupportedLanguage, page = Model.CurrentPage + 1 }, new { id = "nextlink" })
     </div>
 </div>
 
