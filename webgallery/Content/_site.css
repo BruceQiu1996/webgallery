@@ -34,6 +34,8 @@ p, select, input, textarea, label, caption {
 
 /*--------*/
 .content {
+    width: 95%;
+    margin-left: 2.5%;
 }
 
 .clearing {
@@ -102,27 +104,3 @@ p, select, input, textarea, label, caption {
     max-width: 800px;
     max-height: 600px;
 }
-
-/* Top Tabs and Search Box */
-.tab-content {
-    margin: 0 30px 0 20px;
-    font-size: 22px;
-}
-
-    .tab-content > a {
-        float: left;
-    }
-
-    .tab-content input {
-        height: 30px;
-        float: right;
-    }
-
-        .tab-content input[type=text] {
-            width: 300px;
-        }
-
-        .tab-content input[type=image] {
-            margin-left: 4px;
-            margin-right: 20px;
-        }

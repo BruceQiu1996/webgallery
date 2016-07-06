@@ -75,10 +75,10 @@ namespace WebGallery
             bundles.Add(new StyleBundle("~/css/account-profile-form").Include(
                 "~/Content/_account-profile.css"));
 
-            bundles.Add(new StyleBundle("~/css/app-detail").Include(
-                "~/Content/_app-detail.css"));
-            bundles.Add(new ScriptBundle("~/js/app-detail").Include(
-                        "~/scripts/_app-detail.js"));
+            bundles.Add(new StyleBundle("~/css/app-preview").Include(
+                "~/Content/_app-preview.css"));
+            bundles.Add(new ScriptBundle("~/js/app-preview").Include(
+                        "~/scripts/_app-preview.js"));
 
             bundles.Add(new StyleBundle("~/css/app-gallery").Include(
                 "~/Content/_app-gallery.css"));
