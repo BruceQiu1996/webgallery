@@ -563,6 +563,7 @@
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\_home-index.css" />
+    <Content Include="Content\_super-submitters.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
     <Content Include="Feed\WebApplicationList.xml" />
@@ -708,6 +709,7 @@
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_submission-form.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\_super-submitters.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -758,6 +760,7 @@
     <Content Include="Views\App\Gallery.cshtml" />
     <Content Include="Views\App\CanNotFindVersion.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
+    <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
   </ItemGroup>
   <ItemGroup />

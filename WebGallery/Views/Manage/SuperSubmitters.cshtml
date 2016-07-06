@@ -1,0 +1,58 @@
+﻿@model WebGallery.ViewModels.ManageSuperSubmittersViewModel
+
+@{
+    ViewBag.Title = "SuperSubmitters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Assign Super-Submitters</h2>
+    <p>CAUTION: super-submitters can modify all applications and contact details. Only Microsoft employees and trusted contractors should be assigned as super-submitters. </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Microsoft Account</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model.SuperSubmitters)
+            {
+                var prefix = s.Prefix == "Prefix" ? string.Empty : s.Prefix;
+                var suffix = s.Suffix == "Suffix" ? string.Empty : s.Suffix;
+                <tr>
+                    <td><a href="@Url.RouteUrl(SiteRouteNames.Profile_View, new { submitterId = s.SubmitterID })">@prefix @s.FirstName @s.MiddleName @s.LastName @suffix</a></td>
+                    <td>@s.EMail</td>
+                    <td>
+                        @using (Html.BeginRouteForm(SiteRouteNames.Supersubmitter_Remove, new { submitterId = s.SubmitterID }, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value="Remove" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="add-form">
+        @using (Html.BeginRouteForm(SiteRouteNames.Supersubmitter_Add, FormMethod.Post, new { id = "add-submitter" }))
+        {
+            @Html.AntiForgeryToken()
+            <span><input input type="text" name="firstName" placeholder="First Name" /></span>
+            <span><input input type="text" name="lastName" placeholder="Last Name" /></span>
+            <span><input type="text" id="microsoftAccount" name="microsoftAccount" placeholder="Microsoft Account" /></span>
+            <span><input type="text" name="confirmation" placeholder="Confirm Microsoft Account" /></span>
+            <span><input type="submit" disabled="disabled" value="Add Super-Submitter" /></span>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/js/super-submitters")
+}
+
+@section Styles {
+    @Styles.Render("~/css/super-submitters")
+}
