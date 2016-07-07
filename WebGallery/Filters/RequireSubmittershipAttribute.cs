@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Routing;
 using WebGallery.Security;
 using WebGallery.Services;
 
@@ -19,10 +20,13 @@ namespace WebGallery.Filters
         {
             var user = filterContext.HttpContext.User;
 
+            var routeValues = new RouteValueDictionary();
+            routeValues.Add("returnUrl", filterContext.HttpContext.Request.RawUrl);
+
             // If the user is currently not a submtter, then go to account/profile.
             if (!user.IsSubmitter())
             {
-                filterContext.Result = new RedirectResult($"/account/profile?returnUrl={filterContext.HttpContext.Request.RawUrl}");
+                filterContext.Result = new RedirectToRouteResult(SiteRouteNames.Profile, routeValues);
                 return;
             }
 
@@ -31,7 +35,7 @@ namespace WebGallery.Filters
             var hasContactInfo = await _submitterService.HasContactInfoAsync(user.GetSubmittership().SubmitterID);
             if (!user.IsSuperSubmitter() && !hasContactInfo)
             {
-                filterContext.Result = new RedirectResult($"/account/profile?returnUrl={filterContext.HttpContext.Request.RawUrl}");
+                filterContext.Result = new RedirectToRouteResult(SiteRouteNames.Profile, routeValues);
                 return;
             }
 
