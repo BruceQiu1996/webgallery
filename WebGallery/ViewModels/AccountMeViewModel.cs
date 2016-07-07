@@ -9,7 +9,7 @@ using WebGallery.Models;
 
 namespace WebGallery.ViewModels
 {
-    public class AccountProfileViewModel
+    public class AccountMeViewModel
     {
         public string ReturnUrl { get; set; }
         public SubmittersContactDetail ContactDetail { get; set; }

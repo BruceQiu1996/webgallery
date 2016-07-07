@@ -71,7 +71,7 @@ namespace WebGallery.Controllers
         [HttpGet]
         public async Task<ActionResult> Me(string returnUrl)
         {
-            var model = new AccountProfileViewModel { ReturnUrl = returnUrl };
+            var model = new AccountMeViewModel { ReturnUrl = returnUrl };
 
             var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(User.GetEmailAddress());
             if (submitter != null)
@@ -79,13 +79,13 @@ namespace WebGallery.Controllers
                 model.ContactDetail = await _submitterService.GetContactDetailAsync(submitter.SubmitterID);
             }
 
-            return View("Profile", model);
+            return View(model);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Me(AccountProfileViewModel model, string returnUrl)
+        public async Task<ActionResult> Me(AccountMeViewModel model, string returnUrl)
         {
             if (!ValidateContactDetail(model)) return View(model);
 
@@ -100,7 +100,7 @@ namespace WebGallery.Controllers
                 return Redirect(returnUrl);
         }
 
-        private bool ValidateContactDetail(AccountProfileViewModel model)
+        private bool ValidateContactDetail(AccountMeViewModel model)
         {
             Requires(model.ContactDetail.FirstName, "ContactDetail.FirstName", "*");
             Requires(model.ContactDetail.LastName, "ContactDetail.LastName", "*");
