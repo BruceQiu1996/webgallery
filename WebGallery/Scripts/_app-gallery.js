@@ -9,8 +9,8 @@
         $("#nextlink").addClass("link-disabled");
     }
 
-    $(".header div select").change(function () {
-        $(this).parent().parent().submit();
+    $(".panel-search-header div span select").change(function () {
+        $(this).parent().parent().parent().submit();
     });
 
     if (localStorage['page'] == document.URL) {
