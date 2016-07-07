@@ -5,13 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="content">
-    <div class="install-container">
+<div class="content clearfix">
+    <div class="panel-left">
         <h3>Installs powered by the Microsoft Web Platform Installer</h3>
-        <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=@Model.Submission.Nickname"
-           onclick="$(this).parent().hide(); $(this).parent().next().hide(); $(this).parent().next().next().removeClass('display'); $(this).parent().next().next().show()"></a>
-        <p>By downloading and using the Web Platform Installer (Web PI), you agree to the <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank">license terms</a> for the Web PI.</p>
+        <div class="clearfix">
+            <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=@Model.Submission.Nickname"
+               onclick="$(this).parent().parent().hide(); $(this).parent().parent().next().hide(); $(this).parent().parent().next().next().show()"></a>
+            <p>By downloading and using the Web Platform Installer (Web PI), you agree to the <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank">license terms</a> for the Web PI.</p>
+        </div>
         <p>Please leave this window open until the Microsoft Web Platform Installer starts. </p>
+        <hr />
         <h4>System requirements</h4>
         <ul>
             <li>Supported Operating Systems are Windows 8, Windows 7, Windows Vista SP2, Windows XP SP3+, Windows Server 2003 SP2+, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012.</li>
@@ -19,18 +22,21 @@
             <li>You must have administrator privileges on your computer to run the Web Platform Installer.</li>
         </ul>
     </div>
-    <div class="app-detail">
+    <div class="panel-right">
         <h2>You are about to install:</h2>
         <div>
-            <img src="@Model.Submission.LogoUrl" />
-            <h2>@Model.Metadata.Name</h2>
+            <img src="@Model.Submission.LogoUrl" alt="@Model.Submission.Nickname" />
         </div>
+        <h3>@Model.Metadata.Name</h3>
         <p>@Model.Metadata.Description</p>
         <a href="@Url.RouteUrl(SiteRouteNames.App_View,new {appId = Model.Submission.Nickname })" target="_blank">More inforamtion</a>
     </div>
-    <div class="while-installing">
-        <h1>Launching Web Platform Installer. Please wait.</h1>
+    <div class="panel-installing">
+        <h1>Launching Web Platform Installer... Please wait.</h1>
         <p>To return to the page you were viewing, please click <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = Model.Submission.Nickname })">here</a>.</p>
+        <div>
+            If you meet issues on this app, please click @Html.RouteLink("here", SiteRouteNames.App_Issues_Report, new { appId = Model.Submission.Nickname }) to contact us and the owner.
+        </div>
     </div>
 </div>
 
