@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var installUrl = Model.Submission.SubmissionID == 0 ? Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname }) : "https://www.microsoft.com/web/page.aspx?submissionid=" + Model.Submission.SubmissionID.ToString() + "&chunkfile=gallery%5Csubmissionpreview.html";
 }
 <div class="content">
     <div class="clearfix">
@@ -28,7 +29,7 @@
                     <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
                 </span>
                 <span class="pull-right">
-                    <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
+                    <a href="@installUrl">
                         <img src="~/content/images/install-btn.jpg" />
                     </a>
                 </span>
