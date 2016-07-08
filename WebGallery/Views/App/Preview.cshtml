@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var displayInstallOrNot = Model.Submission.SubmissionID == 0 ? string.Empty : "display:none";
 }
 <div class="content">
     <div class="clearfix">
@@ -23,7 +24,7 @@
         </div>
 
         <div class="panel-app-properties pull-right">
-            <div>
+            <div style="@displayInstallOrNot">
                 <span class="pull-left">
                     <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
                 </span>
