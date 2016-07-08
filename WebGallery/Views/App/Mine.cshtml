@@ -1,7 +1,9 @@
 ﻿@model WebGallery.ViewModels.AppMineViewModel
 
+@using WebGallery.Security;
+
 @{
-    ViewBag.Title = "Web App Gallery Submission Portal";
+    ViewBag.Title = "Portal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,8 +14,9 @@
         <div class="warning-panel">
             <p>If you have existing applications that are not visible, please contact <a href="mailto:appgal@microsoft.com">appgal@microsoft.com</a> and share the following information:</p>
             <ul>
-                <li>Send the Application Name for all your applications if you manage more than one.</li>
-                <li>Send you email address that you used to login to access the submissions.</li>
+                <li>Your Unique ID. You can see this near the bottom of this page (<a href="https://account.live.com/editprof.aspx" target="_blank">https://account.live.com/editprof.aspx</a>) on account.live.com.</li>
+                <li>You email address that you used to login to access the submissions. Your email for this login is: <strong>@User.GetEmailAddress()</strong>.</li>
+                <li>Your application names for all your applications if you manage more than one.</li>
             </ul>
         </div>
     }
@@ -41,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @for (var index = 0; index < Model.MySubmissions.Count; index++)
+                    @for (var index = 0; index < Model.MySubmissions.Count; index++)
                 {
                     var submission = Model.MySubmissions[index];
 

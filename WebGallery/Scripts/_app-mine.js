@@ -2,6 +2,7 @@
     $(".submissions-table tbody tr").bind("mouseenter mouseleave", function () { $(this).toggleClass("row-mouseover"); });
     $(".submissions-table tbody tr td:last-child").mouseenter(function () { showActions($(this).find("a").get(0), $(this).find("div")); });
     $(".submissions-table tbody tr td:last-child").mouseleave(function () { $(this).find("div").hide(); });
+    //getUniqueId();
 });
 
 function showActions(target, panelActions) {
@@ -14,4 +15,12 @@ function showActions(target, panelActions) {
         + target.offsetParent.offsetParent.offsetTop;
     panelActions.css({ left: left + "px", top: top + "px" });
     panelActions.show();
+}
+
+getUniqueId = function () {
+    $.get("http://login.live.com/").then(function (result) {
+        alert(result);
+    }, function (result) {
+        alert(result);
+    });
 }
