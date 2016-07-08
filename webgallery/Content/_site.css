@@ -1,4 +1,5 @@
-﻿h1 {
+﻿/*-----reset----*/
+h1 {
     font-size: 1.5em;
 }
 
@@ -33,13 +34,36 @@ p, select, input, textarea, label, caption {
 }
 
 /*--------*/
-.content {
-    margin-left: 15px;
+nav ul:first-of-type {
+    margin-left: -15px; /* make the letter "H" in the link "Home" align left with the content */
 }
 
-.clearing {
-    clear: both;
+.content {
 }
+
+footer {
+    margin-bottom: 10px;
+}
+
+    footer p {
+        float: left;
+    }
+
+    footer ul {
+        float: right;
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+    }
+
+        footer ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+            footer ul li a {
+                color: gray;
+            }
 
 /*----------*/
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

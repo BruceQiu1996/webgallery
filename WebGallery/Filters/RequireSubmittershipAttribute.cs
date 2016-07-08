@@ -23,7 +23,7 @@ namespace WebGallery.Filters
             var routeValues = new RouteValueDictionary();
             routeValues.Add("returnUrl", filterContext.HttpContext.Request.RawUrl);
 
-            // If the user is currently not a submtter, then go to account/profile.
+            // If the user is currently not a submtter, then go to SiteRouteNames.Profile.
             if (!user.IsSubmitter())
             {
                 filterContext.Result = new RedirectToRouteResult(SiteRouteNames.Profile, routeValues);
@@ -31,7 +31,7 @@ namespace WebGallery.Filters
             }
 
             // If current user is not Super Submitter, and there haven't recorded his/her contact info in this system,
-            // then go to account/profile.
+            // then go to SiteRouteNames.Profile.
             var hasContactInfo = await _submitterService.HasContactInfoAsync(user.GetSubmittership().SubmitterID);
             if (!user.IsSuperSubmitter() && !hasContactInfo)
             {
