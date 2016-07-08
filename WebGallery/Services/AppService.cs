@@ -282,7 +282,7 @@ namespace WebGallery.Services
             // logo
             if (images[AppImage.LOGO_IMAGE_NAME].ContentLength > 0)
             {
-                submission.LogoUrl = imageStorageService.Upload(submission.SubmissionID, AppImage.LOGO_IMAGE_NAME, images[AppImage.LOGO_IMAGE_NAME].Content);
+                submission.LogoUrl = imageStorageService.Upload(images[AppImage.LOGO_IMAGE_NAME].Content, submission.Nickname, AppImage.LOGO_IMAGE_NAME, submission.SubmissionID);
             }
 
             // screenshots
@@ -291,13 +291,13 @@ namespace WebGallery.Services
                 var image = images[$"{AppImage.SCREENSHOT_IMAGE_NAME_PREFIX}{index}"];
                 if (image.ContentLength > 0)
                 {
-                    var url = imageStorageService.Upload(submission.SubmissionID, image.ImageName, images[image.ImageName].Content);
+                    var url = imageStorageService.Upload(images[image.ImageName].Content, submission.Nickname, image.ImageName, submission.SubmissionID);
                     submission.UpdateImageUrl(image.ImageName, url);
                 }
                 else if (settingStatusOfImages[image.ImageName].WannaDeleteOrReplace) // if the file input has nothing, and the flag of setting is true, then delete the image
                 {
                     submission.UpdateImageUrl(image.ImageName, null);
-                    imageStorageService.Delete(submission.SubmissionID, image.ImageName);
+                    imageStorageService.Delete(submission.Nickname, image.ImageName, submission.SubmissionID);
                 }
             }
         }

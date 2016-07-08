@@ -14,19 +14,19 @@ namespace WebGallery.Services
             AzureStorageHelper.CreateContainerIfNotExists(ConnectionString, ContainerName);
         }
 
-        public string Upload(int submissionId, string imageName, Stream stream)
+        public string Upload(Stream stream, string appId, string imageName, int? submissionId)
         {
-            return AzureStorageHelper.Upload(ConnectionString, ContainerName, GetBlobName(submissionId, imageName), stream);
+            return AzureStorageHelper.Upload(ConnectionString, ContainerName, GetBlobName(appId, imageName, submissionId), stream);
         }
 
-        public void Delete(int submissionId, string imageName)
+        public void Delete(string appId, string imageName, int? submissionId)
         {
-            AzureStorageHelper.Delete(ConnectionString, ContainerName, GetBlobName(submissionId, imageName));
+            AzureStorageHelper.Delete(ConnectionString, ContainerName, GetBlobName(appId, imageName, submissionId));
         }
 
-        private static string GetBlobName(int submissionId, string imageName)
+        private static string GetBlobName(string appId, string imageName, int? submissionId)
         {
-            return $"{submissionId}-{imageName}";
+            return submissionId.HasValue ? $"{appId}-{imageName}-{submissionId.Value}" : $"{appId}-{imageName}";
         }
 
         // All logos and screenshots will be placed in this container.
