@@ -5,7 +5,7 @@ namespace WebGallery.Services
     public interface IAppImageStorageService
     {
         void CreateContainerIfNotExists();
-        string Upload(int submissionId, string imageName, Stream stream);
-        void Delete(int submissionId, string imageName);
+        string Upload(Stream stream, string appId, string imageName, int? submissionId);
+        void Delete(string appId, string imageName, int? submissionId);
     }
 }
