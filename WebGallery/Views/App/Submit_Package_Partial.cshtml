@@ -77,7 +77,7 @@
                                 <div class="explanation">
                                     <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
                                 </div>
-                                <div class='clearing'>&nbsp;</div>
+                                <div class="clearfix">&nbsp;</div>
 
                                 @*As only x86 is supported*@
                                 @*<input type="button" name="copyTo_@langX86" value="Copy information to x64 tab" onclick="copyToX64('@langX86'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX86', '', true, '', '', false, true))" id="copyTo_@langX86" class="copy-package" />*@
@@ -90,7 +90,7 @@
                                     }
                                 </select>
                                 <input type="button" value="Clear values" onclick="clearValues(this)" class="clear-package-btn" />
-                                <div class='clearing'>&nbsp;</div>
+                                <div class="clearfix">&nbsp;</div>
                             </div>
 
                             @*As only x86 is supported*@
@@ -117,7 +117,7 @@
         <div class="explanation">
             <div class='explanation-inner'>Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">here</a>. As stated in the <a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Web Application Packaging Walkthrough and Developer Guide</a> any changes to the package after submission will render the submission and the package invalid.</div>
         </div>
-        <div class='clearing'>&nbsp;</div>
+        <div class="clearfix">&nbsp;</div>
 
         <input type="button" name="copyTo_@langX64" value="Copy information to x86 tab" onclick="copyToX86('@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyTo_@langX64', '', true, '', '', false, true))" id="copyTo_@langX64" class="copy-package" />
         <input type="button" name="copyFrom_@langX64" value="Copy values from" onclick="copyValuesFromPackage('@lang.Name', '@langX64'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('copyFrom_@langX64', '', true, '', '', false, true))" id="copyFrom_@langX64" class="copy-from-package-btn" />
@@ -128,7 +128,7 @@
             }
         </select>
         <input type="button" name="clear_@langX64" value="Clear Values" onclick="clearPackageValues('@lang.Name'); return false; WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('clear_@langX64', '', true, '', '', false, true))" id="clear_@langX64" class="clear-package-btn" />
-        <div class='clearing'>&nbsp;</div>
+        <div class="clearfix">&nbsp;</div>
     </div>*@
                         </div>
                     </div>

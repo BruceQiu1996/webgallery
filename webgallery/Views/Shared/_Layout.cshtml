@@ -19,28 +19,34 @@
     </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container">
-            @*<div class="navbar-header"></div>*@
-            <div>
-                <ul class="nav navbar-nav">
-                    <li>@Html.RouteLink("Home", SiteRouteNames.Home)</li>
-                    <li>@Html.RouteLink("Gallery", SiteRouteNames.Gallery)</li>
-                    <li>@Html.RouteLink("Documents", SiteRouteNames.Docs)</li>
-                    <li>@Html.RouteLink("Report an issue", SiteRouteNames.Issue_Report)</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.RouteLink("Home", SiteRouteNames.Home)</li>
+                <li>@Html.RouteLink("Gallery", SiteRouteNames.Gallery)</li>
+                <li>@Html.RouteLink("Documents", SiteRouteNames.Docs)</li>
+                <li>@Html.RouteLink("Report an issue", SiteRouteNames.Issue_Report)</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
         </div>
-    </div>
+    </nav>
 
     <div class="container">
         @RenderBody()
-        <hr />
-        <!--<footer>
-              <p>Windows Web App Gallery</p>
-          </footer>-->
     </div>
+
+    <footer class="container">
+        <hr />
+        <div>
+            <p>Windows Web App Gallery © @DateTime.Now.Year Microsoft</p>
+            <ul>
+                <li><a href="http://support.microsoft.com/contactus/">Contact us</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; cookies</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a></li>
+                <li><a href="https://www.microsoft.com/trademarks">Trademarks</a></li>
+            </ul>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
