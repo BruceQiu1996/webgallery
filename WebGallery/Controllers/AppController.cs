@@ -285,7 +285,7 @@ namespace WebGallery.Controllers
                 Metadata = (await _appService.GetMetadataFromFeedAsync(appId)).FirstOrDefault()
             };
 
-            return View("Preview",model);
+            return View("Preview", model);
         }
 
         [Authorize]
@@ -299,7 +299,7 @@ namespace WebGallery.Controllers
             }
 
             var submission = await _appService.GetSubmissionAsync(submissionId.Value);
-            if(submission == null)
+            if (submission == null)
             {
                 return View("ResourceNotFound");
             }
@@ -308,14 +308,14 @@ namespace WebGallery.Controllers
             {
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
-            
-            submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
+
             var metadata = await _appService.GetMetadataAsync(submission.SubmissionID);
             if (metadata.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
 
+            submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
             var model = new AppDetailViewModel
             {
                 Submission = submission,
