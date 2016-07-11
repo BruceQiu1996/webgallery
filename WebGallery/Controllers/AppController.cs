@@ -270,6 +270,7 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public async Task<ActionResult> ViewFromFeed(string appId)
         {
             var submission = await _appService.GetSubmissionFromFeedAsync(appId);
@@ -288,6 +289,7 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
+        [HttpGet]
         [RequireSubmittership]
         public async Task<ActionResult> Preview(int? submissionId)
         {
@@ -296,13 +298,17 @@ namespace WebGallery.Controllers
                 return View("ResourceNotFound");
             }
 
-            var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(User.GetEmailAddress());
-            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(submitter.SubmitterID, submissionId.Value)))
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
+            if(submission == null)
+            {
+                return View("ResourceNotFound");
+            }
+
+            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId.Value)))
             {
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
-
-            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
+            
             submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
             var metadata = await _appService.GetMetadataAsync(submission.SubmissionID);
             if (metadata.Count() == 0)
