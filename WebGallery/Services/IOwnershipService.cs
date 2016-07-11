@@ -14,8 +14,6 @@ namespace WebGallery.Services
 
         Task<UnconfirmedSubmissionOwner> GetInvitationAsync(Guid invitationGuid);
 
-        bool IsInvitationExpired(UnconfirmedSubmissionOwner invitation);
-
         Task RemoveInvitationAsync(Guid invitationGuid);
 
         Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation);

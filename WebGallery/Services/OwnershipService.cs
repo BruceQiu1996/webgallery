@@ -81,13 +81,6 @@ namespace WebGallery.Services
             }
         }
 
-        public bool IsInvitationExpired(UnconfirmedSubmissionOwner invitation)
-        {
-            if (invitation == null) return true;
-
-            return DateTime.Now.Subtract(invitation.RequestDate).Days > 7;
-        }
-
         public Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation)
         {
             using (var db = new WebGalleryDbContext())
