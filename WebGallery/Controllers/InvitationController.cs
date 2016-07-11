@@ -112,7 +112,7 @@ namespace WebGallery.Controllers
                 Submission = submission
             };
 
-            if (_ownershipService.IsInvitationExpired(invitation))
+            if (invitation.IsExpired)
             {
                 return View("InvitationExpired", model);
             }

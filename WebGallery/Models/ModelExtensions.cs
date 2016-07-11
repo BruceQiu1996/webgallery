@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebGallery.Models
@@ -105,6 +106,11 @@ namespace WebGallery.Models
         public string AppName { get; set; }
         public string BriefDescription { get; set; }
         public IList<ProductOrAppCategory> Categories { get; set; }
+    }
+
+    public partial class UnconfirmedSubmissionOwner
+    {
+        public bool IsExpired { get { return DateTime.Now.Subtract(this.RequestDate).Days > 7; } }
     }
 
     public enum IssueType

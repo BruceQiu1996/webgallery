@@ -47,7 +47,7 @@
 
                     <tr>
                         <td>@invitaion.FirstName @invitaion.LastName</td>
-                        <td>@Resources.Submit.OwnerStatus_Pending</td>
+                        <td>@(invitaion.IsExpired ? Resources.Submit.OwnerStatus_Expired : Resources.Submit.OwnerStatus_Pending)</td>
                         <td>
                             @using (Html.BeginRouteForm(SiteRouteNames.Invitation_Revoke, new { invitationGuid = invitaion.RequestID }, FormMethod.Post))
                             {
