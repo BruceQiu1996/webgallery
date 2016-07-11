@@ -270,20 +270,41 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Preview(int? submissionId, string appId)
+        public async Task<ActionResult> ViewFromFeed(string appId)
         {
-            var submission = submissionId.HasValue ? await _appService.GetSubmissionAsync(submissionId.Value) : await _appService.GetSubmissionFromFeedAsync(appId);
+            var submission = await _appService.GetSubmissionFromFeedAsync(appId);
             if (submission == null)
             {
                 return View("ResourceNotFound");
             }
 
-            if (submissionId.HasValue)
+            var model = new AppDetailViewModel
             {
-                submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
+                Submission = submission,
+                Metadata = (await _appService.GetMetadataFromFeedAsync(appId)).FirstOrDefault()
+            };
+
+            return View("Preview",model);
+        }
+
+        [Authorize]
+        [RequireSubmittership]
+        public async Task<ActionResult> Preview(int? submissionId)
+        {
+            if (!submissionId.HasValue)
+            {
+                return View("ResourceNotFound");
             }
 
-            var metadata = submissionId.HasValue ? await _appService.GetMetadataAsync(submission.SubmissionID) : await _appService.GetMetadataFromFeedAsync(appId);
+            var submitter = await _submitterService.GetSubmitterByMicrosoftAccountAsync(User.GetEmailAddress());
+            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(submitter.SubmitterID, submissionId.Value)))
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var submission = await _appService.GetSubmissionAsync(submissionId.Value);
+            submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
+            var metadata = await _appService.GetMetadataAsync(submission.SubmissionID);
             if (metadata.Count() == 0)
             {
                 return View("NeedAppNameAndDescription", submission.SubmissionID);

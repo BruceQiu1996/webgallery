@@ -44,7 +44,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Owners_Invite, url: SiteRouteUrlPatterns.App_Owners_Invite, defaults: new { controller = invitation, action = nameof(InvitationController.Send) });
             routes.MapRoute(name: SiteRouteNames.App_Owners_Remove, url: SiteRouteUrlPatterns.App_Owners_Remove, defaults: new { controller = ownership, action = nameof(OwnershipController.Remove) });
             routes.MapRoute(name: SiteRouteNames.App_Issues_Report, url: SiteRouteUrlPatterns.App_Issues_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
-            routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = app, action = nameof(AppController.Preview) });
+            routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = app, action = nameof(AppController.ViewFromFeed) });
 
             routes.MapRoute(name: SiteRouteNames.Invitation_Revoke, url: SiteRouteUrlPatterns.Invitation_Revoke, defaults: new { controller = invitation, action = nameof(InvitationController.Revoke) });
             routes.MapRoute(name: SiteRouteNames.Invitation_Accept, url: SiteRouteUrlPatterns.Invitation_Accept, defaults: new { controller = invitation, action = nameof(InvitationController.Accept) });
