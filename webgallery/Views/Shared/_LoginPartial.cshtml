@@ -4,7 +4,7 @@
     @if (Request.IsAuthenticated)
     {
         <li>
-            @Html.RouteLink(User.GetName(), SiteRouteNames.Portal)
+            @Html.RouteLink(User.GetName(), SiteRouteNames.Portal, null, new { title = User.GetEmailAddress() })
         </li>
         <li>
             @Html.RouteLink("Sign out", SiteRouteNames.SignOut)
