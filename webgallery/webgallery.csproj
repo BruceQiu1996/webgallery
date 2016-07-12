@@ -606,6 +606,7 @@
     <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\webappgalleryprod-dev2.pubxml" />
     <None Include="Properties\PublishProfiles\webgalleryprod.pubxml">
       <SubType>Designer</SubType>
     </None>
