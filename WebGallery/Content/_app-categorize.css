@@ -1,24 +1,25 @@
-﻿.header > a {
-    float: left;
-    margin-top: 20px;
+﻿.panel-summary,
+.panel-lang-selector {
+    margin-left: 30%;
 }
 
-.header label {
-    margin-top: 22px;
-    margin-left: 15%;
-    font-size: 18px;
+.panel-summary {
+    font-size: 1.2em;
 }
 
-.header a,
-.categories a {
-    text-decoration: none;
-    font-size: 22px;
+.panel-lang-selector {
+    margin-top: 10px;
 }
 
 .categories {
     float: left;
     width: 20%;
 }
+
+    .categories a {
+        text-decoration: none;
+        font-size: 18px;
+    }
 
 .app-list {
     margin-left: 10%;

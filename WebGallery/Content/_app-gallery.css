@@ -1,34 +1,14 @@
-﻿.panel-search-header {
-    margin-top: 20px;
+﻿.panel-summary div:first-of-type {
+    font-size: 1.2em;
 }
 
-    .panel-search-header h1 {
-        font-size: 26px;
-        margin: 0px;
-        float: left;
-    }
+.panel-summary div:last-of-type {
+    margin-top: 10px;
+}
 
-    .panel-search-header input {
-        height: 28px;
-        vertical-align: middle;
-    }
-
-        .panel-search-header input[type=text] {
-            width: 300px;
-            margin-left: 50px;
-        }
-
-        .panel-search-header input[type=image] {
-            width: 28px;
-        }
-
-    .panel-search-header div:last-of-type {
-        margin-top: 20px;
-    }
-
-    .panel-search-header select {
-        margin: 0px 50px 0px 5px;
-    }
+.panel-summary select {
+    margin: 0px 0px 0px 5px;
+}
 
 .panel-logo {
     width: 65px;

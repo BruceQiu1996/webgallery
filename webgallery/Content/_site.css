@@ -1,14 +1,18 @@
 ﻿/*-----reset----*/
 h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 h2 {
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 h3 {
-    font-size: 1em;
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
 }
 
 p, select, input, textarea, label, table, li,
@@ -21,33 +25,87 @@ p, select, input, textarea, label, table, li,
 }
 
 h1, h2,
-.font-weight-700 {
-    font-weight: 700;
+.font-weight-800 {
+    font-weight: 800;
 }
 
-.font-weight-400 {
-    font-weight: 400;
+h3, h4,
+.font-weight-600 {
+    font-weight: 600;
 }
 
 p, select, input, textarea, label, caption {
     color: #4b4b4b;
 }
 
-/*--------*/
+/*----site header, site logo----*/
+header.webgallery-header {
+    min-height: 60px;
+    border-radius: 0;
+    background-color: #138ff8;
+}
+
+    header.webgallery-header .panel-site-logo {
+        float: left;
+        margin-top: 17px;
+    }
+
+        header.webgallery-header .panel-site-logo h1 {
+            margin: 0px;
+            font-size: 26px;
+            color: #f7f7f7;
+        }
+
+    header.webgallery-header .panel-search-box {
+        margin-top: 17px;
+        float: right;
+    }
+
+/*----site search box----*/
+.search-box {
+    height: 28px;
+    border: 1px solid #333;
+    margin: 0px;
+    padding: 1px;
+    background-color: white;
+}
+
+    .search-box input {
+        height: 24px;
+        vertical-align: middle;
+        border-width: 0px;
+    }
+
+        .search-box input[type=text] {
+            min-width: 350px;
+        }
+
+        .search-box input[type=submit] {
+            width: 24px;
+            height: 24px;
+            margin: 0px;
+            padding: 0px;
+            background: url(images/search-btn.jpg) no-repeat;
+        }
+
+/*----site navigation bar----*/
+nav.webgallery-nav {
+    border: 0px;
+    border-radius: 0px;
+}
+
 nav ul:first-of-type {
     margin-left: -15px; /* make the letter "H" in the link "Home" align left with the content */
 }
 
-.content {
+.content h2 {
+    margin-top: 0px;
 }
 
+/*----site footer----*/
 footer {
     margin-bottom: 10px;
 }
-
-    footer p {
-        float: left;
-    }
 
     footer ul {
         float: right;

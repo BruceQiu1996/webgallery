@@ -9,20 +9,19 @@
 }
 
 <div class="content">
-    <div class="panel-search-header">
+    <div class="panel-summary">
         @using (Html.BeginRouteForm(SiteRouteNames.Gallery))
         {
             <div>
-                <h1>Windows Web App Gallery</h1>
-                @Html.TextBox("keyword", Model.Keyword, new { id = "SearchText", placeholder = "Searh Apps" })
-                <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
+                @(string.IsNullOrWhiteSpace(Model.Keyword) ? "There are " : $"Searching \"{Model.Keyword}\", found ")<strong>@Model.TotalCount</strong> apps in total.
+                Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.
             </div>
             <div>
-                <span><strong>Show applications in</strong></span>
+                <span><strong>Show apps in</strong></span>
                 <span>
                     @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
+                    @Html.Hidden("keyword", Model.Keyword, new { id = "SearchText", placeholder = "Search Apps" })
                 </span>
-                <span>Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong> for your searching , <strong>@Model.TotalCount</strong> in total</span>
             </div>
         }
     </div>

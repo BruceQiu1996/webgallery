@@ -6,17 +6,7 @@
     var displayInstallOrNot = Model.Submission.SubmissionID == 0 ? string.Empty : "display:none";
 }
 <div class="content">
-    <div class="clearfix">
-        <div class="panel-search">
-            @using (Html.BeginRouteForm(SiteRouteNames.Gallery))
-            {
-                <input type="text" id="SearchText" name="keyword" placeholder="Search Apps" />
-                <input type="image" src="~/content/images/search-btn.jpg" alt="Submit" />
-            }
-        </div>
-    </div>
-
-    <h1>@Model.Metadata.Name</h1>
+    <h2>@Model.Metadata.Name</h2>
 
     <div class="clearfix">
         <div class="panel-app-icon pull-left">
