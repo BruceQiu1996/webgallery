@@ -514,22 +514,22 @@ namespace WebGallery.Services
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
-            var categoryId = (from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where x.Value == category
-                              select x.Attribute("id").Value).FirstOrDefault();
+            var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
+                              where category.ToLower() == "all" || x.Value.ToLower() == category.ToLower()
+                              select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
                         let title = e.Element(ns + "title").Value
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
-                                         where c.Value == categoryId
+                                         where categoryIds.Contains(c.Value)
                                          select c.Value
                         let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
 
-                                              // The languageIds in feed are always the substring ofthe relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
+                                              // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
                                           where supportedLanguage.Contains(l.Value) || (supportedLanguage == "zh-chs" && l.Value == "zh-cn") || (supportedLanguage == "zh-cht" && l.Value == "zh-tw")
                                           select l.Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && (categoryId == null || categories.Count() > 0) && languageIds.Count() > 0
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
                         select new
                         {
