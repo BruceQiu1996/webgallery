@@ -232,6 +232,7 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
+            category = string.IsNullOrWhiteSpace(category) ? "all" : category;
             supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
             var model = new AppCategorizeViewModel
             {

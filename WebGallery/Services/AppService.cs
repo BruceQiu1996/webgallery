@@ -515,7 +515,7 @@ namespace WebGallery.Services
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where string.IsNullOrWhiteSpace(category) || x.Value.ToLower() == category.ToLower()
+                              where category.ToLower() == "all" || x.Value.ToLower() == category.ToLower()
                               select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
@@ -529,7 +529,7 @@ namespace WebGallery.Services
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
                                           where supportedLanguage.Contains(l.Value) || (supportedLanguage == "zh-chs" && l.Value == "zh-cn") || (supportedLanguage == "zh-cht" && l.Value == "zh-tw")
                                           select l.Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && (string.IsNullOrWhiteSpace(category) || category.ToLower() == "all" || categories.Count() > 0) && languageIds.Count() > 0
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
                         select new
                         {
