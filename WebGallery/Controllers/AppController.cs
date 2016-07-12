@@ -227,11 +227,12 @@ namespace WebGallery.Controllers
         #endregion
 
         [AllowAnonymous]
-        public async Task<ActionResult> Categorize(int? page, string category = "All", string supportedLanguage = Language.CODE_ENGLISH_US)
+        public async Task<ActionResult> Categorize(string category, string supportedLanguage, int? page)
         {
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
+            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
             var model = new AppCategorizeViewModel
             {
                 Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, pageNumber, pageSize, out count),

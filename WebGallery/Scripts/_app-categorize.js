@@ -9,7 +9,7 @@
         $("#totalpage").next().addClass("link-disabled");
     }
     $(".categories").find("a").each(function () {
-        if ($(this).text() == $(this).parent().parent().find("input:first").val()) {
+        if ($(this).text().toLowerCase() == $(this).parent().parent().find("input:first").val().toLowerCase()) {
             $(this).addClass("this-category");
             $(this).removeAttr("href");
         }

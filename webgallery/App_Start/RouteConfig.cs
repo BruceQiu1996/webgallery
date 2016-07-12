@@ -37,7 +37,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = app, action = nameof(AppController.Verify) });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = app, action = nameof(AppController.Delete) });
             routes.MapRoute(name: SiteRouteNames.App_Update_Status, url: SiteRouteUrlPatterns.App_Update_Status, defaults: new { controller = app, action = nameof(AppController.UpdateStatus) });
-            routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize) });
+            routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize), category = UrlParameter.Optional });
             routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = app, action = nameof(AppController.Preview) });
             routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = app, action = nameof(AppController.Install) });
             routes.MapRoute(name: SiteRouteNames.App_Owners, url: SiteRouteUrlPatterns.App_Owners, defaults: new { controller = app, action = nameof(AppController.Owners) });
