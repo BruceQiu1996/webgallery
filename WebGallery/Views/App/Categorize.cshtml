@@ -9,9 +9,22 @@
 }
 
 <div class="content">
-    <div class="header">
-        @Html.RouteLink("< Go Back to Gallery", SiteRouteNames.Gallery)
-        <label>Display Results @firstIndex - @lastIndex For Your Searching , @Model.TotalCount Totally</label>
+    <div class="panel-summary">
+        @if (Model.CurrentCategory.ToLower() == "all")
+        {
+            <span>There are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
+        }
+        else
+        {
+            <span>Under "<strong>@Model.CurrentCategory</strong>", there are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
+        }
+    </div>
+    <div class="panel-lang-selector">
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory }))
+        {
+            <strong>Show apps in</strong>
+            @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
+        }
     </div>
     <hr />
     <div class="categories">
@@ -25,13 +38,6 @@
                 <hr />
             }
         }
-        <div>
-            <h2>Applications in</h2>
-            @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory }))
-            {
-                @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
-            }
-        </div>
     </div>
     <div class="app-list">
         @foreach (var app in Model.Submissions)

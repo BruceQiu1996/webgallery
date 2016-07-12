@@ -1,6 +1,15 @@
-﻿.for-developer-panel,
+﻿.jumbotron h2 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 48px;
+}
+
+.for-developer-panel p {
+    margin-top: 10px;
+}
+
 .steps-panel {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
     .steps-panel > div {

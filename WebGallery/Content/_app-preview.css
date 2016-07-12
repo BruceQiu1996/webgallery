@@ -1,22 +1,4 @@
-﻿.panel-search {
-    margin: 0px;
-    float: right;
-}
-
-    .panel-search input {
-        height: 24px;
-        vertical-align: top;
-    }
-
-        .panel-search input[type=text] {
-            width: 300px;
-        }
-
-        .panel-search input[type=image] {
-            margin-left: 5px;
-        }
-
-.panel-app-icon img {
+﻿.panel-app-icon img {
     max-width: 200px;
     max-height: 200px;
 }

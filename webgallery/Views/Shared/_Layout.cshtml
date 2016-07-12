@@ -19,7 +19,24 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
+    <header class="webgallery-header">
+        <div class="container">
+            <div class="panel-site-logo">
+                <h1>Windows Web App Gallery</h1>
+            </div>
+            <div class="panel-search-box">
+                @using (Html.BeginRouteForm(SiteRouteNames.Gallery))
+                {
+                    <div class="search-box">
+                        @Html.TextBox("keyword", "", new { placeholder = "Search Apps" })
+                        <input type="submit" value="" />
+                    </div>
+                }
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-inverse webgallery-nav">
         <div class="container">
             <ul class="nav navbar-nav">
                 <li>@Html.RouteLink("Home", SiteRouteNames.Home)</li>
@@ -31,19 +48,19 @@
         </div>
     </nav>
 
-    <div class="container">
+    <main class="container">
         @RenderBody()
-    </div>
+    </main>
 
     <footer class="container">
         <hr />
         <div>
-            <p>Windows Web App Gallery © @DateTime.Now.Year Microsoft</p>
             <ul>
                 <li><a href="http://support.microsoft.com/contactus/">Contact us</a></li>
                 <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; cookies</a></li>
                 <li><a href="http://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a></li>
                 <li><a href="https://www.microsoft.com/trademarks">Trademarks</a></li>
+                <li>© @DateTime.Now.Year Microsoft</li>
             </ul>
         </div>
     </footer>

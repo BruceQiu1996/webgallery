@@ -8,17 +8,14 @@
 <div id="appSubmitContainer" class="content">
     <form method="post" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
-
+        <h2 id="Introduction">Submit Web App</h2>
         @Html.Partial("Submit_Introduction_Partial")
-
         @Html.Partial("Submit_Description_Partial", Model)
-
         @Html.Partial("Submit_ReleaseNote_Partial", Model)
-
         @Html.Partial("Submit_Package_Partial", Model)
 
-        <h2 id="TermsAndConditions">Review Terms and Conditions and Submit:</h2>
-        <div class="submission-form-section ">
+        <h3 id="TermsAndConditions">Review Terms and Conditions and Submit:</h3>
+        <div class="submission-form-section">
             <p>
                 Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.
             </p>
@@ -38,7 +35,7 @@
         </div>
 
         <div id="validationEntriesContainer" style="color:Red;display:none;">
-            <h2>Validation Entries:</h2>
+            <h3>Validation Entries:</h3>
             <div class="submission-form-section validation-summary">
                 <P>Please fix the following field(s) before you can submit this application:</P>
                 <ul></ul>
