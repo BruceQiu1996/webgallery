@@ -9,7 +9,7 @@
         $("#nextlink").addClass("link-disabled");
     }
 
-    $(".panel-search-header div span select").change(function () {
+    $(".panel-summary select").change(function () {
         $(this).parent().parent().parent().submit();
     });
 
