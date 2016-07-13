@@ -600,14 +600,12 @@
     <Content Include="Models\WebGallery.edmx.diagram">
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\TEMP.pubxml" />
     <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\webappgalleryprod-dev2.pubxml" />
     <None Include="Properties\PublishProfiles\webgalleryprod.pubxml">
       <SubType>Designer</SubType>
     </None>
