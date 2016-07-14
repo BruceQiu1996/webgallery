@@ -104,8 +104,7 @@ function createNickname(appNameContainer) {
 //
 // validation logic
 //
-function validate()
-{
+function validate() {
     var errors = $([]);
 
     validateMetadata(errors);
@@ -143,7 +142,7 @@ function showErrors(errors) {
 
     errors.each(function (i, error) {
         var target = $("#" + error.id);
-        
+
         // display inline errors
         var errorMessage = target.attr("data-msg-" + error.type);
         var errorClass = (errorMessage == "*" || errorMessage == "(*)") ? "validator-inline" : "validator-below";
@@ -164,7 +163,7 @@ function showErrors(errors) {
 
         var a = $("<a></a>").html(htmlContent).attr("href", "#" + href);
         var li = a.wrap("<li class='appgallery-validation-error'></li>").parent();
-        li.appendTo("#validationEntriesContainer ul");        
+        li.appendTo("#validationEntriesContainer ul");
     });
 }
 
@@ -177,8 +176,7 @@ function validateMetadata(errors) {
         return;
     }
 
-    if (!eachPackageHasMetadataForItsLanguage(metadataList, getPackageList()))
-    {
+    if (!eachPackageHasMetadataForItsLanguage(metadataList, getPackageList())) {
         errors.push({ id: "DescribeYourApplication", type: "eachPackageHasMetadataForItsLanguage" });
         return;
     }
@@ -246,8 +244,7 @@ function validateDescription(errors) {
     var descriptions = $("#metaDataTabContainer textarea[name^='Description']");
 
     descriptions.each(function (i, e) {
-        if ($(e).val().length > 1500)
-        {
+        if ($(e).val().length > 1500) {
             errors.push({ id: $(e).attr("id"), type: "maxlength" });
         }
     });
@@ -268,14 +265,12 @@ function validateBriefDescription(errors) {
 function validateAppId(errors) {
     var appId = $("#AppId").val();
 
-    if (appId.trim().length == 0)
-    {
+    if (appId.trim().length == 0) {
         errors.push({ id: "AppId", type: "required" });
         return;
     }
 
-    if (! /^\w*$/.test(appId))
-    {
+    if (! /^\w*$/.test(appId)) {
         errors.push({ id: "AppId", type: "alphanumeric" });
         return;
     }
@@ -327,7 +322,7 @@ function validateSubmittingEntityURL(errors) {
         return;
     }
 
-    if (! validateURL(val)) {
+    if (!validateURL(val)) {
         errors.push({ id: "SubmittingEntityURL", type: "url" });
         return;
     }
@@ -342,7 +337,7 @@ function validateAppWebSiteURL(errors) {
         return;
     }
 
-    if (! validateURL(val)) {
+    if (!validateURL(val)) {
         errors.push({ id: "AppWebSiteURL", type: "url" });
         return;
     }
@@ -357,7 +352,7 @@ function validateSupportURL(errors) {
         return;
     }
 
-    if (! validateURL(val)) {
+    if (!validateURL(val)) {
         errors.push({ id: "SupportURL", type: "url" });
         return;
     }
@@ -413,12 +408,10 @@ function validateLogo(errors) {
 }
 
 // for package info
-function validatePackageInfo(errors)
-{
+function validatePackageInfo(errors) {
     var packageList = getPackageList();
-    
-    if (! atLeastOnePackageCompleted(packageList))
-    {
+
+    if (!atLeastOnePackageCompleted(packageList)) {
         errors.push({ id: "ProvidePackageInformation", type: "atLeastOnePackageCompleted" });
         return;
     }
@@ -444,7 +437,7 @@ function atLeastOnePackageCompleted(packageList) {
 function eachPackageInfoCompleted(packageList) {
     var pass = true;
     packageList.each(function (i, p) {
-        if (p.hasInput() && ! p.isCompleted()) {
+        if (p.hasInput() && !p.isCompleted()) {
             pass = false;
             return false;
         }
@@ -496,8 +489,7 @@ function validatePackageLocationUrl(errors) {
     var urls = $("#packageTabContainer input[name$='.PackageUrl']");
 
     urls.each(function (i, u) {
-        if ($(u).val().trim().length > 0 && !validateURL($(u).val()))
-        {
+        if ($(u).val().trim().length > 0 && !validateURL($(u).val())) {
             errors.push({ id: $(u).attr("id"), type: "url" });
         }
     });
@@ -537,7 +529,7 @@ function validateURL(url) {
 //
 // for package values
 //
-function copyValues(sender){
+function copyValues(sender) {
     var lang = $(sender).next().val() + "_x86";
     var sourcePackageLocationUrl = $("#PackageLocationUrl_" + lang).val();
     var sourceStartPage = $("#StartPage_" + lang).val();
@@ -611,8 +603,7 @@ function selectMicrosoftSqlDriverForPhp() {
 //
 // if some packages get changed, show warnings
 //
-function warnIfPackageInfoChanges()
-{
+function warnIfPackageInfoChanges() {
     var numChangedX86 = 0;
     var numUnchangedX86 = 0;
 
@@ -660,7 +651,7 @@ function warnIfPackageInfoChanges()
             numUnchangedX86++;
         }
     });
-    
+
     ((numChangedX86 > 0) && (numUnchangedX86 > 0))
         ? $("#packageChangeImbalanceWarningPanel").show()
         : $("#packageChangeImbalanceWarningPanel").hide();

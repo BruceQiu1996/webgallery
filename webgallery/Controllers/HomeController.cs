@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using WebGallery.ViewModels;
 
 namespace WebGallery.Controllers
@@ -25,7 +24,8 @@ namespace WebGallery.Controllers
 
         public ActionResult Error(string message)
         {
-            return View(message);
+            ViewBag.Error = message;
+            return View();
         }
     }
 }

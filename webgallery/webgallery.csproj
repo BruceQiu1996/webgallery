@@ -306,6 +306,7 @@
     <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Filters\ErrorHandlerAttribute.cs" />
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
     <Compile Include="Filters\RequireSubmittingAppEnabled.cs" />

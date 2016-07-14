@@ -1,5 +1,5 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using WebGallery.Filters;
 
 namespace WebGallery
 {
@@ -7,7 +7,7 @@ namespace WebGallery
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new ErrorHandlerAttribute());
             filters.Add(new RequireHttpsAttribute());
         }
     }
