@@ -320,6 +320,7 @@ namespace WebGallery.Controllers
             submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
             var model = new AppDetailViewModel
             {
+                IsPreview = true,
                 Submission = submission,
                 Metadata = metadata.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metadata.FirstOrDefault()
             };
