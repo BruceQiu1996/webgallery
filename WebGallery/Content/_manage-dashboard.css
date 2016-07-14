@@ -6,6 +6,29 @@
     width: 100%;
 }
 
+    .submissions-table thead tr th:first-child {
+        width: 25%;
+    }
+
+    .submissions-table thead tr th:nth-child(2) {
+        width: 15%;
+    }
+
+    .submissions-table thead tr th:nth-child(3),
+    .submissions-table thead tr th:nth-child(4) {
+        width: 10%;
+    }
+
+    .submissions-table thead tr th:nth-child(5),
+    .submissions-table thead tr th:last-child {
+        width: 5%;
+    }
+
+    .submissions-table thead tr th:nth-child(6),
+    .submissions-table thead tr th:nth-child(7) {
+        width: 15%;
+    }
+
     .submissions-table thead tr {
         border-bottom: 2px solid #333333;
     }

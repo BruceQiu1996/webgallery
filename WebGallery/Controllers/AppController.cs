@@ -344,7 +344,7 @@ namespace WebGallery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
-        public async Task<ActionResult> Delete(int? submissionId)
+        public async Task<ActionResult> Delete(int? submissionId, string returnUrl)
         {
             if (!User.IsSuperSubmitter())
             {
@@ -356,14 +356,17 @@ namespace WebGallery.Controllers
                 await _appService.DeleteAsync(submissionId.Value);
             }
 
-            return RedirectToRoute(SiteRouteNames.Dashboard);
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.Dashboard);
+            else
+                return Redirect(returnUrl);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
-        public async Task<ActionResult> UpdateStatus(int? submissionId, int? statusId)
+        public async Task<ActionResult> UpdateStatus(int? submissionId, int? statusId, string returnUrl)
         {
             if (!User.IsSuperSubmitter())
             {
@@ -375,7 +378,10 @@ namespace WebGallery.Controllers
                 await _appService.UpdateStatusAsync(submissionId.Value, statusId.Value);
             }
 
-            return RedirectToRoute(SiteRouteNames.Dashboard);
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.Dashboard);
+            else
+                return Redirect(returnUrl);
         }
 
         [Authorize]
