@@ -10,25 +10,33 @@ namespace WebGallery
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // home
             var home = nameof(HomeController).Replace("Controller", string.Empty);
-            var issue = nameof(IssueController).Replace("Controller", string.Empty);
-            var app = nameof(AppController).Replace("Controller", string.Empty);
-            var invitation = nameof(InvitationController).Replace("Controller", string.Empty);
-            var ownership = nameof(OwnershipController).Replace("Controller", string.Empty);
-            var account = nameof(AccountController).Replace("Controller", string.Empty);
-            var manage = nameof(ManageController).Replace("Controller", string.Empty);
-
             routes.MapRoute(name: SiteRouteNames.Home, url: SiteRouteUrlPatterns.Home, defaults: new { controller = home, action = nameof(HomeController.Index) });
             routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = home, action = nameof(HomeController.Documents) });
-            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
             routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = home, action = nameof(HomeController.Agreement) });
-            routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = home, action = nameof(HomeController.Error) });
 
+            // issue
+            var issue = nameof(IssueController).Replace("Controller", string.Empty);
+            routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
+
+            // error
+            var error = nameof(ErrorController).Replace("Controller", string.Empty);
+            routes.MapRoute(name: SiteRouteNames.Error, url: SiteRouteUrlPatterns.Error, defaults: new { controller = error, action = nameof(ErrorController.Error) });
+            routes.MapRoute(name: SiteRouteNames.Error_404, url: SiteRouteUrlPatterns.Error_404, defaults: new { controller = error, action = nameof(ErrorController.Error404) });
+            routes.MapRoute(name: SiteRouteNames.Error_Fire, url: SiteRouteUrlPatterns.Error_Fire, defaults: new { controller = error, action = nameof(ErrorController.Fire) });
+
+            // account
+            var account = nameof(AccountController).Replace("Controller", string.Empty);
             routes.MapRoute(name: SiteRouteNames.SignIn, url: SiteRouteUrlPatterns.SignIn, defaults: new { controller = account, action = nameof(AccountController.SignIn) });
             routes.MapRoute(name: SiteRouteNames.SignOut, url: SiteRouteUrlPatterns.SignOut, defaults: new { controller = account, action = nameof(AccountController.SignOut) });
             routes.MapRoute(name: SiteRouteNames.Profile, url: SiteRouteUrlPatterns.Profile, defaults: new { controller = account, action = nameof(AccountController.Me) });
             routes.MapRoute(name: SiteRouteNames.Profile_View, url: SiteRouteUrlPatterns.Profile_View, defaults: new { controller = account, action = nameof(AccountController.View) });
 
+            // app
+            var app = nameof(AppController).Replace("Controller", string.Empty);
+            var invitation = nameof(InvitationController).Replace("Controller", string.Empty);
+            var ownership = nameof(OwnershipController).Replace("Controller", string.Empty);
             routes.MapRoute(name: SiteRouteNames.Gallery, url: SiteRouteUrlPatterns.Gallery, defaults: new { controller = app, action = nameof(AppController.Gallery) });
             routes.MapRoute(name: SiteRouteNames.Portal, url: SiteRouteUrlPatterns.Portal, defaults: new { controller = app, action = nameof(AppController.Mine) });
             routes.MapRoute(name: SiteRouteNames.App_Submit, url: SiteRouteUrlPatterns.App_Submit, defaults: new { controller = app, action = nameof(AppController.New) });
@@ -46,11 +54,14 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Issues_Report, url: SiteRouteUrlPatterns.App_Issues_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
             routes.MapRoute(name: SiteRouteNames.App_View, url: SiteRouteUrlPatterns.App_View, defaults: new { controller = app, action = nameof(AppController.ViewFromFeed) });
 
+            // invitation
             routes.MapRoute(name: SiteRouteNames.Invitation_Revoke, url: SiteRouteUrlPatterns.Invitation_Revoke, defaults: new { controller = invitation, action = nameof(InvitationController.Revoke) });
             routes.MapRoute(name: SiteRouteNames.Invitation_Accept, url: SiteRouteUrlPatterns.Invitation_Accept, defaults: new { controller = invitation, action = nameof(InvitationController.Accept) });
             routes.MapRoute(name: SiteRouteNames.Invitation_Decline, url: SiteRouteUrlPatterns.Invitation_Decline, defaults: new { controller = invitation, action = nameof(InvitationController.Decline) });
             routes.MapRoute(name: SiteRouteNames.Invitation_Detail, url: SiteRouteUrlPatterns.Invitation_Detail, defaults: new { controller = invitation, action = nameof(InvitationController.Detail) });
 
+            // admin/manage
+            var manage = nameof(ManageController).Replace("Controller", string.Empty);
             routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = manage, action = nameof(ManageController.Dashboard) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = manage, action = nameof(ManageController.SuperSubmitters) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter_Add, url: SiteRouteUrlPatterns.Supersubmitter_Add, defaults: new { controller = manage, action = nameof(ManageController.AddSuperSubmitter) });
@@ -66,18 +77,27 @@ namespace WebGallery
 
     public class SiteRouteUrlPatterns
     {
+        // home
         public const string Home = "";
-        public const string Gallery = "gallery";
         public const string Docs = "docs";
-        public const string Issue_Report = "issues/report";
         public const string Agreement = "agreement";
-        public const string Error = "error";
 
+        // issue
+        public const string Issue_Report = "issues/report";
+
+        // error
+        public const string Error = "error";
+        public const string Error_404 = "errors/404";
+        public const string Error_Fire = "errors/fire";
+
+        // account
         public const string SignIn = "signin";
         public const string SignOut = "signout";
         public const string Profile = "profile";
         public const string Profile_View = "profiles/{submitterId}";
 
+        // app
+        public const string Gallery = "gallery";
         public const string Portal = "portal";
         public const string App_Submit = "apps/submit";
         public const string App_Clone = "apps/{submissionId}/clone";
@@ -94,11 +114,13 @@ namespace WebGallery
         public const string App_Issues_Report = "apps/{appId}/issues/report";
         public const string App_View = "apps/{appId}";
 
+        // invitation
         public const string Invitation_Revoke = "ownership/invitations/{invitationGuid}/revoke";
         public const string Invitation_Accept = "ownership/invitations/{invitationGuid}/accept";
         public const string Invitation_Decline = "ownership/invitations/{invitationGuid}/decline";
         public const string Invitation_Detail = "ownership/invitations/{invitationGuid}";
 
+        // admin/manage
         public const string Dashboard = "admin/dashboard";
         public const string Supersubmitter = "admin/supersubmitters";
         public const string Supersubmitter_Add = "admin/supersubmitters/add";
@@ -113,18 +135,27 @@ namespace WebGallery
 
     public class SiteRouteNames
     {
+        // home
         public const string Home = nameof(Home);
-        public const string Gallery = nameof(Gallery);
         public const string Docs = nameof(Docs);
-        public const string Issue_Report = nameof(Issue_Report);
         public const string Agreement = nameof(Agreement);
-        public const string Error = nameof(Error);
 
+        // issue
+        public const string Issue_Report = nameof(Issue_Report);
+
+        // error
+        public const string Error = nameof(Error);
+        public const string Error_404 = nameof(Error_404);
+        public const string Error_Fire = nameof(Error_Fire);
+
+        // account
         public const string SignIn = nameof(SignIn);
         public const string SignOut = nameof(SignOut);
         public const string Profile = nameof(Profile);
         public const string Profile_View = nameof(Profile_View);
 
+        // app
+        public const string Gallery = nameof(Gallery);
         public const string Portal = nameof(Portal);
         public const string App_Submit = nameof(App_Submit);
         public const string App_Clone = nameof(App_Clone);
@@ -141,11 +172,13 @@ namespace WebGallery
         public const string App_Issues_Report = nameof(App_Issues_Report);
         public const string App_View = nameof(App_View);
 
+        // inviation
         public const string Invitation_Revoke = nameof(Invitation_Revoke);
         public const string Invitation_Accept = nameof(Invitation_Accept);
         public const string Invitation_Decline = nameof(Invitation_Decline);
         public const string Invitation_Detail = nameof(Invitation_Detail);
 
+        // admin/manage
         public const string Dashboard = nameof(Dashboard);
         public const string Supersubmitter = nameof(Supersubmitter);
         public const string Supersubmitter_Add = nameof(Supersubmitter_Add);
