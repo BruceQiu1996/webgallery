@@ -490,7 +490,6 @@
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
     <Compile Include="ViewModels\AppVerifyViewModel.cs" />
     <Compile Include="ViewModels\AppSubmitViewModel.cs" />
-    <Compile Include="ViewModels\HomeAgreementViewModel.cs" />
     <Compile Include="ViewModels\AppInstallViewModel.cs" />
     <Compile Include="ViewModels\InvitationDetailViewModel.cs" />
     <Compile Include="ViewModels\IssueReportViewModel.cs" />
@@ -753,9 +752,7 @@
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Error\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

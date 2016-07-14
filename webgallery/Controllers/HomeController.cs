@@ -17,9 +17,7 @@ namespace WebGallery.Controllers
 
         public ActionResult Agreement()
         {
-            var model = new HomeAgreementViewModel();
-
-            return View(model);
+            return View();
         }
     }
 }
