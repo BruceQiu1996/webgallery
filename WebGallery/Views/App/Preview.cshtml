@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = Model.Metadata.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var displayInstallOrNot = Model.Submission.SubmissionID == 0 ? string.Empty : "display:none";
+    var displayOrNot = Model.IsPreview ? "display:none" : string.Empty;
 }
 <div class="content">
     <h2>@Model.Metadata.Name</h2>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="panel-app-properties pull-right">
-            <div style="@displayInstallOrNot">
+            <div style="@displayOrNot">
                 <span class="pull-left">
                     <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
                 </span>
@@ -53,16 +53,16 @@
 
     <div class="panel-screenshot-link">
         @{
-            var displayOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
+            var displayScreenshotsOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
         }
-        <a id="screenshothref" style="@displayOrNot">applicaiton screenshots</a>
+        <a id="screenshothref" style="@displayScreenshotsOrNot">applicaiton screenshots</a>
     </div>
 
     <div class="panel-description">
         <p>@Model.Description</p>
     </div>
 
-    <div class="clearfix">
+    <div class="clearfix" style="@displayOrNot">
         <div class="panel-link-go-back">
             @{
                 if (Request.UrlReferrer == null)
@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <div class="clearfix">
+    <div class="clearfix" style="@displayOrNot">
         <div class="panel-link-report-issue">
             If you meet issues on this app, please click @Html.RouteLink("here", SiteRouteNames.App_Issues_Report, new { appId = Model.Submission.Nickname }) to contact us and the owner.
         </div>

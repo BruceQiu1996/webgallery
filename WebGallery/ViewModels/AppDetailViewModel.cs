@@ -5,6 +5,7 @@ namespace WebGallery.ViewModels
 {
     public class AppDetailViewModel
     {
+        public bool IsPreview { get; set; }
         public Submission Submission { get; set; }
         public SubmissionLocalizedMetaData Metadata { get; set; }
 
