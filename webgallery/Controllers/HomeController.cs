@@ -21,11 +21,5 @@ namespace WebGallery.Controllers
 
             return View(model);
         }
-
-        public ActionResult Error(string message)
-        {
-            ViewBag.Error = message;
-            return View();
-        }
     }
 }

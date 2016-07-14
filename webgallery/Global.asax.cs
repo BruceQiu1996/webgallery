@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -7,7 +8,7 @@ using WebGallery.Services;
 
 namespace WebGallery
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -15,7 +16,7 @@ namespace WebGallery
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AntiForgeryConfig.UniqueClaimTypeIdentifier= ClaimTypes.NameIdentifier;
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 
             // if the logos-screenshots container doesn't exist, create it.
             new AppImageAzureStorageService().CreateContainerIfNotExists();
