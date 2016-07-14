@@ -14,11 +14,11 @@
         </div>
 
         <div class="panel-app-properties pull-right">
-            <div style="@displayOrNot">
+            <div>
                 <span class="pull-left">
                     <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
                 </span>
-                <span class="pull-right">
+                <span class="pull-right" style="@displayOrNot">
                     <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
                         <img src="~/content/images/install-btn.jpg" />
                     </a>
