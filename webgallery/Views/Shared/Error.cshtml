@@ -6,7 +6,7 @@
 }
 
 <div class="content">
-    <h2 class="text-danger">Error</h2>
-    <h3 class="text-danger">An error occurred while processing your request.</h3>
-    <p>@Model</p>
+    <h2 class="text-danger">Sorry, an error occurred while processing your request.</h2>
+    <h4>Error:</h4>
+    <p>@(Model == null || Model.Exception == null ? ViewBag.Error : Model.Exception.Message)</p>
 </div>
