@@ -252,6 +252,526 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Agreement.es-es.designer.cs">
+      <DependentUpon>Agreement.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.ja-jp.designer.cs">
+      <DependentUpon>Agreement.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.ko-kr.designer.cs">
+      <DependentUpon>Agreement.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.ru-ru.designer.cs">
+      <DependentUpon>Agreement.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.tr-TR.designer.cs">
+      <DependentUpon>Agreement.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.zh-chs.designer.cs">
+      <DependentUpon>Agreement.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.zh-cht.designer.cs">
+      <DependentUpon>Agreement.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Agreement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Agreement.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.es-es.designer.cs">
+      <DependentUpon>Portal.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.ja-jp.designer.cs">
+      <DependentUpon>Portal.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.ko-kr.designer.cs">
+      <DependentUpon>Portal.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.ru-ru.designer.cs">
+      <DependentUpon>Portal.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.tr-TR.designer.cs">
+      <DependentUpon>Portal.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.zh-chs.designer.cs">
+      <DependentUpon>Portal.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.zh-cht.designer.cs">
+      <DependentUpon>Portal.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portal.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.es-es.designer.cs">
+      <DependentUpon>Owners.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.ja-jp.designer.cs">
+      <DependentUpon>Owners.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.ko-kr.designer.cs">
+      <DependentUpon>Owners.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.ru-ru.designer.cs">
+      <DependentUpon>Owners.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.tr-TR.designer.cs">
+      <DependentUpon>Owners.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.zh-chs.designer.cs">
+      <DependentUpon>Owners.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.zh-cht.designer.cs">
+      <DependentUpon>Owners.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Owners.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Owners.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.es-es.designer.cs">
+      <DependentUpon>Preview.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.ja-jp.designer.cs">
+      <DependentUpon>Preview.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.ko-kr.designer.cs">
+      <DependentUpon>Preview.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.ru-ru.designer.cs">
+      <DependentUpon>Preview.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.tr-TR.designer.cs">
+      <DependentUpon>Preview.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.zh-chs.designer.cs">
+      <DependentUpon>Preview.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.zh-cht.designer.cs">
+      <DependentUpon>Preview.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Preview.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Preview.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.es-es.designer.cs">
+      <DependentUpon>Categorize.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.ja-jp.designer.cs">
+      <DependentUpon>Categorize.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.ko-kr.designer.cs">
+      <DependentUpon>Categorize.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.ru-ru.designer.cs">
+      <DependentUpon>Categorize.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.tr-TR.designer.cs">
+      <DependentUpon>Categorize.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.zh-chs.designer.cs">
+      <DependentUpon>Categorize.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.zh-cht.designer.cs">
+      <DependentUpon>Categorize.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Categorize.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Categorize.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.es-es.designer.cs">
+      <DependentUpon>Common.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.ja-jp.designer.cs">
+      <DependentUpon>Common.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.ko-kr.designer.cs">
+      <DependentUpon>Common.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.ru-ru.designer.cs">
+      <DependentUpon>Common.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.tr-TR.designer.cs">
+      <DependentUpon>Common.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.zh-chs.designer.cs">
+      <DependentUpon>Common.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.zh-cht.designer.cs">
+      <DependentUpon>Common.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Common.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.es-es.designer.cs">
+      <DependentUpon>Documents.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.ja-jp.designer.cs">
+      <DependentUpon>Documents.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.ko-kr.designer.cs">
+      <DependentUpon>Documents.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.ru-ru.designer.cs">
+      <DependentUpon>Documents.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.tr-TR.designer.cs">
+      <DependentUpon>Documents.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.zh-chs.designer.cs">
+      <DependentUpon>Documents.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.zh-cht.designer.cs">
+      <DependentUpon>Documents.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Documents.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Documents.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.es-es.designer.cs">
+      <DependentUpon>Gallery.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.ja-jp.designer.cs">
+      <DependentUpon>Gallery.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.ko-kr.designer.cs">
+      <DependentUpon>Gallery.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.ru-ru.designer.cs">
+      <DependentUpon>Gallery.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.tr-TR.designer.cs">
+      <DependentUpon>Gallery.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.zh-chs.designer.cs">
+      <DependentUpon>Gallery.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.zh-cht.designer.cs">
+      <DependentUpon>Gallery.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Gallery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gallery.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.es-es.designer.cs">
+      <DependentUpon>Index.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.ja-jp.designer.cs">
+      <DependentUpon>Index.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.ko-kr.designer.cs">
+      <DependentUpon>Index.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.ru-ru.designer.cs">
+      <DependentUpon>Index.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.tr-TR.designer.cs">
+      <DependentUpon>Index.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.zh-chs.designer.cs">
+      <DependentUpon>Index.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.zh-cht.designer.cs">
+      <DependentUpon>Index.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.es-es.designer.cs">
+      <DependentUpon>Install.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.ja-jp.designer.cs">
+      <DependentUpon>Install.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.ko-kr.designer.cs">
+      <DependentUpon>Install.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.ru-ru.designer.cs">
+      <DependentUpon>Install.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.tr-TR.designer.cs">
+      <DependentUpon>Install.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.zh-chs.designer.cs">
+      <DependentUpon>Install.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.zh-cht.designer.cs">
+      <DependentUpon>Install.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Install.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Install.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.es-es.designer.cs">
+      <DependentUpon>Invitation.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.ja-jp.designer.cs">
+      <DependentUpon>Invitation.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.ko-kr.designer.cs">
+      <DependentUpon>Invitation.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.ru-ru.designer.cs">
+      <DependentUpon>Invitation.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.tr-TR.designer.cs">
+      <DependentUpon>Invitation.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.zh-chs.designer.cs">
+      <DependentUpon>Invitation.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.zh-cht.designer.cs">
+      <DependentUpon>Invitation.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.es-es.designer.cs">
+      <DependentUpon>IssueReport.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.ja-jp.designer.cs">
+      <DependentUpon>IssueReport.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.ko-kr.designer.cs">
+      <DependentUpon>IssueReport.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.ru-ru.designer.cs">
+      <DependentUpon>IssueReport.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.tr-TR.designer.cs">
+      <DependentUpon>IssueReport.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.zh-chs.designer.cs">
+      <DependentUpon>IssueReport.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.zh-cht.designer.cs">
+      <DependentUpon>IssueReport.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\IssueReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IssueReport.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.es-es.designer.cs">
+      <DependentUpon>Profile.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.ja-jp.designer.cs">
+      <DependentUpon>Profile.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.ko-kr.designer.cs">
+      <DependentUpon>Profile.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.ru-ru.designer.cs">
+      <DependentUpon>Profile.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.tr-TR.designer.cs">
+      <DependentUpon>Profile.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.zh-chs.designer.cs">
+      <DependentUpon>Profile.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.zh-cht.designer.cs">
+      <DependentUpon>Profile.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Profile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Submit.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -291,6 +811,46 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Submit.zh-cht.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.es-es.designer.cs">
+      <DependentUpon>Verify.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.ru-ru.designer.cs">
+      <DependentUpon>Verify.ru-ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.tr-TR.designer.cs">
+      <DependentUpon>Verify.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.ja-jp.designer.cs">
+      <DependentUpon>Verify.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.ko-kr.designer.cs">
+      <DependentUpon>Verify.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.zh-chs.designer.cs">
+      <DependentUpon>Verify.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.zh-cht.designer.cs">
+      <DependentUpon>Verify.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Verify.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Verify.resx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -752,7 +1312,6 @@
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -798,6 +1357,678 @@
     <Content Include="App_GlobalResources\Submit.zh-cht.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Submit.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Common.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Common.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Categorize.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Categorize.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Gallery.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Gallery.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Install.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Install.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Owners.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Owners.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Preview.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Preview.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Verify.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Verify.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Index.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Index.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Documents.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Documents.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Agreement.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Agreement.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Invitation.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Invitation.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\IssueReport.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>IssueReport.zh-chs.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.es-es.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.ru-ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.ru-ru.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Profile.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Profile.zh-chs.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
