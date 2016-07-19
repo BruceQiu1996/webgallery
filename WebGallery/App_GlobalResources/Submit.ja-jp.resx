@@ -112,13 +112,13 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
+    <value>Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>App ID</value>
@@ -247,7 +247,7 @@
     <value>Web サイト URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; (残り入力可能文字数)&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; (残り入力可能文字数)</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>説明文</value>
@@ -313,7 +313,7 @@
     <value>Webサーバー拡張機能</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; (残り入力可能文字数)&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; (残り入力可能文字数)</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>説明文</value>
@@ -760,7 +760,7 @@
     <value>http://www.SubmittingEntity.org/support</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>私は、Web アプリケーション &lt;a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;使用条件に同意します。</value>
+    <value>私は、Web アプリケーション &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;使用条件に同意します。</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>この使用条件に同意しますか？</value>
@@ -775,7 +775,7 @@
     <value>URL</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;このアプリケーションを登録する前に、以下の情報が必要です：&lt;/p&gt;</value>
+    <value>このアプリケーションを登録する前に、以下の情報が必要です：</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>最後の登録をみる</value>

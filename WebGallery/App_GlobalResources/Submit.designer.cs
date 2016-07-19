@@ -169,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href=&quot;../gallery/default.aspx&quot; title=&quot;Windows Web App Gallery&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web App Gallery&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;You will not be able to change this ID with future edits of your application such as for version updates..
+        ///   Looks up a localized string similar to Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href=&quot;/gallery&quot; title=&quot;Windows Web App Gallery&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web App Gallery&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;You will not be able to change this ID with future edits of your application such as for version updates..
         /// </summary>
         internal static string AppIDExplanation {
             get {
@@ -403,7 +403,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;span id=&quot;brief-description-countdown&quot; class=&quot;low-count&quot;&gt;400&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;.
+        ///   Looks up a localized string similar to &lt;span id=&quot;brief-description-countdown&quot; class=&quot;low-count&quot;&gt;400&lt;/span&gt; characters remaining.
         /// </summary>
         internal static string BriefDescriptionExplanation {
             get {
@@ -466,7 +466,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to change&amp;nbsp;status.
+        ///   Looks up a localized string similar to change status.
         /// </summary>
         internal static string ChangeStatusBtnText {
             get {
@@ -601,7 +601,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We&apos;re sorry but your data could not be saved. An internal error occurred. Please either try again or contact &lt;a href=&quot;mailto:appgal@microsoft.com&quot; title=&quot;The App Gallery Team&quot;&gt;Microsoft&apos;s App Gallery Team&lt;/a&gt; so we may assist you..
+        ///   Looks up a localized string similar to We&apos;re sorry but your data could not be saved. An internal error occurred. Please either try again or contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;App Gallery Team&apos;&gt;App Gallery Team&lt;/a&gt; so we may assist you..
         /// </summary>
         internal static string ContactInfoSaveErrorMsg {
             get {
@@ -961,7 +961,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Frameworks&lt;br /&gt;and Runtimes.
+        ///   Looks up a localized string similar to Frameworks and Runtimes.
         /// </summary>
         internal static string Dependencies_FrameworksAndRuntimesHeader {
             get {
@@ -979,7 +979,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Web Server&lt;br /&gt;Extensions.
+        ///   Looks up a localized string similar to Web Server Extensions.
         /// </summary>
         internal static string Dependencies_WebServerExtensionsHeader {
             get {
@@ -1015,7 +1015,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;span id=&quot;description-countdown&quot; class=&quot;low-count&quot;&gt;1500&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;.
+        ///   Looks up a localized string similar to &lt;span id=&quot;description-countdown&quot; class=&quot;low-count&quot;&gt;1500&lt;/span&gt; characters remaining.
         /// </summary>
         internal static string DescriptionExplanation {
             get {
@@ -1483,7 +1483,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select one&lt;br /&gt;only.
+        ///   Looks up a localized string similar to Select one only.
         /// </summary>
         internal static string ListBox_Instruction_Select1 {
             get {
@@ -1492,7 +1492,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Ctrl/Cmd key&lt;br /&gt;to select more than one.
+        ///   Looks up a localized string similar to Use Ctrl/Cmd key to select more than one.
         /// </summary>
         internal static string ListBox_Instruction_SelectMultiple {
             get {
@@ -1726,7 +1726,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome! From this page you can:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;appsubmit.aspx&quot; title=&quot;submit a new application&quot;&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href=&quot;aboutme.aspx&quot; title=&quot;edit your contact information&quot;&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;.
+        ///   Looks up a localized string similar to Welcome! From this page you can:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;/apps/submit&quot; title=&quot;submit a new application&quot;&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href=&quot;/profile&quot; title=&quot;edit your contact information&quot;&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;.
         /// </summary>
         internal static string MyAppsIntroMsg {
             get {
@@ -1780,7 +1780,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You haven&apos;t submitted any applications yet. Click &lt;a href=&quot;appsubmit.aspx&quot; title=&quot;submit an application&quot;&gt;here&lt;/a&gt; to get started..
+        ///   Looks up a localized string similar to You haven&apos;t submitted any applications yet. Click &lt;a href=&quot;/apps/submit&quot; title=&quot;submit an application&quot;&gt;here&lt;/a&gt; to get started..
         /// </summary>
         internal static string NoSubmissionsMsg {
             get {
@@ -1951,7 +1951,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An internal error occurred. Please either try again or contact &lt;a href=&quot;mailto:appgal@microsoft.com&quot; title=&quot;The App Gallery Team&quot;&gt;Microsoft&apos;s App Gallery Team&lt;/a&gt; so we may assist you..
+        ///   Looks up a localized string similar to An internal error occurred. Please either try again or contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;App Gallery Team&apos;&gt;App Gallery Team&lt;/a&gt; so we may assist you..
         /// </summary>
         internal static string OwnerAddRemoveErrorMsg {
             get {
@@ -2014,7 +2014,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is a problem accepting or declining this invitation. Please contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;The Web App Gallery Team&apos;&gt;AppGal&lt;/a&gt; team for help resolving the issue..
+        ///   Looks up a localized string similar to There is a problem accepting or declining this invitation. Please contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;App Gallery Team&apos;&gt;App Gallery Team&lt;/a&gt; for help resolving the issue..
         /// </summary>
         internal static string OwnershipRequestErrorExplanation {
             get {
@@ -2923,25 +2923,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string String2 {
-            get {
-                return ResourceManager.GetString("String2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;br /&gt;&lt;br /&gt;This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time..
+        ///   Looks up a localized string similar to This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time..
         /// </summary>
         internal static string SubmissionCannotBeModified {
             get {
@@ -3121,7 +3103,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An internal error occurred. Please either try again or contact &lt;a href=&quot;mailto:appgal@microsoft.com&quot; title=&quot;The App Gallery Team&quot;&gt;Microsoft&apos;s App Gallery Team&lt;/a&gt; so we may assist you..
+        ///   Looks up a localized string similar to An internal error occurred. Please either try again or contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;App Gallery Team&apos;&gt;App Gallery Team&lt;/a&gt; so we may assist you..
         /// </summary>
         internal static string SuperSubmitterAddRemoveErrorMsg {
             get {
@@ -3184,7 +3166,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is a problem accepting or declining this invitation. Please contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;The Web App Gallery Team&apos;&gt;AppGal&lt;/a&gt; team for help resolving the issue..
+        ///   Looks up a localized string similar to There is a problem accepting or declining this invitation. Please contact Microsoft&apos;s &lt;a href=&apos;appgal@microsoft.com&apos; title=&apos;App Gallery Team&apos;&gt;App Gallery Team&lt;/a&gt; for help resolving the issue..
         /// </summary>
         internal static string SuperSubmitterRequestErrorExplanation {
             get {
@@ -3346,7 +3328,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I accept the Terms and Conditions of the Web Application &lt;a href=&quot;SubmissionAgreement.aspx&quot; title=&quot;Submission Agreement&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Submission Agreement&lt;/a&gt;..
+        ///   Looks up a localized string similar to I accept the Terms and Conditions of the Web Application &lt;a href=&quot;/agreement&quot; title=&quot;Submission Agreement&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Submission Agreement&lt;/a&gt;..
         /// </summary>
         internal static string TermsAndConditionsLabel {
             get {
@@ -3544,7 +3526,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;The following information is required before you can submit this application:&lt;/p&gt;.
+        ///   Looks up a localized string similar to The following information is required before you can submit this application:.
         /// </summary>
         internal static string ValidationSummaryHeader {
             get {

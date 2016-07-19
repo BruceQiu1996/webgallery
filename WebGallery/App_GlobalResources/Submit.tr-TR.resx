@@ -154,7 +154,7 @@
     <value>Belirtilen kişi zaten bir süper gönderici (veya onaylanmamış süper gönderici).</value>
   </data>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
+    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>Uygulama Kimliği</value>
@@ -232,7 +232,7 @@
     <value>http://www.SubmittingEntity.org/app</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; karakter kaldı&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; karakter kaldı</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>Kısa Açıklama</value>
@@ -298,7 +298,7 @@
     <value>İlgili Kişi</value>
   </data>
   <data name="ContactInfoSaveErrorMsg" xml:space="preserve">
-    <value>Verileriniz kaydedilemedi. Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
+    <value>Verileriniz kaydedilemedi. Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
   </data>
   <data name="ContactStatus" xml:space="preserve">
     <value>İlgili Kişi</value>
@@ -412,13 +412,13 @@
     <value>Veritabanı</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>Çerçeveler&lt;br /&gt;ve Çalışma Zamanları</value>
+    <value>Çerçeveler ve Çalışma Zamanları</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>Çerçeveler ve Çalışma Zamanları</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>Web Sunucusu &lt;br /&gt;Uzantıları</value>
+    <value>Web Sunucusu Uzantıları</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>Web Sunucusu Uzantıları</value>
@@ -430,7 +430,7 @@
     <value>En az bir dil gerekmektedir.</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; karakter kaldı&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; karakter kaldı</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>Açıklama</value>
@@ -586,10 +586,10 @@
     <value>Koşulları Okuyun ve Gönderin:</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>Sadece birini&lt;br /&gt;seçin</value>
+    <value>Sadece birini seçin</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu &lt;br /&gt;kullanın</value>
+    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu kullanın</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>Logo görüntüsü boyutları</value>
@@ -637,7 +637,7 @@
     <value>MD5 Karması (x86)</value>
   </data>
   <data name="MD5HashWatermark" xml:space="preserve">
-    <value />
+    <value>00000000000000000000000000000000</value>
   </data>
   <data name="MetaDataCaption" xml:space="preserve">
     <value>Aşağıdakileri konuşan ziyaretçileriniz için uygulamanızı açıklayın: </value>
@@ -667,7 +667,7 @@
     <value>Belirtilen URL adresi, bir ZIP uzantısıyla sonlanmalıdır</value>
   </data>
   <data name="MyAppsIntroMsg" xml:space="preserve">
-    <value>Hoş Geldiniz! Bu sayfadan aşağıdakileri yapabilirsiniz:&lt;ul&gt;&lt;li&gt;&lt;a href="appsubmit.aspx" title="submit a new application"&gt;Yeni bir uygulama gönderme.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Önceki gönderilerinizi düzenleme.&lt;/li&gt;&lt;li&gt;Uygulama verilerinizin geçerliliğini test etme.&lt;/li&gt;&lt;li&gt;Gönderileriniz için diğer ortakları belirtme.&lt;/li&gt;&lt;li&gt;&lt;a href="aboutme.aspx" title="edit your contact information"&gt;İletişim bilgilerinizi&lt;/a&gt; düzenleme.&lt;/li&gt;&lt;/ul&gt;</value>
+    <value>Hoş Geldiniz! Bu sayfadan aşağıdakileri yapabilirsiniz:&lt;ul&gt;&lt;li&gt;&lt;a href="/apps/submit" title="submit a new application"&gt;Yeni bir uygulama gönderme.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Önceki gönderilerinizi düzenleme.&lt;/li&gt;&lt;li&gt;Uygulama verilerinizin geçerliliğini test etme.&lt;/li&gt;&lt;li&gt;Gönderileriniz için diğer ortakları belirtme.&lt;/li&gt;&lt;li&gt;&lt;a href="/profile" title="edit your contact information"&gt;İletişim bilgilerinizi&lt;/a&gt; düzenleme.&lt;/li&gt;&lt;/ul&gt;</value>
   </data>
   <data name="MyAppsTitle" xml:space="preserve">
     <value>Web Uygulama Galerisi Gönderi Portalı</value>
@@ -685,7 +685,7 @@
     <value>Gönderiler, beslemeyle uyumlu.</value>
   </data>
   <data name="NoSubmissionsMsg" xml:space="preserve">
-    <value>Henüz herhangi bir uygulama göndermediniz. Başlamak için &lt;a href="appsubmit.aspx" title="submit an application"&gt;burayı&lt;/a&gt; tıklatın.</value>
+    <value>Henüz herhangi bir uygulama göndermediniz. Başlamak için &lt;a href="/apps/submit" title="submit an application"&gt;burayı&lt;/a&gt; tıklatın.</value>
   </data>
   <data name="NotSetLabel" xml:space="preserve">
     <value>---</value>
@@ -742,7 +742,7 @@
     <value>Sahip Ekle</value>
   </data>
   <data name="OwnerAddRemoveErrorMsg" xml:space="preserve">
-    <value>Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
+    <value>Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
   </data>
   <data name="OwnerConfirmEmailWatermark" xml:space="preserve">
     <value>E-posta Adresini Onayla</value>
@@ -763,7 +763,7 @@
     <value>Kaldır</value>
   </data>
   <data name="OwnershipRequestErrorExplanation" xml:space="preserve">
-    <value>Bu daveti kabul etme veya reddetmede bir sorun oluştur. Sorunu çözmede yardım için Microsoft'un &lt;a href='appgal@microsoft.com' title='The Web App Gallery Team'&gt;AppGal&lt;/a&gt; ekibiyle iletişim kurun.</value>
+    <value>Bu daveti kabul etme veya reddetmede bir sorun oluştur. Sorunu çözmede yardım için &lt;a href="mailto:appgal@microsoft.com" title="App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
   </data>
   <data name="OwnershipRequestExpiredExplanation" xml:space="preserve">
     <value>Bu davetiyenin süresi dolmuş. Bir haftadan daha uzun bir süre önce verilmiş. Davetiyeyi gönderen yenisini göndermeli. Tamam'ı tıklatarak bu mesajı onaylayın.</value>
@@ -1065,14 +1065,8 @@
   <data name="StatusNotAuthorizedIntro" xml:space="preserve">
     <value>Talep edilen Uygulama veya Ürün Verilerini düzenleme yetkiniz yok.</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="String2" xml:space="preserve">
-    <value />
-  </data>
   <data name="SubmissionCannotBeModified" xml:space="preserve">
-    <value>&lt;br /&gt;&lt;br /&gt;Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
+    <value>Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
   </data>
   <data name="SubmissionFormSpecialNote" xml:space="preserve">
     <value>Uygulama gönderim sistemi, bakım işlemleri sırasında çevrimdışıdır. Bir gün içinde tekrar kullanıma açılacaktır. Bu tarihte tekrar kontrol edin. Bu durum için özür dileriz.</value>
@@ -1132,7 +1126,7 @@
     <value>Süper Gönderen Ekle</value>
   </data>
   <data name="SuperSubmitterAddRemoveErrorMsg" xml:space="preserve">
-    <value>Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
+    <value>Bir dahili hata oluştu. Tekrar deneyin ya da size yardımcı olabilmemiz için &lt;a href="mailto:appgal@microsoft.com" title="App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
   </data>
   <data name="SuperSubmitterConfirmEmailWatermark" xml:space="preserve">
     <value>E-posta Adresini Onayla</value>
@@ -1153,7 +1147,7 @@
     <value>Kaldır</value>
   </data>
   <data name="SuperSubmitterRequestErrorExplanation" xml:space="preserve">
-    <value>Bu daveti kabul etme veya reddetmede bir sorun oluştur. Sorunu çözmede yardım için Microsoft'un &lt;a href='appgal@microsoft.com' title='The Web App Gallery Team'&gt;AppGal&lt;/a&gt; ekibiyle iletişim kurun.</value>
+    <value>Bu daveti kabul etme veya reddetmede bir sorun oluştur. Sorunu çözmede yardım için &lt;a href="mailto:appgal@microsoft.com" title="App Gallery Team"&gt;Microsoft'un Uygulama Galerisi Ekibi&lt;/a&gt; ile iletişim kurun.</value>
   </data>
   <data name="SuperSubmitterRequestExpiredExplanation" xml:space="preserve">
     <value>Bu davetiyenin süresi dolmuş. Bir haftadan daha uzun bir süre önce verilmiş. Davetiyeyi gönderen yenisini göndermeli. Tamam'ı tıklatarak bu mesajı onaylayın.</value>
@@ -1207,7 +1201,7 @@
     <value>Yükleniyor...</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>Web Uygulaması &lt;a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
+    <value>Web Uygulaması &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>Koşulları onaylıyor musunuz?</value>
@@ -1273,7 +1267,7 @@
     <value>Girişleri Onayla:</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:&lt;/p&gt;</value>
+    <value>Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:</value>
   </data>
   <data name="VersionLabel" xml:space="preserve">
     <value>Sürüm</value>
