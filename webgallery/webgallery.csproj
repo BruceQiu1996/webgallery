@@ -267,11 +267,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\Agreement.ru-ru.designer.cs">
-      <DependentUpon>Agreement.ru-ru.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\Agreement.tr-TR.designer.cs">
       <DependentUpon>Agreement.tr-TR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -309,11 +304,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AppSubmit.ko-kr.designer.cs">
       <DependentUpon>AppSubmit.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppSubmit.ru-ru.designer.cs">
-      <DependentUpon>AppSubmit.ru-ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -622,11 +612,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\Portal.ru-ru.designer.cs">
-      <DependentUpon>Portal.ru-ru.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\Portal.tr-TR.designer.cs">
       <DependentUpon>Portal.tr-TR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -659,11 +644,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AppOwners.ko-kr.designer.cs">
       <DependentUpon>AppOwners.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.ru-ru.designer.cs">
-      <DependentUpon>AppOwners.ru-ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1027,11 +1007,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.ru-ru.designer.cs">
-      <DependentUpon>Invitation.ru-ru.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\Invitation.tr-TR.designer.cs">
       <DependentUpon>Invitation.tr-TR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1067,11 +1042,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\IssueReport.ru-ru.designer.cs">
-      <DependentUpon>IssueReport.ru-ru.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\IssueReport.tr-TR.designer.cs">
       <DependentUpon>IssueReport.tr-TR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1104,11 +1074,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AccountMe.ko-kr.designer.cs">
       <DependentUpon>AccountMe.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AccountMe.ru-ru.designer.cs">
-      <DependentUpon>AccountMe.ru-ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1152,11 +1117,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Submit.ko-kr.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Submit.ru-ru.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.ru-ru.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_GlobalResources\Submit.tr-TR.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1174,11 +1134,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AppVerify.es-es.designer.cs">
       <DependentUpon>AppVerify.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppVerify.ru-ru.designer.cs">
-      <DependentUpon>AppVerify.ru-ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1702,10 +1657,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Submit.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\Submit.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.ru-ru.designer.cs</LastGenOutput>
-    </Content>
     <Content Include="App_GlobalResources\Submit.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Submit.tr-TR.designer.cs</LastGenOutput>
@@ -1942,12 +1893,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.ru-ru.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\Portal.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Portal.tr-TR.designer.cs</LastGenOutput>
@@ -1987,12 +1932,6 @@
     <Content Include="App_GlobalResources\AppOwners.ko-kr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AppOwners.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.ru-ru.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2071,12 +2010,6 @@
     <Content Include="App_GlobalResources\AppVerify.es-es.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AppVerify.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppVerify.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppVerify.ru-ru.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2230,12 +2163,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.ru-ru.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\Agreement.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Agreement.tr-TR.designer.cs</LastGenOutput>
@@ -2275,12 +2202,6 @@
     <Content Include="App_GlobalResources\Invitation.ko-kr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Invitation.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.ru-ru.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2326,12 +2247,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\IssueReport.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>IssueReport.ru-ru.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\IssueReport.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>IssueReport.tr-TR.designer.cs</LastGenOutput>
@@ -2371,12 +2286,6 @@
     <Content Include="App_GlobalResources\AccountMe.ko-kr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AccountMe.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AccountMe.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AccountMe.ru-ru.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2803,12 +2712,6 @@
     <Content Include="App_GlobalResources\AppSubmit.ko-kr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AppSubmit.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppSubmit.ru-ru.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppSubmit.ru-ru.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
