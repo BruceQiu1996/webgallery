@@ -1,0 +1,1450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Entry_EmptySite_Title" xml:space="preserve">
+    <value>Prázdný web</value>
+  </data>
+  <data name="Entry_EmptySite_Summary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou</value>
+  </data>
+  <data name="Entry_EmptySite_LongSummary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou</value>
+  </data>
+  <data name="Entry_StarterSite_Title" xml:space="preserve">
+    <value>Úvodní web</value>
+  </data>
+  <data name="Entry_StarterSite_Summary" xml:space="preserve">
+    <value>Úvodní web s rozhraním karet a podporou přihlášení</value>
+  </data>
+  <data name="Entry_StarterSite_LongSummary" xml:space="preserve">
+    <value>Úvodní web s rozhraním karet a podporou přihlášení</value>
+  </data>
+  <data name="Entry_Bakery_Title" xml:space="preserve">
+    <value>Pekárna</value>
+  </data>
+  <data name="Entry_Bakery_Summary" xml:space="preserve">
+    <value>Ukázkový web zobrazující seznam produktů, které lze řadit</value>
+  </data>
+  <data name="Entry_Bakery_LongSummary" xml:space="preserve">
+    <value>Ukázkový web zobrazující seznam produktů, které lze řadit</value>
+  </data>
+  <data name="Entry_PhotoGallery_Title" xml:space="preserve">
+    <value>Fotogalerie</value>
+  </data>
+  <data name="Entry_PhotoGallery_Summary" xml:space="preserve">
+    <value>Ukázkový web fotogalerie s možností úprav</value>
+  </data>
+  <data name="Entry_PhotoGallery_LongSummary" xml:space="preserve">
+    <value>Ukázkový web fotogalerie s možností úprav</value>
+  </data>
+  <data name="Entry_Personal_Title" xml:space="preserve">
+    <value>Osobní web</value>
+  </data>
+  <data name="Entry_Personal_Summary" xml:space="preserve">
+    <value>Ukázkový web osobní domovské stránky</value>
+  </data>
+  <data name="Entry_Personal_LongSummary" xml:space="preserve">
+    <value>Ukázkový web osobní domovské stránky</value>
+  </data>
+  <data name="Entry_NodeJsSite_Title" xml:space="preserve">
+    <value>Prázdný web</value>
+  </data>
+  <data name="Entry_NodeJsSite_Summary" xml:space="preserve">
+    <value>Prázdný web vytvořený aplikací Node.js</value>
+  </data>
+  <data name="Entry_NodeJsSite_LongSummary" xml:space="preserve">
+    <value>Prázdný web vytvořený aplikací Node.js</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_Title" xml:space="preserve">
+    <value>Úvodní web</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_Summary" xml:space="preserve">
+    <value>Předem připravený web vytvořený aplikací Node.js a rozhraním Express MVC</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_LongSummary" xml:space="preserve">
+    <value>Předem připravený web vytvořený aplikací Node.js a rozhraním Express MVC</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_Title" xml:space="preserve">
+    <value>Web vytvořený rozhraním Express</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_Summary" xml:space="preserve">
+    <value>Prázdný web vytvořený aplikací Node.js a rozhraním Express MVC</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_LongSummary" xml:space="preserve">
+    <value>Prázdný web vytvořený aplikací Node.js a rozhraním Express MVC</value>
+  </data>
+  <data name="Entry_PHPEmptySite_Title" xml:space="preserve">
+    <value>Prázdný web</value>
+  </data>
+  <data name="Entry_PHPEmptySite_Summary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou PHP</value>
+  </data>
+  <data name="Entry_PHPEmptySite_LongSummary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou PHP</value>
+  </data>
+  <data name="Entry_simplecms_Title" xml:space="preserve">
+    <value>Úvodní web</value>
+  </data>
+  <data name="Entry_simplecms_Summary" xml:space="preserve">
+    <value>Předem připravený web vytvořený s využitím jazyka PHP a databáze MySQL</value>
+  </data>
+  <data name="Entry_simplecms_LongSummary" xml:space="preserve">
+    <value>Předem připravený web vytvořený s využitím jazyka PHP a databáze MySQL</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_Title" xml:space="preserve">
+    <value>Prázdný web</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_Summary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou HTML</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_LongSummary" xml:space="preserve">
+    <value>Prázdný web s výchozí stránkou HTML</value>
+  </data>
+  <data name="Entry_HTML5Site_Title" xml:space="preserve">
+    <value>Často používaný text</value>
+  </data>
+  <data name="Entry_HTML5Site_Summary" xml:space="preserve">
+    <value>Šablona HTML/CSS/JS pro rychlý a robustní web připravený na budoucnost.</value>
+  </data>
+  <data name="Entry_HTML5Site_LongSummary" xml:space="preserve">
+    <value>Šablona HTML/CSS/JS pro rychlý a robustní web připravený na budoucnost.</value>
+  </data>
+  <data name="Entry_DotNetNuke_Title" xml:space="preserve">
+    <value>DNN Platform</value>
+  </data>
+  <data name="Entry_DotNetNuke_Summary" xml:space="preserve">
+    <value>DNN patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_DotNetNuke_LongSummary" xml:space="preserve">
+    <value>DNN patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení.</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>Aplikace</value>
+  </data>
+  <data name="Entry_Umbraco_Title" xml:space="preserve">
+    <value>Umbraco CMS</value>
+  </data>
+  <data name="Entry_Umbraco_Summary" xml:space="preserve">
+    <value>Tento moderní robustní systém CMS přátelský k vývojářům i návrhářům je používán na více než 160 000 webech.  Snadno použitelný a jednoduše rozšiřitelný.</value>
+  </data>
+  <data name="Entry_Umbraco_LongSummary" xml:space="preserve">
+    <value>Umbraco CMS je architektura, kterou využívá web http://www.asp.net/, http://www.wired.co.uk/ i dalších více než 160 000 webů ke správě a poskytování obsahu a aplikací milionům uživatelů.  Umbraco, díky modernímu uživatelské rozhraní, architektuře čistého rozhraní .NET a aktivní komunitě, představuje nejlepší volbu pro webový systém CMS.  Umbraco je lehce použitelný, lehce rozšiřitelný a integruje se do existujícího systému.</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Title" xml:space="preserve">
+    <value>.DotNetNuke® Professional Edition</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Summary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_DotNetNukePro_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení.</value>
+  </data>
+  <data name="Entry_nopCommerce_Title" xml:space="preserve">
+    <value>nopCommerce</value>
+  </data>
+  <data name="Entry_nopCommerce_Summary" xml:space="preserve">
+    <value>nopCommerce je zcela přizpůsobitelný nákupní košík. Jde o řešení disponující propracovanými funkcemi, které je snadno použitelné pro online podnikání a zároveň efektivní i pro nejnáročnější odborníky na elektronické obchodování.</value>
+  </data>
+  <data name="Entry_nopCommerce_LongSummary" xml:space="preserve">
+    <value>nopCommerce je přední řešení elektronického obchodování s využitím online obchodu založené na technologii ASP.NET. Systém nopCommerce může nainstalovat a nastavit každý uživatel, který má základní znalosti tvorby webů a práce s počítačem. Systém nopCommerce je zabezpečená, škálovatelná a rozšiřitelná platforma pro elektronické obchodování. Obsahuje uživatelsky přívětivé nástroje umožňující spravovat výkladní skříň, zákazníky, seznamy přání, slevy a kupóny. Nabízí také flexibilní podporu pro práci s daněmi, vícejazyčnou podporu a stovky dalších funkcí Podpora nejoblíbenějších bran: Authorize.net, PayPal, Google Checkout a dalších. Systém nopCommerce také běží na úrovni Medium Trust.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_Title" xml:space="preserve">
+    <value>MageliaWebStore (pro službu IIS) </value>
+  </data>
+  <data name="Entry_MageliaWebStore_Summary" xml:space="preserve">
+    <value>Magelia WebStore je výkonný software pro elektronické obchodování určený pro prostředí .NET, který se dodává s kompletní sadou funkcí. 
+
+Přístup založený na službách usnadňuje tvorbu rozšiřitelných internetových obchodů pro počítače, tablety a smartphony a umožňuje snadnou integraci s jinými softwary. Bezplatná verze Magelia WebStore Community Edition má otevřený zdroj a je založena na technologiích společnosti Microsoft.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_LongSummary" xml:space="preserve">
+    <value>Magelia WebStore je výkonný software pro elektronické obchodování určený pro prostředí .NET, který se dodává s kompletní sadou funkcí. 
+
+
+Software Magelia WebStore využívá přístup založený na službách, který usnadňuje tvorbu rozšiřitelných internetových obchodů pro počítače, tablety a smartphony a umožňuje snadnou integraci s jinými softwary. Se softwarem Magelia WebStore mohou malé i velké firmy snadno vytvářet vícejazyčné internetové obchody používající více měn, přidávat rozsáhlé definice produktů, včetně katalogů, kategorií, variant produktů, balíčků a služeb, a nastavovat různé daně, slevy a možnosti dodání.
+
+Magelia WebStore Community Edition je bezplatný software s otevřeným zdrojem založený na standardních a inovativních technologiích společnosti Microsoft (.Net 4.5, SQL Server 2008, OData).
+
+
+Software Magelia nabízí bohatou a flexibilní alternativu k jiným existujícím softwarům pro elektronické obchodování, jako jsou produkty Commerce Server, nopCommerce nebo Magento. Chcete-li objevit funkce softwaru Magelia WebStore, na serveru YouTube najdete přes 30 videí (http://www.youtube.com/mageliawebstore). 
+
+Projděte si dokumentaci a stáhněte si ukázkový obchod s rozhraním ASP.NET MVC dostupný na webu www.magelia.org. Chcete-li být informováni o nejnovějších verzích, sledujte uživatele @magelia v síti Twitter. Vyzkoušejte software Magelia WebStore ještě dnes!</value>
+  </data>
+  <data name="Entry_tomeCMS_Title" xml:space="preserve">
+    <value>tomeCMS</value>
+  </data>
+  <data name="Entry_tomeCMS_Summary" xml:space="preserve">
+    <value>tomeCMS je bezplatný systém správy obsahu (CMS) s otevřeným zdrojem, speciálně určený k vytváření uživatelských příruček a technické dokumentace. Data se neukládají ve formě stránek, ale každý nadpis a obsahová sekce se ukládají jako samostatný záznam. Data jsou tak vysoce strukturovaná a jejich zobrazení lze automaticky formátovat nebo je exportovat do jiných formátů.</value>
+  </data>
+  <data name="Entry_tomeCMS_LongSummary" xml:space="preserve">
+    <value>tomeCMS je bezplatný systém správy obsahu (CMS) s otevřeným zdrojem, speciálně určený k vytváření uživatelských příruček a technické dokumentace.
+
+Datový model není založen na tvorbě a úpravách stránek, ale na nadpisech, takže poskytuje mnohem lepší kontrolu nad formátem dokumentu. Data tak lze snadno exportovat do alternativních médií, například jako nápovědu formátu XML.
+
+Rozhraní má grafickou podobu. Správci vidí rozšířené zobrazení, kde mohou přesouváním ukazatele myši a klikáním upravovat a přesouvat obsah.
+
+Správci pracují na verzi „konceptu“, přičemž upravovaný obsah je třeba rezervovat. Díky tomu lze publikovat více změn najednou.</value>
+  </data>
+  <data name="Entry_TicketSystem_Title" xml:space="preserve">
+    <value>Ticket System</value>
+  </data>
+  <data name="Entry_TicketSystem_Summary" xml:space="preserve">
+    <value>Software Ticket System .NET s otevřeným zdrojem založený na systému .NET CMS (systém sledování problémů, systém lístků při potížích, systém lístků podpory nebo incidentů).
+Software Ticket System Help Desk s otevřeným zdrojem umožňuje snadnou správu stále narůstajícího počtu lístků.</value>
+  </data>
+  <data name="Entry_TicketSystem_LongSummary" xml:space="preserve">
+    <value>Software Ticket System .NET s otevřeným zdrojem založený na systému .NET CMS (systém sledování problémů, systém lístků při potížích, systém lístků podpory nebo incidentů) je softwarová aplikace, která slouží k poskytování technických informací o produktech či službách zákazníkům a ke komunikaci zákazníků s pracovníky podpory. Cílem tohoto softwaru je zvýšit v příslušné společnosti efektivitu a produktivitu používání technologií tím, že poskytne pracovníkům a zákazníkům včasné odpovědi na jejich dotazy a důležité informace, které jim mohou pomoci vyřešit případné problémy.
+Software Ticket System Help Desk s otevřeným zdrojem umožňuje snadnou správu stále narůstajícího počtu lístků.</value>
+  </data>
+  <data name="Entry_WYSIWYG_Title" xml:space="preserve">
+    <value>WYSIWYG .NET</value>
+  </data>
+  <data name="Entry_WYSIWYG_Summary" xml:space="preserve">
+    <value>WYSIWYG .NET je editor HTML sloužící k zobrazení webové stránky v podobě, v jaké se zobrazí v prohlížeči. Jedná se o vizuální editor, ve kterém nedochází k přímé práci s kódem.</value>
+  </data>
+  <data name="Entry_WYSIWYG_LongSummary" xml:space="preserve">
+    <value>WYSIWYG .NET je editor HTML sloužící k zobrazení webové stránky v podobě, v jaké se zobrazí v prohlížeči. Jedná se o vizuální editor, ve kterém nedochází k přímé práci s kódem.
+
+PŘEDNOSTI:
+1) Minimalistické pojetí
+2) Otevřený zdroj
+2) Podporované prohlížeče: všechny
+4) snadná instalace – pouze jeden soubor (WYSIWYG.vb nebo WYSIWYG.cs)
+5) Plynulá práce a rychlé reakce
+6) Lehký kód: 5 kB
+7) Snadná implementace na web s prostředím .NET (postup: stačí přidat pouze jeden řádek kódu)</value>
+  </data>
+  <data name="Entry_CMSGallery_Title" xml:space="preserve">
+    <value>CMS Gallery</value>
+  </data>
+  <data name="Entry_CMSGallery_Summary" xml:space="preserve">
+    <value>CMS Gallery je galerie fotografií pro prostředí .NET nabízená zcela zdarma. Poskytuje výkonný stroj pro odesílání a správu galerií obrázků a nabízí funkce hromadného odeslání, přidání/odstranění/uspořádání obrázků, seskupení galerií do alb a další možnosti.
+Funkce: EXIF, stromová struktura, dynamická změna velikosti, dodatečné úpravy, geolokace, mikrodata, prostředí s více doménami, více weby, více uživateli a více jazyky, prostředí vhodné pro mobilní zařízení.</value>
+  </data>
+  <data name="Entry_CMSGallery_LongSummary" xml:space="preserve">
+    <value>CMS Gallery je galerie fotografií pro prostředí .NET nabízená zcela zdarma. Poskytuje výkonný stroj pro odesílání a správu galerií obrázků a nabízí funkce hromadného odeslání, přidání/odstranění/uspořádání obrázků, seskupení galerií do alb a další možnosti.
+Funkce: EXIF, stromová struktura, dynamická změna velikosti, dodatečné úpravy, geolokace, mikrodata, prostředí s více doménami, více weby, více uživateli a více jazyky, prostředí vhodné pro mobilní zařízení.</value>
+  </data>
+  <data name="Entry_NumediaStack_Title" xml:space="preserve">
+    <value>Numedia Stack </value>
+  </data>
+  <data name="Entry_NumediaStack_Summary" xml:space="preserve">
+    <value>Numedia Stack je webová platforma pro elektronické obchodování s digitálním obsahem a rozšiřitelný rámec
+ pro technologii Microsoft ASP.NET.  </value>
+  </data>
+  <data name="Entry_NumediaStack_LongSummary" xml:space="preserve">
+    <value>Numedia Stack je výkonná webová platforma a rozšiřitelný rámec
+ pro technologii Microsoft ASP.NET, kterou lze využít k publikaci či prodeji digitálního obsahu dodávaného různými poskytovateli obsahu a která pomocí zprostředkovatele brány pro elektronické platby uděluje přístup pro platbu po nákupu či aktivaci předplatného. 
+
+Platformu lze stáhnout v podobě šablony sady Microsoft Visual Studio
+ nebo jako webovou aplikaci služby IIS (Internetová informační služba) prostřednictvím Instalační služby webové platformy Microsoft pro Internetovou informační službu verze 7. 
+
+Platforma Numedia Stack zahrnuje podporu poskytování obsahu prostřednictvím různých dodavatelů obsahu, správu a řízení dodavatelského obsahu, řízení šifrovaného toku 
+
+webových zpráv a zabezpečení chránící proti zneužití a hackerům, vlastní ovládací prvky nabízející funkce připravené k okamžitému použití a metodologii 
+
+návrhu založenou na rozhraní. Ta umožňuje vývojářům sestavovat vlastní ovládací prvky určené k použití na této webové platformě nebo vytvářet rámcové objekty s novým kódem, které 
+
+budou intuitivně zpracovávány jako součást procesů hledání, elektronického obchodování a transakcí. Webová platforma poskytuje zabezpečenou webovou konzolu pro správu sloužící 
+
+k přidávání digitálního obsahu a souvisejících zdrojů dodavateli obsahu, bránu pro elektronické obchodování s nativní podporou služeb Barclaycard EPDQ, PayPal nebo Google Checkout 
+
+a podporou dalších zprostředkovatelů přes dobře definované rozhraní pro vývojáře a další funkce.</value>
+  </data>
+  <data name="Entry_MVCForum_Title" xml:space="preserve">
+    <value>MVCForum</value>
+  </data>
+  <data name="Entry_MVCForum_Summary" xml:space="preserve">
+    <value>MVCForum je diskusní fórum s rozhraním ASP.NET MVC a funkcemi, jako je přetečení zásobníku. Je sestaveno s použitím modelu ASP.NET MVC (Unity &amp; Entity Framework 5) a pracuje i v prostředích s průměrnou/částečnou důvěryhodností.</value>
+  </data>
+  <data name="Entry_MVCForum_LongSummary" xml:space="preserve">
+    <value>MVCForum je diskusní fórum s rozhraním ASP.NET MVC a funkcemi, jako je přetečení zásobníku. Je sestaveno s použitím modelu ASP.NET MVC (Unity &amp; Entity Framework 5) a pracuje i v prostředích s průměrnou/částečnou důvěryhodností.
+
+Bylo vytvořeno s ohledem na snadné úpravy a přizpůsobení a dodává se s řadou integrovaných funkcí, například těchto:
+
+Kompletní stroj pro tvorbu motivů
+Odznaky s oceněním
+Připojitelná architektura
+Systém odznaků komunity
+Vícejazyčné prostředí
+Řídicí panel správy
+Rozhraní API
+Atd.
+
+Náš web a ukázku naleznete na adrese http://www.mvcforum.com</value>
+  </data>
+  <data name="Entry_MediaWiki_Title" xml:space="preserve">
+    <value>MediaWiki</value>
+  </data>
+  <data name="Entry_MediaWiki_Summary" xml:space="preserve">
+    <value>MediaWiki je bezplatný balíček pro tvorbu wikiwebů s otevřeným zdrojem napsaný v jazyce PHP, původně určený k použití na webu Wikipedia. Nyní jej používají různé další projekty neziskové organizace Wikimedia Foundation a různé další wikiweby.</value>
+  </data>
+  <data name="Entry_MediaWiki_LongSummary" xml:space="preserve">
+    <value>MediaWiki je bezplatná webová softwarová aplikace pro wikiweby. Vyvinula ji organizace Wikimedia Foundation, která ji používá ve všech svých projektech, včetně webů Wikipedia, Wiktionary a Wikinews. Uplatňuje se také na mnoha dalších wikiwebech na celém světě. Je napsána v programovacím jazyce PHP a používá databázi typu back-end.
+
+Software je optimalizován pro správné a efektivní zpracování projektů všech velikostí, včetně největších wikiwebů, které mohou zahrnovat mnoho terabajtů obsahu a přijímat stovky tisíc přístupů za sekundu. Jelikož web Wikipedia patří mezi největší na světě, vývojáři rovněž usilovali o škálovatelnost, kterou zajišťuje několik vrstev ukládání do mezipaměti a replikace databáze. Velkou část požadavků na software MediaWiki i nadále určuje web Wikipedia a další projekty Wikimedia.
+
+Software nabízí široké možnosti přizpůsobení. Obsahuje více než 700 konfiguračních nastavení a přes 1800 rozšíření, která umožňují přidání či změnu různých funkcí. K podpoře úprav webů v softwaru MediaWiki bylo vyvinuto více než 600 automatických a poloautomatických robotů a dalších nástrojů.
+
+MediaWiki je bezplatný software s otevřeným zdrojem, který je distribuován podle podmínek licence GNU General Public License verze 2 nebo novější verze, a jeho dokumentace je zveřejněna podle podmínek licence Creative Commons BY-SA 3.0 a částečně jako volné dílo. Software MediaWiki obecně podporuje použití formátů médií s otevřeným zdrojem.</value>
+  </data>
+  <data name="Entry_RESXManager_Title" xml:space="preserve">
+    <value>RESX Manager</value>
+  </data>
+  <data name="Entry_RESXManager_Summary" xml:space="preserve">
+    <value>Nástroj založený na prohlížeči a určený k online úpravě všech textů v aplikacích .NET. Umožňuje automatickou kontrolu všech jazykových souborů RESX.</value>
+  </data>
+  <data name="Entry_RESXManager_LongSummary" xml:space="preserve">
+    <value>Nástroj RESX Manager umožňuje úpravy všech popisků v jednoduchém webovém rozhraní. Úkol zpracování textu přesouvá z programátorů na správce webů, kteří tak získávají naprostou kontrolu nad soubory prostředků.
+
+Nástroj RESX Manager je konkrétně zaměřen na vývojáře a správce webů, kteří chtějí zvýšit produktivitu při úpravách, aktualizacích, překladu či údržbě textu ve formulářích nebo nadpisech a dalšího statického obsahu v řešení založených na prostředí .NET. Pomocí speciálně navrženého rozhraní lze rychle vyhledávat a měnit popisky. Pracujete-li s více jazyky, tento nástroj využijete při vytváření stránek a překladu do nových jazyků.
+
+
+Klíčové funkce a výhody:
+
+
+- Jednoduché rozhraní pro hledání a úpravy popisků
+
+- Automatický překlad
+
+- Kontrola pravopisu
+
+- Podpora více jazyků
+
+- Rychlé hledání konkrétních popisků
+
+- Zálohování a možnost vrácení zpět, pokud dojde k potížím
+
+
+
+Další informace najdete na webu http://www.resxmanager.com (k dispozici je i živá ukázka).</value>
+  </data>
+  <data name="Entry_dashCommerce_Title" xml:space="preserve">
+    <value>dashCommerce</value>
+  </data>
+  <data name="Entry_dashCommerce_Summary" xml:space="preserve">
+    <value>dashCommerce je aplikace s otevřeným zdrojem určená pro elektronické obchodování a založená na technologii ASP.NET.</value>
+  </data>
+  <data name="Entry_dashCommerce_LongSummary" xml:space="preserve">
+    <value>dashCommerce je flexibilní a odolná aplikace s otevřeným zdrojem určená pro elektronické obchodování a založená na technologii ASP.NET, která umožňuje vytvořit si vlastní internetový obchod. Je k dispozici již od začátku roku 2008, používá se v obrovském množství internetových obchodů a setkává se s velkým úspěchem. Možná máte chuť se zeptat: „S jak velkým?“ Posuďte sami! Aplikace dashCommerce má na kontě tyto úspěchy: 
+
+- Server PayPal ji do 1,5 roku po uvedení na trh zařadil mezi 25 nejlépe integrovaných aplikací.
+
+- Vláda USA jí udělila licenci pro použití při tvorbě internetových obchodů pro ozbrojené síly.
+
+- V celém světě se používá ke generování zisku v objemu mnoha milionů dolarů.
+</value>
+  </data>
+  <data name="Entry_pbdig_Title" xml:space="preserve">
+    <value>pbdigg</value>
+  </data>
+  <data name="Entry_pbdig_Summary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。
+</value>
+  </data>
+  <data name="Entry_pbdig_LongSummary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。程序运行需客户端支持flash。
+</value>
+  </data>
+  <data name="Entry_SageFrame_Title" xml:space="preserve">
+    <value>SageFrame</value>
+  </data>
+  <data name="Entry_SageFrame_Summary" xml:space="preserve">
+    <value>SageFrame je výkonný systém správy obsahu (CMS) sestavený na základě technologie ASP.NET.</value>
+  </data>
+  <data name="Entry_SageFrame_LongSummary" xml:space="preserve">
+    <value>SageFrame je výkonný systém správy obsahu (CMS) sestavený na základě technologie ASP.NET. Vývoji systému SageFrame předcházel důkladný výzkum a analýza. Hlavním cílem při jeho vývoji bylo vytvoření vysoce komplexního systému správy obsahu, který by vývojářům webů a návrhářům přinesl snadnou a efektivní práci na projektech. Systém SageFrame je určen pro vývojáře na všech úrovních, od nováčků až po ostřílené profesionály, a umožňuje jim snadno a efektivně vytvářet různé weby a aplikace. Vedle jednoduchého uživatelského rozhraní, funkcí optimalizace webů a systému pro správu stránek obsahuje systém SageFrame i všechny ostatní přísady nezbytné k tomu, aby váš web získal náskok před konkurencí.</value>
+  </data>
+  <data name="Entry_SugarCRM_Title" xml:space="preserve">
+    <value>SugarCRM</value>
+  </data>
+  <data name="Entry_SugarCRM_Summary" xml:space="preserve">
+    <value>SugarCRM je oceňovaná a velmi dobře rozšiřitelná aplikace založená na platformě Sugar, která poskytuje jeden vhodný systém pro správu interakcí v rámci různých odvětví podnikání.</value>
+  </data>
+  <data name="Entry_SugarCRM_LongSummary" xml:space="preserve">
+    <value>Sugar je přední řešení řízení vztahů se zákazníky (CRM) poskytované jako software Open Source.  Platforma Sugar poskytuje uživatelům úplný přehled zákazníků prostřednictvím funkcí pro podporu hlavních prodejů, marketingu a zákazníků. Platforma Sugar je velmi dobře rozšiřitelná. Aplikace zároveň zahrnuje integrovaný nástroj Module Builder, který pomáhá vývojářům a uživatelům při vytváření a údržbě vlastních aplikací rozšiřujících možnosti základní platformy.</value>
+  </data>
+  <data name="Entry_OrchardCMS_Title" xml:space="preserve">
+    <value>Orchard CMS</value>
+  </data>
+  <data name="Entry_OrchardCMS_Summary" xml:space="preserve">
+    <value>Orchard CMS je bezplatný systém správy obsahu, který umožňuje uživatelům rychlý vývoj webů založených na technologii Microsoft ASP.NET.</value>
+  </data>
+  <data name="Entry_OrchardCMS_LongSummary" xml:space="preserve">
+    <value>Orchard CMS je bezplatný systém správy obsahu, který umožňuje uživatelům rychlý vývoj webů založených na platformě Microsoft ASP.NET MVC. Systém Orchard je založen na flexibilním rozhraní rozšiřitelnosti, které umožňuje vývojářům a úpravcům přidávat nové funkce prostřednictvím modulů a motivů.</value>
+  </data>
+  <data name="Entry_Incentive_Title" xml:space="preserve">
+    <value>Incentive</value>
+  </data>
+  <data name="Entry_Incentive_Summary" xml:space="preserve">
+    <value>Incentive je sociální platforma pro spolupráci, která umožňuje okamžitou komunikaci v rámci týmů, projektů a oddělení. 
+
+Jedná se o serverový software dostupný ke stažení, který zahrnuje toky aktivit, wikiweby, blogy a aplikace bezpečně ukryté za vaší bránou firewall.</value>
+  </data>
+  <data name="Entry_Incentive_LongSummary" xml:space="preserve">
+    <value>Incentive je podniková sociální platforma pro spolupráci. Platforma Incentive nabízí obzvláště výkonnou funkci wikiwebů s možností hostovat neomezený počet wikiwebů v rámci organizace, editorem WYSIWYG a jedním umístěním pro správu.
+
+Vedle zpracování wikiwebů platforma Incentiv vám i vašim kolegům nabízí okamžitou komunikaci v rámci týmů, projektů a oddělení. Většina organizací se topí v záplavách interních e-mailů a přehršlích informací. Právě tuto překážku pomáhají sociální platformy pro spolupráci jako Incentive překonat.</value>
+  </data>
+  <data name="Entry_CMSaspNET_Title" xml:space="preserve">
+    <value>.NET CMS</value>
+  </data>
+  <data name="Entry_CMSaspNET_Summary" xml:space="preserve">
+    <value>Systém CMS s prostředím .NET zdarma pro všechny účely! Systém CMS s prostředím .NET a rychlými reakcemi s podporou jazyka HTML5, bohatá mikrodata fragmentů, nepřítomnost databáze (žádná databáze = žádné problémy = 10x vyšší rychlost), podpora více jazyků, FÓRUM, GALERIE, DYNAMICKÁ FUNKCE PDF, WIKIWEB, komunita, jednoduchost a snadné použití, dynamická mapa webu, jedna instalace více webů ve více doménách, více serverů, oznámení platby v reálném čase (IPN) služba PayPal, šablony pro různá prostředí pro mobilní zařízení, tablety a kapesní zařízení, modul plug-in.</value>
+  </data>
+  <data name="Entry_CMSaspNET_LongSummary" xml:space="preserve">
+    <value>Systém CMS s prostředím .NET zdarma pro všechny účely! Funkce: Systém CMS s rychlými reakcemi a podporou jazyka HTML5 bez databáze (žádná databáze = žádné problémy a 10x vyšší rychlost). Tato bezplatná webová platforma s otevřeným zdrojem, mikrodaty fragmentů jazyka HTML5+ (schema.org) a vícejazyčným prostředím účinně pomáhá s jednotnou správou webů, a umožňuje tak vytvoření celé sítě složené z mnoha webů. Obsahuje software pro fóra, alba fotografií nebo sociální nástroje, přičemž všechny součásti se při sdíleném hostování podporovaném technologií ASP.NET instalují pouze jednou.
+Nejde jen o obyčejný systém správy obsahu (CMS), protože tyto nástroje překračují běžné možnosti úprav a formátování obsahu. Síla webové aplikace je ukryta v pokročilých technologiích a multithreadingu, který v kombinaci s novou technologií poskytovanou procesory s více jádry maximalizuje provádění každé funkce tak, aby návštěvníkům webu poskytovala jedinečný a výjimečný zážitek.
+Poslední verze aplikace spojuje sofistikované algoritmy, které snižují latenci dotazů (naprosto bez využití databází), umožňují plynulé procházení až 10násobnou rychlostí a zajišťují vysokou rychlost zpracování díky neuvěřitelné efektivitě algoritmů dynamicky pracujících s obsahem.</value>
+  </data>
+  <data name="Entry_BabyGekko_Title" xml:space="preserve">
+    <value>Baby Gekko CMS</value>
+  </data>
+  <data name="Entry_BabyGekko_Summary" xml:space="preserve">
+    <value>Baby Gekko je rozšiřitelný systém správy obsahu (CMS) s modulárními šablonami a aplikacemi.</value>
+  </data>
+  <data name="Entry_BabyGekko_LongSummary" xml:space="preserve">
+    <value>Baby Gekko je nenáročná rozšiřitelná platforma systému správy obsahu (CMS) založená na kombinaci jazyka PHP a databáze MySQL pro publikování webů, intranetu a blogů. Jedná se o vyspělý systém, který je vyvíjen od roku 2006. Cílem systému Baby Gekko je usnadnit práci správcům obsahu s různým stupněm technických znalostí. Díky rozhraní ve stylu průzkumníka nebo vyhledávače založenému na jazyku AJAX pro vás bude uspořádání obsahu v systému Baby Gekko opravdu snadné.</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Title" xml:space="preserve">
+    <value>Shopping Cart .NET</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Summary" xml:space="preserve">
+    <value>Shopping Cart .NET je obsáhlý portál pro elektronické obchodování napsaný s využitím technologie ASP.NET.
+Poskytuje mnoho funkcí systému správy obsahu (CMS), jako jsou například vlastní stránky, motivy a navigační nabídka.
+Funkce pro obchodování zahrnují plnohodnotný nákupní košík s vlastními obrázky, historií zobrazení, recenzemi produktů, kupóny a slevami, odběrem a produkty ke stažení, ovládacím panelem pro zákazníky a panelem správce pro vlastníka obchodu.
+</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_LongSummary" xml:space="preserve">
+    <value>Shopping Cart .NET je obsáhlý portál pro elektronické obchodování napsaný s využitím technologie ASP.NET.
+Poskytuje mnoho funkcí systému správy obsahu (CMS), jako jsou například vlastní stránky, motivy a navigační nabídka.
+Funkce pro obchodování zahrnují plnohodnotný nákupní košík s vlastními obrázky, historií zobrazení, recenzemi produktů, kupóny a slevami, odběrem a produkty ke stažení, seznamy dárků, ovládacím panelem pro zákazníky a panelem správce pro vlastníka obchodu.
+Dále je zahrnuta také metoda AIM (Authorize.Net Advanced Integration Method), integrace technologie rozhraní API služby Paypal Pro do technologie WCF a rozhraní API služby Google Checkout.
+Projekt byl napsán s využitím rozhraní .NET 4.0 a systému SQL Server 2008.</value>
+  </data>
+  <data name="Entry_Joomla25_Title" xml:space="preserve">
+    <value>Joomla! 2.5</value>
+  </data>
+  <data name="Entry_Joomla25_Summary" xml:space="preserve">
+    <value>Joomla! je oceňovaný systém správy obsahu (CMS) umožňující vytvářet weby a efektivní online aplikace. Systém Joomla! se díky mnoha aspektům, včetně snadné použitelnosti a rozšiřitelnosti, stal nejpopulárnějším dostupným softwarem pro weby. Systém Joomla! je navíc poskytován jako řešení Open Source, takže je všem dostupný zdarma.</value>
+  </data>
+  <data name="Entry_Joomla25_LongSummary" xml:space="preserve">
+    <value>Joomla! je systém správy obsahu (CMS) poskytovaný jako software Open Source. Efektivní architektura aplikace usnadňuje vývojářům tvorbu propracovaných doplňků, které rozšiřují potenciál systému Joomla! do prakticky neomezených úrovní. Architektura jádra systému Joomla! umožňuje vývojářům snadno a rychle vytvořit systémy kontroly inventáře, nástroje pro generování sestav dat, vlastní katalogy produktů, integrované systémy elektronického obchodování, komplexní podnikové adresáře, rezervační systémy, komunikační nástroje a mnoho dalších aplikací. Jelikož je systém Joomla! založen na kombinaci jazyka PHP a databáze MySQL. Umožňuje vytvářet efektivní aplikace na otevřené platformě, které bude moci používat, sdílet a podporovat naprosto každý.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Title" xml:space="preserve">
+    <value>MODX Evolution – balíček japonské verze.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Summary" xml:space="preserve">
+    <value>MODX Evolution – balíček japonské verze.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_LongSummary" xml:space="preserve">
+    <value>MODX Evolution – balíček japonské verze.</value>
+  </data>
+  <data name="Entry_MerchantTribe_Title" xml:space="preserve">
+    <value>MerchantTribe</value>
+  </data>
+  <data name="Entry_MerchantTribe_Summary" xml:space="preserve">
+    <value>MerchantTribe je bezplatná platforma elektronického obchodování založená na architektuře ASP.NET MVC, naprogramovaná v jazyce C# a poskytovaná jako software Open Source. 
+
+K dalšímu rozvoji platformy MerchantTribe je třeba, aby ji používalo co nejvíce uživatelů. Potřebujeme, aby se zapojilo co nejvíce obchodníků, vývojářů a návrhářů, kteří nám pomohou zdokonalit software a stanou se součástí komunity. Sledujte příspěvky ve vlákně @merchanttribe služby Twitter. Stáhněte si platformu MerchantTribe a začněte se podílet na jejím rozvoji již dnes!</value>
+  </data>
+  <data name="Entry_MerchantTribe_LongSummary" xml:space="preserve">
+    <value>MerchantTribe je bezplatná platforma elektronického obchodování založená na architektuře ASP.NET MVC, naprogramovaná v jazyce C# a poskytovaná jako software Open Source. 
+
+Již více než deset let vyvíjíme a prodáváme komerční softwarová řešení nákupního košíku založená na technologii .NET. Nyní představujeme projekt poskytovaný jako software Open Source, který je založen na našem oceňovaném softwaru BV Commerce. Naše řešení nákupního košíku používají tisíce společností, včetně společností Pebble Beach Resorts, DataPipe, TastyKake, MathBlaster a Chesapeake Energy. 
+
+K dalšímu rozvoji platformy MerchantTribe je třeba, aby ji používalo co nejvíce uživatelů. Potřebujeme, aby se zapojilo co nejvíce obchodníků, vývojářů a návrhářů, kteří nám pomohou zdokonalit software a stanou se součástí komunity. Sledujte příspěvky ve vlákně @merchanttribe služby Twitter. Stáhněte si platformu MerchantTribe a začněte se podílet na jejím rozvoji již dnes!</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (španělština)</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Summary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_DotNetNukeES_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení. Překladatelské služby poskytli Toni Coll (http://www.2psystems.com) a Vicenç Masanas (http://www.disgrafic.com). </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (italština)</value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Summary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení.  Překladatelské služby laskavě poskytla společnost Inspector IT (http://www.inspectorit.com).</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (turecká turečtina)</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Summary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_dotnetnukeTR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení. Překlad provedla skupina uživatelů turecké verze platformy DotNetNuke (http://trdnn.com).</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (francouzština)</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Summary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. Díky intuitivnímu rozhraní využívajícímu nabídky mohou pomocí systému DotNetNuke snadno vytvářet efektivní weby nebo rozšiřovat funkce stávajících webových aplikací i netechnicky zaměření uživatelé. </value>
+  </data>
+  <data name="Entry_DotNetNukeFR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® patří mezi přední platformy pro správu obsahu webu (CMS). Umožňuje vytvořit profesionální weby s dynamickým obsahem a interaktivními funkcemi. S více než 700 000 weby nasazenými do provozu a s tisíci rozšíření třetích stran, která jsou dostupná k okamžité instalaci, představuje systém DNN® rychlou a dostupnou platformu pro vývoj komerčních webů, komunitních portálů a intranetových řešení.
+
+Lokalizaci provedla skupina uživatelů francouzské verze platformy DotNetNuke (http://dnn.fr).</value>
+  </data>
+  <data name="Entry_Discuz_Title" xml:space="preserve">
+    <value>Discuz!</value>
+  </data>
+  <data name="Entry_Discuz_Summary" xml:space="preserve">
+    <value>Discuz! X je profesionální platforma diskusního fóra založeného na komunitě (BBS) vyvinutá společností Comsenz. Díky plné integraci diskusního fóra (BBS), propojení se sociálními sítěmi (SNS), funkcím portálu a skupin a distribuci jako softwaru Open Source umožňuje platforma Discuz! X vytvářet weby nabízející komplexní služby.</value>
+  </data>
+  <data name="Entry_Discuz_LongSummary" xml:space="preserve">
+    <value>Discuz! X je profesionální platforma diskusního fóra založeného na komunitě (BBS) vyvinutá společností Comsenz. Díky plné integraci diskusního fóra (BBS), propojení se sociálními sítěmi (SNS), funkcím portálu a skupin a distribuci jako softwaru Open Source umožňuje platforma Discuz! X vytvářet weby nabízející komplexní služby.</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Title" xml:space="preserve">
+    <value>Joomla (hebrejština)</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Summary" xml:space="preserve">
+    <value>Joomla pro služby IIS a WebMatrix (hebrejština)</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_LongSummary" xml:space="preserve">
+    <value>Joomla pro služby IIS a WebMatrix (hebrejština)</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Title" xml:space="preserve">
+    <value>RedCritter Tracker</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Summary" xml:space="preserve">
+    <value>RedCritter Tracker je nástroj na agilní řízení projektů, s jakým jste se ještě nesetkali.
+
+Nástroj RedCritter Tracker umožňuje spravovat projekty přetahováním myší a poskytuje informační kanály zpráv ve stylu služby Twitter, odznaky za dosažené úspěchy a dokonce i vlastní obchod s odměnami v rámci vaší společnosti.
+
+Verze běžící v cloudu je k dispozici na adrese www.redcrittertracker.com.</value>
+  </data>
+  <data name="Entry_RedCritterTracker_LongSummary" xml:space="preserve">
+    <value>RedCritter Tracker je nástroj na agilní řízení projektů, s jakým jste se ještě nesetkali.
+
+Nástroj RedCritter Tracker umožňuje spravovat projekty přetahováním myší a poskytuje informační kanály zpráv ve stylu služby Twitter, odznaky za dosažené úspěchy a dokonce i vlastní obchod s odměnami v rámci vaší společnosti.
+
+Verze běžící v cloudu je k dispozici na adrese www.redcrittertracker.com.</value>
+  </data>
+  <data name="Entry_razorCnet_Title" xml:space="preserve">
+    <value>razorC.net</value>
+  </data>
+  <data name="Entry_razorCnet_Summary" xml:space="preserve">
+    <value>razorC.net je systém správy obsahu vyvinutý pomocí technologie ASP.NET Web Pages (se syntaxí Razor), který se výborně hodí pro vývojáře využívající službu WebMatrix. Velmi snadno se instaluje a upravuje. </value>
+  </data>
+  <data name="Entry_razorCnet_LongSummary" xml:space="preserve">
+    <value>Systém správy obsahu razorC.net je rychlý a snadný prostředek pro vytvoření a údržbu profesionálního webu. razorC.net je systém správy obsahu vyvinutý pomocí technologie ASP.NET Web Pages (se syntaxí Razor), který se výborně hodí pro vývojáře využívající službu WebMatrix. Velmi snadno se instaluje a upravuje. Existující rozložení jakékoliv stránky lze upravit za účelem použití se systémem razorC.net během několika minut!
+
+Funkce:
+– Motivy – systém zahrnuje 3 různé motivy. Nový motiv lze vytvořit během několika minut.
+– Obsahuje ovládací panel, jehož pomocí lze spravovat stránky a pomůcky.
+ - Automatické zálohování modulů widget a stránek
+ - Editor šablon stylů CSS a rozložení
+ – Poskytuje databázový stroj SQL Server Compact Edition.
+ – Obsahuje editor TinyMCE pro tvorbu a úpravy obsahu.
+ - Prohlížeč souborů Ajax
+ – Poskytuje pomocníka pro jednoduchou tvorbu nabídek.
+ </value>
+  </data>
+  <data name="Entry_surveyproject_Title" xml:space="preserve">
+    <value>Projekt Survey</value>
+  </data>
+  <data name="Entry_surveyproject_Summary" xml:space="preserve">
+    <value>Survey™ Project je bezplatná webová sada nástrojů pro tvorbu průzkumů a vstupních formulářů sloužících ke sběru a zpracování dat online. 
+
+Sada Survey™ Project je ideální sada nástrojů pro každého, kdo potřebuje shromažďovat cenné informace o svých zákaznících, návštěvnících svých stránek nebo o svých zaměstnancích. 
+
+Umožňuje vytvářet a publikovat internetové průzkumy i uživatelům, kteří nemají znalosti programování.
+</value>
+  </data>
+  <data name="Entry_surveyproject_LongSummary" xml:space="preserve">
+    <value>Survey™ Project je bezplatná webová sada nástrojů pro tvorbu průzkumů a vstupních formulářů sloužících ke sběru a zpracování dat online. 
+
+Sada Survey™ Project je ideální sada nástrojů pro každého, kdo potřebuje shromažďovat cenné informace o svých zákaznících, návštěvnících svých stránek nebo o svých zaměstnancích. Umožňuje vytvářet a publikovat internetové průzkumy i uživatelům, kteří nemají znalosti programování. 
+
+Survey™ Project je webová aplikace se zdrojovým kódem Open Source naprogramovaná v jazyce C# .NET a založená na databázi MSSQL. Zdrojové kódy aplikace Survey™ Project šetří vývojářům pro platformu .NET čas a práci potřebnou k vytváření průzkumů v projektech webových aplikací a poskytují množství funkcí, které naplňují různé požadavky a obchodní potřeby. 
+
+Díky modulární a objektově orientované architektuře aplikace je také velmi snadné přidávání nových typů otázek a odpovědí do průzkumů.
+
+Mezi hlavní funkce patří:
+– Struktura se složkami pro průzkumy
+– Nástroj na navrhování průzkumů a nástroj na tvorbu formulářů (včetně editoru textu a kódu HTML)
+– Možnosti zabezpečení průzkumů
+– Správa tokenů
+– Možnosti pro nastavení více jazyků
+– Knihovny otázek
+– Editor typů odpovědí
+– Možnosti zpracování výsledků a vytváření zpráv
+– Možnosti importu a exportu
+– Poštovní možnosti
+– Správa uživatelských účtů a rolí
+– Integrované soubory nápovědy a popisy tlačítek
+– Přátelské adresy URL pro průzkumy
+ 
+Speciální funkce:
+– Logika větvení a přeskakovaní otázek
+– Automatické vyplňování odpovědí
+– Náhodné pořadí otázek
+– Průzkumy s hodnocením a skóre
+– Možnosti odesílání souborů při odpovědích
+</value>
+  </data>
+  <data name="Entry_eCB_Title" xml:space="preserve">
+    <value>MyCommerceBooks</value>
+  </data>
+  <data name="Entry_eCB_Summary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB) je sada webových firemních aplikací umožňujících spolupráci na dokumentech založenou na pracovních postupech, která umožňuje zvýšit automatizaci a snížit nutnost zadávání dat. Sadu eCB můžete nasadit jako službu nebo jako balíček určený ke stažení a místní instalaci. K bohatým funkcím sady eCB lze poté přistupovat v řádu minut pomocí bezplatného odběru.</value>
+  </data>
+  <data name="Entry_eCB_LongSummary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB) je sada webových firemních aplikací umožňujících spolupráci na dokumentech založenou na pracovních postupech, která umožňuje zvýšit automatizaci a snížit nutnost zadávání dat. 
+Sada eCB obsahuje následující aplikace: Inventory Management, POS Virtual Terminal, Order Processing, Shipping, Invoicing, Issue Management, Job Dispatch, Expense a Account Management. Sada eCB je kompatibilní s technologií .NET Framework 4.0 ASP.NET a ovládací prvky jejích aplikací jsou založeny na jazyce Ajax. Všechny aplikace v sadě jsou integrovány a řízeny pracovními postupy, což zvyšuje automatizaci práce a snižuje nutnost zadávání dat. Všechny aplikace sady eCB se používají prostřednictvím prohlížeče, díky čemuž můžete vy i vaši zákazníci a dodavatelé s platnými přihlašovacími údaji přistupovat k datům z libovolného běžného počítače, ve kterém je nainstalován moderní internetový prohlížeč. Sada eCB je vhodná pro každou firmu, ať už se jedná o velkoobchodního dodavatele, maloobchodního prodejce, společnost zajišťující správu budov a služby, společnost poskytující služby v oblasti IT nebo pouze o malou kavárnu. Sada eCB má bohaté funkce umožňující efektivní správu společnosti a úspory provozních nákladů.
+V této nové verzi představujeme systém dvou nabídek, který kromě tradičního řádku nabídek poskytuje panelovou nabídku založenou na technologii OfficeWebUI 2010 Nabídku lze dynamicky měnit pomocí přepínače. V této verzi také nově přidáváme navigační stránku s řídicím panelem podobnou stránce veškerého obsahu služby SharePoint 2010, která poskytuje indikátory dat ve formě „záhlaví podle oddělení“ pokrývající několik aspektů provozu společnosti (správu inventáře, řízení vztahů se zákazníky, objednávky, faktury, daně a účetnictví – kontrola snímků obrazovky aplikace).</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Title" xml:space="preserve">
+    <value>Umbraco CMS (hebrejština)</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Summary" xml:space="preserve">
+    <value>Umbraco je bezplatný webový systém správy obsahu se zdrojovým kódem Open Source založený na rozhraní Microsoft .NET Framework.  Snadno se používá, je srozumitelný a také vysoce rozšiřitelný pomocí jazyků a vzorů, které jsou v daném odvětví standardem.</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_LongSummary" xml:space="preserve">
+    <value>Umbraco je plnohodnotný systém pro správu obsahu webu, který se snadno používá, jednoduše přizpůsobuje a je dostatečně robustní na to, aby jeho pomocí bylo možné spravovat i rozsáhlé weby, jako jsou například weby wired.co.uk a asp.net.
+
+Systém Umbraco je používán ke správě více než 85 000 webů v téměř všech jazycích a v celé řadě odvětví.  Systém Umbraco používají některé z největších a nejpokrokovějších společností na světě (například společnosti Microsoft a Toyota).  Malé i velké firmy používají systém Umbraco proto, že jim umožňuje vytvářet weby podle jejich představ, rychle vyvíjet vlastní funkce a provádět průběžnou údržbu webů a jejich aktualizaci jednoduchým a robustním způsobem.
+
+Umbraco je bezplatný webový systém správy obsahu se zdrojovým kódem Open Source založený na rozhraní Microsoft .NET Framework.  Snadno se používá, je srozumitelný a také vysoce rozšiřitelný pomocí jazyků a vzorů, které jsou v daném odvětví standardem, například HTML, CSS, jQuery a C#.  Systém Umbraco považují za výkonný a flexibilní špičkoví návrháři i programátoři.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Title" xml:space="preserve">
+    <value>.NET Forge CMS</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Summary" xml:space="preserve">
+    <value>.NET Forge CMS je výkonný systém správy webů založený na technologii ASP.NET. .NET Forge CMS je systém, který poskytuje integrovaná řešení mnoha různých typů technických úkolů, díky čemuž zrychluje a zlevňuje vývoj. Pro uživatele, kteří chtějí vytvořit moderní dobře vypadající a vysoce výkonný web a chtějí co nejvíce ušetřit, je k dispozici bezplatná edice Community.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_LongSummary" xml:space="preserve">
+    <value>Systém .NET Forge CMS je novinkou na trhu systémů správy webů určenou pro vývojáře, kteří používají technologii ASP.NET. Edice Community je první systém správy obsahu založený na technologii ASP.NET s úplnou a vyčerpávající dokumentací, který je zdarma. 
+
+
+Systém .NET Forge CMS umožňuje integraci se softwarem společnosti Microsoft, podporuje úrovně důvěryhodnosti zdrojového kódu a je maximálně objektově orientovaný. Z těchto důvodů se velmi dobře hodí pro podnikové webové aplikace a systémy.
+
+
+Systém .NET Forge CMS 6.0 je k dispozici ve dvou edicích: Community a Professional. Bezplatná edice Community umožňuje rychlý vývoj komunitních webů, blogů a dalších webových projektů při současné úspoře nákladů na pořízení potřebné platformy. Edice Professional je komerční řešení pro internetové obchody a další weby, pro které je zásadní podpora vysoké návštěvnosti, škálovatelnosti, nepřerušeného provozu a zabezpečení.</value>
+  </data>
+  <data name="Entry_qibocms_Title" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_Summary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_LongSummary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_Drupal_JP_Title" xml:space="preserve">
+    <value>Drupal – balíček japonské verze</value>
+  </data>
+  <data name="Entry_Drupal_JP_Summary" xml:space="preserve">
+    <value>Drupal – balíček japonské verze</value>
+  </data>
+  <data name="Entry_Drupal_JP_LongSummary" xml:space="preserve">
+    <value>Drupal – balíček japonské verze</value>
+  </data>
+  <data name="Entry_HDwiki_Title" xml:space="preserve">
+    <value>HDWiki</value>
+  </data>
+  <data name="Entry_HDwiki_Summary" xml:space="preserve">
+    <value>HDWiki je PRVNÍ a nejúplnější čínský software pro správu wikiwebů. Integruje elementy webu generace 2.0, jako jsou například značky, rozhraní Digg, jazyk AJAX atd. V mnoha směrech překonává systém MediaWiki.
+
+Systém HDWiki je webový software, jehož pomocí můžete vytvořit krásný web nebo wikiweb. Systém HDWiki je bezplatný a neocenitelný pomocník.</value>
+  </data>
+  <data name="Entry_HDwiki_LongSummary" xml:space="preserve">
+    <value>HDWiki je PRVNÍ a nejúplnější čínský software pro správu wikiwebů. Integruje elementy webu generace 2.0, jako jsou například značky, rozhraní Digg, jazyk AJAX atd. V mnoha směrech překonává systém MediaWiki.
+
+Systém HDWiki je webový software, jehož pomocí můžete vytvořit krásný web nebo wikiweb. Systém HDWiki je bezplatný a neocenitelný pomocník.
+</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Title" xml:space="preserve">
+    <value>WordPress – portugalština (Portugalsko)</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Summary" xml:space="preserve">
+    <value>WordPress je webový software, pomocí kterého můžete vytvořit krásný web nebo blog. Software WordPress je bezplatný a neocenitelný pomocník.</value>
+  </data>
+  <data name="Entry_wordpressptportugal_LongSummary" xml:space="preserve">
+    <value>WordPress je webový software, pomocí kterého můžete vytvořit krásný web nebo blog. Software WordPress je bezplatný a neocenitelný pomocník.
+
+Jádro softwaru je vytvářeno stovkami dobrovolníků komunity, a když se s ním dostatečně seznámíte, máte k dispozici tisíce modulů plug-in a motivů, pomocí kterých můžete přetvořit svůj web zcela podle vlastních představ. K provozování místa na webu, kterému mohou hrdě říkat „domov“, si software WordPress vybralo přes 25 milionů lidí. Byli bychom velmi rádi, kdybyste se stali jedněmi z nich.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Title" xml:space="preserve">
+    <value>Orchard – tchaj-wanská verze</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Summary" xml:space="preserve">
+    <value>Orchard CMS je bezplatný systém správy obsahu, který umožňuje uživatelům rychlý vývoj webů založených na technologii Microsoft ASP.NET. Systém Orchard je založen na flexibilním rozhraní rozšiřitelnosti, které umožňuje vývojářům a úpravcům přidávat nové funkce prostřednictvím rozšíření a motivů.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_LongSummary" xml:space="preserve">
+    <value>Orchard CMS je bezplatný systém správy obsahu, který umožňuje uživatelům rychlý vývoj webů založených na technologii Microsoft ASP.NET. Systém Orchard je založen na flexibilním rozhraní rozšiřitelnosti, které umožňuje vývojářům a úpravcům přidávat nové funkce prostřednictvím rozšíření a motivů.</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Title" xml:space="preserve">
+    <value>BlogEngine.NET V1.6.2 pro čínštinu</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Summary" xml:space="preserve">
+    <value>BlogEngine.NET je projekt blogu založený na technologii .NET a poskytovaný jako software Open Source, který se zrodil z touhy po lepší platformě blogu. Tato platforma blogu je jednoduchá, snadno upravitelná a využívá nejnovější funkce technologie .NET. 
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET je projekt blogu založený na technologii .NET a poskytovaný jako software Open Source, který se zrodil z touhy po lepší platformě blogu. Tato platforma blogu je jednoduchá, snadno upravitelná a využívá nejnovější funkce technologie .NET. Platforma BlogEngine.NET byla navržena s důrazem na jednoduchost, snadnou rozšiřitelnost a inovativní funkce pomocí aktuálního rozhraní .NET Framework. Doufáme, že se BlogEngine.NET stane přirozenou volbou platformy blogu pro všechny vývojáře využívající technologii .NET na celém světě. </value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Title" xml:space="preserve">
+    <value>Kooboo Communicator</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Summary" xml:space="preserve">
+    <value>Tento komunikační nástroj umožňuje zasílat zákazníkům pravidelné e-mailové marketingové kampaně a průzkumy. Nástroj umožňuje import kontaktů, návrh kampaně a její doručení zákazníkům během pěti minut, a to i v případě, že nástroj používáte poprvé. Díky tomuto nástroji budou vaše e-mailové kampaně vždy působit profesionálně. Nástroj umožňuje zobrazení náhledu doručené pošty a sledování a prohlížení výsledků kampaní. Nástroj lze stáhnout a nainstalovat místně, je však také možné se zaregistrovat do služby online.</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_LongSummary" xml:space="preserve">
+    <value>Tento komunikační nástroj umožňuje zasílat zákazníkům pravidelné e-mailové marketingové kampaně a průzkumy. Nástroj umožňuje import kontaktů, návrh kampaně a její doručení zákazníkům během pěti minut, a to i v případě, že nástroj používáte poprvé. Díky tomuto nástroji budou vaše e-mailové kampaně vždy působit profesionálně. Nástroj umožňuje zobrazení náhledu doručené pošty a sledování a prohlížení výsledků kampaní. Nástroj lze stáhnout a nainstalovat místně, je však také možné se zaregistrovat do služby online.
+
+Můžete jej začít používat zcela zdarma.</value>
+  </data>
+  <data name="Entry_ocPortal_Title" xml:space="preserve">
+    <value>ocPortal</value>
+  </data>
+  <data name="Entry_ocPortal_Summary" xml:space="preserve">
+    <value>Výkonný a flexibilní systém správy obsahu s důrazem na budování online komunit a dynamických a interaktivních webů. Systém ocPortal poskytuje funkce pro blogování, provoz diskusních fór, zajištění stahování, hostování galerií, obsluhu vašich vlastních databází, elektronické obchodování a mnoho dalších služeb. Vše je přizpůsobitelné, odpovídá nejvyšším standardům a snadno se používá.</value>
+  </data>
+  <data name="Entry_ocPortal_LongSummary" xml:space="preserve">
+    <value>ocPortal je systém správy obsahu s množstvím funkcí generace webu 2.0 a komunitních funkcí určený k tvorbě moderních sofistikovaných webů. Systém ocPortal podporuje mnoho různých typů obsahu (galerie, zprávy, bulletiny atd.) a integruje do nich multimédia a inzerci. Mezi komunitní funkce patří diskusní fóra, členské blogy, chatovací místnosti, wikiweby a možnost komentování a hodnocení obsahu.
+
+Systém ocPortal ponechá rozhodnutí o vzhledu a chování vašeho webu na vás. Systém poskytuje množství funkcí, jejich použití je však pouze volitelné. Systém ocPortal je založen na filozofii zdůrazňující integraci funkcí, například vyhledávání na webu a sjednocených členských profilů.
+
+Již ve výchozím nastavení bude váš web splňovat nejvyšší standardy usnadnění přístupnosti a profesionality a bude se zobrazovat na vyšších pozicích ve výsledcích vyhledávání pomocí služby Google díky automatické optimalizaci pro vyhledávací weby (SEO). Web bude automaticky blokovat a zaznamenávat útoky hackerů a systém vám jej také umožní zpřístupnit různými způsoby, například prostřednictvím placených odběrů.
+
+Systém ocPortal je navržen tak, aby splňoval všechny vaše požadavky, a je něčím více než pouhým systémem správy obsahu.</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Title" xml:space="preserve">
+    <value>XCL22x-pack201X pro službu IIS</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Summary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_LongSummary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_hevod_Title" xml:space="preserve">
+    <value>hevod Video on Demand</value>
+  </data>
+  <data name="Entry_hevod_Summary" xml:space="preserve">
+    <value>Systém hevod Video on Demand poskytuje moduly pro přehrávání videa (aktuálně pouze ve formátu SWF), správu serveru, správu webu, správu klasifikace a mnoho dalších modulů.</value>
+  </data>
+  <data name="Entry_hevod_LongSummary" xml:space="preserve">
+    <value>Systém hevod Video on Demand je sada modulů se zdrojovým kódem Open Source využívající systém pro online přehrávání videa technologie ASP.NET. Systém využívá jednoduchou třívrstvou architekturu s databází Access a je vhodný pro malé a středně velké webové aplikace.
+
+Systém hevod Video on Demand poskytuje moduly pro přehrávání videa (aktuálně pouze ve formátu SWF), správu serveru, správu webu, správu klasifikace a mnoho dalších modulů.
+
+Systém podporuje ověřování uživatelských účtů pomocí náhodného zdrojového kódu generovaného na pozadí s využitím šifrování prostřednictvím algoritmu MD5.</value>
+  </data>
+  <data name="Entry_concrete5ja_Title" xml:space="preserve">
+    <value>concrete5 – balíček japonské verze</value>
+  </data>
+  <data name="Entry_concrete5ja_Summary" xml:space="preserve">
+    <value>concrete5 – balíček japonské verze</value>
+  </data>
+  <data name="Entry_concrete5ja_LongSummary" xml:space="preserve">
+    <value>concrete5 – balíček japonské verze</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Title" xml:space="preserve">
+    <value>NopCommerce (italština)</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Summary" xml:space="preserve">
+    <value>Italská verze a implementace systému NopCommerce 1.9</value>
+  </data>
+  <data name="Entry_NopCommerceIT_LongSummary" xml:space="preserve">
+    <value>Italská verze a implementace systému NopCommerce 1.9 Dodává se s aplikací připravenou ke spuštění, která je již lokalizována do italštiny a obsahuje města a funkce místní správy předpokládající, že vaše firma působí v Itálii.</value>
+  </data>
+  <data name="Entry_drupal7heb_Title" xml:space="preserve">
+    <value>Systém Drupal 7 – hebrejská edice</value>
+  </data>
+  <data name="Entry_drupal7heb_Summary" xml:space="preserve">
+    <value>Verze systému Drupal 7 se soubory hebrejského překladu</value>
+  </data>
+  <data name="Entry_drupal7heb_LongSummary" xml:space="preserve">
+    <value>Verze systému Drupal 7 se soubory hebrejského překladu</value>
+  </data>
+  <data name="Entry_RakuCMS_Title" xml:space="preserve">
+    <value>RakuCMS</value>
+  </data>
+  <data name="Entry_RakuCMS_Summary" xml:space="preserve">
+    <value>RakuCMS je snadno použitelné a rozšiřitelné řešení pro správu obsahu založené na technologii Microsoft ASP.NET a dalších standardních webových technologiích pro redaktory obsahu a vývojáře, pomocí kterého lze rychle a efektivně vytvářet a udržovat statické a dynamické weby.</value>
+  </data>
+  <data name="Entry_RakuCMS_LongSummary" xml:space="preserve">
+    <value>RakuCMS je snadno použitelné a rozšiřitelné řešení pro správu obsahu založené na technologii Microsoft ASP.NET a dalších standardních webových technologiích pro redaktory obsahu a vývojáře, pomocí kterého lze rychle a efektivně vytvářet a udržovat statické a dynamické weby.</value>
+  </data>
+  <data name="Entry_nearforums_Title" xml:space="preserve">
+    <value>Nearforums</value>
+  </data>
+  <data name="Entry_nearforums_Summary" xml:space="preserve">
+    <value>Nearforums je jednoduché a moderní diskusní fórum vyvinuté v jazyce C# s použitím rozhraní ASP.NET MVC. Toto fórum poskytované jako software Open Source s licencí MIT vhodnou pro společnosti a vývojáře poskytuje řadu vynikajících funkcí, jako je přihlašování pomocí účtů služeb Facebook nebo Twitter, navigace pomocí značek, úplná správu webu, zdroje RSS, přístupný kód HTML a funkce optimalizace pro vyhledávací weby (SEO).</value>
+  </data>
+  <data name="Entry_nearforums_LongSummary" xml:space="preserve">
+    <value>Nearforums je jednoduché a moderní diskusní fórum vyvinuté v jazyce C# s použitím rozhraní ASP.NET MVC. Toto fórum poskytované jako software Open Source s licencí MIT vhodnou pro společnosti a vývojáře poskytuje řadu vynikajících funkcí, jako je přihlašování pomocí účtů služeb Facebook nebo Twitter, navigace pomocí značek, úplná správu webu, integrovaný vyhledávací web, kanály RSS, přístupný kód HTML a funkce optimalizace pro vyhledávací weby (SEO).</value>
+  </data>
+  <data name="Entry_FishopNet_Title" xml:space="preserve">
+    <value>Fishop.Net</value>
+  </data>
+  <data name="Entry_FishopNet_Summary" xml:space="preserve">
+    <value>Fishop.Net je produkt pro elektronický obchod, který lze snadno používat a přizpůsobit ve všech oblastech.</value>
+  </data>
+  <data name="Entry_FishopNet_LongSummary" xml:space="preserve">
+    <value>Fishop.Net je aplikace pro elektronický obchod, která nabízí a bude nabízet snadné využití zákazníkům i správcům webů.
+Aplikaci Fishop.Net lze uvést do provozu v několika krocích. Slouží k tomu malý průvodce. Fishop.Net rovněž poskytuje možnost použít jeden nebo více jazyků, uplatnit různé způsoby přepravy s automatickým sledováním, přizpůsobit informační e-maily zasílané klientům, zadávat u produktů různé varianty (např. velikosti a barvy u oblečení) nebo jedním kliknutím přizpůsobit grafický motiv.
+Aplikace Fishop.Net obsahuje několik předinstalovaných grafických motivů. Aplikaci lze dále přizpůsobit tím, že si nainstalujete další motivy, které můžete zakoupit na webu www.fishopnet.it.
+Fishop.Net navíc poskytuje možnost využít předinstalovaného poskytovatele platebních služeb PayPal nebo zakoupit další poskytovatele.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Title" xml:space="preserve">
+    <value>Tandem Server CMS</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Summary" xml:space="preserve">
+    <value>Tandem Server CMS je řešení pro správu webu určené pro malé firmy a osobní weby. Pomocí našeho intuitivního nástroje pro publikování online lze aktualizovat web během okamžiku. Tandem Server je poskytován zdarma a vyžaduje pouze základní hostingový plán systému Windows. Neváhejte a vyzkoušejte ho.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_LongSummary" xml:space="preserve">
+    <value>Bezplatný a jednoduchý systém pro správu obsahu určený pro malé firmy a osobní weby. Provedení nástroje Tandem Server výrazně usnadňuje správu webu. A tak to má být.</value>
+  </data>
+  <data name="Entry_WordPressGerman_Title" xml:space="preserve">
+    <value>WordPress – němčina</value>
+  </data>
+  <data name="Entry_WordPressGerman_Summary" xml:space="preserve">
+    <value>WordPress je webový software, pomocí kterého můžete vytvořit krásný web nebo blog. Software WordPress je bezplatný a neocenitelný pomocník.</value>
+  </data>
+  <data name="Entry_WordPressGerman_LongSummary" xml:space="preserve">
+    <value>Jádro softwaru je vytvářeno stovkami dobrovolníků komunity, a když se s ním dostatečně seznámíte, máte k dispozici tisíce modulů plug-in a motivů, pomocí kterých můžete přetvořit svůj web zcela podle vlastních představ. K provozování místa na webu, kterému mohou hrdě říkat „domov“, si software WordPress vybralo přes 25 milionů lidí. Byli bychom velmi rádi, kdybyste se stali jedněmi z nich.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Title" xml:space="preserve">
+    <value>WordPress – portugalština (Brazílie)</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Summary" xml:space="preserve">
+    <value>WordPress je webový software, pomocí kterého můžete vytvořit krásný web nebo blog. Software WordPress je bezplatný a neocenitelný pomocník.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_LongSummary" xml:space="preserve">
+    <value>WordPress je webový software, pomocí kterého můžete vytvořit krásný web nebo blog. Software WordPress je bezplatný a neocenitelný pomocník.</value>
+  </data>
+  <data name="Entry_SplendidCRM_Title" xml:space="preserve">
+    <value>SplendidCRM</value>
+  </data>
+  <data name="Entry_SplendidCRM_Summary" xml:space="preserve">
+    <value>SplendidCRM je komerční aplikace pro řízení vztahů se zákazníky poskytovaná jako software Open Source. Je určena společnostem s investicemi v serverech založených na technologiích společnosti Microsoft.</value>
+  </data>
+  <data name="Entry_SplendidCRM_LongSummary" xml:space="preserve">
+    <value>SplendidCRM je aplikace pro řízení vztahů se zákazníky poskytovaná jako software Open Source. Je určena společnostem s investicemi v serverech založených na technologiích společnosti Microsoft.  Aplikace SplendidCRM byla vyvinuta pomocí nejlepších nástrojů pro vývoj a na základě osvědčených postupů pro vývoj webových aplikací. Díky tomu je SplendidCRM vysoce škálovatelnou a přizpůsobitelnou podnikovou aplikací, kterou lze získat za zlomek ceny produktů nabízených hlavními konkurenty na poli správy vztahů se zákazníky (CRM).
+
+</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Title" xml:space="preserve">
+    <value>WordPress – verze v hebrejštině</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Summary" xml:space="preserve">
+    <value>Systém WordPress včetně hebrejského překladu</value>
+  </data>
+  <data name="Entry_WordpressHebrew_LongSummary" xml:space="preserve">
+    <value>Systém WordPress včetně hebrejského překladu</value>
+  </data>
+  <data name="Entry_DotNetAge_Title" xml:space="preserve">
+    <value>DotNetAge</value>
+  </data>
+  <data name="Entry_DotNetAge_Summary" xml:space="preserve">
+    <value>DotNetAge je platforma pro správu obsahu, sociální sítě a rychlý vývoj aplikací využívající architekturu MVC. DotNetAge se soustředí na estetiku, snadné použití, optimalizaci pro vyhledávací weby a webové standardy. DotNetAge poskytuje intuitivní rozhraní, které umožňuje netechnicky zaměřeným uživatelům vytvářet nové weby nebo rozšiřovat funkce existujících webů.</value>
+  </data>
+  <data name="Entry_DotNetAge_LongSummary" xml:space="preserve">
+    <value>Platforma DotNetAge poskytuje revoluční uživatelské rozhraní, jednoduchost, škálovatelnost a vynikající výsledky v oblasti optimalizace pro vyhledávací weby. V jednom produktu tak najdete všechny potřebné funkce.
+Systém DotNetAge poskytuje extrémně pohodlné rozhraní pro vizuální tvorbu webových stránek s využitím přetahování položek. Výkonné nástroje usnadňují správu webu i obsahu. Platforma DotNetAge poskytuje otevřené knihovny pro weby s bohatým obsahem generace 2.0 (blogy, Opml, OSD, RSS, ATOM, BlogML, OpenID, SiteMap), online nástroj pro tvorbu pomůcek (ve formátu HTML, Razor, ASP.NET), pomocné rutiny uživatelského rozhraní jQuery Mvc a další funkce, které si získají přízeň vývojářů.
+
+</value>
+  </data>
+  <data name="Entry_phpwind_IIS_Title" xml:space="preserve">
+    <value>phpwind pro službu IIS </value>
+  </data>
+  <data name="Entry_phpwind_Summary" xml:space="preserve">
+    <value>PHPWind Forums论坛系统是一套采用PHP + MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_phpwind_LongSummary" xml:space="preserve">
+    <value>PHPWind Forums论坛系统是一套采用PHP + MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Title" xml:space="preserve">
+    <value>BlogEngine.NET v hebrejštině</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Summary" xml:space="preserve">
+    <value>BlogEngine.NET je projekt blogu napsaný v jazyce ASP.NET, který je poskytován jako software Open Source. Tato platforma vznikla na základě požadavků na lepší platformu blogu. Zaměřili jsme se na jednoduchost, snadnou rozšiřitelnost a inovativní funkce s využitím nejnovějších funkcí platformy .NET. Platforma BlogEngine.NET je snadno přizpůsobitelná.</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET je projekt blogu napsaný v jazyce ASP.NET, který je poskytován jako software Open Source. Tato platforma vznikla na základě požadavků na lepší platformu blogu. Zaměřili jsme se na jednoduchost, snadnou rozšiřitelnost a inovativní funkce s využitím nejnovějších funkcí platformy .NET. Platforma BlogEngine.NET je snadno přizpůsobitelná. K dispozici ke stažení je mnoho motivů, pomůcek a rozšíření. Máte-li základní znalosti platformy .NET, můžete dokonce vytvářet vlastní rozšíření. Platforma BlogEngine.NET usnadňuje tvorbu blogů, jejichž vzhled a funkce budou přesně odpovídat požadavkům uživatelů.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Title" xml:space="preserve">
+    <value>Drupal Commerce Kickstart</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Summary" xml:space="preserve">
+    <value>Drupal Commerce je štíhlá a úsporná open source
+architektura pro elektronické obchodování vytvořená na základě systému Drupal 7. Používá se
+k vytváření flexibilních a dobře přizpůsobitelných webů
+založených na nejlepší platformě pro obchodování s využitím sociálních sítí.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_LongSummary" xml:space="preserve">
+    <value>Drupal Commerce je štíhlá a úsporná open source
+architektura pro elektronické obchodování vytvořená na základě systému Drupal 7. Používá se
+k vytváření flexibilních a dobře přizpůsobitelných webů
+založených na nejlepší platformě pro obchodování s využitím sociálních sítí.
+
+Drupal je bezplatný softwarový balíček, pomocí kterého může prakticky kdokoli snadno publikovat, spravovat a uspořádat nejrůznější obsah na webu. Drupal používají stovky tisíc jednotlivců i organizací pro správu a publikování nejrůznějších webů.
+
+O údržbu a vývoj platformy Drupal se stará komunita stovek tisíc uživatelů a vývojářů. Distribuce se řídí podmínkami licence GNU General Public License. To znamená, že si tuto platformu může stáhnout kdokoli a že ji uživatelé mohou sdílet a do projektu přispívat. Tento otevřený model vývoje zajišťuje, že lidé na platformě Drupal neustále pracují. Díky tomu si tato platforma udržuje náskok a podporuje nejnovější technologie, které se na webu vyskytují.
+</value>
+  </data>
+  <data name="Entry_SQLCMS_Title" xml:space="preserve">
+    <value>SQLCMS</value>
+  </data>
+  <data name="Entry_SQLCMS_Summary" xml:space="preserve">
+    <value>SQLCMS generuje systém správy obsahu (CMS) s rozhraním AJAX pro libovolnou databázi systému Microsoft SQL Server (2000/2005/2008).</value>
+  </data>
+  <data name="Entry_SQLCMS_LongSummary" xml:space="preserve">
+    <value>SQLCMS generuje systém pro správu obsahu s rozhraním AJAX pro libovolnou databázi systému SQL Server (Zdarma pro nekomerční využití. K dispozici jsou i možnosti licencování.). 
+
+Mezi hlavní funkce patří:
+
+* Stránkování, zobrazení (i s podrobnostmi), úprava, vkládání, odstraňování, vyhledávání a export libovolných dat
+* Komplexní model zabezpečení založený na rolích
+* Přizpůsobení změnám v databázi
+* Přístup k tabulkám, zobrazení a uloženým procedurám
+* Vykreslování a ověřování na straně klienta založené na jazyce JavaScript
+* Procházení hierarchie souvisejících tabulek
+* Vytváření seznamů vyhledávání umožňující snadné zadávání dat
+* Vlastní akce
+* Sady panelů
+* Protokolování aktivit s funkcemi sledování IP adresy
+* Překlad do španělštiny, italštiny, francouzštiny, němčiny a čínštiny a podpora dalších jazyků
+* ... Výčet funkcí tím zdaleka nekončí.
+
+</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Title" xml:space="preserve">
+    <value>OpenPNE – balíček japonské verze</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Summary" xml:space="preserve">
+    <value>OpenPNE – balíček japonské verze</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_LongSummary" xml:space="preserve">
+    <value>OpenPNE – balíček japonské verze</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Title" xml:space="preserve">
+    <value>WordPress – španělština</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Summary" xml:space="preserve">
+    <value>Systém WordPress byl uveden v roce 2003 a obsahoval pouze malou část kódu, která měla zdokonalit typografii v pravidelně publikovaných textech. Počet uživatelů se v té době dal spočítat na prstech ruky. Od té doby se však tento systém stal největším nástrojem pro blogování využívajícím vlastní hosting na světě. Důkazem jsou statisíce webů s celkovou každodenní návštěvností desítek milionů uživatelů.</value>
+  </data>
+  <data name="Entry_WordPressSpanish_LongSummary" xml:space="preserve">
+    <value>Systém WordPress byl uveden v roce 2003 a obsahoval pouze malou část kódu, která měla zdokonalit typografii v pravidelně publikovaných textech. Počet uživatelů se v té době dal spočítat na prstech ruky. Od té doby se však tento systém stal největším nástrojem pro blogování využívajícím vlastní hosting na světě. Důkazem jsou statisíce webů s celkovou každodenní návštěvností desítek milionů uživatelů.</value>
+  </data>
+  <data name="Entry_eccube_Title" xml:space="preserve">
+    <value>EC-CUBE</value>
+  </data>
+  <data name="Entry_eccube_Summary" xml:space="preserve">
+    <value>Japonská aplikace pro elektronické obchodování určená pro jazyk PHP</value>
+  </data>
+  <data name="Entry_eccube_LongSummary" xml:space="preserve">
+    <value>Japonská aplikace pro elektronické obchodování určená pro jazyk PHP</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Title" xml:space="preserve">
+    <value>Geeklog</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Summary" xml:space="preserve">
+    <value>Výchozí distribuci aplikace Geeklog lze snadno rozšířit pomocí mnoha modulů plug-in a rozšíření vyvíjených komunitou a výrazně tak pozměnit její funkce. Mezi dostupné moduly plug-in patří fóra, galerie obrázků a celá řada dalších.</value>
+  </data>
+  <data name="Entry_geeklogjapanese_LongSummary" xml:space="preserve">
+    <value>Geeklog je aplikace poskytovaná jako software Open Source a je určena pro správu dynamického obsahu webu. Aplikace je napsána v jazyce PHP a jako databáze back-end podporuje MySQL, PostgreSQL a MS SQL. Ve výchozí distribuci představuje aplikace Geeklog systém pro správu obsahu nebo modul pro tvorbu blogů s podporou komentářů, zpětných odkazů, několika syndikačních formátů, ochrany proti spamu a dalších funkcí, které jsou pro podobný systém nezbytné. </value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Title" xml:space="preserve">
+    <value>Joomla! ve španělštině</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Summary" xml:space="preserve">
+    <value>Joomla! – systém správy obsahu poskytovaný jako software Open Source – ve španělštině (obsahuje i soubory pro angličtinu a katalánštinu)</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_LongSummary" xml:space="preserve">
+    <value>Systém Joomla přeložený do španělštiny. K dispozici jsou i soubory pro angličtinu a katalánštinu. Joomla! je systém správy obsahu (CMS) poskytovaný jako software Open Source. Efektivní architektura aplikace usnadňuje vývojářům tvorbu propracovaných doplňků, které rozšiřují potenciál systému Joomla! do prakticky neomezených úrovní. Architektura jádra systému Joomla! umožňuje vývojářům snadno a rychle vytvořit systémy kontroly inventáře, nástroje pro generování sestav dat, vlastní katalogy produktů, integrované systémy elektronického obchodování, komplexní podnikové adresáře, rezervační systémy, komunikační nástroje a mnoho dalších aplikací. Jelikož je systém Joomla! založen na kombinaci jazyka PHP a databáze MySQL. Umožňuje vytvářet efektivní aplikace na otevřené platformě, které bude moci používat, sdílet a podporovat naprosto každý.</value>
+  </data>
+  <data name="NewWebApplications" xml:space="preserve">
+    <value>Nové webové aplikace</value>
+  </data>
+  <data name="Entry_TangoCMS_Title" xml:space="preserve">
+    <value>TangoCMS</value>
+  </data>
+  <data name="Entry_TangoCMS_Summary" xml:space="preserve">
+    <value>Efektivní. Jednoduchý. Bezpečný. Systém TangoCMS umožňuje snadno a rychle vytvořit a spravovat celý web. Efektivní sada funkcí, intuitivní jednoduché rozhraní a integrované funkce zabezpečení – systém TangoCMS nabízí vše, co potřebujete.</value>
+  </data>
+  <data name="Entry_TangoCMS_LongSummary" xml:space="preserve">
+    <value>Systém TangoCMS díky sadě snadno použitelných a efektivních funkci umožňuje snadno a rychle spravovat jednoduché i komplexní weby. Správa webu prostřednictvím jednoduchého intuitivního rozhraní je zábavná a nijak namáhavá. Modulární struktura znamená, že můžete stávající sadu funkcí doplnit o některé další. Blogy, galerie, videa, články, správa uživatelů, formuláře kontaktů, hlasování a mnoho dalších součástí. Díky integrovaným funkcím zabezpečení si můžete být vždy jisti, že váš web i jeho uživatelé budou v bezpečí. Efektivní. Jednoduchý. Bezpečný.</value>
+  </data>
+  <data name="Entry_Dropthings_Title" xml:space="preserve">
+    <value>Dropthings</value>
+  </data>
+  <data name="Entry_Dropthings_Summary" xml:space="preserve">
+    <value>Přizpůsobitelný portál založený na webu 2.0 a využívající pomůcky, který je vytvořen pomocí technologie ASP.NET 3.5, knihovny jQuery a rozhraní .NET 3.5. Jedná se o funkční webovou aplikaci, kterou můžete rozšířit a s jejíž pomocí můžete vytvářet vlastní weby typu Web 2.0 nebo podnikové panely agregující informace z různých zdrojů. Uživatelé mohou pomůcky přetahovat na jiné místo nebo přizpůsobovat. Předdefinovány jsou pomůcky pro informační kanály RSS, služby Twitter a Flickr, počasí a obsah HTML nebo statický obsah. </value>
+  </data>
+  <data name="Entry_Dropthings_LongSummary" xml:space="preserve">
+    <value>Dropthings je přizpůsobitelný webový portál, který předvádí možnosti rozhraní AJAX a rámce s moduly widget při vytváření webů typu Web 2.0 nebo podnikových řídicích panelů. Jedná se o produkt poskytovaný jako software s otevřeným zdrojem. Plně funkční web můžete rozšiřovat libovolným způsobem. Kromě předdefinovaných pomůcek pro informační kanály RSS, služby Twitter a Flickr, počasí, akcie a obsah HTML nebo statický obsah můžete vytvořit vlastní pomůcky. Tento software poskytuje architekturu pro získávání dat z různých zdrojů. Můžete vytvořit pomůcky zobrazující sestavy nebo data z databáze v mřížce, využívající webové služby, vykreslující data apod. Dropthings je n-vrstvá webová aplikace s téměř 100% pokrytím automatizovaných testů ve vrstvě podnikání a 80 % automatizovaných testů uživatelského rozhraní, které pokrývají veškeré chování uživatelského rozhraní. 
+
+Funkce:
+* Internacionalizace – podporována je angličtina, francouzština, španělština a němčina
+* Přizpůsobitelné stránky a pomůcky
+* Přizpůsobení přetažením
+* Architektura pomůcek s mnoha funkcemi
+* Velmi rychlé a plynulé načítání stránek díky ukládání do mezipaměti a pokročilým trikům jazyka JavaScript
+* Architektura entit pro přístup k databázím Snadná podpora jiných databází díky použitému vzoru úložišť 
+* Animace pomocí knihovny jQuery.
+</value>
+  </data>
+  <data name="Entry_wordpressit_Title" xml:space="preserve">
+    <value>WordPress 3.3.1 (italská verze)</value>
+  </data>
+  <data name="Entry_wordpressit_Summary" xml:space="preserve">
+    <value>WordPress 3.3.1 (oficiální italská verze)</value>
+  </data>
+  <data name="Entry_wordpressit_LongSummary" xml:space="preserve">
+    <value>WordPress 3.3.1 (oficiální italská verze)</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Title" xml:space="preserve">
+    <value>YetAnotherForum.NET</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Summary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF) je nejstarší, nejvyspělejší diskusní fórum s nejvíce funkcemi pro weby používající technologii ASP.NET poskytované jako software Open Source (ZDARMA). </value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_LongSummary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF) je nejstarší, nejvyspělejší diskuzní fórum s nejvíce funkcemi pro weby používající technologii ASP.NET poskytované jako software Open Source (ZDARMA). YAF (vyslovováno stejně jako anglické slovo „laugh“ – smích), 100% napsané v C#, představuje jedinečnou kombinaci softwaru Open Source, platformy Microsoft .NET a mezinárodní spolupráce komunity vývojářů v rozhraní .NET. YAF funguje na všech webových serverech s podporou technologie ASP.NET v3.5 SP1 (nebo vyšší) a s nainstalovaným systémem SQL Server 2000 nebo novějším. YAF využívá licence GNU GPL. Některé funkce: # K ovládání používá rozhraní AJAX a knihovnu jQuery.
+# Podpora databází systému Microsoft SQL Server 2005/2008.
+# 100% platný kód XHTML.
+# Izolovaný systém motivů pomocí stylů CSS – nebude v konfliktu s existujícím webem.
+# Skutečná podpora členství, rolí a zprostředkovatele profilů technologie ASP.NET – žádné závislosti.
+# Běží jako uživatelský ovládací prvek (ASCX) v rozhraní .NET – umožňuje jednodušší integraci webu a systému CMS.
+# Chatovací systém s plovoucím panelem.
+# „Thank“ – další uživatelský systém umožňující lepší spolupráci – včetně možnosti vytváření sestav.
+# Individuální uživatelská grafika – systém „Album“ s funkcí automatického vytváření miniatur.
+# Pokročilá podpora avatarů včetně možnosti Gravatar a automatického vytváření miniatur.
+# Uživatelský systém rozšíření „BBCode“ umožňující přidat funkce komunit.
+# Systém dynamických modulů plug-in umožňující rozšíření modulů.
+# Mnoho funkcí SEO včetně dynamicky generovaných značek META v tematických stránkách.</value>
+  </data>
+  <data name="Entry_Tiki_Title" xml:space="preserve">
+    <value>Groupware Tiki Wiki CMS</value>
+  </data>
+  <data name="Entry_Tiki_Summary" xml:space="preserve">
+    <value>Tiki je bezplatná a komplexní webová aplikace s otevřeným zdrojem, která nabízí nástroje pro spolupráci, publikování, obchodování a sociální sítě, systém CRM a kancelářské nástroje.
+</value>
+  </data>
+  <data name="Entry_Tiki_LongSummary" xml:space="preserve">
+    <value>Tiki je výkonná a komplexní webová aplikace, která nabízí nástroje pro spolupráci, publikování, obchodování a sociální sítě, systém CRM a kancelářské nástroje.
+
+Aplikace Tiki představuje ideální nástroj pro tvorbu a udržování webu, wikiwebu, groupwaru, systému CMS, fóra, blogu, nástroje pro sledování chyb, online sady kancelářských nástrojů nebo jiného projektu, který chcete mít spuštěný v okně prohlížeče.
+
+Software Tiki je svobodný a zdarma a je určen pro každého! Nabízí všechny funkce, které potřebujete, a umožňuje jejich okamžité využití:
+Wikiweby (např. Wikipedia)
+Fóra (např. phpBB)
+Blogy (např. WordPress)
+Články (např. Yahoo News)
+Galerie obrázků (např. Flickr)
+Mapový server (např. Google Maps)
+Adresář odkazů (např. DMOZ)
+Vícejazyčné prostředí (např. Babel Fish)
+Sledování chyb (např. Bugzilla)
+Kanály RSS (např. Digg)
+Platby (prostřednictvím služby PayPal)
+Tabulkový kalkulátor, prezentace, kreslení atd.
+Software s otevřeným zdrojem zdarma (licence LGPL)
+
+A další funkce...
+Vše je integrované (jako nikde jinde)
+
+Ať už hledáte cokoli, je pravděpodobné, že v aplikaci Tiki to najdete. Tiki je bezplatná webová aplikace s otevřeným zdrojem, která obsahuje nejvíce integrovaných funkcí.
+
+Aplikace Tiki je založena na těchto technologiích s otevřeným zdrojem:
+Skriptovací jazyk PHP
+Databáze MySQL nebo MariaDB
+Šablony Smarty
+Knihovna jQuery JavaScript
+Rámec Zend
+</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Title" xml:space="preserve">
+    <value>Composite C1 CMS</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Summary" xml:space="preserve">
+    <value>Composite C1 CMS je plnohodnotný bezplatný systém pro správu obsahu webu vyvinutý webovými profesionály pro webové profesionály, který se zaměřuje na přizpůsobené weby.
+
+Vývojáři mohou spravovat rozložení a rozšiřovat systém pomocí technologie ASP.NET Razor, webových formulářů, architektury MVC a jazyka XSLT. Vývojáři rozhraní typu back-end i front-end tak získají široké možnosti a naprostou kontrolu nad vzhledem a použitím webu.</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_LongSummary" xml:space="preserve">
+    <value>Composite C1 CMS je plnohodnotný bezplatný systém pro správu obsahu webu vyvinutý webovými profesionály pro webové profesionály, který se zaměřuje na přizpůsobené weby.
+
+Uživatelské rozhraní je funkční a zaměřené na konkrétní úlohy a umožňuje uživatelům s různými znalostmi plnit úkoly a spolupracovat prostřednictvím známých nástrojů a průvodců. Tvorba webů pomocí systému Composite C1 nevyžaduje rozsáhlé technické schopnosti, pokud je ale máte, systém vám bude ležet u nohou.
+
+Vývojáři mohou spravovat rozložení a rozšiřovat systém pomocí technologie ASP.NET Razor, webových formulářů, architektury MVC a jazyka XSLT. Vývojáři rozhraní typu back-end i front-end tak získají široké možnosti a kontrolu nad vzhledem a použitím webu do nejmenších podrobností.
+
+Jelikož je systém založen na technologii .NET 4, vývojáři mohou využívat nejnovější technologie, připojitelnou a kvalitně navrženou architekturu a rozhraní API a kompletní přístup k datům prostřednictvím jazyka LINQ. Jedná se o flexibilní systém se snadným nastavením, snadnou migrací na systém Windows Azure, podporou dat na základě souborů a systému SQL Server, mnoha bezplatnými a snadno instalovatelnými doplňky a sadou prvotřídních možností (doplňky pro podnikové weby, podpora, služby upgradu, licence s plnou zárukou). To vše dělá ze systému Composite C1 přizpůsobitelný a škálovatelný produkt z hlediska ceny, služeb i rozsahu.
+
+Autoři kladou důraz na kvalitu, dokumentaci a flexibilitu ve spojení s komunitou vývojářů. Všechny hlavní verze systému Composite C1 dosud v hlasování na webu CodePlex získaly hodnocení „nejlepší systém CMS“.</value>
+  </data>
+  <data name="Entry_MonoX_Title" xml:space="preserve">
+    <value>MonoX</value>
+  </data>
+  <data name="Entry_MonoX_Summary" xml:space="preserve">
+    <value>MonoX je snadno použitelná platforma CMS a sociálních sítí pro technologii ASP.NET využívající architekturu Web Parts. Její interaktivní uživatelské rozhraní je kompatibilní s moderními webovými prohlížeči a díky možnosti přetahování položek umožňuje intuitivní interakci s částmi portálu. Kromě 50 vestavěných webových částí podporuje lokalizaci, individuální nastavení, datová úložiště v cloudu, SEO a mnoho dalších pokročilých funkcí.</value>
+  </data>
+  <data name="Entry_MonoX_LongSummary" xml:space="preserve">
+    <value>MonoX je snadno použitelná platforma CMS a sociálních sítí pro technologii ASP.NET využívající architekturu Web Parts. Díky bohaté sadě funkcí, dodržování standardů a snadnému nasazení je portálový stroj MonoX ideální pro malé a střední podniky. Podporuje rovněž scénáře vícenásobného ukládání do mezipaměti, rozšířené individuální nastavení, sítě portálů, infrastrukturu založenou na poskytovateli, datové úložiště v cloudu a podobné funkce vhodné pro velké podniky. Je k dispozici zdarma pro komerční i nekomerční použití. 
+
+MonoX je dodáván s více než 50 základními webovými částmi a kompletní infrastrukturou, vývojáři v rozhraní .NET tedy mohou uživatelsky upravit jak vzhled, tak i funkčnost svých aplikací. Mezi hlavní funkce patří:
+Interaktivní uživatelské rozhraní kompatibilní s moderními webovými prohlížeči, plná podpora architektury ASP.NET Web Parts, plnohodnotná sada komponent potřebných k vytvoření pokročilých sociálních prostředí, dodržování standardů, funkce SEO, 
+škálovatelná a robustní architektura, 
+standardizované moduly typu plug-and-play a otevřené rozhraní API, vysoký výkon, flexibilní datová vrstva a nebývalá snadnost použití. 
+
+Uživatelé bez technického zázemí mohou spravovat většinu aspektů funkčního portálu. MonoX využívá standardní editory WYSIWYG, správce souborů napodobuje vzhled a funkčnost standardního průzkumníka Windows apod. Plně podporuje nástroje pro úpravy offline založené na rozhraní API MetaWeblog včetně programu Microsoft Windows Live Writer. 
+</value>
+  </data>
+  <data name="Entry_MODxEvolution_Title" xml:space="preserve">
+    <value>MODx CMS</value>
+  </data>
+  <data name="Entry_MODxEvolution_Summary" xml:space="preserve">
+    <value>MODx Evolution je jednoduchá platforma pro správu obsahu v jazyce PHP poskytovaná jako software Open Source. Webovým vývojářům nabízí naprostou svobodu – umožňuje jim použít libovolný představitelný návrh. Vývojáři mohou bez omezení rozšiřovat nebo přidávat téměř jakoukoli požadovanou funkci. Vytváří snadno spravovatelné weby pro správce i redaktory – poskytuje jim přesně ty nástroje, které potřebují k aktualizaci svého webu.</value>
+  </data>
+  <data name="Entry_MODxEvolution_LongSummary" xml:space="preserve">
+    <value>MODx Evolution patří mezi nejčastěji nasazované aplikace v jazyce PHP poskytované jako software Open Source. MODx lze použít jako typický systém správy obsahu i jako platformu pro podstatně komplexnější webové aplikace. Webovým vývojářům nabízí naprostou svobodu – umožňuje jim použít libovolný představitelný návrh. Vývojáři mohou bez omezení rozšiřovat nebo přidávat téměř jakoukoli požadovanou funkci. Rozhraní správy lze kompletně upravit na míru tak, aby správci webu i redaktoři měli k dispozici přesně ty nástroje, které potřebují pro snadnou a bezbolestnou správu webu.
+
+MODx Evolution disponuje velkým počtem základních rozšíření i rozšíření vytvořených uživateli, která rozšiřují funkčnost a na kterých mohou vývojáři založit nové funkce.
+
+Platformu MODx podporuje její stále se rozrůstající komunita uživatelů ve fórech MODx. Skvělá komunita MODx patří mezi její nejdůležitější součásti. Členové komunity si vzájemně pomáhají a sdílejí mezi sebou informace – přicházejí s novými nápady, tipy, triky nebo pomáhají řešit i ty nejjednodušší potíže.</value>
+  </data>
+  <data name="Entry_Kartris_Title" xml:space="preserve">
+    <value>Kartris</value>
+  </data>
+  <data name="Entry_Kartris_Summary" xml:space="preserve">
+    <value>Kartris je online obchod vytvořený pomocí technologie ASP.NET (vb) připravený k okamžitému nasazení. Díky instalačnímu průvodci je počáteční nastavení přehledné.
+
+Uživatelsky přívětivý server back-end zahrnuje navigaci v katalogu produktů s využitím stromové struktury.
+
+Pro stránky, ovládací prvky, hlavní stránky a vrstvu obchodní logiky (BLL) je poskytován úplný zdrojový kód.
+
+Zahrnuje podporu platebních bran 2checkout, Sagepay, Paypal, Worldpay a Google Checkout.</value>
+  </data>
+  <data name="Entry_Kartris_LongSummary" xml:space="preserve">
+    <value>Aplikace Kartris je bezplatný online obchod vytvořený pomocí technologie ASP.NET (vb) připravený k okamžitému nasazení. Díky instalačnímu průvodci je počáteční nastavení přehledné a ovládací panel serveru back-end umožňuje změnu stovek nastavení bez nutnosti měnit kód.
+
+Katris využívá malé a nenáročně zkompilované jádro, které poskytuje základní funkce, zatímco stránky, ovládací prvky, hlavní stránky a vrstva obchodní logiky (BLL) jsou poskytovány v podobě úplného zdrojového kódu. 
+
+Je poskytována vícejazyčná podpora, včetně nezápadních jazyků (např. arabština, čínština).
+
+Běží na úrovni Medium Trust, kterou využívá většina sdílených hostingů, takže nebudete potřebovat vyhrazený server. 
+
+Zahrnuje podporu platebních bran 2checkout, Sagepay, Paypal, Worldpay a Google Checkout. Díky modulárnímu návrhu lze do aplikace Kartris nainstalovat další platební brány jako moduly plug-in. Je zahrnuta podpora zásilkových služeb UPS a USPS.
+
+Integrovaný konfigurátor produktů – Lze vytvořit základní produkt, například notebook, a přidat k němu různá rozšíření s různými cenami (upgrade OS, upgrade paměti apod.). Když uživatel provede změny těchto možností, změní se v reálném čase i uvedené ceny.
+
+Zahrnuje integrovanou podporu videa a dalších galerií médií. 
+
+Součástí aplikace jsou vynikající funkce SEO – adresy URL vhodné pro SEO, vlastní názvy stránek, vlastní značky META pro každý produkt a mapy webu Google. 
+
+Bezplatná verze podporuje weby s maximálně 500 produkty. Pro uživatele požadující větší katalog a placenou podporu je k dispozici komerční upgrade. Aplikace Kartris je optimalizována tak, aby umožňovala práci s velkými katalogy produktů – je využívána fungujícími weby, které obsahují milion a více produktů.</value>
+  </data>
+  <data name="Entry_N2CMS_Title" xml:space="preserve">
+    <value>N2 CMS 2.1 Edice MVC</value>
+  </data>
+  <data name="Entry_N2CMS_Summary" xml:space="preserve">
+    <value>Šablony MVC ASP.NET pro architekturu N2 CMS</value>
+  </data>
+  <data name="Entry_N2CMS_LongSummary" xml:space="preserve">
+    <value>Architektura CMS obohacená o balíček šablon s mnoha funkcemi v intuitivním rozhraní webové správy s nejúčinnějším a uživatelsky nejpřívětivějším modelem známým v oblasti rozhraní .NET.</value>
+  </data>
+  <data name="Entry_phpBB_Title" xml:space="preserve">
+    <value>phpBB</value>
+  </data>
+  <data name="Entry_phpBB_Summary" xml:space="preserve">
+    <value>Systém phpBB™ se od svého vytvoření v roce 2000 stal nejrozšířenějším řešením pro diskusní fóra poskytovaným jako software Open Source. Systém phpBB™ 3.0 „Olympus“, stejně jako jeho předchůdci, obsahuje snadno použitelný panel pro správu a uživatelsky přívětivý postup instalace, který umožňuje vytvořit fórum během pouhých několika minut.</value>
+  </data>
+  <data name="Entry_phpBB_LongSummary" xml:space="preserve">
+    <value>Systém phpBB používají denně miliony lidí, což z něj činí nejrozšířenější systém BBS poskytovaný jako software Open Source na světě. Bez ohledu na to, zda chcete být v kontaktu s malou skupinou přátel, nebo se chystáte vytvořit velké fórum obsahující mnoho kategorií určené pro podnikový web, systém phpBB vám poskytne funkce, které ve svém fóru potřebujete.
+
+Noví uživatelé ocení na systému phpBB propracovaný panel pro správu, který poskytuje možnosti vlastního nastavení i pro nejsložitější funkce bez nutnosti přímých úprav kódu. Pro pokročilé uživatele bude mít velký význam možnost snadné integrace systému phpBB do stávajících systémů.</value>
+  </data>
+  <data name="Entry_Moodle_Title" xml:space="preserve">
+    <value>Moodle</value>
+  </data>
+  <data name="Entry_Moodle_Summary" xml:space="preserve">
+    <value>Moodle je systém pro správu vzdělávacího procesu (Learning Management System) poskytující lektorům propracovanou sadu nástrojů, které umožní vytvořit dynamické online kurzy. Systém Moodle je poskytován jako software Open Source vytvářený obrovskou celosvětovou komunitou.</value>
+  </data>
+  <data name="Entry_Moodle_LongSummary" xml:space="preserve">
+    <value>Moodle je systém pro správu vzdělávacího procesu (Learning Management System) poskytující lektorům nástroje zahrnující zdroje, fóra, kvízy, zadávání úkolů, výuku předmětů, průzkumy, hlasování, shromažďování dat, lekce, wikiweby a projekty umožňující lektorům vytvářet webové kurzy týkající se libovolných témat a následně zvát studenty do těchto kurzů.  Systém Moodle obsahuje mnoho funkcí pro správu, jako jsou skupiny, třídní knihy, písemné zprávy, vlastní role, import, export, archivace, platby a integrace s mnoha systémy.   Systém Moodle je software založený na jazyce PHP, běží však na téměř každé platformě a s většinou druhů databází.</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Title" xml:space="preserve">
+    <value>SugarCRM – balíček japonské verze</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Summary" xml:space="preserve">
+    <value>SugarCRM je softwarová aplikace řízení vztahů se zákazníky (CRM) poskytovaná jako software Open Source. Zdarma poskytuje různé důležité funkce řízení vztahů se zákazníky (CRM), včetně funkcí umožňujících vytvořit databázi zákazníků, distribuovat zákazníkům e-maily a importovat dotazy zákazníků do databáze.</value>
+  </data>
+  <data name="Entry_SugarCRMJa_LongSummary" xml:space="preserve">
+    <value>SugarCRM je softwarová aplikace řízení vztahů se zákazníky (CRM) poskytovaná jako software Open Source. Zdarma poskytuje různé důležité funkce řízení vztahů se zákazníky (CRM), včetně funkcí umožňujících vytvořit databázi zákazníků, distribuovat zákazníkům e-maily a importovat dotazy zákazníků do databáze.  Platforma SugarCRM je vysoce škálovatelná. Pomocí nástrojů Module Builder dostupných na obrazovce správy mohou vývojáři a uživatelé přizpůsobit datová pole a vytvářet vlastní databáze bez nutnosti psaní kódu programu. Další podrobnosti naleznete na stránce http://sugarforum.jp/ obsahující Uživatelskou příručku platformy SugarCRM (stránka je v japonštině).</value>
+  </data>
+  <data name="NewWebApplication" xml:space="preserve">
+    <value>NewWebApplication</value>
+  </data>
+  <data name="Entry_Kentico_Title" xml:space="preserve">
+    <value>Kentico CMS pro technologii ASP.NET </value>
+  </data>
+  <data name="Entry_Kentico_Summary" xml:space="preserve">
+    <value>Kentico CMS je webový podnikový systém správy obsahu a systém správy uživatelského rozhraní, který nabízí kompletní sadu funkcí pro tvorbu webů, intranetů, komunitních webů a řešení elektronického obchodování na platformě Microsoft ASP.NET, a to jak místně, tak v rámci cloudu.  </value>
+  </data>
+  <data name="Entry_Kentico_LongSummary" xml:space="preserve">
+    <value>Kentico CMS je webový podnikový systém správy obsahu a systém správy uživatelského rozhraní, který nabízí kompletní sadu funkcí pro tvorbu webů, intranetů, komunitních webů a řešení elektronického obchodování na platformě Microsoft ASP.NET, a to jak místně, tak v rámci cloudu. 
+
+Podporuje mobilní weby, optimalizaci pro vyhledávací weby (SEO), správu dokumentů, online marketingové nástroje, vícejazyčné weby a správu více webů a dodává se společně se 70 moduly, 400 nastavitelnými webovými součástmi a dostupným zdrojovým kódem.
+
+Aktuálně jej využívá více než 15 000 webů v 87 zemích. Mezi významné klienty patří společnosti Microsoft, Chiquita, Vodafone, O2, Orange, Brussels Airlines, Mazda, Ford, Subaru, Isuzu, Samsung, Gibson, ESPN, Guinness, DKNY, Abbott Labs, Medibank, web Ireland.ie a další.</value>
+  </data>
+  <data name="Entry_DasBlog_Title" xml:space="preserve">
+    <value>DasBlog</value>
+  </data>
+  <data name="Entry_DasBlog_Summary" xml:space="preserve">
+    <value>dasBlog je aplikace blogu využívající technologii ASP.NET. Aplikace dasBlog, která běží na technologii ASP.NET 2.0 a vyšší verzi, nevyžaduje databázi. Díky tomu je snadněji nastavitelná a postačuje pro ni levnější hosting. Vše, co aplikace dasBlog vyžaduje, je udělení oprávnění k zápisu do složky, aby mohla ukládat informace ve formátu XML.</value>
+  </data>
+  <data name="Entry_DasBlog_LongSummary" xml:space="preserve">
+    <value>dasBlog je aplikace blogu využívající technologii ASP.NET. Aplikace dasBlog běží na technologii ASP.NET 2.0 a vyšší verzi a je vyvinuta v jazyce C#. Aplikace dasBlog nevyžaduje databázi. Díky tomu je snadněji nastavitelná a postačuje pro ni levnější hosting. Vše, co aplikace dasBlog vyžaduje, je udělení oprávnění k zápisu do složky, aby mohla ukládat informace ve formátu XML. Podporuje mnoho světových jazyků, obsahuje model rozšiřitelnosti a umožňuje snadnou změnu skinu a motivu.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Title" xml:space="preserve">
+    <value>BlogEngine.NET</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Summary" xml:space="preserve">
+    <value>BlogEngine.NET je plnohodnotná platforma blogu napsaná v jazyce ASP.NET, která je poskytována jako software Open Source.  Platforma BlogEngine.NET je snadno přizpůsobitelná a je pro ni k dispozici ke stažení mnoho motivů, pomůcek a rozšíření.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET je projekt blogu napsaný v jazyce ASP.NET, který je poskytován jako software Open Source. Tato platforma vznikla na základě požadavků na lepší platformu blogu. Zaměřili jsme se na jednoduchost, snadnou rozšiřitelnost a inovativní funkce s využitím nejnovějších funkcí platformy .NET. Platforma BlogEngine.NET je snadno přizpůsobitelná. K dispozici ke stažení je mnoho motivů, pomůcek a rozšíření. Máte-li základní znalosti platformy .NET, můžete dokonce vytvářet vlastní rozšíření.  Platforma BlogEngine.NET usnadňuje tvorbu blogů, jejichž vzhled a funkce budou přesně odpovídat požadavkům uživatelů.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Title" xml:space="preserve">
+    <value>Acquia Drupal 7</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Summary" xml:space="preserve">
+    <value>Systém Acquia Drupal 7 poskytuje nejrychlejší cestu do světa vytváření dynamických webů a webů sociálních sítí zobrazujících jak obsah dodávaný redaktory, tak i obsah vytvářený samotnými uživateli.  Obsahuje jádro systému Drupal a oblíbené moduly.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_LongSummary" xml:space="preserve">
+    <value>Systém Acquia Drupal 7 poskytuje nejrychlejší cestu do světa vytváření dynamických webů a webů sociálních sítí zobrazujících jak obsah dodávaný redaktory, tak i obsah vytvářený samotnými uživateli. Bez ohledu na to, zda vytváříte veřejný, nebo privátní web, systém Acquia Drupal 7 vám umožní využít principy publikování v sociálních sítích, a změnit tak návštěvníky na aktivní účastníky. Systém Acquia Drupal spojuje jádro systému Drupal se sadou oblíbených modulů a přístupem ke službám a podpoře sítě Acquia Network. Díky tisícům modulů dostupných jako software Open Source můžete dát sbohem všem omezením.</value>
+  </data>
+  <data name="Entry_WordPress_Title" xml:space="preserve">
+    <value>WordPress</value>
+  </data>
+  <data name="Entry_WordPress_Summary" xml:space="preserve">
+    <value>WordPress je nejmodernější platforma pro publikování zaměřená na estetiku, webové standardy a použitelnost.</value>
+  </data>
+  <data name="Entry_WordPress_LongSummary" xml:space="preserve">
+    <value>Systém WordPress byl uveden v roce 2003 a obsahoval pouze malou část kódu, která měla zdokonalit typografii v pravidelně publikovaných textech. Počet uživatelů se v té době dal spočítat na prstech ruky. Od té doby se však tento systém stal největším nástrojem pro blogování využívajícím vlastní hosting na světě. Důkazem jsou statisíce webů s celkovou každodenní návštěvností desítek milionů uživatelů.</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Title" xml:space="preserve">
+    <value>WordPress – tchaj-wanská verze</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Summary" xml:space="preserve">
+    <value>WordPress je platforma pro blogy, respektive systém správy obsahu (CMS) poskytovaný jako software Open Source. Zároveň jde o platformu pro osobní publikování zaměřenou na estetiku, webové standardy a použitelnost. Systém WordPress byl uveden v roce 2003. V té době obsahoval pouze malou část jednoduchého kódu a pouze několik uživatelů (jejich počet se v té době dal spočítat na prstech ruky).</value>
+  </data>
+  <data name="Entry_WordPressZhTw_LongSummary" xml:space="preserve">
+    <value>WordPress je platforma pro blogy, respektive systém správy obsahu (CMS) poskytovaný jako software Open Source. Zároveň jde o platformu pro osobní publikování zaměřenou na estetiku, webové standardy a použitelnost. Systém WordPress byl uveden v roce 2003. V té době obsahoval pouze malou část jednoduchého kódu a pouze několik uživatelů (jejich počet se v té době dal spočítat na prstech ruky). Uživatelé spoléhali na to, že tyto jednoduché kódy zajistí pohodlí při každodenním psaní a publikování. Od té doby se systém WordPress stal nejefektivnějším a nejoblíbenějším nástrojem pro vytváření osobních webů na světě. Využívají ho desetitisíce webů. Jak vidíte, vše bylo vytvořeno pouhou skupinou lidí – od související dokumentace, až po kódy. Systém WordPress je poskytován jako software Open Source, což znamená že se jeho zdokonalování věnují denně stovky lidí z celého světa. Počet lidí pracujících na tomto projektu mnohonásobně převyšuje počty vývojářů většiny komerčních platforem. Zároveň to znamená, že ho můžete používat zcela zdarma. Za žádnou součást nemusíte zaplatit ani halíř – bez ohledu na to, zda vytváříte domovskou stránku vaší kočky, nebo firemní web mezinárodní korporace. Vše je zdarma. O systému WordPress Taiwan Vývoj systému WordPress Taiwan (tradiční čínština) byl zahájen v listopadu roku 2008. Idea tohoto projektu vznikla v květnu roku 2008. Web je zaměřen především na propagaci systému WordPress a poskytování souvisejících informací, včetně správy tradiční čínštiny v systému WordPress, lokalizace dokumentů a podpory služby prostřednictvím fóra.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Title" xml:space="preserve">
+    <value>SilverStripe CMS</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Summary" xml:space="preserve">
+    <value>Moderní a uživatelsky přívětivý systém správy obsahu (CMS). Umožňuje rozšíření vývojáři webů prostřednictvím architektury PHP.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_LongSummary" xml:space="preserve">
+    <value>SilverStripe je moderní programovací architektura a systém správy obsahu (CMS) pro tvorbu a údržbu webů poskytovaná jako software Open Source. Poskytuje intuitivní webový panel pro správu, který umožňuje udržovat weby i uživatelům bez znalosti značkovacích nebo programovacích jazyků.</value>
+  </data>
+  <data name="Entry_Mayando_Title" xml:space="preserve">
+    <value>Mayando</value>
+  </data>
+  <data name="Entry_Mayando_Summary" xml:space="preserve">
+    <value>Mayando je plnohodnotná aplikace pro blogy zaměřené na fotografie, kterou lze využít k online prezentaci fotografií.</value>
+  </data>
+  <data name="Entry_Mayando_LongSummary" xml:space="preserve">
+    <value>Aplikace Mayando poskytuje bohatý a interaktivní web, umožňující prezentovat fotografie z externího zdroje, jakým je například služba Flickr. Podporuje fotografie se značkami a komentáři, fotogalerie, prezentace, statické stránky, informační kanály syndikace, formuláře kontaktů, ochranu před spamem v komentářích a možnost použití různých vizuálních motivů.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Title" xml:space="preserve">
+    <value>ScrewTurn Wiki 3.0</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Summary" xml:space="preserve">
+    <value>ScrewTurn Wiki umožňuje vytvářet, spravovat a sdílet wikiweby. Aplikace je založena na technologii ASP.NET 3.5 a může být dále rozšiřována a přizpůsobována prostřednictvím modulů plug-in a motivů.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_LongSummary" xml:space="preserve">
+    <value>ScrewTurn Wiki umožňuje vytvářet, spravovat a sdílet wikiweby. Aplikace je založena na technologii ASP.NET 3.5 a může být dále rozšiřována a přizpůsobována prostřednictvím mnoha modulů plug-in a motivů. Může ukládat data pomocí jednoduchého integrovaného zprostředkovatele systému souborů. Pokud však požadujete vyšší výkon a škálovatelnost, můžete použít také systém SQL Server.
+
+Systém ScrewTurn Wiki podporuje revize stránek, vrácení zpět, koncepty, přílohy, zjednodušené sdílení souborů a rozšířenou konfiguraci oprávnění.</value>
+  </data>
+  <data name="Entry_mojoPortal_Title" xml:space="preserve">
+    <value>mojoPortal</value>
+  </data>
+  <data name="Entry_mojoPortal_Summary" xml:space="preserve">
+    <value>Snadno použitelný přístupný systém správy obsahu (CMS) vhodný i pro mobilní zařízení a architektura pro webové aplikace pro technologii ASP.NET vyhovující standardům. Poskytuje funkci blogů, diskusních fór, kalendářů událostí, bulletinů, map, elektronického obchodování a další.</value>
+  </data>
+  <data name="Entry_mojoPortal_LongSummary" xml:space="preserve">
+    <value>Systém mojoPortal, který obsahuje bohatou škálu funkcí a je uzpůsoben pro mobilní zařízení, je rozšiřitelný a snadno použitelný systém správy obsahu (CMS) a architektura webových aplikací napsaná v jazyce C# ASP.NET. Zahrnuje blogy, fóra, kalendáře, službu Mapy Google/Bing, formuláře kontaktů, bulletiny, ankety, průzkumy, elektronické obchodování a další funkce.  Dokážete-li vytvořit uživatelské ovládací prvky technologie ASP.NET, pak již víte, jak implementovat funkci.  Systém mojoPortal podporuje systémy MS SQL 2005/2008/SqlAzure, SQL CE, MySql, PostgreSql, SQLite a Firebird Sql a klade velký důraz na webové standardy a přístupnost. Systém mojoPortal využívá přehledné šablony stylů CSS a běží na úrovni Medium Trust.</value>
+  </data>
+  <data name="Entry_KoobooCMS_Title" xml:space="preserve">
+    <value>Kooboo CMS</value>
+  </data>
+  <data name="Entry_KoobooCMS_Summary" xml:space="preserve">
+    <value>Kooboo je flexibilní a rozšiřitelný systém správy obsahu (CMS) založený na rozhraní ASP.NET MVC. Systém Kooboo pomáhá se všemi běžnými úkoly souvisejícími s vývojem webů. Zahrnuje také mnoho podnikových funkcí, jako jsou pracovní postupy, správa verzí, publikování a služba integrace. Můžete snadno vytvořit profesionální dynamický web, aniž byste museli mít znalosti kódování databází.</value>
+  </data>
+  <data name="Entry_KoobooCMS_LongSummary" xml:space="preserve">
+    <value>Kooboo je flexibilní a rozšiřitelný systém správy obsahu (CMS) založený na rozhraní ASP.NET MVC. Systém Kooboo pomáhá se všemi běžnými úkoly souvisejícími s vývojem webů. Zahrnuje také mnoho podnikových funkcí, jako jsou pracovní postupy, správa verzí, publikování a služba integrace. Můžete snadno vytvořit profesionální dynamický web, aniž byste museli mít znalosti kódování databází. Vývoj modulů pro systém Kooboo je stejný jako vývoj běžných webů s využitím rozhraní ASP.NET MVC – téměř bez omezení. Aplikace využívající rozhraní ASP.NET MVC mohou být pomocí jednoduchých úprav převedeny na moduly systému Kooboo.</value>
+  </data>
+  <data name="Entry_nService_Title" xml:space="preserve">
+    <value>nService</value>
+  </data>
+  <data name="Entry_nService_Summary" xml:space="preserve">
+    <value>Software pro helpdesk a podporu, který organizacím pomáhá při poskytování podpory a služeb zaměstnancům a zákazníkům. Tato bezplatná edice umožňuje souběžné připojení jednoho technika a neomezeného počtu koncových uživatelů.</value>
+  </data>
+  <data name="Entry_nService_LongSummary" xml:space="preserve">
+    <value>Software nService poskytuje snadno použitelný webový helpdesk a podporu. Koncoví uživatelé navštíví samoobslužný portál nápovědy, kde mohou hledat ve znalostní bázi, odesílat požadavky na služby nebo zkontrolovat svůj stav. Servisní technici použijí web k publikování znalostí, vystavování seznamů požadavků na služby, jejich přiřazování, odpovídání na ně a jejich řešení a uzavírání. Manažeři tento web využívají ke správě požadavků, servisních techniků a analýze statistik. 
+
+Další funkce zahrnují integraci e-mailu, přizpůsobitelné webové stránky, sestavy, správu několika služeb, katalog produktů, správu majetku, fakturaci služeb, smlouvu o úrovni služeb, pracovní postup požadavků, integraci služby Active Directory a další.
+
+Tato bezplatná edice umožňuje souběžné připojení jednoho technika a neomezeného počtu koncových uživatelů. Technici jsou uživatelé, kteří odpovídají na dotazy ostatních uživatelů. Počet uživatelů a techniků, které můžete vytvořit a uložit a v databázi, není omezen. </value>
+  </data>
+  <data name="Entry_galleryserverpro_Title" xml:space="preserve">
+    <value>Gallery Server Pro</value>
+  </data>
+  <data name="Entry_galleryserverpro_Summary" xml:space="preserve">
+    <value>Efektivní a snadno použitelná galerie pro libovolný web založená na platformě .NET. Sdílejte a spravujte soubory fotografií, videí, zvuku a další soubory na webu. Galerie automaticky kóduje videosoubory a zvukové soubory do formátů vhodných pro web. Podporuje metadata EXIF/IPTC, vodoznaky, zabezpečení uživatelů, vyhledávání a galerie komunit. Umožňuje snadné otáčení, změnu uspořádání a přidávání titulků k objektům. Automatické vytváření náhledů.</value>
+  </data>
+  <data name="Entry_galleryserverpro_LongSummary" xml:space="preserve">
+    <value>Platforma Gallery Server Pro je efektivní a snadno použitelná galerie pro libovolný web založená na platformě .NET a poskytovaná jako software Open Source. Sdílejte a spravujte soubory fotografií, videí, zvuku a další soubory na webu. K uspořádání souborů médií do alb, která lze snadno přidávat, upravovat, odstraňovat, otáčet, přeuspořádávat, kopírovat a přesunovat, můžete použít libovolný webový prohlížeč. Pomocí funkcí umožňujících synchronizovat a odesílat soubory ZIP jedním kliknutím snadno přidáte tisíce souborů. Automaticky jsou vytvářeny miniatury a komprimované verze. Obsahuje podporu pro galerie komunit s nulovou údržbou. Efektivní zabezpečení uživatelů s využitím flexibilních možností nastavení na úrovni alb. Extrakce metadat. Integrovaná podpora pro přehrávání souborů DIVX, Flash, Silverlight a dalších souborů vide a zvuku. Soubory PDF, HTML, MHT a textové soubory jsou zobrazeny v okně prohlížeče. Integrovaná funkce vyhledávání. Přidávání vodoznaků k obrázkům s využitím vlastního textu a obrázků. Podpora jazyka AJAX za účelem dosažení rychlejšího uživatelského rozhraní. Podporuje integraci se službou Active Directory. 100% spravovaný kód napsaný v jazyce C# s využitím technologie ASP.NET 4.0. Bezplatný software typu Open Source vydávaný v rámci licence GNU General Public License. Platforma Gallery Server Pro je software na profesionální úrovni navržený tak, aby fungoval velmi rychle i při velkém zatížení serveru. Propracovaná příručka pro správce poskytuje pokyny pro provoz.
+
+NOVINKY VE VERZI 2.6: Kódování videozáznamů a zvukových záznamů. Zdokonalené ukládání souborů. Až 15× vyšší výkon databáze. Opravy mnoha a chyb a další zdokonalení!
+
+NOVINKY VE VERZI 2.6.1: Až o 50 % rychlejší synchronizace a opravy mnoha chyb.</value>
+  </data>
+  <data name="Entry_Sitefinity_Title" xml:space="preserve">
+    <value>Sitefinity Community Edition</value>
+  </data>
+  <data name="Entry_Sitefinity_Summary" xml:space="preserve">
+    <value>Sitefinity je plnohodnotný systém správy obsahu (CMS) založený na architektuře ASP.NET MVC s neomezenou pružností, intuitivním uživatelským rozhraním, živoucí komunitou s více než 900 000 členy a tržištěm rozšíření třetích stran.</value>
+  </data>
+  <data name="Entry_Sitefinity_LongSummary" xml:space="preserve">
+    <value>Systém správy obsahu Sitefinity využívá vývojové vzory technologie .NET 4.0, které vývojáři pracující s technologiemi společnosti Microsoft dobře znají. Systém Sitefinity poskytuje pohodlné rozhraní pro vizuální tvorbu webových stránek pomocí přetahování. Systém je zcela otevřený a veškerý jeho obsah je exponován v podobě služeb založených na architektuře REST a dynamického rozhraní API, což usnadňuje jeho programovatelnost. Systém Sitefinity lze snadno integrovat s externími webovými aplikacemi, systémy CRM a marketingovými nástroji a použít jako základ celého webového podnikání.</value>
+  </data>
+  <data name="Entry_XpressEngine_Title" xml:space="preserve">
+    <value>XpressEngine</value>
+  </data>
+  <data name="Entry_XpressEngine_Summary" xml:space="preserve">
+    <value>Efektivní systém správy obsahu (CMS) poskytovaný jako software Open Source se stovkou modulů plug-in nabízí nekonečné možnosti.</value>
+  </data>
+  <data name="Entry_XpressEngine_LongSummary" xml:space="preserve">
+    <value>XE je systém správy obsahu (CMS) poskytovaný jako software Open Source. Je obdobou systémů Drupal a Joomla. XE umožňuje snadno vytvářet weby pro komunity, podniky, elektronické obchodování a osobní weby. Systém XE používají stovky tisíc uživatelů a komunita vývojářů poskytuje široký výběr doplňkových funkcí: různé textové editory, podporu e-mailu a zpráv SMS a možnost propojení se službami Twitter, Flickr a YouTube.</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Summary" xml:space="preserve">
+    <value>Obecná aplikace PHP pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericPHP53App_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace PHP pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Summary" xml:space="preserve">
+    <value>Obecná aplikace PHP pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace PHP pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Summary" xml:space="preserve">
+    <value>Obecná aplikace Node.js pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericNodeApp_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace Node.js pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Summary" xml:space="preserve">
+    <value>Obecná aplikace Node.js pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace Node.js pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Title" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Summary" xml:space="preserve">
+    <value>Obecná aplikace ASP.NET 4 pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace ASP.NET 4 pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericApp_Title" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="Entry_GenericApp_Summary" xml:space="preserve">
+    <value>Obecná aplikace pro zjišťování</value>
+  </data>
+  <data name="Entry_GenericApp_LongSummary" xml:space="preserve">
+    <value>Obecná aplikace pro zjišťování</value>
+  </data>
+  <data name="Keyword_Blogs" xml:space="preserve">
+    <value>Blogy</value>
+  </data>
+  <data name="Keyword_ContentMgmt" xml:space="preserve">
+    <value>Systém správy obsahu (CMS)</value>
+  </data>
+  <data name="Keyword_eCommerce" xml:space="preserve">
+    <value>Elektronické obchodování</value>
+  </data>
+  <data name="Keyword_Galleries" xml:space="preserve">
+    <value>Galerie</value>
+  </data>
+  <data name="Keyword_Tools" xml:space="preserve">
+    <value>Nástroje</value>
+  </data>
+  <data name="Keyword_Wiki" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="Keyword_Forums" xml:space="preserve">
+    <value>Fóra</value>
+  </data>
+  <data name="Keyword_ASPNET" xml:space="preserve">
+    <value>ASP.NET</value>
+  </data>
+  <data name="Keyword_ASPNET4" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Keyword_PHP" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Keyword_SQL" xml:space="preserve">
+    <value>SQL Server</value>
+  </data>
+  <data name="Keyword_MySQL" xml:space="preserve">
+    <value>MySql</value>
+  </data>
+  <data name="Keyword_VistaDB" xml:space="preserve">
+    <value>VistaDB</value>
+  </data>
+  <data name="Keyword_SQLite" xml:space="preserve">
+    <value>SQLite</value>
+  </data>
+  <data name="Keyword_FlatFile" xml:space="preserve">
+    <value>Plochý soubor</value>
+  </data>
+  <data name="Keyword_SQLCE" xml:space="preserve">
+    <value>SQL Server CE</value>
+  </data>
+  <data name="Keyword_AzureReady" xml:space="preserve">
+    <value>Nástroje systému Azure</value>
+  </data>
+  <data name="Keyword_KatalReady" xml:space="preserve">
+    <value>Podpora rozhraní Katal</value>
+  </data>
+  <data name="Keyword_Templates" xml:space="preserve">
+    <value>Šablony</value>
+  </data>
+</root>
