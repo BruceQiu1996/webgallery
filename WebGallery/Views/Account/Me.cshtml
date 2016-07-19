@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
-    <h2>My Contact Information</h2>
-    <p>Thank you for your interest in the Web App Gallery. In order to list your application in the Gallery we need your contact information so that Microsoft or our vendors may contact you during the review of your submission.</p>
+    <h2>@Resources.AccountMe.AboutMeTitle</h2>
+    <p>@Resources.AccountMe.AboutMeIntroMsg</p>
 
     <div class="contact-detail-form">
         @using (Html.BeginRouteForm(SiteRouteNames.Profile, FormMethod.Post, new { @id = "publisherdetailsform" }))
@@ -15,67 +15,67 @@
             @Html.HiddenFor(model => model.ReturnUrl)
 
             <div class="contact-detail-field">
-                @Html.DropDownListFor(model => model.ContactDetail.Prefix, new List<SelectListItem> { new SelectListItem { Text = "Prefix" }, new SelectListItem { Text = "Mr." }, new SelectListItem { Text = "Mrs." }, new SelectListItem { Text = "Ms." }, new SelectListItem { Text = "Miss" }, new SelectListItem { Text = "Dr." } }, htmlAttributes: new { @class = "dropdown-narrow dd-prefix" })
+                @Html.DropDownListFor(model => model.ContactDetail.Prefix, new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Mr.", Text = Resources.AccountMe.PrefixMrText }, new SelectListItem { Value = "Mrs.", Text = Resources.AccountMe.PrefixMrsText }, new SelectListItem { Value = "Ms.", Text = Resources.AccountMe.PrefixMsText }, new SelectListItem { Value = "Miss", Text = Resources.AccountMe.PrefixMissText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } }, htmlAttributes: new { @class = "dropdown-narrow dd-prefix" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("First Name", htmlAttributes: new { @class = "textbox-label", })
-                @Html.EditorFor(model => model.ContactDetail.FirstName, new { htmlAttributes = new { @class = "textbox", placeholder = "First Name" } })
+                @Html.Label(Resources.AccountMe.FirstNameLabel, htmlAttributes: new { @class = "textbox-label", })
+                @Html.EditorFor(model => model.ContactDetail.FirstName, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.FirstNameLabel } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.FirstName, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Middle Name", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.MiddleName, new { htmlAttributes = new { @class = "textbox", placeholder = "Middle Name" } })
+                @Html.Label(Resources.AccountMe.MiddleNameLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.MiddleName, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.MiddleNameLabel } })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Last Name", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.LastName, new { htmlAttributes = new { @class = "textbox", placeholder = "Last Name" } })
+                @Html.Label(Resources.AccountMe.LastNameLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.LastName, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.LastNameLabel } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.LastName, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.DropDownListFor(model => model.ContactDetail.Suffix, new List<SelectListItem> { new SelectListItem { Text = "Suffix" }, new SelectListItem { Text = "Jr." }, new SelectListItem { Text = "Sr." } }, htmlAttributes: new { @class = "dropdown-narrow dd-suffix" })
+                @Html.DropDownListFor(model => model.ContactDetail.Suffix, new List<SelectListItem> { new SelectListItem { Value = "Suffix", Text = Resources.AccountMe.SuffixDefaultText }, new SelectListItem { Value = "Jr.", Text = Resources.AccountMe.SuffixJrText }, new SelectListItem { Value = "Sr.", Text = Resources.AccountMe.SuffixSrText } }, htmlAttributes: new { @class = "dropdown-narrow dd-suffix" })
             </div>
             <br />
 
             <div class="contact-detail-field">
-                @Html.Label("Title", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.Title, new { htmlAttributes = new { @class = "textbox", placeholder = "Title" } })
+                @Html.Label(Resources.AccountMe.TitleLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.Title, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.TitleLabel } })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("eMail", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.EMail, new { htmlAttributes = new { @class = "textbox", placeholder = "eMail" } })
+                @Html.Label(Resources.AccountMe.eMailLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.EMail, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.eMailLabel } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.EMail, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Address 1", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.Address1, new { htmlAttributes = new { @class = "textbox", placeholder = "Address 1" } })
+                @Html.Label(Resources.AccountMe.Address1Label, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.Address1, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.Address1Label } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.Address1, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Address 2", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.Address2, new { htmlAttributes = new { @class = "textbox", placeholder = "Address 2" } })
+                @Html.Label(Resources.AccountMe.Address2Label, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.Address2, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.Address2Label } })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Address 3", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.Address3, new { htmlAttributes = new { @class = "textbox", placeholder = "Address 3" } })
+                @Html.Label(Resources.AccountMe.Address3Label, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.Address3, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.Address3Label } })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("City", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.City, new { htmlAttributes = new { @class = "textbox", placeholder = "City" } })
+                @Html.Label(Resources.AccountMe.CityLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.City, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.CityLabel } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.City, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("Country", htmlAttributes: new { @class = "textbox-label" })
-                @Html.DropDownListFor(model => model.ContactDetail.Country, new List<SelectListItem> { new SelectListItem { Value = "0", Text = "Pick one" } }.Concat(Model.Countries), htmlAttributes: new { @class = "dropdown dd-country" })
+                @Html.Label(Resources.AccountMe.CountryLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.DropDownListFor(model => model.ContactDetail.Country, new List<SelectListItem> { new SelectListItem { Value = "0", Text = Resources.AccountMe.DropdownDefaultText } }.Concat(Model.Countries), htmlAttributes: new { @class = "dropdown dd-country" })
                 @Html.ValidationMessageFor(model => model.ContactDetail.Country, "", new { @class = "text-danger" })
             </div>
 
@@ -91,24 +91,24 @@
             }
 
             <div class="contact-detail-field" style="@displayStates">
-                @Html.Label("State", htmlAttributes: new { @class = "textbox-label", @id = "LBState" })
-                @Html.DropDownList("State", new SelectList(new List<SelectListItem> { new SelectListItem { Value = "", Text = "Pick one" } }.Concat(Model.States), "Value", "Text", "0"), htmlAttributes: new { @class = "dropdown dd-country" })
+                @Html.Label(Resources.AccountMe.StateLabel, htmlAttributes: new { @class = "textbox-label", @id = "LBState" })
+                @Html.DropDownList("State", new SelectList(new List<SelectListItem> { new SelectListItem { Value = "", Text = Resources.AccountMe.DropdownDefaultText } }.Concat(Model.States), "Value", "Text", "0"), htmlAttributes: new { @class = "dropdown dd-country" })
                 @Html.ValidationMessageFor(model => model.ContactDetail.StateOrProvince, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field" style="@displayProvince">
-                @Html.Label("", "State,Province,etc.", new { @class = "textbox-label", @id = "LBProvince" })
+                @Html.Label("", Resources.AccountMe.StateProvinceValidationMessage, new { @class = "textbox-label", @id = "LBProvince" })
                 @Html.EditorFor(model => model.ContactDetail.StateOrProvince, new { htmlAttributes = new { @class = "textbox" } })
             </div>
 
             <div class="contact-detail-field">
-                @Html.Label("ZIP or Region Code", htmlAttributes: new { @class = "textbox-label" })
-                @Html.EditorFor(model => model.ContactDetail.ZipOrRegionCode, new { htmlAttributes = new { @class = "textbox", placeholder = "ZIP or Region Code" } })
+                @Html.Label(Resources.AccountMe.ZipRegionCodeLabel, htmlAttributes: new { @class = "textbox-label" })
+                @Html.EditorFor(model => model.ContactDetail.ZipOrRegionCode, new { htmlAttributes = new { @class = "textbox", placeholder = Resources.AccountMe.ZipRegionCodeLabel } })
                 @Html.ValidationMessageFor(model => model.ContactDetail.ZipOrRegionCode, "", new { @class = "text-danger" })
             </div>
 
             <div class="contact-detail-field">
-                <input type="submit" value="Submit Your Contact Information" id="submit" class="submit-button" />
+                <input type="submit" value="@Resources.AccountMe.SubmittContactInfoButtonText" id="submit" class="submit-button" />
             </div>
         }
     </div>
