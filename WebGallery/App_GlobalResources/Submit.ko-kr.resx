@@ -112,13 +112,13 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>응용프로그램 ID를 입력하세요. 문자와 숫자만 입력이 가능하며 빈칸 및 특수문자는 입력이 불가합니다. Windows &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery"와 동일한 ID를 사용하세요. onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
+    <value>응용프로그램 ID를 입력하세요. 문자와 숫자만 입력이 가능하며 빈칸 및 특수문자는 입력이 불가합니다. Windows &lt;a href="/gallery" title="Windows Web App Gallery"와 동일한 ID를 사용하세요. onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>응용프로그램 ID</value>
@@ -247,7 +247,7 @@
     <value>응용프로그램 웹사이트 URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; characters remaining</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>상세 설명</value>
@@ -301,19 +301,19 @@
     <value>데이터베이스</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>Frameworks&lt;br /&gt;and Runtimes</value>
+    <value>Frameworks and Runtimes</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>Frameworks and Runtimes</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>Web Server&lt;br /&gt;Extensions</value>
+    <value>Web Server Extensions</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>Web Server Extensions</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; characters remaining</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>상세 설명</value>
@@ -475,10 +475,10 @@
     <value>Please review and ensure that your application is compliant with the &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery Principles&lt;/a&gt; including operating system and WebPI compatibility.</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>하나를 선택하십시오&lt;br /&gt;</value>
+    <value>하나를 선택하십시오</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>하나 이상의 항목을 선택하기 위해서는 Ctrl/Cmd키를 사용하세요&lt;br /&gt;</value>
+    <value>하나 이상의 항목을 선택하기 위해서는 Ctrl/Cmd키를 사용하세요</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>로고 이미지 크기</value>
@@ -760,7 +760,7 @@
     <value>http://www.SubmittingEntity.org/support</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>Web 응용프로그램 등록에 대한 사용권 계약 내용에 동의함 &lt;a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;.</value>
+    <value>Web 응용프로그램 등록에 대한 사용권 계약 내용에 동의함 &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;.</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>사용권 계약에 동의하십니까?</value>
