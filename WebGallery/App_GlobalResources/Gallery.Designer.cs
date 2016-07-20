@@ -59,5 +59,50 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to added.
+        /// </summary>
+        internal static string AddedTitle {
+            get {
+                return ResourceManager.GetString("AddedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applications in.
+        /// </summary>
+        internal static string ApplicationsIn {
+            get {
+                return ResourceManager.GetString("ApplicationsIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More information.
+        /// </summary>
+        internal static string MoreInformation {
+            get {
+                return ResourceManager.GetString("MoreInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to next.
+        /// </summary>
+        internal static string NextPagerText {
+            get {
+                return ResourceManager.GetString("NextPagerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to prev.
+        /// </summary>
+        internal static string PreviousPagerText {
+            get {
+                return ResourceManager.GetString("PreviousPagerText", resourceCulture);
+            }
+        }
     }
 }
