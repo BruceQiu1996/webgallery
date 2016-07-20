@@ -22,13 +22,17 @@
     <div class="panel-lang-selector">
         @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory.Name }))
         {
-            <strong>Show apps in</strong>
+            <strong>@Resources.Categorize.ApplicationsIn</strong>
             @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
         }
     </div>
     <hr />
     <div class="categories">
         @Html.HiddenFor(model => model.CurrentCategory.LocalizedName)
+        <div>
+            @Html.RouteLink(Resources.Categorize.AllCategoriesTitle, SiteRouteNames.App_Categorize, new { category = "all", supportedLanguage = Model.CurrentSupportedLanguage }, new { id = "all-link" })
+        </div>
+        <hr />
         @{
             foreach (var c in Model.Categories)
             {
@@ -52,8 +56,8 @@
                 <div>
                     @Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })
                     <span>@app.Version</span>
-                    <span>Released at: @app.ReleaseDate.ToShortDateString() </span>
-                    <p>@description @Html.RouteLink("More Information", SiteRouteNames.App_View, new { appId = app.Nickname })</p>
+                    <span>@app.ReleaseDate.ToShortDateString() @Resources.Categorize.AddedTitle </span>
+                    <p>@description @Html.RouteLink(Resources.Categorize.MoreInformation, SiteRouteNames.App_View, new { appId = app.Nickname })</p>
                 </div>
                 <hr />
             </div>
@@ -63,8 +67,8 @@
     <div class="page-switch">
         @Html.Hidden("currentpage", Model.CurrentPage)
         @Html.Hidden("totalpage", Model.TotalPage)
-        @Html.RouteLink("Next", SiteRouteNames.App_Categorize, new { page = Model.CurrentPage + 1, supportedLanguage = Model.CurrentSupportedLanguage }, new { id = "nextlink" })
-        @Html.RouteLink("Previous", SiteRouteNames.App_Categorize, new { page = Model.CurrentPage - 1, supportedLanguage = Model.CurrentSupportedLanguage }, new { id = "prelink" })
+        @Html.RouteLink(Resources.Categorize.NextPagerText, SiteRouteNames.App_Categorize, new { page = Model.CurrentPage + 1, supportedLanguage = Model.CurrentSupportedLanguage }, new { id = "nextlink" })
+        @Html.RouteLink(Resources.Categorize.PreviousPagerText, SiteRouteNames.App_Categorize, new { page = Model.CurrentPage - 1, supportedLanguage = Model.CurrentSupportedLanguage }, new { id = "prelink" })
     </div>
 </div>
 

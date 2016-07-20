@@ -694,7 +694,7 @@ namespace WebGallery.Services
             var localizedCategories = new List<ProductOrAppCategory>();
             foreach (var c in categories)
             {
-                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value == c.Name);
+                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
                 var localizedName = useEnglish || keyword == null ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == keyword.Attribute("resourceName").Value);
                 localizedCategories.Add(new ProductOrAppCategory
                 {

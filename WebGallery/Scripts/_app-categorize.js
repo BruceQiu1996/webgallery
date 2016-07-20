@@ -9,6 +9,11 @@
         $("#totalpage").next().addClass("link-disabled");
     }
 
+    if ($(".categories").find("input:first").val().toLowerCase() == "all") {
+        $("#all-link").addClass("this-category");
+        $("#all-link").removeAttr("href");
+    }
+
     $(".categories").find("a").each(function () {
         if ($(this).text().toLowerCase() == $(this).parent().parent().find("input:first").val().toLowerCase()) {
             $(this).addClass("this-category");
