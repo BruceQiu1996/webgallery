@@ -53,7 +53,7 @@ namespace WebGallery.Services
 
         Task<Submission> GetSubmissionFromFeedAsync(string appId);
 
-        Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId);
+        Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId);
 
         Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
 
@@ -68,5 +68,9 @@ namespace WebGallery.Services
         Task DeleteAsync(int submissionId);
 
         Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync();
+
+        Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories);
+
+        Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas);
     }
 }

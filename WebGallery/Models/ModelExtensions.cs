@@ -108,6 +108,11 @@ namespace WebGallery.Models
         public IList<ProductOrAppCategory> Categories { get; set; }
     }
 
+    public partial class ProductOrAppCategory
+    {
+        public string LocalizedName { get; set; }
+    }
+
     public partial class UnconfirmedSubmissionOwner
     {
         public bool IsExpired { get { return DateTime.Now.Subtract(this.RequestDate).Days > 7; } }

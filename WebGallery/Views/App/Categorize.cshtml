@@ -10,17 +10,17 @@
 
 <div class="content">
     <div class="panel-summary">
-        @if (Model.CurrentCategory.ToLower() == "all")
+        @if (Model.CurrentCategory.Name.ToLower() == "all")
         {
             <span>There are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
         }
         else
         {
-            <span>Under "<strong>@Model.CurrentCategory</strong>", there are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
+            <span>Under "<strong>@Model.CurrentCategory.LocalizedName</strong>", there are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
         }
     </div>
     <div class="panel-lang-selector">
-        @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory }))
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory.Name }))
         {
             <strong>Show apps in</strong>
             @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
@@ -28,12 +28,12 @@
     </div>
     <hr />
     <div class="categories">
-        @Html.HiddenFor(model => model.CurrentCategory)
+        @Html.HiddenFor(model => model.CurrentCategory.LocalizedName)
         @{
             foreach (var c in Model.Categories)
             {
                 <div>
-                    @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name, supportedLanguage = Model.CurrentSupportedLanguage })
+                    @Html.RouteLink(c.LocalizedName, SiteRouteNames.App_Categorize, new { category = c.Name, supportedLanguage = Model.CurrentSupportedLanguage })
                 </div>
                 <hr />
             }

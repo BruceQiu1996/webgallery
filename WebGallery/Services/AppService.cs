@@ -4,6 +4,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using WebGallery.Models;
@@ -512,14 +513,28 @@ namespace WebGallery.Services
 
         public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, int page, int pageSize, out int count)
         {
+            // We need CurrentUICulture to determine which sub feed to show description and title of apps
+            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
+
+            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+
+            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish metadata should be used
+            bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
+
+            // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
                               where category.ToLower() == "all" || x.Value.ToLower() == category.ToLower()
                               select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
-                        let title = e.Element(ns + "title").Value
+
+                        // If it use metadata from other language, its title and description is extracted from sub feed, but this element may not be found, then we still use them in English instead
+                        let subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "title").Attribute("resourceName").Value)
+                        let title = subTitle == null ? e.Element(ns + "title").Value : subTitle.Value
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
                                          where categoryIds.Contains(c.Value)
                                          select c.Value
@@ -538,7 +553,8 @@ namespace WebGallery.Services
                             appName = title,
                             version = e.Element(ns + "version").Value,
                             logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                            briefDescription = e.Element(ns + "summary").Value
+                            briefDescription = e.Element(ns + "summary").Value,
+                            subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
                         };
             count = query.Count();
             var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
@@ -551,27 +567,39 @@ namespace WebGallery.Services
                                                            AppName = a.appName,
                                                            Version = a.version,
                                                            LogoUrl = a.logoUrl,
-                                                           BriefDescription = a.briefDescription
+                                                           BriefDescription = a.subBriefDescription == null ? a.briefDescription : a.subBriefDescription.Value
                                                        }).ToList());
         }
 
         public Task<Submission> GetSubmissionFromFeedAsync(string appId)
         {
+            // We need CurrentUICulture to determine which sub feed to show categories of apps
+            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
+
+            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+
+            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
+
             var element = (from e in xdoc.Root.Descendants(ns + "entry")
                            where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
                            select e).FirstOrDefault();
             Submission submission = null;
             if (element != null)
             {
-                var categoryNames = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
-                                    join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
-                                    select x.Value;
+                var keywordElements = from e in element.Element(ns + "keywords").Elements(ns + "keywordId")
+                                      join x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword") on e.Value equals x.Attribute("id").Value
+                                      select x;
                 var categories = new List<ProductOrAppCategory>();
-                foreach (var c in categoryNames)
+                foreach (var k in keywordElements)
                 {
-                    categories.Add(new ProductOrAppCategory { Name = c });
+                    // If it use feed in other language, its localized category names are extracted from sub feed, but this element may not be found, then we still use them in English instead
+                    var LocalizedCateogry = useEnglish ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == k.Attribute("resourceName").Value);
+                    categories.Add(new ProductOrAppCategory { Name = k.Value, LocalizedName = LocalizedCateogry == null ? k.Value : LocalizedCateogry.Value });
                 }
                 var screenshots = new List<string>();
                 foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
@@ -599,20 +627,39 @@ namespace WebGallery.Services
             return Task.FromResult(submission);
         }
 
-        public Task<List<SubmissionLocalizedMetaData>> GetMetadataFromFeedAsync(string appId)
+        public Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId)
         {
+            // We need CurrentUICulture to determine which sub feed to show metadata of apps
+            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
+
+            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+
+            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
+
             var metadata = (from e in xdoc.Root.Descendants(ns + "entry")
                             where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
-                            select new SubmissionLocalizedMetaData
+                            select new
                             {
-                                Name = e.Element(ns + "title").Value,
-                                Description = e.Element(ns + "longSummary").Value,
-                                BriefDescription = e.Element(ns + "summary").Value
-                            }).ToList();
+                                title = e.Element(ns + "title").Value,
+                                subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "title").Attribute("resourceName").Value),
+                                longSummary = e.Element(ns + "longSummary").Value,
+                                subLongSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "longSummary").Attribute("resourceName").Value),
+                                summary = e.Element(ns + "summary").Value,
+                                subSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
+                            }).FirstOrDefault();
 
-            return Task.FromResult(metadata);
+            return Task.FromResult(new SubmissionLocalizedMetaData
+            {
+                // If it use metadata from other language, its title and descriptions is extracted from sub feed, but this element may not be found, then we still use them in English instead
+                Name = metadata.subTitle == null ? metadata.title : metadata.subTitle.Value,
+                Description = metadata.subLongSummary == null ? metadata.longSummary : metadata.subLongSummary.Value,
+                BriefDescription = metadata.subSummary == null ? metadata.summary : metadata.subSummary.Value
+            });
         }
 
         public Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId)
@@ -628,6 +675,65 @@ namespace WebGallery.Services
 
                 return Task.FromResult<IList<ProductOrAppCategory>>(categories.ToList());
             }
+        }
+
+        public Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories)
+        {
+            //This method is used to localized categories which extracted from database
+            // We need CurrentUICulture to determine which sub feed to show categories of apps
+            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+
+            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+
+            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
+            var localizedCategories = new List<ProductOrAppCategory>();
+            foreach (var c in categories)
+            {
+                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value == c.Name);
+                var localizedName = useEnglish || keyword == null ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == keyword.Attribute("resourceName").Value);
+                localizedCategories.Add(new ProductOrAppCategory
+                {
+                    Name = c.Name,
+                    LocalizedName = localizedName == null ? c.Name : localizedName.Value
+                });
+            }
+
+            return Task.FromResult<IList<ProductOrAppCategory>>(localizedCategories);
+        }
+
+        public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas)
+        {
+            // This method is used to get the best suited metadata to show when matadatas are extracted from database
+            // We need CurrentUICulture to showing the metadata in specified language 
+            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+
+            // The most suited metadata is the one whose language is exactly the same with CurrentUICulture
+            var metadata = metadatas.FirstOrDefault(m => m.Language == threadUICulture || (m.Language == "zh-chs" && threadUICulture == "zh-cn") || (m.Language == "zh-cht" && threadUICulture == "zh-tw"));
+
+            // If there don't exist a metadata whose language are the same with CurrentUICulture completely, we can make a mactching according to their parent culture
+            if (metadatas == null)
+            {
+                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == threadUICulture.Substring(0, 2));
+            }
+
+            // If we still can't find metadata who has the same parent culture with CurrentUICulture, then we use English
+            if (metadata == null)
+            {
+                metadata = metadatas.FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US);
+            }
+
+            // If we still can't find metadata in English, we use the first metadata of all
+            if (metadatas == null)
+            {
+                metadata = metadatas.FirstOrDefault();
+            }
+
+            return Task.FromResult(metadata);
         }
 
         public Task<IList<Submission>> GetSubmissionsAsync(string keyword, int page, int pageSize, string sortBy, out int count)
@@ -812,7 +918,6 @@ namespace WebGallery.Services
 
             return Task.FromResult<IList<KeyValuePair<string, string>>>(supportedLanguages);
         }
-
     } // class
 
     public class TestingStateMissingException : Exception

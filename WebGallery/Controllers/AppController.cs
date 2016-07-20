@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -239,12 +240,12 @@ namespace WebGallery.Controllers
                 Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, pageNumber, pageSize, out count),
 
                 //We won't show cateogries list with "Templates" and "AppFrameworks" whose CategoryID are 8 and 9 in database 
-                Categories = (await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList(),
+                Categories = await _appService.LocalizeCategoriesAsync((await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList()),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 TotalPage = Convert.ToInt32(Math.Ceiling((double)count / pageSize)),
                 CurrentSupportedLanguage = supportedLanguage,
                 CurrentPage = pageNumber,
-                CurrentCategory = category,
+                CurrentCategory = (await _appService.LocalizeCategoriesAsync(new List<ProductOrAppCategory> { new ProductOrAppCategory { Name = category } })).FirstOrDefault() ?? new ProductOrAppCategory { Name = category, LocalizedName = category },
                 TotalCount = count
             };
 
@@ -284,7 +285,7 @@ namespace WebGallery.Controllers
             var model = new AppDetailViewModel
             {
                 Submission = submission,
-                Metadata = (await _appService.GetMetadataFromFeedAsync(appId)).FirstOrDefault()
+                Metadata = await _appService.GetMetadataFromFeedAsync(appId)
             };
 
             return View("Preview", model);
@@ -317,12 +318,12 @@ namespace WebGallery.Controllers
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
 
-            submission.Categories = await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID);
+            submission.Categories = await _appService.LocalizeCategoriesAsync(await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID));
             var model = new AppDetailViewModel
             {
                 IsPreview = true,
                 Submission = submission,
-                Metadata = metadata.FirstOrDefault(p => p.Language == Language.CODE_ENGLISH_US) ?? metadata.FirstOrDefault()
+                Metadata = await _appService.GetLocalizedMetadataAsync(await _appService.GetMetadataAsync(submissionId.Value))
             };
 
             return View(model);
@@ -334,7 +335,7 @@ namespace WebGallery.Controllers
             var model = new AppInstallViewModel
             {
                 Submission = await _appService.GetSubmissionFromFeedAsync(appId),
-                Metadata = (await _appService.GetMetadataFromFeedAsync(appId)).FirstOrDefault()
+                Metadata = await _appService.GetMetadataFromFeedAsync(appId)
             };
 
             return View(model);
