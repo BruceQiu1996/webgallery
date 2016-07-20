@@ -112,13 +112,13 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>为应用程序提供 ID。仅使用字母和数字，不使用空格或标点。此 ID 用作 &lt;a href="../gallery/default.aspx" title="Windows Web 应用程序库" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web 应用程序库&lt;/a&gt;中的应用程序页面名称。</value>
+    <value>为应用程序提供 ID。仅使用字母和数字，不使用空格或标点。此 ID 用作 &lt;a href="/gallery" title="Windows Web 应用程序库" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web 应用程序库&lt;/a&gt;中的应用程序页面名称。</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>应用程序 ID</value>
@@ -247,7 +247,7 @@
     <value>应用程序网站 URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; 个剩余字符&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; 个剩余字符</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>简短说明</value>
@@ -313,7 +313,7 @@
     <value>Web 服务器扩展</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 个剩余字符&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 个剩余字符</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>说明</value>
@@ -475,10 +475,10 @@
     <value>请检查并确保您的应用程序符合包括操作系统和 WebPI 兼容性在内的 &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web 应用程序库准则" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web 应用程序库准则&lt;/a&gt;。</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>仅选择一个&lt;br /&gt;</value>
+    <value>仅选择一个</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>使用 Ctrl/Cmd 键&lt;br /&gt;选择多个</value>
+    <value>使用 Ctrl/Cmd 键选择多个</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>徽标图像尺寸</value>
@@ -760,7 +760,7 @@
     <value>http://www.SubmittingEntity.org/support</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>我接受 Web 应用程序&lt;a href="SubmissionAgreement.aspx" title="提交协议" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;提交协议&lt;/a&gt;的条款和条件。</value>
+    <value>我接受 Web 应用程序&lt;a href="/agreement" title="提交协议" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;提交协议&lt;/a&gt;的条款和条件。</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>是否同意条款和条件?</value>

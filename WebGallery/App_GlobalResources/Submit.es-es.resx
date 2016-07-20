@@ -112,13 +112,13 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>Proporcione un identificador para su aplicación. Use sólo letras y números, no utilice espacios en blanco o signos de puntuación. Este identificador se usa como nombre de página para su aplicación en &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
+    <value>Proporcione un identificador para su aplicación. Use sólo letras y números, no utilice espacios en blanco o signos de puntuación. Este identificador se usa como nombre de página para su aplicación en &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>Id. de la aplicación</value>
@@ -247,7 +247,7 @@
     <value>Dirección URL del sitio web de la aplicación</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>faltan &lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; caracteres&lt;br /&gt;&lt;br /&gt;</value>
+    <value>faltan &lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; caracteres</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>Descripción breve</value>
@@ -301,19 +301,19 @@
     <value>Base de datos</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>Marcos de trabajo&lt;br /&gt;y tiempos de ejecución</value>
+    <value>Marcos de trabajo y tiempos de ejecución</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>Marcos de trabajo y tiempos de ejecución</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>Web Server&lt;br /&gt;Extensions</value>
+    <value>Web Server Extensions</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>Web Server Extensions</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>faltan &lt;span id="description-countdown" class="low-count"&gt;1.500&lt;/span&gt; caracteres&lt;br /&gt;&lt;br /&gt;</value>
+    <value>faltan &lt;span id="description-countdown" class="low-count"&gt;1.500&lt;/span&gt; caracteres</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>Descripción</value>
@@ -475,10 +475,10 @@
     <value>Compruebe que su aplicación cumple los &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Principios de Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Principios de Windows Web App Gallery&lt;/a&gt; incluido el sistema operativo y la compatibilidad WebPI.</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>Seleccione uno&lt;br /&gt; solo</value>
+    <value>Seleccione uno solo</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>Use la tecla Ctrl o Cmd &lt;br /&gt;para seleccionar varios</value>
+    <value>Use la tecla Ctrl o Cmd para seleccionar varios</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>Dimensiones de la imagen del logotipo</value>
@@ -760,7 +760,7 @@
     <value>http://www.SubmittingEntity.org/support</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>Acepto los Términos y condiciones de la aplicación web &lt;a href="SubmissionAgreement.aspx" title="Acuerdo de publicación" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Acuerdo de publicación&lt;/a&gt;.</value>
+    <value>Acepto los Términos y condiciones de la aplicación web &lt;a href="/agreement" title="Acuerdo de publicación" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Acuerdo de publicación&lt;/a&gt;.</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>¿Acepta los Términos y condiciones?</value>
@@ -775,7 +775,7 @@
     <value>Direcciones URL</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;Antes de publicar esta aplicación necesita proporcionar la siguiente información:&lt;/p&gt;</value>
+    <value>Antes de publicar esta aplicación necesita proporcionar la siguiente información:</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>Ver última publicación</value>

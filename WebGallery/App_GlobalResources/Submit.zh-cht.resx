@@ -112,13 +112,13 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>請提供應用程式的 ID。此 ID 只能以字母和數字組成，其中不可包含空白或標點符號。此 ID 將用來做為您的應用程式在 &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt; 中的頁面名稱。</value>
+    <value>請提供應用程式的 ID。此 ID 只能以字母和數字組成，其中不可包含空白或標點符號。此 ID 將用來做為您的應用程式在 &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt; 中的頁面名稱。</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>應用程式 ID</value>
@@ -247,7 +247,7 @@
     <value>應用程式網站網址</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>尚可輸入 &lt;span id="brief-description-countdown" class="low-count"&gt;200&lt;/span&gt; 個字元&lt;br /&gt;&lt;br /&gt;</value>
+    <value>尚可輸入 &lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; 個字元</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>簡短描述</value>
@@ -313,7 +313,7 @@
     <value>網頁伺服器擴充功能</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>尚可輸入 &lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 個字元&lt;br /&gt;&lt;br /&gt;</value>
+    <value>尚可輸入 &lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 個字元</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>描述</value>
@@ -475,10 +475,10 @@
     <value>請檢視您的應用程式，確保它完全符合作業系統和 WebPI 相容性等 &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery 規範&lt;/a&gt;。</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>您只能選取&lt;br /&gt;一項</value>
+    <value>您只能選取一項</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>如要選取多個項目，請使&lt;br /&gt;用 Ctrl/Cmd 鍵</value>
+    <value>如要選取多個項目，請使用 Ctrl/Cmd 鍵</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>標誌圖像尺寸</value>
@@ -775,7 +775,7 @@
     <value>網址</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;提交此應用程式前，請您先提供下列資訊：&lt;/p&gt;</value>
+    <value>提交此應用程式前，請您先提供下列資訊：</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>檢視最新的提交項目</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppIDExplanation" xml:space="preserve">
-    <value>Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href="../gallery/default.aspx" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;You will not be able to change this ID with future edits of your application such as for version updates.</value>
+    <value>Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;You will not be able to change this ID with future edits of your application such as for version updates.</value>
   </data>
   <data name="AppIDLabel" xml:space="preserve">
     <value>App ID</value>
@@ -247,7 +247,7 @@
     <value>App Web Site URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; characters remaining</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>Brief Description</value>
@@ -301,19 +301,19 @@
     <value>Database</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>Frameworks&lt;br /&gt;and Runtimes</value>
+    <value>Frameworks and Runtimes</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>Frameworks and Runtimes</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>Web Server&lt;br /&gt;Extensions</value>
+    <value>Web Server Extensions</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>Web Server Extensions</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; characters remaining&lt;br /&gt;&lt;br /&gt;</value>
+    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; characters remaining</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>Description</value>
@@ -466,10 +466,10 @@
     <value>Please review and ensure that your application is compliant with the &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web App Gallery Principles&lt;/a&gt; including operating system and WebPI compatibility.</value>
   </data>
   <data name="ListBox_Instruction_Select1" xml:space="preserve">
-    <value>Select one&lt;br /&gt;only</value>
+    <value>Select one only</value>
   </data>
   <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
-    <value>Use Ctrl/Cmd key&lt;br /&gt;to select more than one</value>
+    <value>Use Ctrl/Cmd key to select more than one</value>
   </data>
   <data name="LogoDimensionsStatus" xml:space="preserve">
     <value>Logo image dimensions</value>
@@ -751,7 +751,7 @@
     <value>http://www.SubmittingEntity.org/support</value>
   </data>
   <data name="TermsAndConditionsLabel" xml:space="preserve">
-    <value>I accept the Terms and Conditions of the Web Application &lt;a href="SubmissionAgreement.aspx" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;.</value>
+    <value>I accept the Terms and Conditions of the Web Application &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Submission Agreement&lt;/a&gt;.</value>
   </data>
   <data name="TermsAndConditionsTT" xml:space="preserve">
     <value>Do you agree with the Terms and Conditions?</value>
@@ -766,7 +766,7 @@
     <value>URLs</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;The following information is required before you can submit this application:&lt;/p&gt;</value>
+    <value>The following information is required before you can submit this application:</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>View last submission</value>
@@ -847,7 +847,7 @@
     <value>Ver</value>
   </data>
   <data name="SubmissionCannotBeModified" xml:space="preserve">
-    <value>&lt;br /&gt;&lt;br /&gt;This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time.</value>
+    <value>This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time.</value>
   </data>
   <data name="CodePlexUrlFormatValidationText" xml:space="preserve">
     <value>Invalid CodePlex URL</value>
@@ -1027,16 +1027,16 @@
     <value>Each defined package language and English must also have an App Name, Description and Brief Description.</value>
   </data>
   <data name="MyAppsIntroMsg" xml:space="preserve">
-    <value>Welcome! From this page you can:&lt;ul&gt;&lt;li&gt;&lt;a href="appsubmit.aspx" title="submit a new application"&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href="aboutme.aspx" title="edit your contact information"&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;</value>
+    <value>Welcome! From this page you can:&lt;ul&gt;&lt;li&gt;&lt;a href="/apps/submit" title="submit a new application"&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href="/profile" title="edit your contact information"&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;</value>
   </data>
   <data name="MyAppsTitle" xml:space="preserve">
     <value>Web App Gallery Submission Portal</value>
   </data>
   <data name="NoSubmissionsMsg" xml:space="preserve">
-    <value>You haven't submitted any applications yet. Click &lt;a href="appsubmit.aspx" title="submit an application"&gt;here&lt;/a&gt; to get started.</value>
+    <value>You haven't submitted any applications yet. Click &lt;a href="/apps/submit" title="submit an application"&gt;here&lt;/a&gt; to get started.</value>
   </data>
   <data name="ChangeStatusBtnText" xml:space="preserve">
-    <value>change&amp;nbsp;status</value>
+    <value>change status</value>
   </data>
   <data name="DashboardCloneBtnText" xml:space="preserve">
     <value>clone</value>
@@ -1132,7 +1132,7 @@
     <value>My Contact Information</value>
   </data>
   <data name="ContactInfoSaveErrorMsg" xml:space="preserve">
-    <value>We're sorry but your data could not be saved. An internal error occurred. Please either try again or contact &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft's App Gallery Team&lt;/a&gt; so we may assist you.</value>
+    <value>We're sorry but your data could not be saved. An internal error occurred. Please either try again or contact Microsoft's &lt;a href='appgal@microsoft.com' title='App Gallery Team'&gt;App Gallery Team&lt;/a&gt; so we may assist you.</value>
   </data>
   <data name="SubmittContactInfoButtonText" xml:space="preserve">
     <value>Submit Your Contact Information</value>
@@ -1176,9 +1176,6 @@
   <data name="eMailOriginalValidationText" xml:space="preserve">
     <value>Unknown EMail format</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
   <data name="AcceptOwnershipRequestButtonText" xml:space="preserve">
     <value>I Accept</value>
   </data>
@@ -1195,10 +1192,10 @@
     <value>OK</value>
   </data>
   <data name="OwnerAddRemoveErrorMsg" xml:space="preserve">
-    <value>An internal error occurred. Please either try again or contact &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft's App Gallery Team&lt;/a&gt; so we may assist you.</value>
+    <value>An internal error occurred. Please either try again or contact Microsoft's &lt;a href='appgal@microsoft.com' title='App Gallery Team'&gt;App Gallery Team&lt;/a&gt; so we may assist you.</value>
   </data>
   <data name="OwnershipRequestErrorExplanation" xml:space="preserve">
-    <value>There is a problem accepting or declining this invitation. Please contact Microsoft's &lt;a href='appgal@microsoft.com' title='The Web App Gallery Team'&gt;AppGal&lt;/a&gt; team for help resolving the issue.</value>
+    <value>There is a problem accepting or declining this invitation. Please contact Microsoft's &lt;a href='appgal@microsoft.com' title='App Gallery Team'&gt;App Gallery Team&lt;/a&gt; for help resolving the issue.</value>
   </data>
   <data name="OwnershipRequestExpiredExplanation" xml:space="preserve">
     <value>We're sorry but this invitation has expired. It was issued more than a week ago. The issuer will need to submit a new invitation. Please acknowledge this message by clicking OK now.</value>
@@ -1210,7 +1207,7 @@
     <value>owners</value>
   </data>
   <data name="SuperSubmitterAddRemoveErrorMsg" xml:space="preserve">
-    <value>An internal error occurred. Please either try again or contact &lt;a href="mailto:appgal@microsoft.com" title="The App Gallery Team"&gt;Microsoft's App Gallery Team&lt;/a&gt; so we may assist you.</value>
+    <value>An internal error occurred. Please either try again or contact Microsoft's &lt;a href='appgal@microsoft.com' title='App Gallery Team'&gt;App Gallery Team&lt;/a&gt; so we may assist you.</value>
   </data>
   <data name="SuperSubmittersIntroMsg" xml:space="preserve">
     <value>&lt;strong&gt;CAUTION&lt;/strong&gt;: super-submitters can modify all applications and contact details. Only Microsoft employees and trusted contractors should be assigned as super-submitters.</value>
@@ -1240,7 +1237,7 @@
     <value>Remove</value>
   </data>
   <data name="SuperSubmitterRequestErrorExplanation" xml:space="preserve">
-    <value>There is a problem accepting or declining this invitation. Please contact Microsoft's &lt;a href='appgal@microsoft.com' title='The Web App Gallery Team'&gt;AppGal&lt;/a&gt; team for help resolving the issue.</value>
+    <value>There is a problem accepting or declining this invitation. Please contact Microsoft's &lt;a href='appgal@microsoft.com' title='App Gallery Team'&gt;App Gallery Team&lt;/a&gt; for help resolving the issue.</value>
   </data>
   <data name="SuperSubmitterRequestExpiredExplanation" xml:space="preserve">
     <value>We're sorry but this invitation has expired. It was issued more than a week ago. The issuer will need to submit a new invitation. Please acknowledge this message by clicking OK now.</value>
@@ -1271,9 +1268,6 @@
   </data>
   <data name="DeleteSuperSubmitterRequestButtonText" xml:space="preserve">
     <value>OK</value>
-  </data>
-  <data name="String2" xml:space="preserve">
-    <value />
   </data>
   <data name="SuperSubmitterStatusLabel" xml:space="preserve">
     <value>Status</value>
