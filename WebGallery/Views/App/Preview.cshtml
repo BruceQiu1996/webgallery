@@ -43,7 +43,7 @@
                 <span class="pull-right">
                     @foreach (var c in Model.Submission.Categories)
                     {
-                        @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
+                        @Html.RouteLink(c.LocalizedName, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
                         <br />
                     }
                 </span>
