@@ -1379,7 +1379,10 @@
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap-sortable.css" />
     <Content Include="Content\images\btn-install-now-bkgd.png" />
+    <Content Include="Content\images\de-de\install-btn.png" />
+    <Content Include="Content\images\el-gr\install-btn.jpg" />
     <Content Include="Content\images\header-developer.png" />
+    <Content Include="Content\images\hu-hu\install-btn.png" />
     <Content Include="Content\images\icon-controlpanel.png" />
     <Content Include="Content\images\icon-iisnet.png" />
     <Content Include="Content\images\icon-iisphp.png" />
@@ -1388,6 +1391,7 @@
     <Content Include="Content\images\icon-supportcontrol.png" />
     <Content Include="Content\images\icon-supportdev.png" />
     <Content Include="Content\images\no-logo.png" />
+    <Content Include="Content\images\ru-ru\install-btn.jpg" />
     <Content Include="Content\images\step1-hero.png" />
     <Content Include="Content\images\step1.png" />
     <Content Include="Content\images\step2-hero.png" />
@@ -1395,9 +1399,12 @@
     <Content Include="Content\images\step3-hero.png" />
     <Content Include="Content\images\step3.png" />
     <Content Include="Content\images\submit-webapp-btn.png" />
+    <Content Include="Content\images\tr-TR\install-btn.png" />
     <Content Include="Content\images\validating-fail.gif" />
     <Content Include="Content\images\validating-pass.gif" />
     <Content Include="Content\images\validating.gif" />
+    <Content Include="Content\images\zh-chs\install-btn.jpg" />
+    <Content Include="Content\images\zh-cht\install-btn.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\_account-view.css" />
     <Content Include="Content\_app-categorize.css" />
@@ -2739,6 +2746,7 @@
       <LastGenOutput>AppSubmit.zh-cht.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
