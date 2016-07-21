@@ -124,7 +124,7 @@
     <value>Kategória:</value>
   </data>
   <data name="InstallButtonImagePath" xml:space="preserve">
-    <value>../Content/images/hu-hu/install-btn.png</value>
+    <value>~/Content/images/hu-hu/install-btn.png</value>
   </data>
   <data name="PublisherTitle" xml:space="preserve">
     <value>Feltöltő:</value>

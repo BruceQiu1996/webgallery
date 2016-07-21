@@ -124,7 +124,7 @@
     <value>類別：</value>
   </data>
   <data name="InstallButtonImagePath" xml:space="preserve">
-    <value>../Content/images/zh-cht/install-btn.jpg</value>
+    <value>~/Content/images/zh-cht/install-btn.jpg</value>
   </data>
   <data name="PublisherTitle" xml:space="preserve">
     <value>發佈者：</value>

@@ -124,7 +124,7 @@
     <value>Κατηγορία:</value>
   </data>
   <data name="InstallButtonImagePath" xml:space="preserve">
-    <value>../Content/images/el-gr/install-btn.jpg</value>
+    <value>~/Content/images/el-gr/install-btn.jpg</value>
   </data>
   <data name="PublisherTitle" xml:space="preserve">
     <value>Εκδότης:</value>

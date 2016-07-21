@@ -16,11 +16,11 @@
         <div class="panel-app-properties pull-right">
             <div>
                 <span class="pull-left">
-                    <img src="@Resources.AppPreview.GalleryAvailableFreeImagePath" class="avaliable-free-image" />
+                    <img src="@VirtualPathUtility.ToAbsolute(Resources.AppPreview.GalleryAvailableFreeImagePath)" class="avaliable-free-image" />
                 </span>
                 <span class="pull-right" style="@displayOrNot">
                     <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
-                        <img src="@Resources.AppPreview.InstallButtonImagePath" />
+                        <img src="@VirtualPathUtility.ToAbsolute(Resources.AppPreview.InstallButtonImagePath)" />
                     </a>
                 </span>
             </div>

@@ -567,6 +567,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\Invitation.es-es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.es-es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.ja-jp.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.ja-jp.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.ko-kr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.ko-kr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.zh-chs.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.zh-chs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Invitation.zh-cht.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invitation.zh-cht.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Portal.es-es.designer.cs">
       <DependentUpon>Portal.es-es.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -937,33 +962,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppInstall.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.es-es.designer.cs">
-      <DependentUpon>Invitation.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Invitation.ja-jp.designer.cs">
-      <DependentUpon>Invitation.ja-jp.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Invitation.ko-kr.designer.cs">
-      <DependentUpon>Invitation.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\Invitation.tr-TR.designer.cs">
       <DependentUpon>Invitation.tr-TR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Invitation.zh-chs.designer.cs">
-      <DependentUpon>Invitation.zh-chs.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Invitation.zh-cht.designer.cs">
-      <DependentUpon>Invitation.zh-cht.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -2063,46 +2063,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Invitation.Designer.cs</LastGenOutput>
-    </Content>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.zh-cht.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.zh-cht.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.ja-jp.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.ko-kr.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.tr-TR.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.tr-TR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Invitation.tr-TR.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Invitation.zh-chs.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Invitation.zh-chs.designer.cs</LastGenOutput>
-    </Content>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\IssueReport.resx">
@@ -2613,6 +2585,41 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AccountMe.ja-jp.designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.es-es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invitation.es-es.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.ja-jp.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invitation.ja-jp.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.ko-kr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invitation.ko-kr.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.zh-chs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invitation.zh-chs.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Invitation.zh-cht.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invitation.zh-cht.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

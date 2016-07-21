@@ -124,7 +124,7 @@
     <value>Kategorie</value>
   </data>
   <data name="InstallButtonImagePath" xml:space="preserve">
-    <value>../Content/images/de-de/install-btn.png</value>
+    <value>~/Content/images/de-de/install-btn.png</value>
   </data>
   <data name="PublisherTitle" xml:space="preserve">
     <value>Author:</value>
