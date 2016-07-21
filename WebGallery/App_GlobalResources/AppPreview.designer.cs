@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ../Content/images/free-icon.png.
+        ///   Looks up a localized string similar to ~/Content/images/free-icon.png.
         /// </summary>
         internal static string GalleryAvailableFreeImagePath {
             get {
@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ../Content/images/install-btn.jpg.
+        ///   Looks up a localized string similar to ~/Content/images/install-btn.jpg.
         /// </summary>
         internal static string InstallButtonImagePath {
             get {

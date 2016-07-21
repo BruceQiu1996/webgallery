@@ -124,7 +124,7 @@
     <value>Kategori:</value>
   </data>
   <data name="InstallButtonImagePath" xml:space="preserve">
-    <value>../Content/images/tr-TR/install-btn.png</value>
+    <value>~/Content/images/tr-TR/install-btn.png</value>
   </data>
   <data name="PublisherTitle" xml:space="preserve">
     <value>Yayıncı:</value>
