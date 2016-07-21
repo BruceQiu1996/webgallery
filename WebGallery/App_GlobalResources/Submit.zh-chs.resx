@@ -247,7 +247,7 @@
     <value>应用程序网站 URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; 个剩余字符</value>
+    <value>&lt;strong&gt;400&lt;/strong&gt; 个剩余字符</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>简短说明</value>
@@ -313,7 +313,7 @@
     <value>Web 服务器扩展</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 个剩余字符</value>
+    <value>&lt;strong&gt;1500&lt;/strong&gt; 个剩余字符</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>说明</value>

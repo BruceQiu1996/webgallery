@@ -247,7 +247,7 @@
     <value>Web サイト URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; (残り入力可能文字数)</value>
+    <value>&lt;strong&gt;400&lt;/strong&gt; (残り入力可能文字数)</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>説明文</value>
@@ -313,7 +313,7 @@
     <value>Webサーバー拡張機能</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; (残り入力可能文字数)</value>
+    <value>&lt;strong&gt;1500&lt;/strong&gt; (残り入力可能文字数)</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>説明文</value>
