@@ -252,6 +252,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\AccountMe.ja-jp.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountMe.ja-jp.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\AppSubmit.zh-cht.designer.cs">
       <DependentUpon>AppSubmit.zh-cht.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1004,11 +1009,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AccountMe.es-es.designer.cs">
       <DependentUpon>AccountMe.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.es-es.designer.cs">
-      <DependentUpon>Agreement.es-es.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -2165,12 +2165,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\AccountMe.ko-kr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AccountMe.ko-kr.designer.cs</LastGenOutput>
@@ -2612,6 +2606,12 @@
     <Content Include="App_GlobalResources\AppSubmit.zh-cht.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AppSubmit.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\AccountMe.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>AccountMe.ja-jp.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
