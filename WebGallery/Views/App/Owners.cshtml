@@ -6,15 +6,15 @@
 }
 
 <div class="content">
-    <h2>Assign Additional Owners</h2>
-    <p>All owners will be able to modify application details and will be included on communications from Microsoft concerning the status of the application in the app gallery.</p>
+    <h2>@Resources.AppOwners.AppOwnersTitle</h2>
+    <p>@Resources.AppOwners.AppOwnersIntroMsg</p>
     <div class="owners-table-panel">
         <table cellpadding="0" cellspacing="0">
             <caption>@Model.Submission.Nickname - @Model.Submission.Version</caption>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Status</th>
+                    <th>@Resources.AppOwners.OwnerNameLabel</th>
+                    <th>@Resources.AppOwners.OwnerStatusLabel</th>
                     <th></th>
                 </tr>
             </thead>
@@ -25,7 +25,7 @@
 
                     <tr>
                         <td>@Html.RouteLink(owner.FullName, SiteRouteNames.Profile_View, new { submitterId = owner.SubmitterID })</td>
-                        <td>@Resources.Submit.OwnerStatus_Active</td>
+                        <td>@Resources.AppOwners.OwnerStatus_Active</td>
                         <td>
                             @if (Model.Owners.Count > 1)
                             {
@@ -34,7 +34,7 @@
                                     FormMethod.Post))
                                 {
                                     @Html.AntiForgeryToken()
-                                    <input type="submit" value="Remove" title="Remove this owner." />
+                                    <input type="submit" value="@Resources.AppOwners.OwnerRemoveButtonText" title="Remove this owner." />
                                 }
                             }
                         </td>
@@ -47,7 +47,7 @@
 
                     <tr>
                         <td>@invitaion.FirstName @invitaion.LastName</td>
-                        <td>@(invitaion.IsExpired ? Resources.Submit.OwnerStatus_Expired : Resources.Submit.OwnerStatus_Pending)</td>
+                        <td>@(invitaion.IsExpired ? Resources.AppOwners.OwnerStatus_Expired : Resources.AppOwners.OwnerStatus_Pending)</td>
                         <td>
                             @using (Html.BeginRouteForm(SiteRouteNames.Invitation_Revoke, new { invitationGuid = invitaion.RequestID }, FormMethod.Post))
                             {

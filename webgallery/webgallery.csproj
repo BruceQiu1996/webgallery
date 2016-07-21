@@ -252,40 +252,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\Agreement.es-es.designer.cs">
-      <DependentUpon>Agreement.es-es.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\AccountMe.ja-jp.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.ja-jp.designer.cs">
-      <DependentUpon>Agreement.ja-jp.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.ko-kr.designer.cs">
-      <DependentUpon>Agreement.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.tr-TR.designer.cs">
-      <DependentUpon>Agreement.tr-TR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.zh-chs.designer.cs">
-      <DependentUpon>Agreement.zh-chs.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.zh-cht.designer.cs">
-      <DependentUpon>Agreement.zh-cht.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Agreement.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Agreement.resx</DependentUpon>
+      <DependentUpon>AccountMe.ja-jp.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\AppSubmit.zh-cht.designer.cs">
       <DependentUpon>AppSubmit.zh-cht.resx</DependentUpon>
@@ -632,33 +602,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Portal.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.es-es.designer.cs">
-      <DependentUpon>AppOwners.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.ja-jp.designer.cs">
-      <DependentUpon>AppOwners.ja-jp.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.ko-kr.designer.cs">
-      <DependentUpon>AppOwners.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\AppOwners.tr-TR.designer.cs">
       <DependentUpon>AppOwners.tr-TR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.zh-chs.designer.cs">
-      <DependentUpon>AppOwners.zh-chs.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AppOwners.zh-cht.designer.cs">
-      <DependentUpon>AppOwners.zh-cht.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1064,11 +1009,6 @@
     </Compile>
     <Compile Include="App_GlobalResources\AccountMe.es-es.designer.cs">
       <DependentUpon>AccountMe.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\AccountMe.ja-jp.designer.cs">
-      <DependentUpon>AccountMe.ja-jp.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1931,39 +1871,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.zh-cht.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.zh-cht.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.ja-jp.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.ko-kr.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\AppOwners.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AppOwners.tr-TR.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AppOwners.zh-chs.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AppOwners.zh-chs.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2153,48 +2063,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.zh-cht.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.zh-cht.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.ja-jp.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.ko-kr.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.tr-TR.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.tr-TR.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Agreement.zh-chs.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Agreement.zh-chs.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\Invitation.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Invitation.Designer.cs</LastGenOutput>
@@ -2294,12 +2162,6 @@
     <Content Include="App_GlobalResources\AccountMe.es-es.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>AccountMe.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\AccountMe.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>AccountMe.ja-jp.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -2746,7 +2608,12 @@
       <LastGenOutput>AppSubmit.zh-cht.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_GlobalResources\AccountMe.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>AccountMe.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

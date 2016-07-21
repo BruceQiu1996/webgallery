@@ -59,5 +59,77 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All owners will be able to modify application details and will be included on communications from Microsoft concerning the status of the application in the app gallery..
+        /// </summary>
+        internal static string AppOwnersIntroMsg {
+            get {
+                return ResourceManager.GetString("AppOwnersIntroMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assign Additional Owners.
+        /// </summary>
+        internal static string AppOwnersTitle {
+            get {
+                return ResourceManager.GetString("AppOwnersTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string OwnerNameLabel {
+            get {
+                return ResourceManager.GetString("OwnerNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string OwnerRemoveButtonText {
+            get {
+                return ResourceManager.GetString("OwnerRemoveButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string OwnerStatusLabel {
+            get {
+                return ResourceManager.GetString("OwnerStatusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        internal static string OwnerStatus_Active {
+            get {
+                return ResourceManager.GetString("OwnerStatus_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Confirmed.
+        /// </summary>
+        internal static string OwnerStatus_Expired {
+            get {
+                return ResourceManager.GetString("OwnerStatus_Expired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending Confirmation.
+        /// </summary>
+        internal static string OwnerStatus_Pending {
+            get {
+                return ResourceManager.GetString("OwnerStatus_Pending", resourceCulture);
+            }
+        }
     }
 }
