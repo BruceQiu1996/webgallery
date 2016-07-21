@@ -59,5 +59,131 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By downloading and using the Web Platform Installer (Web PI), you agree to the.
+        /// </summary>
+        internal static string ByDownloadingAndUsing {
+            get {
+                return ResourceManager.GetString("ByDownloadingAndUsing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to for the Web PI..
+        /// </summary>
+        internal static string ForTheWebPI {
+            get {
+                return ResourceManager.GetString("ForTheWebPI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launching Web Platform Installer... Please wait..
+        /// </summary>
+        internal static string InstallerLaunching {
+            get {
+                return ResourceManager.GetString("InstallerLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To return to the page you were viewing, please click.
+        /// </summary>
+        internal static string InstallerReturnPreamble {
+            get {
+                return ResourceManager.GetString("InstallerReturnPreamble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to here.
+        /// </summary>
+        internal static string InstallerReturnTrigger {
+            get {
+                return ResourceManager.GetString("InstallerReturnTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installs powered by the Microsoft Web Platform Installer.
+        /// </summary>
+        internal static string InstallsPoweredBy {
+            get {
+                return ResourceManager.GetString("InstallsPoweredBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to license terms.
+        /// </summary>
+        internal static string LicenseTerms {
+            get {
+                return ResourceManager.GetString("LicenseTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More information.
+        /// </summary>
+        internal static string MoreInformation {
+            get {
+                return ResourceManager.GetString("MoreInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please leave this window open until the Microsoft Web Platform Installer starts..
+        /// </summary>
+        internal static string PleaseLeaveThisWindowOpen {
+            get {
+                return ResourceManager.GetString("PleaseLeaveThisWindowOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supported Operating Systems are Windows 8, Windows 7, Windows Vista SP2, Windows XP SP3+, Windows Server 2003 SP2+, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012..
+        /// </summary>
+        internal static string SupportedOperatingSystems {
+            get {
+                return ResourceManager.GetString("SupportedOperatingSystems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System requirements.
+        /// </summary>
+        internal static string SystemRequirments {
+            get {
+                return ResourceManager.GetString("SystemRequirments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to install:.
+        /// </summary>
+        internal static string YouAreAboutToInstall {
+            get {
+                return ResourceManager.GetString("YouAreAboutToInstall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must have administrator privileges on your computer to run the Web Platform Installer..
+        /// </summary>
+        internal static string YouMustHaveALiveAdministratorPrivileges {
+            get {
+                return ResourceManager.GetString("YouMustHaveALiveAdministratorPrivileges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must have a live Internet connection..
+        /// </summary>
+        internal static string YouMustHaveALiveInternetConnection {
+            get {
+                return ResourceManager.GetString("YouMustHaveALiveInternetConnection", resourceCulture);
+            }
+        }
     }
 }
