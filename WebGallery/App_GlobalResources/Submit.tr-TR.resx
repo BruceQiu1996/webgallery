@@ -232,7 +232,7 @@
     <value>http://www.SubmittingEntity.org/app</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; karakter kaldı</value>
+    <value>&lt;strong&gt;400&lt;/strong&gt; karakter kaldı</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>Kısa Açıklama</value>
@@ -430,7 +430,7 @@
     <value>En az bir dil gerekmektedir.</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; karakter kaldı</value>
+    <value>&lt;strong&gt;1500&lt;/strong&gt; karakter kaldı</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>Açıklama</value>

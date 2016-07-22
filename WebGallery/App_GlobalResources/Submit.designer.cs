@@ -403,7 +403,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;span id=&quot;brief-description-countdown&quot; class=&quot;low-count&quot;&gt;400&lt;/span&gt; characters remaining.
+        ///   Looks up a localized string similar to &lt;strong&gt;400&lt;/strong&gt; characters remaining.
         /// </summary>
         internal static string BriefDescriptionExplanation {
             get {
@@ -1015,7 +1015,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;span id=&quot;description-countdown&quot; class=&quot;low-count&quot;&gt;1500&lt;/span&gt; characters remaining.
+        ///   Looks up a localized string similar to &lt;strong&gt;1500&lt;/strong&gt; characters remaining.
         /// </summary>
         internal static string DescriptionExplanation {
             get {

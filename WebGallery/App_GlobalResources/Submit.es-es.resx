@@ -247,7 +247,7 @@
     <value>Dirección URL del sitio web de la aplicación</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>faltan &lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; caracteres</value>
+    <value>faltan &lt;strong&gt;400&lt;/strong&gt; caracteres</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>Descripción breve</value>
@@ -313,7 +313,7 @@
     <value>Web Server Extensions</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>faltan &lt;span id="description-countdown" class="low-count"&gt;1.500&lt;/span&gt; caracteres</value>
+    <value>faltan &lt;strong&gt;1500&lt;/strong&gt; caracteres</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>Descripción</value>

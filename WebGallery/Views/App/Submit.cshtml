@@ -8,42 +8,41 @@
 <div id="appSubmitContainer" class="content">
     <form method="post" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
-        <h2 id="Introduction">Submit Web App</h2>
+        <h2 id="Introduction">@Resources.AppSubmit.SubmitTitle</h2>
         @Html.Partial("Submit_Introduction_Partial")
         @Html.Partial("Submit_Description_Partial", Model)
-        @Html.Partial("Submit_ReleaseNote_Partial", Model)
         @Html.Partial("Submit_Package_Partial", Model)
 
-        <h3 id="TermsAndConditions">Review Terms and Conditions and Submit:</h3>
+        <h3 id="TermsAndConditions">@Resources.AppSubmit.LegaleseSectionHeader</h3>
         <div class="submission-form-section">
-            <p>
-                Please review and ensure that your application is compliant with the <a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Windows Web App Gallery Principles</a> including operating system and WebPI compatibility.
-            </p>
-            <p title="Do you agree with the Terms and Conditions?" class="p-accept-conditions">
+            <p>@Html.Raw(Resources.AppSubmit.LegaleseIntro)</p>
+            <p title="@Resources.AppSubmit.TermsAndConditionsTT" class="p-accept-conditions">
                 @{
                     var checkedProperty = Model.Submission.AgreedToTerms ? "checked='checked'" : string.Empty;
                 }
-                <input type="checkbox" name="Submission.AgreedToTerms" id="AcceptTermsAndConditions" @checkedProperty value="@Model.Submission.AgreedToTerms" onchange="this.value = (this.checked) ? 'true' : 'false'" data-title="Terms And Conditions" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="(*)" />
-                <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">
-                    I accept the Terms and Conditions of the Web Application <a href='@Url.RouteUrl(SiteRouteNames.Agreement)' title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001">Submission Agreement</a>.
-                </label>
+                <input type="checkbox" name="Submission.AgreedToTerms" id="AcceptTermsAndConditions" @checkedProperty value="@Model.Submission.AgreedToTerms" onchange="this.value = (this.checked) ? 'true' : 'false'" data-title="@Resources.AppSubmit.TermsAndConditionsValidationMessage" data-anchor="TermsAndConditions" data-target="labelAcceptTermsAndConditions" data-msg-required="@Resources.AppSubmit.RequiredText" />
+                <label id="labelAcceptTermsAndConditions" for="AcceptTermsAndConditions" class="checkbox-label">@Html.Raw(Resources.AppSubmit.TermsAndConditionsLabel)</label>
             </p>
+        </div>
+
+        <h3 id="ReleaseNotes">@Resources.AppSubmit.AdditionalInfoSectionHeader</h3>
+        <div class="submission-form-section">
             <p>
-                <label for="AdditionalInfo" class="wider-textbox-label">Release Notes</label>
-                <textarea name="Submission.AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="Please provide additional information about this release, including any changes from a previously published version.">@Model.Submission.AdditionalInfo</textarea>
+                <label for="AdditionalInfo" class="wider-textbox-label">@Resources.AppSubmit.AdditionalInfoLabel</label>
+                <textarea name="Submission.AdditionalInfo" id="AdditionalInfo" rows="10" cols="20" class="wider-textbox" placeholder="@Resources.AppSubmit.AdditionalInfoWatermark">@Model.Submission.AdditionalInfo</textarea>
             </p>
         </div>
 
         <div id="validationEntriesContainer" style="color:Red;display:none;">
-            <h3>Validation Entries:</h3>
+            <h3>@Resources.AppSubmit.ValidationSectionHeader</h3>
             <div class="submission-form-section validation-summary">
-                <P>Please fix the following field(s) before you can submit this application:</P>
+                <P>@Resources.AppSubmit.ValidationSummaryHeader</P>
                 <ul></ul>
             </div>
         </div>
 
         <div class="submission-form-section">
-            <input type="submit" value="Submit Your App" id="submitButton" class="submit-btn" onclick="return validate();" /><br /><br /><br />
+            <input type="submit" value="@Resources.AppSubmit.SubmitAppButtonText" id="submitButton" class="submit-btn" onclick="return validate();" />
         </div>
     </form>
 </div>
