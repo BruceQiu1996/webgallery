@@ -10,13 +10,6 @@
     $("#appSubmitContainer input:text,textarea,select,input:file").focusin(function () { showExplanation(this, $(this).nextAll(".explanation:first")); });
     $("#appSubmitContainer input:text,textarea,select,input:file").focusout(function () { $(this).nextAll(".explanation:first").hide(); });
 
-    // calcaulate the remaining characters
-    $(".low-count").each(function () {
-        var textContainer = $(this).parent().parent().prev();
-        var maxLength = $(this).html();
-        characterCountDown(maxLength, textContainer);
-    });
-
     // add date picker
     $("#appSubmitContainer .datefield").datepicker({
         todayBtn: "linked"
@@ -68,7 +61,7 @@ function addHandlersForTab(tabContainer) {
 }
 
 function characterCountDown(maximum, textContainer) {
-    var countdownElement = $(textContainer).next(".explanation").find("span");
+    var countdownElement = $(textContainer).next(".explanation").find("strong");
     if (countdownElement.length != 1) return;
 
     countdownElement.removeClass();
