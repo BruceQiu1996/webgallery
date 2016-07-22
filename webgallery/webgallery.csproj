@@ -592,33 +592,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Invitation.zh-cht.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Portal.es-es.designer.cs">
-      <DependentUpon>Portal.es-es.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Portal.ja-jp.designer.cs">
-      <DependentUpon>Portal.ja-jp.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Portal.ko-kr.designer.cs">
-      <DependentUpon>Portal.ko-kr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="App_GlobalResources\Portal.tr-TR.designer.cs">
       <DependentUpon>Portal.tr-TR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Portal.zh-chs.designer.cs">
-      <DependentUpon>Portal.zh-chs.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Portal.zh-cht.designer.cs">
-      <DependentUpon>Portal.zh-cht.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -1829,39 +1804,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.zh-cht.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.zh-cht.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.es-es.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.ja-jp.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.ko-kr.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\Portal.tr-TR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Portal.tr-TR.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Portal.zh-chs.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Portal.zh-chs.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
