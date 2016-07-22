@@ -775,7 +775,7 @@
     <value>URLs</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;응용프로그램을 등록하기 전에 다음 정보가 필요합니다.:&lt;/p&gt;</value>
+    <value>응용프로그램을 등록하기 전에 다음 정보가 필요합니다.:</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>최근 제출 정보보기</value>

@@ -301,13 +301,13 @@
     <value>資料庫</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>架構&lt;br /&gt;和執行階段</value>
+    <value>架構和執行階段</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>架構和執行階段</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>網頁伺服器&lt;br /&gt;擴充功能</value>
+    <value>網頁伺服器擴充功能</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>網頁伺服器擴充功能</value>

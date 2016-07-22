@@ -301,13 +301,13 @@
     <value>数据库</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>框架&lt;br /&gt;和运行时</value>
+    <value>框架和运行时</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>框架和运行时</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>Web 服务器&lt;br /&gt;扩展</value>
+    <value>Web 服务器扩展</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>Web 服务器扩展</value>
@@ -775,7 +775,7 @@
     <value>URL</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;可提交此应用程序之前需提供以下信息:&lt;/p&gt;</value>
+    <value>可提交此应用程序之前需提供以下信息:</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>查看上次提交</value>
