@@ -567,30 +567,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.es-es.designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.es-es.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.es-es.resx</DependentUpon>
+      <DependentUpon>InvitationSend.es-es.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.ja-jp.designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.ja-jp.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.ja-jp.resx</DependentUpon>
+      <DependentUpon>InvitationSend.ja-jp.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.ko-kr.designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.ko-kr.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.ko-kr.resx</DependentUpon>
+      <DependentUpon>InvitationSend.ko-kr.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.zh-chs.designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.zh-chs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.zh-chs.resx</DependentUpon>
+      <DependentUpon>InvitationSend.zh-chs.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.zh-cht.designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.zh-cht.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.zh-cht.resx</DependentUpon>
+      <DependentUpon>InvitationSend.zh-cht.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Portal.tr-TR.designer.cs">
       <DependentUpon>Portal.tr-TR.resx</DependentUpon>
@@ -937,15 +937,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppInstall.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.tr-TR.designer.cs">
-      <DependentUpon>Invitation.tr-TR.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\InvitationSend.tr-TR.Designer.cs">
+      <DependentUpon>InvitationSend.tr-TR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\Invitation.Designer.cs">
+    <Compile Include="App_GlobalResources\InvitationSend.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Invitation.resx</DependentUpon>
+      <DependentUpon>InvitationSend.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\IssueReport.es-es.designer.cs">
       <DependentUpon>IssueReport.es-es.resx</DependentUpon>
@@ -2008,16 +2008,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.Designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.tr-TR.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.tr-TR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.tr-TR.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.tr-TR.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
@@ -2532,37 +2532,37 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.es-es.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.es-es.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.es-es.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.es-es.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.ja-jp.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.ja-jp.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.ja-jp.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.ja-jp.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.ko-kr.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.ko-kr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.ko-kr.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.ko-kr.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.zh-chs.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.zh-chs.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.zh-chs.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.zh-chs.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\Invitation.zh-cht.resx">
+    <EmbeddedResource Include="App_GlobalResources\InvitationSend.zh-cht.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Invitation.zh-cht.designer.cs</LastGenOutput>
+      <LastGenOutput>InvitationSend.zh-cht.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
