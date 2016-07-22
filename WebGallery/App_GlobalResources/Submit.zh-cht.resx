@@ -247,7 +247,7 @@
     <value>應用程式網站網址</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>尚可輸入 &lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; 個字元</value>
+    <value>尚可輸入 &lt;strong&gt;400&lt;/strong&gt; 個字元</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>簡短描述</value>
@@ -301,19 +301,19 @@
     <value>資料庫</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
-    <value>架構&lt;br /&gt;和執行階段</value>
+    <value>架構和執行階段</value>
   </data>
   <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
     <value>架構和執行階段</value>
   </data>
   <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
-    <value>網頁伺服器&lt;br /&gt;擴充功能</value>
+    <value>網頁伺服器擴充功能</value>
   </data>
   <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
     <value>網頁伺服器擴充功能</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>尚可輸入 &lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; 個字元</value>
+    <value>尚可輸入 &lt;strong&gt;1500&lt;/strong&gt; 個字元</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>描述</value>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
 		Microsoft ResX Schema
 
 		Version 1.3
@@ -58,44 +58,1195 @@
 			: using a System.ComponentModel.TypeConverter
 			: and then encoded with base64 encoding.
 	-->
-	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>Ek Bilgiler</value>
+  </data>
+  <data name="AdditionalInfoSectionHeader" xml:space="preserve">
+    <value>Daha Fazla Bilgi Sağlayın</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>Bilmemiz gereken başka bir bilgi var mı?</value>
+  </data>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>Uygulama Kimliği</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>Uygulama kurulduktan sonra ilk sayfanın yüklenmesi için görece URL adresini site kök dizininden sağlayın. Örneğin:&lt;br /&gt;/start.htm, /default.aspx veya /install.php.</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>Uygulama Başlangıç Sayfası URL Adresi</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>uygulamanızın adını sağlayın.</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>Uygulama Adı</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>Uygulamanızın web sitesi ana sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>Uygulama Web Sitesi URL adresi</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;400&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>Kısa Açıklama</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>Kısa Açıklama (maks. 400 karakter)</value>
+  </data>
+  <data name="ChangedLabel" xml:space="preserve">
+    <value>değiştirilmiş</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>seçimleri sil</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>sıfırla</value>
+  </data>
+  <data name="ClearPackage" xml:space="preserve">
+    <value>Değerleri Sil</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>Ticari ürünlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>Ticari Ürün URL Adresi</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CopyFromPackageBtnText" xml:space="preserve">
+    <value>Değerleri Kopyala</value>
+  </data>
+  <data name="CopyFromPackageLabel" xml:space="preserve">
+    <value>başlangıç</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>Bağımlılıklar</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="DescribeYourAppSectionHeader" xml:space="preserve">
+    <value>Uygulamanızı Tarif Edin:</value>
+  </data>
+  <data name="DescribeYourAppSectionSubheader" xml:space="preserve">
+    <value>En az bir dil gerekmektedir.</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;1500&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>Açıklama (maks. 1500 karakter)</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>Uygulamanızı inceleyin ve işletim sistemi ve WebPI uyumluluğu da dahil &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulaması Galerisi İlkeleri&lt;/a&gt; ile uyumlu olduğundan emin olun.</value>
+  </data>
+  <data name="LegaleseSectionHeader" xml:space="preserve">
+    <value>Koşulları Okuyun ve Gönderin:</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>Sadece birini seçin</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu kullanın</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>Logonuzun boyutu 200 x 200px olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="MetaDataCaption" xml:space="preserve">
+    <value>Aşağıdakileri konuşan ziyaretçileriniz için uygulamanızı açıklayın: </value>
+  </data>
+  <data name="NewlySetLabel" xml:space="preserve">
+    <value>yeni</value>
+  </data>
+  <data name="NotSetLabel" xml:space="preserve">
+    <value>---</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>Paket Bilgileri</value>
+  </data>
+  <data name="PackageChangeImbalanceWarningCaption" xml:space="preserve">
+    <value>Uyarı: Bazı paket dili bilgileri değişti.</value>
+  </data>
+  <data name="PackageInfoSectionHeader" xml:space="preserve">
+    <value>Paket Bilgilerini Sağlayın:</value>
+  </data>
+  <data name="PackageInfoSectionSubheader" xml:space="preserve">
+    <value>En az bir dil için paket bilgileri gerekmektedir.</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>Paket konumu, uygulama paketiniz için doğrudan, herkes tarafından erişilebilir bir web URL adresidir (&lt;strong&gt;zip&lt;/strong&gt; dosyası). Bu paket &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi paketleme talimatları&lt;/a&gt; uyarınca oluşturduğunuz MSDeploy dosyalarını içermelidir.&lt;br /&gt;&lt;br /&gt;Uygulamanız CodePlex üzerinde barındırılıyorsa paketiniz için özel bir URL adresi gerekmektedir. Örnek:&lt;br /&gt;&lt;strong style="font-size:0.75em"&gt; http://YourApplicationName.codeplex.com/&lt;br /&gt;Project/Download/FileDownload.aspx?&lt;br /&gt;DownloadId=nnnnn&lt;/strong&gt;&lt;br /&gt; URL adresinin başındaki uygulama adını ve paketin DownloadID'sini &lt;strong&gt;nnnnn&lt;/strong&gt; ile değiştirin.</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>Paket Konumu URL Adresi</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için birincil kategoriyi seçin. Uygulama bir ya da daha fazla kategoride yer alabilir. Uygulamanızı ikinci bir kategoriyle ilişkilendirebilirsiniz.</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>Birincil Kategori</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>Ticari hizmetlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>Profesyonel Hizmetler URL adresi</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>Gönderilen uygulamanın herkese açık olarak sunulduğu veya sunulacağı tarih.</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>Yayın Tarihi</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>Uygulamanızın 6 adete kadar ekran görüntüsünü ekleyebilirsiniz. Ekran görüntüleri 800 x 600px boyutunda olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>Ekran görüntüleri (opsiyonel)</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için ikincil bir kategori seçin.</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>İkincil Kategori</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>Paket konumu URL adresinizde bulunan paketli uygulamanızla ilgili SHA-1 karmasını sağlayın.  Karma değerleri hesaplama yazılımı &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;buradan&lt;/a&gt; yüklenebilir. &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web Uygulaması Paketleme Adım Adım ve Geliştirici Kılavuzu&lt;/a&gt;'nda belirtildiği gibi gönderim sonrasında paket üzerinde yapılacak her türlü değişiklik gönderim ve paketin geçersiz olmasına neden olacaktır.</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>SHA-1 Karması</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="SubmissionCannotBeModified" xml:space="preserve">
+    <value>Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
+  </data>
+  <data name="SubmitAppButtonText" xml:space="preserve">
+    <value>Uygulamanızı Gönderin</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>Farklı bir logo gönderin</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>Ekran görüntüsünü silin veya değiştirin</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>Gönderen Kurum, uygulamayı gönderen kurumun adıdır.</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>Gönderen Kurum</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>Gönderen Kurum için birincil web sitesinin URL adresini sağlayın.</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>Gönderen Kurum URL adresi</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>Web Uygulaması gönderin</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>&lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi İlkeleri&lt;/a&gt; uygulamanızın müşterilere ücretsiz web tabanlı destek sunmasını gerektirir.</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>Destek URL adresi</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Web Uygulaması &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>Koşulları onaylıyor musunuz?</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>Koşullar</value>
+  </data>
+  <data name="UnchangedLabel" xml:space="preserve">
+    <value>değiştirilmemiş</value>
+  </data>
+  <data name="UpgradeIE" xml:space="preserve">
+    <value>Uygulamaların gönderilmesi ve düzenlenmesi bu Internet Explorer sürümünde desteklenmemektedir. Lütfen Internet Explorer sürümünüzü &lt;a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" onclick="window.open(this.href, '_blank', ''); return false;" title="Upgrade Internet Explorer"&gt;yükseltin&lt;/a&gt; veya farklı bir tarayıcı kullanın.</value>
+  </data>
+  <data name="ValidationSectionHeader" xml:space="preserve">
+    <value>Girişleri Onayla:</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>Son gönderiyi göster</value>
+  </data>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>Ek Bilgiler</value>
+  </data>
+  <data name="AdditionalInfoSectionHeader" xml:space="preserve">
+    <value>Daha Fazla Bilgi Sağlayın</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>Bilmemiz gereken başka bir bilgi var mı?</value>
+  </data>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>Uygulama Kimliği</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>Uygulama kurulduktan sonra ilk sayfanın yüklenmesi için görece URL adresini site kök dizininden sağlayın. Örneğin:&lt;br /&gt;/start.htm, /default.aspx veya /install.php.</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>Uygulama Başlangıç Sayfası URL Adresi</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>uygulamanızın adını sağlayın.</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>Uygulama Adı</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>Uygulamanızın web sitesi ana sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>Uygulama Web Sitesi URL adresi</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;400&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>Kısa Açıklama</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>Kısa Açıklama (maks. 400 karakter)</value>
+  </data>
+  <data name="ChangedLabel" xml:space="preserve">
+    <value>değiştirilmiş</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>seçimleri sil</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>sıfırla</value>
+  </data>
+  <data name="ClearPackage" xml:space="preserve">
+    <value>Değerleri Sil</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>Ticari ürünlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>Ticari Ürün URL Adresi</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CopyFromPackageBtnText" xml:space="preserve">
+    <value>Değerleri Kopyala</value>
+  </data>
+  <data name="CopyFromPackageLabel" xml:space="preserve">
+    <value>başlangıç</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>Bağımlılıklar</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="DescribeYourAppSectionHeader" xml:space="preserve">
+    <value>Uygulamanızı Tarif Edin:</value>
+  </data>
+  <data name="DescribeYourAppSectionSubheader" xml:space="preserve">
+    <value>En az bir dil gerekmektedir.</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;1500&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>Açıklama (maks. 1500 karakter)</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>Uygulamanızı inceleyin ve işletim sistemi ve WebPI uyumluluğu da dahil &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulaması Galerisi İlkeleri&lt;/a&gt; ile uyumlu olduğundan emin olun.</value>
+  </data>
+  <data name="LegaleseSectionHeader" xml:space="preserve">
+    <value>Koşulları Okuyun ve Gönderin:</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>Sadece birini seçin</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu kullanın</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>Logonuzun boyutu 200 x 200px olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="MetaDataCaption" xml:space="preserve">
+    <value>Aşağıdakileri konuşan ziyaretçileriniz için uygulamanızı açıklayın: </value>
+  </data>
+  <data name="NewlySetLabel" xml:space="preserve">
+    <value>yeni</value>
+  </data>
+  <data name="NotSetLabel" xml:space="preserve">
+    <value>---</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>Paket Bilgileri</value>
+  </data>
+  <data name="PackageChangeImbalanceWarningCaption" xml:space="preserve">
+    <value>Uyarı: Bazı paket dili bilgileri değişti.</value>
+  </data>
+  <data name="PackageInfoSectionHeader" xml:space="preserve">
+    <value>Paket Bilgilerini Sağlayın:</value>
+  </data>
+  <data name="PackageInfoSectionSubheader" xml:space="preserve">
+    <value>En az bir dil için paket bilgileri gerekmektedir.</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>Paket konumu, uygulama paketiniz için doğrudan, herkes tarafından erişilebilir bir web URL adresidir (&lt;strong&gt;zip&lt;/strong&gt; dosyası). Bu paket &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi paketleme talimatları&lt;/a&gt; uyarınca oluşturduğunuz MSDeploy dosyalarını içermelidir.&lt;br /&gt;&lt;br /&gt;Uygulamanız CodePlex üzerinde barındırılıyorsa paketiniz için özel bir URL adresi gerekmektedir. Örnek:&lt;br /&gt;&lt;strong style="font-size:0.75em"&gt; http://YourApplicationName.codeplex.com/&lt;br /&gt;Project/Download/FileDownload.aspx?&lt;br /&gt;DownloadId=nnnnn&lt;/strong&gt;&lt;br /&gt; URL adresinin başındaki uygulama adını ve paketin DownloadID'sini &lt;strong&gt;nnnnn&lt;/strong&gt; ile değiştirin.</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>Paket Konumu URL Adresi</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için birincil kategoriyi seçin. Uygulama bir ya da daha fazla kategoride yer alabilir. Uygulamanızı ikinci bir kategoriyle ilişkilendirebilirsiniz.</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>Birincil Kategori</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>Ticari hizmetlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>Profesyonel Hizmetler URL adresi</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>Gönderilen uygulamanın herkese açık olarak sunulduğu veya sunulacağı tarih.</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>Yayın Tarihi</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>Uygulamanızın 6 adete kadar ekran görüntüsünü ekleyebilirsiniz. Ekran görüntüleri 800 x 600px boyutunda olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>Ekran görüntüleri (opsiyonel)</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için ikincil bir kategori seçin.</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>İkincil Kategori</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>Paket konumu URL adresinizde bulunan paketli uygulamanızla ilgili SHA-1 karmasını sağlayın.  Karma değerleri hesaplama yazılımı &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;buradan&lt;/a&gt; yüklenebilir. &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web Uygulaması Paketleme Adım Adım ve Geliştirici Kılavuzu&lt;/a&gt;'nda belirtildiği gibi gönderim sonrasında paket üzerinde yapılacak her türlü değişiklik gönderim ve paketin geçersiz olmasına neden olacaktır.</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>SHA-1 Karması</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="SubmissionCannotBeModified" xml:space="preserve">
+    <value>Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
+  </data>
+  <data name="SubmitAppButtonText" xml:space="preserve">
+    <value>Uygulamanızı Gönderin</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>Farklı bir logo gönderin</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>Ekran görüntüsünü silin veya değiştirin</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>Gönderen Kurum, uygulamayı gönderen kurumun adıdır.</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>Gönderen Kurum</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>Gönderen Kurum için birincil web sitesinin URL adresini sağlayın.</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>Gönderen Kurum URL adresi</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>Web Uygulaması gönderin</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>&lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi İlkeleri&lt;/a&gt; uygulamanızın müşterilere ücretsiz web tabanlı destek sunmasını gerektirir.</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>Destek URL adresi</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Web Uygulaması &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>Koşulları onaylıyor musunuz?</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>Koşullar</value>
+  </data>
+  <data name="UnchangedLabel" xml:space="preserve">
+    <value>değiştirilmemiş</value>
+  </data>
+  <data name="UpgradeIE" xml:space="preserve">
+    <value>Uygulamaların gönderilmesi ve düzenlenmesi bu Internet Explorer sürümünde desteklenmemektedir. Lütfen Internet Explorer sürümünüzü &lt;a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" onclick="window.open(this.href, '_blank', ''); return false;" title="Upgrade Internet Explorer"&gt;yükseltin&lt;/a&gt; veya farklı bir tarayıcı kullanın.</value>
+  </data>
+  <data name="ValidationSectionHeader" xml:space="preserve">
+    <value>Girişleri Onayla:</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>Son gönderiyi göster</value>
+  </data>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>Ek Bilgiler</value>
+  </data>
+  <data name="AdditionalInfoSectionHeader" xml:space="preserve">
+    <value>Daha Fazla Bilgi Sağlayın</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>Bilmemiz gereken başka bir bilgi var mı?</value>
+  </data>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>Uygulama Kimliği</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>Uygulama kurulduktan sonra ilk sayfanın yüklenmesi için görece URL adresini site kök dizininden sağlayın. Örneğin:&lt;br /&gt;/start.htm, /default.aspx veya /install.php.</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>Uygulama Başlangıç Sayfası URL Adresi</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>uygulamanızın adını sağlayın.</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>Uygulama Adı</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>Uygulamanızın web sitesi ana sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>Uygulama Web Sitesi URL adresi</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;400&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>Kısa Açıklama</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>Kısa Açıklama (maks. 400 karakter)</value>
+  </data>
+  <data name="ChangedLabel" xml:space="preserve">
+    <value>değiştirilmiş</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>seçimleri sil</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>sıfırla</value>
+  </data>
+  <data name="ClearPackage" xml:space="preserve">
+    <value>Değerleri Sil</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>Ticari ürünlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>Ticari Ürün URL Adresi</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CopyFromPackageBtnText" xml:space="preserve">
+    <value>Değerleri Kopyala</value>
+  </data>
+  <data name="CopyFromPackageLabel" xml:space="preserve">
+    <value>başlangıç</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>Bağımlılıklar</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="DescribeYourAppSectionHeader" xml:space="preserve">
+    <value>Uygulamanızı Tarif Edin:</value>
+  </data>
+  <data name="DescribeYourAppSectionSubheader" xml:space="preserve">
+    <value>En az bir dil gerekmektedir.</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;1500&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>Açıklama (maks. 1500 karakter)</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>Uygulamanızı inceleyin ve işletim sistemi ve WebPI uyumluluğu da dahil &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulaması Galerisi İlkeleri&lt;/a&gt; ile uyumlu olduğundan emin olun.</value>
+  </data>
+  <data name="LegaleseSectionHeader" xml:space="preserve">
+    <value>Koşulları Okuyun ve Gönderin:</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>Sadece birini seçin</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu kullanın</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>Logonuzun boyutu 200 x 200px olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="MetaDataCaption" xml:space="preserve">
+    <value>Aşağıdakileri konuşan ziyaretçileriniz için uygulamanızı açıklayın: </value>
+  </data>
+  <data name="NewlySetLabel" xml:space="preserve">
+    <value>yeni</value>
+  </data>
+  <data name="NotSetLabel" xml:space="preserve">
+    <value>---</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>Paket Bilgileri</value>
+  </data>
+  <data name="PackageChangeImbalanceWarningCaption" xml:space="preserve">
+    <value>Uyarı: Bazı paket dili bilgileri değişti.</value>
+  </data>
+  <data name="PackageInfoSectionHeader" xml:space="preserve">
+    <value>Paket Bilgilerini Sağlayın:</value>
+  </data>
+  <data name="PackageInfoSectionSubheader" xml:space="preserve">
+    <value>En az bir dil için paket bilgileri gerekmektedir.</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>Paket konumu, uygulama paketiniz için doğrudan, herkes tarafından erişilebilir bir web URL adresidir (&lt;strong&gt;zip&lt;/strong&gt; dosyası). Bu paket &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi paketleme talimatları&lt;/a&gt; uyarınca oluşturduğunuz MSDeploy dosyalarını içermelidir.&lt;br /&gt;&lt;br /&gt;Uygulamanız CodePlex üzerinde barındırılıyorsa paketiniz için özel bir URL adresi gerekmektedir. Örnek:&lt;br /&gt;&lt;strong style="font-size:0.75em"&gt; http://YourApplicationName.codeplex.com/&lt;br /&gt;Project/Download/FileDownload.aspx?&lt;br /&gt;DownloadId=nnnnn&lt;/strong&gt;&lt;br /&gt; URL adresinin başındaki uygulama adını ve paketin DownloadID'sini &lt;strong&gt;nnnnn&lt;/strong&gt; ile değiştirin.</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>Paket Konumu URL Adresi</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için birincil kategoriyi seçin. Uygulama bir ya da daha fazla kategoride yer alabilir. Uygulamanızı ikinci bir kategoriyle ilişkilendirebilirsiniz.</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>Birincil Kategori</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>Ticari hizmetlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>Profesyonel Hizmetler URL adresi</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>Gönderilen uygulamanın herkese açık olarak sunulduğu veya sunulacağı tarih.</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>Yayın Tarihi</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>Uygulamanızın 6 adete kadar ekran görüntüsünü ekleyebilirsiniz. Ekran görüntüleri 800 x 600px boyutunda olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>Ekran görüntüleri (opsiyonel)</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için ikincil bir kategori seçin.</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>İkincil Kategori</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>Paket konumu URL adresinizde bulunan paketli uygulamanızla ilgili SHA-1 karmasını sağlayın.  Karma değerleri hesaplama yazılımı &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;buradan&lt;/a&gt; yüklenebilir. &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web Uygulaması Paketleme Adım Adım ve Geliştirici Kılavuzu&lt;/a&gt;'nda belirtildiği gibi gönderim sonrasında paket üzerinde yapılacak her türlü değişiklik gönderim ve paketin geçersiz olmasına neden olacaktır.</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>SHA-1 Karması</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="SubmissionCannotBeModified" xml:space="preserve">
+    <value>Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
+  </data>
+  <data name="SubmitAppButtonText" xml:space="preserve">
+    <value>Uygulamanızı Gönderin</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>Farklı bir logo gönderin</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>Ekran görüntüsünü silin veya değiştirin</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>Gönderen Kurum, uygulamayı gönderen kurumun adıdır.</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>Gönderen Kurum</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>Gönderen Kurum için birincil web sitesinin URL adresini sağlayın.</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>Gönderen Kurum URL adresi</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>Web Uygulaması gönderin</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>&lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi İlkeleri&lt;/a&gt; uygulamanızın müşterilere ücretsiz web tabanlı destek sunmasını gerektirir.</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>Destek URL adresi</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Web Uygulaması &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>Koşulları onaylıyor musunuz?</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>Koşullar</value>
+  </data>
+  <data name="UnchangedLabel" xml:space="preserve">
+    <value>değiştirilmemiş</value>
+  </data>
+  <data name="UpgradeIE" xml:space="preserve">
+    <value>Uygulamaların gönderilmesi ve düzenlenmesi bu Internet Explorer sürümünde desteklenmemektedir. Lütfen Internet Explorer sürümünüzü &lt;a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" onclick="window.open(this.href, '_blank', ''); return false;" title="Upgrade Internet Explorer"&gt;yükseltin&lt;/a&gt; veya farklı bir tarayıcı kullanın.</value>
+  </data>
+  <data name="ValidationSectionHeader" xml:space="preserve">
+    <value>Girişleri Onayla:</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>Son gönderiyi göster</value>
+  </data>
+  <data name="DropdownDefaultText" xml:space="preserve">
+    <value>Birini seçin</value>
+  </data>
+  <data name="DropdownNoChoiceText" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="AdditionalInfoLabel" xml:space="preserve">
+    <value>Ek Bilgiler</value>
+  </data>
+  <data name="AdditionalInfoSectionHeader" xml:space="preserve">
+    <value>Daha Fazla Bilgi Sağlayın</value>
+  </data>
+  <data name="AdditionalInfoWatermark" xml:space="preserve">
+    <value>Bilmemiz gereken başka bir bilgi var mı?</value>
+  </data>
+  <data name="AppIDExplanation" xml:space="preserve">
+    <value>Uygulamanız için bir ID sağlayın. Sadece harfler ve rakamlar kullanın, boşluk veya imla işaretlerini kullanmayın. Bu kimlik, &lt;a href="/gallery" title="Windows Web App Gallery" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi&lt;/a&gt;'ndeki uygulamanız için sayfa adı olarak kullanılır.&lt;br /&gt;&lt;br /&gt;Sürüm güncellemeleri gibi gelecekteki uygulama düzenlemelerinde bu kimliği değiştiremeyeceksiniz.</value>
+  </data>
+  <data name="AppIDLabel" xml:space="preserve">
+    <value>Uygulama Kimliği</value>
+  </data>
+  <data name="AppIDWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="ApplicationStartPageUrlExplanation" xml:space="preserve">
+    <value>Uygulama kurulduktan sonra ilk sayfanın yüklenmesi için görece URL adresini site kök dizininden sağlayın. Örneğin:&lt;br /&gt;/start.htm, /default.aspx veya /install.php.</value>
+  </data>
+  <data name="ApplicationStartPageUrlLabel" xml:space="preserve">
+    <value>Uygulama Başlangıç Sayfası URL Adresi</value>
+  </data>
+  <data name="ApplicationStartPageUrlWatermark" xml:space="preserve">
+    <value>/Start.htm</value>
+  </data>
+  <data name="AppNameExplanation" xml:space="preserve">
+    <value>uygulamanızın adını sağlayın.</value>
+  </data>
+  <data name="AppNameLabel" xml:space="preserve">
+    <value>Uygulama Adı</value>
+  </data>
+  <data name="AppNameWatermark" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="AppWebSiteUrlExplanation" xml:space="preserve">
+    <value>Uygulamanızın web sitesi ana sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="AppWebSiteUrlLabel" xml:space="preserve">
+    <value>Uygulama Web Sitesi URL adresi</value>
+  </data>
+  <data name="AppWebSiteUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app</value>
+  </data>
+  <data name="BriefDescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;400&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="BriefDescriptionLabel" xml:space="preserve">
+    <value>Kısa Açıklama</value>
+  </data>
+  <data name="BriefDescriptionWatermark" xml:space="preserve">
+    <value>Kısa Açıklama (maks. 400 karakter)</value>
+  </data>
+  <data name="ChangedLabel" xml:space="preserve">
+    <value>değiştirilmiş</value>
+  </data>
+  <data name="ClearDependenciesText" xml:space="preserve">
+    <value>seçimleri sil</value>
+  </data>
+  <data name="ClearImageText" xml:space="preserve">
+    <value>sıfırla</value>
+  </data>
+  <data name="ClearPackage" xml:space="preserve">
+    <value>Değerleri Sil</value>
+  </data>
+  <data name="CommercialProductUrlExplanation" xml:space="preserve">
+    <value>Ticari ürünlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="CommercialProductUrlLabel" xml:space="preserve">
+    <value>Ticari Ürün URL Adresi</value>
+  </data>
+  <data name="CommercialProductUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/professionalversion.html</value>
+  </data>
+  <data name="CopyFromPackageBtnText" xml:space="preserve">
+    <value>Değerleri Kopyala</value>
+  </data>
+  <data name="CopyFromPackageLabel" xml:space="preserve">
+    <value>başlangıç</value>
+  </data>
+  <data name="DependenciesCaption" xml:space="preserve">
+    <value>Bağımlılıklar</value>
+  </data>
+  <data name="Dependencies_DatabaseHeader" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_DatabaseTT" xml:space="preserve">
+    <value>Veritabanı</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesHeader" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_FrameworksAndRuntimesTT" xml:space="preserve">
+    <value>Çerçeveler ve Çalışma Zamanları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsHeader" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="Dependencies_WebServerExtensionsTT" xml:space="preserve">
+    <value>Web Sunucusu Uzantıları</value>
+  </data>
+  <data name="DescribeYourAppSectionHeader" xml:space="preserve">
+    <value>Uygulamanızı Tarif Edin:</value>
+  </data>
+  <data name="DescribeYourAppSectionSubheader" xml:space="preserve">
+    <value>En az bir dil gerekmektedir.</value>
+  </data>
+  <data name="DescriptionExplanation" xml:space="preserve">
+    <value>&lt;strong&gt;1500&lt;/strong&gt; karakter kaldı</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="DescriptionWatermark" xml:space="preserve">
+    <value>Açıklama (maks. 1500 karakter)</value>
+  </data>
+  <data name="LegaleseIntro" xml:space="preserve">
+    <value>Uygulamanızı inceleyin ve işletim sistemi ve WebPI uyumluluğu da dahil &lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulaması Galerisi İlkeleri&lt;/a&gt; ile uyumlu olduğundan emin olun.</value>
+  </data>
+  <data name="LegaleseSectionHeader" xml:space="preserve">
+    <value>Koşulları Okuyun ve Gönderin:</value>
+  </data>
+  <data name="ListBox_Instruction_Select1" xml:space="preserve">
+    <value>Sadece birini seçin</value>
+  </data>
+  <data name="ListBox_Instruction_SelectMultiple" xml:space="preserve">
+    <value>Birden fazla seçmek için Ctrl/Cmd tuşunu kullanın</value>
+  </data>
+  <data name="LogoExplanation" xml:space="preserve">
+    <value>Logonuzun boyutu 200 x 200px olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="LogoLabel" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="MetaDataCaption" xml:space="preserve">
+    <value>Aşağıdakileri konuşan ziyaretçileriniz için uygulamanızı açıklayın: </value>
+  </data>
+  <data name="NewlySetLabel" xml:space="preserve">
+    <value>yeni</value>
+  </data>
+  <data name="NotSetLabel" xml:space="preserve">
+    <value>---</value>
+  </data>
+  <data name="PackageCaption" xml:space="preserve">
+    <value>Paket Bilgileri</value>
+  </data>
+  <data name="PackageChangeImbalanceWarningCaption" xml:space="preserve">
+    <value>Uyarı: Bazı paket dili bilgileri değişti.</value>
+  </data>
+  <data name="PackageInfoSectionHeader" xml:space="preserve">
+    <value>Paket Bilgilerini Sağlayın:</value>
+  </data>
+  <data name="PackageInfoSectionSubheader" xml:space="preserve">
+    <value>En az bir dil için paket bilgileri gerekmektedir.</value>
+  </data>
+  <data name="PackageLocationUrlExplanation" xml:space="preserve">
+    <value>Paket konumu, uygulama paketiniz için doğrudan, herkes tarafından erişilebilir bir web URL adresidir (&lt;strong&gt;zip&lt;/strong&gt; dosyası). Bu paket &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Windows Web Application Gallery packaging guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi paketleme talimatları&lt;/a&gt; uyarınca oluşturduğunuz MSDeploy dosyalarını içermelidir.&lt;br /&gt;&lt;br /&gt;Uygulamanız CodePlex üzerinde barındırılıyorsa paketiniz için özel bir URL adresi gerekmektedir. Örnek:&lt;br /&gt;&lt;strong style="font-size:0.75em"&gt; http://YourApplicationName.codeplex.com/&lt;br /&gt;Project/Download/FileDownload.aspx?&lt;br /&gt;DownloadId=nnnnn&lt;/strong&gt;&lt;br /&gt; URL adresinin başındaki uygulama adını ve paketin DownloadID'sini &lt;strong&gt;nnnnn&lt;/strong&gt; ile değiştirin.</value>
+  </data>
+  <data name="PackageLocationUrlLabel" xml:space="preserve">
+    <value>Paket Konumu URL Adresi</value>
+  </data>
+  <data name="PackageLocationUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/app/package.zip</value>
+  </data>
+  <data name="PrimaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için birincil kategoriyi seçin. Uygulama bir ya da daha fazla kategoride yer alabilir. Uygulamanızı ikinci bir kategoriyle ilişkilendirebilirsiniz.</value>
+  </data>
+  <data name="PrimaryCategoryLabel" xml:space="preserve">
+    <value>Birincil Kategori</value>
+  </data>
+  <data name="ProfessionalServicesUrlExplanation" xml:space="preserve">
+    <value>Ticari hizmetlerinizi tanıttığınız web sayfası için bir URL adresi sağlayın.</value>
+  </data>
+  <data name="ProfessionalServicesUrlLabel" xml:space="preserve">
+    <value>Profesyonel Hizmetler URL adresi</value>
+  </data>
+  <data name="ProfessionalServicesUrlWatermark" xml:space="preserve">
+    <value>http://www.services.org/services.html</value>
+  </data>
+  <data name="ReleaseDateExplanation" xml:space="preserve">
+    <value>Gönderilen uygulamanın herkese açık olarak sunulduğu veya sunulacağı tarih.</value>
+  </data>
+  <data name="ReleaseDateLabel" xml:space="preserve">
+    <value>Yayın Tarihi</value>
+  </data>
+  <data name="ScreenshotExplanation" xml:space="preserve">
+    <value>Uygulamanızın 6 adete kadar ekran görüntüsünü ekleyebilirsiniz. Ekran görüntüleri 800 x 600px boyutunda olmalı ve PNG formatında sağlanmalıdır.</value>
+  </data>
+  <data name="ScreenshotsCaption" xml:space="preserve">
+    <value>Ekran görüntüleri (opsiyonel)</value>
+  </data>
+  <data name="SecondaryCategoryExplanation" xml:space="preserve">
+    <value>Uygulamanız için ikincil bir kategori seçin.</value>
+  </data>
+  <data name="SecondaryCategoryLabel" xml:space="preserve">
+    <value>İkincil Kategori</value>
+  </data>
+  <data name="SHA1HashExplanation" xml:space="preserve">
+    <value>Paket konumu URL adresinizde bulunan paketli uygulamanızla ilgili SHA-1 karmasını sağlayın.  Karma değerleri hesaplama yazılımı &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en" title="Hash value calculation utility" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;buradan&lt;/a&gt; yüklenebilir. &lt;a href="http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/" title="Web Application Packaging Guidelines" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Web Uygulaması Paketleme Adım Adım ve Geliştirici Kılavuzu&lt;/a&gt;'nda belirtildiği gibi gönderim sonrasında paket üzerinde yapılacak her türlü değişiklik gönderim ve paketin geçersiz olmasına neden olacaktır.</value>
+  </data>
+  <data name="SHA1HashLabel" xml:space="preserve">
+    <value>SHA-1 Karması</value>
+  </data>
+  <data name="SHA1HashWatermark" xml:space="preserve">
+    <value>00000000000000000000000000000000</value>
+  </data>
+  <data name="SubmissionCannotBeModified" xml:space="preserve">
+    <value>Bu gönderi, Microsoft Corp tarafından incelenmekte ve işlenmektedir. Şu an herhangi bir değişiklik yapılamaz.</value>
+  </data>
+  <data name="SubmitAppButtonText" xml:space="preserve">
+    <value>Uygulamanızı Gönderin</value>
+  </data>
+  <data name="SubmitDifferentLogoText" xml:space="preserve">
+    <value>Farklı bir logo gönderin</value>
+  </data>
+  <data name="SubmitDifferentScreenshot" xml:space="preserve">
+    <value>Ekran görüntüsünü silin veya değiştirin</value>
+  </data>
+  <data name="SubmittingEntityExplanation" xml:space="preserve">
+    <value>Gönderen Kurum, uygulamayı gönderen kurumun adıdır.</value>
+  </data>
+  <data name="SubmittingEntityLabel" xml:space="preserve">
+    <value>Gönderen Kurum</value>
+  </data>
+  <data name="SubmittingEntityUrlExplanation" xml:space="preserve">
+    <value>Gönderen Kurum için birincil web sitesinin URL adresini sağlayın.</value>
+  </data>
+  <data name="SubmittingEntityUrlLabel" xml:space="preserve">
+    <value>Gönderen Kurum URL adresi</value>
+  </data>
+  <data name="SubmittingEntityUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org</value>
+  </data>
+  <data name="SubmitTitle" xml:space="preserve">
+    <value>Web Uygulaması gönderin</value>
+  </data>
+  <data name="SupportUrlExplanation" xml:space="preserve">
+    <value>&lt;a href="http://learn.iis.net/page.aspx/605/web-application-gallery-principles/" title="Windows Web App Gallery Principles" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Windows Web Uygulama Galerisi İlkeleri&lt;/a&gt; uygulamanızın müşterilere ücretsiz web tabanlı destek sunmasını gerektirir.</value>
+  </data>
+  <data name="SupportUrlLabel" xml:space="preserve">
+    <value>Destek URL adresi</value>
+  </data>
+  <data name="SupportUrlWatermark" xml:space="preserve">
+    <value>http://www.SubmittingEntity.org/support</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Web Uygulaması &lt;a href="/agreement" title="Submission Agreement" onclick="window.open(this.href, '_blank', ''); return false;" tabindex="9001"&gt;Gönderme Sözleşmesi&lt;/a&gt;'nin Koşullarını kabul ediyorum.</value>
+  </data>
+  <data name="TermsAndConditionsTT" xml:space="preserve">
+    <value>Koşulları onaylıyor musunuz?</value>
+  </data>
+  <data name="TermsAndConditionsValidationMessage" xml:space="preserve">
+    <value>Koşullar</value>
+  </data>
+  <data name="UnchangedLabel" xml:space="preserve">
+    <value>değiştirilmemiş</value>
+  </data>
+  <data name="UpgradeIE" xml:space="preserve">
+    <value>Uygulamaların gönderilmesi ve düzenlenmesi bu Internet Explorer sürümünde desteklenmemektedir. Lütfen Internet Explorer sürümünüzü &lt;a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" onclick="window.open(this.href, '_blank', ''); return false;" title="Upgrade Internet Explorer"&gt;yükseltin&lt;/a&gt; veya farklı bir tarayıcı kullanın.</value>
+  </data>
+  <data name="ValidationSectionHeader" xml:space="preserve">
+    <value>Girişleri Onayla:</value>
+  </data>
+  <data name="ValidationSummaryHeader" xml:space="preserve">
+    <value>Bu uygulamayı gönderebilmeniz için aşağıdaki bilgileri sağlamanız gerekmektedir:</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="VersionWatermark" xml:space="preserve">
+    <value>1.2.3.4</value>
+  </data>
+  <data name="ViewLastSubmissionText" xml:space="preserve">
+    <value>Son gönderiyi göster</value>
+  </data>
+  <data name="DropdownDefaultText" xml:space="preserve">
+    <value>Birini seçin</value>
+  </data>
+  <data name="DropdownNoChoiceText" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="AppIDValidationMessage" xml:space="preserve">
+    <value>Uygulama Kimliğinde sadece harfler ve rakamlar kullanılabilir</value>
+  </data>
+  <data name="AppIDValidationText" xml:space="preserve">
+    <value>sadece alfanümerik</value>
+  </data>
+  <data name="AppUniquenessValidationMessage" xml:space="preserve">
+    <value>Uygulama kimliği, Sürüm ve Dil başka bir gönderi tarafından kullanılmış. Uygulama kimliğini değiştir.</value>
+  </data>
+  <data name="AppUniquenessValidationText" xml:space="preserve">
+    <value>özel değil, lütfen değiştirin</value>
+  </data>
+  <data name="AppUniquenessValidationTooltip" xml:space="preserve">
+    <value>Sağladığınız Uygulama kimliği, Sürüm ve Dil kombinasyonu başka bir gönderi tarafından daha önceden kullanılmış. Bu gönderinin özel olmasını sağlamak için bu değerlerden en az birini değiştirmeniz gerekmektedir. Genel olarak seçtiğini Uygulama kimliğini değiştirmek en iyi çözümdür.</value>
+  </data>
+  <data name="BriefDescriptionValidationMessage" xml:space="preserve">
+    <value>Kısa açıklama, 400 karakterden uzun olmamalıdır</value>
+  </data>
+  <data name="BriefDescriptionValidationText" xml:space="preserve">
+    <value>çok fazla karakter</value>
+  </data>
+  <data name="DescriptionValidationMessage" xml:space="preserve">
+    <value>Açıklama, 1500 karakterden uzun olmamalıdır</value>
+  </data>
+  <data name="DescriptionValidationText" xml:space="preserve">
+    <value>çok fazla karakter</value>
+  </data>
+  <data name="MetaDataValidationMessage" xml:space="preserve">
+    <value>Her tanımlanan paket dili ve İngilizcenin bir Uygulama Adı, Açıklaması ve Kısa Açıklaması bulunmalıdır.</value>
+  </data>
+  <data name="PacakageValidationMessage" xml:space="preserve">
+    <value>En az bir dil için paket bilgileri gerekmektedir</value>
+  </data>
+  <data name="UnknownUrlFormatValidationText" xml:space="preserve">
+    <value>bilinmeyen URL formatı</value>
+  </data>
 </root>

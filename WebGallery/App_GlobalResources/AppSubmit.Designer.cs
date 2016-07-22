@@ -59,5 +59,968 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release Notes.
+        /// </summary>
+        internal static string AdditionalInfoLabel {
+            get {
+                return ResourceManager.GetString("AdditionalInfoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide Release Notes:.
+        /// </summary>
+        internal static string AdditionalInfoSectionHeader {
+            get {
+                return ResourceManager.GetString("AdditionalInfoSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide additional information about this release, including any changes from a previously published version..
+        /// </summary>
+        internal static string AdditionalInfoWatermark {
+            get {
+                return ResourceManager.GetString("AdditionalInfoWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide an ID for your application. Use only letters and digits, no spaces or punctuation. This ID is used as the page name for your application in the &lt;a href=&quot;/gallery&quot; title=&quot;Windows Web App Gallery&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web App Gallery&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;You will not be able to change this ID with future edits of your application such as for version updates..
+        /// </summary>
+        internal static string AppIDExplanation {
+            get {
+                return ResourceManager.GetString("AppIDExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App ID.
+        /// </summary>
+        internal static string AppIDLabel {
+            get {
+                return ResourceManager.GetString("AppIDLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App ID can only use letters and digits.
+        /// </summary>
+        internal static string AppIDValidationMessage {
+            get {
+                return ResourceManager.GetString("AppIDValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alphanumberic only.
+        /// </summary>
+        internal static string AppIDValidationText {
+            get {
+                return ResourceManager.GetString("AppIDValidationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application.
+        /// </summary>
+        internal static string AppIDWatermark {
+            get {
+                return ResourceManager.GetString("AppIDWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the relative URL from the site root for the first page to load after the application is installed. For example:&lt;br /&gt;/start.htm, /default.aspx or /install.php..
+        /// </summary>
+        internal static string ApplicationStartPageUrlExplanation {
+            get {
+                return ResourceManager.GetString("ApplicationStartPageUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Start Page URL.
+        /// </summary>
+        internal static string ApplicationStartPageUrlLabel {
+            get {
+                return ResourceManager.GetString("ApplicationStartPageUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Start.htm.
+        /// </summary>
+        internal static string ApplicationStartPageUrlWatermark {
+            get {
+                return ResourceManager.GetString("ApplicationStartPageUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the name of your application..
+        /// </summary>
+        internal static string AppNameExplanation {
+            get {
+                return ResourceManager.GetString("AppNameExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Name.
+        /// </summary>
+        internal static string AppNameLabel {
+            get {
+                return ResourceManager.GetString("AppNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application.
+        /// </summary>
+        internal static string AppNameWatermark {
+            get {
+                return ResourceManager.GetString("AppNameWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App ID, Version and Language are used by another submission. Modify the App ID..
+        /// </summary>
+        internal static string AppUniquenessValidationMessage {
+            get {
+                return ResourceManager.GetString("AppUniquenessValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to not unique, please change.
+        /// </summary>
+        internal static string AppUniquenessValidationText {
+            get {
+                return ResourceManager.GetString("AppUniquenessValidationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The combination of the App ID, Version and Language you have provided are already in use by another submission. To make this submission unique you will need to change at least one of these values. Typically, the best solution is modify the  App ID you have chosen..
+        /// </summary>
+        internal static string AppUniquenessValidationTooltip {
+            get {
+                return ResourceManager.GetString("AppUniquenessValidationTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide an URL to your application&apos;s website homepage..
+        /// </summary>
+        internal static string AppWebSiteUrlExplanation {
+            get {
+                return ResourceManager.GetString("AppWebSiteUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Web Site URL.
+        /// </summary>
+        internal static string AppWebSiteUrlLabel {
+            get {
+                return ResourceManager.GetString("AppWebSiteUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.SubmittingEntity.org/app.
+        /// </summary>
+        internal static string AppWebSiteUrlWatermark {
+            get {
+                return ResourceManager.GetString("AppWebSiteUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;400&lt;/strong&gt; characters remaining.
+        /// </summary>
+        internal static string BriefDescriptionExplanation {
+            get {
+                return ResourceManager.GetString("BriefDescriptionExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brief Description.
+        /// </summary>
+        internal static string BriefDescriptionLabel {
+            get {
+                return ResourceManager.GetString("BriefDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brief Description must be no more than 400 characters.
+        /// </summary>
+        internal static string BriefDescriptionValidationMessage {
+            get {
+                return ResourceManager.GetString("BriefDescriptionValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to too many characters.
+        /// </summary>
+        internal static string BriefDescriptionValidationText {
+            get {
+                return ResourceManager.GetString("BriefDescriptionValidationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brief Description (400 characters max).
+        /// </summary>
+        internal static string BriefDescriptionWatermark {
+            get {
+                return ResourceManager.GetString("BriefDescriptionWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modified.
+        /// </summary>
+        internal static string ChangedLabel {
+            get {
+                return ResourceManager.GetString("ChangedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to clear selections.
+        /// </summary>
+        internal static string ClearDependenciesText {
+            get {
+                return ResourceManager.GetString("ClearDependenciesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reset.
+        /// </summary>
+        internal static string ClearImageText {
+            get {
+                return ResourceManager.GetString("ClearImageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Values.
+        /// </summary>
+        internal static string ClearPackage {
+            get {
+                return ResourceManager.GetString("ClearPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide an URL to the Web page where you promote your commercial products..
+        /// </summary>
+        internal static string CommercialProductUrlExplanation {
+            get {
+                return ResourceManager.GetString("CommercialProductUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commercial Product URL.
+        /// </summary>
+        internal static string CommercialProductUrlLabel {
+            get {
+                return ResourceManager.GetString("CommercialProductUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.SubmittingEntity.org/professionalversion.html.
+        /// </summary>
+        internal static string CommercialProductUrlWatermark {
+            get {
+                return ResourceManager.GetString("CommercialProductUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Values.
+        /// </summary>
+        internal static string CopyFromPackageBtnText {
+            get {
+                return ResourceManager.GetString("CopyFromPackageBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to from.
+        /// </summary>
+        internal static string CopyFromPackageLabel {
+            get {
+                return ResourceManager.GetString("CopyFromPackageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dependencies.
+        /// </summary>
+        internal static string DependenciesCaption {
+            get {
+                return ResourceManager.GetString("DependenciesCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        internal static string Dependencies_DatabaseHeader {
+            get {
+                return ResourceManager.GetString("Dependencies_DatabaseHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        internal static string Dependencies_DatabaseTT {
+            get {
+                return ResourceManager.GetString("Dependencies_DatabaseTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frameworks and Runtimes.
+        /// </summary>
+        internal static string Dependencies_FrameworksAndRuntimesHeader {
+            get {
+                return ResourceManager.GetString("Dependencies_FrameworksAndRuntimesHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frameworks and Runtimes.
+        /// </summary>
+        internal static string Dependencies_FrameworksAndRuntimesTT {
+            get {
+                return ResourceManager.GetString("Dependencies_FrameworksAndRuntimesTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Server Extensions.
+        /// </summary>
+        internal static string Dependencies_WebServerExtensionsHeader {
+            get {
+                return ResourceManager.GetString("Dependencies_WebServerExtensionsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Server Extensions.
+        /// </summary>
+        internal static string Dependencies_WebServerExtensionsTT {
+            get {
+                return ResourceManager.GetString("Dependencies_WebServerExtensionsTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Describe Your Application:.
+        /// </summary>
+        internal static string DescribeYourAppSectionHeader {
+            get {
+                return ResourceManager.GetString("DescribeYourAppSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one language is required..
+        /// </summary>
+        internal static string DescribeYourAppSectionSubheader {
+            get {
+                return ResourceManager.GetString("DescribeYourAppSectionSubheader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;1500&lt;/strong&gt; characters remaining.
+        /// </summary>
+        internal static string DescriptionExplanation {
+            get {
+                return ResourceManager.GetString("DescriptionExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string DescriptionLabel {
+            get {
+                return ResourceManager.GetString("DescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description must be no more than 1500 characters.
+        /// </summary>
+        internal static string DescriptionValidationMessage {
+            get {
+                return ResourceManager.GetString("DescriptionValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to too many characters.
+        /// </summary>
+        internal static string DescriptionValidationText {
+            get {
+                return ResourceManager.GetString("DescriptionValidationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description (1500 characters max).
+        /// </summary>
+        internal static string DescriptionWatermark {
+            get {
+                return ResourceManager.GetString("DescriptionWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick one.
+        /// </summary>
+        internal static string DropdownDefaultText {
+            get {
+                return ResourceManager.GetString("DropdownDefaultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string DropdownNoChoiceText {
+            get {
+                return ResourceManager.GetString("DropdownNoChoiceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please review and ensure that your application is compliant with the &lt;a href=&quot;http://learn.iis.net/page.aspx/605/web-application-gallery-principles/&quot; title=&quot;Windows Web App Gallery Principles&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web App Gallery Principles&lt;/a&gt; including operating system and WebPI compatibility..
+        /// </summary>
+        internal static string LegaleseIntro {
+            get {
+                return ResourceManager.GetString("LegaleseIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review Terms and Conditions and Submit:.
+        /// </summary>
+        internal static string LegaleseSectionHeader {
+            get {
+                return ResourceManager.GetString("LegaleseSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select one only.
+        /// </summary>
+        internal static string ListBox_Instruction_Select1 {
+            get {
+                return ResourceManager.GetString("ListBox_Instruction_Select1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Ctrl/Cmd key to select more than one.
+        /// </summary>
+        internal static string ListBox_Instruction_SelectMultiple {
+            get {
+                return ResourceManager.GetString("ListBox_Instruction_SelectMultiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your logo must be no more than 200px in width or height and provided in PNG format..
+        /// </summary>
+        internal static string LogoExplanation {
+            get {
+                return ResourceManager.GetString("LogoExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logo.
+        /// </summary>
+        internal static string LogoLabel {
+            get {
+                return ResourceManager.GetString("LogoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Describe your application for visitors who speak: .
+        /// </summary>
+        internal static string MetaDataCaption {
+            get {
+                return ResourceManager.GetString("MetaDataCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each defined package language and English must also have an App Name, Description and Brief Description..
+        /// </summary>
+        internal static string MetaDataValidationMessage {
+            get {
+                return ResourceManager.GetString("MetaDataValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to new.
+        /// </summary>
+        internal static string NewlySetLabel {
+            get {
+                return ResourceManager.GetString("NewlySetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ---.
+        /// </summary>
+        internal static string NotSetLabel {
+            get {
+                return ResourceManager.GetString("NotSetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package information for at least one language is required.
+        /// </summary>
+        internal static string PacakageValidationMessage {
+            get {
+                return ResourceManager.GetString("PacakageValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package Information.
+        /// </summary>
+        internal static string PackageCaption {
+            get {
+                return ResourceManager.GetString("PackageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning: Some but not all package language details have changed..
+        /// </summary>
+        internal static string PackageChangeImbalanceWarningCaption {
+            get {
+                return ResourceManager.GetString("PackageChangeImbalanceWarningCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide Package Information:.
+        /// </summary>
+        internal static string PackageInfoSectionHeader {
+            get {
+                return ResourceManager.GetString("PackageInfoSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package details are required for at least one language..
+        /// </summary>
+        internal static string PackageInfoSectionSubheader {
+            get {
+                return ResourceManager.GetString("PackageInfoSectionSubheader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The package location is a direct, publically accessible web URL to your application package (&lt;strong&gt;zip&lt;/strong&gt; file). This package should include the MSDeploy files you created as part of the &lt;a href=&quot;http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-application-gallery/&quot; title=&quot;Windows Web Application Gallery packaging guidelines&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web Application Gallery packaging guidelines&lt;/a&gt;.&lt;br /&gt;&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PackageLocationUrlExplanation {
+            get {
+                return ResourceManager.GetString("PackageLocationUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package Location URL.
+        /// </summary>
+        internal static string PackageLocationUrlLabel {
+            get {
+                return ResourceManager.GetString("PackageLocationUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.SubmittingEntity.org/app/package.zip.
+        /// </summary>
+        internal static string PackageLocationUrlWatermark {
+            get {
+                return ResourceManager.GetString("PackageLocationUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the primary category for your application. Application may fall into more one or more categories. You have the option of associating your application with a second category..
+        /// </summary>
+        internal static string PrimaryCategoryExplanation {
+            get {
+                return ResourceManager.GetString("PrimaryCategoryExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary Category.
+        /// </summary>
+        internal static string PrimaryCategoryLabel {
+            get {
+                return ResourceManager.GetString("PrimaryCategoryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide an URL to the Web page where you promote your commercial services..
+        /// </summary>
+        internal static string ProfessionalServicesUrlExplanation {
+            get {
+                return ResourceManager.GetString("ProfessionalServicesUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Professional Services URL.
+        /// </summary>
+        internal static string ProfessionalServicesUrlLabel {
+            get {
+                return ResourceManager.GetString("ProfessionalServicesUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.services.org/services.html.
+        /// </summary>
+        internal static string ProfessionalServicesUrlWatermark {
+            get {
+                return ResourceManager.GetString("ProfessionalServicesUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The date that the submitted application has been or will be publically available..
+        /// </summary>
+        internal static string ReleaseDateExplanation {
+            get {
+                return ResourceManager.GetString("ReleaseDateExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release Date.
+        /// </summary>
+        internal static string ReleaseDateLabel {
+            get {
+                return ResourceManager.GetString("ReleaseDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (*).
+        /// </summary>
+        internal static string RequiredText {
+            get {
+                return ResourceManager.GetString("RequiredText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add up to 6 screenshots of your application. Screenshots should be no more than 800px in width or 600px in height and provided in PNG format..
+        /// </summary>
+        internal static string ScreenshotExplanation {
+            get {
+                return ResourceManager.GetString("ScreenshotExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshots (optional).
+        /// </summary>
+        internal static string ScreenshotsCaption {
+            get {
+                return ResourceManager.GetString("ScreenshotsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a secondary category for your application..
+        /// </summary>
+        internal static string SecondaryCategoryExplanation {
+            get {
+                return ResourceManager.GetString("SecondaryCategoryExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secondary Category.
+        /// </summary>
+        internal static string SecondaryCategoryLabel {
+            get {
+                return ResourceManager.GetString("SecondaryCategoryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the SHA-1 hash associated with the application packaged located at your package location URL.  Software to calculate hash values can be downloaded &lt;a href=&quot;http://www.microsoft.com/downloads/details.aspx?FamilyID=B3C93558-31B7-47E2-A663-7365C1686C08&amp;displaylang=en&quot; title=&quot;Hash value calculation utility&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;here&lt;/a&gt;. As stated in the &lt;a href=&quot;http://learn.iis.net/page.aspx/578/application-packaging-guide-for-the-windows-web-ap [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SHA1HashExplanation {
+            get {
+                return ResourceManager.GetString("SHA1HashExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHA-1 Hash.
+        /// </summary>
+        internal static string SHA1HashLabel {
+            get {
+                return ResourceManager.GetString("SHA1HashLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 00000000000000000000000000000000.
+        /// </summary>
+        internal static string SHA1HashWatermark {
+            get {
+                return ResourceManager.GetString("SHA1HashWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This submission is being reviewed and processed by Microsoft Corp. No modifications can be made at this time..
+        /// </summary>
+        internal static string SubmissionCannotBeModified {
+            get {
+                return ResourceManager.GetString("SubmissionCannotBeModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit Your App.
+        /// </summary>
+        internal static string SubmitAppButtonText {
+            get {
+                return ResourceManager.GetString("SubmitAppButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit a different logo.
+        /// </summary>
+        internal static string SubmitDifferentLogoText {
+            get {
+                return ResourceManager.GetString("SubmitDifferentLogoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete or replace screenshot.
+        /// </summary>
+        internal static string SubmitDifferentScreenshot {
+            get {
+                return ResourceManager.GetString("SubmitDifferentScreenshot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitting Entity is the name of the entity submitting the application..
+        /// </summary>
+        internal static string SubmittingEntityExplanation {
+            get {
+                return ResourceManager.GetString("SubmittingEntityExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitting Entity.
+        /// </summary>
+        internal static string SubmittingEntityLabel {
+            get {
+                return ResourceManager.GetString("SubmittingEntityLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the URL for the primary website for the Submitting Entity..
+        /// </summary>
+        internal static string SubmittingEntityUrlExplanation {
+            get {
+                return ResourceManager.GetString("SubmittingEntityUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitting Entity URL.
+        /// </summary>
+        internal static string SubmittingEntityUrlLabel {
+            get {
+                return ResourceManager.GetString("SubmittingEntityUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.SubmittingEntity.org.
+        /// </summary>
+        internal static string SubmittingEntityUrlWatermark {
+            get {
+                return ResourceManager.GetString("SubmittingEntityUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit Web App.
+        /// </summary>
+        internal static string SubmitTitle {
+            get {
+                return ResourceManager.GetString("SubmitTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;a href=&quot;http://learn.iis.net/page.aspx/605/web-application-gallery-principles/&quot; title=&quot;Windows Web App Gallery Principles&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Windows Web App Gallery Principles&lt;/a&gt; require your application to provide free web based support to customers..
+        /// </summary>
+        internal static string SupportUrlExplanation {
+            get {
+                return ResourceManager.GetString("SupportUrlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support URL.
+        /// </summary>
+        internal static string SupportUrlLabel {
+            get {
+                return ResourceManager.GetString("SupportUrlLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.SubmittingEntity.org/support.
+        /// </summary>
+        internal static string SupportUrlWatermark {
+            get {
+                return ResourceManager.GetString("SupportUrlWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I accept the Terms and Conditions of the Web Application &lt;a href=&quot;/agreement&quot; title=&quot;Submission Agreement&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; tabindex=&quot;9001&quot;&gt;Submission Agreement&lt;/a&gt;..
+        /// </summary>
+        internal static string TermsAndConditionsLabel {
+            get {
+                return ResourceManager.GetString("TermsAndConditionsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you agree with the Terms and Conditions?.
+        /// </summary>
+        internal static string TermsAndConditionsTT {
+            get {
+                return ResourceManager.GetString("TermsAndConditionsTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms and Conditions.
+        /// </summary>
+        internal static string TermsAndConditionsValidationMessage {
+            get {
+                return ResourceManager.GetString("TermsAndConditionsValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to unchanged.
+        /// </summary>
+        internal static string UnchangedLabel {
+            get {
+                return ResourceManager.GetString("UnchangedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to unknown URL format.
+        /// </summary>
+        internal static string UnknownUrlFormatValidationText {
+            get {
+                return ResourceManager.GetString("UnknownUrlFormatValidationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submission and editing of applications is not supported in this version of Internet Explorer. Please &lt;a href=&quot;http://www.microsoft.com/windows/internet-explorer/default.aspx&quot; onclick=&quot;window.open(this.href, &apos;_blank&apos;, &apos;&apos;); return false;&quot; title=&quot;Upgrade Internet Explorer&quot;&gt;upgrade&lt;/a&gt; your version of Internet Explorer or use a different browser..
+        /// </summary>
+        internal static string UpgradeIE {
+            get {
+                return ResourceManager.GetString("UpgradeIE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validate Entries:.
+        /// </summary>
+        internal static string ValidationSectionHeader {
+            get {
+                return ResourceManager.GetString("ValidationSectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following information is required before you can submit this application:.
+        /// </summary>
+        internal static string ValidationSummaryHeader {
+            get {
+                return ResourceManager.GetString("ValidationSummaryHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        internal static string VersionLabel {
+            get {
+                return ResourceManager.GetString("VersionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.2.3.4.
+        /// </summary>
+        internal static string VersionWatermark {
+            get {
+                return ResourceManager.GetString("VersionWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View last submission.
+        /// </summary>
+        internal static string ViewLastSubmissionText {
+            get {
+                return ResourceManager.GetString("ViewLastSubmissionText", resourceCulture);
+            }
+        }
     }
 }

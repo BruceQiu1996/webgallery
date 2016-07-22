@@ -1,21 +1,21 @@
 ﻿@model WebGallery.ViewModels.AppSubmitViewModel
 
-<h3 id="Metadata">Describe Your Application:</h3>
-<strong>At least one language is required.</strong>
+<h3 id="Metadata">@Resources.AppSubmit.DescribeYourAppSectionHeader</h3>
+<strong>@Resources.AppSubmit.DescribeYourAppSectionSubheader</strong>
 <div class="submission-form-section">
     <p>
-        Describe your application for visitors who speak:
+        @Resources.AppSubmit.MetaDataCaption
         <input type="hidden" name="DescribeYourApplication" id="DescribeYourApplication"
                data-anchor="Metadata"
-               data-msg-englishMetadataRequired="(*)"
-               data-msg-d-englishMetadataRequired="Each defined package language and English must also have an App Name, Description and Brief Description."
-               data-msg-eachPackageHasMetadataForItsLanguage="(*)"
-               data-msg-d-eachPackageHasMetadataForItsLanguage="Each defined package language and English must also have an App Name, Description and Brief Description."/>
+               data-msg-englishMetadataRequired="@Resources.AppSubmit.RequiredText"
+               data-msg-d-englishMetadataRequired="@Resources.AppSubmit.MetaDataValidationMessage"
+               data-msg-eachPackageHasMetadataForItsLanguage="@Resources.AppSubmit.RequiredText"
+               data-msg-d-eachPackageHasMetadataForItsLanguage="@Resources.AppSubmit.MetaDataValidationMessage" />
     </p>
 
     <div id="metaDataTabContainer" class="tab_xp tab_default">
         <div class="tab_header">
-            @for(var i= 0; i < ViewBag.Languages.Count; i++)
+            @for (var i = 0; i < ViewBag.Languages.Count; i++)
             {
                 var lang = ViewBag.Languages[i];
                 var classNames = i == 0 ? "tab_active" : string.Empty;
@@ -28,7 +28,8 @@
             {
                 var lang = ViewBag.Languages[i];
                 var metadata = Model.MetadataList.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                    ?? new WebGallery.Models.SubmissionLocalizedMetaData {
+                    ?? new WebGallery.Models.SubmissionLocalizedMetaData
+                    {
                         MetadataID = 0,
                         SubmissionID = Model.Submission.SubmissionID,
                         Language = lang.Name,
@@ -45,30 +46,237 @@
 
                     <div class="meta-data-caption">@lang.CultureInfo.DisplayName</div>
 
-                    <label for="AppName_@lang.Name" class="textbox-label">App Name</label>
-                    <input type="text" name="MetadataList[@i].Name" id="AppName_@lang.Name" value="@metadata.Name" class="textbox" dir="@lang.TextDirection" placeholder="Application" onchange="createNickname(this)" data-title="App Name"/>
+                    <label for="AppName_@lang.Name" class="textbox-label">@Resources.AppSubmit.AppNameLabel</label>
+                    <input type="text" name="MetadataList[@i].Name" id="AppName_@lang.Name" value="@metadata.Name" class="textbox" dir="@lang.TextDirection" placeholder="@Resources.AppSubmit.AppNameWatermark" onchange="createNickname(this)" data-title="@Resources.AppSubmit.AppNameLabel" />
                     <div class="explanation">
-                        <div class='explanation-inner'>Provide the name of your application.</div>
+                        <div class='explanation-inner'>@Resources.AppSubmit.AppNameExplanation</div>
                     </div>
 
-                    <label for="Description_@lang.Name" class="textbox-label">Description</label>
-                    <textarea name="MetadataList[@i].Description" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;" placeholder="Description (1500 characters max)" data-title="Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 1500 characters.">@metadata.Description</textarea>
+                    <label for="Description_@lang.Name" class="textbox-label">@Resources.AppSubmit.DescriptionLabel</label>
+                    <textarea name="MetadataList[@i].Description" id="Description_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(1500, this); return true;" onpaste="characterCountDown(1500, this); return true;" placeholder="@Resources.AppSubmit.DescriptionWatermark" data-title="@Resources.AppSubmit.DescriptionLabel (@lang.ShortDisplayName)" data-msg-maxlength="@Resources.AppSubmit.DescriptionValidationText" data-msg-d-maxlength="@Resources.AppSubmit.DescriptionValidationMessage">@metadata.Description</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
-                            <span class="low-count">1500</span> characters remaining<br /><br />
+                            @Html.Raw(Resources.AppSubmit.DescriptionExplanation)
                         </div>
                     </div>
 
-                    <label for="BriefDescription_@lang.Name" class="textbox-label">Brief Description</label>
-                    <textarea name="MetadataList[@i].BriefDescription" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="Brief Description (400 characters max)" data-title="Brief Description (@lang.ShortDisplayName)" data-msg-maxlength="Too many characters." data-msg-d-maxlength="must be no more than 400 characters.">@metadata.BriefDescription</textarea>
+                    <label for="BriefDescription_@lang.Name" class="textbox-label">@Resources.AppSubmit.BriefDescriptionLabel</label>
+                    <textarea name="MetadataList[@i].BriefDescription" id="BriefDescription_@lang.Name" rows="10" cols="20" class="textbox" dir="@lang.TextDirection" onkeyup="characterCountDown(400, this); return true;" onpaste="characterCountDown(400, this); return true;" placeholder="@Resources.AppSubmit.BriefDescriptionWatermark" data-title="@Resources.AppSubmit.BriefDescriptionLabel (@lang.ShortDisplayName)" data-msg-maxlength="@Resources.AppSubmit.BriefDescriptionValidationText" data-msg-d-maxlength="@Resources.AppSubmit.BriefDescriptionValidationMessage">@metadata.BriefDescription</textarea>
                     <div class="explanation">
                         <div class='explanation-inner'>
-                            <span class="low-count">400</span> characters remaining<br /><br />
+                            @Html.Raw(Resources.AppSubmit.BriefDescriptionExplanation)
                         </div>
                     </div>
                     <div class="clearfix">&nbsp;</div>
                 </div>
-            }            
+            }
+        </div>
+    </div>
+</div>
+
+<div class="submission-form-section">
+    <input type="hidden" name="Submission.SubmissionID" id="SubmissionId" value="@Model.Submission.SubmissionID" />
+    @{
+        var showNickname = (Model.CanEditNickname) ? string.Empty : "display:none";
+    }
+    <div class="clearfix" style="@showNickname">
+        <label for="AppId" class="textbox-label">@Resources.AppSubmit.AppIDLabel</label>
+        <input type="text" name="Submission.Nickname" id="AppId" value="@Model.Submission.Nickname" class="textbox" placeholder="@Resources.AppSubmit.AppIDWatermark"
+               data-title="@Resources.AppSubmit.AppIDLabel"
+               data-msg-required="@Resources.AppSubmit.RequiredText"
+               data-msg-alphanumeric="@Resources.AppSubmit.AppIDValidationText"
+               data-msg-d-alphanumeric="@Resources.AppSubmit.AppIDValidationMessage"
+               data-msg-unique="@(Resources.AppSubmit.AppUniquenessValidationText). @Resources.AppSubmit.AppUniquenessValidationTooltip"
+               data-msg-d-unique="@Resources.AppSubmit.AppUniquenessValidationMessage" />
+        <div class="explanation">
+            <div class="explanation-inner">@Html.Raw(Resources.AppSubmit.AppIDExplanation)</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="Version" class="textbox-label">@Resources.AppSubmit.VersionLabel</label>
+        <input type="text" name="Submission.Version" id="Version" value="@Model.Submission.Version" class="textbox" placeholder="@Resources.AppSubmit.VersionWatermark" data-title="@Resources.AppSubmit.VersionLabel" data-msg-required="@Resources.AppSubmit.RequiredText" />
+    </div>
+    <div class="clearfix">
+        <label for="SubmittingEntity" class="textbox-label">@Resources.AppSubmit.SubmittingEntityLabel</label>
+        <input type="text" name="Submission.SubmittingEntity" id="SubmittingEntity" value="@Model.Submission.SubmittingEntity" class="textbox" data-title="@Resources.AppSubmit.SubmittingEntityLabel" data-msg-required="@Resources.AppSubmit.RequiredText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.SubmittingEntityExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="SubmittingEntityURL" class="textbox-label">@Resources.AppSubmit.SubmittingEntityUrlLabel</label>
+        <input type="text" name="Submission.SubmittingEntityURL" id="SubmittingEntityURL" value="@Model.Submission.SubmittingEntityURL" class="textbox" placeholder="@Resources.AppSubmit.SubmittingEntityUrlWatermark"
+               data-title="@Resources.AppSubmit.SubmittingEntityUrlLabel"
+               data-msg-required="@Resources.AppSubmit.RequiredText"
+               data-msg-url="@Resources.AppSubmit.UnknownUrlFormatValidationText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.SubmittingEntityUrlExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="AppWebSiteURL" class="textbox-label">@Resources.AppSubmit.AppWebSiteUrlLabel</label>
+        <input type="text" name="Submission.AppURL" id="AppWebSiteURL" value="@Model.Submission.AppURL" class="textbox" placeholder="@Resources.AppSubmit.AppWebSiteUrlWatermark"
+               data-title="@Resources.AppSubmit.AppWebSiteUrlLabel"
+               data-msg-required="@Resources.AppSubmit.RequiredText"
+               data-msg-url="@Resources.AppSubmit.UnknownUrlFormatValidationText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.AppWebSiteUrlExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="SupportURL" class="textbox-label">@Resources.AppSubmit.SupportUrlLabel</label>
+        <input type="text" name="Submission.SupportURL" id="SupportURL" value="@Model.Submission.SupportURL" class="textbox" placeholder="@Resources.AppSubmit.SupportUrlWatermark"
+               data-title="@Resources.AppSubmit.SupportUrlLabel"
+               data-msg-required="@Resources.AppSubmit.RequiredText"
+               data-msg-url="@Resources.AppSubmit.UnknownUrlFormatValidationText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Html.Raw(Resources.AppSubmit.SupportUrlExplanation)</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="ReleaseDate" class="textbox-label">@Resources.AppSubmit.ReleaseDateLabel</label>
+        <input type="text" name="Submission.ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToString("M/d/yyyy")" class="textbox datefield" placeholder="@DateTime.Now.ToString("M/d/yyyy")" data-title="@Resources.AppSubmit.ReleaseDateLabel" data-msg-required="@Resources.AppSubmit.RequiredText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.ReleaseDateExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="PrimaryCategory" class="dd-label">@Resources.AppSubmit.PrimaryCategoryLabel</label>
+        <select name="Submission.CategoryID1" id="PrimaryCategory" class="dropdown dd-primary-category" data-title="@Resources.AppSubmit.PrimaryCategoryLabel" data-msg-required="@Resources.AppSubmit.RequiredText">
+            <option value="">@Resources.AppSubmit.DropdownDefaultText</option>
+            @foreach (var c in ViewBag.Categories)
+            {
+                if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+                {
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                }
+                else
+                {
+                    <option value="@c.CategoryID">@c.Name</option>
+                }
+            }
+        </select>
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.PrimaryCategoryExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="SecondaryCategory" class="dd-label">@Resources.AppSubmit.SecondaryCategoryLabel</label>
+        <select name="Submission.CategoryID2" id="SecondaryCategory" class="dropdown dd-secondary-category">
+            <option value="">@Resources.AppSubmit.DropdownNoChoiceText</option>
+            @foreach (var c in ViewBag.Categories)
+            {
+                if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+                {
+                    <option selected="selected" value="@c.CategoryID">@c.Name</option>
+                }
+                else
+                {
+                    <option value="@c.CategoryID">@c.Name</option>
+                }
+            }
+        </select>
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.SecondaryCategoryExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="ProfessionalServicesURL" class="textbox-label">@Resources.AppSubmit.ProfessionalServicesUrlLabel</label>
+        <input type="text" name="Submission.ProfessionalServicesURL" id="ProfessionalServicesURL" value="@Model.Submission.ProfessionalServicesURL" class="textbox" placeholder="@Resources.AppSubmit.ProfessionalServicesUrlWatermark" data-title="@Resources.AppSubmit.ProfessionalServicesUrlLabel" data-msg-url="@Resources.AppSubmit.UnknownUrlFormatValidationText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.ProfessionalServicesUrlExplanation</div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <label for="CommercialProductURL" class="textbox-label">@Resources.AppSubmit.CommercialProductUrlLabel</label>
+        <input type="text" name="Submission.CommercialProductURL" id="CommercialProductURL" value="@Model.Submission.CommercialProductURL" class="textbox" placeholder="@Resources.AppSubmit.CommercialProductUrlWatermark" data-title="@Resources.AppSubmit.CommercialProductUrlLabel" data-msg-url="@Resources.AppSubmit.UnknownUrlFormatValidationText" />
+        <div class="explanation">
+            <div class="explanation-inner">@Resources.AppSubmit.CommercialProductUrlExplanation</div>
+        </div>
+    </div>
+    <div class="image-set">
+        <div class="tab_xp tab_default">
+            <div class="tab_header">
+                <span class="tab_active"><span class="tab_outer"><span class="tab_inner"><span class="tab_tab">Images</span></span></span></span>
+            </div>
+            <div class="tab_body">
+                <div>
+                    <!--Logo-->
+                    @{
+                        var showLogoUploader = string.IsNullOrWhiteSpace(Model.Submission.LogoUrl) ? string.Empty : "display:none";
+                        Model.SetLogo = string.IsNullOrWhiteSpace(Model.Submission.LogoUrl); // if logo url is null/empty, set logo for Required validation
+                    }
+                    <input type="hidden" name="SetLogo" id="SetLogo" value="@Model.SetLogo.ToString()" />
+                    <label for="logo" class="file-upload-label">@Resources.AppSubmit.LogoLabel</label>
+                    <div id="panelEmptyLogo" class="file-upload-wrapper" style="@showLogoUploader">
+                        <input type="file" name="logo" id="logo" class="file-upload" title="@Resources.AppSubmit.LogoLabel" data-title="@Resources.AppSubmit.LogoLabel" data-msg-required="@Resources.AppSubmit.RequiredText" />
+                        <div class="explanation">
+                            <div class="explanation-inner">@Resources.AppSubmit.LogoExplanation</div>
+                        </div>
+                        <a id="resetLogo" onclick="resetFileUploader(this);" class="reset-file-uploader">@Resources.AppSubmit.ClearImageText</a>
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(Model.Submission.LogoUrl))
+                    {
+                        <div id="panelSubmittedLogo" class="submitted-panel">
+                            <a onclick="$(this).parent().children(':last').show()">@Resources.AppSubmit.ViewLastSubmissionText</a>
+                            /
+                            <a id="replaceLogo" onclick="replaceLogo()">@Resources.AppSubmit.SubmitDifferentLogoText</a>
+                            <div style="display:none">
+                                <div class="popup-background">
+                                </div>
+                                <div class="popup-foreground">
+                                    @* Deprecated: <img src="https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid={logo.ImageGUID}" />*@
+                                    <img src="@Model.Submission.LogoUrl" />
+                                    <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <!--Screenshots (1,2,3,4,5,6)-->
+                    <p class="screenshots-title">@Resources.AppSubmit.ScreenshotsCaption</p>
+                    @for (var index = 1; index <= 6; index++)
+                    {
+                        var screenshotUrl = Model.ScreenshotUrls[index - 1]; // zero-based
+                        var hiddenNameForSetScreenshot = $"SetScreenshot{index}";
+                        var hiddenIdForSetScreenshot = hiddenNameForSetScreenshot;
+                        var setScreenshot = Model.SettingStatusOfScreenshots[index - 1];
+                        var fuName = $"screenshot{index}";
+                        var fuId = fuName;
+                        var panelIdForEmptyScreenshot = $"panelEmtpyScreenshot{index}";
+                        var showScreenshotUploader = string.IsNullOrWhiteSpace(screenshotUrl) ? string.Empty : "display:none";
+                        var panelIdForSubmittedScreenshot = $"panelSubmittedScreenshot{index}";
+
+                        <input type="hidden" name="@hiddenNameForSetScreenshot" id="@hiddenIdForSetScreenshot" value="@setScreenshot.ToString()" />
+                        <label for="@fuId" class="file-upload-label">@index</label>
+                        <div id="@panelIdForEmptyScreenshot" class="file-upload-wrapper" style="@showScreenshotUploader">
+                            <input type="file" name="@fuName" id="@fuId" title="Screenshot @index" class="file-upload" />
+                            <div class="explanation">
+                                <div class="explanation-inner">@Resources.AppSubmit.ScreenshotExplanation</div>
+                            </div>
+                            <a onclick="resetFileUploader(this);" class="reset-file-uploader">@Resources.AppSubmit.ClearImageText</a>
+                        </div>
+
+                        if (!string.IsNullOrWhiteSpace(screenshotUrl))
+                        {
+                            <div id="@panelIdForSubmittedScreenshot" class="submitted-panel">
+                                <a onclick="$(this).parent().children(':last').show()">@Resources.AppSubmit.ViewLastSubmissionText</a>
+                                /
+                                <a href="javascript:replaceScreenshot(@index)">@Resources.AppSubmit.SubmitDifferentScreenshot</a>
+                                <div style="display:none">
+                                    <div class="popup-background">
+                                    </div>
+                                    <div class="popup-foreground">
+                                        @* Deprecated: <img src="https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid={screenshot.ImageGUID}" />*@
+                                        <img src="@screenshotUrl" />
+                                        <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div class="clearfix">&nbsp;</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

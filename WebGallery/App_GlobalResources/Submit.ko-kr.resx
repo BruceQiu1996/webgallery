@@ -247,7 +247,7 @@
     <value>응용프로그램 웹사이트 URL</value>
   </data>
   <data name="BriefDescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="brief-description-countdown" class="low-count"&gt;400&lt;/span&gt; characters remaining</value>
+    <value>&lt;strong&gt;400&lt;/strong&gt; characters remaining</value>
   </data>
   <data name="BriefDescriptionLabel" xml:space="preserve">
     <value>상세 설명</value>
@@ -313,7 +313,7 @@
     <value>Web Server Extensions</value>
   </data>
   <data name="DescriptionExplanation" xml:space="preserve">
-    <value>&lt;span id="description-countdown" class="low-count"&gt;1500&lt;/span&gt; characters remaining</value>
+    <value>&lt;strong&gt;1500&lt;/strong&gt; characters remaining</value>
   </data>
   <data name="DescriptionLabel" xml:space="preserve">
     <value>상세 설명</value>
@@ -775,7 +775,7 @@
     <value>URLs</value>
   </data>
   <data name="ValidationSummaryHeader" xml:space="preserve">
-    <value>&lt;p&gt;응용프로그램을 등록하기 전에 다음 정보가 필요합니다.:&lt;/p&gt;</value>
+    <value>응용프로그램을 등록하기 전에 다음 정보가 필요합니다.:</value>
   </data>
   <data name="ViewLastSubmissionText" xml:space="preserve">
     <value>최근 제출 정보보기</value>
