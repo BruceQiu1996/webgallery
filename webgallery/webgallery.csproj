@@ -567,6 +567,41 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.zh-chs.designer.cs">
+      <DependentUpon>InvitationDetail.zh-chs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.zh-cht.designer.cs">
+      <DependentUpon>InvitationDetail.zh-cht.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.es-es.designer.cs">
+      <DependentUpon>InvitationDetail.es-es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.ja-jp.designer.cs">
+      <DependentUpon>InvitationDetail.ja-jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.ko-kr.designer.cs">
+      <DependentUpon>InvitationDetail.ko-kr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.tr-TR.designer.cs">
+      <DependentUpon>InvitationDetail.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InvitationDetail.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvitationDetail.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\InvitationSend.es-es.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2008,6 +2043,34 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_GlobalResources\InvitationDetail.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.es-es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.ja-jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.ja-jp.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.ko-kr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.ko-kr.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.zh-cht.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.zh-cht.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InvitationDetail.zh-chs.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InvitationDetail.zh-chs.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\InvitationSend.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InvitationSend.Designer.cs</LastGenOutput>
