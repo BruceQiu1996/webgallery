@@ -7,19 +7,19 @@
 
 <div class="content">
     <h2>Ownership Invitation</h2>
-    <p>You have been invited to become a co-owner of an application.</p>
+    <p>@Resources.InvitationDetail.OwnershipRequestIntro</p>
     <div class="main-panel">
         <p>
-            <strong>App ID</strong>: @Model.Submission.Nickname<br />
-            <strong>Version</strong>: @Model.Submission.Version
+            <strong>@Resources.InvitationDetail.AppIDLabel</strong>: @Model.Submission.Nickname<br />
+            <strong>@Resources.InvitationDetail.VersionLabel</strong>: @Model.Submission.Version
         </p>
-        <p>Do you wish to accept or decline the invitation?</p>
+        <p>@Resources.InvitationDetail.OwnershipRequestQuestion</p>
         <div>
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <input type="submit" value="I Accept" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Accept, new { invitationGuid = Model.Invitation.RequestID})" />
-                <input type="submit" value="I Decline" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID})" />
+                <input type="submit" value="@Resources.InvitationDetail.AcceptOwnershipRequestButtonText" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Accept, new { invitationGuid = Model.Invitation.RequestID})" />
+                <input type="submit" value="@Resources.InvitationDetail.DeclineOwnershipRequestButtonText" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID})" />
             }
         </div>
     </div>
