@@ -59,5 +59,113 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to actions.
+        /// </summary>
+        internal static string DashboardActionsBtnText {
+            get {
+                return ResourceManager.GetString("DashboardActionsBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to clone.
+        /// </summary>
+        internal static string DashboardCloneBtnText {
+            get {
+                return ResourceManager.GetString("DashboardCloneBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to preview in gallery.
+        /// </summary>
+        internal static string DashboardGalleryPreviewBtnText {
+            get {
+                return ResourceManager.GetString("DashboardGalleryPreviewBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to owners.
+        /// </summary>
+        internal static string DashboardOwnersBtnText {
+            get {
+                return ResourceManager.GetString("DashboardOwnersBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to verify.
+        /// </summary>
+        internal static string DashboardStatusCheckerBtnText {
+            get {
+                return ResourceManager.GetString("DashboardStatusCheckerBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to edit.
+        /// </summary>
+        internal static string DashboardSubmissionFormBtnText {
+            get {
+                return ResourceManager.GetString("DashboardSubmissionFormBtnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string DashboardSubmissionIDHeader {
+            get {
+                return ResourceManager.GetString("DashboardSubmissionIDHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App ID.
+        /// </summary>
+        internal static string DashboardSubmissionNicknameHeader {
+            get {
+                return ResourceManager.GetString("DashboardSubmissionNicknameHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string DashboardSubmissionStatusHeader {
+            get {
+                return ResourceManager.GetString("DashboardSubmissionStatusHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ver.
+        /// </summary>
+        internal static string DashboardSubmissionVersionHeader {
+            get {
+                return ResourceManager.GetString("DashboardSubmissionVersionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Welcome! From this page you can:&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;/apps/submit&quot; title=&quot;submit a new application&quot;&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href=&quot;/profile&quot; title=&quot;edit your contact information&quot;&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;.
+        /// </summary>
+        internal static string MyAppsIntroMsg {
+            get {
+                return ResourceManager.GetString("MyAppsIntroMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web App Gallery Submission Portal.
+        /// </summary>
+        internal static string MyAppsTitle {
+            get {
+                return ResourceManager.GetString("MyAppsTitle", resourceCulture);
+            }
+        }
     }
 }
