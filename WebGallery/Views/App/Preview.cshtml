@@ -16,34 +16,34 @@
         <div class="panel-app-properties pull-right">
             <div>
                 <span class="pull-left">
-                    <img src="~/content/images/free-icon.png" class="avaliable-free-image" />
+                    <img src="@VirtualPathUtility.ToAbsolute(Resources.AppPreview.GalleryAvailableFreeImagePath)" class="avaliable-free-image" />
                 </span>
                 <span class="pull-right" style="@displayOrNot">
                     <a href="@Url.RouteUrl(SiteRouteNames.App_Install, new { appId = Model.Submission.Nickname })">
-                        <img src="~/content/images/install-btn.jpg" />
+                        <img src="@VirtualPathUtility.ToAbsolute(Resources.AppPreview.InstallButtonImagePath)" />
                     </a>
                 </span>
             </div>
             <div>
-                <span class="pull-left">Version:</span>
+                <span class="pull-left">@Resources.AppPreview.VersionTitle</span>
                 <span class="pull-right">@Model.Submission.Version</span>
             </div>
             <div>
-                <span class="pull-left">Release Date:</span>
-                <span class="pull-right">@Model.Submission.ReleaseDate.ToString("dd/MM/yyyy")</span>
+                <span class="pull-left">@Resources.AppPreview.ReleaseDateTitle</span>
+                <span class="pull-right">@Model.Submission.ReleaseDate.ToShortDateString()</span>
             </div>
             <div>
-                <span class="pull-left">Publisher:</span>
+                <span class="pull-left">@Resources.AppPreview.PublisherTitle</span>
                 <span class="pull-right">
                     <a href="@Model.Submission.SubmittingEntityURL">@Model.Submission.SubmittingEntity</a>
                 </span>
             </div>
             <div>
-                <span class="pull-left">Category:</span>
+                <span class="pull-left">@Resources.AppPreview.CategoryTitle</span>
                 <span class="pull-right">
                     @foreach (var c in Model.Submission.Categories)
                     {
-                        @Html.RouteLink(c.Name, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
+                        @Html.RouteLink(c.LocalizedName, SiteRouteNames.App_Categorize, new { category = c.Name }, new { @class = "pull-right" });
                         <br />
                     }
                 </span>
@@ -55,7 +55,7 @@
         @{
             var displayScreenshotsOrNot = Model.ScreenshotUrls.Any(m => !string.IsNullOrWhiteSpace(m)) ? string.Empty : "display:none";
         }
-        <a id="screenshothref" style="@displayScreenshotsOrNot">applicaiton screenshots</a>
+        <a id="screenshothref" style="@displayScreenshotsOrNot">@Resources.AppPreview.ScreenshotViewerTrigger</a>
     </div>
 
     <div class="panel-description">
@@ -71,7 +71,7 @@
                 }
                 else
                 {
-                    <a href="@Request.UrlReferrer">Go Back</a>
+                    <a href="@Request.UrlReferrer">@Resources.AppPreview.BackButtonText</a>
                 }
             }
         </div>
@@ -88,8 +88,8 @@
         <div class="popup-foreground">
             <img id="screenshot" />
             <div class="container-fluid">
-                <a id="pre-btn" class="pull-left page-btn">< Previous</a>
-                <a id="next-btn" class="pull-right page-btn">Next ></a>
+                <a id="pre-btn" class="pull-left page-btn">< @Resources.AppPreview.ScreenshotViewerPreviousTT</a>
+                <a id="next-btn" class="pull-right page-btn">@Resources.AppPreview.ScreenshotViewerNextTT ></a>
             </div>
             <input type="image" class="popup-close-btn" src="~/content/images/close-btn.png" onclick="$(this).parent().parent().hide(); return false;" />
         </div>

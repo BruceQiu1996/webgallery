@@ -59,5 +59,95 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go Back.
+        /// </summary>
+        internal static string BackButtonText {
+            get {
+                return ResourceManager.GetString("BackButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category:.
+        /// </summary>
+        internal static string CategoryTitle {
+            get {
+                return ResourceManager.GetString("CategoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Content/images/free-icon.png.
+        /// </summary>
+        internal static string GalleryAvailableFreeImagePath {
+            get {
+                return ResourceManager.GetString("GalleryAvailableFreeImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Content/images/install-btn.jpg.
+        /// </summary>
+        internal static string InstallButtonImagePath {
+            get {
+                return ResourceManager.GetString("InstallButtonImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publisher:.
+        /// </summary>
+        internal static string PublisherTitle {
+            get {
+                return ResourceManager.GetString("PublisherTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release Date:.
+        /// </summary>
+        internal static string ReleaseDateTitle {
+            get {
+                return ResourceManager.GetString("ReleaseDateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to next screenshot.
+        /// </summary>
+        internal static string ScreenshotViewerNextTT {
+            get {
+                return ResourceManager.GetString("ScreenshotViewerNextTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to previous screenshot.
+        /// </summary>
+        internal static string ScreenshotViewerPreviousTT {
+            get {
+                return ResourceManager.GetString("ScreenshotViewerPreviousTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to view application screenshots.
+        /// </summary>
+        internal static string ScreenshotViewerTrigger {
+            get {
+                return ResourceManager.GetString("ScreenshotViewerTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        internal static string VersionTitle {
+            get {
+                return ResourceManager.GetString("VersionTitle", resourceCulture);
+            }
+        }
     }
 }

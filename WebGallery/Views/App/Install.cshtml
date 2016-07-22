@@ -7,33 +7,33 @@
 
 <div class="content clearfix">
     <div class="panel-left">
-        <h4>Installs powered by the Microsoft Web Platform Installer</h4>
+        <h4>@Resources.AppInstall.InstallsPoweredBy</h4>
         <div class="clearfix">
             <a href="http://webpihandler.azurewebsites.net/webpi.ashx?command=getinstaller&appid=@Model.Submission.Nickname"
                onclick="$(this).parent().parent().hide(); $(this).parent().parent().next().hide(); $(this).parent().parent().next().next().show()"></a>
-            <p>By downloading and using the Web Platform Installer (Web PI), you agree to the <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank">license terms</a> for the Web PI.</p>
+            <p>@Resources.AppInstall.ByDownloadingAndUsing <a href="http://go.microsoft.com/fwlink/?LinkID=195251" target="_blank"> @Resources.AppInstall.LicenseTerms </a> @Resources.AppInstall.ForTheWebPI</p>
         </div>
-        <p>Please leave this window open until the Microsoft Web Platform Installer starts. </p>
+        <p>@Resources.AppInstall.PleaseLeaveThisWindowOpen</p>
         <hr />
-        <h4>System requirements</h4>
+        <h4>@Resources.AppInstall.SystemRequirments</h4>
         <ul>
-            <li>Supported Operating Systems are Windows 8, Windows 7, Windows Vista SP2, Windows XP SP3+, Windows Server 2003 SP2+, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012.</li>
-            <li>You must have a live Internet connection.</li>
-            <li>You must have administrator privileges on your computer to run the Web Platform Installer.</li>
+            <li>@Resources.AppInstall.SupportedOperatingSystems</li>
+            <li>@Resources.AppInstall.YouMustHaveALiveInternetConnection</li>
+            <li>@Resources.AppInstall.YouMustHaveALiveAdministratorPrivileges</li>
         </ul>
     </div>
     <div class="panel-right">
-        <h3>You are about to install:</h3>
+        <h3>@Resources.AppInstall.YouAreAboutToInstall</h3>
         <div>
             <img src="@Model.Submission.LogoUrl" alt="@Model.Submission.Nickname" />
         </div>
         <h3>@Html.RouteLink(Model.Metadata.Name, SiteRouteNames.App_View, new { appId = Model.Submission.Nickname })</h3>
         <p>@Model.Metadata.Description</p>
-        <a href="@Url.RouteUrl(SiteRouteNames.App_View,new {appId = Model.Submission.Nickname })" target="_blank">More inforamtion</a>
+        <a href="@Url.RouteUrl(SiteRouteNames.App_View,new {appId = Model.Submission.Nickname })" target="_blank">@Resources.AppInstall.MoreInformation</a>
     </div>
     <div class="panel-installing">
-        <h3>Launching Web Platform Installer... Please wait.</h3>
-        <p>To return to the page you were viewing, please click <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = Model.Submission.Nickname })">here</a>.</p>
+        <h3>@Resources.AppInstall.InstallerLaunching</h3>
+        <p>@Resources.AppInstall.InstallerReturnPreamble<a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = Model.Submission.Nickname })">@Resources.AppInstall.InstallerReturnTrigger</a>.</p>
         <div>
             If you meet issues on this app, please click @Html.RouteLink("here", SiteRouteNames.App_Issues_Report, new { appId = Model.Submission.Nickname }) to contact us and the owner.
         </div>

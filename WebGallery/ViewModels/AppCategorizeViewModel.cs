@@ -9,7 +9,7 @@ namespace WebGallery.ViewModels
         public IList<ProductOrAppCategory> Categories { get; set; }
         public IList<KeyValuePair<string, string>> SupportedLanguages { get; set; }
         public string CurrentSupportedLanguage { get; set; }
-        public string CurrentCategory;
+        public ProductOrAppCategory CurrentCategory;
         public int CurrentPage;
         public int TotalPage;
         public int TotalCount;

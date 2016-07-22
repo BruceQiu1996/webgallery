@@ -7,21 +7,22 @@ namespace WebGallery.ViewModels
     {
         public Submission Submission { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        [Display(Name = "First Name")]
+        [Required(AllowEmptyStrings = false, ErrorMessageResourceName = "FirstNameRequired", ErrorMessageResourceType = typeof(Resources.InvitationSend))]
+        [Display(Name = "FirstNameLabel", ResourceType = typeof(Resources.InvitationSend))]
         public string FirstName { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        [Display(Name = "Last Name")]
+        [Required(AllowEmptyStrings = false, ErrorMessageResourceName = "LastNameRequired", ErrorMessageResourceType = typeof(Resources.InvitationSend))]
+        [Display(Name = "LastNameLabel", ResourceType = typeof(Resources.InvitationSend))]
         public string LastName { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        [Display(Name = "Email Address")]
+        [Required(AllowEmptyStrings = false, ErrorMessageResourceName = "EMailRequired", ErrorMessageResourceType = typeof(Resources.InvitationSend))]
+        [Display(Name = "eMailLabel", ResourceType = typeof(Resources.InvitationSend))]
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
 
-        [Compare("EmailAddress")]
-        [Display(Name = "Confirm Email Address")]
+        [Required(AllowEmptyStrings = false, ErrorMessageResourceName = "ConfirmationEMailRequired", ErrorMessageResourceType = typeof(Resources.InvitationSend))]
+        [Compare("EmailAddress", ErrorMessageResourceName = "EMailAddressesDoNotMatch", ErrorMessageResourceType = typeof(Resources.InvitationSend))]
+        [Display(Name = "ConfirmEmailLabel", ResourceType = typeof(Resources.InvitationSend))]
         public string ConfirmEmailAddress { get; set; }
     }
 }

@@ -7,18 +7,18 @@
 
 <div class="content">
     <h2>Ownership Invitation Expired</h2>
-    <p>You have been invited to become a co-owner of an application.</p>
+    <p>@Resources.InvitationDetail.OwnershipRequestIntro</p>
     <div class="main-panel">
         <p>
-            <strong>App ID</strong>: @Model.Submission.Nickname<br />
-            <strong>Version</strong>: @Model.Submission.Version
+            <strong>@Resources.InvitationDetail.AppIDLabel</strong>: @Model.Submission.Nickname<br />
+            <strong>@Resources.InvitationDetail.VersionLabel</strong>: @Model.Submission.Version
         </p>
-        <p>We're sorry but this invitation has expired. It was issued more than a week ago. The issuer will need to submit a new invitation. Please acknowledge this message by clicking OK now.</p>
+        <p>@Resources.InvitationDetail.OwnershipRequestExpiredExplanation</p>
         <div>
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <input type="submit" value="OK" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID })" />
+                <input type="submit" value="@Resources.InvitationDetail.DeleteOwnershipRequestButtonText" formmethod="post" formaction="@Url.RouteUrl(SiteRouteNames.Invitation_Decline, new { invitationGuid = Model.Invitation.RequestID })" />
             }
         </div>
     </div>

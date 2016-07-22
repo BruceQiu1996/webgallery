@@ -8,7 +8,7 @@
 }
 
 <div class="content">
-    <h2>Web App Gallery Submission Portal</h2>
+    <h2>@Resources.Portal.MyAppsTitle</h2>
     @if (!Model.HasSubmittership)
     {
         <div class="warning-panel">
@@ -21,14 +21,7 @@
         </div>
     }
     <div>
-        <p>Welcome! From this page you can:</p>
-        <ul>
-            <li>@Html.RouteLink("Submit a new application", SiteRouteNames.App_Submit).</li>
-            <li>Edit your previous submissions.</li>
-            <li>Verify the validity of your application data.</li>
-            <li>Designate co-owners for your submissions.</li>
-            <li>Edit your @Html.RouteLink("contact information", SiteRouteNames.Profile).</li>
-        </ul>
+        @Html.Raw(Resources.Portal.MyAppsIntroMsg)
     </div>
     @if (Model.HasSubmittership)
     {
@@ -36,10 +29,10 @@
             <table cellpadding="0" cellspacing="0" class="submissions-table sortable">
                 <thead>
                     <tr>
-                        <th><a>App ID</a></th>
-                        <th data-defaultsort='disabled'>Ver</th>
-                        <th data-firstsort="desc"><a>ID</a></th>
-                        <th data-defaultsort='disabled'>Status</th>
+                        <th><a>@Resources.Portal.DashboardSubmissionNicknameHeader</a></th>
+                        <th data-defaultsort='disabled'>@Resources.Portal.DashboardSubmissionVersionHeader</th>
+                        <th data-firstsort="desc"><a>@Resources.Portal.DashboardSubmissionIDHeader</a></th>
+                        <th data-defaultsort='disabled'>@Resources.Portal.DashboardSubmissionStatusHeader</th>
                         <th data-defaultsort='disabled'></th>
                     </tr>
                 </thead>
@@ -54,14 +47,14 @@
                             <td class="sortOnThisCol">@submission.SubmissionID</td>
                             <td>@submission.Status</td>
                             <td>
-                                <a>actions</a>
+                                <a>@Resources.Portal.DashboardActionsBtnText</a>
                                 <div class="actions-panel">
                                     <ul>
-                                        <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
-                                        <li>@Html.RouteLink("verify", SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID })</li>
-                                        <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
-                                        <li>@Html.RouteLink("clone", SiteRouteNames.App_Clone, new { submissionId = submission.SubmissionID })</li>
-                                        <li>@Html.RouteLink("preview in gallery", SiteRouteNames.App_Preview, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink(Resources.Portal.DashboardSubmissionFormBtnText, SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink(Resources.Portal.DashboardStatusCheckerBtnText, SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink(Resources.Portal.DashboardOwnersBtnText, SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink(Resources.Portal.DashboardCloneBtnText, SiteRouteNames.App_Clone, new { submissionId = submission.SubmissionID })</li>
+                                        <li>@Html.RouteLink(Resources.Portal.DashboardGalleryPreviewBtnText, SiteRouteNames.App_Preview, new { submissionId = submission.SubmissionID })</li>
                                     </ul>
                                 </div>
                             </td>
