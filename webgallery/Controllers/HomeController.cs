@@ -19,5 +19,10 @@ namespace WebGallery.Controllers
         {
             return View();
         }
+
+        public ActionResult Language()
+        {
+            return View();
+        }
     }
 }

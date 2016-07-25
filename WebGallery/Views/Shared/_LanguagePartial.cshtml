@@ -1,0 +1,4 @@
+﻿@using System.Globalization;
+
+<img src="~/Content/images/globe.PNG" />
+@Html.RouteLink(new CultureInfo(UICulture).NativeName, SiteRouteNames.Language, new { returnUrl = Request.Url })

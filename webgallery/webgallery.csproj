@@ -1036,6 +1036,7 @@
     <Content Include="Content\images\btn-install-now-bkgd.png" />
     <Content Include="Content\images\de-de\install-btn.png" />
     <Content Include="Content\images\el-gr\install-btn.jpg" />
+    <Content Include="Content\images\globe.PNG" />
     <Content Include="Content\images\header-developer.png" />
     <Content Include="Content\images\hu-hu\install-btn.png" />
     <Content Include="Content\images\icon-controlpanel.png" />
@@ -1300,6 +1301,7 @@
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
+    <Content Include="Views\Shared\_LanguagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

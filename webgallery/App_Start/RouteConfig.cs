@@ -16,6 +16,9 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.Docs, url: SiteRouteUrlPatterns.Docs, defaults: new { controller = home, action = nameof(HomeController.Documents) });
             routes.MapRoute(name: SiteRouteNames.Agreement, url: SiteRouteUrlPatterns.Agreement, defaults: new { controller = home, action = nameof(HomeController.Agreement) });
 
+            // language
+            routes.MapRoute(name: SiteRouteNames.Language, url: SiteRouteUrlPatterns.Language, defaults: new { controller = home, action = nameof(HomeController.Language) });
+
             // issue
             var issue = nameof(IssueController).Replace("Controller", string.Empty);
             routes.MapRoute(name: SiteRouteNames.Issue_Report, url: SiteRouteUrlPatterns.Issue_Report, defaults: new { controller = issue, action = nameof(IssueController.Report) });
@@ -82,6 +85,9 @@ namespace WebGallery
         public const string Docs = "docs";
         public const string Agreement = "agreement";
 
+        // language
+        public const string Language = "language";
+
         // issue
         public const string Issue_Report = "issues/report";
 
@@ -139,6 +145,9 @@ namespace WebGallery
         public const string Home = nameof(Home);
         public const string Docs = nameof(Docs);
         public const string Agreement = nameof(Agreement);
+
+        // language
+        public const string Language = nameof(Language);
 
         // issue
         public const string Issue_Report = nameof(Issue_Report);
