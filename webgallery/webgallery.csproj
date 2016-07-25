@@ -1296,7 +1296,6 @@
     <Content Include="Views\Invitation\InvitationExpired.cshtml" />
     <Content Include="Views\Invitation\Send.cshtml" />
     <Content Include="Views\App\Gallery.cshtml" />
-    <Content Include="Views\App\CanNotFindVersion.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
