@@ -1152,15 +1152,6 @@
     <Content Include="Models\WebGallery.edmx.diagram">
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\PublishProfiles\webgalleryprod.pubxml">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
@@ -1297,7 +1288,6 @@
     <Content Include="Views\Invitation\InvitationExpired.cshtml" />
     <Content Include="Views\Invitation\Send.cshtml" />
     <Content Include="Views\App\Gallery.cshtml" />
-    <Content Include="Views\App\CanNotFindVersion.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
