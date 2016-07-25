@@ -1151,15 +1151,6 @@
     <Content Include="Models\WebGallery.edmx.diagram">
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\PublishProfiles\webappgalleryprod - Web Deploy.pubxml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\PublishProfiles\webgalleryprod.pubxml">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
