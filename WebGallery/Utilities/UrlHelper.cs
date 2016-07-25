@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace WebGallery.Utilities
 {
@@ -22,8 +23,13 @@ namespace WebGallery.Utilities
                     response.Close();
                 }
             }
-            catch
+            catch (Exception e)
             {
+                // The HResult of InnerException {"Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host."} is -2146232800
+                if (e.InnerException != null && e.InnerException.HResult == -2146232800)
+                {
+                    statusCode = HttpStatusCode.OK;
+                }
             }
 
             return statusCode == HttpStatusCode.OK;

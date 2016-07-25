@@ -1,0 +1,1453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+ <data name="Entry_EmptySite_Title" xml:space="preserve">
+    <value>Boş Site</value>
+  </data>
+  <data name="Entry_EmptySite_Summary" xml:space="preserve">
+    <value>Bir varsayılan sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_EmptySite_LongSummary" xml:space="preserve">
+    <value>Bir varsayılan sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_StarterSite_Title" xml:space="preserve">
+    <value>Başlangıç Sitesi</value>
+  </data>
+  <data name="Entry_StarterSite_Summary" xml:space="preserve">
+    <value>Sekme arabirimi ve oturum açma desteği olan başlangıç web sitesi.</value>
+  </data>
+  <data name="Entry_StarterSite_LongSummary" xml:space="preserve">
+    <value>Sekme arabirimi ve oturum açma desteği olan başlangıç web sitesi.</value>
+  </data>
+  <data name="Entry_Bakery_Title" xml:space="preserve">
+    <value>Fırın</value>
+  </data>
+  <data name="Entry_Bakery_Summary" xml:space="preserve">
+    <value>Sipariş edilebilen bir ürün listesi görüntüleyen örnek web sitesi.</value>
+  </data>
+  <data name="Entry_Bakery_LongSummary" xml:space="preserve">
+    <value>Sipariş edilebilen bir ürün listesi görüntüleyen örnek web sitesi.</value>
+  </data>
+  <data name="Entry_PhotoGallery_Title" xml:space="preserve">
+    <value>Fotoğraf Galerisi</value>
+  </data>
+  <data name="Entry_PhotoGallery_Summary" xml:space="preserve">
+    <value>Düzenlenebilir bir fotoğraf galerisi için örnek web sitesi.</value>
+  </data>
+  <data name="Entry_PhotoGallery_LongSummary" xml:space="preserve">
+    <value>Düzenlenebilir bir fotoğraf galerisi için örnek web sitesi.</value>
+  </data>
+  <data name="Entry_Personal_Title" xml:space="preserve">
+    <value>Kişisel Site</value>
+  </data>
+  <data name="Entry_Personal_Summary" xml:space="preserve">
+    <value>Kişisel bir giriş sayfası için örnek web sitesi.</value>
+  </data>
+  <data name="Entry_Personal_LongSummary" xml:space="preserve">
+    <value>Kişisel bir giriş sayfası için örnek web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsSite_Title" xml:space="preserve">
+    <value>Boş Site</value>
+  </data>
+  <data name="Entry_NodeJsSite_Summary" xml:space="preserve">
+    <value>Node.js ile kurulmuş boş web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsSite_LongSummary" xml:space="preserve">
+    <value>Node.js ile kurulmuş boş web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_Title" xml:space="preserve">
+    <value>Başlangıç Sitesi</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_Summary" xml:space="preserve">
+    <value>Node.js ve Express MVC çerçevesi ile kurulmuş hazır web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_LongSummary" xml:space="preserve">
+    <value>Node.js ve Express MVC çerçevesi ile kurulmuş hazır web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_Title" xml:space="preserve">
+    <value>Express Sitesi</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_Summary" xml:space="preserve">
+    <value>Node.js ve Express MVC çerçevesi ile kurulmuş boş web sitesi.</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_LongSummary" xml:space="preserve">
+    <value>Node.js ve Express MVC çerçevesi ile kurulmuş boş web sitesi.</value>
+  </data>
+  <data name="Entry_PHPEmptySite_Title" xml:space="preserve">
+    <value>Boş Site</value>
+  </data>
+  <data name="Entry_PHPEmptySite_Summary" xml:space="preserve">
+    <value>Bir varsayılan PHP sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_PHPEmptySite_LongSummary" xml:space="preserve">
+    <value>Bir varsayılan PHP sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_simplecms_Title" xml:space="preserve">
+    <value>Başlangıç Sitesi</value>
+  </data>
+  <data name="Entry_simplecms_Summary" xml:space="preserve">
+    <value>PHP ve MySQL ile kurulmuş hazır web sitesi.</value>
+  </data>
+  <data name="Entry_simplecms_LongSummary" xml:space="preserve">
+    <value>PHP ve MySQL ile kurulmuş hazır web sitesi.</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_Title" xml:space="preserve">
+    <value>Boş Site</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_Summary" xml:space="preserve">
+    <value>Bir varsayılan HTML sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_LongSummary" xml:space="preserve">
+    <value>Bir varsayılan HTML sayfası olan boş web sitesi.</value>
+  </data>
+  <data name="Entry_HTML5Site_Title" xml:space="preserve">
+    <value>Ortak</value>
+  </data>
+  <data name="Entry_HTML5Site_Summary" xml:space="preserve">
+    <value>Hızlı, güçlü ve gelecek için güvenli bir web sitesi sağlayan HTML/CSS/JS şablonu.</value>
+  </data>
+  <data name="Entry_HTML5Site_LongSummary" xml:space="preserve">
+    <value>Hızlı, güçlü ve gelecek için güvenli bir web sitesi sağlayan HTML/CSS/JS şablonu.</value>
+  </data>
+  <data name="Entry_DotNetNuke_Title" xml:space="preserve">
+    <value>DNN Platform</value>
+  </data>
+  <data name="Entry_DotNetNuke_Summary" xml:space="preserve">
+    <value>DNN dinamik içerikli profesyonel websitelerini interaktif özellikler ile hazırlamanızı sağlayan lider içerik yönetim platformudur. Teknik olarak yüksek bir donanıma sahip olmayan kullanıcılar bile menüler yardımı ile güçlü websiteleri hazırlayabilir ya da yeni işlevler ve özellikler ile mevcut web uygulamalarını geliştirebilir. </value>
+  </data>
+  <data name="Entry_DotNetNuke_LongSummary" xml:space="preserve">
+    <value>DNN dinamik içeriklere sahip ticari portallar, topluluk siteleri ya da bir intranet çözümününe yönelik profesiyonel websitelerini interaktif özellikler yardımı ile hızlı bir şekilde hazırlamanızı sağlayan lider içerik yönetim platformudur (CMS). Günümüzde 700.000'in üzerinde web sitesi DNN® ile hazırlanmıştır ve binlerce üçüncü parti eklenti ile zenginleştirilebilir bir altyapı mevcuttur. Türkçeleştirme çalışmaları TRDNN - DotNetNuke Türkiye Kullanıcı Topluluğu'nun gönüllü katkıları ile sağlanmaktadır.</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>Uygulamalar</value>
+  </data>
+  <data name="Entry_Umbraco_Title" xml:space="preserve">
+    <value>Umbraco CMS</value>
+  </data>
+  <data name="Entry_Umbraco_Summary" xml:space="preserve">
+    <value>160.000'den fazla site tarafından kullanılan modern, güçlü ve geliştirici ve tasarımcı dostu CMS.  Kolayca kullanılabilir ve basitçe geniş genişletilebilir.</value>
+  </data>
+  <data name="Entry_Umbraco_LongSummary" xml:space="preserve">
+    <value>Umbraco CMS, milyonlarca kullanıcıya içerik ve uygulama sunma ve yönetim amacıyla http://www.asp.net/, http://www.wired.co.uk/ ve diğer 160.000'den fazla tarafından kullanılan çerçevedir.  Umbraco'nun modern kullanıcı arabirimi, saf .NET mimarisi ve aktif topluluğu web CMS konusunda onu en iyi seçim yapmaktadır.  Umbraco'nun kullanımı kolay ve genişletilmesi basittir ve mevcut sistemlerle entegre olur.</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Title" xml:space="preserve">
+    <value>.DotNetNuke® Professional Edition</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Summary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). Sezgisel, menüye dayalı bir arabirim ile teknik bilgisi sınırlı kullanıcılar dahi DotNetNuke'u kolayca kullanarak güçlü web siteleri oluşturabilir veya var olan web uygulamalarının işlev ve özelliklerini genişletebilir. </value>
+  </data>
+  <data name="Entry_DotNetNukePro_LongSummary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). 700.000'den fazla dağıtılmış üretim web sitesi ve hemen yüklenebilecek binlerce üçüncü taraf uzantı ile, DNN® ticari web sitesi, topluluk portalı veya intranet çözümü oluşturmayı hızlı ve ekonomik hale getiriyor.</value>
+  </data>
+  <data name="Entry_nopCommerce_Title" xml:space="preserve">
+    <value>nopCommerce</value>
+  </data>
+  <data name="Entry_nopCommerce_Summary" xml:space="preserve">
+    <value>nopCommerce tam olarak özelleştirilebilir bir alışveriş sepetidir. Yeni çevrimiçi işletmeler için kullanımı kolay, ancak talepleri en yoğun e-ticaret uzmanı için bile yeterince güçlü olan, kapsamlı özelliklere sahip bir çözüm.</value>
+  </data>
+  <data name="Entry_nopCommerce_LongSummary" xml:space="preserve">
+    <value>nopCommerce en önde gelen ASP.NET çevrimiçi alışveriş ve e-ticaret çözümüdür. nopCommerce, en temel web sitesi oluşturma ve bilgisayar becerilerine sahip kişiler tarafından bile yüklenip kurulabilir. nopCommerce güvenli, ölçeklenebilir ve genişletilebilir bir e-ticaret platformudur. Vitrininizi, müşterilerinizi, istek listelerini, indirimleri ve kuponları yönetmeniz için kullanıcı dostu yönetim araçları vardır. Ayrıca esnek vergi desteği, çok dil desteği ve başka yüzlerce özellik içerir. En popüler ağ geçitleri için destek: Authorize.net, PayPal, Google Checkout ve daha pek çokları. nopCommerce Medium Trust ile de çalışır.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_Title" xml:space="preserve">
+    <value>MageliaWebStore (IIS için) </value>
+  </data>
+  <data name="Entry_MageliaWebStore_Summary" xml:space="preserve">
+    <value>Magelia WebStore, .NET ortamı için hazırlanmış güçlü bir e-ticaret yazılımıdır ve eksiksiz özelliklere sahiptir. 
+
+Hizmete dayalı yaklaşım PC'ler, tabletler ve akıllı telefonlar için ölçeklenebilir e-ticaret mağazaları oluşturmayı kolaylaştırmakta ve başka yazılımlarla basit şekilde tümleşmeyi olanaklı hale getirmektedir. Magelia WebStore Community sürümü ücretsizdir, açık kaynaklıdır ve Microsoft teknolojilerini temel alır.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_LongSummary" xml:space="preserve">
+    <value>Magelia WebStore, .NET ortamı için hazırlanmış güçlü bir e-ticaret yazılımıdır ve eksiksiz özelliklere sahiptir. 
+
+
+Magelia WebStore'un hizmete dayalı yaklaşımı PC'ler, tabletler ve akıllı telefonlar için ölçeklenebilir e-ticaret mağazaları oluşturmayı kolaylaştırmakta ve başka yazılımlarla basit şekilde tümleşmeyi olanaklı hale getirmektedir. Magelia WebStore ile markalar ve küçük, orta, büyük ölçekli işletmeler çeşitli dillerin ve para birimlerinin kullanıldığı e-ticaret web sitelerini kolayca oluşturabilir, kataloglar, kategoriler, ürün varyasyonları, paketler ve hizmetler gibi zengin ürünler tanımlayabilir, birden fazla vergi, indirim ve nakliye seçeneği sunabilirler.
+
+Magelia WebStore Community sürümü, standart ve yenilikçi Microsoft teknolojilerini (.Net 4.5, SQL server 2008, OData) temel alan ücretsiz ve açık kaynaklı bir yazılımdır.
+
+
+Magelia; varolan diğer e-ticaret yazılımlarına (örneğin, Commerce Server, nopCommerce veya Magento) karşı zengin ve esnek bir alternatif sunar. Magelia WebStore'un özelliklerini keşfetmeniz için YouTube'da 30'dan fazla video vardır (http://www.youtube.com/mageliawebstore). 
+
+Lütfen belgeleri okuyun ve www.magelia.org adresinden örnek Asp.net MVC mağazasını indirin. En yeni haberleri edinmek için Twitter'da @magelia adresini takip edin. Magelia WebStore'u hemen bugün deneyin!</value>
+  </data>
+  <data name="Entry_tomeCMS_Title" xml:space="preserve">
+    <value>tomeCMS</value>
+  </data>
+  <data name="Entry_tomeCMS_Summary" xml:space="preserve">
+    <value>tomeCMS, kullanıcı kılavuzları ve teknik belgeler için özel olarak tasarlanmış ücretsiz ve açık kaynaklı bir içerik yönetimi sistemidir. Veriler sayfalar halinde depolanmaz, bunun yerine her başlık ve içerik bölümü ayrı bir kayıt olarak depolanır, böylece veriler ileri düzeyde yapılandırılmış olur ve otomatik olarak görüntülenmek üzere biçimlendirilebilir ve diğer biçimlere aktarılabilir.</value>
+  </data>
+  <data name="Entry_tomeCMS_LongSummary" xml:space="preserve">
+    <value>tomeCMS, kullanıcı kılavuzları ve teknik belgeler için özel olarak tasarlanmış ücretsiz ve açık kaynaklı bir içerik yönetimi sistemidir.
+
+'Sayfalar' oluşturup düzenlemek yerine, veri modelinde başlıklar temel alınır, bu da belgelerin biçimi üzerinde daha ayrıntılı bir denetim olanağı verir. Bu ayrıca, XML yardım biçimleri gibi alternatif medyalara dışa aktarma işlemi için verileri daha kullanışlı hale getirir.
+
+Arabirim grafikseldir; yöneticiler gelişmiş görünümde çeşitli içeriklerin üzerine gelerek veya onları tıklayarak düzenleyebilir ve taşıyabilirler.
+
+Yöneticiler içeriği düzenlerlerken, içeriğin aynı zamanda teslim de edildiği 'taslak' sürüm üzerinde çalışırlar. Böylece birden fazla değişiklik tek bir seferde yayımlanabilir.</value>
+  </data>
+  <data name="Entry_TicketSystem_Title" xml:space="preserve">
+    <value>Bilet Sistemi</value>
+  </data>
+  <data name="Entry_TicketSystem_Summary" xml:space="preserve">
+    <value>Bilet Sistemi .NET Açık Kaynak yazılımının dayandığı ".NET CMS", (ITS, Sorun izleme sistemi, sorun bileti sistemi, destek bileti veya olay bileti sistemi).
+Bilet Sistemi Yardım Masası Yazılımı Açık Kaynağı, gitgide artan bilet hacmini kolayca yönetmenize olanak verir.</value>
+  </data>
+  <data name="Entry_TicketSystem_LongSummary" xml:space="preserve">
+    <value>Bilet Sistemi .NET Açık Kaynak yazılımının dayandığı ".NET CMS", (ITS, Sorun izleme sistemi, sorun bileti sistemi, destek bileti veya olay bileti sistemi olarak da bilinir) müşterilere bir ürün veya hizmetle ilgili teknik bilgi sağlamak için kullanılan bir yazılım uygulamasıdır, ayrıca bir destek temsilcisine bağlantı da sağlar. Bu yazılımın amacı, çalışanların ve istemcilerin sorularına zamanında yanıt ve sorunlarını çözmede onlara yardımcı olabilecek ilgili bilgiler sağlayarak, teknolojiyi kullanırken şirketin verimliliğini ve üretkenliğini artırmaktır.
+Bilet Sistemi Yardım Masası Yazılımı Açık Kaynağı, gitgide artan bilet hacmini kolayca yönetmenize olanak verir.</value>
+  </data>
+  <data name="Entry_WYSIWYG_Title" xml:space="preserve">
+    <value>WYSIWYG .NET</value>
+  </data>
+  <data name="Entry_WYSIWYG_Summary" xml:space="preserve">
+    <value>WYSIWYG .NET düzenleyicisi, web sayfasını tarayıcıda görüneceği haliyle görüntülemeye çalışan bir HTML düzenleyicisidir. Görsel bir düzenleyicidir, doğrudan kod üzerinde değişiklik yapmazsınız.</value>
+  </data>
+  <data name="Entry_WYSIWYG_LongSummary" xml:space="preserve">
+    <value>WYSIWYG .NET düzenleyicisi, web sayfasını tarayıcıda görüneceği haliyle görüntülemeye çalışan bir HTML düzenleyicisidir. Görsel bir düzenleyicidir, doğrudan kod üzerinde değişiklik yapmazsınız.
+
+ÖZELLİKLER:
+1) Minimal bir kullanım sağlar;
+2) Açık Kaynaklıdır;
+2) Desteklediği tarayıcı: Tüm tarayıcılar;
+4) Kolay yüklenir: Tek bir dosya vardır (WYSIWYG.vb veya WYSIWYG.cs);
+5) Esnektir, hızlı yanıt verir
+6) Kodları hafiftir: 5 KB;
+7) .NET web uygulamanıza kolayca uygulanır: Tek bir kod satırı eklemeniz yeterlidir</value>
+  </data>
+  <data name="Entry_CMSGallery_Title" xml:space="preserve">
+    <value>CMS Galerisi</value>
+  </data>
+  <data name="Entry_CMSGallery_Summary" xml:space="preserve">
+    <value>CMS Galerisi, .NET için hazırlanmış ve tamamen ücretsiz bir fotoğraf galerisidir! Resim galerilerini karşıya yükleme ve yönetme konusunda güçlü bir altyapı sağlar; toplu yükleme, resim ekleme/silme/sıralama, galerileri albümler halinde gruplandırma, vb. pek çok özellik sunar.
+Özellikleri: EXIF, ağaç yapısı, dinamik şekilde yeniden boyutlandırma, son efektler, coğrafi konum, mikro veri, çoklu etki alanı, çoklu site, çoklu kullanıcı, çoklu dil, mobil uyumlu.</value>
+  </data>
+  <data name="Entry_CMSGallery_LongSummary" xml:space="preserve">
+    <value>CMS Galerisi, .NET için hazırlanmış ve tamamen ücretsiz bir fotoğraf galerisidir! Resim galerilerini karşıya yükleme ve yönetme konusunda güçlü bir altyapı sağlar; toplu yükleme, resim ekleme/silme/sıralama, galerileri albümler halinde gruplandırma, vb. pek çok özellik sunar.
+Özellikleri: EXIF, ağaç yapısı, dinamik şekilde yeniden boyutlandırma, son efektler, coğrafi konum, mikro veri, çoklu etki alanı, çoklu site, çoklu kullanıcı, çoklu dil, mobil uyumlu.</value>
+  </data>
+  <data name="Entry_NumediaStack_Title" xml:space="preserve">
+    <value>Numedia Yığını </value>
+  </data>
+  <data name="Entry_NumediaStack_Summary" xml:space="preserve">
+    <value>Numedia Yığını, Microsoft ASP.NET için dijital içerik e-ticaret web platformu
+ ve genişletilebilirlik çerçevesidir.  </value>
+  </data>
+  <data name="Entry_NumediaStack_LongSummary" xml:space="preserve">
+    <value>Numedia Yığını, Microsoft ASP.NET için hazırlanmış, çeşitli içerik sağlayıcılarının
+ içerik varlıklarını yayımlamak ve satmak için kullanılabilen, satın alma veya abonelik işleminden sonra tamamlama erişimi vermek için bir e-ticaret ödeme ağ geçidi sağlayıcısı çerçevesi kullanan güçlü bir web platformu ve genişletilebilirlik çerçevesidir. 
+
+Microsoft Internet Information Services sürüm 7 için Microsoft web platformu yükleyicisi yoluyla
+ indirilebilen Microsoft Visual Studio Şablonu olarak veya bir IIS (Internet Information Services) web uygulaması olarak mevcuttur.
+
+Numedia Stack birden fazla içerik sağlayıcısı yoluyla içerik sağlama desteği, sağlayıcı içeriğinin yönetim ve denetimi, verilerde onaysız değişiklik 
+
+yapılmasını veya korsan girişimleri önlemek için şifrelenmiş web sayfası akış denetimi ve güvenliği, hiçbir ek ayar yapmadan kullanılabilecek zengin 
+
+özellikli işlevsellik sağlayan özel oluşturulmuş denetimler ve geliştiricilerin web platformu içinde çalışmak için özel denetimler oluşturmasına veya arama, 
+
+e-ticaret ve işlem süreçlerinin parçası olarak sezgisel şekilde kullanılabilecek yeni kod çerçevesi nesneleri oluşturmasına olanak veren, arabirimi temel alan tasarım yöntemi sağlar. Web platformu, içerik sağlayıcıların dijital içerikler ve ilişkili kaynaklarla 
+
+katkıda bulunmaları için web tabanlı güvenli bir yönetici konsolu, Barclaycard EPDQ, PayPal, Google Checkout'u destekleyen bir e-ticaret ağ geçidi 
+
+(iyi tanımlanmış geliştirici arabirimi ile başka sağlayıcıları da destekler) ve daha pek çok özellik sağlar...</value>
+  </data>
+  <data name="Entry_MVCForum_Title" xml:space="preserve">
+    <value>MVC Forum</value>
+  </data>
+  <data name="Entry_MVCForum_Summary" xml:space="preserve">
+    <value>MVCForum, StackOverFlow gibi özellikler içeren, tam özellikli bir ASP.NET MVC tartışma panosudur. ASP.NET MVC, Unity &amp; Entity Framework 5 kullanılarak oluşturulmuştur ve orta/kısmi güven düzeyine sahip ortamlarda da çalışır.</value>
+  </data>
+  <data name="Entry_MVCForum_LongSummary" xml:space="preserve">
+    <value>MVCForum, StackOverFlow gibi özellikler içeren, tam özellikli bir ASP.NET MVC tartışma panosudur. ASP.NET MVC, Unity &amp; Entity Framework 5 kullanılarak oluşturulmuştur ve orta/kısmi güven düzeyine sahip ortamlarda da çalışır.
+
+Kolayca değiştirilebilecek ve özelleştirilebilecek şekilde tasarlanmıştır, aşağıdakiler gibi dahili pek çok özellik barındırır;
+
+Tam Tema Altyapısı
+Ödül Rozetleri
+Eklenebilir Mimari
+Topluluk Rozeti Sistemi
+Çok Dil
+Yönetim Panosu
+API
+ve dahası...
+
+http://www.mvcforum.com adresinden sitemizi ve demoyu inceleyin</value>
+  </data>
+  <data name="Entry_MediaWiki_Title" xml:space="preserve">
+    <value>MediaWiki</value>
+  </data>
+  <data name="Entry_MediaWiki_Summary" xml:space="preserve">
+    <value>MediaWiki, orijinal olarak Wikipedia'da kullanım için PHP ile yazılmış, ücretsiz, açık kaynaklı bir wiki paketi yazılımıdır. Şu anda kâr amacı gütmeyen Wikimedia Foundation ve diğer pek çok wiki tarafından başka projelerde kullanılmaktadır.</value>
+  </data>
+  <data name="Entry_MediaWiki_LongSummary" xml:space="preserve">
+    <value>MediaWiki, web tabanlı, ücretsiz bir wiki yazılım uygulamasıdır. Wikimedia Foundation tarafından geliştirilmiştir, Wikipedia, Wiktionary ve Wikinews dahil tüm projelerinin çalıştırılmasında kullanılmaktadır. Dünyadaki diğer çeşitli wiki'ler de web sitelerini desteklemek için bunu kullanmaktadır. PHP programlama dilinde yazılmıştır ve arka uç veritabanı kullanmaktadır.
+
+Yazılım, tera baytlarca içerik barındıran ve saniyede yüz binlerce isabet alan en büyük wiki'ler dahil olmak üzere her boyutta projeyi düzgün ve etkin şekilde işleyebilmesi için en iyi duruma getirilmiştir. Wikipedia dünyanın en büyük web sitelerinden biri olduğundan, birden fazla önbellek ve veritabanı çoğaltma katmanıyla ölçeklenmeyi sağlamak geliştiriciler için başlıca sorunlardan biri olmuştur. Wikipedia ve diğer Wikimedia projeleri, MediaWiki için gereken şartların büyük kısmını tanımlamaya devam etmektedir.
+
+Yazılım, 700'den fazla yapılandırma ayarı ve çeşitli işlevlerin eklenebilmesi veya değiştirilebilmesi için 1800'den fazla uzantı ile, ileri düzeyde özelleştirilebilir niteliktedir. MediaWiki sitelerinin düzenlenmesine yardımcı olmak için 600'den fazla otomatik ve yarı otomatik bot ve başka araç geliştirilmiştir.
+
+MediaWiki, ücretsiz, açık kaynaklı bir yazılımdır ve GNU Genel Kamu Lisansı sürüm 2 ve daha yeni sürümlerin koşullarına göre dağıtılmaktadır, belgeleri ise Creative Commons BY-SA 3.0 lisansıyla ve kısmen de genel etki alanında yayınlanmaktadır. MediaWiki'nin geliştirilmesinde genellikle açık kaynaklı medya biçimlerinin kullanılması tercih edilmiştir.</value>
+  </data>
+  <data name="Entry_RESXManager_Title" xml:space="preserve">
+    <value>RESX Yöneticisi</value>
+  </data>
+  <data name="Entry_RESXManager_Summary" xml:space="preserve">
+    <value>Çevrimiçi bir .NET uygulamasında tüm metin dizelerini düzenlemek için kullanılan tarayıcı tabanlı bir araçtır, tüm RESX dil dosyalarının otomatik denetimini olanaklı kılar.</value>
+  </data>
+  <data name="Entry_RESXManager_LongSummary" xml:space="preserve">
+    <value>RESX Yöneticisi tüm etiketlerin basit bir web arabirimiyle düzenlenmesine olanak verir. Programcıyı metin işleme sürecinden kurtarır ve Web yöneticilerine kaynak dosyaları üzerinde tam denetim verir.
+
+RESX Yöneticisi, .NET tabanlı bir çözümde formlardaki, başlıklardaki veya diğer statik içeriklerdeki metinleri düzenleme, güncelleştirme, çevirme veya bakımını yapmada üretkenliği arttırmak isteyen web geliştiricileri ve web yöneticileri için özel olarak tasarlanmıştır. Özel olarak tasarlanmış arabirim sayesinde etiketleri hızlı şekilde bulabilir ve değiştirebilirsiniz. Birden fazla dille çalışıyorsanız, yeni diller ayarlayıp çevirirken bu araç yararlı olur.
+
+
+Temel özellikler ve sunduğu yararlar şunlardır:
+
+
+- Etiketleri bulmak ve düzenlemek için kullanılabilecek basit arabirim
+
+- Otomatik çeviri
+
+- Yazım denetimi
+
+- Birden fazla dil desteği
+
+- Belirli etiketleri hızlı şekilde bulma
+
+- Sorun olduğu takdirde kullanmak üzere yedekleme ve geri alma seçeneği
+
+
+
+Daha fazla bilgi için bkz.: http://www.resxmanager.com (canlı demo da buradadır)</value>
+  </data>
+  <data name="Entry_dashCommerce_Title" xml:space="preserve">
+    <value>dashCommerce</value>
+  </data>
+  <data name="Entry_dashCommerce_Summary" xml:space="preserve">
+    <value>dashCommerce, Açık Kaynaklı bir ASP.NET e-ticaret uygulamasıdır.</value>
+  </data>
+  <data name="Entry_dashCommerce_LongSummary" xml:space="preserve">
+    <value>dashCommerce, çevrimiçi mağazanızı oluşturmak için kullanabileceğiniz esnek, güçlü, Açık Kaynaklı bir ASP.NET e-ticaret uygulamasıdır. dashCommerce, 2008'in başlarından beri sayısız çevrimiçi mağazada kullanılmış ve müthiş bir başarı yakalamıştır. "Ne kadar başarılı" diye sorabilirsiniz. dashCommerce, aşağıdaki başarılara imza atmıştır: 
+
+- PayPal tarafından, çıkışından itibaren 1,5 yıl içinde En İyi 25 tümleşme olarak kabul edilmiştir.
+
+- ABD Hükümeti tarafından Silahlı Kuvvetler için çevrimiçi mağaza kurmada kullanım için lisanslanmıştır.
+
+- Dünyanın her yerinde kullanılmakta ve milyonlarca Dolar gelir sağlamaktadır
+</value>
+  </data>
+  <data name="Entry_pbdig_Title" xml:space="preserve">
+    <value>pbdigg</value>
+  </data>
+  <data name="Entry_pbdig_Summary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。
+</value>
+  </data>
+  <data name="Entry_pbdig_LongSummary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。程序运行需客户端支持flash。
+</value>
+  </data>
+  <data name="Entry_SageFrame_Title" xml:space="preserve">
+    <value>SageFrame</value>
+  </data>
+  <data name="Entry_SageFrame_Summary" xml:space="preserve">
+    <value>SageFrame, ASP.NET ile oluşturulmuş güçlü bir İçerik Yönetimi Sistemidir (CMS).</value>
+  </data>
+  <data name="Entry_SageFrame_LongSummary" xml:space="preserve">
+    <value>SageFrame, ASP.NET ile oluşturulmuş güçlü bir İçerik Yönetimi Sistemidir (CMS). SageFrame'in geliştirilmesi dikkatli bir araştırma ve analiz sürecinin eseridir. Geliştirme sürecinin ardındaki ana hedef, web geliştiricilerine ve tasarımcılarına projeleri kolay ve etkili şekilde tamamlamada yardımcı olabilecek ileri düzeyde kapsamlı bir yönetim sistemi sağlamaktır. Yeni başlayan personelden dönemlik uzmanlara, SageFrame her düzeyde geliştiricinin çeşitli amaçlara yönelik web siteleri ve uygulamaları kolayca ve etkin şekilde oluşturabilmesine olanak sağlar. Kolay kullanılan kullanıcı arabirimi, siteleri en iyi hale getirme özellikleri ve sayfa yönetimi sisteminin yanında; SageFrame, sitenize rakiplere oranla yeni bir dinamizm katmak için gereken diğer unsurların tümünü içerir.</value>
+  </data>
+  <data name="Entry_SugarCRM_Title" xml:space="preserve">
+    <value>SugarCRM</value>
+  </data>
+  <data name="Entry_SugarCRM_Summary" xml:space="preserve">
+    <value>SugarCRM'nin ödüllü ve yüksek düzeyde genişletilebilir Sugar uygulaması, farklı iş dallarında müşteri etkileşimlerinin yönetilmesi için tek bir sistem sunar.</value>
+  </data>
+  <data name="Entry_SugarCRM_LongSummary" xml:space="preserve">
+    <value>Sugar, en önde gelen açık kaynak müşteri ilişkileri yönetimi (CRM) çözümüdür.  Sugar ana satış, pazarlama ve müşteri destek özellikleri aracılığıyla kullanıcılara müşterilerinin eksiksiz bir görünümünü verir. Sugar platformu yüksek düzeyde genişletilebilirdir ve uygulamadaki yerleşik Modül Oluşturucu aracı, çekirdek platformun değerini artıran özel uygulamalar oluşturup sürdürmede geliştiricilere ve kullanıcılara yardımcı olur.</value>
+  </data>
+  <data name="Entry_OrchardCMS_Title" xml:space="preserve">
+    <value>Orchard CMS</value>
+  </data>
+  <data name="Entry_OrchardCMS_Summary" xml:space="preserve">
+    <value>Orchard CMS kullanıcıların Microsoft ASP.NET platformunda hızlı bir şekilde web sitesi oluşturmasını sağlayan ücretsiz, açık kaynaklı bir içerik yönetim sistemidir.</value>
+  </data>
+  <data name="Entry_OrchardCMS_LongSummary" xml:space="preserve">
+    <value>Orchard CMS, kullanıcıların Microsoft ASP.NET MVC platformunda hızlı bir şekilde web sitesi oluşturmasını sağlayan ücretsiz, açık kaynaklı bir içerik yönetim sistemidir. Geliştiricilerin ve özelleştiricilerin modüller ve temalar aracılığıyla ek işlevler sağlamasına olanak tanıyan esnek bir genişletilebilirlik çerçevesi üzerine inşa edilmiştir.</value>
+  </data>
+  <data name="Entry_Incentive_Title" xml:space="preserve">
+    <value>Incentive</value>
+  </data>
+  <data name="Entry_Incentive_Summary" xml:space="preserve">
+    <value>Incentive; ekipler, projeler ve departmanlar arasında anında iletişim için tasarlanmış bir sosyal işbirliği platformudur. 
+
+Etkinlik akışları, wikiler, bloglar ve uygulamalar içeren, kendi güvenlik duvarınızın ardında güvenli şekilde oluşturacağınız, yüklenebilir bir sunucu yazılımıdır.</value>
+  </data>
+  <data name="Entry_Incentive_LongSummary" xml:space="preserve">
+    <value>Incentive, kurumlar için tasarlanmış bir sosyal işbirliği platformudur. Incentive'in wiki özelliği, WYSIWYG düzenleme ve tek noktadan yönetim olanağı sunarak kuruluşunuzda sınırsız sayıda wiki barındırma olanağı sayesinde özellikle güçlüdür.
+
+Incentive, wikileri işlemenin yanında, ekipler, projeler ve departmanlarda size ve çalışma arkadaşlarınıza anında iletişim sağlar. Çoğu kuruluş dahili e-postaların aşırı yoğunluğu ve genel olarak bilgilerin aşırı yüklenmesi gibi sorunlar yaşar ve bu durum Incentive gibi sosyal işbirliği platformlarının çözüm sağladığı bir sorundur.</value>
+  </data>
+  <data name="Entry_CMSaspNET_Title" xml:space="preserve">
+    <value>.NET CMS</value>
+  </data>
+  <data name="Entry_CMSaspNET_Summary" xml:space="preserve">
+    <value>CMS .NET her tür amaca uygundur!: HTML5 Responsive Web Design .net CMS, zengin kod parçacığı mikro verileri. Veritabanı olmadan (veritabanı yok = sorun yok = hızlı 10X), Çok dilli, FORUM, GALERİ, DİNAMİK PDF, WIKI, Topluluk, Kolay ve kullanıcı dostu, Dinamik site haritası, Farklı etki alanlarında birden fazla site için tek bir yükleme, Çok sunuculu, PayPal IPN, Mobil aygıtlarda, tabletlerde, el bilgisayarlarında çalışmak için çok değerli şablon , Eklenti.</value>
+  </data>
+  <data name="Entry_CMSaspNET_LongSummary" xml:space="preserve">
+    <value>CMS .NET her tür amaca uygundur! Özellikleri: HTML5 veritabansız CMS'de hızlı yanıt veren Web Tasarımı (Veritabanı yok = sorun yok ve hızlı 10x), tek site yönetimini gerçekleştirmek için uygun şekilde oluşturulmuş, ücretsiz ve açık kaynaklı, HTML5+ Zengin Kod Parçacığı mikro verili (schema.org tarafından sağlanır) çok dilli bir web platformudur ve sayısız web sitesinden oluşan, forum yazılımı, fotoğraf albümü, sosyal yardımcı hizmetler ile sağlanan eksiksiz bir ağ sistemine olanak verir, bunların tümü paylaşılan bir ana bilgisayar üzerine uygulamayı bir kere yükler, ASP.NET tarafından desteklenir.
+Düzenleme ve içerik biçimlendirmenin ötesine geçen hizmet programları sayesinde basit bir CMS değildir. Çok çekirdekli işlemciler ile sağlanan yeni teknolojiyle birleştiğinde web uygulaması gelişmiş teknolojiler sayesinde gücünü ortaya koyar, ziyaretçiye benzersiz ve bir kerelik gözatma deneyimi sunmak için her işlevi en üst düzeye çıkarır.
+Uygulamanın en son sürümü sorgunun gecikme süresini (veritabanı yok!) ortadan kaldıran sofistike algoritmaları birleştirerek 10 katına kadar hızlı düzgün gezinme sağlar, algoritmanın içeriği ayrıntılı şekilde hazırlayan inanılmaz gücü sayesinde hız sağlanır.</value>
+  </data>
+  <data name="Entry_BabyGekko_Title" xml:space="preserve">
+    <value>Baby Gekko CMS</value>
+  </data>
+  <data name="Entry_BabyGekko_Summary" xml:space="preserve">
+    <value>Baby Gekko, eklenti şablonlar ve uygulamalar eklenebilen genişletilebilir bir içerik yönetim sistemidir.</value>
+  </data>
+  <data name="Entry_BabyGekko_LongSummary" xml:space="preserve">
+    <value>Baby Gekko web siteleri, intranetler ve bloglar yayımlamaya yönelik hafif, genişletilebilir bir PHP/MySQL tabanlı içerik yönetim sistemi platformudur. 2006'dan beri geliştirilmekte olan, tam anlamıyla olgun bir sistemdir. Baby Gekko, teknik becerisi her düzeydeki içerik yöneticilerinin çalışmasını kolaylaştırmayı amaçlamaktadır. AJAX tabanlı, sürükleyip bırakmayla çalışan Finder/Gezgin benzeri arabirimiyle Baby Gekko'da içerik düzenlemenin kolay olduğunu göreceksiniz.</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Title" xml:space="preserve">
+    <value>Shopping Cart .NET</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Summary" xml:space="preserve">
+    <value>Shopping Cart .NET, ASP.NET ile yazılmış komple bir E-ticaret portalıdır.
+Özelleştirilmiş sayfalar, temalar ve gezinti menüsü gibi CMS özellikleri sunar.
+Ticaret özellikleri arasında özel resimler kullanılabilen eksiksiz bir alışveriş sepeti, geçmişi görüntüleme, ürün incelemeleri, kuponlar ve indirimler, abonelik ve indirilebilir ürünler, müşteri denetim masası ve mağaza sahibi yönetim paneli bulunur
+</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_LongSummary" xml:space="preserve">
+    <value>Shopping Cart .NET, ASP.NET ile yazılmış komple bir E-ticaret portalıdır.
+Özelleştirilmiş sayfalar, temalar ve gezinti menüsü gibi CMS özellikleri sunar.
+Ticaret özellikleri arasında özel resimler kullanılabilen eksiksiz bir alışveriş sepeti, geçmişi görüntüleme, ürün incelemeleri, kuponlar ve indirimler, abonelik ve indirilebilir ürünler, hediye kayıt defteri, müşteri denetim masası ve mağaza sahibi yönetim paneli bulunur.
+Authorize.Net Gelişmiş Tümleştirme Yöntemi (AIM), Paypal Pro API WCF tümleştirmesi ve Google Checkout API'si de dahildir
+Proje .NET 4.0 ve SQL Server 2008 kullanılarak yazılmıştır.</value>
+  </data>
+  <data name="Entry_Joomla25_Title" xml:space="preserve">
+    <value>Joomla! 2.5</value>
+  </data>
+  <data name="Entry_Joomla25_Summary" xml:space="preserve">
+    <value>Joomla! Web siteleri ve güçlü çevrimiçi uygulamalar oluşturmanıza olanak veren, ödüllü bir içerik yönetim sistemidir (CMS). Kullanım kolaylığı ve genişletilebilirlik gibi pek çok özelliği sayesinde Joomla! piyasadaki en popüler Web sitesi yazılımı haline gelmiştir. En güzel tarafı da Joomla!'nın herkesin ücretsiz erişebileceği bir açık kaynak çözümü olmasıdır.</value>
+  </data>
+  <data name="Entry_Joomla25_LongSummary" xml:space="preserve">
+    <value>Joomla! açık kaynaklı bir içerik yönetim sistemidir (CMS). Joomla!'nın güçlü uygulama çerçevesi, geliştiricilerin Joomla!'nın gücünü neredeyse sınırsız ölçüde genişletebilen gelişmiş eklentiler oluşturmasını kolaylaştırır. Ana Joomla! çerçevesi, geliştiricilerin hızla ve kolayca Stok denetim sistemleri, Veri raporlama araçları, Özel ürün katalogları, Tümleşik e-ticaret sistemleri, Karmaşık iş dizinleri, Ayırma sistemleri, İletişim araçları ve çok daha fazlasını oluşturmasını sağlar. Joomla! PHP ve MySQL tabanlı olduğu için, açık bir platform üzerinde oluşturduğunuz güçlü uygulamalar herkesçe kullanılıp paylaşılabilir ve desteklenebilir.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Title" xml:space="preserve">
+    <value>MODX Evolution Japonca sürüm paketi.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Summary" xml:space="preserve">
+    <value>MODX Evolution Japonca sürüm paketi.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_LongSummary" xml:space="preserve">
+    <value>MODX Evolution Japonca sürüm paketi.</value>
+  </data>
+  <data name="Entry_MerchantTribe_Title" xml:space="preserve">
+    <value>MerchantTribe</value>
+  </data>
+  <data name="Entry_MerchantTribe_Summary" xml:space="preserve">
+    <value>MerchantTribe, C# diliyle yazılmış ücretsiz, açık kaynaklı bir ASP.NET MVC e-ticaret platformudur. 
+
+MerchantTribe'ın başarılı olması için olabildiğince çok sayıda kimsenin uygulamamızı kullanması gerekiyor. Tüccarların, Geliştiricilerin ve Tasarımcıların bize katılmasını ve yazılımı ve topluluğu geliştirmemiz yardımcı olmasını istiyoruz. Twitter'da @merchanttribe'ı izleyin. MerchantTribe'ı hemen bugün karşıdan yükleyin, katkı yapın ve bize katılın!</value>
+  </data>
+  <data name="Entry_MerchantTribe_LongSummary" xml:space="preserve">
+    <value>MerchantTribe, C# diliyle yazılmış ücretsiz, açık kaynaklı bir ASP.NET MVC e-ticaret platformudur. 
+
+On yıldan fazla bir süredir ticari .NET alışveriş sepeti yazılımı geliştirip satıyoruz. Şimdi de ödül kazanmış BV Commerce yazılımımıza dayanan açık kaynaklı bir projeyi pazara sürüyoruz. Pebble Beach Resorts, DataPipe, TastyKake, MathBlaster ve Chesapeake Energy gibi binlerce şirket alışveriş sepetimizi kullanıyor. 
+
+MerchantTribe'ın başarılı olması için olabildiğince çok sayıda kimsenin uygulamamızı kullanması gerekiyor. Tüccarların, Geliştiricilerin ve Tasarımcıların bize katılmasını ve yazılımı ve topluluğu geliştirmemiz yardımcı olmasını istiyoruz. Twitter'da @merchanttribe'ı izleyin. MerchantTribe'ı hemen bugün karşıdan yükleyin, katkı yapın ve bize katılın!</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (İspanyolca)</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Summary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). Sezgisel, menüye dayalı bir arabirim ile teknik bilgisi sınırlı kullanıcılar dahi DotNetNuke'u kolayca kullanarak güçlü web siteleri oluşturabilir veya var olan web uygulamalarının işlev ve özelliklerini genişletebilir. </value>
+  </data>
+  <data name="Entry_DotNetNukeES_LongSummary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). 700.000'den fazla dağıtılmış üretim web sitesi ve hemen yüklenebilecek binlerce üçüncü taraf uzantı ile, DNN® ticari web sitesi, topluluk portalı veya intranet çözümü oluşturmayı hızlı ve ekonomik hale getiriyor. Çeviri hizmetleri Toni Coll (http://www.2psystems.com) ve Vicenç Masanas (http://www.disgrafic.com) tarafından sağlanmıştır </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (İtalyanca)</value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Summary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). Sezgisel, menüye dayalı bir arabirim ile teknik bilgisi sınırlı kullanıcılar dahi DotNetNuke'u kolayca kullanarak güçlü web siteleri oluşturabilir veya var olan web uygulamalarının işlev ve özelliklerini genişletebilir. </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_LongSummary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). 700.000'den fazla dağıtılmış üretim web sitesi ve hemen yüklenebilecek binlerce üçüncü taraf uzantı ile, DNN® ticari web sitesi, topluluk portalı veya intranet çözümü oluşturmayı hızlı ve ekonomik hale getiriyor.  Çeviri hizmetleri Inspector IT'nin (http://www.inspectorit.com) izniyle sağlanmıştır</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (tr-TR)</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Summary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). Sezgisel, menüye dayalı bir arabirim ile teknik bilgisi sınırlı kullanıcılar dahi DotNetNuke'u kolayca kullanarak güçlü web siteleri oluşturabilir veya var olan web uygulamalarının işlev ve özelliklerini genişletebilir. </value>
+  </data>
+  <data name="Entry_dotnetnukeTR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). 700.000'den fazla dağıtılmış üretim web sitesi ve hemen yüklenebilecek binlerce üçüncü taraf uzantı ile, DNN® ticari web sitesi, topluluk portalı veya intranet çözümü oluşturmayı hızlı ve ekonomik hale getiriyor. Çeviri DotNetNuke Türkiye Kullanıcılar Grubu'nun (http://trdnn.com) izniyle sağlanmıştır.</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (Fransızca)</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Summary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). Sezgisel, menüye dayalı bir arabirim ile teknik bilgisi sınırlı kullanıcılar dahi DotNetNuke'u kolayca kullanarak güçlü web siteleri oluşturabilir veya var olan web uygulamalarının işlev ve özelliklerini genişletebilir. </value>
+  </data>
+  <data name="Entry_DotNetNukeFR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke®, dinamik içeriğe ve etkileşimli özelliklere sahip profesyonel web siteleri oluşturma konusunda önde gelen web içeriği yönetim platformudur (CMS). 700.000'den fazla dağıtılmış üretim web sitesi ve hemen yüklenebilecek binlerce üçüncü taraf uzantı ile, DNN® ticari web sitesi, topluluk portalı veya intranet çözümü oluşturmayı hızlı ve ekonomik hale getiriyor.
+
+Yerelleştirme Fransız DotNetNuke Kullanıcılar Grubu'nun (http://dnn.fr) izniyle sağlanmıştır.</value>
+  </data>
+  <data name="Entry_Discuz_Title" xml:space="preserve">
+    <value>Discuz!</value>
+  </data>
+  <data name="Entry_Discuz_Summary" xml:space="preserve">
+    <value>Discuz! X, topluluk tabanlı Forum (BBS) için Comsenz tarafından geliştirilmiş profesyonel bir platformdur. Forum (BBS), sosyal ağ (SNS), portal, grup ve açık platformun tam tümleşmesi sonucunda; Discuz! X, web sitelerinin tek durak noktası hizmetler sağlamasına olanak verir.</value>
+  </data>
+  <data name="Entry_Discuz_LongSummary" xml:space="preserve">
+    <value>Discuz! X, topluluk tabanlı Forum (BBS) için Comsenz tarafından geliştirilmiş profesyonel bir platformdur. Forum (BBS), sosyal ağ (SNS), portal, grup ve açık platformun tam tümleşmesi sonucunda; Discuz! X, web sitelerinin tek durak noktası hizmetler sağlamasına olanak verir.</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Title" xml:space="preserve">
+    <value>Joomla İbranice</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Summary" xml:space="preserve">
+    <value>IIS ve WebMatrix için Joomla İbranice</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_LongSummary" xml:space="preserve">
+    <value>IIS ve WebMatrix için Joomla İbranice</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Title" xml:space="preserve">
+    <value>RedCritter Tracker</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Summary" xml:space="preserve">
+    <value>RedCritter Tracker, daha önce tecrübe ettiklerinize hiç benzemeyen Çevik Proje Yönetimidir.
+
+Twitter tarzı ileti akışları ile sürükle ve bırak proje yönetimi, başarılarınız için rozetler ve hatta kendi şirket ödül deponuzu edinin.
+
+Bulut sürümü www.redcrittertracker.com adresindedir</value>
+  </data>
+  <data name="Entry_RedCritterTracker_LongSummary" xml:space="preserve">
+    <value>RedCritter Tracker, daha önce tecrübe ettiklerinize hiç benzemeyen Çevik Proje Yönetimidir.
+
+Twitter tarzı ileti akışları ile sürükle ve bırak proje yönetimi, başarılarınız için rozetler ve hatta kendi şirket ödül deponuzu edinin.
+
+Bulut sürümü www.redcrittertracker.com adresindedir</value>
+  </data>
+  <data name="Entry_razorCnet_Title" xml:space="preserve">
+    <value>razorC.net</value>
+  </data>
+  <data name="Entry_razorCnet_Summary" xml:space="preserve">
+    <value>ASP.net web sayfaları (razor sözdizimi) geliştirilmiş ve WebMatrix geliştiricileri için mükemmeldir. Kurmak ve değiştirmek çok kolaydır. </value>
+  </data>
+  <data name="Entry_razorCnet_LongSummary" xml:space="preserve">
+    <value>razorC.net CMS - profesyonel bir web sitesi başlatmanın ve sürdürmenin hızlı ve kolay yoludur. ASP.net web sayfaları (razor sözdizimi) geliştirilmiş ve WebMatrix geliştiricileri için mükemmeldir. Kurmak ve değiştirmek çok kolaydır. razorC.net ile birkaç dakikada var olan herhangi bir sayfanın düzenini değiştirebilirsiniz!!!
+
+Özellikleri:
+- Temalar – 3 tema dahildir. Dakikalar içinde yeni bir tane oluşturabilirsiniz
+- Sayfaları ve pencere öğelerini yönetmek için denetim masası
+ - Öğeleri ve sayfaları otomatik yedekleme
+ - CSS &amp; Düzen Düzenleyicisi
+ - SQL Server Compact Edition
+ - İçerik yazmak / düzenlemek için TinyMCE düzenleyicisi
+ - Ajax dosya tarayıcısı
+ - Basit Menü yardımcısı
+ </value>
+  </data>
+  <data name="Entry_surveyproject_Title" xml:space="preserve">
+    <value>Survey Project</value>
+  </data>
+  <data name="Entry_surveyproject_Summary" xml:space="preserve">
+    <value>Survey™ Project, çevrimiçi veri işlemeye ve toplamaya yönelik ücretsiz bir web tabanlı anket ve (veri giriş) form araç takımıdır. 
+
+Survey™; müşterilerden, ziyaretçilerden ve çalışanlardan etkili bir şekilde değerli veri toplaması gereken herkes için idealdir. 
+
+Kodlama bilgisi olmayan kullanıcıların Internet aracılığıyla anket geliştirmesini ve yayımlamasını sağlar.
+</value>
+  </data>
+  <data name="Entry_surveyproject_LongSummary" xml:space="preserve">
+    <value>Survey™ Project, çevrimiçi veri işlemeye ve toplamaya yönelik ücretsiz bir web tabanlı anket ve (veri giriş) form araç takımıdır. 
+
+Survey™; müşterilerden, ziyaretçilerden ve çalışanlardan etkili bir şekilde değerli veri toplaması gereken herkes için idealdir. Kodlama bilgisi olmayan kullanıcıların Internet aracılığıyla anket geliştirmesini ve yayımlamasını sağlar. 
+
+Survey™ Project, C# .NET ile yazılmış ve bir MSSQL veritabanını temel alan açık kaynaklı bir web uygulamasıdır. Survey™ Project kaynakları .NET geliştiricilerinin web uygulaması projelerinde anket oluştururken zaman ve çabadan tasarruf etmesini sağlar ve farklı gereksinimlere ve iş ihtiyaçlarına uygun birçok özellik sunar. 
+
+Nesne yönelimli ve modüler mimarisi sayesinde yeni soru veya yanıt türleri eklemek de kolaydır.
+
+Özellikleri:
+- Anketler için klasör yapısı
+- Anket tasarımcısı ve form oluşturucusu (metin/html düzenleyicisi dahil)
+- Anket güvenlik seçenekleri
+- Belirteç Yönetimi
+- Çok dil seçenekleri
+- Soru kitaplıkları
+- Yanıt türü düzenleyicisi
+- Sonuçlar ve raporlama seçenekleri
+- Alma ve verme özellikleri
+- Postalama seçenekleri
+- Kullanıcıların ve rollerin yönetimi
+- Tümleşik Yardım dosyaları ve ipuçları
+- Anketler için kolay Url
+ 
+Özel özellikleri:
+- dallanma veya atlama mantığı
+- yanıt yöneltme
+- soruları rastgele sıralama
+- derecelendirme ve puanlı anketler
+- dosya yükleme yanıt seçenekleri
+</value>
+  </data>
+  <data name="Entry_eCB_Title" xml:space="preserve">
+    <value>MyCommerceBooks</value>
+  </data>
+  <data name="Entry_eCB_Summary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB), otomasyonu artıran ve veri girişini azaltan iş akışları tarafından desteklenen işbirliğine dayalı belge iletişimi içeren bir ticari web yazılım uygulamaları paketidir. eCB'yi SaaS olarak veya indirilip yerel olarak yüklenebilecek bir paket olarak dağıtabilirsiniz. Ücretsiz bir abonelik işlemi tamamlanarak eCB'nin zengin işlevlerine birkaç dakika içinde erişilebilir.</value>
+  </data>
+  <data name="Entry_eCB_LongSummary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB), otomasyonu artıran ve veri girişini azaltan iş akışları tarafından desteklenen işbirliğine dayalı belge iletişimi içeren bir ticari web yazılım uygulamaları paketidir. 
+eCB şunları içerir: Envanter Yönetimi, POS Sanal Terminali, Sipariş İşleme, Sevkiyat, Faturalama, Sorun Yönetimi, İş Çıkarma, Harcama ve Muhasebe Yönetimi. eCB; .NET Framework 4.0 ASP.NET ile uyumludur ve AJAX tabanlı denetimler içerir. Tüm uygulamalar tümleşiktir ve iş otomasyonunu artırmak ve veri girişini azaltmak için iş akışları ile yönetilir. eCB tamamen tarayıcı tabanlıdır: Sonuç olarak, modern bir internet tarayıcısına sahip basit bir bilgisayardan dahi verilerinize erişebilirsiniz (benzer şekilde, geçerli oturum açma bilgilerine sahip müşterileriniz ve tedarikçileriniz de verilerine erişebilir). İster toptan satış dağıtıcısı, isterse perakendeci, bakım ve servis, BT hizmetleri veya basit bir kafe olsun, eCB her tür işletme için uygundur. eCB, işletmenizi daha az işletim masrafıyla etkili şekilde yönetmek için gereken zengin bir işlevselliğe sahiptir.
+Bu yeni sürümde, geleneksel yatay sıra menülerin yanı sıra OfficeWebUI 2010 tabanlı panel menülerinden oluşan iki menülük bir sistemi kullanıma sunuyoruz. Menüyü tek bir açma ve kapama düğmesi ile dinamik olarak değiştirebilirsiniz. Ayrıca bu sürüme bir de işin çeşitli yönlerini (envanter varlıkları, CRM, Siparişler, Faturalar, Vergiler ve Muhasebe - uygulama ekran görüntülerini inceleyin) kapsayan “İş Başlıkları” veri göstergeleri ile SharePoint 2010'un tam içerik sayfasında benzeyen bir “Pilot Gezinme” sayfası ekliyoruz.</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Title" xml:space="preserve">
+    <value>Umbraco CMS (İbranice)</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Summary" xml:space="preserve">
+    <value>Umbraco, Microsoft .NET Framework üzerine inşa edilmiş ücretsiz, açık kaynaklı bir web cms'dir.  Kullanımı kolaydır, anlaması basittir ve endüstri standardı diller ve desenler kullanılarak yüksek oranda genişletilebilir.</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_LongSummary" xml:space="preserve">
+    <value>Umbraco kullanımı kolay, özelleştirmesi basit ve wired.co.uk ve asp.net gibi en büyük siteleri çalıştıracak kadar güçlü tam özellikli bir web içeriği yönetim sistemi sağlar.
+
+Umbraco hemen her dilde ve çok sayıda sektörü kapsayan 85.000'den fazla web sitesinde kullanılmaktadır.  Dünyanın en büyük şirketlerinden (Microsoft, Toyota) bazıları yanında dünyanın en yenilikçi bazı şirketleri de Umbraco kullanmaktadır.  Büyük ve küçük şirketler siteleri istedikleri gibi oluşturmalarına, özel özellikleri çabucak geliştirmelerine ve basit ve güçlü bir yaklaşımla süre gelen site bakım ve güncelleştirmelerini gerçekleştirmelerine olanak tanıdığı için Umbraco kullanıyorlar.
+
+Umbraco, Microsoft .NET Framework üzerine inşa edilmiş ücretsiz, açık kaynaklı bir web cms'dir.  Kullanımı kolaydır, anlaması basittir ve HTML, CSS, jQuery ve C# gibi endüstri standardı diller ve desenler kullanılarak yüksek oranda genişletilebilir.  İster ileri düzey bir tasarımcı isterse sıkı bir kod delisi olun, Umbraco güçlü ve esnektir.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Title" xml:space="preserve">
+    <value>.NET Forge CMS</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Summary" xml:space="preserve">
+    <value>.NET Forge CMS, ASP.NET Framework üzerine inşa edilmiş güçlü bir web sitesi yönetim sistemidir. .NET Forge CMS birçok teknik görevin çözümünü içeren bir sistemdir, böylece geliştirmeyi daha hızlı ve ucuz hale getirir. Güncel, yüksek performanslı ve güzel görünen bir web sitesi oluşturmak isterken para tasarrufu da yapmaya çalışanlar için ücretsiz bir Community sürümü bulunmaktadır.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_LongSummary" xml:space="preserve">
+    <value>.NET Forge CMS, web sitesi yönetim sistemleri dünyasında ASP.NET teknolojisini kullanan web geliştiricileri için bir yeniliktir. Community sürümü tam ve kapsamlı belgeler içeren ilk ücretsiz ASP.NET tabanlı CMS'dir. 
+
+
+.NET Forge CMS Microsoft yazılımlarıyla tümleştirme, kod güven düzeyleri ve en yüksek derecede nesne yönelimi sağlar ve kurumsal web uygulamaları veya sistemleri için kesinlikle uygundur.
+
+
+.NET Forge CMS 6.0'ın iki sürümü vardır: Community ve Professional. Ücretsiz Community sürümü topluluk web sitelerini, blogları ve diğer web projelerini hızlı bir şekilde geliştirirken platform maliyetlerinden tasarruf etmeyi sağlar. Professional sürümü yüksek trafik toleransı, ölçeklenebilirlik, sürekli çalışma ve güvenliğin elzem olduğu web mağazaları ve diğer web siteleri için ticari bir çözümdür.</value>
+  </data>
+  <data name="Entry_qibocms_Title" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_Summary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_LongSummary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_Drupal_JP_Title" xml:space="preserve">
+    <value>Drupal Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_Drupal_JP_Summary" xml:space="preserve">
+    <value>Drupal Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_Drupal_JP_LongSummary" xml:space="preserve">
+    <value>Drupal Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_HDwiki_Title" xml:space="preserve">
+    <value>HDwiki</value>
+  </data>
+  <data name="Entry_HDwiki_Summary" xml:space="preserve">
+    <value>HDwiki İLK ve en kapsamlı Çince wiki yazılımıdır. Etiket, digg, AJAX gibi web 2.0 öğelerine tümleşik olarak sahiptir. Birçok bakımdan mediawiki'den daha performanslıdır.
+
+HDWiki güzel bir web sitesi veya wiki sitesi oluşturmak için kullanabileceğiniz web yazılımıdır. Biz diyoruz ki, HDWiki aynı zamanda hem bedava hem de paha biçilmezdir.</value>
+  </data>
+  <data name="Entry_HDwiki_LongSummary" xml:space="preserve">
+    <value>HDwiki İLK ve en kapsamlı Çince wiki yazılımıdır. Etiket, digg, AJAX gibi web 2.0 öğelerine tümleşik olarak sahiptir. Birçok bakımdan mediawiki'den daha performanslıdır.
+
+HDWiki güzel bir web sitesi veya wiki sitesi oluşturmak için kullanabileceğiniz web yazılımıdır. Biz diyoruz ki, HDWiki aynı zamanda hem bedava hem de paha biçilmezdir.
+</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Title" xml:space="preserve">
+    <value>WordPress PT Portekiz</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Summary" xml:space="preserve">
+    <value>WordPress güzel bir web sitesi veya blog oluşturmak için kullanabileceğiniz bir web yazılımıdır. Biz diyoruz ki, WordPress aynı zamanda hem bedava hem de paha biçilmezdir.</value>
+  </data>
+  <data name="Entry_wordpressptportugal_LongSummary" xml:space="preserve">
+    <value>WordPress güzel bir web sitesi veya blog oluşturmak için kullanabileceğiniz bir web yazılımıdır. Biz diyoruz ki, WordPress aynı zamanda hem bedava hem de paha biçilmezdir.
+
+Çekirdek yazılım yüzlerce topluluk gönüllüsü tarafından oluşturulmuştur ve daha fazlasına hazır olduğunda sitenizi hayal edebildiğiniz hemen her şeye dönüştürecek binlerce eklenti ve tema bulunmaktadır. 25 milyondan fazla kişi web'de "evim" dediği yeri güçlendirmek için WordPress'i seçmiştir — aileye katılmanızdan memnun oluruz.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Title" xml:space="preserve">
+    <value>Orchard CMS Tayvan</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Summary" xml:space="preserve">
+    <value>Orchard CMS kullanıcıların Microsoft ASP.NET platformunda hızlı bir şekilde web sitesi oluşturmasını sağlayan ücretsiz, açık kaynaklı bir içerik yönetim sistemidir. Geliştiricilerin ve özelleştiricilerin uzantılar ve temalar aracılığıyla ek işlevler sağlamasına olanak tanıyan esnek bir genişletilebilirlik çerçevesi üzerine inşa edilmiştir.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_LongSummary" xml:space="preserve">
+    <value>Orchard CMS kullanıcıların Microsoft ASP.NET platformunda hızlı bir şekilde web sitesi oluşturmasını sağlayan ücretsiz, açık kaynaklı bir içerik yönetim sistemidir. Geliştiricilerin ve özelleştiricilerin uzantılar ve temalar aracılığıyla ek işlevler sağlamasına olanak tanıyan esnek bir genişletilebilirlik çerçevesi üzerine inşa edilmiştir.</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Title" xml:space="preserve">
+    <value>BlogEngine.NET V1.6.2 Çince</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Summary" xml:space="preserve">
+    <value>BlogEngine.NET, daha iyi bir blog platformu yaratma düşüncesinden doğmuş açık kaynaklı bir .NET blog projesidir. Daha basit, kolan özelleştirilebilen ve en yeni .NET özelliklerinden yararlanan bir blog platformudur. 
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET, daha iyi bir blog platformu yaratma düşüncesinden doğmuş açık kaynaklı bir .NET blog projesidir. Daha basit, kolan özelleştirilebilen ve en yeni .NET özelliklerinden yararlanan bir blog platformudur. BlogEngine.NET güncel .NET Framework kullanılarak tasarlanmış ve basitlik, genişletme kolaylığı ve yenilikli özellikler üzerine odaklanmıştır. BlogEngine.NET ile tüm dünyadaki .NET geliştiricileri için doğal blog tercihini yaratmayı ümit ediyoruz. </value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Title" xml:space="preserve">
+    <value>Kooboo Communicator</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Summary" xml:space="preserve">
+    <value>Bu iletişim aracı müşterilerinize düzenli E-postayla pazarlama kampanyaları ve anketler göndermenizi sağlar. Yeni kullanıcılar bile 5 dakika içinde kişileri içe aktarabilir, kampanya tasarlayabilir ve bunu müşterilerine gönderebilir. Siz ve E-posta kampanyalarınız profesyonel görünürsünüz. Gelen kutusu önizleme, takip etme ve tüm kampanya sonuçlarınızı görme. İndirip yerel olarak kullanın veya çevrimiçi ortamda kayıt olun.</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_LongSummary" xml:space="preserve">
+    <value>Bu iletişim aracı müşterilerinize düzenli E-postayla pazarlama kampanyaları ve anketler göndermenizi sağlar. Yeni kullanıcılar bile 5 dakika içinde kişileri içe aktarabilir, kampanya tasarlayabilir ve bunu müşterilerine gönderebilir. Siz ve E-posta kampanyalarınız profesyonel görünürsünüz. Gelen kutusu önizleme, takip etme ve tüm kampanya sonuçlarınızı görme. İndirip yerel olarak kullanın veya çevrimiçi ortamda kayıt olun.
+
+Ücretsiz kullanmaya başlayabilirsiniz.</value>
+  </data>
+  <data name="Entry_ocPortal_Title" xml:space="preserve">
+    <value>ocPortal</value>
+  </data>
+  <data name="Entry_ocPortal_Summary" xml:space="preserve">
+    <value>Çevrimiçi topluluklar ve dinamik ve etkileşimli web siteleri oluşturmayı öne çıkaran güçlü ve esnek bir CMS. ocPortal blog tutma, forum işletme, indirme sağlama, galeri barındırma, kendi veritabanlarınızı sunma E-ticaret ve çok daha fazla özellik sağlar. Her şey özelleştirilebilirdir, yüksek standartlarda yapılmıştır ve kullanımı kolaydır.</value>
+  </data>
+  <data name="Entry_ocPortal_LongSummary" xml:space="preserve">
+    <value>ocPortal modern, sofistike web siteleri oluşturmayı sağlayan birçok Web 2.0 ve topluluk özelliklerine sahip bir CMS'dir. ocPortal birçok içerik türünü (galeri, haber/bülten vb) ve bunların içine zengin medya ve reklam eklemeyi destekler. Topluluk özellikleri arasında forumlar, üye blogları, sohbet odaları, WIKI ve içerik yorumlama/derecelendirme bulunur.
+
+ocPortal sitenizin nasıl görüneceğine ve davranacağına karar vermenizi sağlar. Özellikleri çoktur, ancak aynı zamanda isteğe bağlıdır. Özellik tümleştirme ocPortal felsefesinin çekirdeğini oluşturur - örneğin, tüm sitede arama motoru ve birleştirilmiş üye profilleri.
+
+Kutudan çıktığı haliyle siteniz en yüksek erişilebilirlik ve profesyonel standartları karşılar ve otomatik SEO nedeniyle Google'da daha yukarıda görünür. Web siteniz korsanların girişimlerini otomatik olarak engeller ve kaydeder ve erişimi ücretli abonelik gibi çeşitli şekillerde denetleyebilirsiniz.
+
+ocPortal tüm ihtiyaçlarınızı karşılayacak yazılım olarak tasarlanmıştır; bir İçerik Yönetim Sisteminden çok daha fazlasına sahip olursunuz.</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Title" xml:space="preserve">
+    <value>IIS için XCL22x-pack201X</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Summary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_LongSummary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_hevod_Title" xml:space="preserve">
+    <value>hevod İsteğe Bağlı Video</value>
+  </data>
+  <data name="Entry_hevod_Summary" xml:space="preserve">
+    <value>Film oynayan bir arka plan (şu anda yalnızca swf biçimini destekler), sunucu yönetimi, yönetici yönetimi, sınıflandırma yönetimi ve daha birçok modül ekleyin</value>
+  </data>
+  <data name="Entry_hevod_LongSummary" xml:space="preserve">
+    <value>hevod isteğe bağlı video sistemi Asp.net video çevrimiçi oynatma sistemini kullanan bir açık kaynaklık geliştirme kümesidir; sistem basit bir üç katmanlı geliştirme kullanır, Access kullanan veritabanına sahiptir ve küçük ve orta büyüklükte web uygulamaları için uygundur.
+
+Film oynayan bir arka plan (şu anda yalnızca swf biçimini destekler), sunucu yönetimi, yönetici yönetimi, sınıflandırma yönetimi ve daha birçok modül ekleyin
+
+Arka planda kullanıcının hesabını md5 şifrelemesi kullanarak doğrulayan rastgele bir kod içerir.</value>
+  </data>
+  <data name="Entry_concrete5ja_Title" xml:space="preserve">
+    <value>concrete5 Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_concrete5ja_Summary" xml:space="preserve">
+    <value>concrete5 Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_concrete5ja_LongSummary" xml:space="preserve">
+    <value>concrete5 Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Title" xml:space="preserve">
+    <value>NopCommerce Italiano</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Summary" xml:space="preserve">
+    <value>NopCommerce 1.9 İtalyanca sürümü ve taşıması</value>
+  </data>
+  <data name="Entry_NopCommerceIT_LongSummary" xml:space="preserve">
+    <value>NopCommerce 1.9 İtalyanca sürümü ve taşıması. İtalyanca dilinde çalıştırmaya hazır uygulamayla gelir ve şirketinizin İtalya'da bulunduğunu kabul ederek şehirler ve yerel yönetim içerir.</value>
+  </data>
+  <data name="Entry_drupal7heb_Title" xml:space="preserve">
+    <value>Drupal 7 İbranice Sürüm</value>
+  </data>
+  <data name="Entry_drupal7heb_Summary" xml:space="preserve">
+    <value>İbranice çeviri dosyaları içeren Drupal 7 sürümü.</value>
+  </data>
+  <data name="Entry_drupal7heb_LongSummary" xml:space="preserve">
+    <value>İbranice çeviri dosyaları içeren Drupal 7 sürümü.</value>
+  </data>
+  <data name="Entry_RakuCMS_Title" xml:space="preserve">
+    <value>RakuCMS</value>
+  </data>
+  <data name="Entry_RakuCMS_Summary" xml:space="preserve">
+    <value>RakuCMS, içerik düzenleyicileri ve geliştiricilerin statik ve dinamik web sitelerini hızlı ve etkili şekilde oluşturmaları ve bakımını yapmaları için Microsoft ASP.NET ve diğer standart Web teknolojileri üzerine inşa edilmiş kolay ve genişletilebilir bir CMS çözümüdür.</value>
+  </data>
+  <data name="Entry_RakuCMS_LongSummary" xml:space="preserve">
+    <value>RakuCMS, içerik düzenleyicileri ve geliştiricilerin statik ve dinamik web sitelerini hızlı ve etkili şekilde oluşturmaları ve bakımını yapmaları için Microsoft ASP.NET ve diğer standart Web teknolojileri üzerine inşa edilmiş kolay ve genişletilebilir bir CMS çözümüdür.</value>
+  </data>
+  <data name="Entry_nearforums_Title" xml:space="preserve">
+    <value>Nearforums</value>
+  </data>
+  <data name="Entry_nearforums_Summary" xml:space="preserve">
+    <value>Nearforums, ASP.NET MVC kullanılacak C# ile geliştirilmiş basit bir modern tartışma forumudur. Açık kaynaklı, şirketler ve geliştiriciler için uygun müsamahakar lisanslı (MIT) Nearforums, Facebook/Twitter ile oturum açma, etiketli gezinme, tam Web yönetimi RSS akışları, erişilebilir HTML ve SEO Dostu gibi harika özellikler içerir.</value>
+  </data>
+  <data name="Entry_nearforums_LongSummary" xml:space="preserve">
+    <value>Nearforums, ASP.NET MVC kullanılacak C# ile geliştirilmiş basit bir modern tartışma forumudur. Açık kaynaklı, şirketler ve geliştiriciler için uygun isteğe bağlı lisanslı (MIT) Nearforums; Facebook/Twitter ile oturum açma, etiketli gezinme, tam Web yönetimi, dahili arama motoru, RSS akışları, erişilebilir HTML ve SEO Dostu gibi harika özellikler içerir.</value>
+  </data>
+  <data name="Entry_FishopNet_Title" xml:space="preserve">
+    <value>Fishop.Net</value>
+  </data>
+  <data name="Entry_FishopNet_Summary" xml:space="preserve">
+    <value>Fishop.Net kullanımı kolay ve tüm bileşenleri tamamen özelleştirilebilen bir e-ticaret ürünüdür</value>
+  </data>
+  <data name="Entry_FishopNet_LongSummary" xml:space="preserve">
+    <value>Fishop.Net, müşterilerin bakış açısından ve site yöneticisinin bakış açısından basit kullanım için inşa edilmiş bir e-ticaret uygulamasıdır.
+Küçük bir sihirbaz izlenerek fishop.Net birkaç adımda çalışır hale getirilir. Fishop.Net, ayrıca, kullanılacak bir veya daha fazla dili belirtme, otomatik izlemeli çok sayıda taşıma yöntemi ekleme, müşterilere gönderilen bildirim e-postasını özelleştirme, üründeki değişiklikleri (örneğin giyimde boyut veya renk) belirtme ve grafik temayı tek bir tıklatmayla özelleştirme becerisi sunuyor.
+Fishop.Net'te önceden yüklenmiş bazı grafik temaları vardır. Daha fazla kişiselleştirme için, www.fishopnet.it adresinden satın alarak ek temalar yükleyebilirsiniz.
+Son olarak, Fishop.net hazır yüklü olan PayPal ödeme sağlayıcısını kullanma veya diğer sağlayıcıları satın alma olanağı sunar.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Title" xml:space="preserve">
+    <value>Tandem Server CMS</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Summary" xml:space="preserve">
+    <value>Tandem Server CMS küçük işletmelere ve kişisel web sitelerine yönelik bir web sitesi yönetim çözümüdür. Sezgisel çevrimiçi yayınlama aracımız, herkes için web sitelerini güncelleştirmeyi çok kolay hale getirir. Tandem Server'ın kullanımı ücretsizdir ve yalnızca temel bir Windows barındırma tarifesi gerektirir; bu nedenle bir denemelisiniz.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_LongSummary" xml:space="preserve">
+    <value>Küçük İşletmelere ve Kişisel Web Sitelerine Yönelik Ücretsiz ve Kolay İçerik Yönetim Sistemi. Tandem Server'ın tasarımı web sitenizi yönetmeyi olması gerektiği gibi basit hale getirir.</value>
+  </data>
+  <data name="Entry_WordPressGerman_Title" xml:space="preserve">
+    <value>WordPress Almanca</value>
+  </data>
+  <data name="Entry_WordPressGerman_Summary" xml:space="preserve">
+    <value>WordPress güzel bir web sitesi veya blog oluşturmak için kullanabileceğiniz bir web yazılımıdır. Biz diyoruz ki, WordPress aynı zamanda hem bedava hem de paha biçilmezdir.</value>
+  </data>
+  <data name="Entry_WordPressGerman_LongSummary" xml:space="preserve">
+    <value>Çekirdek yazılım yüzlerce topluluk gönüllüsü tarafından oluşturulmuştur ve daha fazlasına hazır olduğunda sitenizi hayal edebildiğiniz hemen her şeye dönüştürecek binlerce eklenti ve tema bulunmaktadır. 25 milyondan fazla kişi web'de "evim" dediği yeri güçlendirmek için WordPress'i seçmiştir — aileye katılmanızdan memnun oluruz.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Title" xml:space="preserve">
+    <value>WordPress PT Brezilya</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Summary" xml:space="preserve">
+    <value>WordPress güzel bir web sitesi veya blog oluşturmak için kullanabileceğiniz bir web yazılımıdır. Biz diyoruz ki, WordPress aynı zamanda hem bedava hem de paha biçilmezdir.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_LongSummary" xml:space="preserve">
+    <value>WordPress güzel bir web sitesi veya blog oluşturmak için kullanabileceğiniz bir web yazılımıdır. Biz diyoruz ki, WordPress aynı zamanda hem bedava hem de paha biçilmezdir.</value>
+  </data>
+  <data name="Entry_SplendidCRM_Title" xml:space="preserve">
+    <value>SplendidCRM</value>
+  </data>
+  <data name="Entry_SplendidCRM_Summary" xml:space="preserve">
+    <value>SplendidCRM, Microsoft tabanlı sunuculara yatırım yapmış şirketleri hedefleyen açık kaynaklı ticari bir Müşteri İlişkileri Uygulamasıdır.</value>
+  </data>
+  <data name="Entry_SplendidCRM_LongSummary" xml:space="preserve">
+    <value>SplendidCRM, Microsoft tabanlı sunuculara yatırım yapmış şirketleri hedefleyen açık kaynaklı bir Müşteri İlişkileri Uygulamasıdır.  SplendidCRM en iyi geliştirme araçları ve web uygulaması geliştirme konusunda en iyi yöntemler kullanılarak geliştirilmiştir. Sonuç olarak SplendidCRM, CRM pazarındaki büyük oyuncuların maliyetinin yalnızca küçük bir kısmı maliyetle teslim edilebilen ölçeklenebilirliği yüksek, özelleştirilebilirliği yüksek, kurumsal bir uygulama haline gelmiştir.
+
+</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Title" xml:space="preserve">
+    <value>WordPress İbranice sürümü</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Summary" xml:space="preserve">
+    <value>İbranice çeviriyi içeren WordPress.</value>
+  </data>
+  <data name="Entry_WordpressHebrew_LongSummary" xml:space="preserve">
+    <value>İbranice çeviriyi içeren WordPress.</value>
+  </data>
+  <data name="Entry_DotNetAge_Title" xml:space="preserve">
+    <value>DotNetAge</value>
+  </data>
+  <data name="Entry_DotNetAge_Summary" xml:space="preserve">
+    <value>DotNetAge bir CMS, Sosyal Ağ platformu ve Mvc RAD platformudur. DotNetAge estetik, kullanım kolaylığı, SEO ve web standartları üzerine odaklanır. DotNetAge sezgisel bir arabirim sunarak teknik bilgisi sınırlı kullanıcıların kolayca yeni site oluşturmalarını veya mevcut web sitelerinin işlevlerini ve özelliklerini genişletmelerini sağlar.</value>
+  </data>
+  <data name="Entry_DotNetAge_LongSummary" xml:space="preserve">
+    <value>DotNetAge devrim niteliğinde bir kullanıcı arabirimi, basitlik, ölçeklenebilirlik, mükemmel SEO sonuçları sunar - ihtiyacınız olan her şey tek bir üründe güzellikle hazırlanmıştır.
+DotNetAge, web sayfalarının görsel yapımı için son derece kullanışlı bir sürükle ve bırak arabirimi sunar. Güçlü yönetim araçları web sitesi yönetimini, içerik yönetimini oldukça kolaylaştırır. DotNetAge zen web 2.0 açık kitaplıkları (Blog tutma, Opml, OSD, RSS, ATOM, BlogML, OpenID, Site Haritası), Çevrimiçi Pencere Öğesi yazarı (Html, Razor, ASP.NET Formu), jQuery Mvc UI yardımcıları ve geliştiricilerin bayılacağı diğer özellikleri içerir.
+
+</value>
+  </data>
+  <data name="Entry_phpwind_IIS_Title" xml:space="preserve">
+    <value>IIS için phpwind </value>
+  </data>
+  <data name="Entry_phpwind_Summary" xml:space="preserve">
+    <value>PHPWind Forumları论坛系统是一套采用PHP + MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_phpwind_LongSummary" xml:space="preserve">
+    <value>PHPWind Forumları论坛系统是一套采用PHP + MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Title" xml:space="preserve">
+    <value>BlogEngine.NET İbranice</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Summary" xml:space="preserve">
+    <value>BlogEngine.NET, daha iyi bir blog platformu yaratma düşüncesinden doğan açık kaynaklı bir ASP.NET blog projesidir. Basitliğe, genişletme kolaylığına ve yenilikçi özelliklere odaklanırken en son .NET özelliklerinden yararlandık. BlogEngine.NET kolayca özelleştirilebilir.</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET, daha iyi bir blog platformu yaratma düşüncesinden doğan açık kaynaklı bir ASP.NET blog projesidir. Basitliğe, genişletme kolaylığına ve yenilikçi özelliklere odaklanırken en son .NET özelliklerinden yararlandık. BlogEngine.NET kolayca özelleştirilebilir. Birkaç temel .NET becerisiyle kolayca edinebileceğiniz çok sayıda karşıdan yüklenebilir tema, pencere öğesi ve genişletme eki mevcuttur. BlogEngine.NET ile blogunuzun tam da istediğiniz gibi görünüp çalışmasını sağlamak gayet kolaydır.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Title" xml:space="preserve">
+    <value>Drupal Commerce Kickstart</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Summary" xml:space="preserve">
+    <value>Drupal Commerce, Drupal 7 üzerinde oluşturulmuş her şeyiyle hazır,
+açık kaynaklı e-ticaret çerçevesidir. Çerçeveyi
+sosyal ticaret için en iyi platforma dayalı esnek ve
+kolayca özelleştirilebilir web siteleri oluşturmak için kullanabilirsiniz.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_LongSummary" xml:space="preserve">
+    <value>Drupal Commerce, Drupal 7 üzerinde oluşturulmuş her şeyiyle hazır,
+açık kaynaklı e-ticaret çerçevesidir. Çerçeveyi
+sosyal ticaret için en iyi platforma dayalı esnek ve
+kolayca özelleştirilebilir web siteleri oluşturmak için kullanabilirsiniz.
+
+Drupal bir herkesin bir web sitesinde çok çeşitli içeriği kolayca yayımlamasını, yönetmesini ve düzenlemesini sağlayan bir ücretsiz yazılım paketidir. Yüz binlerce kişi ve kuruluş sınırsız çeşitlilikte siteyi desteklemek için Drupal kullanmaktadır.
+
+Drupal yüz binlerce kullanıcı ve geliştiriciden oluşan bir topluluk tarafından desteklenmekte ve geliştirilmektedir. GNU Genel Kamu Lisansı (veya "GPL") altında dağıtılmaktadır ve bu herkes tarafından ücretsiz indirilebileceği, başkalarıyla paylaşılabileceği ve projeye katkıda bulunabileceği anlamına gelir. Bu açık geliştirme modeli, insanların sürekli olarak Drupal'ı Web'in sunduğu en yeni teknolojileri destekleyen ileri bir platform yapmak için çalıştığı anlamına gelmektedir.
+</value>
+  </data>
+  <data name="Entry_SQLCMS_Title" xml:space="preserve">
+    <value>SQLCMS</value>
+  </data>
+  <data name="Entry_SQLCMS_Summary" xml:space="preserve">
+    <value>SQLCMS herhangi bir Microsoft SQL Server veritabanı (2000/2005/2008) için bir AJAX İçerik Yönetim Sistemi üretir.</value>
+  </data>
+  <data name="Entry_SQLCMS_LongSummary" xml:space="preserve">
+    <value>SQLCMS herhangi bir SQL Server veritabanı için bir AJAX İçerik Yönetim Sistemi üretir (ticari olmayan kullanımı ücretsizdir. Lisans seçenekleri bulunur). 
+
+Özellikleri:
+
+* Sayfa, Görünüm, Ayrıntı, Düzenleme, Ekleme, Silme, Arama ve herhangi bir veriyi Verme
+* Tam rol tabanlı güvenlik modeli
+* Veritabanınızdaki değişikliklere adapte olur
+* Access Tabloları, Görünümleri ve Saklı Yordamları
+* Javascript tabanlı istemci tarafında oluşturma ve doğrulama
+* İlişkili tablo detayına gitme
+* Kolay veri girişi için arama listesi üretme
+* Özel Eylemler
+* Panel Kümeleri
+* AIP adresi izleme ile Etkinlik Bildirimi
+* İspanyolca, Fransızca, Almanca ve Çince dillerine çevrilmiştir ve diğer tüm dilleri destekler.
+* ... Ve çok daha fazlası!
+
+</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Title" xml:space="preserve">
+    <value>OpenPNE Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Summary" xml:space="preserve">
+    <value>OpenPNE Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_LongSummary" xml:space="preserve">
+    <value>OpenPNE Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Title" xml:space="preserve">
+    <value>WordPress İspanyolca</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Summary" xml:space="preserve">
+    <value>WordPress 2003 yılında iki kişinin parmaklarının toplamından daha az sayıda kullanıcıyla günlük yazma işleminin tipografisini iyileştirmek üzere tek bir bit kod ile yola çıktı. O zamandan bu yana, yüz binlerce sitede kullanılan ve her gün milyonlarca insan tarafından görülen, dünyanın kendi kendini barındıran en büyük blog aracı haline geldi.</value>
+  </data>
+  <data name="Entry_WordPressSpanish_LongSummary" xml:space="preserve">
+    <value>WordPress 2003 yılında iki kişinin parmaklarının toplamından daha az sayıda kullanıcıyla günlük yazma işleminin tipografisini iyileştirmek üzere tek bir bit kod ile yola çıktı. O zamandan bu yana, yüz binlerce sitede kullanılan ve her gün milyonlarca insan tarafından görülen, dünyanın kendi kendini barındıran en büyük blog aracı haline geldi.</value>
+  </data>
+  <data name="Entry_eccube_Title" xml:space="preserve">
+    <value>EC-CUBE</value>
+  </data>
+  <data name="Entry_eccube_Summary" xml:space="preserve">
+    <value>PHP için Japon E-ticaret Uygulaması.</value>
+  </data>
+  <data name="Entry_eccube_LongSummary" xml:space="preserve">
+    <value>PHP için Japon E-ticaret Uygulaması.</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Title" xml:space="preserve">
+    <value>Geeklog</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Summary" xml:space="preserve">
+    <value>Çekirdek Geeklog dağıtımı topluluk tarafından geliştirilmiş birçok eklenti ve bileşenlerle genişletilerek işlevleri radikal ölçüde değiştirilebilir. Kullanılabilen eklentileri forumlar, resim galerileri ve diğerleri bulunur.</value>
+  </data>
+  <data name="Entry_geeklogjapanese_LongSummary" xml:space="preserve">
+    <value>Geeklog, dinamik web içeriğini yönetmeye yönelik açık kaynaklı bir uygulamadır. PHP ile yazılmıştır ve veritabanı arka ucu olarak MySQL, PostgreSQL veya MS SQL desteği içerir. "Kutudan çıktığı gibi" Geeklog bir CMS veya blog altyapısıdır ve yorumları, geri izlemeleri, çoklu dağıtım biçimlerini, istenmeyen postadan korumayı ve böyle bir sistemin diğer tüm hayati özelliklerini destekler. </value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Title" xml:space="preserve">
+    <value>Joomla! İspanyolca</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Summary" xml:space="preserve">
+    <value>Joomla! İspanyolca Açık Kaynaklı İçerik Yönetim Sistemi (İngilizce ve Katalanca dosyaları da dahildir).</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_LongSummary" xml:space="preserve">
+    <value>İspanyolcaya çevrilmiş Joomla. İngilizce ve Katalanca dosyaları da içerir. Joomla! açık kaynaklı bir içerik yönetim sistemidir (CMS). Joomla!'nın güçlü uygulama çerçevesi, geliştiricilerin Joomla!'nın gücünü neredeyse sınırsız ölçüde genişletebilen gelişmiş eklentiler oluşturmasını kolaylaştırır. Ana Joomla! çerçevesi, geliştiricilerin hızla ve kolayca Stok denetim sistemleri, Veri raporlama araçları, Özel ürün katalogları, Tümleşik e-ticaret sistemleri, Karmaşık iş dizinleri, Ayırma sistemleri, İletişim araçları ve çok daha fazlasını oluşturmasını sağlar. Joomla! PHP ve MySQL tabanlı olduğu için, açık bir platform üzerinde oluşturduğunuz güçlü uygulamalar herkesçe kullanılıp paylaşılabilir ve desteklenebilir.</value>
+  </data>
+  <data name="NewWebApplications" xml:space="preserve">
+    <value>Yeni Web Uygulamaları</value>
+  </data>
+  <data name="Entry_TangoCMS_Title" xml:space="preserve">
+    <value>TangoCMS</value>
+  </data>
+  <data name="Entry_TangoCMS_Summary" xml:space="preserve">
+    <value>Güçlü. Basit. Güvenli. TangoCMS bütün bir web sitesini hızla ve kolayca oluşturup yönetmenizi sağlar. Güçlü bir özellik yelpazesi, alışkanlık gerektirmeyen basit bir arabirim ve güvenlik odaklı tasarım: TangoCMS ihtiyaç duyduğunuz her şeyi sunuyor.</value>
+  </data>
+  <data name="Entry_TangoCMS_LongSummary" xml:space="preserve">
+    <value>Güçlü bir özellik kümesine sahip olan, kullanımı kolay TangoCMS, basit veya karmaşık web sitelerini hızla ve kolayca yönetmenize olanak tanır. Basit ve alışkanlık gerektirmeyen arabirim web sitenizin yönetimini eğlenceli ve zahmetsiz hale getirir. Modüler yapı sayesinde var olan özellik kümenize daha da fazla işlev ekleyebilirsiniz. Bloglar, galeri/videolar, makaleler, kullanıcı yönetimi, kişi formları, anketler ve çok daha fazlası. Güvenliğe dayalı tasarım sayesinde web sitenizin ve kullanıcılarınızın daima güvende olduğundan emin olabilirsiniz. Güçlü. Basit. Güvenli.</value>
+  </data>
+  <data name="Entry_Dropthings_Title" xml:space="preserve">
+    <value>Dropthings</value>
+  </data>
+  <data name="Entry_Dropthings_Summary" xml:space="preserve">
+    <value>ASP.NET 3.5, jQuery kullanılarak oluşturulmuş Web 2.0 Personalizable pencere öğesi destekli Portal. Kendi Web 2.0 siteleriniz yanında çeşitli kaynaklardan bilgi toplayan Kuruluş Panoları oluşturmak ve bunları genişletmek için kullanabileceğiniz tam işlevli bir web uygulaması. Kullanıcılar pencere öğelerini sürükleyip bırakabilir ve özelleştirebilir. RSS, Twitter, Flickr, Hava Durumu, HTML ve Statik içerik pencere öğeleri yerleşik olarak bulunmaktadır. </value>
+  </data>
+  <data name="Entry_Dropthings_LongSummary" xml:space="preserve">
+    <value>Dropthings, Web 2.0 web siteleri yanında Kuruluş panoları oluşturma konusunda AJAX'ın ve Pencere Öğesi Çerçevesinin gücünü gösteren bir Kişiselleştirilebilir Web Portalıdır. Bir Açık Kaynaklı Üründür. Tam işlevli siteyi istediğiniz gibi genişletebilirsiniz. Yerleşik RSS, Twitter, Flickr, Hava Durumu, Borsa, HTML ve Statik İçerik pencere öğelerine ek olarak kendi pencere öğelerinizi oluşturabilirsiniz. Çeşitli kaynaklardan veri getiren çerçeveyi sağlar. Raporları göstermek, veritabanınızdaki veri kılavuzlarını göstermek, web hizmetlerini kullanmak ve verileri görüntülemek vb. için pencere öğeleri oluşturabilirsiniz. Dropthings iş katmanında yaklaşık %100 otomatik test kapsamı ve tüm UI davranışlarını kapsayan %80 otomatikleştirilmiş UI testleri ile N katmanlı bir web uygulamasıdır. 
+
+Özellikleri:
+* Uluslararası - İngilizce, Fransızca, İspanyolca ve Almanca desteklenmektedir.
+* Özelleştirilebilir sayfalar ve pencere öğeleri.
+* Sürükleyip bırakarak kişiselleştirme.
+* Zengin özelliklere sahip pencere öğesi çerçevesi.
+* Sayfaların düzgün ve hızlı olması için önbellek ve gelişmiş javascript becerileriyle ile çok hızlı sayfa yükleme.
+* Veritabanı erişimi için Entity Framework. Diğer veritabanlarını kolayca desteklemek için havuz deseni kullanır. 
+* jQuery animasyonları.
+</value>
+  </data>
+  <data name="Entry_wordpressit_Title" xml:space="preserve">
+    <value>WordPress 3.3.1 İtalyanca sürümü</value>
+  </data>
+  <data name="Entry_wordpressit_Summary" xml:space="preserve">
+    <value>WordPress 3.3.1 resmi İtalyanca sürümü</value>
+  </data>
+  <data name="Entry_wordpressit_LongSummary" xml:space="preserve">
+    <value>WordPress 3.3.1 resmi İtalyanca sürümü</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Title" xml:space="preserve">
+    <value>YetAnotherForum.NET</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Summary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF), ASP.NET çalıştıran siteler için En Eski, En Olgun ve Zengin Özelliklere Sahip Açık Kaynak (ÜCRETSİZ) Tartışma Forumudur. </value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_LongSummary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF), ASP.NET çalıştıran siteler için En Eski, En Olgun ve Zengin Özelliklere Sahip Açık Kaynak (ÜCRETSİZ) Tartışma Forumudur. %100 C# ile yazılan YAF ("laugh" gibi telaffuz edilir) Açık Kaynak, Microsoft'un .NET platformu ve .NET geliştirici topluluğu arasındaki uluslararası işbirliğinden oluşan benzersiz bir birleşimdir. YAF, ASP.NET v3.5 SP1 (ve üstü) desteği olan ve SQL Server 2000 veya üstü yüklenmiş olan her web sunucusunda çalışır. YAF, GPL lisansına sahiptir. Bazı özellikler:  # Denetimler için AJAX ve jQuery kullanır.
+# Microsoft SQL Server 2005/2008 veritabanı desteği.
+# %100 XHTML ile doğrulanmıştır.
+# Yalıtılmış CSS tema sistemi; var olan bir siteyle çakışmaz.
+# Gerçek ASP.NET Üyelik/Rol/Profil Sağlayıcı desteği -- bağımlılık yok.
+# .NET içinde bir Kullanıcı Denetimi (.ascx) olarak çalışarak daha basit bir site CMS entegrasyonuna olanak verir.
+# Flyout ile Anında Sohbet Sistemi.
+# Daha fazla katılım için diğer kullanıcı sistemine "teşekkür etme -- raporlama içerir.
+# Otomatik küçük resim oluşturma özelliği olan ayrı kullanıcı grafik "Albümü" sistemi.
+# Gravatar seçeneği ve otomatik küçük resim oluşturma dahil gelişmiş avatar desteği.
+# Topluluk özellikleri eklemeyi sağlayan özel "BBCode" uzantı sistemi.
+# Modül uzantılarına olanak veren dinamik eklenti altyapısı.
+# Konu sayfalarında dinamik olarak oluşturulan meta etiketleri dahil birçok SEO özelliği.</value>
+  </data>
+  <data name="Entry_Tiki_Title" xml:space="preserve">
+    <value>Tiki Wiki CMS Groupware</value>
+  </data>
+  <data name="Entry_Tiki_Summary" xml:space="preserve">
+    <value>Tiki; işbirliği, yayımlama, ticaret, sosyal ağ, CRM ve ofis üretkenlik araçları sağlayan, ücretsiz, açık kaynaklı, hepsi bir arada özellikli, web tabanlı bir uygulamadır.
+</value>
+  </data>
+  <data name="Entry_Tiki_LongSummary" xml:space="preserve">
+    <value>Tiki; işbirliği, yayımlama, ticaret, sosyal ağ, CRM ve ofis üretkenlik araçları sağlayan, güçlü, hepsi bir arada özellikli, web tabanlı bir uygulamadır.
+
+Tiki; Web sitesi/Wiki/Groupware/CMS/Forum/Blog/Hata İzleyici/Online Office Suite veya tarayıcı pencerenizde çalışabilecek diğer tüm projeleri oluşturmanız ve bakımını sağlamanız için ideal araçtır.
+
+Tiki; herkes için Bedava Yazılımdır ("Serbest Konuşma" kavramı gibi) ve Hiçbir Ücret Gerektirmez ("Bedava Bira" gibi)! Gereken tüm özellikler "kutudan çıktığı gibi kullanılabilir":
+Wikiler (Wikipedia gibi)
+Forumlar (phpBB gibi)
+Bloglar (WordPress gibi)
+Makaleler (Yahoo News gibi)
+Resim Galerisi (Flickr gibi)
+Harita Sunucusu (Google Haritalar gibi)
+Bağlantı Dizini (DMOZ gibi)
+Çok Dilli (Babel Fish gibi)
+Bug Tracker (Bugzilla gibi)
+RSS Akışlar (Digg gibi)
+Ödemeler (PayPal'da olduğu gibi)
+Elektronik tablo, Slayt gösterisi, Çizim, vb.
+Ücretsiz Açık Kaynaklı yazılım (LGPL)
+
+Ve çok daha fazlası...
+tümü tümleşik (şimdiye dek görülmediği kadar)
+
+Aradığınız her neyse, büyük olasılıkla Tiki'de vardır. Tiki, pek çok dahili özelliğe sahip, Ücretsiz ve Açık Kaynaklı Web Uygulamasıdır.
+
+Tiki, bu açık kaynaklı teknolojilerle oluşturulmuştur
+PHP komut dosyası dili
+MySQL veya MariaDB veritabanı
+Smarty şablon motoru
+jQuery JavaScript kitaplığı
+Zend Framework
+</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Title" xml:space="preserve">
+    <value>Composite C1 CMS</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Summary" xml:space="preserve">
+    <value>Bileşik C1 CMS, özelleştirilmiş web siteleri odaklanmış web uzmanları için (ve onlar tarafından) geliştirilmiş tam özellikli, ücretsiz ve açık kaynaklı bir içerik yönetim sistemidir.
+
+Geliştiriciler; ASP.NET Razor, Web Formları, MVC ve XSLT'den istediklerini kullanarak düzenleri yönetebilir ve sistemi genişletebilirler. Arka uç geliştiriciler gibi, ön uç geliştiriciler de web site görünümünü tam anlamıyla denetleyebilirler.</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_LongSummary" xml:space="preserve">
+    <value>Bileşik C1 CMS, özelleştirilmiş web siteleri odaklanmış web uzmanları için (ve onlar tarafından) geliştirilmiş tam özellikli, ücretsiz ve açık kaynaklı bir içerik yönetim sistemidir.
+
+Kullanıcı arabirimi çok işlevsel ve görev odaklıdır ve farklı teknik becerilere sahip kullanıcıların görevleri tamamlamasını ve tanıdık araçlar ve kılavuzlar kullanarak iş birliği yapmasını sağlar. Composite C1 ile web sitesi oluşturmak için en modern teknik becerilere sahip olmak gerekmez, ancak bu becerilere sahipseniz sistemin tam anlamıyla hakimi olursunuz.
+
+Geliştiriciler; ASP.NET Razor, Web Formları, MVC ve XSLT'den istediklerini kullanarak düzenleri yönetebilir ve sistemi genişletebilirler. Arka uç geliştiriciler gibi, ön uç geliştiriciler de web site görünümünü en ufak ayrıntısına kadar denetleyebilirler.
+
+.NET 4'ü temel alan sistemle, geliştiriciler en yeni teknolojilere, eklenebilir, iyi tasarlanmış bir mimari ve API ile tüm LINQ verilerine erişebilirler. Bu, kolay kurulum, kolay Windows Azure geçişi, dosya tabanlı ve SQL Server veri desteği, yüklemesi kolay pek çok ücretsiz eklenti ve özel teklifler (kurumsal web sitesi eklentileri, destek, yükseltme hizmetleri, tam garanti lisansı) gibi özellikler içeren esnek bir sistemdir. Tüm bunlar Composite C1'i fiyat, hizmet ve karmaşıklık açısından özelleştirilebilir ve ölçeklenebilir bir ürün haline getirmektedir.
+
+Kalite, belgeler, esneklik ve geliştirici topluluğu üzerine çok güçlü vurgu. Şimdiye kadar belli başlı tüm Composite C1 sürümleri CodePlex'te “en iyi CMS” olarak kabul görmüştür.</value>
+  </data>
+  <data name="Entry_MonoX_Title" xml:space="preserve">
+    <value>MonoX</value>
+  </data>
+  <data name="Entry_MonoX_Summary" xml:space="preserve">
+    <value>MonoX, ASP.NET için Web Bölümleri çerçevesi üzerine inşa edilmiş kullanımı kolay bir CMS ve Sosyal Ağ Platformudur. Etkileşimli kullanıcı arabirimi modern Web tarayıcıları ile uyumlu olup portal bölümleriyle kolaylıkla, sürükleyip bırakarak etkileşim kurmaya olanak tanır. 50 yerleşik Web bölümüne ek olarak, yerelleştirme, kişiselleştirme, bulut verilerini depolama, SEO ve daha birçok gelişmiş özelliği destekler.</value>
+  </data>
+  <data name="Entry_MonoX_LongSummary" xml:space="preserve">
+    <value>MonoX, ASP.NET için Web Bölümleri çerçevesi üzerine inşa edilmiş kullanımı kolay bir CMS ve Sosyal Ağ Platformudur. Zengin özellik kümesi, standartlara uygunluğu ve kolay dağıtımı sayesinde, MonoX portal altyapısı küçük ve orta ölçekli işletmeler için idealdir. Ek olarak, birden fazla önbellek senaryosunu, ileri düzey kişiselleştirmeyi, portal ağlarını, sağlayıcı tabanlı altyapıyı, bulut verilerini depolamayı ve benzer kuruluş düzeyi özellikleri de destekler. Hem ticari hem de ticari olmayan kullanım için ücretsiz olarak sunulmaktadır. 
+
+MonoX 50'den fazla çekirdek Web bölümü ve .NET geliştiricilerinin uygulamalarının hem ön ucunu hem de işlevlerini özelleştirmesine olanak tanıyan eksiksiz bir altyapı ile gelir. Anahtar özellikleri:
+Modern Web tarayıcıları ile uyumlu etkileşimli kullanıcı arabirimi, ASP.NET Web parçaları çerçevesi için tam destek, gelişmiş sosyal ortamlar oluşturmak için tam özellikli bir bileşen kümesi, standartlarla uyumluluk, SEO özellikleri, 
+ölçeklenebilir ve sağlam mimari, 
+standartlaştırılmış tak ve çalıştır modülleri ve açık API, yüksek performans ve esnek bir veri katmanı ve görülmemiş kullanım kolaylığı. 
+
+Teknik olmayan kullanıcılar çalışma portalının birçok özelliğini yönetebilir. MonoX standart WYSIWYG düzenleyiciler kullanır, dosya yöneticisi standart Windows Gezgini'nin görünüşünü ve çalışmasını taklit eder vb. Microsoft Windows LiveWriter dahil olmak üzere MetaWeblog API'sini temel alan çevrimdışı düzenleme araçlarını tam olarak destekler. 
+</value>
+  </data>
+  <data name="Entry_MODxEvolution_Title" xml:space="preserve">
+    <value>MODx CMS</value>
+  </data>
+  <data name="Entry_MODxEvolution_Summary" xml:space="preserve">
+    <value>MODx Evolution basit bir Açık Kaynak PHP içerik yönetim platformudur. Web tasarımcılarına tam özgürlük sunar — hayal ettikleri her türlü tasarımı kullanmalarına olanak tanır. Geliştiriciler hemen her türlü işlevi kısıtlama olmaksızın gerektiği şekilde genişletebilir veya ekleyebilir. Yöneticiler ve editörler için kolayca yönetilebilir siteler oluşturur – sitelerini güncelleştirmek için gereken araçları tam olarak sağlar.</value>
+  </data>
+  <data name="Entry_MODxEvolution_LongSummary" xml:space="preserve">
+    <value>MODx Evolution en çok dağıtılmış Açık Kaynak PHP uygulamalarından biridir. MODx tipik bir İçerik Yönetim Sistemi ve birçok karmaşık web uygulaması için bir platform olarak kullanılabilir. Web tasarımcılarına tam özgürlük sunar — hayal ettikleri her türlü tasarımı kullanmalarına olanak tanır. Geliştiriciler hemen her türlü işlevi kısıtlama olmaksızın gerektiği şekilde genişletebilir veya ekleyebilir. Yönetim arabirimi, site yönetimini kolay ve zahmetsiz yapmak için site yöneticilerine ve içerik editörlerine yalnızca ihtiyaç duydukları araçları sunacak şekilde tamamen özelleştirilebilir.
+
+MODx Evolution, işlevlerini genişletmek ve geliştiricilerin yeni işlevler ve özellikler için temel alabilecekleri çok sayıda çekirdek ve kullanıcıların katkısı olan eklentiye sahiptir.
+
+MODx forumlarındaki sürekli genişleyen kullanıcı topluluğu MODx'i desteklemektedir. Olağanüstü MODx Topluluğu en büyük özelliklerinden biridir. Topluluk üyeleri birbirine yardımcı olur ve birbiriyle paylaşır – yeni fikirleri, ipuçlarını, püf noktalarını veya en basit sorunları çözmeyi.</value>
+  </data>
+  <data name="Entry_Kartris_Title" xml:space="preserve">
+    <value>Kartris</value>
+  </data>
+  <data name="Entry_Kartris_Summary" xml:space="preserve">
+    <value>Kartris, ASP.NET (vb) ile yazılmış hazır bir çevrimiçi mağazadır. Bir yükleme sihirbazı ilk kurulumu basitleştirir.
+
+Kullanıcı dostu arka uç ürün kataloğunda ağaç biçiminde gezinmeyi içerir.
+
+Sayfalar, denetimler, ana sayfalar ve BLL (iş mantığı katmanı) için tam kaynak kodu sağlanır.
+
+2checkout, Sagepay, Paypal, Worldpay ve Google Checkout desteği içerir.</value>
+  </data>
+  <data name="Entry_Kartris_LongSummary" xml:space="preserve">
+    <value>Kartris, ASP.NET (vb) ile yazılmış ücretsiz, hazır bir çevrimiçi mağazadır. Bir yükleme sihirbazı ilk kurulumu basitleştirir ve arka uç denetim masası yüzlerce yapılandırma ayarının kodda değişiklik yapmadan değiştirilmesini sağlar.
+
+Kartris temel işlevleri sağlayan küçük bir derlenmiş çekirdeğe sahiptir, buna karşılık sayfalar, denetimleri ana sayfalar ve BLL tam kaynak kodu biçiminde sağlanır. 
+
+Batı dilleri dışındaki dilleri (örn., Arapça, Çince) de kapsayan çok dilde destek.
+
+Çoğu paylaşılan barındırma sisteminin kullandığı orta güven düzeyinde çalışır, bu nedenle adanmış bir sunucu gerekmez. 
+
+2checkout, Sagepay, Paypal, Worldpay ve Google Checkout desteği içerir. Kartris'in modüler tasarımı ek ödeme ağ geçitlerinin eklenti olarak yüklenebileceği anlamına gelir. UPS ve USPS ile sevkiyat dahildir.
+
+Dahili "ürün yapılandırıcısı" - bir taban ürün (örneğin, dizüstü) ayarlanabilir ve sonra çeşitli seçenekler (işletim sistemi yükseltme, bellek artırma vb.) fiyatlandırılır. Kullanıcı bu seçenekleri değiştirdikçe görünen fiyat gerçek zamanlı olarak değişir.
+
+Video ve diğer medya galerileri için tümleşik destek içerir. 
+
+"SEO dostu" URL'ler, özel sayfa adları, her ürün için özel meta etiketler ve Google site haritaları desteği içeren mükemmel SEO özellikleri yerleşiktir. 
+
+500 ürüne kadar olan siteleri ücretsiz destekler. Daha büyük bir katalog ve ücretli destek isteyen kullanıcılar için bir kurumsal yükseltme vardır. Kartris devasa ürün kataloglarıyla çalışmak için optimize edilmiştir - bir milyon veya daha fazla bulunan canlı siteleri çalıştırmaktadır</value>
+  </data>
+  <data name="Entry_N2CMS_Title" xml:space="preserve">
+    <value>N2 CMS 2.1 MVC Edition</value>
+  </data>
+  <data name="Entry_N2CMS_Summary" xml:space="preserve">
+    <value>N2 CMS Framework için ASP.NET MVC Şablonları</value>
+  </data>
+  <data name="Entry_N2CMS_LongSummary" xml:space="preserve">
+    <value>CMS çerçevesi ile zenginleştirilmiş özellik dolu bir şablon paketi, sezgisel bir web yönetimi arabirimi ve .NET uzayındaki en etkili ve geliştirici dostu geliştirme modeli</value>
+  </data>
+  <data name="Entry_phpBB_Title" xml:space="preserve">
+    <value>phpBB</value>
+  </data>
+  <data name="Entry_phpBB_Summary" xml:space="preserve">
+    <value>2000 yılında oluşturulmasından bu yana phpBB™ en yaygın kullanılan Açık Kaynak forum çözümü haline gelmiştir. Öncelleri gibi, phpBB™ 3.0 "Olympus" da kullanımı kolay bir yönetim paneline ve dakikalar içinde bir forum kurmanızı sağlayan kullanıcı dostu bir yükleme işlemine sahiptir.</value>
+  </data>
+  <data name="Entry_phpBB_LongSummary" xml:space="preserve">
+    <value>Milyonlarca insan tarafından her gün kullanılan phpBB, dünyada en yaygın şekilde kullanılan açık kaynaklı forum sistemidir. İster küçük bir arkadaş grubuyla iletişim kurmak, ister kurumsal bir web sitesi için kapsamlı, çok kategorili pano kurmak istiyor olun, phpBB istediğiniz özelliklere yerleşik olarak sahiptir.
+
+Yeni kullanıcılar, en karmaşık özelliklerin dahi kodun doğrudan düzenlenmesine gerek kalmadan özelleştirilmesine olanak veren kapsamlı yönetim panelini beğeniyle karşılayacaktır; ileri düzey kullanıcılar ise phpBB'nin var olan sistemlerle ne kadar kolay tümleşik çalıştırıldığını mutlaka fark edecektir.</value>
+  </data>
+  <data name="Entry_Moodle_Title" xml:space="preserve">
+    <value>Moodle</value>
+  </data>
+  <data name="Entry_Moodle_Summary" xml:space="preserve">
+    <value>Moodle, eğitimcilere dinamik çevrimiçi kurslar oluşturmaları için kapsamlı bir araç kutusu sağlayan bir Öğrenme Yönetim Sistemidir (LMS). Moodle açık kaynaklıdır ve çok büyük bir küresel topluluk tarafından üretilmektedir.</value>
+  </data>
+  <data name="Entry_Moodle_LongSummary" xml:space="preserve">
+    <value>Moodle, her türlü konuda web tabanlı kurslar yapılandırabilmeleri ve sonra öğrencileri bu kurslara davet edebilmeleri için eğitimcilere kaynak, forum, test, ödev, öğrenme nesnesi, anket, yoklama, wiki ve proje gibi araçlar sağlayan bir Öğrenme Yönetim Sistemidir (LMS).  Moodle grup, not defteri, karne, özel görevler, alma/verme/arşivleme, ödeme ve çok sayıda başka sistemle tümleştirme gibi pek çok yönetim özelliğine sahiptir.   Moodle, bir PHP yazılımıdır, fakat neredeyse her platformda ve çoğu veritabanı türünde çalışır.</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Title" xml:space="preserve">
+    <value>SugarCRM Japonca Sürüm Paketi</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Summary" xml:space="preserve">
+    <value>SugarCRM, açık kaynaklı bir müşteri yönetimi yazılım uygulamasıdır. Müşteri veritabanı oluşturmanızı, müşterilerinize e-posta dağıtıp e-posta sorgularını bir veritabanına almanızı sağlayan işlevler dahil olmak üzere, CRM için vazgeçilmez olan çeşitli işlevleri ücretsiz olarak sağlar!</value>
+  </data>
+  <data name="Entry_SugarCRMJa_LongSummary" xml:space="preserve">
+    <value>SugarCRM, açık kaynaklı bir müşteri yönetimi yazılım uygulamasıdır. Müşteri veritabanı oluşturmanızı, müşterilerinize e-posta dağıtıp e-posta sorgularını bir veritabanına almanızı sağlayan işlevler dahil olmak üzere, CRM için vazgeçilmez olan çeşitli işlevleri ücretsiz olarak sağlar!  SugarCRM platformu yüksek düzeyde ölçeklenebilirdir. Geliştiriciler ve kullanıcılar yönetim ekranındaki modül oluşturucu araçlarını kullanarak, programlama kodu yazmalarına gerek kalmaksızın veri alanlarını özelleştirebilir ve özelleştirilmiş veritabanları oluşturabilir. Ayrıntılar için lütfen http://sugarforum.jp/ adresini ziyaret ederek SugarCRM Kullanım Kılavuzunu (Japonca) inceleyin.</value>
+  </data>
+  <data name="NewWebApplication" xml:space="preserve">
+    <value>NewWebApplication</value>
+  </data>
+  <data name="Entry_Kentico_Title" xml:space="preserve">
+    <value>ASP.NET için Kentico CMS </value>
+  </data>
+  <data name="Entry_Kentico_Summary" xml:space="preserve">
+    <value>Kentico CMS, işyerinde veya bulutta Microsoft ASP.NET platformunu kullanarak web siteleri, intranet, topluluk siteleri ve e-ticaret çözümleri oluşturmak için gerekli tüm özellikleri sağlayan kurumsal bir Web İçeriği Yönetim Sistemi ve Müşteri Deneyimi Yönetim Sistemidir.  </value>
+  </data>
+  <data name="Entry_Kentico_LongSummary" xml:space="preserve">
+    <value>Kentico CMS, işyerinde veya bulutta Microsoft ASP.NET platformunu kullanarak web siteleri, intranet, topluluk siteleri ve e-ticaret çözümleri oluşturmak için gerekli tüm özellikleri sağlayan kurumsal bir Web İçeriği Yönetim Sistemi ve Müşteri Deneyimi Yönetim Sistemidir. 
+
+Mobil web siteleri, SEO, belge yönetimi, çevrimiçi pazarlama araçları, çok dilli web siteleri ve çok siteli yönetimi destekler; 70 modül, 400 yapılandırılabilir Web parçası ve kaynak kodları içerir.
+
+Halen 87 ülkede 15.000'den fazla web sitesinde kullanılmaktadır. Müşterileri arasında Microsoft, Chiquita, Vodafone, O2, Orange, Brussels Airlines, Mazda, Ford, Subaru, Isuzu, Samsung, Gibson, ESPN, Guinness, DKNY, Abbott Labs, Medibank, Ireland.ie ve diğerleri bulunmaktadır.</value>
+  </data>
+  <data name="Entry_DasBlog_Title" xml:space="preserve">
+    <value>DasBlog</value>
+  </data>
+  <data name="Entry_DasBlog_Summary" xml:space="preserve">
+    <value>dasBlog bir ASP.NET blog uygulamasıdır. ASP.NET 2.0 ve üzeri ile çalışan dasBlog veritabanı gerektirmez, dolayısıyla kurulumu daha kolay ve barındırması daha ucuzdur. dasBlog için gerekli olan tek şey, dasBlog'un bilgilerinizi XML olarak kaydedebilmesi için bir klasöre yazma erişimi vermenizdir.</value>
+  </data>
+  <data name="Entry_DasBlog_LongSummary" xml:space="preserve">
+    <value>dasBlog bir ASP.NET blog uygulamasıdır. ASP.NET 2.0 ve üzeri ile çalışır ve C# üzerinde geliştirilmiştir. dasBlog veritabanı gerektirmez, dolayısıyla kurulumu daha kolay ve barındırması daha ucuzdur. dasBlog için gerekli olan tek şey, dasBlog'un bilgilerinizi XML olarak kaydedebilmesi için bir klasöre yazma erişimi vermenizdir. Pek çok dünya dilini destekler, genişletilebilirlik modeli vardır; kolayca dış görünüm ve tema uygulanabilir.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Title" xml:space="preserve">
+    <value>BlogEngine.NET</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Summary" xml:space="preserve">
+    <value>BlogEngine.NET, ASP.NET ile yazılmış tam özellikli, açık kaynaklı bir blog platformudur.  Çok sayıda karşıdan yüklenebilir tema, pencere öğesi ve genişletme eki ile BlogEngine.NET kolayca özelleştirilebilir.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET, daha iyi bir blog platformu yaratma düşüncesinden doğan açık kaynaklı bir ASP.NET blog projesidir. Basitliğe, genişletme kolaylığına ve yenilikçi özelliklere odaklanırken en son .NET özelliklerinden yararlandık. BlogEngine.NET kolayca özelleştirilebilir. Birkaç temel .NET becerisiyle kolayca edinebileceğiniz çok sayıda karşıdan yüklenebilir tema, pencere öğesi ve genişletme eki mevcuttur.  BlogEngine.NET ile blogunuzun tam da istediğiniz gibi görünüp çalışmasını sağlamak gayet kolaydır.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Title" xml:space="preserve">
+    <value>Acquia Drupal 7</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Summary" xml:space="preserve">
+    <value>Acquia Drupal 7,hem düzenleyici hem de kullanıcı tarafından üretilmiş içeriğin bulunduğu dinamik ve sosyal web siteleri oluşturmak için en hızlı yöntemi sağlar.  Drupal çekirdeğini ve popüler modülleri içerir.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_LongSummary" xml:space="preserve">
+    <value>Acquia Drupal 7,hem düzenleyici hem de kullanıcı tarafından üretilmiş içeriğin bulunduğu dinamik ve sosyal web siteleri oluşturmak için en hızlı yöntemi sağlar. İster kamuya açık bir web sitesi ister özel bir intranet oluşturuyor olun, Acquia Drupal 7 site ziyaretçilerini aktif katılımcılara dönüştürecek başarısı kanıtlanmış sosyal yayımlama modelleri kullanmanıza imkan tanır. Acquia Drupal, Drupal çekirdeğini bir dizi modülle birleştirir ve ayrıca Acquia Network hizmet ve desteğine erişim sağlar. Binlerce açık kaynaklı kullanılabilir modül ile sınırlara veda edin.</value>
+  </data>
+  <data name="Entry_WordPress_Title" xml:space="preserve">
+    <value>WordPress</value>
+  </data>
+  <data name="Entry_WordPress_Summary" xml:space="preserve">
+    <value>WordPress estetik, web standartları ve kullanılabilirliğe odaklanan son derece gelişmiş bir yayımlama platformudur.</value>
+  </data>
+  <data name="Entry_WordPress_LongSummary" xml:space="preserve">
+    <value>WordPress 2003 yılında iki kişinin parmaklarının toplamından daha az sayıda kullanıcıyla günlük yazma işleminin tipografisini iyileştirmek üzere tek bir bit kod ile yola çıktı. O zamandan bu yana, yüz binlerce sitede kullanılan ve her gün milyonlarca insan tarafından görülen, dünyanın kendi kendini barındıran en büyük blog aracı haline geldi.</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Title" xml:space="preserve">
+    <value>WordPress Tayvan</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Summary" xml:space="preserve">
+    <value>WordPress, açık kaynak/içerik yönetim sistemi web günlüğü olmasının yanı sıra aynı zamanda estetik, web sayfa standardı ve kullanılabilirliğe odaklanan kişisel bir yayımlama platformudur. WordPress 2003 yılında yaratıldı. Bu tarihte sadece birkaç basit kod ve çok az (iki kişinin parmaklarının toplamından daha az) sayıda kullanıcı bulunuyordu.</value>
+  </data>
+  <data name="Entry_WordPressZhTw_LongSummary" xml:space="preserve">
+    <value>WordPress, açık kaynak/içerik yönetim sistemi web günlüğü olmasının yanı sıra aynı zamanda estetik, web sayfa standardı ve kullanılabilirliğe odaklanan kişisel bir yayımlama platformudur. WordPress 2003 yılında yaratıldı. Bu tarihte sadece birkaç basit kod ve çok az (iki kişinin parmaklarının toplamından daha az) sayıda kullanıcı bulunuyordu. Kullanıcılar, günlük yazma ve yayımlama işlerinde kolaylık sağlaması için bu basit kodlara güveniyordu. WordPress o zamandan bu yana, dünyada kişisel web günlükleri oluşturmak için kullanılan en güçlü ve popüler araç haline geldi. Üstelik on binlerce web sitesi tarafından da kullanılıyor. Gördüğünüz gibi, ilgili dokümantasyondan kodlara kadar her şeyi bir grup insan oluşturdu. WordPress açık kaynaklı bir projedir; yani dünyada yüzlerce insan bu proje için emek sarf ediyor. Bu proje için çalışan insan sayısı, çoğu ticari platformdan çok daha fazladır. Bu aynı zamanda, platformu tamamen ücretsiz kullanabileceğiniz anlamına geliyor. Hiçbir şey için tek kuruş ödemeniz gerekmez; kedilerle ilgili bir giriş sayfasından Fortune 500 web sitesine kadar her şey ücretsizdir. WordPress Tayvan Hakkında Geleneksel Çince dilindeki WordPress Tayvan Kasım 2008'de hizmete girdi. Bu proje Mayıs 2008 gibi erken bir tarihte gündeme gelmişti. Web sitesi esas olarak WordPress'i tanıtmaya odaklanıyor; WordPress'in geleneksel Çince sürümünün kullanımı, belgelerin yerelleştirilmesi ve forum hizmet desteği gibi konularda bilgi sağlanması başlıca çalışmaları arasında bulunuyor.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Title" xml:space="preserve">
+    <value>SilverStripe CMS</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Summary" xml:space="preserve">
+    <value>Modern, kullanıcı dostu bir içerik yönetim sistemi. PHP çerçevesi aracılığıyla web geliştiricileri tarafından genişletilebilir.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_LongSummary" xml:space="preserve">
+    <value>SilverStripe, web sitesi oluşturma ve sürdürmeye yönelik modern, açık kaynaklı bir programlama çerçevesi ve içerik yönetim sistemidir (CMS). Sağladığı sezgisel, web tabanlı yönetim paneli ile herkesin işaretleme veya programlama dili bilgisi olmadan web sitesini sürdürmesine olanak tanır.</value>
+  </data>
+  <data name="Entry_Mayando_Title" xml:space="preserve">
+    <value>Mayando</value>
+  </data>
+  <data name="Entry_Mayando_Summary" xml:space="preserve">
+    <value>Mayando, fotoğraflarınızı çevrimiçi göstermek için kullanabileceğiniz tam özellikli bir fotoğraf blog uygulamasıdır.</value>
+  </data>
+  <data name="Entry_Mayando_LongSummary" xml:space="preserve">
+    <value>Mayando, fotoğraflarınızı Flickr gibi dış sitelerden paylaşan zengin ve etkileşimli bir web sitesi sağlar. Etiket ve yorumların olduğu fotoğrafları, fotoğraf galerilerini, slayt gösterilerini, statik sayfaları, dağıtım akışlarını, bir kişi forumunu, yorum istenmeyen posta korumasını ve farklı görsel temalar kullanma olasılığını destekler.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Title" xml:space="preserve">
+    <value>ScrewTurn Wiki 3.0</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Summary" xml:space="preserve">
+    <value>ScrewTurn Wiki, wiki oluşturmanızı, yönetmenizi ve paylaşmanızı sağlar. ASP.NET 3.5 tabanlıdır; eklentiler ve temalarla genişletilebilir ve özelleştirilebilir.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_LongSummary" xml:space="preserve">
+    <value>ScrewTurn Wiki, wiki oluşturmanızı, yönetmenizi ve paylaşmanızı sağlar. Uygulama ASP.NET 3.5 tabanlıdır; çok sayıda eklenti ve tema ile genişletilebilir ve özelleştirilebilir. Basit, yerleşik bir dosya sistemi sağlayıcısı kullanarak veri depolayabilir ya da eğer performans ve ölçeklenebilirliğe ihtiyacınız varsa SQL Sunucusu da kullanabilir.
+
+ScrewTurn Wiki sayfa düzeltmelerinin ve geri almaların, taslakların, eklerin, basitleştirilmiş dosya paylaşımının yanı sıra gelişmiş izin yapılandırmayı da destekler.</value>
+  </data>
+  <data name="Entry_mojoPortal_Title" xml:space="preserve">
+    <value>mojoPortal</value>
+  </data>
+  <data name="Entry_mojoPortal_Summary" xml:space="preserve">
+    <value>ASP.NET için Blog, Forum, Etkinlik Takvimi, Bülten, Harita, e-ticaret ve çok daha fazla özelliğe sahip olan, kullanımı kolay, mobil aygıt dostu, erişilebilir ve standartlarla uyumlu bir içerik yönetim sistemi ve web uygulama çerçevesi.</value>
+  </data>
+  <data name="Entry_mojoPortal_LongSummary" xml:space="preserve">
+    <value>mojoPortal, C# ASP.NET ile yazılmış genişletilebilir, kullanımı kolay, tam özellikli, mobil aygıt dostu bir içerik yönetim sistemi (CMS) ve web uygulaması çerçevesidir. Blog, Forum, Takvim Google/Bing Haritalar, İletişim Formu, Bülten, Anket, Araştırma, e-ticaret ve daha pek çok şey içerir.  ASP.NET UserControl yapabiliyorsanız, özellik uygulamayı zaten biliyorsunuz demektir.  MS SQL 2005/2008/SqlAzure, SQL CE, MySql, PostgreSql, SQLite ve Firbird Sql desteklidir. mojoPortal web standartlarına ve erişilebilirliğe büyük bir önem verir. Kolay CSS dış görünüm oluşturma. mojoPortal Medium Trust ile de çalışır.</value>
+  </data>
+  <data name="Entry_KoobooCMS_Title" xml:space="preserve">
+    <value>Kooboo CMS</value>
+  </data>
+  <data name="Entry_KoobooCMS_Summary" xml:space="preserve">
+    <value>Kooboo, ASP.NET MVC tabanlı esnek ve genişletilebilir bir CMS'dir. Kooboo, web sitesi geliştirme ile ilgili tüm olağan görevlerde size yardımcı olmanın yanı sıra iş akışı, sürüm denetimi, yayımlama ve tümleştirme hizmeti gibi pek çok kuruluş özelliği içerir. Veritabanı kodlama bilgisiniz olmadan kolayca profesyonel ve dinamik bir web sitesi oluşturabilirsiniz.</value>
+  </data>
+  <data name="Entry_KoobooCMS_LongSummary" xml:space="preserve">
+    <value>Kooboo, ASP.NET MVC tabanlı esnek ve genişletilebilir bir CMS'dir. Kooboo, web sitesi geliştirme ile ilgili tüm olağan görevlerde size yardımcı olmanın yanı sıra iş akışı, sürüm denetimi, yayımlama ve tümleştirme hizmeti gibi pek çok kuruluş özelliği içerir. Veritabanı kodlama bilgisiniz olmadan kolayca profesyonel ve dinamik bir web sitesi oluşturabilirsiniz. Kooboo modülleri geliştirmek, normal ASP.NET MVC web siteleri geliştirmekle aynıdır; neredeyse hiçbir sınırlama yoktur. ASP.NET MVC uygulamaları basit bir değişiklikle Kooboo modüllerine dönüştürülebilir.</value>
+  </data>
+  <data name="Entry_nService_Title" xml:space="preserve">
+    <value>nService</value>
+  </data>
+  <data name="Entry_nService_Summary" xml:space="preserve">
+    <value>Kuruluşların çalışanlarına ve müşterilerine destek ve hizmet vermesine yardımcı olan yardım masası ve destek yazılımı. Bu ücretsiz sürümü eşzamanlı bir teknisyene ve sınırsız sayıda son kullanıcıya izin verir.</value>
+  </data>
+  <data name="Entry_nService_LongSummary" xml:space="preserve">
+    <value>nService, kullanımı kolay bir yardım masası ve destek web sitesini çalıştırır. Son kullanıcılar kendi kendine yardım portalına gelerek bilgi tabanında arama yapabilir, hizmet isteği gönderebilir ve durumlarını kontrol edebilir. Hizmet teknisyenleri web sitesini kullanarak bilgi yayımlayabilir, hizmet isteklerini listeleyebilir, atayabilir, yanıtlayabilir, çözümleyebilir ve kapatabilir. Yöneticiler istekleri, teknisyenleri yönetmek ve istatistikleri almak için siteyi kullanırlar. 
+
+Diğer özellikler arasında e-posta tümleştirme, özelleştirilebilir web sayfaları, raporlar, çoklu hizmet yönetimi, ürün kataloğu, varlık yönetimi, hizmet faturalama, hizmet düzeyi anlaşması, istek iş akışı, Active Directory tümleştirme ve daha fazlası sayılabilir.
+
+Bu ücretsiz sürümü eşzamanlı bir teknisyene ve sınırsız sayıda son kullanıcıya izin verir. Teknisyenler diğer kullanıcıların isteklerine yanıt verebilen kullanıcılardır. Veritabanında oluşturabileceğiniz kullanıcı veya teknisyen sayısında herhangi bir sınırlama yoktur. </value>
+  </data>
+  <data name="Entry_galleryserverpro_Title" xml:space="preserve">
+    <value>Gallery Server Pro</value>
+  </data>
+  <data name="Entry_galleryserverpro_Summary" xml:space="preserve">
+    <value>Tüm web sitelerine uygun güçlü ve kullanımı kolay .NET galerisi. Web üzerinden fotoğraf, video, ses ve diğer dosyaları paylaşıp yönetin. Video ve ses dosyalarını otomatik olarak web dostu biçimlere kodlar. EXIF/IPTC meta verilerini, filigran basmayı, kullanıcı güvenliğini, arama yapmayı ve topluluk galerilerini destekler. Nesnelerinizi döndürün, yeniden düzenleyin veya açıklama yazısı ekleyin. Otomatik küçük resim oluşturma.</value>
+  </data>
+  <data name="Entry_galleryserverpro_LongSummary" xml:space="preserve">
+    <value>Gallery Server Pro tüm web sitelerine uygun güçlü ve kullanımı kolay açık kaynaklı bir .NET galerisidir. Web üzerinden fotoğraf, video, ses ve diğer dosyaları paylaşıp yönetin. Herhangi bir web tarayıcısını kullanarak medya dosyalarınızı kolayca ekleyip düzenleyebileceğiniz, silip döndürebileceğiniz, yeniden düzenleyip kopyalayabileceğiniz ve taşıyabileceğiniz albümler halinde düzenleyin. Tek tıklatma ile eşitlemeyi ve ZIP dosyası yükleme işlevlerini kullanarak kolayca binlerce dosya ekleyin. Küçük resim ve sıkıştırılmış versiyonlar otomatik olarak oluşturulur. Sıfır bakım gerektiren topluluk galerileri desteği. Esnek, albüm başına parçalılık özelliğiyle güçlü kullanıcı güvenliği. Meta veri ayıklama. DIVX, Flash, Silverlight ve diğer video ve ses dosyalarını yürütmek için dahili destek. PDF, HTML, MHT ve metin dosyaları tarayıcı penceresi içinde görüntülenir. Tümleşik arama işlevi. Kendi metninizle ve/veya görüntünüzle resimlere filigran ekleme. Daha iyi yanıt veren UI için AJAX kullanır. Active Directory tümleştirmesini destekler. C# ve ASP.NET 4.0 ile yazılmış %100 yönetilen kod. GNU Genel Kamu Lisansı altında yayınlanmış ücretsiz, açık kaynaklı yazılım. Gallery Server Pro ağır sunucu yükü altında bile son derece hızlı çalışacak şekilde tasarlanmış profesyonel nitelikte bir yazılımdır. Kapsamlı bir Yönetici Kılavuzu işletme yönergeleri sağlar.
+
+2.6 SÜRÜMÜNDEKİ YENİLİK: Video ve ses kodlama. Yeni karşıdan dosya yükleme deneyimi. 15 katına varan daha hızlı veritabanı performansı. Düzeltilmiş pek çok hata ve daha pek çok şey!
+
+2.6.1 SÜRÜMÜNDEKİ YENİLİK: %50'ye kadar daha hızlı eşitleme performansı ve çeşitli hata düzeltmeleri.</value>
+  </data>
+  <data name="Entry_Sitefinity_Title" xml:space="preserve">
+    <value>Sitefinity Community Edition</value>
+  </data>
+  <data name="Entry_Sitefinity_Summary" xml:space="preserve">
+    <value>Sitefinity, sınırsız esneklik, sezgisel bir kullanıcı arabirimi, 900.000'i aşan üye sayısıyla canlı bir topluluk ve üçüncü taraf eklentiler için bir pazar sunan tam özellikli bir ASP.NET CMS'sidir.</value>
+  </data>
+  <data name="Entry_Sitefinity_LongSummary" xml:space="preserve">
+    <value>Sitefinity, Microsoft geliştiricilerinin aşina olduğu .NET 4.0 geliştirme desenlerinden yararlanan bir Web İçerik Yönetim Sistemi'dir. Sitefinity, web sayfalarının görsel yapımı için kullanışlı bir sürükle ve bırak arabirimi sunar. Sistem tamamen açık olup tüm içerik REST tabanlı hizmetler olarak ve kolay programlanabilirlik için akıcı API'ler ile sunulmaktadır. Sitefinity, web tabanlı işletmelerin tamamının altyapısını oluşturmak üzere dış web uygulamaları, CRM sistemleri ve pazarlama araçları ile kolayca tümleştirilebilir.</value>
+  </data>
+  <data name="Entry_XpressEngine_Title" xml:space="preserve">
+    <value>XpressEngine</value>
+  </data>
+  <data name="Entry_XpressEngine_Summary" xml:space="preserve">
+    <value>Yüzlerce eklenti ve sonsuz sayıda olasılık ile güçlü Açık kaynaklı CMS.</value>
+  </data>
+  <data name="Entry_XpressEngine_LongSummary" xml:space="preserve">
+    <value>XE, Drupal ve Joomla gibi açık kaynaklı bir içerik yönetim sistemidir. XE kolaylıkla topluluk, kurumsal, kişisel ve e-ticaret web siteleri oluşturmanıza olanak tanır. XE yüz binlerce kişi tarafından kullanılıyor ve geliştirici topluluğu çok çeşitli ek özellikler sunuyor: çeşitli metin düzenleyiciler, e-posta ve sms desteği ve Twitter, Flickr ve YouTube'a bağlanma özelliği.</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Summary" xml:space="preserve">
+    <value>Algılanacak genel PHP uygulaması</value>
+  </data>
+  <data name="Entry_GenericPHP53App_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel PHP uygulaması</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Summary" xml:space="preserve">
+    <value>Algılanacak genel PHP uygulaması</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel PHP uygulaması</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Summary" xml:space="preserve">
+    <value>Algılanacak genel Node.js uygulaması</value>
+  </data>
+  <data name="Entry_GenericNodeApp_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel Node.js uygulaması</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Summary" xml:space="preserve">
+    <value>Algılanacak genel Node.js uygulaması</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel Node.js uygulaması</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Title" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Summary" xml:space="preserve">
+    <value>Algılanacak genel ASP.NET 4 uygulaması</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel ASP.NET 4 uygulaması</value>
+  </data>
+  <data name="Entry_GenericApp_Title" xml:space="preserve">
+    <value>Web sitesi</value>
+  </data>
+  <data name="Entry_GenericApp_Summary" xml:space="preserve">
+    <value>Algılanacak genel uygulama</value>
+  </data>
+  <data name="Entry_GenericApp_LongSummary" xml:space="preserve">
+    <value>Algılanacak genel uygulama</value>
+  </data>
+  <data name="Keyword_Blogs" xml:space="preserve">
+    <value>Bloglar</value>
+  </data>
+  <data name="Keyword_ContentMgmt" xml:space="preserve">
+    <value>CMS</value>
+  </data>
+  <data name="Keyword_eCommerce" xml:space="preserve">
+    <value>e-Ticaret</value>
+  </data>
+  <data name="Keyword_Galleries" xml:space="preserve">
+    <value>Galeriler</value>
+  </data>
+  <data name="Keyword_Tools" xml:space="preserve">
+    <value>Araçlar</value>
+  </data>
+  <data name="Keyword_Wiki" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="Keyword_Forums" xml:space="preserve">
+    <value>Forumlar</value>
+  </data>
+  <data name="Keyword_ASPNET" xml:space="preserve">
+    <value>ASP.NET</value>
+  </data>
+  <data name="Keyword_ASPNET4" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Keyword_PHP" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Keyword_SQL" xml:space="preserve">
+    <value>Sql Server</value>
+  </data>
+  <data name="Keyword_MySQL" xml:space="preserve">
+    <value>MySql</value>
+  </data>
+  <data name="Keyword_VistaDB" xml:space="preserve">
+    <value>VistaDB</value>
+  </data>
+  <data name="Keyword_SQLite" xml:space="preserve">
+    <value>SQLite</value>
+  </data>
+  <data name="Keyword_FlatFile" xml:space="preserve">
+    <value>Düz dosya</value>
+  </data>
+  <data name="Keyword_SQLCE" xml:space="preserve">
+    <value>SQL Server CE</value>
+  </data>
+  <data name="Keyword_AzureReady" xml:space="preserve">
+    <value>Azure İçin Hazır</value>
+  </data>
+  <data name="Keyword_KatalReady" xml:space="preserve">
+    <value>Katal İçin Hazır</value>
+  </data>
+  <data name="Keyword_Templates" xml:space="preserve">
+    <value>Şablonlar</value>
+  </data>
+<data name="Keyword_AppFrameworks" xml:space="preserve">
+    <value>Uygulama Altyapıları</value>
+  </data>
+</root>

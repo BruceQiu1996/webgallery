@@ -562,6 +562,19 @@
     <Content Include="Content\_super-submitters.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Feed\resources\WebApplicationList_cs.xml" />
+    <Content Include="Feed\resources\WebApplicationList_de.xml" />
+    <Content Include="Feed\resources\WebApplicationList_es.xml" />
+    <Content Include="Feed\resources\WebApplicationList_fr.xml" />
+    <Content Include="Feed\resources\WebApplicationList_it.xml" />
+    <Content Include="Feed\resources\WebApplicationList_ja.xml" />
+    <Content Include="Feed\resources\WebApplicationList_ko.xml" />
+    <Content Include="Feed\resources\WebApplicationList_pl.xml" />
+    <Content Include="Feed\resources\WebApplicationList_pt-br.xml" />
+    <Content Include="Feed\resources\WebApplicationList_ru.xml" />
+    <Content Include="Feed\resources\WebApplicationList_tr.xml" />
+    <Content Include="Feed\resources\WebApplicationList_zh-cn.xml" />
+    <Content Include="Feed\resources\WebApplicationList_zh-tw.xml" />
     <Content Include="Feed\WebApplicationList.xml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -601,6 +614,8 @@
     <Content Include="Models\WebGallery.edmx.diagram">
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\pub.pubxml" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Properties\PublishProfiles\webappgalleryprod - FTP.pubxml">
       <SubType>Designer</SubType>
     </None>

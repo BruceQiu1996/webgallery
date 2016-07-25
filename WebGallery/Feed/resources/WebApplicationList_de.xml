@@ -1,0 +1,1453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+<data name="Entry_Bakery_Title" xml:space="preserve">
+    <value>Konditorei</value>
+  </data>
+  <data name="Entry_Bakery_Summary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Bakery-Websitevorlage mit ASP.NET. Auf dieser Website wird eine Liste mit bestellbaren Produkten angezeigt.</value>
+  </data>
+  <data name="Entry_Bakery_LongSummary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Bakery-Websitevorlage mit ASP.NET. Auf dieser Website wird eine Liste mit bestellbaren Produkten angezeigt.</value>
+  </data>
+ <data name="Entry_StarterSite_Title" xml:space="preserve">
+     <value>Starter Site</value>
+  </data>
+  <data name="Entry_StarterSite_Summary" xml:space="preserve">
+    <value>Starter-Website mit Registerkartenoberfläche und Anmeldeunterstützung mit ASP.NET</value>
+  </data>
+  <data name="Entry_StarterSite_LongSummary" xml:space="preserve">
+    <value>Starter-Website mit Registerkartenoberfläche und Anmeldeunterstützung mit ASP.NET</value>
+  </data>
+<data name="Entry_EmptySite_Title" xml:space="preserve">
+   <value>Leere Website</value>
+  </data>
+  <data name="Entry_EmptySite_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre ASP.NET-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_EmptySite_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre ASP.NET-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+<data name="Entry_NodeJsExpressSite_Title" xml:space="preserve">
+    <value>Express Site</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_Summary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Websitevorlage mit Node.js und dem Web-Framework Express.</value>
+  </data>
+  <data name="Entry_NodeJsExpressSite_LongSummary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Websitevorlage mit Node.js und dem Web-Framework Express.</value>
+  </data>
+<data name="Entry_NodeJsStarterSite_Title" xml:space="preserve">
+    <value>Starter Site</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_Summary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Websitevorlage mit Node.js. Sie umfasst Beispiele für Routing, Middleware und benutzerdefinierte Fehlermeldungen. Diese Vorlage basiert auf Express, einem flexible Framework zum Erstellen von Webanwendungen.</value>
+  </data>
+  <data name="Entry_NodeJsStarterSite_LongSummary" xml:space="preserve">
+    <value>Beginnen Sie Ihre ersten Schritte mit dieser verwendungsfertigen Websitevorlage mit Node.js. Sie umfasst Beispiele für Routing, Middleware und benutzerdefinierte Fehlermeldungen. Diese Vorlage basiert auf Express, einem flexible Framework zum Erstellen von Webanwendungen.</value>
+  </data>
+<data name="Entry_NodeJsSite_Title" xml:space="preserve">
+    <value>Leere Website</value>
+  </data>
+  <data name="Entry_NodeJsSite_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre Node.js-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_NodeJsSite_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre Node.js-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+<data name="Entry_PHPEmptySite_Title" xml:space="preserve">
+    <value>Leere Website</value>
+  </data>
+  <data name="Entry_PHPEmptySite_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre PHP-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_PHPEmptySite_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre PHP-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+<data name="Entry_simplecms_Title" xml:space="preserve">
+    <value>Starter Site</value>
+  </data>
+  <data name="Entry_simplecms_Summary" xml:space="preserve">
+    <value>Erstellen Sie eine datenbankgestützte Website mit PHP und MySQL. Diese Vorlage umfasst ein professionelles Designlayout, ein einfaches Anmeldesystem und ermöglicht Administratoren die Verwaltung der Seiten auf der Website.</value>
+  </data>
+  <data name="Entry_simplecms_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie eine datenbankgestützte Website mit PHP und MySQL. Diese Vorlage umfasst ein professionelles Designlayout, ein einfaches Anmeldesystem und ermöglicht Administratoren die Verwaltung der Seiten auf der Website.</value>
+  </data>
+<data name="Entry_PhotoGallery_Title" xml:space="preserve">
+    <value>Fotogalerie</value>
+  </data>
+  <data name="Entry_PhotoGallery_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre eigene Fotogalerie, um Ihre Fotos mithilfe dieser verwendungsfertigen Websitevorlage mit ASP.NET zu teilen.</value>
+  </data>
+  <data name="Entry_PhotoGallery_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre eigene Fotogalerie, um Ihre Fotos mithilfe dieser verwendungsfertigen Websitevorlage mit ASP.NET zu teilen.</value>
+  </data>
+  <data name="Entry_Personal_Title" xml:space="preserve">
+    <value>Persönliche Website</value>
+  </data>
+  <data name="Entry_Personal_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre persönliche Website mithilfe dieser Vorlage mit ASP.NET. Diese verwendungsfertige Vorlage ermöglicht Ihnen das Verfassen von Blogbeiträgen, das Teilen von Fotos auf Flickr sowie das Anzeigen Ihrer Tweets.</value>
+  </data>
+  <data name="Entry_Personal_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre persönliche Website mithilfe dieser Vorlage mit ASP.NET. Diese verwendungsfertige Vorlage ermöglicht Ihnen das Verfassen von Blogbeiträgen, das Teilen von Fotos auf Flickr sowie das Anzeigen Ihrer Tweets.</value>
+  </data>
+ <data name="Entry_HTMLEmptySite_Title" xml:space="preserve">
+    <value>Leere Website</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_Summary" xml:space="preserve">
+    <value>Erstellen Sie Ihre HTML5-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_HTMLEmptySite_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie Ihre HTML5-Website mit dieser Vorlage. Dabei wird eine leere Website erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_HTML5Site_Title" xml:space="preserve">
+    <value>Boilerplate</value>
+  </data>
+  <data name="Entry_HTML5Site_Summary" xml:space="preserve">
+    <value>Erstellen Sie eine schnelle, stabile und anpassbare Website mit der beliebten Front-End-Vorlage HTML5 Boilerplate. Dabei wird eine leere Website mit HTML5 erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_HTML5Site_LongSummary" xml:space="preserve">
+    <value>Erstellen Sie eine schnelle, stabile und anpassbare Website mit der beliebten Front-End-Vorlage HTML5 Boilerplate. Dabei wird eine leere Website mit HTML5 erstellt, die Ihren Anforderungen gemäß angepasst werden kann.</value>
+  </data>
+  <data name="Entry_DotNetNuke_Title" xml:space="preserve">
+    <value>DNN Platform</value>
+  </data>
+  <data name="Entry_DotNetNuke_Summary" xml:space="preserve">
+    <value>DNN ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_DotNetNuke_LongSummary" xml:space="preserve">
+    <value>DNN ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen.</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>Anwendungen</value>
+  </data>
+  <data name="Entry_Umbraco_Title" xml:space="preserve">
+    <value>Umbraco CMS</value>
+  </data>
+  <data name="Entry_Umbraco_Summary" xml:space="preserve">
+    <value>Das moderne, zuverlässige, entwickler- und designerfreundliche CMS wird für mehr als 160.000 Websites verwendet.  Benutzerfreundlichkeit und problemlose Erweiterbarkeit.</value>
+  </data>
+  <data name="Entry_Umbraco_LongSummary" xml:space="preserve">
+    <value>Umbraco CMS ist das Framework, mit dem "http://www.asp.net/", "http://www.wired.co.uk/" und mehr als 160.000 andere Websites Inhalte und Anwendungen für Millionen von Benutzern verwalten und bereitstellen.  Die moderne Benutzeroberfläche, die reine .NET-Architektur und die aktive Community von Umbraco machen dieses Produkt zur 1. Wahl für Web-CMS.  Umbraco ist benutzerfreundlich, einfach zu erweitern und kann in vorhandene Systeme integriert werden.</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Title" xml:space="preserve">
+    <value>.DotNetNuke® Professional Edition</value>
+  </data>
+  <data name="Entry_DotNetNukePro_Summary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_DotNetNukePro_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen.</value>
+  </data>
+  <data name="Entry_nopCommerce_Title" xml:space="preserve">
+    <value>nopCommerce</value>
+  </data>
+  <data name="Entry_nopCommerce_Summary" xml:space="preserve">
+    <value>nopCommerce ist eine Warenkorbanwendung, die frei angepasst werden kann. Es handelt sich um eine Lösung mit umfassenden Funktionen, die neuen Onlineunternehmen eine einfache Verwendung bietet und gleichzeitig auch leistungsstark genug für die anspruchsvollsten E-Commerce-Experten ist.</value>
+  </data>
+  <data name="Entry_nopCommerce_LongSummary" xml:space="preserve">
+    <value>nopCommerce ist die führende E-Commerce-Lösung für Onlinegeschäfte auf ASP.NET-Basis. Die Anwendung kann auch von Personen installiert und eingerichtet werden, die nur über grundlegende Kenntnisse in den Bereichen Websiteerstellung und Computertechnik verfügen. nopCommerce ist eine sichere, skalierbare und erweiterbare E-Commerce-Plattform. Sie verfügt über benutzerfreundliche Verwaltungstools zum Verwalten von Storefront, Kunden, Wunschlisten, Rabatten und Gutscheinen. Zudem zeichnet sich nopCommerce durch die Möglichkeit flexibler Steuersätze, die Unterstützung mehrerer Sprachen sowie Hunderte anderer Funktionen aus. Support für gängige Gateways: Authorize.net, PayPal, Google Checkout, 2Checkout und viele mehr. nopCommerce kann auch mit der mittleren Vertrauensstellung ausgeführt werden.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_Title" xml:space="preserve">
+    <value>MageliaWebStore (für IIS) </value>
+  </data>
+  <data name="Entry_MageliaWebStore_Summary" xml:space="preserve">
+    <value>Magelia WebStore ist eine leistungsfähige eCommerce-Software für die .NET-Umgebung und ist mit einer vollständigen Featuresammlung ausgestattet. 
+
+Der dienstbasierte Ansatz vereinfacht das Erstellen skalablierbarer eCommerce-Stores für PCs, Tablets und Smartphones und ermöglicht die einfache Integration in andere Software. Magelia WebStore Community Edition ist kostenlos, Open Source-basiert und verwendet als Grundlage Microsoft-Technologien.</value>
+  </data>
+  <data name="Entry_MageliaWebStore_LongSummary" xml:space="preserve">
+    <value>Magelia WebStore ist eine leistungsfähige eCommerce-Software für die .NET-Umgebung und ist mit einer vollständigen Featuresammlung ausgestattet. 
+
+
+Der dienstbasierte Ansatz von Magelia WebStore vereinfacht das Erstellen skalablierbarer eCommerce-Stores für PCs, Tablets und Smartphones und ermöglicht die einfache Integration in andere Software. Mit Magelia WebStore können Marken und Unternehmen jeder Größe auf einfache Weise mehrsprachige eCommerce-Websites erstellen, die mehrere Währungen berücksichtigen, reichhaltige Produkte einschließlich Katalogen, Kategorien, Produktvarianten, Bundles und Services definieren und verschiedene Steueroptionen, Rabatte und Lieferbedingungen berücksichtigen.
+
+Magelia WebStore Community Edition ist kostenlos, Open Source-basiert und verwendet als Grundlage Standard- und innovative Microsoft-Technologien (.NET 4.5, SQL Server 2008, OData).
+
+
+Magelia bietet eine reichhaltige und flexible Alternative zu andere vorhandener eCommerce-Software, z. B. zu Commerce Server, nopCommerce oder Magento. Wenn Sie sich über die Features von Magelia WebStore informieren möchten, finden Sie mehr als 30 Videos auf YouTube (<ui>http://www.youtube.com/mageliawebstore</ui>). 
+
+Lesen Sie die Dokumentation, und laden Sie den Asp.net MVC-Beispielspeicher herunter, der unter <ui>www.magelia.org</ui> verfügbar ist. Wenn Sie über die aktuellen Versionen informiert bleiben möchten, können Sie <ui>@magelia</ui> auf Twitter folgen. Probieren Sie Magelia WebStore noch heute aus!</value>
+  </data>
+  <data name="Entry_tomeCMS_Title" xml:space="preserve">
+    <value>tomeCMS</value>
+  </data>
+  <data name="Entry_tomeCMS_Summary" xml:space="preserve">
+    <value>tomeCMS ist ein kostenloses Open Source-Content Management System, das speziell für Benutzerhandbücher und technische Dokumentation konzipiert wurde. Daten werden nicht als Seiten gespeichert. Stattdessen wird jede Überschrift bzw. jeder Inhaltsabschnitt als ein separater Datensatz gespeichert, damit die Daten hochgradig strukturiert sind und automatisch für die Anzeige formatiert sowie in andere Formate exportiert werden können.</value>
+  </data>
+  <data name="Entry_tomeCMS_LongSummary" xml:space="preserve">
+    <value>tomeCMS ist ein kostenloses Open Source-Content Management System, das speziell für Benutzerhandbücher und technische Dokumentation konzipiert wurde.
+
+Es werden keine "Seiten" erstellt und bearbeitet. Das Datenmodell basiert stattdessen auf Überschriften und ermöglicht auf diese Weise eine granularere Kontrolle über das Format eines Dokuments. Außerdem sind die Daten so besser für den Export in alternative Medien (z. B. XML-Hilfeformate) geeignet.
+
+Die Benutzeroberfläche ist grafisch. Administratoren sehen eine erweiterte Ansicht und können die Maus über verschiedenen Inhalten positionierten bzw. auf diese Inhalte klicken, um sie zu bearbeiten oder zu verschieben.
+
+Administratoren arbeiten an einem "Entwurf". Dabei bleibt der Inhalt ausgecheckt, während er bearbeitet wird. Mehrere Änderungen können daher mit einer Aktion veröffentlicht werden.</value>
+  </data>
+  <data name="Entry_TicketSystem_Title" xml:space="preserve">
+    <value>Ticket System</value>
+  </data>
+  <data name="Entry_TicketSystem_Summary" xml:space="preserve">
+    <value>Ticket System .NET Open Source-Software - basierend auf ".NET CMS" (ITS, Issue Tracking System, Trouble Ticket System, Support Ticket oder Incident Ticket System).
+Ticket System Help Desk Software Open Source - ermöglicht einfache Verwalten eines stetig wachsenden Ticketvolumens.</value>
+  </data>
+  <data name="Entry_TicketSystem_LongSummary" xml:space="preserve">
+    <value>Ticket System .NET Open Source-Software - basierend auf ".NET CMS" (auch ITS, Issue Tracking System, Trouble Ticket System, Support Ticket oder Incident Ticket System). Dabei handelt es sich um eine Softwareanwendung, die Kunden technische Informationen zu einem Produkt oder Service sowie eine Verbindung zu einem Supportmitarbeiter zur Verfügung stellt. Die Zielsetzung dieser Software besteht darin, die Effizienz und Produktivität eines Unternehmens bei der Verwendung von Technologie zu steigern, indem Mitarbeitern und Kunden zeitnahe Antworten auf ihre Fragen und entsprechende Informationen zur Verfügung gestellt werden, die Sie beim Lösen ihrer Probleme unterstützen können.
+Ticket System Help Desk Software Open Source - ermöglicht einfache Verwalten eines stetig wachsenden Ticketvolumens.</value>
+  </data>
+  <data name="Entry_WYSIWYG_Title" xml:space="preserve">
+    <value>WYSIWYG .NET</value>
+  </data>
+  <data name="Entry_WYSIWYG_Summary" xml:space="preserve">
+    <value>Der WYSIWYG .NET-Editor ist ein HTML-Editor, der versucht, die Webseite so anzuzeigen, wie sie im Browser angezeigt wird. Es handelt sich dabei um einen visuellen Editor, und Sie bearbeiten den Code nicht direkt.</value>
+  </data>
+  <data name="Entry_WYSIWYG_LongSummary" xml:space="preserve">
+    <value>Der WYSIWYG .NET-Editor ist ein HTML-Editor, der versucht, die Webseite so anzuzeigen, wie sie im Browser angezeigt wird. Es handelt sich dabei um einen visuellen Editor, und Sie bearbeiten den Code nicht direkt.
+
+FUNKTIONEN:
+1) Minimalistisch,
+2) Open Source,
+2) unterstützte Browser: alle,
+4) einfach zu installieren: nur eine Datei (<ui>WYSIWYG.vb</ui> oder <ui>WYSIWYG.cs</ui>),
+5) flüssig und schnell reagierend,
+6) geringe Codegröße: 5 KB,
+7) einfach in ihrer .NET-Webanwendung zu implementieren: Sie müssen nur eine Codezeile hinzufügen.</value>
+  </data>
+  <data name="Entry_CMSGallery_Title" xml:space="preserve">
+    <value>CMS-Katalog</value>
+  </data>
+  <data name="Entry_CMSGallery_Summary" xml:space="preserve">
+    <value>Der CMS-Katalog ist ein Fotokatalog für .NET – völlig kostenlos! Er stellt ein leistungsfähiges Modul für den Upload und die Verwaltung von Fotokatalogen mit den folgenden Funktionen zur Verfügung: Batchupload, Hinzufügen/Löschen/Neuanordnen von Bildern, Gruppieren von Katalogen in Alben und vieles mehr.
+Funktionen: EXIF, Baumstruktur, dynamische Größenänderung, Nacheffekt, Geolocation, Mikrodaten, mehrere Domänen, mehrere Websites, mehrere Benutzer, mehrere Sprachen, mobilgeeignet.</value>
+  </data>
+  <data name="Entry_CMSGallery_LongSummary" xml:space="preserve">
+    <value>Der CMS-Katalog ist ein Fotokatalog für .NET – völlig kostenlos! Er stellt ein leistungsfähiges Modul für den Upload und die Verwaltung von Fotokatalogen mit den folgenden Funktionen zur Verfügung: Batchupload, Hinzufügen/Löschen/Neuanordnen von Bildern, Gruppieren von Katalogen in Alben und vieles mehr.
+Funktionen: EXIF, Baumstruktur, dynamische Größenänderung, Nacheffekt, Geolocation, Mikrodaten, mehrere Domänen, mehrere Websites, mehrere Benutzer, mehrere Sprachen, mobilgeeignet.</value>
+  </data>
+  <data name="Entry_NumediaStack_Title" xml:space="preserve">
+    <value>Numedia Stack </value>
+  </data>
+  <data name="Entry_NumediaStack_Summary" xml:space="preserve">
+    <value>eCommerce-Webplattform Numedia Stack für digitale Inhalte und Erweiterungsframework
+ für Microsoft ASP.NET.  </value>
+  </data>
+  <data name="Entry_NumediaStack_LongSummary" xml:space="preserve">
+    <value>Numedia Stack ist eine leistungsfähige Webplattform und ein Erweiterungsframework
+ für Microsoft ASP.NET, das zum Veröffentlichen oder Verkaufen digitaler Inhaltsmedienobjekte verwendet werden kann, die von mehreren Inhaltsanbietern bereitgestellt werden. Das Produkt verwendet ein eCommerce-Zahlungsgateway-Anbieterframework, um nach dem Kauf oder dem Abonnieren den Zugriff für die Vertragserfüllung zu erteilen. 
+
+Verfügbar als Microsoft Visual Studio-Vorlagendownload oder
+ als IIS-Webanwendung (Internetinformationsdienste) über den Microsoft Webplattform-Installer für Microsoft IIS, Version 7. 
+
+Numedia Stack umfasst Unterstützung für die Bereitstellung von Inhalten über mehrere Inhaltsanbieter, die Verwaltung und Steuerung von Anbieterinhalt, verschlüsselten Webseiten-Datenfluss, 
+
+Kontrolle und Sicherheit, um Manipulations- und Hackerangriffe zu verhindern, benutzerdefinierte integrierte Steuerelemente, die vordefinierte Funktionen mit umfangreichen Features bieten, sowie eine schnittstellengesteuerte 
+
+Entwurfsmethode, mit der Entwickler benutzerdefinierte Steuerelemente, die in der Webplattform ausgeführt werden, oder neue Codeframeworkobjekte erstellen können, die 
+
+intuitiv als Teil der Such-, eCommerce- und Transaktionspipelines verarbeitet werden. Die Webplattform stellt eine sichere webbasierte Verwaltungskonsole für Inhaltsanbieter 
+
+zum Beisteuern digitaler Inhalte und zugehöriger Ressourcen, ein eCommerce-Gateway mit systemeigener Unterstützung von Barclaycard EPDQ, PayPal, Google Checkout und 
+
+Unterstützung anderer Anbieter über eine wohldefinierte Entwicklerschnittstelle und viele weitere Funktionen zur Verfügung.</value>
+  </data>
+  <data name="Entry_MVCForum_Title" xml:space="preserve">
+    <value>MVC-Forum</value>
+  </data>
+  <data name="Entry_MVCForum_Summary" xml:space="preserve">
+    <value>Das MVC-Forum ist ein ASP.NET MVC-Diskussionsraum mit umfangreichen Funktionen (z. B. <ui>StackOverFlow</ui>). Es basiert auf ASP.NET MVC, Unity und Entity Framework 5 und funktioniert auch in Umgebungen mit mittlerer/teilweiser Vertrauensstellung.</value>
+  </data>
+  <data name="Entry_MVCForum_LongSummary" xml:space="preserve">
+    <value>Das MVC-Forum ist ein ASP.NET MVC-Diskussionsraum mit umfangreichen Funktionen (z. B. <ui>StackOverFlow</ui>). Es basiert auf ASP.NET MVC, Unity und Entity Framework 5 und funktioniert auch in Umgebungen mit mittlerer/teilweiser Vertrauensstellung.
+
+Es wurde für einfache Änderbarkeit und Anpassbarkeit konzipiert und enthält zahlreiche intergrierte Funktionen:
+
+Vollständiges Designmodul
+Badges
+Austaschbare Architektur
+Community Badge-System
+Mehrsprachig
+Verwaltungsdashboard
+API
+und zahlreiche weitere Funktionen...
+
+Besuchen Sie unsere Website unter <ui>http://www.mvcforum.com</ui>, und sehen Sie sich die Demos an.</value>
+  </data>
+  <data name="Entry_MediaWiki_Title" xml:space="preserve">
+    <value>MediaWiki</value>
+  </data>
+  <data name="Entry_MediaWiki_Summary" xml:space="preserve">
+    <value>MediaWiki ist ein kostenloses, in PHP geschriebenes Open Source-Wikisoftwarepaket, das ursprünglich für die Verwendung in Wikipedia gedacht war. Es wird inzwischen von mehreren anderen Projekten der gemeinnützigen Wikimedia Foundation sowie von zahlreichen anderen Wikis verwendet.</value>
+  </data>
+  <data name="Entry_MediaWiki_LongSummary" xml:space="preserve">
+    <value>MediaWiki ist eine kostenlose, webbasierte Wikisoftwareanwendung. Die Anwendung wurde von der Wikimedia Foundation entwickelt und wird zum Ausführen aller ihrer Projekte einschließlich Wikipedia, Wiktionary und Wikinews verwendet. Zahlreiche weitere Wikis weltweit verwenden sie ebenfalls für ihre Websites. Sie wurde in der Programmiersprache PHP geschrieben und verwendet eine Back-End-Datenbank.
+
+Die Software wurde für die richtige und effiziente Verarbeitung von Projekten beliebiger Größe optimiert. Dies beinhaltet auch die größten Wikis, deren Inhalt mehrere TB groß sein kann und die hunderttausende Mal pro Sekunde aufgerufen werden. Da Wikipedia weltweit eine der größten Websites ist, waren Skalierbarkeit über mehrere Cachingschichten und Datenbankreplikation ebenfalls wichtige Aspekte für die Entwickler. Wikipedia und andere Wikimedia-Projekte definieren auch weiterhin einen Großteil der Anforderungen für MediaWiki.
+
+Die Software ist hochgradig anpassbar. Über 700 Konfigurationseinstellungen und mehr als 1.800 Erweiterungen sind zum Aktivieren verschiedener Features verfügbar, die hinzugefügt oder geändert werden können. Über 600 automatisierte und halbautomatisierte Bots und andere Tools wurden entwickelt, um die Bearbeitung von MediaWiki-Websites zu unterstützen.
+
+MediaWiki ist kostenlose Open Source-Software und wird gemäß der GNU General Public License, Version 2, oder einer höheren Version vertrieben. Die Dokumentation wird entsprechend der Creative Commons BY-SA 3.0-Lizenz und teilweise in der öffentlichen Domäne herausgegeben. Die MediaWiki-Entwicklung bevorzugt im Allgemeinen Open Source-Medienformate.</value>
+  </data>
+  <data name="Entry_RESXManager_Title" xml:space="preserve">
+    <value>RESX-Manager</value>
+  </data>
+  <data name="Entry_RESXManager_Summary" xml:space="preserve">
+    <value>Ein browserbasiertes Tool für die Onlinebearbeitung aller Textzeichenfolgen in einer .NET-Anwendung. Es ermöglicht die automatische Steuerung aller RESX-Sprachdateien.</value>
+  </data>
+  <data name="Entry_RESXManager_LongSummary" xml:space="preserve">
+    <value>Mit RESX-Manager können alle Bezeichnungen über eine einfache Webschnittstelle bearbeitet werden. Die Textverarbeitung obliegt nicht mehr dem Programmierer, und Webmaster können Ressourcendateien uneingeschränkt steuern.
+
+RESX-Manager ist insbesondere für Webentwickler und Webmaster gedacht, die die Produktivität bei der Bearbeitung, Aktualisierung, Übersetzung oder Verwaltung von Text in Formularen, Überschriften oder anderen statischen Inhalten in einer auf .NET basierenden Lösung steigern möchten. Über die speziell gestaltete Benutzeroberfläche können Beschriftungen schnell ermittelt und geändert werden. Wenn Sie mit mehreren Sprachen arbeiten, eignet sich dieses Tool gut zum Einrichten und Übersetzen neuer Sprachen.
+
+
+Die folgenden Schlüsselfunktionen und Vorteile können genutzt werden:
+
+
+- Einfache Benutzeroberfläche zum Ermitteln und Bearbeiten von Beschriftungen
+
+- Automatische Übersetzung
+
+- Rechtschreibprüfung
+
+- Unterstützung für mehrere Sprachen
+
+- Schnelles Auffinden bestimmter Beschriftungen
+
+- Sicherungs- und Rollbackoption bei Fehlern
+
+
+
+Weitere Informationen finden Sie hier: <ui>http://www.resxmanager.com</ui> (Livedemo ebenfalls verfügbar)</value>
+  </data>
+  <data name="Entry_dashCommerce_Title" xml:space="preserve">
+    <value>dashCommerce</value>
+  </data>
+  <data name="Entry_dashCommerce_Summary" xml:space="preserve">
+    <value>dashCommerce ist eine ASP.NET Open Source eCommerce-Anwendung.</value>
+  </data>
+  <data name="Entry_dashCommerce_LongSummary" xml:space="preserve">
+    <value>dashCommerce ist eine flexible und robuste ASP.NET Open Source eCommerce-Anwendung, die Sie zum Einrichten Ihres Onlinestores verwenden können. dashCommerce ist seit Anfang 2008 verfügbar und wurde bereits in zahlreichen Onlinestores mit großem Erfolg verwendet. Sie können jetzt fragen "wie erfolgreich"? Nun, für dashCommerce sprechen die folgenden Auszeichnungen: 
+
+- Die Anwendung wurde von PayPal als eine Top 25-Integration seit ihrem Start vor 1.5 Jahren bewertet.
+
+- Sie ist von der US-amerikanischen Regierung für das Erstellen von Onlinestores für die Streitkräfte lizenziert.
+
+- Sie wird weltweit verwendet, um Millionenbeträge an Umsatz zu generieren.
+</value>
+  </data>
+  <data name="Entry_pbdig_Title" xml:space="preserve">
+    <value>pbdigg</value>
+  </data>
+  <data name="Entry_pbdig_Summary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。
+</value>
+  </data>
+  <data name="Entry_pbdig_LongSummary" xml:space="preserve">
+    <value>PBDigg 是基于PHP + MYSQL的开源Digg社区资讯系统，经过完善设计并适用于各种服务器环境，如：UNIX、LINUX、WINDOWS等，是一个高效、全新、快速、优秀的网站解决方案。PBDigg集DIGG民主投票、网站内容发掘、社会性标签tag归类、主题评论、RSS订阅等多种WEB2.0元素于一体。Digg的宗旨是：发掘、推荐、分享、交流。程序运行需客户端支持flash。
+</value>
+  </data>
+  <data name="Entry_SageFrame_Title" xml:space="preserve">
+    <value>SageFrame</value>
+  </data>
+  <data name="Entry_SageFrame_Summary" xml:space="preserve">
+    <value>SageFrame ist ein leistungsfähiges Content Management System (CMS), das auf ASP.NET aufbaut.</value>
+  </data>
+  <data name="Entry_SageFrame_LongSummary" xml:space="preserve">
+    <value>SageFrame ist ein leistungsfähiges Content Management System (CMS), das auf ASP.NET aufbaut. Konsequente Recherchen und Analysen haben zur Entwicklung von SageFrame geführt. Das Hauptziel bei der Entwicklung bestand darin, ein sehr umfassendes Verwaltungssystem bereitzustellen, das Webentwickler und Designer bei Projekten durch Einfachheit und Effizienz unterstützt. Vom neuen Mitarbeiter bis hin zu erfahrenen Profis – SageFrame passt sich an jede Entwicklergruppe an und ermöglicht das Erstellen von Websites und Anwendungen für verschiedene Zwecke auf einfache und effektive Weise. SageFrame bietet nicht nur eine einfache Benutzeroberfläche, Funktionen für die Websiteoptimierung und ein Seitenverwaltungssystem, sondern auch alle anderen erforderlichen Funktionen, die Ihrer Website Wettbewerbsvorteile durch zusätzliche Dynamik verschaffen.</value>
+  </data>
+  <data name="Entry_SugarCRM_Title" xml:space="preserve">
+    <value>SugarCRM</value>
+  </data>
+  <data name="Entry_SugarCRM_Summary" xml:space="preserve">
+    <value>Die preisgekrönte und stark erweiterbare Sugar-Anwendung von SugarCRM bietet ein zentrales Datensystem für die Verwaltung von Kundeninteraktionen über verschiedene Unternehmenssparten hinweg.</value>
+  </data>
+  <data name="Entry_SugarCRM_LongSummary" xml:space="preserve">
+    <value>Sugar ist die führende Open Source-Lösung für das Customer Relationship Management (CRM).  Aufgrund der Funktionen für die Bereiche Vertrieb, Marketing und Kundendienst bietet Sugar einen vollständigen Überblick über Kunden. Die Sugar-Plattform ist stark erweiterbar, und die Anwendung enthält ein integriertes Tool für die Modulgenerierung (Module Builder), um Entwickler und Benutzer beim Erstellen und Warten von benutzerdefinierten Anwendungen zu unterstützen, die den Wert der Kernplattform erhöhen.</value>
+  </data>
+  <data name="Entry_OrchardCMS_Title" xml:space="preserve">
+    <value>Orchard CMS</value>
+  </data>
+  <data name="Entry_OrchardCMS_Summary" xml:space="preserve">
+    <value>Orchard CMS ist ein kostenfreies Open Source-Inhaltsverwaltungssystem, mit dem Benutzer schnell Websites auf der Microsoft ASP.NET-Plattform umsetzen.</value>
+  </data>
+  <data name="Entry_OrchardCMS_LongSummary" xml:space="preserve">
+    <value>Orchard CMS ist ein kostenfreies Open Source-CMS, mit dem Benutzer schnell Websites auf der Microsoft ASP.NET MVC-Plattform erstellen können. Die Anwendung baut auf einem flexiblen erweiterbaren Framework auf, das Entwicklern und Gestaltern zusätzliche Funktionen in Form von Modulen und Designs an die Hand gibt.</value>
+  </data>
+  <data name="Entry_Incentive_Title" xml:space="preserve">
+    <value>Incentive</value>
+  </data>
+  <data name="Entry_Incentive_Summary" xml:space="preserve">
+    <value>Incentive ist eine soziale Plattform für die Zusammenarbeit, die zu sofortiger Kommunikation in Teams, Projekten und Abteilungen führt. 
+
+Dabei handelt es sich um eine herunterladbare Serversoftware, die Aktivitätsdatenströme, Wikis, Blogs und Apps umfasst – all dies richten Sie sicher hinter Ihrer Firewall ein.</value>
+  </data>
+  <data name="Entry_Incentive_LongSummary" xml:space="preserve">
+    <value>Incentive ist eine soziale Plattform für die Zusammenarbeit für Unternehmen. Die Wikifunktion von Incentive ist besonders vorteilhaft, weil eine uneingeschränkte Anzahl von Wikis in der Organisation gehostet werden kann. Sie bietet WYSIWYG-Bearbeitung und einen zentralen Verwaltungspunkt.
+
+Incentive verarbeitet nicht nur Wikis, sondern bietet Ihnen und Ihren Mitarbeitern auch sofortige Kommunikation in Teams, Projekten und Abteilungen. Die meisten Organisationen leiden an allgemeiner E-Mail- und Informationsüberflutung. Hier schafft eine soziale Plattform für die Zusammenarbeit wie Incentive Abhilfe.</value>
+  </data>
+  <data name="Entry_CMSaspNET_Title" xml:space="preserve">
+    <value>.NET CMS</value>
+  </data>
+  <data name="Entry_CMSaspNET_Summary" xml:space="preserve">
+    <value>CMS .NET kostenlos für alle Anwendungsbereiche: reaktives HTML5-Webdesign, .NET CMS, reichhaltige Codeausschnitte, Mikrodaten. Datenbanklos (keine Datenbank = keine Probleme = 10fache Geschwindigkeit), mehrsprachig, FORUM, KATALOG, DYNAMISCHE PDFs, WIKI, Community, einfach und benutzerfreundlich, dynamische Sitemap, eine Installation für mehrere Websites in mehreren Domänen, mehrere Server, PayPal-IPN, Vorlagen polyvalent für mobile Geräte, Tablets, Handhelds, Plug-Ins.</value>
+  </data>
+  <data name="Entry_CMSaspNET_LongSummary" xml:space="preserve">
+    <value>CMS .NET kostenlos für alle Anwendungsbereiche! Funktionen: .NET CMS bietet reaktives Webdesign in einem datenbanklosen HTML5-CMS (keine Datenbank = keine Probleme und 10fache Geschwindigkeit). Es handelt sich um eine kostenlose, mehrsprachige Open Source HTML5-Webplattform mit reichhaltigen Codeausschnitten und Mikrodaten (von <ui>schema.org</ui>), die eine Alternative zur Verwaltung einzelner Websites bietet. In einer umfassenden Netzwerklösung, die aus unzähligen Websites, einem Forum, Fotoalben und Social Media-Hilfsprogrammen besteht, muss die Anwendung nur einmal in einer freigegebenen und von ASP.NET unterstützten Hostingumgebung installiert werden.
+Dank der integrierten Hilfsprogramme geht die Funktionalität weit über die Bearbeitungsfunktionen und das Inhaltsformat eines einfachen CMS hinaus. Die Webanwendung entfaltet ihre Leistung durch innovatives Multi-Threading, das in Kombination mit hochentwickelten Multi-Core-Prozessoren jede einzelne Funktion optimiert und dem Besucher ein einzigartiges und ultimatives Surferlebnis bietet.
+Die neueste Anwendungsversion vereint hochentwickelte Algorithmen, die Latenzzeiten für Abfragen gegen Null bringen (und ganz ohne Datenbank auskommen), weiter ermöglicht sie die komfortable Navigation mit bis zu 10facher Geschwindigkeit. Die Leistung ist den hocheffizienten Algorithmen zu verdanken, die den Inhalt dynamisch bereitstellen.</value>
+  </data>
+  <data name="Entry_BabyGekko_Title" xml:space="preserve">
+    <value>Baby Gekko CMS</value>
+  </data>
+  <data name="Entry_BabyGekko_Summary" xml:space="preserve">
+    <value>Baby Gekko ist ein erweiterbares Inhaltsverwaltungssystem mit austauschbaren Vorlagen und Anwendungen.</value>
+  </data>
+  <data name="Entry_BabyGekko_LongSummary" xml:space="preserve">
+    <value>Baby Gekko ist eine schlanke, erweiterbare PHP/MySQL-basierte Plattform für die Inhaltsverwaltung, die zur Veröffentlichung von Websites, Intranets oder Blogs eingesetzt wird. Dieses ausgereifte System befindet sich seit 2006 in der Entwicklung. Unabhängig von den technischen Vorkenntnissen ermöglicht Baby Gekko Inhalts-Managern eine einfache Bedienung. Die AJAX-basierte Drag &amp; Drop-Oberfläche, die dem Finder bzw. Explorer nachempfunden ist, erleichtert die Verwaltung der Inhalte mit Baby Gekko.</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Title" xml:space="preserve">
+    <value>Shopping Cart .NET</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_Summary" xml:space="preserve">
+    <value>Shopping Cart .NET ist ein umfassendes E-Commerce-Portal, das auf ASP.NET aufsetzt.
+Das Portal bietet zahlreiche CMS-Funktionen wie benutzerdefinierte Seiten, Designs und ein Navigationsmenü.
+Die Commerce-Funktionen umfassen eine voll funktionsfähige Warenkorblösung mit individuellen Bildern, Verlaufsanzeige, Produktbewertungen, Coupons und Rabatten, Abonnements und Produkten zum Download, einer Systemsteuerung für Kunden und einem Admin-Bereich für den Shopeigentümer.
+</value>
+  </data>
+  <data name="Entry_ShoppingCartNET_LongSummary" xml:space="preserve">
+    <value>Shopping Cart .NET ist ein umfassendes E-Commerce-Portal, das auf ASP.NET aufsetzt.
+Das Portal bietet zahlreiche CMS-Funktionen wie benutzerdefinierte Seiten, Designs und ein Navigationsmenü.
+Die Commerce-Funktionen umfassen eine voll funktionsfähige Warenkorblösung mit individuellen Bildern, Verlaufsanzeige, Produktbewertungen, Coupons und Rabatten, Abonnements und Produkten zum Download, einer Systemsteuerung für Kunden und einem Admin-Bereich für den Shopeigentümer.
+Ebenfalls enthalten ist Authorize.Net Advanced Integration Method (AIM), Paypal Pro API WCF-Integration und die Google Checkout API.
+Das Projekt wurde in .NET 4.0 und SQL Server 2008 programmiert.</value>
+  </data>
+  <data name="Entry_Joomla25_Title" xml:space="preserve">
+    <value>Joomla! 2.5</value>
+  </data>
+  <data name="Entry_Joomla25_Summary" xml:space="preserve">
+    <value>Joomla! ist ein preisgekröntes Inhaltsverwaltungssystem (Content Management System, CMS), mit dem Sie Websites und leistungsstarke Onlineanwendungen erstellen können. Viele verschiedene Aspekte, unter anderem die leichte Bedienbarkeit und die Erweiterungsmöglichkeiten, haben dazu beigetragen, dass Joomla! zur beliebtesten Software für Websites geworden ist. Und das Beste, Joomla! ist als Open Source-Lösung für jeden frei verfügbar.</value>
+  </data>
+  <data name="Entry_Joomla25_LongSummary" xml:space="preserve">
+    <value>Joomla! ist ein Open Source-Inhaltsverwaltungssystem (CMS). Durch das leistungsstarke Anwendungsframework können Entwickler mit Joomla! umfangreiche und komplexe Add-Ons erstellen und so die Möglichkeiten von Joomla! nahezu unbegrenzt erweitern. Mit dem Kernframework von Joomla! können Entwickler schnell und einfach Bestandsverwaltungssysteme, Tools für die Erstellung von Datenberichten, individuelle Produktkataloge, integrierte E-Commerce-Systeme, komplexe Geschäftsverzeichnisse, Reservierungssysteme, Kommunikationstools und vieles mehr erstellen. Da Joomla! auf PHP und MySQL basiert, erstellen Sie leistungsstarke Anwendungen auf einer offenen Plattform, die jeder verwenden, weitergeben und unterstützen kann.</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Title" xml:space="preserve">
+    <value>MODX Evolution-Paket (japanische Version)</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_Summary" xml:space="preserve">
+    <value>MODX Evolution-Paket (japanische Version)</value>
+  </data>
+  <data name="Entry_MODXEvolutionJa_LongSummary" xml:space="preserve">
+    <value>MODX Evolution-Paket (japanische Version)</value>
+  </data>
+  <data name="Entry_MerchantTribe_Title" xml:space="preserve">
+    <value>MerchantTribe</value>
+  </data>
+  <data name="Entry_MerchantTribe_Summary" xml:space="preserve">
+    <value>MerchantTribe ist eine kostenlose ASP.NET MVC-E-Commerce-Plattform auf C#- und Open Source-Basis. 
+
+Wir brauchen so viele Anwender wie möglich, um MerchantTribe zum Erfolg zu verhelfen. Nur mit der Unterstützung von Händlern, Entwicklern und Designern kann die Software verbessert werden und die Community wachsen. Folgen Sie "@merchanttribe" auf Twitter. Starten Sie den Download, werden Sie Mitglied, und leisten Sie noch heute Ihren Beitrag zur MerchantTribe-Community!</value>
+  </data>
+  <data name="Entry_MerchantTribe_LongSummary" xml:space="preserve">
+    <value>MerchantTribe ist eine kostenlose ASP.NET MVC-E-Commerce-Plattform auf C#- und Open Source-Basis. 
+
+Wir blicken auf eine über zehnjährige Erfahrung in der Entwicklung und dem Vertrieb kommerzieller .NET-Warenkorbsoftware zurück. Derzeit arbeiten wir an der Veröffentlichung eines Open Source-Projekts, das auf unserer prämierten Software BV Commerce aufbaut. Unsere Warenkorbsoftware wird bereits von Tausenden Unternehmen genutzt, darunter Pebble Beach Resorts, DataPipe, TastyKake, MathBlaster und Chesapeake Energy. 
+
+Wir brauchen so viele Anwender wie möglich, um MerchantTribe zum Erfolg zu verhelfen. Nur mit der Unterstützung von Händlern, Entwicklern und Designern kann die Software verbessert werden und die Community wachsen. Folgen Sie "@merchanttribe" auf Twitter. Starten Sie den Download, werden Sie Mitglied, und leisten Sie noch heute Ihren Beitrag zur MerchantTribe-Community!</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (Spanisch)</value>
+  </data>
+  <data name="Entry_DotNetNukeES_Summary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_DotNetNukeES_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen. Übersetzungsdienste zur Verfügung gestellt durch Toni Coll (http://www.2psystems.com) und Vicenç Masanas (http://www.disgrafic.com) </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (Italienisch)</value>
+  </data>
+  <data name="Entry_DotNetNukeIT_Summary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_DotNetNukeIT_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen.  Übersetzungsdienste freundlicherweise zur Verfügung gestellt durch Inspector IT (http://www.inspectorit.com)</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (tr-TR)</value>
+  </data>
+  <data name="Entry_dotnetnukeTR_Summary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_dotnetnukeTR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen. Übersetzung freundlicherweise zur Verfügung gestellt durch die DotNetNuke-Benutzergruppe Türkei (http://trdnn.com).</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Title" xml:space="preserve">
+    <value>DotNetNuke® Community Edition (Französisch)</value>
+  </data>
+  <data name="Entry_DotNetNukeFR_Summary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Dank der intuitiv bedienbaren, menügesteuerten Oberfläche können selbst technisch nicht so versierte Benutzer DotNetNuke verwenden und damit problemlos beeindruckende Websites erstellen oder die Funktionalität und Merkmale bestehender Webanwendungen erweitern. </value>
+  </data>
+  <data name="Entry_DotNetNukeFR_LongSummary" xml:space="preserve">
+    <value>DotNetNuke® ist die führende Plattform für die Verwaltung von Webinhalten (CMS) zum Erstellen professioneller Websites mit dynamischen Inhalten und interaktiven Funktionen. Mit mehr als 700.000 in Produktionsumgebungen bereitgestellten Websites und Tausenden sofort installierbarer Erweiterungen von Drittanbietern ermöglicht DNN® die schnelle und kostengünstige Entwicklung von kommerziellen Websites, Communityportalen und Intranetlösungen.
+
+Lokalisierung freundlicherweise zur Verfügung gestellt durch die DotNetNuke-Benutzergruppe Frankreich (http://dnn.fr).</value>
+  </data>
+  <data name="Entry_Discuz_Title" xml:space="preserve">
+    <value>Discuz!</value>
+  </data>
+  <data name="Entry_Discuz_Summary" xml:space="preserve">
+    <value>Discuz! X ist die professionelle Plattform für das von Comsenz entwickelte communitybasierte Forum (BBS). Da sämtliche Komponenten (Forum (BBS), soziale Netzwerke (SNS), Portal, Gruppen und offene Plattform) vollständig integriert sind, können Websitebetreiber mit Discuz! X alle Dienste aus einer Hand anbieten.</value>
+  </data>
+  <data name="Entry_Discuz_LongSummary" xml:space="preserve">
+    <value>Discuz! X ist die professionelle Plattform für das von Comsenz entwickelte communitybasierte Forum (BBS). Da sämtliche Komponenten (Forum (BBS), soziale Netzwerke (SNS), Portal, Gruppen und offene Plattform) vollständig integriert sind, können Websitebetreiber mit Discuz! X alle Dienste aus einer Hand anbieten.</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Title" xml:space="preserve">
+    <value>Joomla – Hebräisch</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_Summary" xml:space="preserve">
+    <value>Joomla – Hebräisch für IIS &amp; WebMatrix</value>
+  </data>
+  <data name="Entry_JoomlaHebrew_LongSummary" xml:space="preserve">
+    <value>Joomla – Hebräisch für IIS &amp; WebMatrix</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Title" xml:space="preserve">
+    <value>RedCritter Tracker</value>
+  </data>
+  <data name="Entry_RedCritterTracker_Summary" xml:space="preserve">
+    <value>RedCritter Tracker ist agiles Projektmanagement, wie Sie es noch nie erlebt haben.
+
+Die Anwendung bietet Drag &amp; Drop-Projektmanagement mit Nachrichtenfeeds im Twitter-Stil, Pins für Ihre erreichten Ziele und sogar einen firmeneigenen Rewards Store.
+
+Die Cloudversion ist unter "www.redcrittertracker.com" verfügbar.</value>
+  </data>
+  <data name="Entry_RedCritterTracker_LongSummary" xml:space="preserve">
+    <value>RedCritter Tracker ist agiles Projektmanagement, wie Sie es noch nie erlebt haben.
+
+Die Anwendung bietet Drag &amp; Drop-Projektmanagement mit Nachrichtenfeeds im Twitter-Stil, Pins für Ihre erreichten Ziele und sogar einen firmeneigenen Rewards Store.
+
+Die Cloudversion ist unter "www.redcrittertracker.com" verfügbar.</value>
+  </data>
+  <data name="Entry_razorCnet_Title" xml:space="preserve">
+    <value>razorC.net</value>
+  </data>
+  <data name="Entry_razorCnet_Summary" xml:space="preserve">
+    <value>Entwickelt mit ASP.NET Web Pages (Razor-Syntax) eignet sich dieses CMS hervorragend für WebMatrix-Entwickler. Einfache Konfiguration und Änderungen. </value>
+  </data>
+  <data name="Entry_razorCnet_LongSummary" xml:space="preserve">
+    <value>razorC.net CMS - bietet eine schnelle und einfache Methode zum Aufsetzen und Verwalten einer professionellen Website. Entwickelt mit ASP.NET Web Pages (Razor-Syntax) eignet sich dieses CMS hervorragend für WebMatrix-Entwickler. Einfache Konfiguration und Änderungen. In nur wenigen Minuten ändern Sie das vorhandene Seitenlayout, damit es mit razorC.net verwendet werden kann.
+
+Funktionen:
+- Designs – 3 Designs sind bereits enthalten. Neue Designs sind in wenigen Minuten erstellt
+- Bedienfeld zur Verwaltung von Seiten und Widgets
+ - Automatische Sicherung von Widgets und Seiten
+ - CSS- und Layout-Editor
+ - SQL Server Compact-Edition
+ - TinyMCE-Editor zum Schreiben/Bearbeiten von Inhalten
+ - AJAX-Dateibrowser
+ - Simple Menu-Hilfsfunktion
+ </value>
+  </data>
+  <data name="Entry_surveyproject_Title" xml:space="preserve">
+    <value>Survey-Projekt</value>
+  </data>
+  <data name="Entry_surveyproject_Summary" xml:space="preserve">
+    <value>Survey™ Project ist ein kostenfreies webbasiertes Toolkit für Umfrage- und Dateneingabeformulare, mit dem Sie Daten online erfassen und verarbeiten. 
+
+Survey™ Project ist ideal für alle, die wertvolle Informationen von Kunden, Besuchern oder Mitarbeitern effizient erfassen möchten. 
+
+Benutzer ohne Programmierkenntnisse können so Internetumfragen entwickeln und veröffentlichen.
+</value>
+  </data>
+  <data name="Entry_surveyproject_LongSummary" xml:space="preserve">
+    <value>Survey™ Project ist ein kostenfreies webbasiertes Toolkit für Umfrage- und Dateneingabeformulare, mit dem Sie Daten online erfassen und verarbeiten. 
+
+Survey™ Project ist ideal für alle, die wertvolle Informationen von Kunden, Besuchern oder Mitarbeitern effizient erfassen möchten. Benutzer ohne Programmierkenntnisse können so Internetumfragen entwickeln und veröffentlichen. 
+
+Survey™ Project ist eine in C# .NET geschriebene Open Source-Webanwendung, die auf einer MSSQL-Datenbank basiert. Die Survey Project-Quellen sparen .NET-Entwicklern Zeit und Arbeit bei der Erstellung von Umfragen für Webanwendungsprojekte. Für die unterschiedlichen Anforderungen und geschäftlichen Erfordernisse stehen zudem zahlreichen Funktionen zur Verfügung. 
+
+Darüber hinaus erleichtert die objektorientierte und modulare Architektur das Hinzufügen neuer Frage- oder Antworttypen.
+
+Funktionen:
+- Ordnerstruktur für Umfragen
+- Survey-Designer und Formular-Generator (einschließlich Text-/HTML-Editor)
+- Survey-Sicherheitsoptionen
+- Tokenverwaltung
+- Mehrsprachige Optionen
+- Fragebibliotheken
+- Antworttyp-Editor
+- Ergebnisse und Berichtsoptionen
+- Import- und Exportfunktionen
+- Mailingoptionen
+- Benutzer- und Rollenverwaltung
+- Integrierte Hildedateien und ToolTips
+- Friendly URL für Umfragen
+ 
+Sonderfunktionen:
+- Verzweigung und Verzweigungslogik
+- Piping von Antworten
+- Zufällige Fragereihenfolge
+- Bewertung und ausgewertete Umfragen
+- Dateiupload-Antwortoptionen
+</value>
+  </data>
+  <data name="Entry_eCB_Title" xml:space="preserve">
+    <value>MyCommerceBooks</value>
+  </data>
+  <data name="Entry_eCB_Summary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB) ist ein Bundle webbasierter Unternehmensanwendungen mit Collaborative Communications-Dokumentmanagement. Gestützt von Workflows erhöht diese Lösung den Automatisierungsgrad und reduziert manuelle Dateneingaben. Sie können eCB wahlweise als Sagas-Lösung einsetzen oder als Paket herunterladen und lokal installieren. Der Zugriff auf die zahlreichen eCB-Funktionen ist schon nach wenigen Minuten möglich und erfolgt über ein kostenloses Abonnement.</value>
+  </data>
+  <data name="Entry_eCB_LongSummary" xml:space="preserve">
+    <value>MyCommerceBooks (eCB) ist ein Bundle webbasierter Unternehmensanwendungen mit Collaborative Communications-Dokumentmanagement. Gestützt von Workflows erhöht diese Lösung den Automatisierungsgrad und reduziert manuelle Dateneingaben. 
+eCB umfasst Folgendes: Bestandsverwaltung, virtuelles POS-Terminal, Bestellwesen, Versand, Rechnungswesen, Reklamationen, Auftragsabfertigung, Kosten- und Kontenmanagement. eCB ist mit .NET Framework 4.0 ASP.NET mit AJAX-basierten Steuerelementen kompatibel. Alle Anwendungen sind integriert und werden durch Workflows gesteuert, um die Arbeitsautomatisierung zu steigern und die Dateneingabe zu verringern. eCB ist vollständig browserbasiert: Sie können (ähnlich wie Ihre Kunden und Lieferanten, die mithilfe gültiger Anmeldeinformationen auf ihre Daten zugreifen) von einem normalen Computer aus über einen gängigen Internetbrowser auf Ihre Daten zugreifen. eCB passt sich jedem Unternehmen an – ob Großhandel, Einzelhandel, Wartung und Service, IT-Dienste oder einfaches Kaffeehaus. eCB stellt den Funktionsumfang bereit, mit dem Sie Ihr Unternehmen effizient und kostensparend führen können.
+In dieser neuen Version wird ein Zwei-Menü-System eingeführt, das neben dem traditionellen zeilenbasierten Menü ein Bereichsmenü auf Grundlage von OfficeWebUI 2010 bietet. Sie können das Menü mithilfe einer Umschaltfläche dynamisch ändern. Darüber hinaus zeichnet sich diese Version durch eine neue Seite "Cockpitnavigation" aus, die mit SharePoint 2010-Inhaltsseiten vergleichbar ist und Datenindikatoren in Form von Geschäftskategorien für unterschiedliche Aspekte (wie Vorratsvermögen, CRM, Bestellwesen, Rechnungswesen, Steuern und Buchhaltung, siehe Anwendungsscreenshots) aufweist.</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Title" xml:space="preserve">
+    <value>Umbraco CMS (Hebräisch)</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_Summary" xml:space="preserve">
+    <value>Umbraco ist ein kostenfreies Open Source-System zur Verwaltung von Webinhalten, das auf Microsoft .NET Framework aufsetzt.  Es ist gut verständlich und einfach anzuwenden und dank branchenüblicher Programmiersprachen und Muster in hohem Maße erweiterbar.</value>
+  </data>
+  <data name="Entry_UmbracoHebrew_LongSummary" xml:space="preserve">
+    <value>Umbraco ist ein mit allen Funktionen ausgestattetes Verwaltungssystem für Webinhalte, das einfach anzuwenden und anpassungsfähig ist und auch umfangreichste Websites wie "wired.co.uk" und "asp.net" unterstützt.
+
+Mehr als 85.000 Websites in nahezu jeder Sprache und aus jeder erdenklichen Branche werden mit Umbraco verwaltet.  Einige der weltgrößten Unternehmen (Microsoft, Toyota) vertrauen genau wie einige der weltweit innovativsten Unternehmen auf Umbraco.  Unternehmen jeder Größenordnung nutzen Umbraco, um Websites nach ihren Anforderungen zu erstellen, benutzerdefinierte Funktionen schnell umzusetzen und fortlaufende Wartungsaufgaben und Updates systematisch und einfach auszuführen.
+
+Umbraco ist ein kostenfreies Open Source-System zur Verwaltung von Webinhalten, das auf Microsoft .NET Framework aufsetzt.  Es ist gut verständlich und einfach anzuwenden und dank branchenüblicher Programmiersprachen und Muster wie HTML, CSS, jQuery und C# in hohem Maße erweiterbar.  Umbraco ist ein leistungsstarkes und flexibles Tool für innovative Designer und ausgemachte Byte-Junkies.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Title" xml:space="preserve">
+    <value>.NET Forge CMS</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_Summary" xml:space="preserve">
+    <value>.NET Forge CMS ist ein leistungsfähiges System zur Verwaltung von Websiteinhalten, das auf dem ASP.NET-Framework aufsetzt. .NET Forge CMS bietet zahlreiche integrierte Lösungen für viele technische Aufgabenstellungen, die die Entwicklung schneller und kostengünstiger gestalten. Eine kostenlose Community-Version ist für alle verfügbar, die eine innovative, leistungsfähige und attraktive Website bei gleichzeitiger Senkung der Kosten umsetzen möchten.</value>
+  </data>
+  <data name="Entry_BitrixNetForgeCms_LongSummary" xml:space="preserve">
+    <value>.NET Forge CMS ist ein neuartiges System für die Verwaltung von Websites, das sich an ASP.NET-Webentwickler richtet. Die Community-Version ist das erste kostenlose ASP.NET-basierte CMS, das eine lückenlose und umfassende Dokumentation zum Nulltarif bietet. 
+
+
+.NET Forge CMS bietet Integration mit Microsoft-Software, Vertrauensebenen für die Programmierung und den höchsten Grad an Objektorientierung. Das macht diese Anwendung zur perfekten Lösung für unternehmensweite Webanwendungen und Systeme.
+
+
+Zwei Editionen von .NET Forge CMS 6.0 sind verfügbar: Community und Professional. Die kostenlose Community-Version unterstützt die schnelle Entwicklung von Community-Websites, Blogs und anderen Webprojekten bei gleichzeitiger Senkung der Plattformkosten. Die Professional-Version ist eine Commerce-Lösung für Webshops und andere Websites, bei denen es auf effiziente Unterstützung des Netzwerkdatenverkehrs, Skalierbarkeit, allzeit unterbrechungsfreie Abläufe und Sicherheit ankommt.</value>
+  </data>
+  <data name="Entry_qibocms_Title" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_Summary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_qibocms_LongSummary" xml:space="preserve">
+    <value>qibocms</value>
+  </data>
+  <data name="Entry_Drupal_JP_Title" xml:space="preserve">
+    <value>Drupal – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_Drupal_JP_Summary" xml:space="preserve">
+    <value>Drupal – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_Drupal_JP_LongSummary" xml:space="preserve">
+    <value>Drupal – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_HDwiki_Title" xml:space="preserve">
+    <value>HDwiki</value>
+  </data>
+  <data name="Entry_HDwiki_Summary" xml:space="preserve">
+    <value>HDwiki ist die ERSTE und umfassendste Wiki-Software für Chinesisch. Es vereint Web 2.0-Elemente wie Tag, Digg, AJAX und viele andere mehr und ist Mediawiki in vielen Bereichen voraus.
+
+HDWiki ist eine Websoftware zur Umsetzung ansprechender Websites oder Wikisites. HDWiki ist kostenlos und unbezahlbar zugleich.</value>
+  </data>
+  <data name="Entry_HDwiki_LongSummary" xml:space="preserve">
+    <value>HDwiki ist die ERSTE und umfassendste Wiki-Software für Chinesisch. Es vereint Web 2.0-Elemente wie Tag, Digg, AJAX und viele andere mehr und ist Mediawiki in vielen Bereichen voraus.
+
+HDWiki ist eine Websoftware zur Umsetzung ansprechender Websites oder Wikisites. HDWiki ist kostenlos und unbezahlbar zugleich.
+</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Title" xml:space="preserve">
+    <value>WordPress – Portugiesisch (Portugal)</value>
+  </data>
+  <data name="Entry_wordpressptportugal_Summary" xml:space="preserve">
+    <value>WordPress ist eine Websoftware zur Umsetzung ansprechender Websites oder Blogs. WordPress ist kostenlos und unbezahlbar zugleich.</value>
+  </data>
+  <data name="Entry_wordpressptportugal_LongSummary" xml:space="preserve">
+    <value>WordPress ist eine Websoftware zur Umsetzung ansprechender Websites oder Blogs. WordPress ist kostenlos und unbezahlbar zugleich.
+
+An der Kernsoftware tüfteln Hunderte freiwilliger Communitymitglieder, und wann immer nötig, warten schon Tausende neuer Plug-Ins und Designs, die Ihrer Website einen unvergleichlichen Stil verleihen. Mehr als 25 Millionen Benutzer nutzen WordPress, um einen Ort im Web zu etablieren, an dem sie sich zu Hause fühlen. Werden Sie Teil dieser großen Community.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Title" xml:space="preserve">
+    <value>Orchard CMS – Taiwanesisch</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_Summary" xml:space="preserve">
+    <value>Orchard CMS ist ein kostenfreies Open Source-Inhaltsverwaltungssystem, mit dem Benutzer schnell Websites auf der Microsoft ASP.NET-Plattform umsetzen. Es baut auf einem flexiblen erweiterbaren Framework auf, das Entwicklern und Gestaltern zusätzliche Funktionen in Form von Erweiterungen und Designs an die Hand gibt.</value>
+  </data>
+  <data name="Entry_OrchardTaiwan_LongSummary" xml:space="preserve">
+    <value>Orchard CMS ist ein kostenfreies Open Source-Inhaltsverwaltungssystem, mit dem Benutzer schnell Websites auf der Microsoft ASP.NET-Plattform umsetzen. Es baut auf einem flexiblen erweiterbaren Framework auf, das Entwicklern und Gestaltern zusätzliche Funktionen in Form von Erweiterungen und Designs an die Hand gibt.</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Title" xml:space="preserve">
+    <value>BlogEngine.NET 1.6.2 für Chinesisch</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_Summary" xml:space="preserve">
+    <value>BlogEngine.NET ist ein Open Source-Blogprojekt auf .NET-Basis, das aus dem Wunsch nach einer besseren Blogplattform heraus entstand. Diese beruht auf Einfachheit, problemloser Erweiterbarkeit und nutzt gleichzeitig die neueste .NET-Funktionalität. 
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETChinese_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET ist ein Open Source-Blogprojekt auf .NET-Basis, das aus dem Wunsch nach einer besseren Blogplattform heraus entstand. Diese beruht auf Einfachheit, problemloser Erweiterbarkeit und nutzt gleichzeitig die neueste .NET-Funktionalität. Mit dem Schwerpunkt Einfachheit, problemlose Erweiterbarkeit und innovative Funktionen wurde BlogEngine.NET auf der Grundlage des aktuellen .NET Framework entwickelt. Mit BlogEngine.NET erschließt sich .NET-Entwicklern weltweit der Zugang zum Blog ihrer Wahl. </value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Title" xml:space="preserve">
+    <value>Kooboo Communicator</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_Summary" xml:space="preserve">
+    <value>Dieses Kommunikationstool unterstützt Sie dabei, Ihren Kunden regelmäßig E-Mails zu Marketingkampagnen und Umfragen zu senden. Binnen fünf Minuten sind sogar Neueinsteiger in der Lage, Kontakte zu importieren, eine Kampagne zu entwerfen und per E-Mail an die Kunden auszusenden. Geben Sie Ihren E-Mail-Kampagnen den professionellen Schliff. Zeigen Sie eine Vorschau des Posteingangs an, und beobachten und verfolgen Sie alle Kampagnenergebnisse. Die Anwendung kann heruntergeladen und lokal installiert oder online verwendet werden.</value>
+  </data>
+  <data name="Entry_KoobooCommunicator_LongSummary" xml:space="preserve">
+    <value>Dieses Kommunikationstool unterstützt Sie dabei, Ihren Kunden regelmäßig E-Mails zu Marketingkampagnen und Umfragen zu senden. Binnen fünf Minuten sind sogar Neueinsteiger in der Lage, Kontakte zu importieren, eine Kampagne zu entwerfen und per E-Mail an die Kunden auszusenden. Geben Sie Ihren E-Mail-Kampagnen den professionellen Schliff. Zeigen Sie eine Vorschau des Posteingangs an, und beobachten und verfolgen Sie alle Kampagnenergebnisse. Die Anwendung kann heruntergeladen und lokal installiert oder online verwendet werden.
+
+Die Nutzung ist für Sie kostenfrei.</value>
+  </data>
+  <data name="Entry_ocPortal_Title" xml:space="preserve">
+    <value>ocPortal</value>
+  </data>
+  <data name="Entry_ocPortal_Summary" xml:space="preserve">
+    <value>Ein leistungsstarkes und flexibles CMS, dessen Schwerpunkt auf dem Aufbau von Onlinecommunitys sowie dynamischer und interaktiver Websites liegt. ocPortal umfasst Funktionen zum Bloggen, Verwalten von Foren, Bereitstellen von Downloads, Hosten von Galerien, Einbinden eigener Datenbanken, eCommerce und vieles mehr. Dieses CMS ist in allen Einzelheiten konfigurierbar, um höchsten Standards und höchster Anwenderfreundlichkeit zu genügen.</value>
+  </data>
+  <data name="Entry_ocPortal_LongSummary" xml:space="preserve">
+    <value>ocPortal ist ein CMS mit zahlreichen Web 2.0- und Communityfunktionen zur Umsetzung innovativer und hochentwickelter Websites. ocPortal unterstützt verschiedene Arten von Inhalten (Galerien, News/Newsletter usw.) und bindet Rich Media sowie Werbeanzeigen ein. Die Communityfunktionen umfassen Foren, Mitgliederblogs, Chatrooms, WIKI sowie eine Funktion zur Kommentierung/Bewertung der Inhalte.
+
+Mit ocPortal gestalten Sie das Erscheinungsbild Ihrer Website ganz nach Ihren Wünschen. Ihnen stehen unbegrenzte Funktionen zur Verfügung, die optional einsetzbar sind. Die Funktionsintegration stellt den Kern der ocPortal-Philosophie dar und umfasst eine websiteweite Suchmaschine und vereinheitlichte Mitgliederprofile.
+
+Von Anfang an genügt Ihre Website den höchsten Standards an Barrierefreiheit und Professionalität und erlangt durch automatisches SEO eine höhere Position in Google. Hackerangriffe werden von der Website automatisch erfasst und blockiert, und für die Zugriffskontrolle stehen Ihnen verschiedene Möglichkeiten wie Zahlabonnements zur Verfügung.
+
+ocPortal ist eine Software für alle Anforderungen und geht weit über ein normales Inhaltsverwaltungssystem (Content Management System, CMS) hinaus.</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Title" xml:space="preserve">
+    <value>XCL22x-pack201X für IIS</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_Summary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_XCL22xpack201XforIIS_LongSummary" xml:space="preserve">
+    <value>XOOPS Cube 2.2 Distribution Pack 2012</value>
+  </data>
+  <data name="Entry_hevod_Title" xml:space="preserve">
+    <value>hevod – Video auf Abruf</value>
+  </data>
+  <data name="Entry_hevod_Summary" xml:space="preserve">
+    <value>Fügen Sie einen Film als Hintergrund (derzeit nur SWF-Format), Serververwaltung, Administratorverwaltung, Klassifizierungsverwaltung und viele andere Module hinzu.</value>
+  </data>
+  <data name="Entry_hevod_LongSummary" xml:space="preserve">
+    <value>Das Video-auf-Abruf-System hevod ist ein Open Source-Entwicklungstool auf der Grundlage des ASP.NET-Onlinewiedergabesystems für Videos. Das System basiert auf einer einfachen dreischichtigen Entwicklung und einer Access-Datenbank, die für kleinere und mittelgroße Webanwendungen geeignet ist.
+
+Fügen Sie einen Film als Hintergrund (derzeit nur SWF-Format), Serververwaltung, Administratorverwaltung, Klassifizierungsverwaltung und viele andere Module hinzu.
+
+Beim Zugriff wird jedes Mal ein Zufallscode generiert, um das Benutzerkonto mittels md5-Verschlüsselung zu verifizieren.</value>
+  </data>
+  <data name="Entry_concrete5ja_Title" xml:space="preserve">
+    <value>concrete5 – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_concrete5ja_Summary" xml:space="preserve">
+    <value>concrete5 – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_concrete5ja_LongSummary" xml:space="preserve">
+    <value>concrete5 – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Title" xml:space="preserve">
+    <value>NopCommerce – Italienisch</value>
+  </data>
+  <data name="Entry_NopCommerceIT_Summary" xml:space="preserve">
+    <value>Italienische Version und Portieren von NopCommerce 1.9</value>
+  </data>
+  <data name="Entry_NopCommerceIT_LongSummary" xml:space="preserve">
+    <value>Italienische Version und Portieren von NopCommerce 1.9. NopCommerce wird als betriebsbereite Anwendung auf Italienisch angeboten, wobei Informationen über Städte und kommunale Verwaltung auf Unternehmen mit Sitz in Italien zugeschnitten sind.</value>
+  </data>
+  <data name="Entry_drupal7heb_Title" xml:space="preserve">
+    <value>Drupal 7 – Hebräische Version</value>
+  </data>
+  <data name="Entry_drupal7heb_Summary" xml:space="preserve">
+    <value>Drupal 7 mit hebräischen Übersetzungsdateien.</value>
+  </data>
+  <data name="Entry_drupal7heb_LongSummary" xml:space="preserve">
+    <value>Drupal 7 mit hebräischen Übersetzungsdateien.</value>
+  </data>
+  <data name="Entry_RakuCMS_Title" xml:space="preserve">
+    <value>RakuCMS</value>
+  </data>
+  <data name="Entry_RakuCMS_Summary" xml:space="preserve">
+    <value>RakuCMS ist eine einfache erweiterbare CMS-Lösung, die auf Microsoft ASP.NET und anderen Webstandardtechnologien aufsetzt, damit Onlineredakteure und Entwickler von Inhalten statische und dynamische Website schnell und einfach erstellen und pflegen können.</value>
+  </data>
+  <data name="Entry_RakuCMS_LongSummary" xml:space="preserve">
+    <value>RakuCMS ist eine einfache erweiterbare CMS-Lösung, die auf Microsoft ASP.NET und anderen Webstandardtechnologien aufsetzt, damit Onlineredakteure und Entwickler von Inhalten statische und dynamische Website schnell und einfach erstellen und pflegen können.</value>
+  </data>
+  <data name="Entry_nearforums_Title" xml:space="preserve">
+    <value>Nearforums</value>
+  </data>
+  <data name="Entry_nearforums_Summary" xml:space="preserve">
+    <value>Nearforums ist ein einfaches modernes Diskussionsforum, das mit ASP.NET MVC in C# entwickelt wurde. Als Open Source-Tool unter einer "liberalen" Lizenz (MIT) eignet sich Nearforums für Unternehmen und Entwickler und umfasst herausragende Funktionen wie die Anmeldung bei Facebook/Twitter, taggestützte Navigation, umfassende Webadministration, RSS-Feeds, standardkonforme HTML und SEO-Optimierung.</value>
+  </data>
+  <data name="Entry_nearforums_LongSummary" xml:space="preserve">
+    <value>Nearforums ist ein einfaches modernes Diskussionsforum, das mit ASP.NET MVC in C# entwickelt wurde. Als Open Source-Tool unter einer "liberalen" Lizenz (MIT) eignet sich Nearforums für Unternehmen und Entwickler und umfasst herausragende Funktionen wie die Anmeldung bei Facebook/Twitter, taggestützte Navigation, umfassende Webadministration, integrierte Suchmodule, RSS-Feeds, standardkonforme HTML- und SEO-Optimierung.</value>
+  </data>
+  <data name="Entry_FishopNet_Title" xml:space="preserve">
+    <value>Fishop.Net</value>
+  </data>
+  <data name="Entry_FishopNet_Summary" xml:space="preserve">
+    <value>Fishop.Net ist ein benutzerfreundliches E-Commerce-Produkt, das in allen seinen Komponenten vollständig anpassbar ist</value>
+  </data>
+  <data name="Entry_FishopNet_LongSummary" xml:space="preserve">
+    <value>Fishop.Net ist eine E-Commerce-Anwendung, die aus Sicht der Kunden und des Websiteadministrators für einfache Bedienung entwickelt wurde.
+Ein einfacher Setup-Assistent macht fishop.Net schon in wenigen Schritten einsatzbereit. Fishop.Net bietet außerdem die Möglichkeit, mehrere Sprachen festzulegen, mehrere Übermittlungsmethoden mit automatischer Nachverfolgung zu implementieren, Benachrichtigungs-E-Mails an Kunden anzupassen, Produktabweichungen (z. B. Größe und Farbe von Textilien) anzugeben und das grafische Design mit einem Mausklick anzupassen.
+Einige grafische Designs sind in Fishop.Net bereits vorinstalliert. Um die Anwendung weiter zu personalisieren, können Sie zusätzliche Designs auf der Website "www.fishopnet.it" erwerben.
+Schließlich bietet Fishop.net die Möglichkeit, den bereits vorinstallierten PayPal-Zahlungsanbieter zu verwenden oder weitere spezielle Anbieter zu erwerben.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Title" xml:space="preserve">
+    <value>Tandem Server CMS</value>
+  </data>
+  <data name="Entry_TandemServerCMS_Summary" xml:space="preserve">
+    <value>Tandem Server CMS ist eine Lösung zur Verwaltung kleinerer Unternehmenswebsites und persönlicher Websites. Mit unserem intuitiven Onlinepublishingtool sind Updates für Ihre Website schnell ausgeführt. Tandem Server ist kostenfrei und erfordert nur einen grundlegenden Windows-Hostingplan. Probieren Sie es einfach aus.</value>
+  </data>
+  <data name="Entry_TandemServerCMS_LongSummary" xml:space="preserve">
+    <value>Kostenloses und benutzerfreundliches Inhaltsverwaltungssystem für kleinere Unternehmenswebsites und persönliche Websites. Das Design von Tandem Server macht die Pflege Ihrer Website denkbar einfach.</value>
+  </data>
+  <data name="Entry_WordPressGerman_Title" xml:space="preserve">
+    <value>WordPress – Deutsch</value>
+  </data>
+  <data name="Entry_WordPressGerman_Summary" xml:space="preserve">
+    <value>WordPress ist eine Websoftware zur Umsetzung ansprechender Websites oder Blogs. WordPress ist kostenlos und unbezahlbar zugleich.</value>
+  </data>
+  <data name="Entry_WordPressGerman_LongSummary" xml:space="preserve">
+    <value>An der Kernsoftware tüfteln Hunderte freiwilliger Communitymitglieder, und wann immer nötig, warten schon Tausende neuer Plug-Ins und Designs, die Ihrer Website einen unvergleichlichen Stil verleihen. Mehr als 25 Millionen Benutzer nutzen WordPress, um einen Ort im Web zu etablieren, an dem sie sich zu Hause fühlen. Werden Sie Teil dieser großen Community.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Title" xml:space="preserve">
+    <value>WordPress – Portugiesisch (Brasilien)</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_Summary" xml:space="preserve">
+    <value>WordPress ist eine Websoftware zur Umsetzung ansprechender Websites oder Blogs. WordPress ist kostenlos und unbezahlbar zugleich.</value>
+  </data>
+  <data name="Entry_WordPressPTBrasil_LongSummary" xml:space="preserve">
+    <value>WordPress ist eine Websoftware zur Umsetzung ansprechender Websites oder Blogs. WordPress ist kostenlos und unbezahlbar zugleich.</value>
+  </data>
+  <data name="Entry_SplendidCRM_Title" xml:space="preserve">
+    <value>SplendidCRM</value>
+  </data>
+  <data name="Entry_SplendidCRM_Summary" xml:space="preserve">
+    <value>SplendidCRM ist eine Open Source-CRM-Anwendung zur kommerziellen Nutzung und richtet sich an Unternehmen, die Microsoft-basierte Server einsetzen.</value>
+  </data>
+  <data name="Entry_SplendidCRM_LongSummary" xml:space="preserve">
+    <value>SplendidCRM ist eine Open Source-CRM-Anwendung und richtet sich an Unternehmen, die Microsoft-basierte Server einsetzen.  SplendidCRM wurde unter Einsatz der besten Entwicklungstools und Best Practices für die Webanwendungsentwicklung umgesetzt. Das hat SplendidCRM zu einer hochgradig skalierbaren und anpassungsfähigen Unternehmensanwendung gemacht, die zu einem Bruchteil der Kosten erhältlich ist, die Produkte anderer führender CRM-Anbieter kosten.
+
+</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Title" xml:space="preserve">
+    <value>WordPress – Hebräische Version</value>
+  </data>
+  <data name="Entry_WordpressHebrew_Summary" xml:space="preserve">
+    <value>WordPress einschließlich hebräischer Übersetzung.</value>
+  </data>
+  <data name="Entry_WordpressHebrew_LongSummary" xml:space="preserve">
+    <value>WordPress einschließlich hebräischer Übersetzung.</value>
+  </data>
+  <data name="Entry_DotNetAge_Title" xml:space="preserve">
+    <value>DotNetAge</value>
+  </data>
+  <data name="Entry_DotNetAge_Summary" xml:space="preserve">
+    <value>DotNetAge ist eine Plattform für CMS, Social Networking und Mvc RAD. DotNetAge konzentriert sich auf ästhetisches Design, Benutzerfreundlichkeit, SEO und Webstandards. DotNetAge bietet eine intuitive Oberfläche, über die technisch nicht so versierte Benutzer problemlos neue Websites erstellen oder die Funktionalität und Merkmale bestehender Websites erweitern.</value>
+  </data>
+  <data name="Entry_DotNetAge_LongSummary" xml:space="preserve">
+    <value>DotNetAge steht für eine revolutionäre Benutzeroberfläche, Einfachheit, Skalierbarkeit und exzellente SEO-Ergebnisse - kurz für alles, was ein durchdachtes Produkt leisten muss.
+DotNetAge umfasst eine ausgesprochen benutzerfreundliche Drag &amp; Drop-Oberfläche zur grafischen Erstellung von Webseiten. Leistungsstarke Verwaltungstools machen die Pflege von Websites und die Inhaltsverwaltung zu einer einfachen Angelegenheit. DotNetAge bietet vielfältige offene Web 2.0-Bibliotheken (Blogging, Opml, OSD, RSS, ATOM, BlogML, OpenID, SiteMap), Online Widget-Writer (HTML, Razor, ASP.NET-Formular), jQuery Mvc UI-Hilfsprogramme und vieles mehr. Entwickler werden es lieben.
+
+</value>
+  </data>
+  <data name="Entry_phpwind_IIS_Title" xml:space="preserve">
+    <value>phpwind für IIS </value>
+  </data>
+  <data name="Entry_phpwind_Summary" xml:space="preserve">
+    <value>PHPWind-Foren论坛系统是一套采用PHP und MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_phpwind_LongSummary" xml:space="preserve">
+    <value>PHPWind Forums论坛系统是一套采用PHP + MySQL方式运行的开源软件程序，可以帮助您轻松搭建并管理论坛。经过近7年研发，拥有成熟的架构，完善的功能和丰富的资源支持，在速度和负载方面尤为表现出色。
+</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Title" xml:space="preserve">
+    <value>BlogEngine.NET – Hebräisch</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_Summary" xml:space="preserve">
+    <value>BlogEngine.NET ist ein Open Source-Blogprojekt von ASP.NET, das aus dem Wunsch nach einer besseren Blogplattform heraus entstand. Wir konzentrierten uns auf Einfachheit, problemlose Erweiterbarkeit und innovative Funktionen, nutzten dabei jedoch gleichzeitig auch die aktuellen .NET-Funktionen. BlogEngine.NET kann problemlos angepasst werden.</value>
+  </data>
+  <data name="Entry_BlogEngineNETHebrew_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET ist ein Open Source-Blogprojekt von ASP.NET, das aus dem Wunsch nach einer besseren Blogplattform heraus entstand. Wir konzentrierten uns auf Einfachheit, problemlose Erweiterbarkeit und innovative Funktionen, nutzten dabei jedoch gleichzeitig auch die aktuellen .NET-Funktionen. BlogEngine.NET kann problemlos angepasst werden. Wir stellen viele Themen, Widgets und Erweiterungen zum Herunterladen bereit, oder Sie erstellen diese selbst. Dazu benötigen Sie lediglich einige grundlegende .NET-Kenntnisse. Mit BlogEngine.NET ist es ganz einfach, den Blog so anzupassen, dass er in Darstellung und Funktionsweise Ihren Vorstellungen entspricht.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Title" xml:space="preserve">
+    <value>Drupal Commerce Kickstart</value>
+  </data>
+  <data name="Entry_drupalcommercesql_Summary" xml:space="preserve">
+    <value>Drupal Commerce ist ein schlankes und rationell arbeitendes Open Source-
+E-Commerce-Framework, das auf Drupal 7 aufsetzt. Verwenden Sie es
+zur Erstellung flexibler und hochgradig anpassungsfähiger Websites,
+und vertrauen Sie auf die beste Plattform für Social Commerce.</value>
+  </data>
+  <data name="Entry_drupalcommercesql_LongSummary" xml:space="preserve">
+    <value>Drupal Commerce ist ein schlankes und rationell arbeitendes Open Source-
+E-Commerce-Framework, das auf Drupal 7 aufsetzt. Verwenden Sie es
+zur Erstellung flexibler und hochgradig anpassungsfähiger Websites,
+und vertrauen Sie auf die beste Plattform für Social Commerce.
+
+Drupal ist ein kostenloses Softwarepaket, mit dem jeder auf einfache Weise vielfältige Inhalte auf einer Website veröffentlichen, verwalten und organisieren kann. Hunderttausende von Einzelpersonen und Organisationen nutzen Drupal für die unterschiedlichsten Websites.
+
+Drupal wird von einer Hunderttausende Nutzer und Entwickler starken Community gepflegt und weiterentwickelt. Die Anwendung wird gemäß den Bedingungen der GNU General Public License ("GPL") verbreitet und kann von jedermann kostenlos heruntergeladen und mit anderen gemeinsam verwendet werden. Die Community bringt das Projekt voran. Dieses offene Entwicklungsmodell bedeutet, dass Nutzer unaufhörlich daran arbeiten, Drupal zu einer hochkarätigen Plattform zu machen, die die neuesten Webtechnologien unterstützt.
+</value>
+  </data>
+  <data name="Entry_SQLCMS_Title" xml:space="preserve">
+    <value>SQLCMS</value>
+  </data>
+  <data name="Entry_SQLCMS_Summary" xml:space="preserve">
+    <value>SQLCMS generiert ein AJAX-Inhaltsverwaltungssystem für beliebige Microsoft SQL Server-Datenbanken (2000/2005/2008).</value>
+  </data>
+  <data name="Entry_SQLCMS_LongSummary" xml:space="preserve">
+    <value>SQLCMS generiert ein AJAX-Inhaltsverwaltungssystem für beliebige SQL Server-Datenbanken (kostenlos bei nicht kommerzieller Nutzung. Lizenzierungsoptionen sind verfügbar.) 
+
+Funktionen:
+
+* Paging, Anzeige, Detaillieren, Bearbeiten, Einfügen, Löschen, Suchen und Exportieren beliebiger Daten
+* Vollständiges rollenbasiertes Sicherheitsmodell
+* Anpassung an Datenbankänderungen
+* Zugriff auf Tabellen, Sichten und gespeicherte Prozeduren
+* Clientseitiges Javascript-basiertes Rendering und Überprüfung
+* Drilldown auf verbundene Tabellen
+* Erstellen von Nachschlagelisten für die einfache Dateneingabe
+* Benutzerdefinierte Aktionen
+* Panel-Sets
+* Aktivitätsberichte mit IP-Adressverfolgung
+* Übersetzt in Spanisch, Italienisch, Französisch, Deutsch und Chinesisch. Unterstützung für jede andere Sprache.
+* ... Und vieles mehr!
+
+</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Title" xml:space="preserve">
+    <value>OpenPNE – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_Summary" xml:space="preserve">
+    <value>OpenPNE – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_OpenPNE_Japanese_LongSummary" xml:space="preserve">
+    <value>OpenPNE – Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Title" xml:space="preserve">
+    <value>WordPress – Spanisch</value>
+  </data>
+  <data name="Entry_WordPressSpanish_Summary" xml:space="preserve">
+    <value>Die Geschichte von WordPress begann im Jahr 2003 mit einem einzigen Bit Code, um die Typografie bei alltäglichen Schreibarbeiten zu verbessern. Die Anzahl der damaligen Benutzer lässt sich an Händen und Füßen abzählen. Seit dieser Zeit hat es sich zum größten selbstgehosteten Bloggingtool der Welt entwickelt, das auf mehreren Hunderttausend Sites verwendet und täglich von mehr als zehn Millionen Menschen genutzt wird.</value>
+  </data>
+  <data name="Entry_WordPressSpanish_LongSummary" xml:space="preserve">
+    <value>Die Geschichte von WordPress begann im Jahr 2003 mit einem einzigen Bit Code, um die Typografie bei alltäglichen Schreibarbeiten zu verbessern. Die Anzahl der damaligen Benutzer lässt sich an Händen und Füßen abzählen. Seit dieser Zeit hat es sich zum größten selbstgehosteten Bloggingtool der Welt entwickelt, das auf mehreren Hunderttausend Sites verwendet und täglich von mehr als zehn Millionen Menschen genutzt wird.</value>
+  </data>
+  <data name="Entry_eccube_Title" xml:space="preserve">
+    <value>EC-CUBE</value>
+  </data>
+  <data name="Entry_eccube_Summary" xml:space="preserve">
+    <value>Japanische eCommerce-Anwendung für PHP.</value>
+  </data>
+  <data name="Entry_eccube_LongSummary" xml:space="preserve">
+    <value>Japanische eCommerce-Anwendung für PHP.</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Title" xml:space="preserve">
+    <value>Geeklog</value>
+  </data>
+  <data name="Entry_geeklogjapanese_Summary" xml:space="preserve">
+    <value>Die Geeklog-Kernanwendung kann auf einfache Weise erweitert werden. Dazu stehen die zahlreichen von der Community entwickelten Plug-Ins und andere Add-Ons zur Verfügung, die die Funktionalität entscheidend verändern. Die verfügbaren Plug-Ins umfassen Foren, Bildgalerien und vieles mehr.</value>
+  </data>
+  <data name="Entry_geeklogjapanese_LongSummary" xml:space="preserve">
+    <value>Geeklog ist eine Open Source-Anwendung zur Verwaltung dynamischer Webinhalte. Geschrieben in PHP unterstützt sie MySQL, PostgreSQL oder MS SQL als Datenbank-Back-End. Geeklog dient entweder als direkt einsatzfähiges CMS-System oder als eine Blog-Engine, die Unterstützung für Kommentare, Trackbacks, mehrere Syndikationsformate, Spamfilter und weitere lebenswichtige Funktionen eines solchen Systems vereint. </value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Title" xml:space="preserve">
+    <value>Joomla! – Spanisch</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_Summary" xml:space="preserve">
+    <value>Joomla! Open Source-Content Management System in Spanisch (englische und katalanische Dateien sind ebenfalls enthalten).</value>
+  </data>
+  <data name="Entry_JoomlainSpanish_LongSummary" xml:space="preserve">
+    <value>Joomla in der spanischen Übersetzung. Es sind auch englische und katalanische Dateien verfügbar. Joomla! ist ein Open Source-Inhaltsverwaltungssystem (CMS). Durch das leistungsstarke Anwendungsframework können Entwickler mit Joomla! umfangreiche und komplexe Add-Ons erstellen und so die Möglichkeiten von Joomla! nahezu unbegrenzt erweitern. Mit dem Kernframework von Joomla! können Entwickler schnell und einfach Bestandsverwaltungssysteme, Tools für die Erstellung von Datenberichten, individuelle Produktkataloge, integrierte E-Commerce-Systeme, komplexe Geschäftsverzeichnisse, Reservierungssysteme, Kommunikationstools und vieles mehr erstellen. Da Joomla! auf PHP und MySQL basiert, erstellen Sie leistungsstarke Anwendungen auf einer offenen Plattform, die jeder verwenden, weitergeben und unterstützen kann.</value>
+  </data>
+  <data name="NewWebApplications" xml:space="preserve">
+    <value>Neue Webanwendungen</value>
+  </data>
+  <data name="Entry_TangoCMS_Title" xml:space="preserve">
+    <value>TangoCMS</value>
+  </data>
+  <data name="Entry_TangoCMS_Summary" xml:space="preserve">
+    <value>Leistungsfähig. Einfach. Sicher. Mit TangoCMS können Sie schnell und einfach eine vollständige Website erstellen und verwalten. Leistungsstarke Funktionen, eine einfache, intuitive Benutzeroberfläche und eine sicherheitsorientierte Struktur - TangoCMS bietet alles, was Sie brauchen.</value>
+  </data>
+  <data name="Entry_TangoCMS_LongSummary" xml:space="preserve">
+    <value>TangoCMS zeichnet sich durch Benutzerfreundlichkeit und leistungsfähige Funktionen aus, mit denen Sie einfache und komplexe Websites schnell und unkompliziert verwalten können. Über seine einfache und intuitive Oberfläche können Sie Ihre Website ganz bequem und ohne großen Aufwand verwalten. Und dank der modularen Struktur können Sie die vorhandenen Funktionen nach Bedarf weiter ergänzen. Blogs, Galerien/Videos, Artikel, Benutzerverwaltung, Kontaktformulare, Umfragen und vieles mehr. Da bei der Entwicklung Sicherheitsaspekte umfassend berücksichtigt wurden, können Sie darauf vertrauen, dass die Sicherheit Ihrer Website und Ihrer Benutzer stets gewahrt bleibt. Leistungsstark. Einfach. Sicher.</value>
+  </data>
+  <data name="Entry_Dropthings_Title" xml:space="preserve">
+    <value>Dropthings</value>
+  </data>
+  <data name="Entry_Dropthings_Summary" xml:space="preserve">
+    <value>Ein aus Widgets aufgebautes personalisierbares Web 2.0-Portal, das mit ASP.NET 3.5, jQuery und .NET 3.5 erstellt wurde. Eine voll funktionsfähige Webanwendung, die erweitert werden kann, um eigene Web 2.0-Websites sowie Enterprise-Dashboards zu erstellen, in denen Informationen aus verschiedenen Quellen zusammengestellt werden. Benutzer können die Widgets mithilfe von Drag &amp; Drop personalisieren. Integriert sind Widgets für RSS, Twitter, Flickr, Weather, HTML und statischen Inhalt. </value>
+  </data>
+  <data name="Entry_Dropthings_LongSummary" xml:space="preserve">
+    <value>Dropthings ist ein personalisierbares Webportal, das die Leistungsfähigkeit des AJAX- und Widget-Frameworks beim Erstellen von Web 2.0-Websites sowie Enterprise-Dashboards eindrucksvoll unter Beweis stellt. Hierbei handelt es sich um ein Open Source-Produkt. Sie können die voll funktionsfähige Website auf beliebige Weise erweitern. Zusätzlich zu den integrierten Widgets für RSS, Twitter, Flickr, Weather, Stock, HTML und statischen Inhalt können Sie eigene Widgets erstellen. Ein Framework zum Abrufen von Daten aus verschiedenen Quellen wird bereitgestellt. Sie können Widgets zum Anzeigen von Berichten und Datenrastern aus Ihrer Datenbank, zum Verwenden von Webdiensten, zum Rendern von Daten usw. erstellen. Dropthings ist eine N-Tier-Webanwendung mit nahezu 100-prozentiger automatisierter Testabdeckung auf der Geschäftsebene sowie zu 80 Prozent automatisierten Benutzeroberflächentests, die sämtliche Benutzeroberflächenverhalten abdecken. 
+
+Funktionen:
+* Internationalisierung – Englisch, Französisch, Spanisch und Deutsch werden bereits unterstützt.
+* Anpassbare Seiten und Widgets
+* Personalisierung mit Drag &amp; Drop
+* Widget-Framework mit einer Vielzahl von Funktionen
+* Sehr schnelles Laden von Seiten mit Zwischenspeicherung und modernen JavaScript-Funktionen für einen schnellen und flüssigen Seitenaufbau.
+* Entity Framework für den Datenbankzugriff. Eine einfache Unterstützung anderer Datenbanken ist durch ein Repository-Muster gegeben. 
+* jQuery-Animationen
+</value>
+  </data>
+  <data name="Entry_wordpressit_Title" xml:space="preserve">
+    <value>WordPress 3.3.1 – italienische Version</value>
+  </data>
+  <data name="Entry_wordpressit_Summary" xml:space="preserve">
+    <value>WordPress 3.3.1 – offizielle italienische Version</value>
+  </data>
+  <data name="Entry_wordpressit_LongSummary" xml:space="preserve">
+    <value>WordPress 3.3.1 – offizielle italienische Version</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Title" xml:space="preserve">
+    <value>YetAnotherForum.NET</value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_Summary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF) ist das älteste und ausgereifteste (kostenlose) Open Source-Diskussionsforum mit einer Vielzahl von Funktionen für Websites, auf denen ASP.NET ausgeführt wird. </value>
+  </data>
+  <data name="Entry_YetAnotherForumNET_LongSummary" xml:space="preserve">
+    <value>YetAnotherForum.NET (YAF) ist das älteste und ausgereifteste (kostenlose) Open Source-Diskussionsforum mit einer Vielzahl von Funktionen für Websites, auf denen ASP.NET ausgeführt wird. Komplett in C# geschrieben, stellt YAF eine einmalige Kombination aus Open Source, der .NET-Plattform von Microsoft und Beiträgen der internationalen .NET-Entwicklercommunity dar. YAF kann auf beliebigen Webservern ausgeführt werden, auf denen ASP.NET v3.5 SP1 (und höher) unterstützt wird und SQL Server 2000 (oder höher) installiert ist. YAF unterliegt der GPL-Lizenz. Die folgenden Funktionen werden beispielsweise unterstützt: # Verwendet AJAX und jQuery für Steuerelemente.
+# Unterstützung von Microsoft SQL Server 2005/2008-Datenbanken.
+# Zu 100 % XHTML-validiert.
+# Isoliertes CSS-Designsystem: keine Konflikte mit vorhandenen Websites.
+# Echte Unterstützung von ASP.NET-Mitgliedschafts-/Rollen-/Profilanbietern – keine Abhängigkeiten.
+# Wird in .NET als Benutzersteuerelement (.ascx) ausgeführt, wodurch die Website- und CMS-Integration vereinfacht wird.
+# Instant Chat-System mit Flyout.
+# Austausch mit anderen Benutzersystemen für eine breitere Teilnahme – einschließlich von Berichterstellung.
+# Albumsystem für individuelle Benutzergrafiken mit Funktion zum automatischen Erstellen von Miniaturbildern.
+# Erweiterte Avatar-Unterstützung, u. a. mit Gravatar-Option und automatischem Erstellen von Miniaturbildern.
+# Benutzerdefiniertes "BBCode"-Erweiterungssystem, mit dem Communityfunktionen hinzugefügt werden können.
+# Dynamisches Plug-In-Modul, das Modulerweiterungen zulässt.
+# Viele SEO-Funktionen, einschließlich von dynamisch generierten Metatags für Themenseiten.</value>
+  </data>
+  <data name="Entry_Tiki_Title" xml:space="preserve">
+    <value>Tiki Wiki CMS Groupware</value>
+  </data>
+  <data name="Entry_Tiki_Summary" xml:space="preserve">
+    <value>Tiki ist eine kostenlose webbasierte Open Source-Universalanwendung, die Zusammenarbeit, Veröffentlichung, eCommerce, soziale Netzwerke, CRM und Produktivitätstools für das Büro bietet.
+</value>
+  </data>
+  <data name="Entry_Tiki_LongSummary" xml:space="preserve">
+    <value>Tiki ist eine leistungsfähige webbasierte Universalanwendung, die Zusammenarbeit, Veröffentlichung, eCommerce, soziale Netzwerke, CRM und Produktivitätstools für das Büro bietet.
+
+Tiki ist das ideale Tool zum Erstellen und Verwalten von Websites/Wikis/Groupware/CMS/Foren/Blogs/Fehlernachverfolgungen/Online Office Suites oder beliebigen anderen Projekten, die in einem Browserfenster ausgeführt werden können.
+
+Tiki ist freie, kostenlose Software für alle! Die Anwendung verfügt über sämtliche Funktionen, die integriert sein sollten:
+Wikis (wie Wikipedia)
+Foren (wie phpBB)
+Blogs (wie WordPress)
+Artikel (wie Yahoo News)
+Bilderkatalog (wie Flickr)
+Kartenserver (wie Google Maps)
+Linkverzeichnis (wie DMOZ)
+Mehrsprachigkeit (wie Babel Fish)
+Fehlernachverfolgung (wie Bugzilla)
+RSS-Feeds (wie Digg)
+Zahlungsfunktionen (wie PayPal)
+Kalkulationstabelle, Diaschau, Zeichnungen, usw.
+Kostenlose Open Source-Software (LGPL)
+
+Und vieles mehr...
+Alles ist integriert (konkurrenzloses Produkt)
+
+Egal, wonach Sie suchen – Tiki bietet es wahrscheinlich. Tiki ist eine kostenlose Open Source-Webanwendung, die die größte Anzahl integrierter Funktionen besitzt.
+
+Tiki verwendet die folgenden Open Source-Technologien als Grundlage:
+PHP-Skriptsprache
+MySQL- oder MariaDB-Datenbank
+Smarty-Vorlagenmodul
+jQuery JavaScript-Bibliothek
+Zend Framework
+</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Title" xml:space="preserve">
+    <value>Composite C1-CMS</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_Summary" xml:space="preserve">
+    <value>Composite C1-CMS ist ein voll funktionsfähiges, kostenloses Open Source-Verwaltungssystem für Webinhalte, das für (und von) Webexperten entwickelt wurde, die angepasste Websites erstellen.
+
+Entwickler können Layouts verwalten und das System mithilfe von ASP.NET Razor, Web Forms, MVC und XSLT erweitern. Dies bietet erhebliche Vorteile für Back-End- sowie Front-End-Entwickler, die das Erscheinungsbild von Websites bis ins kleinste Detail steuern können.</value>
+  </data>
+  <data name="Entry_CompositeC1CMS_LongSummary" xml:space="preserve">
+    <value>Composite C1-CMS ist ein voll funktionsfähiges, kostenloses Open Source-Verwaltungssystem für Webinhalte, das für (und von) Webexperten entwickelt wurde, die angepasste Websites erstellen.
+
+Die Benutzeroberfläche ist sehr funktional und auf die Ausführung von Aufgaben ausgerichtet. Sie ermöglicht unerfahrenen ebenso wie versierten Benutzern das Ausführen von Aufgaben sowie die Zusammenarbeit mithilfe vertrauter Tools und Hilfsmittel. Große technische Kenntnisse sind für das Erstellen von Websites mit Composite C1 nicht erforderlich – wenn Sie darüber verfügen, regieren Sie das System.
+
+Entwickler können Layouts verwalten und das System mithilfe von ASP.NET Razor, Web Forms, MVC und XSLT erweitern. Dies bietet erhebliche Vorteile für Back-End- sowie Front-End-Entwickler, die das Erscheinungsbild von Websites bis ins kleinste Detail steuern können.
+
+Da das System auf .NET 4 basiert, besitzen Entwickler Zugriff auf die neuesten Technologien, eine austauschbare, wohlgeformte Architektur und API sowie uneingeschränkten LINQ-Datenzugriff. Es handelt sich um ein flexibles System mit einfacher Installation, einfacher Windows Azure-Migration, Unterstützung für XML- und für SQL Server-Daten, einer Vielzahl kostenloser, einfach zu installierender Add-Ons und einer Reihe von Premium-Angeboten (Add-Ons für Unternehmenswebsites, Support, Upgradedienste, Lizenzen mit uneingeschränkter Gewährleistung). Dies alles macht Composite C1 unter Preis-, Service- und Komplexitätsaspekten zu einem anpassbaren und skalierbaren Produkt.
+
+Der Schwerpunkt liegt auf Qualität, Dokumentation, Flexibilität und Entwicklercommunity. Bis jetzt wurden alle Hauptversionen von Composite C1 als "bestes CMS" bei CodePlex bewertet.</value>
+  </data>
+  <data name="Entry_MonoX_Title" xml:space="preserve">
+    <value>MonoX</value>
+  </data>
+  <data name="Entry_MonoX_Summary" xml:space="preserve">
+    <value>MonoX ist ein benutzerfreundliches CMS und eine Social Networking-Plattform für ASP.NET, die auf dem Webparts-Framework aufbaut. Seine interaktive Benutzeroberfläche ist mit modernen Webbrowsern kompatibel, wodurch eine intuitive, Drag &amp; Drop-Interaktion mit den Portalbereichen ermöglicht wird. Zusätzlich zu den 50 integrierten Webparts werden Lokalisierung, Personalisierung, Cloudspeicherung von Daten, SEO und viele weitere fortgeschrittene Funktionen unterstützt.</value>
+  </data>
+  <data name="Entry_MonoX_LongSummary" xml:space="preserve">
+    <value>MonoX ist ein benutzerfreundliches CMS und eine Social Networking-Plattform für ASP.NET, die auf dem Webparts-Framework aufbaut. Aufgrund seiner vielfältigen Funktionen, der Standardkonformität und seiner einfachen Bereitstellung eignet sich das MonoX-Portalmodul ideal für kleine und mittlere Unternehmen. Darüber hinaus werden mehrere Zwischenspeicherungsszenarios unterstützt. Zudem werden Unterstützung für erweiterte Personalisierung, Portalnetzwerke und anbieterbasierte Infrastrukturen, die Cloudspeicherung von Daten und ähnliche Funktionen auf Unternehmensebene geboten. Sowohl für die kommerzielle als auch für die nicht kommerzielle Nutzung fallen keinerlei Kosten an. 
+
+MonoX bietet mehr als 50 wichtige Webparts sowie eine komplette Infrastruktur, die .NET-Entwicklern das Anpassen des Front-Ends und der Funktionen ihrer Anwendungen ermöglicht. Hauptfunktionen:
+interaktive Benutzeroberfläche, die mit modernen Webbrowsern kompatibel ist, uneingeschränkte Unterstützung des ASP.NET-Webparts-Frameworks, ein voll funktionsfähiges Set von Komponenten zum Erstellen fortgeschrittener Social Media-Umgebungen, Einhaltung von Standards, SEO-Funktionen, 
+skalierbare und robuste Architektur, 
+standardisierte Plug &amp; Play-Module und Open API, hohe Leistung, flexible Datenschicht und unvergleichlich hohe Benutzerfreundlichkeit. 
+
+Benutzer ohne technische Kenntnisse können die meisten Aspekte des Arbeitsportals verwalten. In MonoX werden WYSIWYG-Standardeditoren eingesetzt, der Datei-Manager ahmt das Erscheinungsbild des vertrauten Windows-Explorer nach usw. Offline-Bearbeitungstools auf der Grundlage der MetaWeblog-API (einschließlich von Microsoft Windows LiveWriter) werden uneingeschränkt unterstützt. 
+</value>
+  </data>
+  <data name="Entry_MODxEvolution_Title" xml:space="preserve">
+    <value>MODx-CMS</value>
+  </data>
+  <data name="Entry_MODxEvolution_Summary" xml:space="preserve">
+    <value>MODx Evolution ist die einfache Open Source-PHP-Inhaltsverwaltungsplattform. Sie eröffnet Websitedesignern grenzenlose Freiheit, indem sie ihnen die Verwendung jedes nur denkbaren Designs ermöglicht. Entwickler können ohne jede Einschränkung die meisten Funktionen erweitern und Funktionen hinzufügen. Erstellen Sie einfach zu verwaltende Websites für Administratoren und Bearbeiter, indem Sie ihnen die Tools zur Verfügung stellen, die sie zum Aktualisieren ihrer Website benötigen.</value>
+  </data>
+  <data name="Entry_MODxEvolution_LongSummary" xml:space="preserve">
+    <value>MODx Evolution ist eine der am häufigsten bereitgestellten Open Source-PHP-Anwendungen. MODx kann als typisches Inhaltsverwaltungssystem, aber auch als Plattform für viele komplexere Webanwendungen genutzt werden. Sie eröffnet Websitedesignern grenzenlose Freiheit, indem sie ihnen die Verwendung jedes nur denkbaren Designs ermöglicht. Entwickler können ohne jede Einschränkung die meisten Funktionen erweitern und Funktionen hinzufügen. Die Verwaltungsoberfläche kann komplett angepasst werden, um Websiteadministratoren und Inhaltsbearbeitern genau die Tools zur Verfügung zu stellen, mit denen die Websiteverwaltung erleichtert und der damit verbundene Aufwand minimiert wird.
+
+MODx Evolution bietet eine Vielzahl von Core-Add-Ons und von Benutzern beigesteuerten Add-Ons zur Erweiterung der Funktionalität, auf deren Grundlage Entwickler neue Funktionen erstellen können.
+
+MODx wird durch seine stetig wachsende Community von Benutzern in den MODx-Foren unterstützt. Die einzigartige MODx-Community stellt einen der herausragendsten Vorteile dar. Community-Mitglieder helfen einander und tauschen sich untereinander aus, sie vermitteln neue Ideen, Tipps und Tricks oder helfen bei der Behebung der einfachsten Probleme.</value>
+  </data>
+  <data name="Entry_Kartris_Title" xml:space="preserve">
+    <value>Kartris</value>
+  </data>
+  <data name="Entry_Kartris_Summary" xml:space="preserve">
+    <value>Kartris ist ein bereits fertig erstellter Onlineshop, der in ASP.NET (vb) geschrieben ist. Ein Installations-Assistent sorgt für die schnelle Ersteinrichtung.
+
+Das benutzerfreundliche Back-End unterstützt die strukturbasierte Navigation im Produktkatalog.
+
+Vollständiger Quellcode für Seiten, Steuerelemente, Masterseiten und BLL (Business Logic Layer).
+
+Bietet Unterstützung für 2checkout, Sagepay, Paypal, Worldpay und Google Checkout.</value>
+  </data>
+  <data name="Entry_Kartris_LongSummary" xml:space="preserve">
+    <value>Kartris ist ein kostenloser, bereits fertig erstellter Onlineshop, der in ASP.NET (vb) geschrieben ist. Ein Installations-Assistent sorgt für die schnelle Ersteinrichtung, und mithilfe der Back-End-Systemsteuerung können Hunderte von Konfigurationseinstellungen geändert werden, ohne dass dabei Code geändert werden muss.
+
+Kartris-Funktionen umfassen eine kleine kompilierte Lightweight-Coreanwendung mit Grundfunktionen, während die Seiten, Steuerelemente, Masterseiten und BLL im vollständigen Quellcode bereitgestellt werden. 
+
+Unterstützung mehrerer Sprachen einschließlich nicht westlicher Sprachen (wie Arabisch und Chinesisch).
+
+Wird mit mittlerer Vertrauenswürdigkeit ausgeführt (die beim freigegebenen Hosting am häufigsten verwendet wird), sodass Sie keinen dedizierten Server benötigen. 
+
+Bietet Unterstützung für 2checkout, Sagepay, Paypal, Worldpay und Google Checkout. Durch den modularen Aufbau von Kartris können zusätzliche Zahlungs-Gateways als Plug-Ins installiert werden. UPS- und USPS-Versand inbegriffen.
+
+Integrierter "Produkt-Konfigurator": Ein Basisprodukt (beispielsweise ein Laptop) kann eingerichtet werden, und anschließend können verschiedene Optionen mit Einzelpreisen (Betriebssystemupgrade, Speicherupgrade usw.) konfiguriert werden. Während der Benutzer diese Optionen bearbeitet, ändern sich die sichtbaren Preise in Echtzeit.
+
+Umfasst integrierte Unterstützung für Video und andere Mediengalerien. 
+
+Ausgezeichnete SEO-Funktionen sind integriert, sodass "SEO-freundliche" URLs, benutzerdefinierte Seitennamen, benutzerdefinierte Metatags für die einzelnen Produkte und Google-Sitemaps unterstützt werden. 
+
+Kostenlose Unterstützung für Websites mit bis zu 500 Produkten. Für Benutzer, die einen umfassenderen Katalog verwalten möchten, steht ein Enterprise-Upgrade sowie kostenpflichtiger Support zur Verfügung. Kartris ist für die Verarbeitung umfangreicher Produktkataloge optimiert. Unterstützung für Livewebsites mit einer Million oder mehr Benutzern</value>
+  </data>
+  <data name="Entry_N2CMS_Title" xml:space="preserve">
+    <value>N2 CMS 2.1 MVC Edition</value>
+  </data>
+  <data name="Entry_N2CMS_Summary" xml:space="preserve">
+    <value>ASP.NET MVC-Vorlagen für das N2 CMS Framework</value>
+  </data>
+  <data name="Entry_N2CMS_LongSummary" xml:space="preserve">
+    <value>Ein CMS-Framework, dessen Funktionalität um ein Vorlagenpaket erweitert wurde, mit einer intuitiven Webverwaltungsoberfläche sowie dem effizientesten und entwicklerfreundlichsten Entwicklungsmodell in der .NET-Umgebung.</value>
+  </data>
+  <data name="Entry_phpBB_Title" xml:space="preserve">
+    <value>phpBB</value>
+  </data>
+  <data name="Entry_phpBB_Summary" xml:space="preserve">
+    <value>Seit seiner Entstehung im Jahre 2000 hat sich phpBB™ zur am häufigsten verwendeten Open Source-Forumslösung entwickelt. Wie die Vorgängerversionen lässt sich phpBB™ 3.0 "Olympus" einfach bedienen und installieren, sodass Sie in wenigen Minuten ein Forum einrichten können.</value>
+  </data>
+  <data name="Entry_phpBB_LongSummary" xml:space="preserve">
+    <value>Millionen von Menschen verwenden phpBB täglich und machen es damit zum am weitesten verbreiteten Open Source-Bulletin Board weltweit. Ob Sie mit einer kleinen Gruppe von Freunden in Kontakt bleiben möchten oder nach einer umfassenden Forumslösung mit Unterstützung mehrerer Kategorien für eine Unternehmenswebsite suchen: In phpBB sind alle benötigten Funktionen bereits integriert.
+
+Neue Benutzer beeindruckt vor allem die umfassende Verwaltungsoberfläche von phpBB, mit der selbst kleinste Details ohne eine direkte Codebearbeitung angepasst werden können, und erfahrene Benutzer profitieren davon, dass sich phpBB leicht in bereits bestehende Systeme integrieren lässt.</value>
+  </data>
+  <data name="Entry_Moodle_Title" xml:space="preserve">
+    <value>Moodle</value>
+  </data>
+  <data name="Entry_Moodle_Summary" xml:space="preserve">
+    <value>Moodle ist ein Learning Management System (LMS). Lehrkräfte erhalten damit eine umfassende Toolbox zum Erstellen dynamischer Onlinekurse. Moodle wird auf Open Source-Basis und unter Beteiligung eine großen weltweiten Community betrieben.</value>
+  </data>
+  <data name="Entry_Moodle_LongSummary" xml:space="preserve">
+    <value>Moodle ist ein Learning Management System (LMS), das über die folgenden Hilfsmittel für Lehrkräfte verfügt: Ressourcen, Foren, Quizvorlagen, Hausarbeiten, Lernobjekte, Studien, Umfragen, Datensammlungen, Lektionen, Wikis und Projekte. Daraus können Lehrkräfte webbasierte Kurse zu beliebigen Themen erstellen und die Lernenden dann zu diesen Kursen einladen.  Moodle verfügt über viele Verwaltungsfunktionen wie Gruppen, Zensurenbücher, Berichte, benutzerdefinierte Rollen, Import/Export/Archivierung, Bezahlungssysteme und Integration in viele andere Systeme.   Bei Moodle handelt es sich um eine PHP-Software, die jedoch auf nahezu jeder Plattform und den meisten Datenbanktypen ausgeführt werden kann.</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Title" xml:space="preserve">
+    <value>SugarCRM - Japanisches Versionspaket</value>
+  </data>
+  <data name="Entry_SugarCRMJa_Summary" xml:space="preserve">
+    <value>SugarCRM ist eine Open Source-Softwareanwendung für die Kundenverwaltung (Customer Relationship Management, CRM). Die Software stellt kostenfrei verschiedene wesentliche CRM-Funktionen bereit, z. B. Erstellen einer Kundendatenbank, Versenden von E-Mails an Kunden und Importieren von E-Mail-Anfragen in eine Datenbank!</value>
+  </data>
+  <data name="Entry_SugarCRMJa_LongSummary" xml:space="preserve">
+    <value>SugarCRM ist eine Open Source-Softwareanwendung für die Kundenverwaltung (Customer Relationship Management, CRM). Die Software stellt kostenfrei verschiedene wesentliche CRM-Funktionen bereit, z. B. Erstellen einer Kundendatenbank, Versenden von E-Mails an Kunden und Importieren von E-Mail-Anfragen in eine Datenbank!  Die SugarCRM-Plattform ist sehr gut skalierbar. Mithilfe der Tools für die Modulgenerierung (Module Builder) auf dem Administrationsbildschirm können Entwickler und Benutzer Datenfelder anpassen und benutzerdefinierte Datenbanken erstellen, ohne dass Programmcode geschrieben werden muss. Ausführliche Informationen finden Sie im Benutzerhandbuch für SugarCRM unter http://sugarforum.jp/ (in japanischer Sprache).</value>
+  </data>
+  <data name="NewWebApplication" xml:space="preserve">
+    <value>NewWebApplication</value>
+  </data>
+  <data name="Entry_Kentico_Title" xml:space="preserve">
+    <value>Kentico CMS für ASP.NET </value>
+  </data>
+  <data name="Entry_Kentico_Summary" xml:space="preserve">
+    <value>Kentico CMS ist ein Web Content Management System (WCMS) und Customer Experience Management System (CEMS) für Unternehmen, das eine vollständige Funktionssammlung zum Erstellen von Websites, Intranets, Communitysites und eCommerce-Lösungen auf der Microsoft ASP.NET-Plattform lokal oder in der Cloud bereitstellt.  </value>
+  </data>
+  <data name="Entry_Kentico_LongSummary" xml:space="preserve">
+    <value>Kentico CMS ist ein Web Content Management System (WCMS) und Customer Experience Management System (CEMS) für Unternehmen, das eine vollständige Funktionssammlung zum Erstellen von Websites, Intranets, Communitysites und eCommerce-Lösungen auf der Microsoft ASP.NET-Plattform lokal oder in der Cloud bereitstellt. 
+
+Die Anwendung unterstützt mobile Websites, SEO, Dokumentverwaltung, Onlinemarketingtools, mehrsprachige Websites sowie die Verwaltung mehrerer Websites. Im Lieferumfang sind 70 Module und 400 konfigurierbare Webparts enthalten, und der Quellcode ist verfügbar.
+
+Die Anwendung wird derzeit auf mehr als 15.000 Websites in 87 Ländern eingesetzt. Zu den Kunden zählen Microsoft, Chiquita, Vodafone, O2, Orange, Brussels Airlines, Mazda, Ford, Subaru, Isuzu, Samsung, Gibson, ESPN, Guinness, DKNY, Abbott Labs, Medibank, Ireland.ie und viele mehr.</value>
+  </data>
+  <data name="Entry_DasBlog_Title" xml:space="preserve">
+    <value>dasBlog</value>
+  </data>
+  <data name="Entry_DasBlog_Summary" xml:space="preserve">
+    <value>dasBlog ist eine Bloganwendung von ASP.NET. Sie wird auf ASP.NET 2.0 und höher ausgeführt. Für dasBlog ist keine Datenbank erforderlich, sodass die Anwendung leichter eingerichtet und günstiger gehostet werden kann. Für dasBlog müssen Sie lediglich den Schreibzugriff auf einen Ordner gewähren, damit die Anwendung Ihre Informationen im XML-Format speichern kann.</value>
+  </data>
+  <data name="Entry_DasBlog_LongSummary" xml:space="preserve">
+    <value>dasBlog ist eine Bloganwendung von ASP.NET. Sie wird auf ASP.NET 2.0 und höher ausgeführt und wurde in C# entwickelt. Für dasBlog ist keine Datenbank erforderlich, sodass die Anwendung leichter eingerichtet und günstiger gehostet werden kann. Für dasBlog müssen Sie lediglich den Schreibzugriff auf einen Ordner gewähren, damit die Anwendung Ihre Informationen im XML-Format speichern kann. Sie unterstützt viele Weltsprachen, verfügt über ein Erweiterungsmodell und kann einfach mit Designs und Themen versehen werden.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Title" xml:space="preserve">
+    <value>BlogEngine.NET</value>
+  </data>
+  <data name="Entry_BlogEngineNET_Summary" xml:space="preserve">
+    <value>BlogEngine.NET ist eine Open Source-Blogplattform mit umfangreichen Funktionen, die in ASP.NET geschrieben wurde.  BlogEngine.NET kann problemlos mit vielen Themen, Widgets und Erweiterungen angepasst werden, die zusätzlich heruntergeladen werden können.</value>
+  </data>
+  <data name="Entry_BlogEngineNET_LongSummary" xml:space="preserve">
+    <value>BlogEngine.NET ist ein Open Source-Blogprojekt von ASP.NET, das aus dem Wunsch nach einer besseren Blogplattform heraus entstand. Wir konzentrierten uns auf Einfachheit, problemlose Erweiterbarkeit und innovative Funktionen, nutzten dabei jedoch gleichzeitig auch die aktuellen .NET-Funktionen. BlogEngine.NET kann problemlos angepasst werden. Wir stellen viele Themen, Widgets und Erweiterungen zum Herunterladen bereit, oder Sie erstellen diese selbst. Dazu benötigen Sie lediglich einige grundlegende .NET-Kenntnisse.  Mit BlogEngine.NET ist es ganz einfach, den Blog so anzupassen, dass er in Darstellung und Funktionsweise Ihren Vorstellungen entspricht.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Title" xml:space="preserve">
+    <value>Acquia Drupal 7</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_Summary" xml:space="preserve">
+    <value>Acquia Drupal 7 bietet die schnellste Möglichkeit zum Erstellen dynamischer und sozialer Websites mit redaktionellem und benutzergeneriertem Inhalt.  Es enthält außerdem Drupal Core und beliebte Module.</value>
+  </data>
+  <data name="Entry_AcquiaDrupal_LongSummary" xml:space="preserve">
+    <value>Acquia Drupal 7 bietet die schnellste Möglichkeit zum Erstellen dynamischer und sozialer Websites mit redaktionellem und benutzergeneriertem Inhalt. Unabhängig davon, ob Sie eine Website für die breite Öffentlichkeit oder ein privates Intranet aufbauen: Acquia Drupal 7 stellt bewährte Veröffentlichungsmuster für neue Medien bereit, um Sitebesucher zur aktiven Teilnahme zu bewegen. Acquia Drupal kombiniert Drupal Core mit einigen beliebten Modulen – sowie Zugriff auf die Dienste und Unterstützung von Acquia Network. Mit Tausenden verfügbaren Open Source-Modulen müssen Sie keine Einschränkungen mehr fürchten.</value>
+  </data>
+  <data name="Entry_WordPress_Title" xml:space="preserve">
+    <value>WordPress</value>
+  </data>
+  <data name="Entry_WordPress_Summary" xml:space="preserve">
+    <value>WordPress ist eine Veröffentlichungsplattform auf dem neuesten Stand und konzentriert sich hauptsächlich auf Ästhetik, Webstandards und Benutzerfreundlichkeit.</value>
+  </data>
+  <data name="Entry_WordPress_LongSummary" xml:space="preserve">
+    <value>Die Geschichte von WordPress begann im Jahr 2003 mit einem einzigen Bit Code, um die Typografie bei alltäglichen Schreibarbeiten zu verbessern. Die Anzahl der damaligen Benutzer lässt sich an Händen und Füßen abzählen. Seit dieser Zeit hat es sich zum größten selbstgehosteten Bloggingtool der Welt entwickelt, das auf mehreren Hunderttausend Sites verwendet und täglich von mehr als zehn Millionen Menschen genutzt wird.</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Title" xml:space="preserve">
+    <value>WordPress – Taiwan</value>
+  </data>
+  <data name="Entry_WordPressZhTw_Summary" xml:space="preserve">
+    <value>WordPress ist ein Open Source-Weblog und CMS-System (Content Management System) und eine Publishing-Plattform für individuelle Inhalte, das auf Ästhetik, die Einhaltung von Webseitenstandards und auf Benutzerfreundlichkeit setzt. WordPress wurde 2003 vorgestellt. Damals gab es nur eine sehr einfache Codebasis und sehr wenige Benutzer.</value>
+  </data>
+  <data name="Entry_WordPressZhTw_LongSummary" xml:space="preserve">
+    <value>WordPress ist ein Open Source-Weblog und CMS-System (Content Management System) und eine Publishing-Plattform für individuelle Inhalte, das auf Ästhetik, die Einhaltung von Webseitenstandards und auf Benutzerfreundlichkeit setzt. WordPress wurde 2003 vorgestellt. Damals gab es nur eine sehr einfache Codebasis und sehr wenige Benutzer. Die Benutzer vertrauten auf diese einfache Codebasis als bequemes Tools für das Veröffentlichen und tägliche Schreiben von Artikeln und Texten. WordPresst ist seitdem zum leistungsstärksten und beliebtesten Tool für das Erstellen persönlicher Weblogs weltweit geworden und wird auf mehreren zehntausend Websites verwendet. Wie Sie sehen, wurde das gesamte Projekt von einer Gruppe von Leuten entwickelt, von der begleitenden Dokumentation bis hin zum Code. WordPress ist ein Open Source-Projekt, dass heißt, dass hunderte von Leuten auf der ganzen Welt mit ihren Bemühungen zum Projekt beitragen. Die Zahl der Leute, die an diesem Projekt arbeiten, ist weit größer als bei den meisten kommerziellen Projekten. Und es bedeutet, das die Software für jeden frei verfügbar ist. Sie müssen keinen einzigen Cent bezahlen, egal ob Sie eine kleine private Homepage oder eine Website für ein globales Unternehmen erstellen. Alle Komponenten sind kostenlos. Informationen zu WordPress Taiwan: WordPress Taiwan (traditionelles Chinesisch) wurde im Mai 2008 ins Leben gerufen und startete dann im November 2008. Die Website zielt in erster Linie darauf ab, WordPress weiter zu fördern und bekannt zu machen und zugehörige Informationen zusammenzutragen. Hierzu gehört auch die Pflege des WordPress-Sprachpakets für traditionelles Chinesisch, die Lokalisierung von Dokumenten und der Supportservice im Forum.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Title" xml:space="preserve">
+    <value>SilverStripe CMS</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_Summary" xml:space="preserve">
+    <value>Modernes, benutzerfreundliches Inhaltsverwaltungssystem. Kann über das PHP-Framework von Webentwicklern erweitert werden.</value>
+  </data>
+  <data name="Entry_SilverStripeCMS_LongSummary" xml:space="preserve">
+    <value>SilverStripe ist ein modernes Open Source-Programmierframework und Inhaltsverwaltungssystem (CMS) zum Erstellen und Verwalten von Websites. Es bietet ein bedienerfreundliches, webbasiertes Verwaltungspanel, mit dem jeder die eigene Website verwalten kann, ohne Markup- oder Programmiersprachen beherrschen zu müssen.</value>
+  </data>
+  <data name="Entry_Mayando_Title" xml:space="preserve">
+    <value>Mayando</value>
+  </data>
+  <data name="Entry_Mayando_Summary" xml:space="preserve">
+    <value>Mayando ist eine Fotobloganwendung mit umfangreichen Funktionen, mit der Sie Ihre Fotos online präsentieren können.</value>
+  </data>
+  <data name="Entry_Mayando_LongSummary" xml:space="preserve">
+    <value>Mayando stellt eine umfassende und interaktive Website bereit, auf der Sie Ihre Fotos von externen Sites, wie z. B. Flickr, präsentieren können. Mayando unterstützt Fotos mit Tags und Kommentaren, Fotogallerien, Diashows, statische Seiten, Syndication-Feeds, ein Kontaktformular, Schutz gegen Kommentarspam und die Möglichkeit, unterschiedliche visuelle Designs zu verwenden.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Title" xml:space="preserve">
+    <value>ScrewTurn Wiki 3.0</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_Summary" xml:space="preserve">
+    <value>Mit ScrewTurn Wiki können Sie Wikis erstellen, verwalten und freigeben. Sie basiert auf ASP.NET 3.5 und kann mit Plugins und Designs erweitert und angepasst werden.</value>
+  </data>
+  <data name="Entry_ScrewTurnWiki_LongSummary" xml:space="preserve">
+    <value>Mit ScrewTurn Wiki können Sie Wikis erstellen, verwalten und freigeben. Die Anwendung basiert auf ASP.NET 3.5 und kann mit vielen Plugins und Designs erweitert und angepasst werden. Sie können Daten mit einem einfachen, integrierten Dateisystemanbieter speichern oder durch die zusätzliche Verwendung von SQL Server ein leistungsstarkes und skalierbares System aufbauen.
+
+ScrewTurn Wiki unterstützt Seitenrevisionen und Rollbacks, Entwürfe, Anhänge, eine einfache Dateifreigabe und ein detailliertes Modell für die Konfiguration von Berechtigungen.</value>
+  </data>
+  <data name="Entry_mojoPortal_Title" xml:space="preserve">
+    <value>mojoPortal</value>
+  </data>
+  <data name="Entry_mojoPortal_Summary" xml:space="preserve">
+    <value>Ein einfach zu bedienendes, auf mobile Anforderungen ausgerichtetes, barrierefreies und standardkonformes Inhaltsverwaltungssystem und Webanwendungsframework für ASP.NET mit Blogging, Foren, einem Ereigniskalender, Newsletterfunktionen, Karten, E-Commerce usw.</value>
+  </data>
+  <data name="Entry_mojoPortal_LongSummary" xml:space="preserve">
+    <value>mojoPortal ist ein erweiterbares, einfach zu verwendendes und für Mobilgeräte geeignetes Content Management System (CMS) und Webanwendungs-Framework, das in C# ASP.NET geschrieben wurde. Es beinhaltet Blogs, Foren, einen Kalender, Google Maps, ein Kontaktformular, Newsletter, Umfragen, E-Commerce und vieles mehr.  Wenn Sie in der Lage sind, ein ASP.NET-Benutzersteuerelement zu erstellen, wissen Sie auch, wie Sie eine Funktion implementieren können.  Unterstützt MS SQL 2005/2008/SqlAzure, SQL CE, MySql, PostgreSql, SQLite und Firebird SQL. mojoPortal bemüht sich um die Einhaltung von Webstandards und weitreichende Barrierefreiheit. Überschaubare CSS-Designs. mojoPortal kann auch in der mittleren Vertrauensebene ausgeführt werden.</value>
+  </data>
+  <data name="Entry_KoobooCMS_Title" xml:space="preserve">
+    <value>Kooboo CMS</value>
+  </data>
+  <data name="Entry_KoobooCMS_Summary" xml:space="preserve">
+    <value>Kooboo ist ein flexibles und erweiterbares Inhaltsverwaltungssystem (CMS), das auf ASP.NET MVC basiert. Kooboo unterstützt Sie bei allen gängigen Aufgaben der Webentwicklung und enthält auch viele Unternehmensfunktionen wie Workflow, Versionskontrolle, Veröffentlichung und Integrationsdienst. Sie können auch ohne Kenntnisse im Bereich der Datenbankcodierung auf einfache Weise eine professionelle dynamische Website erstellen.</value>
+  </data>
+  <data name="Entry_KoobooCMS_LongSummary" xml:space="preserve">
+    <value>Kooboo ist ein flexibles und erweiterbares Inhaltsverwaltungssystem (CMS), das auf ASP.NET MVC basiert. Kooboo unterstützt Sie bei allen gängigen Aufgaben der Webentwicklung und enthält auch viele Unternehmensfunktionen wie Workflow, Versionskontrolle, Veröffentlichung und Integrationsdienst. Sie können auch ohne Kenntnisse im Bereich der Datenbankcodierung auf einfache Weise eine professionelle dynamische Website erstellen. Die Entwicklung von Kooboo-Modulen entspricht der Entwicklung normaler ASP.NET MVC-Websites, und es gelten dabei so gut wie keine Einschränkungen. ASP.NET MVC-Anwendungen lassen sich außerdem mithilfe einer einfachen Änderung in Kooboo-Module konvertieren.</value>
+  </data>
+  <data name="Entry_nService_Title" xml:space="preserve">
+    <value>nService</value>
+  </data>
+  <data name="Entry_nService_Summary" xml:space="preserve">
+    <value>Helpdesk- und Supportsoftware, die Organisationen dabei hilft, für ihre Mitarbeiter und Kunden Unterstützung und Support zu leisten. Diese kostenlose Version unterstützt einen Techniker und unbegrenzt viele Endbenutzer.</value>
+  </data>
+  <data name="Entry_nService_LongSummary" xml:space="preserve">
+    <value>nService ist eine einfach zu verwendende Helpdesk- und Supportwebsite. Endbenutzer greifen auf das Selbsthilfeportal zu, um die Wissensdatenbank zu durchsuchen, Serviceanforderungen einzugeben und den Status zu überprüfen. Servicetechniker nutzen die Website zum Veröffentlichen von Wissen und zum Auflisten, Zuweisen, Beantworten, Lösen und Schließen von Serviceanforderungen. Manager verwenden die Website zum Verwalten von Anforderungen und Technikern sowie zum Abrufen von Statistiken. 
+
+Weitere Funktionen sind z. B. E-Mail-Integration, anpassbare Webseiten, Berichte, Verwaltung mehrerer Services, Produktkatalog, Anlagenverwaltung, Serviceabrechnung, Vereinbarung zum Servicelevel, Workflow für Anforderungen, Active Directory-Integration und mehr.
+
+Diese kostenlose Version unterstützt einen Techniker und unbegrenzt viele Endbenutzer. Techniker sind Benutzer, die Anforderungen anderer Benutzer bearbeiten. Die Anzahl der Benutzer oder Techniker, die Sie in der Datenbank anlegen und speichern, ist unbegrenzt. </value>
+  </data>
+  <data name="Entry_galleryserverpro_Title" xml:space="preserve">
+    <value>Gallery Server Pro</value>
+  </data>
+  <data name="Entry_galleryserverpro_Summary" xml:space="preserve">
+    <value>Leistungsfähige und einfach zu verwendende .NET-Galerie für beliebige Websites. Stellen Sie Fotos, Videos, Audiodaten und andere Dateien im Internet bereit, und verwalten Sie diese Dateien. Video- und Audiodateien werden automatisch in einem webfreundlichen Format codiert. Unterstützt EXIF/IPTC-Metadaten, Wasserzeichen, Benutzersicherheit, Suche und Communitygalerien. Drehen, Neuanordnen oder Hinzufügen von Objektbeschriftungen. Automatische Erstellung von Minitaturansichten.</value>
+  </data>
+  <data name="Entry_galleryserverpro_LongSummary" xml:space="preserve">
+    <value>Gallery Server Pro ist eine leistungsfähige und einfach zu verwendende Open Source-.NET-Galerie für beliebige Websites. Stellen Sie Fotos, Videos, Audiodaten und andere Dateien im Internet bereit, und verwalten Sie diese Dateien. Verwenden Sie einen beliebigen Webbrowser, um Mediendateien in Alben zu organisieren, die Sie auf einfache Weise hinzufügen, bearbeiten, löschen, drehen, neu anordnen, kopieren und verschieben können. Das Hinzufügen Tausender Dateien ist schnell und einfach möglich, indem Sie die Synchronisierung per Mausklick und die Funktion zum Hochladen von ZIP-Dateien verwenden. Es werden automatisch Miniaturansichten und komprimierte Versionen erstellt. Unterstützung für Community-Galerien ohne Verwaltungsaufwand ist vorhanden. Leistungsfähige Benutzersicherheit mit flexiblen Einstellungsmöglichkeiten auf Albumbasis. Extrahierung von Metadaten. Integrierte Unterstützung für die Wiedergabe von DIVX, Flash, Silverlight sowie anderen Video- und Audiodateien. PDF-, HTML-, MHT- und Textdateien werden im Browserfenster angezeigt. Integrierte Suchfunktion. Bildwasserzeichen für eigene Texte und/oder Bilder. AJAX-fähig für eine reaktionsschnellere UI. Unterstützt die Active Directory-Integration. Vollständig verwalteter Code, der in C# und ASP.NET 4.0 geschrieben wurde. Kostenlose Open Source-Software unter der GNU General Public License. Gallery Server Pro ist eine professionelle Software, die selbst unter starker Serverauslastung extrem hohe Leistung bringt. Ein umfassendes Administratorhandbuch enthält alle Bedienhinweise.
+
+NEU IN VERSION 2.6: Video- und Audiocodierung. Verbesserte Dateiuploads. Bis zu 15-fache Datenbankgeschwindigkeit. Zahlreiche Programmfehlerbehebungen und mehr!
+
+NEU IN VERSION 2.6.1: Bis zu 50 % schnellere Synchronisierung und mehrere Programmfehlerbehebungen.</value>
+  </data>
+  <data name="Entry_Sitefinity_Title" xml:space="preserve">
+    <value>Sitefinity Community Edition</value>
+  </data>
+  <data name="Entry_Sitefinity_Summary" xml:space="preserve">
+    <value>Sitefinity ist ein voll funktionsfähiges ASP.NET-Inhaltsverwaltungssystem mit grenzenloser Flexibilität, intuitiver Benutzeroberfläche, einer dynamischen, über 900.000 Mitglieder umfassenden Community sowie einem Marketplace für Add-Ons von Drittanbietern.</value>
+  </data>
+  <data name="Entry_Sitefinity_LongSummary" xml:space="preserve">
+    <value>Sitefinity ist ein Web Content Management System (WCMS), das die Vorteile der .NET 4.0-Entwicklungsmuster nutzt, die Microsoft-Entwicklern bereits vertraut sind. Sitefinity bietet eine benutzerfreundliche Drag &amp; Drop-Oberfläche zur grafischen Erstellung von Webseiten. Die Software ist vollständig als offenes System konzipiert und macht sämtliche Inhalte mithilfe von REST-Diensten und einer Fluent-API für die unkomplizierte Programmierung verfügbar. Sitefinity kann problemlos in externe Webanwendungen, CRM-Systeme und Marketingtools integriert werden und bietet optimale Unterstützung für webbasierte Unternehmen.</value>
+  </data>
+  <data name="Entry_XpressEngine_Title" xml:space="preserve">
+    <value>XpressEngine</value>
+  </data>
+  <data name="Entry_XpressEngine_Summary" xml:space="preserve">
+    <value>Leistungsstarkes Open Source-CMS mit Hunderten von Plug-Ins und unbegrenzten Möglichkeiten.</value>
+  </data>
+  <data name="Entry_XpressEngine_LongSummary" xml:space="preserve">
+    <value>XE ist ein Open Source-Inhaltsverwaltungssystem (CMS) ähnlich Drupal und Joomla. Mit XE können Sie ganz unkompliziert Websites für Communitys, Unternehmen, private Zwecke oder E-Commerce erstellen. Hunderttausende von Benutzern verwenden XE, und die Entwicklercommunity stellt eine breite Palette zusätzlicher Funktionen zur Verfügung: verschiedene Text-Editoren, Unterstützung von E-Mail und SMS sowie die Möglichkeit, Verbindungen mit Twitter, Flickr oder YouTube herzustellen.</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53App_Summary" xml:space="preserve">
+    <value>Generische PHP-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericPHP53App_LongSummary" xml:space="preserve">
+    <value>Generische PHP-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Title" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_Summary" xml:space="preserve">
+    <value>Generische PHP-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericPHP53FromFolderApp_LongSummary" xml:space="preserve">
+    <value>Generische PHP-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodeApp_Summary" xml:space="preserve">
+    <value>Generische Node.js-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericNodeApp_LongSummary" xml:space="preserve">
+    <value>Generische Node.js-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Title" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_Summary" xml:space="preserve">
+    <value>Generische Node.js-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericNodefromFolderApp_LongSummary" xml:space="preserve">
+    <value>Generische Node.js-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Title" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_Summary" xml:space="preserve">
+    <value>Generische ASP.NET 4-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericASPNET4App_LongSummary" xml:space="preserve">
+    <value>Generische ASP.NET 4-App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericApp_Title" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Entry_GenericApp_Summary" xml:space="preserve">
+    <value>Generische App zum Kennenlernen</value>
+  </data>
+  <data name="Entry_GenericApp_LongSummary" xml:space="preserve">
+    <value>Generische App zum Kennenlernen</value>
+  </data>
+  <data name="Keyword_Blogs" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
+  <data name="Keyword_ContentMgmt" xml:space="preserve">
+    <value>CMS</value>
+  </data>
+  <data name="Keyword_eCommerce" xml:space="preserve">
+    <value>E-Commerce</value>
+  </data>
+  <data name="Keyword_Galleries" xml:space="preserve">
+    <value>Galerien</value>
+  </data>
+  <data name="Keyword_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Keyword_Wiki" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="Keyword_Forums" xml:space="preserve">
+    <value>Foren</value>
+  </data>
+  <data name="Keyword_ASPNET" xml:space="preserve">
+    <value>ASP.NET</value>
+  </data>
+  <data name="Keyword_ASPNET4" xml:space="preserve">
+    <value>ASP.NET 4</value>
+  </data>
+  <data name="Keyword_PHP" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="Keyword_SQL" xml:space="preserve">
+    <value>SQL Server</value>
+  </data>
+  <data name="Keyword_MySQL" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="Keyword_VistaDB" xml:space="preserve">
+    <value>VistaDB</value>
+  </data>
+  <data name="Keyword_SQLite" xml:space="preserve">
+    <value>SQLite</value>
+  </data>
+  <data name="Keyword_FlatFile" xml:space="preserve">
+    <value>Flatfile</value>
+  </data>
+  <data name="Keyword_SQLCE" xml:space="preserve">
+    <value>SQL Server CE</value>
+  </data>
+  <data name="Keyword_AzureReady" xml:space="preserve">
+    <value>Mit Unterstützung von Azure</value>
+  </data>
+  <data name="Keyword_KatalReady" xml:space="preserve">
+    <value>Katal Ready</value>
+  </data>
+  <data name="Keyword_Templates" xml:space="preserve">
+    <value>Vorlagen</value>
+  </data>
+<data name="Keyword_AppFrameworks" xml:space="preserve">
+    <value>Anwendungsframeworks</value>
+  </data>
+</root>
