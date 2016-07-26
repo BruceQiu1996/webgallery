@@ -21,7 +21,7 @@ namespace WebGallery
             // if the logos-screenshots container doesn't exist, create it.
             new AppImageAzureStorageService().CreateContainerIfNotExists();
 
-            // the current culture will be set before every action operation
+            // use a culture-aware controller activator to set culture for current thread
             ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CultureAwareControllerActivator()));
         }
     }

@@ -4,14 +4,16 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web.Mvc;
 
-namespace WebGallery.Utilities
+namespace WebGallery.Extensions
 {
-    public static class ResourceFileViewReflection
+    public static class ViewContextExtensions
     {
-        public static List<KeyValuePair<string, string>> GetLanguages(string viewPath)
+        public static List<KeyValuePair<string, string>> GetLanguages(this ViewContext viewContext)
         {
-            var FileNameReflection = new Dictionary<string, string>
+            string viewPath = ((RazorView)viewContext.View).ViewPath;
+            var fileNameReflection = new Dictionary<string, string>
             {
                 {"Me","AccountMe" },
                 {"Categorize","Categorize" },
@@ -27,10 +29,10 @@ namespace WebGallery.Utilities
                 {"InvitationNotFound","InvitationDetail" },
                 {"Send","InvitationSend" }
             };
-            var viewName = viewPath.Substring(viewPath.LastIndexOf('/') + 1, viewPath.LastIndexOf('.') - viewPath.LastIndexOf('/') - 1);
+            var viewName = Path.GetFileNameWithoutExtension(viewPath);
             var languages = new List<KeyValuePair<string, string>>();
             string resourceFileName = null;
-            if (FileNameReflection.TryGetValue(viewName, out resourceFileName))
+            if (fileNameReflection.TryGetValue(viewName, out resourceFileName))
             {
                 var resourceFiles = new DirectoryInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_GlobalResources")).GetFiles("*.resx").Where(f => f.Name.Substring(0, f.Name.IndexOf('.')) == resourceFileName);
                 foreach (var r in resourceFiles)

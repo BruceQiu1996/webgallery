@@ -152,6 +152,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -836,7 +837,9 @@
     <Compile Include="Controllers\OwnershipController.cs" />
     <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\ThreadExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\ViewContextExtensions.cs" />
     <Compile Include="Filters\ErrorHandlerAttribute.cs" />
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
@@ -1007,7 +1010,6 @@
     <Compile Include="Utilities\HashHelper.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\MemoryTributary.cs" />
-    <Compile Include="Utilities\ResourceFileViewReflection.cs" />
     <Compile Include="Utilities\SendGridEmailHelper.cs" />
     <Compile Include="Utilities\StreamHelper.cs" />
     <Compile Include="Utilities\UrlHelper.cs" />

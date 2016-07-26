@@ -24,9 +24,15 @@ namespace WebGallery
             var cookie = requestContext.HttpContext.Request.Cookies["LanguagePreference"];
             if (cookie != null)
             {
-                var culture = CultureInfo.GetCultureInfo(cookie.Value);
-                Thread.CurrentThread.CurrentCulture = culture;
-                Thread.CurrentThread.CurrentUICulture = culture;
+                try
+                {
+                    var culture = CultureInfo.GetCultureInfo(cookie.Value);
+                    Thread.CurrentThread.CurrentCulture = culture;
+                    Thread.CurrentThread.CurrentUICulture = culture;
+                }
+
+                // If the cookie.Value can't be used to get a CultureInfo, we keep the CurrentCulture unchanged
+                catch { }
             }
 
             return DependencyResolver.Current.GetService(controllerType) as IController;

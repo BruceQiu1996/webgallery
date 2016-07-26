@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using WebGallery.Extensions;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -51,18 +53,21 @@
     <main class="container">
         @RenderBody()
     </main>
+    @{
+        var f = ViewContext;
 
+    }
     <footer class="container">
         <hr />
         <div>
-            @using (Html.BeginRouteForm(SiteRouteNames.Language_Select, new { returnUrl = Request.Url }, FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                <span>
-                    <img src="~/Content/images/globe.PNG" />
-                    @Html.DropDownList("languageCode", new SelectList(WebGallery.Utilities.ResourceFileViewReflection.GetLanguages(((RazorView)ViewContext.View).ViewPath), "Key", "Value", UICulture), new { onchange = "$(this).parent().parent().submit();" })
-                </span>
-            }
+            <span class="language-selector">
+                <img src="~/Content/images/globe.PNG" />
+                @using (Html.BeginRouteForm(SiteRouteNames.Language_Select, new { returnUrl = Request.Url }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.DropDownList("languageCode", new SelectList(ViewContext.GetLanguages(), "Key", "Value", UICulture), new { onchange = "this.form.submit()" })
+                }
+            </span>
             <ul>
                 <li><a href="http://support.microsoft.com/contactus/">Contact us</a></li>
                 <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; cookies</a></li>
