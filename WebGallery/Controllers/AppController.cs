@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Extensions;
@@ -233,19 +234,21 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
+            var preferedLanguage = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
             category = string.IsNullOrWhiteSpace(category) ? "all" : category.Trim();
             supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
+
             var model = new AppCategorizeViewModel
             {
-                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, pageNumber, pageSize, out count),
+                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, preferedLanguage, pageNumber, pageSize, out count),
 
                 //We won't show cateogries list with "Templates" and "AppFrameworks" whose CategoryID are 8 and 9 in database 
-                Categories = await _appService.LocalizeCategoriesAsync((await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList()),
+                Categories = await _appService.LocalizeCategoriesAsync((await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList(), preferedLanguage),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 TotalPage = Convert.ToInt32(Math.Ceiling((double)count / pageSize)),
                 CurrentSupportedLanguage = supportedLanguage,
                 CurrentPage = pageNumber,
-                CurrentCategory = (await _appService.LocalizeCategoriesAsync(new List<ProductOrAppCategory> { new ProductOrAppCategory { Name = category } })).FirstOrDefault() ?? new ProductOrAppCategory { Name = category, LocalizedName = category },
+                CurrentCategory = (await _appService.LocalizeCategoriesAsync(new List<ProductOrAppCategory> { new ProductOrAppCategory { Name = category } }, preferedLanguage)).FirstOrDefault() ?? new ProductOrAppCategory { Name = category, LocalizedName = category },
                 TotalCount = count
             };
 
@@ -258,9 +261,10 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
+            var preferedLanguage = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
             var model = new AppGalleryViewModel
             {
-                AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, pageNumber, pageSize, out count),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, preferedLanguage, pageNumber, pageSize, out count),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 CurrentSupportedLanguage = supportedLanguage,
                 TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),
@@ -276,7 +280,9 @@ namespace WebGallery.Controllers
         [HttpGet]
         public async Task<ActionResult> ViewFromFeed(string appId)
         {
-            var submission = await _appService.GetSubmissionFromFeedAsync(appId);
+
+            var preferedLanguage = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
+            var submission = await _appService.GetSubmissionFromFeedAsync(appId, preferedLanguage);
             if (submission == null)
             {
                 return View("ResourceNotFound");
@@ -285,7 +291,7 @@ namespace WebGallery.Controllers
             var model = new AppDetailViewModel
             {
                 Submission = submission,
-                Metadata = await _appService.GetMetadataFromFeedAsync(appId)
+                Metadata = await _appService.GetMetadataFromFeedAsync(appId, preferedLanguage)
             };
 
             return View("Preview", model);
@@ -318,12 +324,13 @@ namespace WebGallery.Controllers
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
 
-            submission.Categories = await _appService.LocalizeCategoriesAsync(await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID));
+            var preferedLanguage = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
+            submission.Categories = await _appService.LocalizeCategoriesAsync(await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID), preferedLanguage);
             var model = new AppDetailViewModel
             {
                 IsPreview = true,
                 Submission = submission,
-                Metadata = await _appService.GetLocalizedMetadataAsync(await _appService.GetMetadataAsync(submissionId.Value))
+                Metadata = await _appService.GetLocalizedMetadataAsync(await _appService.GetMetadataAsync(submissionId.Value), preferedLanguage)
             };
 
             return View(model);
@@ -332,10 +339,11 @@ namespace WebGallery.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Install(string appId)
         {
+            var preferedLanguage = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
             var model = new AppInstallViewModel
             {
-                Submission = await _appService.GetSubmissionFromFeedAsync(appId),
-                Metadata = await _appService.GetMetadataFromFeedAsync(appId)
+                Submission = await _appService.GetSubmissionFromFeedAsync(appId, preferedLanguage),
+                Metadata = await _appService.GetMetadataFromFeedAsync(appId, preferedLanguage)
             };
 
             return View(model);

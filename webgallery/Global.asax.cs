@@ -20,6 +20,9 @@ namespace WebGallery
 
             // if the logos-screenshots container doesn't exist, create it.
             new AppImageAzureStorageService().CreateContainerIfNotExists();
+
+            // the current culture will be set before every action operation
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CultureAwareControllerActivator()));
         }
     }
 }

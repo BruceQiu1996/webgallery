@@ -1007,6 +1007,7 @@
     <Compile Include="Utilities\HashHelper.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\MemoryTributary.cs" />
+    <Compile Include="Utilities\ResourceFileViewReflection.cs" />
     <Compile Include="Utilities\SendGridEmailHelper.cs" />
     <Compile Include="Utilities\StreamHelper.cs" />
     <Compile Include="Utilities\UrlHelper.cs" />
@@ -1291,7 +1292,6 @@
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
-    <Content Include="Views\Shared\_LanguagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

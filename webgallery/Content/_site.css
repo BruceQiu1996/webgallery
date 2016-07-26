@@ -107,6 +107,10 @@ footer {
     margin-bottom: 10px;
 }
 
+    footer span {
+        float: left;
+    }
+
     footer ul {
         float: right;
         padding: 0px;
