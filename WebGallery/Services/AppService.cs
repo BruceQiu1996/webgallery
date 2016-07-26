@@ -510,6 +510,17 @@ namespace WebGallery.Services
             }
         }
 
+        /// <summary>
+        /// get all apps from feed
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="category"></param>
+        /// <param name="supportedLanguage"> Language which is supported by app package </param>
+        /// <param name="preferredLanguage"> Language which show the whole page in </param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int page, int pageSize, out int count)
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
