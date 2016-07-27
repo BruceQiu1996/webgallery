@@ -12,7 +12,6 @@ namespace WebGallery.Extensions
     {
         public static List<KeyValuePair<string, string>> GetLanguages(this ViewContext viewContext)
         {
-            string viewPath = ((RazorView)viewContext.View).ViewPath;
             var fileNameReflection = new Dictionary<string, string>
             {
                 {"Me","AccountMe" },
@@ -29,7 +28,7 @@ namespace WebGallery.Extensions
                 {"InvitationNotFound","InvitationDetail" },
                 {"Send","InvitationSend" }
             };
-            var viewName = Path.GetFileNameWithoutExtension(viewPath);
+            var viewName = Path.GetFileNameWithoutExtension(((RazorView)viewContext.View).ViewPath);
             var languages = new List<KeyValuePair<string, string>>();
             string resourceFileName = null;
             if (fileNameReflection.TryGetValue(viewName, out resourceFileName))
