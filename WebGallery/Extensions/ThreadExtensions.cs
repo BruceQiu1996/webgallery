@@ -4,7 +4,7 @@ namespace WebGallery.Extensions
 {
     public static class ThreadExtensions
     {
-        public static string GetLanguage(this Thread thread)
+        public static string GetLanguageCode(this Thread thread)
         {
             return thread.CurrentUICulture.ToString().ToLower();
         }

@@ -234,7 +234,7 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
-            var preferredLanguage = Thread.CurrentThread.GetLanguage();
+            var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             category = string.IsNullOrWhiteSpace(category) ? "all" : category.Trim();
             supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
 
@@ -261,7 +261,7 @@ namespace WebGallery.Controllers
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
-            var preferredLanguage = Thread.CurrentThread.GetLanguage();
+            var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             var model = new AppGalleryViewModel
             {
                 AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
@@ -281,7 +281,7 @@ namespace WebGallery.Controllers
         public async Task<ActionResult> ViewFromFeed(string appId)
         {
 
-            var preferredLanguage = Thread.CurrentThread.GetLanguage();
+            var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             var submission = await _appService.GetSubmissionFromFeedAsync(appId, preferredLanguage);
             if (submission == null)
             {
@@ -324,7 +324,7 @@ namespace WebGallery.Controllers
                 return View("NeedAppNameAndDescription", submission.SubmissionID);
             }
 
-            var preferredLanguage = Thread.CurrentThread.GetLanguage();
+            var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             submission.Categories = await _appService.LocalizeCategoriesAsync(await _appService.GetSubmissionCategoriesAsync(submission.SubmissionID), preferredLanguage);
             var model = new AppDetailViewModel
             {
@@ -339,7 +339,7 @@ namespace WebGallery.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Install(string appId)
         {
-            var preferredLanguage = Thread.CurrentThread.GetLanguage();
+            var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             var model = new AppInstallViewModel
             {
                 Submission = await _appService.GetSubmissionFromFeedAsync(appId, preferredLanguage),

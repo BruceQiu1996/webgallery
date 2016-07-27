@@ -511,25 +511,25 @@ namespace WebGallery.Services
         }
 
         /// <summary>
-        /// get all apps from feed
+        /// Gets a series of apps from WebApplicationList.xml feed
         /// </summary>
         /// <param name="keyword"></param>
         /// <param name="category"></param>
-        /// <param name="supportedLanguage"> Language which is supported by app package </param>
-        /// <param name="preferredLanguage"> Language which show the whole page in </param>
-        /// <param name="page"></param>
+        /// <param name="supportedLanguage"> Language which is supported by packages of the submisions list </param>
+        /// <param name="preferredLanguage"> Language in which the page displays </param>
+        /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int page, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, out int count)
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
             var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish metadata should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish metadata should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -565,7 +565,7 @@ namespace WebGallery.Services
                             subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
                         };
             count = query.Count();
-            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+            var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsEnumerable();
 
             return Task.FromResult<IList<Submission>>((from a in apps
                                                        select new Submission
@@ -584,10 +584,10 @@ namespace WebGallery.Services
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
             var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -638,10 +638,10 @@ namespace WebGallery.Services
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
             var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -687,10 +687,10 @@ namespace WebGallery.Services
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
             var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
             var localizedCategories = new List<ProductOrAppCategory>();
@@ -711,16 +711,16 @@ namespace WebGallery.Services
         public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage)
         {
             // This method is used to get the best suited metadata to show when matadatas are extracted from database
-            // The most suited metadata is the one whose language is exactly the same with CurrentUICulture
+            // The most suited metadata is the one whose language is exactly the same with preferred Language
             var metadata = metadatas.FirstOrDefault(m => m.Language.ToLower() == preferredLanguage.ToLower() || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
 
-            // If there don't exist a metadata whose language are the same with CurrentUICulture completely, we can make a mactching according to their parent culture
+            // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
             if (metadatas == null)
             {
                 metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == preferredLanguage.Substring(0, 2));
             }
 
-            // If we still can't find metadata who has the same parent culture with CurrentUICulture, then we use English
+            // If we still can't find metadata who has the same parent culture with preferred Language, then we use English
             if (metadata == null)
             {
                 metadata = metadatas.FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US);

@@ -838,7 +838,7 @@
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\ThreadExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="Extensions\ViewContextExtensions.cs" />
+    <Compile Include="Extensions\IViewExtensions.cs" />
     <Compile Include="Filters\ErrorHandlerAttribute.cs" />
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />

@@ -62,7 +62,7 @@
                 @using (Html.BeginRouteForm(SiteRouteNames.Language_Select, new { returnUrl = Request.Url }, FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.DropDownList("languageCode", new SelectList(ViewContext.GetLanguages(), "Key", "Value", UICulture), new { onchange = "this.form.submit()" })
+                    @Html.DropDownList("languageCode", new SelectList(ViewContext.View.GetResourceLanguages(), "Key", "Value", UICulture), new { onchange = "this.form.submit()" })
                 }
             </span>
             <ul>
