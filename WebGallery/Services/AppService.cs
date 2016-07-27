@@ -4,7 +4,6 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using WebGallery.Models;
@@ -511,17 +510,26 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, int page, int pageSize, out int count)
+        /// <summary>
+        /// Gets a series of apps from WebApplicationList.xml feed
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="category"></param>
+        /// <param name="supportedLanguage"> Language which is supported by packages of the submisions list </param>
+        /// <param name="preferredLanguage"> Language in which the page displays </param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, out int count)
         {
-            // We need CurrentUICulture to determine which sub feed to show description and title of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish metadata should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish metadata should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -557,7 +565,7 @@ namespace WebGallery.Services
                             subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
                         };
             count = query.Count();
-            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+            var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsEnumerable();
 
             return Task.FromResult<IList<Submission>>((from a in apps
                                                        select new Submission
@@ -571,17 +579,15 @@ namespace WebGallery.Services
                                                        }).ToList());
         }
 
-        public Task<Submission> GetSubmissionFromFeedAsync(string appId)
+        public Task<Submission> GetSubmissionFromFeedAsync(string appId, string preferredLanguage)
         {
-            // We need CurrentUICulture to determine which sub feed to show categories of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -627,17 +633,15 @@ namespace WebGallery.Services
             return Task.FromResult(submission);
         }
 
-        public Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId)
+        public Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId, string preferredLanguage)
         {
-            // We need CurrentUICulture to determine which sub feed to show metadata of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -677,18 +681,16 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories)
+        public Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories, string preferredLanguage)
         {
             //This method is used to localized categories which extracted from database
-            // We need CurrentUICulture to determine which sub feed to show categories of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
             var localizedCategories = new List<ProductOrAppCategory>();
@@ -706,22 +708,19 @@ namespace WebGallery.Services
             return Task.FromResult<IList<ProductOrAppCategory>>(localizedCategories);
         }
 
-        public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas)
+        public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage)
         {
             // This method is used to get the best suited metadata to show when matadatas are extracted from database
-            // We need CurrentUICulture to showing the metadata in specified language 
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+            // The most suited metadata is the one whose language is exactly the same with preferred Language
+            var metadata = metadatas.FirstOrDefault(m => m.Language.ToLower() == preferredLanguage.ToLower() || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
 
-            // The most suited metadata is the one whose language is exactly the same with CurrentUICulture
-            var metadata = metadatas.FirstOrDefault(m => m.Language == threadUICulture || (m.Language == "zh-chs" && threadUICulture == "zh-cn") || (m.Language == "zh-cht" && threadUICulture == "zh-tw"));
-
-            // If there don't exist a metadata whose language are the same with CurrentUICulture completely, we can make a mactching according to their parent culture
+            // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
             if (metadatas == null)
             {
-                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == threadUICulture.Substring(0, 2));
+                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == preferredLanguage.Substring(0, 2));
             }
 
-            // If we still can't find metadata who has the same parent culture with CurrentUICulture, then we use English
+            // If we still can't find metadata who has the same parent culture with preferred Language, then we use English
             if (metadata == null)
             {
                 metadata = metadatas.FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US);

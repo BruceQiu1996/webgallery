@@ -836,7 +836,9 @@
     <Compile Include="Controllers\OwnershipController.cs" />
     <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\ThreadExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\IViewExtensions.cs" />
     <Compile Include="Filters\ErrorHandlerAttribute.cs" />
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
@@ -1036,6 +1038,7 @@
     <Content Include="Content\images\btn-install-now-bkgd.png" />
     <Content Include="Content\images\de-de\install-btn.png" />
     <Content Include="Content\images\el-gr\install-btn.jpg" />
+    <Content Include="Content\images\globe.PNG" />
     <Content Include="Content\images\header-developer.png" />
     <Content Include="Content\images\hu-hu\install-btn.png" />
     <Content Include="Content\images\icon-controlpanel.png" />

@@ -107,6 +107,15 @@ footer {
     margin-bottom: 10px;
 }
 
+    footer .language-selector,
+    footer .language-selector img {
+        float: left;
+    }
+
+        footer .language-selector select {
+            margin-left: 10px;
+        }
+
     footer ul {
         float: right;
         padding: 0px;

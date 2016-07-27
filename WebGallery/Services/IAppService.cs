@@ -49,11 +49,11 @@ namespace WebGallery.Services
 
         Task<IList<UnconfirmedSubmissionOwner>> GetOwnershipInvitationsAsync(int submissionId);
 
-        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string cateogry, string supportedLanguage, int page, int pageSize, out int count);
+        Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string cateogry, string supportedLanguage, string preferredLanguage, int page, int pageSize, out int count);
 
-        Task<Submission> GetSubmissionFromFeedAsync(string appId);
+        Task<Submission> GetSubmissionFromFeedAsync(string appId, string preferredLanguage);
 
-        Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId);
+        Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId, string preferredLanguage);
 
         Task<IList<ProductOrAppCategory>> GetSubmissionCategoriesAsync(int submissionId);
 
@@ -69,8 +69,8 @@ namespace WebGallery.Services
 
         Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync();
 
-        Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories);
+        Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories, string preferredLanguage);
 
-        Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas);
+        Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage);
     }
 }
