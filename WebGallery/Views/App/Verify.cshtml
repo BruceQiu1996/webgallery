@@ -43,15 +43,15 @@
         @Html.RouteLink("Go to fix these errors", SiteRouteNames.App_Edit, new { submissionId = Model.Submission.SubmissionID }, new { target = "_blank", })
     </div>
     <div id="panelPass" style="display:none">
-        @using (Html.BeginRouteForm(SiteRouteNames.App_Verify, FormMethod.Post))
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Publish, FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
             <p>
-                This app has passed verification, you can submit it now for further testing. If you do so, this submission will be locked from modification for a while until we finish the testing.
+                This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
             </p>
-            <input type="submit" value="Ready for further testing" />
-            @Html.RouteLink("Not now, I'll submit this later", SiteRouteNames.Portal)
+            <input type="submit" value="Publish" />
+            @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
         }
     </div>
 </div>
