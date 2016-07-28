@@ -46,6 +46,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = app, action = nameof(AppController.Verify) });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = app, action = nameof(AppController.Delete) });
             routes.MapRoute(name: SiteRouteNames.App_Update_Status, url: SiteRouteUrlPatterns.App_Update_Status, defaults: new { controller = app, action = nameof(AppController.UpdateStatus) });
+            routes.MapRoute(name: SiteRouteNames.App_Publish, url: SiteRouteUrlPatterns.App_Publish, defaults: new { controller = app, action = nameof(AppController.Publish) });
             routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize), category = UrlParameter.Optional });
             routes.MapRoute(name: SiteRouteNames.App_Preview, url: SiteRouteUrlPatterns.App_Preview, defaults: new { controller = app, action = nameof(AppController.Preview) });
             routes.MapRoute(name: SiteRouteNames.App_Install, url: SiteRouteUrlPatterns.App_Install, defaults: new { controller = app, action = nameof(AppController.Install) });
@@ -109,6 +110,7 @@ namespace WebGallery
         public const string App_Verify = "apps/{submissionId}/verify";
         public const string App_Delete = "apps/{submissionId}/delete";
         public const string App_Update_Status = "apps/{submissionId}/status/update";
+        public const string App_Publish = "apps/{submissionId}/publish";
         public const string App_Categorize = "apps/categorize/{category}";
         public const string App_Preview = "apps/{submissionId}/preview";
         public const string App_Install = "apps/{appId}/install";
@@ -170,6 +172,7 @@ namespace WebGallery
         public const string App_Verify = nameof(App_Verify);
         public const string App_Delete = nameof(App_Delete);
         public const string App_Update_Status = nameof(App_Update_Status);
+        public const string App_Publish = nameof(App_Publish);
         public const string App_Categorize = nameof(App_Categorize);
         public const string App_Preview = nameof(App_Preview);
         public const string App_Install = nameof(App_Install);
