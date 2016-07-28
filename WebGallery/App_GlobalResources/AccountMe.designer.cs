@@ -223,20 +223,20 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to State, Province, etc..
+        /// </summary>
+        internal static string ProvinceLabel {
+            get {
+                return ResourceManager.GetString("ProvinceLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         internal static string StateLabel {
             get {
                 return ResourceManager.GetString("StateLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to State, Province, etc..
-        /// </summary>
-        internal static string StateProvinceValidationMessage {
-            get {
-                return ResourceManager.GetString("StateProvinceValidationMessage", resourceCulture);
             }
         }
         

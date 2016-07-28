@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Linq;
 using WebGallery.Models;
 
@@ -511,17 +512,26 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, int page, int pageSize, out int count)
+        /// <summary>
+        /// Gets a series of apps from WebApplicationList.xml feed
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="category"></param>
+        /// <param name="supportedLanguage"> Language which is supported by packages of the submisions list </param>
+        /// <param name="preferredLanguage"> Language in which the page displays </param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, out int count)
         {
-            // We need CurrentUICulture to determine which sub feed to show description and title of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish metadata should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish metadata should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -536,7 +546,9 @@ namespace WebGallery.Services
                         let subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "title").Attribute("resourceName").Value)
                         let title = subTitle == null ? e.Element(ns + "title").Value : subTitle.Value
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
-                                         where categoryIds.Contains(c.Value)
+
+                                             // in database, categories have "Templates", but it's not exist in feed, if a user published a app whose category is "Templates", its keywords should contain "Templates" and it must can be shown on gallery
+                                         where categoryIds.Contains(c.Value) || ((category.ToLower() == "all" || category.ToLower() == "templates") && c.Value.ToLower() == "templates")
                                          select c.Value
                         let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
 
@@ -557,7 +569,7 @@ namespace WebGallery.Services
                             subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
                         };
             count = query.Count();
-            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+            var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsEnumerable();
 
             return Task.FromResult<IList<Submission>>((from a in apps
                                                        select new Submission
@@ -571,17 +583,15 @@ namespace WebGallery.Services
                                                        }).ToList());
         }
 
-        public Task<Submission> GetSubmissionFromFeedAsync(string appId)
+        public Task<Submission> GetSubmissionFromFeedAsync(string appId, string preferredLanguage)
         {
-            // We need CurrentUICulture to determine which sub feed to show categories of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -601,6 +611,13 @@ namespace WebGallery.Services
                     var LocalizedCateogry = useEnglish ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == k.Attribute("resourceName").Value);
                     categories.Add(new ProductOrAppCategory { Name = k.Value, LocalizedName = LocalizedCateogry == null ? k.Value : LocalizedCateogry.Value });
                 }
+
+                // special case: the category template exist in database, but there is no such item in keywords element in feed, still, it should also be shown in app preview page
+                if (element.Element(ns + "keywords").Elements(ns + "keywordId").Any(k => k.Value.ToLower() == "templates"))
+                {
+                    categories.Add(new ProductOrAppCategory { Name = "Templates", LocalizedName = "Templates" });
+                }
+
                 var screenshots = new List<string>();
                 foreach (var e in element.Element(ns + "images").Elements(ns + "screenshot"))
                 {
@@ -627,17 +644,15 @@ namespace WebGallery.Services
             return Task.FromResult(submission);
         }
 
-        public Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId)
+        public Task<SubmissionLocalizedMetaData> GetMetadataFromFeedAsync(string appId, string preferredLanguage)
         {
-            // We need CurrentUICulture to determine which sub feed to show metadata of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
@@ -677,18 +692,16 @@ namespace WebGallery.Services
             }
         }
 
-        public Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories)
+        public Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories, string preferredLanguage)
         {
             //This method is used to localized categories which extracted from database
-            // We need CurrentUICulture to determine which sub feed to show categories of apps
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
 
-            // Another xml feed also should be load according to the CurrentUICulture, first, check whether there exist a feed fit CurrentUICulture
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => threadUICulture.Contains(r.Element(ns + "culture").Value));
+            // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
 
-            // If there is not exist a feed fit CurrentUICulture or the culture is "en", Enlish feed should be used
+            // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
             bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
             var localizedCategories = new List<ProductOrAppCategory>();
@@ -706,22 +719,19 @@ namespace WebGallery.Services
             return Task.FromResult<IList<ProductOrAppCategory>>(localizedCategories);
         }
 
-        public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas)
+        public Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage)
         {
             // This method is used to get the best suited metadata to show when matadatas are extracted from database
-            // We need CurrentUICulture to showing the metadata in specified language 
-            var threadUICulture = Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+            // The most suited metadata is the one whose language is exactly the same with preferred Language
+            var metadata = metadatas.FirstOrDefault(m => m.Language.ToLower() == preferredLanguage.ToLower() || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
 
-            // The most suited metadata is the one whose language is exactly the same with CurrentUICulture
-            var metadata = metadatas.FirstOrDefault(m => m.Language == threadUICulture || (m.Language == "zh-chs" && threadUICulture == "zh-cn") || (m.Language == "zh-cht" && threadUICulture == "zh-tw"));
-
-            // If there don't exist a metadata whose language are the same with CurrentUICulture completely, we can make a mactching according to their parent culture
+            // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
             if (metadatas == null)
             {
-                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == threadUICulture.Substring(0, 2));
+                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == preferredLanguage.Substring(0, 2));
             }
 
-            // If we still can't find metadata who has the same parent culture with CurrentUICulture, then we use English
+            // If we still can't find metadata who has the same parent culture with preferred Language, then we use English
             if (metadata == null)
             {
                 metadata = metadatas.FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US);
@@ -888,6 +898,101 @@ namespace WebGallery.Services
             }
         }
 
+
+        public Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls, IList<string> dependencies)
+        {
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+            var xdoc = XDocument.Load(path);
+            var ns = xdoc.Root.GetDefaultNamespace();
+            var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
+                            where e.Element(ns + "productId").Value.ToLower() == submission.Nickname.ToLower() && e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                            select e).FirstOrDefault();
+
+            // a new entry should be created to 
+            // create images element
+            var imagesElement = new XElement(ns + "images");
+
+            // first, add icon to images element
+            imagesElement.Add(new XElement(ns + "icon", imageUrls.ElementAtOrDefault(0)));
+
+            // add screenshots if exist
+            for (int i = 1; i < imageUrls.Count; i++)
+            {
+                imagesElement.Add(new XElement(ns + "screenshot", imageUrls.ElementAtOrDefault(i)));
+            }
+
+            //create keywords element
+            var keywordsElement = new XElement(ns + "keywords");
+            foreach (var c in categories)
+            {
+                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
+                keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
+            }
+
+            //create dependency element
+            var dependencyElement = new XElement(ns + "dependency", new XElement(ns + "and"));
+            foreach (var dependency in dependencies)
+            {
+                dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
+            }
+
+            //create installers element
+            var installersElement = new XElement(ns + "installers");
+            for (int i = 0; i < packages.Count(); i++)
+            {
+                installersElement.Add(new XElement(ns + "installer",
+                    new XElement(ns + "id", (i + 1).ToString()),
+                    new XElement(ns + "languageId", Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
+                    new XElement(ns + "osList", new XAttribute("idref", "SupportedAppPlatforms")),
+                    new XElement(ns + "installerFile",
+                    new XElement(ns + "fileSize", packages[i].FileSize.HasValue ? packages[i].FileSize.Value.ToString() : string.Empty),
+                    new XElement(ns + "trackingURL", ConfigurationManager.AppSettings["WebPIHandlerLink"] + "?command=incrementappdownloadcount&appid=" + submission.Nickname + "&version=" + HttpUtility.UrlEncode(submission.Version) + "&applang=" + Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
+                    new XElement(ns + "installerURL", packages[i].PackageURL),
+                    new XElement(ns + "sha1", packages[i].SHA1Hash)),
+                    new XElement(ns + "msDeploy", new XElement(ns + "startPage", packages[i].StartPage)),
+                    new XElement(ns + "helpLink", submission.SupportURL)));
+            }
+
+            // create a new entry element
+            var newEntry = new XElement(ns + "entry", new XAttribute("type", "application"),
+                new XElement(ns + "productId", submission.Nickname),
+                new XElement(ns + "title", metadata.Name, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Title")),
+                new XElement(ns + "id", ConfigurationManager.AppSettings["WebPI2.0Link"] + submission.Nickname),
+                new XElement(ns + "summary", metadata.BriefDescription, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Summary")),
+                new XElement(ns + "updated", submission.ReleaseDate.ToUniversalTime().ToString("u").Replace(" ", "T")),
+                new XElement(ns + "published", DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T")),
+                new XElement(ns + "longSummary", metadata.Description, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_LongSummary")),
+                new XElement(ns + "version", submission.Version),
+                new XElement(ns + "link", new XAttribute("href", submission.SupportURL)),
+                new XElement(ns + "author",
+                new XElement(ns + "name", submission.SubmittingEntity),
+                new XElement(ns + "uri", submission.SubmittingEntityURL)),
+                imagesElement,
+                keywordsElement,
+                dependencyElement,
+                installersElement,
+
+                // addToFeedDate is used to record the first time an app added to feed, if there is not exist the same app in feed already, the current datetime should be used 
+                new XElement(ns + "addToFeedDate", oldEntry == null ? DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T") : oldEntry.Element(ns + "addToFeedDate").Value),
+                new XElement(ns + "pageName", submission.Nickname),
+                new XElement(ns + "productFamily", "Applications", new XAttribute("resourceName", "Applications")));
+
+            // if there is not exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
+            if (oldEntry == null)
+            {
+                newEntry.Element(ns + "addToFeedDate").AddAfterSelf(new XElement(ns + "newCategory", "New Web Applications", new XAttribute("resourceName", "NewWebApplications")));
+                xdoc.Root.Elements(ns + "entry").Last(x => x.Attribute("type") != null && x.Attribute("type").Value == "application").AddAfterSelf(new XComment(submission.Nickname), newEntry);
+            }
+            else
+            {
+                oldEntry.ReplaceWith(newEntry);
+            }
+
+            xdoc.Save(path);
+
+            return Task.FromResult(0);
+        }
+
         public Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync()
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
@@ -917,6 +1022,105 @@ namespace WebGallery.Services
             }
 
             return Task.FromResult<IList<KeyValuePair<string, string>>>(supportedLanguages);
+        }
+
+        public Task<Submission> GetPublishingSubmissionAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submission = (from s in db.Submissions
+                                  join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                                  join e in db.SubmissionStates on t.SubmissionStateID equals e.SubmissionStateID
+                                  join m in db.SubmissionLocalizedMetaDatas on s.SubmissionID equals m.SubmissionID
+                                  where s.SubmissionID == submissionId
+                                  select new
+                                  {
+                                      nickName = s.Nickname,
+                                      appName = m.Name,
+                                      version = s.Version,
+                                      created = s.Created,
+                                      updated = s.Updated,
+                                      status = e.Name,
+                                      logoUrl = s.LogoUrl
+                                  }).FirstOrDefault();
+
+                return Task.FromResult(new Submission
+                {
+                    SubmissionID = submissionId,
+                    Nickname = submission.nickName,
+                    AppName = submission.appName,
+                    Version = submission.version,
+                    Created = submission.created,
+                    Updated = submission.updated,
+                    Status = submission.status,
+                    LogoUrl = submission.logoUrl
+                });
+            }
+        }
+
+        public Task<bool> CanBePublishedAsync(int submissionId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                // for normal user, only submissions whose status is "Testing" or "Testing Passed" can be published, SubmissionStateIDs of "Testing" and "Testing Passed" are 2 and 4
+                return Task.FromResult(db.SubmissionsStatus.Any(s => s.SubmissionID == submissionId && (s.SubmissionStateID == 2 || s.SubmissionStateID == 4)));
+            }
+        }
+
+        public Task<IList<string>> GetDependenciesAsync(Submission submission)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var dependencies = new List<string>();
+
+                // get framwork or runtime FeedIDRef of a submission
+                var frameworkOrRuntimeFeedIDRef = (from f in db.FrameworksAndRuntimes
+                                                   where f.FrameworkOrRuntimeID == submission.FrameworkOrRuntimeID
+                                                   select f.FeedIDRef).FirstOrDefault();
+                if (frameworkOrRuntimeFeedIDRef != null)
+                {
+                    dependencies.Add(frameworkOrRuntimeFeedIDRef);
+                }
+
+                // get database server FeedIDRefs of a submission
+                if (!string.IsNullOrWhiteSpace(submission.DatabaseServerIDs))
+                {
+                    var databaseServerFeedIDRefs = from id in submission.DatabaseServerIDs.Split('|')
+                                                   join d in db.DatabaseServers on id equals d.DatabaseServerID.ToString()
+                                                   select d.FeedIDRef;
+                    dependencies.AddRange(databaseServerFeedIDRefs);
+                }
+
+                // get web server extension FeedIDRefs of a submission
+                if (!string.IsNullOrWhiteSpace(submission.WebServerExtensionIDs))
+                {
+                    var webServerExtensionFeedIDReds = from id in submission.WebServerExtensionIDs.Split('|')
+                                                       join w in db.WebServerExtensions on id equals w.WebServerExtensionID.ToString()
+                                                       select w.FeedIDRef;
+                    dependencies.AddRange(webServerExtensionFeedIDReds);
+                }
+
+                return Task.FromResult<IList<string>>(dependencies);
+            }
+        }
+
+        public Task<IList<string>> PulishImageUploadAsync(Submission submission, IAppImageStorageService imageStorageService)
+        {
+            // if a new submission is published, we should reupload its images to Azure Storage with a new blob name
+            var imageNames = new string[] { AppImage.LOGO_IMAGE_NAME, AppImage.SCREENSHOT_1_IMAGE_NAME, AppImage.SCREENSHOT_2_IMAGE_NAME, AppImage.SCREENSHOT_3_IMAGE_NAME, AppImage.SCREENSHOT_4_IMAGE_NAME, AppImage.SCREENSHOT_5_IMAGE_NAME, AppImage.SCREENSHOT_6_IMAGE_NAME };
+            var submissionUrls = new string[] { submission.LogoUrl, submission.ScreenshotUrl1, submission.ScreenshotUrl2, submission.ScreenshotUrl3, submission.ScreenshotUrl4, submission.ScreenshotUrl5, submission.ScreenshotUrl6 };
+            var publishUrls = new List<string>();
+
+            // upload images and get the urls
+            for (int i = 0; i < submissionUrls.Length; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(submissionUrls[i]))
+                {
+                    publishUrls.Add(imageStorageService.Upload(new MemoryStream(new WebClient().DownloadData(submissionUrls[i])), submission.Nickname, imageNames[i], null));
+                }
+            }
+
+            return Task.FromResult<IList<string>>(publishUrls);
         }
     } // class
 

@@ -840,7 +840,9 @@
     <Compile Include="Controllers\OwnershipController.cs" />
     <Compile Include="Extensions\BrowserExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\ThreadExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\IViewExtensions.cs" />
     <Compile Include="Filters\ErrorHandlerAttribute.cs" />
     <Compile Include="Filters\RequireBrowserVersionAttribute.cs" />
     <Compile Include="Filters\RequireSubmittershipAttribute.cs" />
@@ -1023,6 +1025,7 @@
     <Compile Include="ViewModels\AppGalleryViewModel.cs" />
     <Compile Include="ViewModels\AppMineViewModel.cs" />
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
+    <Compile Include="ViewModels\AppPublishViewModel.cs" />
     <Compile Include="ViewModels\AppVerifyViewModel.cs" />
     <Compile Include="ViewModels\AppSubmitViewModel.cs" />
     <Compile Include="ViewModels\AppInstallViewModel.cs" />
@@ -1041,6 +1044,7 @@
     <Content Include="Content\images\btn-install-now-bkgd.png" />
     <Content Include="Content\images\de-de\install-btn.png" />
     <Content Include="Content\images\el-gr\install-btn.jpg" />
+    <Content Include="Content\images\globe.PNG" />
     <Content Include="Content\images\header-developer.png" />
     <Content Include="Content\images\hu-hu\install-btn.png" />
     <Content Include="Content\images\icon-controlpanel.png" />
@@ -1071,6 +1075,7 @@
     <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />
+    <Content Include="Content\_app-publish.css" />
     <Content Include="Content\_home-agreement.css" />
     <Content Include="Content\_invitation-detail.css" />
     <Content Include="Content\_issue-report.css" />
@@ -1298,6 +1303,8 @@
     <None Include="SIR\Parameters.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\App\Publish.cshtml" />
+    <Content Include="Views\Shared\CanNotBePublished.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

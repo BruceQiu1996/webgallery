@@ -171,9 +171,6 @@
   <data name="StateLabel" xml:space="preserve">
     <value>State</value>
   </data>
-  <data name="StateProvinceValidationMessage" xml:space="preserve">
-    <value>State, Province, etc.</value>
-  </data>
   <data name="SubmittContactInfoButtonText" xml:space="preserve">
     <value>Submit Your Contact Information</value>
   </data>
@@ -194,5 +191,8 @@
   </data>
   <data name="DropdownDefaultText" xml:space="preserve">
     <value>Pick one</value>
+  </data>
+  <data name="ProvinceLabel" xml:space="preserve">
+    <value>State, Province, etc.</value>
   </data>
 </root>
