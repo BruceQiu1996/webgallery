@@ -59,5 +59,194 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Web Site URL.
+        /// </summary>
+        internal static string AppWebSiteUrlStatus {
+            get {
+                return ResourceManager.GetString("AppWebSiteUrlStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commercial Product URL.
+        /// </summary>
+        internal static string CommercialProductUrlStatus {
+            get {
+                return ResourceManager.GetString("CommercialProductUrlStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logo image dimensions.
+        /// </summary>
+        internal static string LogoDimensionsStatus {
+            get {
+                return ResourceManager.GetString("LogoDimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logo image type.
+        /// </summary>
+        internal static string LogoTypeStatus {
+            get {
+                return ResourceManager.GetString("LogoTypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Professional Services URL.
+        /// </summary>
+        internal static string ProfessionalServicesUrlStatus {
+            get {
+                return ResourceManager.GetString("ProfessionalServicesUrlStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 1 dimensions.
+        /// </summary>
+        internal static string Screenshot1DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot1DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 1 type.
+        /// </summary>
+        internal static string Screenshot1TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot1TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 2 dimensions.
+        /// </summary>
+        internal static string Screenshot2DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot2DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 2 type.
+        /// </summary>
+        internal static string Screenshot2TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot2TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 3 dimensions.
+        /// </summary>
+        internal static string Screenshot3DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot3DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 3 type.
+        /// </summary>
+        internal static string Screenshot3TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot3TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 4 dimensions.
+        /// </summary>
+        internal static string Screenshot4DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot4DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 4 type.
+        /// </summary>
+        internal static string Screenshot4TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot4TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 5 dimensions.
+        /// </summary>
+        internal static string Screenshot5DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot5DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 5 type.
+        /// </summary>
+        internal static string Screenshot5TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot5TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 6 dimensions.
+        /// </summary>
+        internal static string Screenshot6DimensionsStatus {
+            get {
+                return ResourceManager.GetString("Screenshot6DimensionsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot image 6 type.
+        /// </summary>
+        internal static string Screenshot6TypeStatus {
+            get {
+                return ResourceManager.GetString("Screenshot6TypeStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We are in the process of doing some cursory validation of your submission. In the event of any issues discovered, you will be notified on this page and through email. If the application package passes this testing, status will be communicated to you through email..
+        /// </summary>
+        internal static string StatusCheckingIntro {
+            get {
+                return ResourceManager.GetString("StatusCheckingIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thanks for Submitting your Web App!.
+        /// </summary>
+        internal static string StatusIntro {
+            get {
+                return ResourceManager.GetString("StatusIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitting Entity URL.
+        /// </summary>
+        internal static string SubmittingEntityUrlStatus {
+            get {
+                return ResourceManager.GetString("SubmittingEntityUrlStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support URL.
+        /// </summary>
+        internal static string SupportUrlStatus {
+            get {
+                return ResourceManager.GetString("SupportUrlStatus", resourceCulture);
+            }
+        }
     }
 }
