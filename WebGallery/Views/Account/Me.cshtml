@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var prefixList = UICulture.Substring(0, 2) == "ja" ? new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } } :
+        new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Mr.", Text = Resources.AccountMe.PrefixMrText }, new SelectListItem { Value = "Mrs.", Text = Resources.AccountMe.PrefixMrsText }, new SelectListItem { Value = "Ms.", Text = Resources.AccountMe.PrefixMsText }, new SelectListItem { Value = "Miss", Text = Resources.AccountMe.PrefixMissText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } };
 }
 <div class="content">
     <h2>@Resources.AccountMe.AboutMeTitle</h2>
@@ -15,7 +17,7 @@
             @Html.HiddenFor(model => model.ReturnUrl)
 
             <div class="contact-detail-field">
-                @Html.DropDownListFor(model => model.ContactDetail.Prefix, new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Mr.", Text = Resources.AccountMe.PrefixMrText }, new SelectListItem { Value = "Mrs.", Text = Resources.AccountMe.PrefixMrsText }, new SelectListItem { Value = "Ms.", Text = Resources.AccountMe.PrefixMsText }, new SelectListItem { Value = "Miss", Text = Resources.AccountMe.PrefixMissText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } }, htmlAttributes: new { @class = "dropdown-narrow dd-prefix" })
+                @Html.DropDownListFor(model => model.ContactDetail.Prefix, prefixList, htmlAttributes: new { @class = "dropdown-narrow dd-prefix" })
             </div>
 
             <div class="contact-detail-field">
