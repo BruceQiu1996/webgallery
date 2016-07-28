@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Models;
+using WebGallery.Services.SIR;
 using WebGallery.Utilities;
 
 namespace WebGallery.Services
@@ -10,19 +11,15 @@ namespace WebGallery.Services
     {
         public Task<List<AppValidationItem>> GetValidationItemsAsync(Submission submission)
         {
-            var urlItems1 = new List<AppValidationItem>
+            var urlItems = new List<AppValidationItem>
             {
                 new AppValidationItem {Type = AppValidationItemType.Url, Name = "SubmittingEntityUrl", Value = submission.SubmittingEntityURL},
                 new AppValidationItem {Type = AppValidationItemType.Url, Name = "AppWebSiteUrl", Value = submission.AppURL},
-                new AppValidationItem {Type = AppValidationItemType.Url, Name = "SupportUrl", Value = submission.SupportURL}
-            };
-            // Package URL steps will go here (see code below)
-            var urlItems2 = new List<AppValidationItem>
-            {
+                new AppValidationItem {Type = AppValidationItemType.Url, Name = "SupportUrl", Value = submission.SupportURL},
                 new AppValidationItem {Type = AppValidationItemType.Url, Name = "ProfessionalServicesUrl", Value = submission.ProfessionalServicesURL},
                 new AppValidationItem {Type = AppValidationItemType.Url, Name = "CommercialProductUrl", Value = submission.CommercialProductURL},
             };
-            // Package manifest and SHA1 hash steps will go here (see code below)
+
             var imageItems = new List<AppValidationItem>
             {
                 new AppValidationItem {Type= AppValidationItemType.Image, Name = "LogoType", Value=submission.LogoUrl},
@@ -52,68 +49,60 @@ namespace WebGallery.Services
             // sort on a in-memory collection, that way will speed somehow
             packages = packages.OrderByDescending(p => p.PackageID);
 
-            var packageUrlValidationItems = new List<AppValidationItem>();
             var packageValidationItems = new List<AppValidationItem>();
             foreach (var lang in Language.SupportedLanguages)
             {
                 var package = packages.FirstOrDefault(p => p.Language == lang.Name);
                 if (package != null)
                 {
-                    packageUrlValidationItems.Add(new AppValidationItem { Name = "PackageLocationUrl", Type = AppValidationItemType.Url, LanguageAndCountryCode = lang.Name, Value = package.PackageURL });
-
-                    packageValidationItems.Add(new AppValidationItem { Name = "ManifestExists", Type = AppValidationItemType.Package, LanguageAndCountryCode = lang.Name, Value = package.PackageURL });
-                    packageValidationItems.Add(new AppValidationItem { Name = "SHA1Hash", Type = AppValidationItemType.Package, LanguageAndCountryCode = lang.Name, Value = package.SHA1Hash });
+                    packageValidationItems.Add(new AppValidationItem { Name = package.PackageURL, Type = AppValidationItemType.Package, LanguageAndCountryCode = lang.Name, Value = package.SHA1Hash });
                 }
             }
 
             return Task.FromResult(
-                urlItems1
-                .Union(packageUrlValidationItems)
-                .Union(urlItems2)
-                .Union(packageValidationItems)
+                urlItems
                 .Union(imageItems)
+                .Union(packageValidationItems)
                 .ToList());
         }
 
-        public Task<ValiadationStatus> ValidateUrlAsync(string url)
+        public Task<ValidationResult> ValidateUrlAsync(string url)
         {
-            if (string.IsNullOrWhiteSpace(url)) return Task.FromResult(ValiadationStatus.Unknown);
+            if (string.IsNullOrWhiteSpace(url)) return Task.FromResult(ValidationResult.Unknown);
 
             return UrlHelper.CanBeAccessed(url)
-                ? Task.FromResult(ValiadationStatus.Pass)
-                : Task.FromResult(ValiadationStatus.Fail);
+                ? Task.FromResult(ValidationResult.Pass)
+                : Task.FromResult(ValidationResult.Fail);
         }
 
-        public Task<PackageValidationResult> ValidatePackageAsync(string packageUrl, string hash, int submissionId)
+        public Task<PackageValidation> ValidatePackageAsync(string packageUrl, string sha1HashToValidate, int submissionId, string workingFolder)
         {
-            if (string.IsNullOrWhiteSpace(packageUrl))
+            lock (Lock_Verify_Package)
             {
-                return Task.FromResult(PackageValidationResult.CreateFail());
-            }
-
-            using (var stream = StreamHelper.FromUrl(packageUrl))
-            {
-                // if we cant get a stream from the package url, 
-                // then we can't continue with the validation.
-                if (stream == null) return Task.FromResult(PackageValidationResult.CreateFail());
-
-                // 1. save FileSize for the package(s) specified by the url
-                UpdateFileSizeForPackage(packageUrl, (int)stream.Length, submissionId);
-
-                var result = PackageValidationResult.CreateFail();
-
-                // 2. check if the hashes matches
-                result.HashStatus = stream.MatchHash(hash) ? ValiadationStatus.Pass : ValiadationStatus.Fail;
-
-                // 3 .check if the manifest.xml exists
-                using (var zipFile = ZipFileHelper.FromStream(stream))
+                if (string.IsNullOrWhiteSpace(packageUrl))
                 {
-                    result.ManifestStatus = zipFile.ContainsEntry(MANIFEST_FILE_NAME, true) ? ValiadationStatus.Pass : ValiadationStatus.Fail;
+                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder));
                 }
 
-                return Task.FromResult(result);
+                // start SIR validation
+                var packageValidation = new PackageValidation(packageUrl, sha1HashToValidate, workingFolder);
+                var validator = new SirPackageValidator(packageValidation);
+                validator.Validate();
+
+                // maybe it's not a good idea to update file size here
+                using (var stream = StreamHelper.FromUrl(packageUrl))
+                {
+                    if (stream != null)
+                    {
+                        // update FileSize for the package specified by the url
+                        UpdateFileSizeForPackage(packageUrl, (int)stream.Length, submissionId);
+                    }
+                }
+
+                return Task.FromResult(validator.PackageValidation);
             }
         }
+        private static string Lock_Verify_Package = "The lock for package verification.";
 
         private static void UpdateFileSizeForPackage(string packageUrl, int fileSize, int submissionId)
         {
@@ -146,10 +135,10 @@ namespace WebGallery.Services
             {
                 return Task.FromResult(new ImageValidationResult
                 {
-                    TypeStatus = img.IsPng() ? ValiadationStatus.Pass : ValiadationStatus.Fail,
+                    TypeStatus = img.IsPng() ? ValidationResult.Pass : ValidationResult.Fail,
                     DimensionStatus = (img.Width <= maxWidth && img.Height <= maxHeight)
-                                    ? ValiadationStatus.Pass
-                                    : ValiadationStatus.Fail
+                                    ? ValidationResult.Pass
+                                    : ValidationResult.Fail
                 });
             }
         }

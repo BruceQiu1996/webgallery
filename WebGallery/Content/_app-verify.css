@@ -6,8 +6,8 @@
 }
 
     .validation-panel ul {
-        margin:0px;
-        padding:0px;
+        margin: 0px;
+        padding: 0px;
     }
 
     .validation-panel li {
@@ -17,6 +17,44 @@
         margin: 0px;
         padding-left: 20px;
     }
+
+    .validation-panel hr {
+    }
+
+    .validation-panel table {
+        border: 1px solid rgba(83, 85, 82, 1);
+    }
+
+        .validation-panel table th,
+        .validation-panel table td {
+            padding: 2px;
+            margin: 1px;
+        }
+
+        .validation-panel table thead tr {
+            background-color: rgba(83, 85, 82, 1);
+            color: white;
+        }
+
+        .validation-panel table tbody td.pass {
+            background-color: green;
+            color: white;
+        }
+
+        .validation-panel table tbody td.fail {
+            background-color: red;
+            color: white;
+        }
+
+        .validation-panel table tbody td.info {
+            background-color: blue;
+            color: white;
+        }
+
+        .validation-panel table tbody td.exception {
+            background-color: yellow;
+            color: #222;
+        }
 
 .validation-validating {
     color: Black;
@@ -38,6 +76,6 @@
     background: transparent url(images/validating-fail.gif) center left no-repeat;
 }
 
-#panelPass input[type=submit]{
+#panelPass input[type=submit] {
     margin-right: 30px;
 }
