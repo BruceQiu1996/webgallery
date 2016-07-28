@@ -525,7 +525,7 @@ namespace WebGallery.Controllers
         {
             var status = await _validationService.ValidateUrlAsync(url);
 
-            return Json(new { status = status.ToString(), Key = key });
+            return Json(new { Status = status.ToString(), Key = key });
         }
 
         [Authorize]
@@ -533,13 +533,13 @@ namespace WebGallery.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPackage(string url, string hash, int submissionId, string key)
         {
-            var packageValidationResult = await _validationService.ValidatePackageAsync(url, hash, submissionId);
+            var packageValidation = await _validationService.ValidatePackageAsync(url, hash, submissionId, Server.MapPath("~"));
 
             return Json(new
             {
-                ManifestStatus = packageValidationResult.ManifestStatus.ToString(),
-                HashStatus = packageValidationResult.HashStatus.ToString(),
-                Key = key
+                Key = key,
+                Result = packageValidation.Result.ToString(),
+                PackageValidation = packageValidation,
             });
         }
 

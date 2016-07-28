@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AppGallerySIR, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\AppGallerySIR.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.9.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.9.9\lib\net20\Ionic.Zip.dll</HintPath>
       <Private>True</Private>
@@ -1003,6 +1007,7 @@
     <Compile Include="Services\IssueService.cs" />
     <Compile Include="Services\ISubmitterService.cs" />
     <Compile Include="Services\OwnershipService.cs" />
+    <Compile Include="Services\SirPackageValidator.cs" />
     <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
@@ -1295,6 +1300,9 @@
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
+    <None Include="SIR\Parameters.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Views\App\Publish.cshtml" />
     <Content Include="Views\Shared\CanNotBePublished.cshtml" />
   </ItemGroup>

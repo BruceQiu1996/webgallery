@@ -9,9 +9,9 @@ updateValidationItems = function (key) {
 
 $(document).ready(function () {
     verifyUrls();
-    verifyPackages();
     verifyImages($("#ulImages li:lt(2)"), true);
     verifyImages($("#ulImages li:gt(1)"), false);
+    verifyPackages();
 });
 
 verifyImages = function (imageLis, isLogo) {
@@ -55,37 +55,10 @@ verifyImages = function (imageLis, isLogo) {
         $.ajax(ajaxOption).done(function (verification) {
             updateValidationItems(verification.Key);
 
-            if (verification.TypeStatus == "Pass") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-pass"); // the li for image type
-                });
-            }
-            else if (verification.TypeStatus == "Fail") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for image type
-                });
-            }
-            else if (verification.TypeStatus == "Unknown") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-unknown"); // the li for image type
-                });
-            }
-
-            if (verification.DimensionStatus == "Pass") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-pass"); // the li for image dimension
-                });
-            }
-            else if (verification.DimensionStatus == "Fail") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for image dimension
-                });
-            }
-            else if (verification.DimensionStatus == "Unknown") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-unknown"); // the li for image dimension
-                });
-            }
+            theUrlLis.each(function (i, li) {
+                $(li).removeClass("validation-validating").addClass("validation-" + verification.TypeStatus.toLowerCase()); // the li for image type
+                $(li).next().removeClass("validation-validating").addClass("validation-" + verification.DimensionStatus.toLowerCase()); // the li for image dimension
+            });
 
             showPassPanel();
         });
@@ -97,32 +70,28 @@ verifyPackages = function () {
     var packageHashArr = [];
 
     $("#ulPackages li").each(function (index, li) {
-        if (index % 2 == 0) {
-            var theUrl = $(li).attr("data-value");
-            var theHash = $(li).next().attr("data-value");
-            if ($.inArray(theUrl, packageUrlArr) > -1
-                && $.inArray(theHash, packageHashArr) > -1) return;
+        var theUrl = $(li).attr("data-name");
+        var theHash = $(li).attr("data-value");
+        if ($.inArray(theUrl, packageUrlArr) > -1
+            && $.inArray(theHash, packageHashArr) > -1) return;
 
-            packageUrlArr.push(theUrl);
-            packageHashArr.push(theHash);
-        }
+        packageUrlArr.push(theUrl);
+        packageHashArr.push(theHash);
     });
 
     $(packageUrlArr).each(function (index, theUrl) {
         var theHash = packageHashArr[index];
 
         var theUrlLis = $([]);
-        $('#ulPackages li[data-value="' + theUrl + '"]').each(function (i, li) {
-            if ($(li).next().attr("data-value") == theHash) {
+        $('#ulPackages li[data-name="' + theUrl + '"]').each(function (i, li) {
+            if ($(li).attr("data-value") == theHash) {
                 theUrlLis.push(li);
             }
         });
 
         theUrlLis.each(function (i, li) {
-            $(li).addClass("validation-validating"); // the li for package manifest
-            $(li).next().addClass("validation-validating"); // the li for hash
+            $(li).addClass("validation-validating");
         });
-
 
         // recored the validating item and its status
         var validatingItemKey = "package@" + theUrl + "@" + theHash;
@@ -143,41 +112,46 @@ verifyPackages = function () {
         $.ajax(ajaxOption).done(function (verification) {
             updateValidationItems(verification.Key);
 
-            if (verification.ManifestStatus == "Pass") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-pass"); // the li for package manifest
-                });
+            // generate a report with verification.PackageValidation.ValidationEvents
+            var html = "<li>";
+            html += "<table>";
+            html += "<thead><tr><th>Result</th><th>File Name</th><th>Line #</th><th>Message</th></tr></thead>";
+            html += "<tbody>";
+            for (var i = 0; i < verification.PackageValidation.ValidationEvents.length; i++) {
+                var event = verification.PackageValidation.ValidationEvents[i];
+                var resultStr = getResultString(event.Type);
+                var targetStr = event.Target == null ? "" : event.Target;
+                var locationStr = event.Location == null ? "" : event.Location;
+                html += "<tr><td class='" + resultStr.toLowerCase() + "'>" + resultStr + "</td><td>" + targetStr + "</td><td>" + locationStr + "</td><td>" + event.Message + "</td></tr>";
             }
-            else if (verification.ManifestStatus == "Fail") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-fail"); // the li for package manifest
-                });
-            }
-            else if (verification.ManifestStatus == "Unknown") {
-                theUrlLis.each(function (i, li) {
-                    $(li).removeClass("validation-validating").addClass("validation-unknown"); // the li for package manifest
-                });
-            }
+            html += "</tbody>";
+            html += "</table>";
+            html += "</li>";
 
-            if (verification.HashStatus == "Pass") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-pass"); // the li for hash
-                });
-            }
-            else if (verification.HashStatus == "Fail") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-fail"); // the li for hash
-                });
-            }
-            else if (verification.HashStatus == "Unknown") {
-                theUrlLis.each(function (i, li) {
-                    $(li).next().removeClass("validation-validating").addClass("validation-unknown"); // the li for hash
-                });
-            }
+            var className = "validation-" + verification.Result.toLowerCase();
+            theUrlLis.each(function (i, li) {
+                $(li).removeClass("validation-validating").addClass(className);
+                $(html).insertAfter(li);
+            });
 
             showPassPanel();
         });
     });
+}
+
+getResultString = function (type) {
+    switch (type) {
+        case 0:
+            return "Pass";
+        case 1:
+            return "Fail";
+        case 2:
+            return "Info";
+        case 3:
+            return "Exception";
+        default:
+            return "";
+    }
 }
 
 verifyUrls = function () {
@@ -210,15 +184,7 @@ verifyUrls = function () {
         $.ajax(ajaxOption).done(function (verification) {
             updateValidationItems(verification.Key);
 
-            if (verification.status == "Pass") {
-                validatingLis.removeClass("validation-validating").addClass("validation-pass");
-            }
-            else if (verification.status == "Fail") {
-                validatingLis.removeClass("validation-validating").addClass("validation-fail");
-            }
-            else {
-                validatingLis.removeClass("validation-validating").addClass("validation-unknown");
-            }
+            validatingLis.removeClass("validation-validating").addClass("validation-" + verification.Status.toLowerCase());
 
             showPassPanel();
         });
