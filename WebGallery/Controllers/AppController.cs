@@ -525,7 +525,7 @@ namespace WebGallery.Controllers
         {
             var status = await _validationService.ValidateUrlAsync(url);
 
-            return Json(new { status = status.ToString(), Key = key });
+            return Json(new { Status = status.ToString(), Key = key });
         }
 
         [Authorize]

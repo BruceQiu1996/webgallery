@@ -184,7 +184,7 @@ verifyUrls = function () {
         $.ajax(ajaxOption).done(function (verification) {
             updateValidationItems(verification.Key);
 
-            validatingLis.removeClass("validation-validating").addClass("validation-" + verification.status.toLowerCase());
+            validatingLis.removeClass("validation-validating").addClass("validation-" + verification.Status.toLowerCase());
 
             showPassPanel();
         });
