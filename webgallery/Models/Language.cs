@@ -56,5 +56,33 @@ namespace WebGallery.Models
         // See http://www.w3schools.com/tags/att_global_dir.asp
         private const string Left_To_Right = "ltr";
         private const string Right_To_Left = "rtl";
+
+        public static Dictionary<string, string> ReverseAppLanguageCodeDictionary = new Dictionary<string, string>
+        {
+            // The codes used to represent languages in the atom feed (XML) are different than what this Web site
+            // uses. This dictionary maps from the atom feed code to this Web site's code.
+            { "en-us", "en" },
+            { "fr-fr", "fr" },
+            { "fr-ch", "fr" },
+            { "fr-be", "fr" },
+            { "nl-be", "en" }, // don't attempt to use fr here
+            { "es-es", "es" },
+            { "pt-br", "pt-br" },
+            { "pt-pt", "pt-pt" },
+            { "de-de", "de" },
+            { "de-at", "de" },
+            { "de-ch", "de" },
+            { "it-it", "it" },
+            { "ja-jp", "ja" },
+            { "ko-kr", "ko" },
+            { "ru-ru", "ru" },
+            { "cs-cz", "cs" },
+            { "pl-pl", "pl" },
+            { "zh-chs", "zh-cn" },
+            { "zh-cht", "zh-tw" },
+            { "tr-tr", "tr" },
+            { "he-il", "he" },
+            { "ar-eg", "ar" }
+       };
     }
 }

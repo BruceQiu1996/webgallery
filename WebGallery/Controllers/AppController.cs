@@ -395,6 +395,59 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
+        [RequireSubmittership]
+        public async Task<ActionResult> Publish(int submissionId, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId)))
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var CanBePublished = await _appService.CanBePublishedAsync(submissionId);
+            if (!User.IsSuperSubmitter() && !CanBePublished)
+            {
+                return View("CanNotBePublished");
+            }
+
+            var model = new AppPublishViewModel
+            {
+                Submission = await _appService.GetPublishingSubmissionAsync(submissionId),
+                Packages = await _appService.GetPackagesAsync(submissionId),
+                IsWarning = !CanBePublished
+            };
+            ViewBag.ReturnUrl = returnUrl;
+
+            return View("Publish", model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequireSubmittership]
+        public async Task<ActionResult> Publish(int submissionId)
+        {
+            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId)))
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var submission = await _appService.GetSubmissionAsync(submissionId);
+            await _appService.PublishAsync(submission,
+                (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US),
+                await _appService.GetSubmissionCategoriesAsync(submissionId),
+                await _appService.GetPackagesAsync(submissionId),
+                await _appService.PulishImageUploadAsync(submission, new AppImageAzureStorageService()),
+                await _appService.GetDependenciesAsync(submission));
+
+            // the stateID in database of "published" is 7
+            await _appService.UpdateStatusAsync(submissionId, 7);
+
+            // once a new app is published, it will appeared at the first page of gallery
+            return RedirectToRoute(SiteRouteNames.Gallery);
+        }
+
+        [Authorize]
+        [HttpGet]
         public async Task<ActionResult> Mine()
         {
             var submitter = User.GetSubmittership();

@@ -1,0 +1,45 @@
+﻿.content > img {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.submission-detail table {
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+.publish-confirm {
+    border: solid;
+    border-width: 1px;
+    border-color: #adadad;
+    padding: 10px;
+    margin: 20px 0 20px 0;
+    width: 40%;
+}
+
+    .publish-confirm input {
+        float: left;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
+
+    .publish-confirm input,
+    .publish-confirm a {
+        width: 80px;
+    }
+
+.submission-detail > div > span:first-of-type {
+    width: 30%;
+    float: left;
+    color: #4b4b4b;
+    padding-right: 10px;
+}
+
+.submission-detail > div > span:last-of-type {
+    font-weight: 700;
+}
+
+.submission-detail div input {
+    margin-top: 10px;
+    margin-left: 30%;
+}

@@ -46,7 +46,7 @@
                             @using (Html.BeginRouteForm(SiteRouteNames.App_Update_Status, new { submissionId = submission.SubmissionID, returnUrl = Request.Url }, FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
-                                @Html.DropDownList("statusId", new SelectList(Model.StatusList, "SubmissionStateID", "Name", Model.StatusList.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
+                                @Html.DropDownList("statusId", new SelectList(Model.StatusCanBeChanged, "SubmissionStateID", "Name", Model.StatusList.FirstOrDefault(s => s.Name == submission.Status).SubmissionStateID))
                             }
                         </td>
                         <td>
@@ -60,6 +60,8 @@
                                 <ul>
                                     <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
                                     <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink("preview in gallery", SiteRouteNames.App_Preview, new { submissionId = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink("publish", SiteRouteNames.App_Publish, new { submissionId = submission.SubmissionID, returnUrl = Request.Url })</li>
                                     <li><a>delete</a></li>
                                     @using (Html.BeginRouteForm(SiteRouteNames.App_Delete, new { submissionId = submission.SubmissionID, returnUrl = Request.Url }, FormMethod.Post))
                                     {

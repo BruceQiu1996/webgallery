@@ -1,0 +1,81 @@
+﻿@model WebGallery.ViewModels.AppPublishViewModel
+
+@{
+    ViewBag.Title = "Publish";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var createDate = Model.Submission.Created.HasValue ? Model.Submission.Created.Value.ToShortDateString() : "---";
+    var updatedDate = Model.Submission.Updated.HasValue ? Model.Submission.Updated.Value.ToShortDateString() : "---";
+    var displayOrNot = Model.IsWarning ? string.Empty : "display:none";
+}
+<div class="content">
+    <h2>Your are going to publish: @Html.RouteLink(Model.Submission.Nickname + " " + Model.Submission.Version, SiteRouteNames.App_Preview, new { submisionId = Model.Submission.SubmissionID })</h2>
+
+    <h3>@Model.Submission.AppName</h3>
+    <img src="@Model.Submission.LogoUrl" />
+
+    <div class="publish-confirm">
+        <p><span style="@displayOrNot"> The status of this app is <strong>@Model.Submission.Status</strong>. </span> Are you sure to publish it? </p>
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Publish, new { submissionId = Model.Submission.SubmissionID }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-default" value="Publish" />
+        }
+
+        @if (string.IsNullOrWhiteSpace(ViewBag.ReturnUrl))
+        {
+            @Html.RouteLink("Go Back", SiteRouteNames.Portal, null, new { @class = "btn btn-default" })
+        }
+        else
+        {
+            <a class="btn btn-default" href="@ViewBag.ReturnUrl">Go Back</a>
+        }
+    </div>
+    <div class="submission-detail">
+        <h3>Details:</h3>
+        <div>
+            <span>AppId:</span>
+            <span>@Model.Submission.Nickname</span>
+        </div>
+        <div>
+            <span>Version:</span>
+            <span>@Model.Submission.Version</span>
+        </div>
+        <div>
+            <span>Create Date:</span>
+            <span>@createDate</span>
+        </div>
+        <div>
+            <span>Updated Date:</span>
+            <span>@createDate</span>
+        </div>
+        <div>
+            <span>Status:</span>
+            <span>@Model.Submission.Status</span>
+        </div>
+        <h3>Packages:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Language</th>
+                    <th>Package Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var index = 0; index < Model.Packages.Count; index++)
+                {
+                    <tr>
+                        <td>@(index + 1)</td>
+                        <td>@Model.Packages[index].Language</td>
+                        <td><a href="@Model.Packages[index].PackageURL" target="_blank">@Model.Packages[index].PackageURL</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/app-publish")
+}
+

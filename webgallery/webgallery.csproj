@@ -1020,6 +1020,7 @@
     <Compile Include="ViewModels\AppGalleryViewModel.cs" />
     <Compile Include="ViewModels\AppMineViewModel.cs" />
     <Compile Include="ViewModels\AppOwnersViewModel.cs" />
+    <Compile Include="ViewModels\AppPublishViewModel.cs" />
     <Compile Include="ViewModels\AppVerifyViewModel.cs" />
     <Compile Include="ViewModels\AppSubmitViewModel.cs" />
     <Compile Include="ViewModels\AppInstallViewModel.cs" />
@@ -1069,6 +1070,7 @@
     <Content Include="Content\_app-gallery.css" />
     <Content Include="Content\_app-install.css" />
     <Content Include="Content\_app-mine.css" />
+    <Content Include="Content\_app-publish.css" />
     <Content Include="Content\_home-agreement.css" />
     <Content Include="Content\_invitation-detail.css" />
     <Content Include="Content\_issue-report.css" />
@@ -1293,6 +1295,8 @@
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
+    <Content Include="Views\App\Publish.cshtml" />
+    <Content Include="Views\Shared\CanNotBePublished.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

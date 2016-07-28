@@ -89,6 +89,10 @@ namespace WebGallery
                         "~/scripts/_app-owners.js"));
             bundles.Add(new StyleBundle("~/css/app-owners").Include(
                       "~/Content/_app-owners.css"));
+
+            // app.publish
+            bundles.Add(new StyleBundle("~/css/app-publish").Include(
+               "~/Content/_app-publish.css"));
             #endregion
 
             #region issue ----------------------------------------------
@@ -101,7 +105,7 @@ namespace WebGallery
             // invitation.send
             bundles.Add(new StyleBundle("~/css/invitation-send").Include(
                       "~/Content/_invitation-send.css"));
-            
+
             // invitation.detail
             bundles.Add(new StyleBundle("~/css/invitation-detail").Include(
                       "~/Content/_invitation-detail.css"));

@@ -1,5 +1,6 @@
 ﻿using PagedList;
 using System.Collections.Generic;
+using System.Linq;
 using WebGallery.Models;
 
 namespace WebGallery.ViewModels
@@ -11,6 +12,14 @@ namespace WebGallery.ViewModels
         public string Keyword { get; set; }
         public int PageSize { get; set; }
         public string CurrentSort { get; set; }
+
+        public IList<SubmissionState> StatusCanBeChanged
+        {
+            get
+            {
+                return StatusList.Where(s => s.Name != "Published").ToList();
+            }
+        }
 
         public string AppIdSortParam
         {

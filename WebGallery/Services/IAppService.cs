@@ -72,5 +72,15 @@ namespace WebGallery.Services
         Task<IList<ProductOrAppCategory>> LocalizeCategoriesAsync(IList<ProductOrAppCategory> categories, string preferredLanguage);
 
         Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage);
+
+        Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls, IList<string> dependencies);
+
+        Task<Submission> GetPublishingSubmissionAsync(int submissionId);
+
+        Task<bool> CanBePublishedAsync(int submissionId);
+
+        Task<IList<string>> GetDependenciesAsync(Submission submission);
+
+        Task<IList<string>> PulishImageUploadAsync(Submission submission, IAppImageStorageService imageStorageService);
     }
 }
