@@ -756,41 +756,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountMe.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Submit.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.es-es.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.es-es.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.ja-jp.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.ja-jp.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.ko-kr.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.ko-kr.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.tr-TR.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.tr-TR.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.zh-chs.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.zh-chs.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\Submit.zh-cht.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Submit.zh-cht.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_GlobalResources\AppVerify.es-es.designer.cs">
       <DependentUpon>AppVerify.es-es.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1318,36 +1283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Submit.es-es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.es-es.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.ja-jp.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.ja-jp.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.ko-kr.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.ko-kr.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.tr-TR.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.tr-TR.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.zh-chs.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.zh-chs.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Submit.zh-cht.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Submit.zh-cht.designer.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Categorize.resx">

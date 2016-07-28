@@ -8,9 +8,9 @@
 <div class="content">
     @if (Model.ShowThanks)
     {
-        <h2>@Resources.Submit.StatusIntro</h2>
+        <h2>@Resources.AppVerify.StatusIntro</h2>
     }
-    <p>@Resources.Submit.StatusCheckingIntro</p>
+    <p>@Resources.AppVerify.StatusCheckingIntro</p>
 
     @Html.AntiForgeryToken()
     <div class="validation-panel">
@@ -18,7 +18,7 @@
         <ul id="ulUrls">
             @foreach (var item in Model.Urls)
             {
-                var globalizatinoStr = HttpContext.GetGlobalResourceObject("Submit", item.KeyInGlobalizationResources);
+                var globalizatinoStr = HttpContext.GetGlobalResourceObject("AppVerify", item.KeyInGlobalizationResources);
                 var lang = string.IsNullOrEmpty(item.LanguageAndCountryCode) ? string.Empty : $" ({item.LanguageAndCountryCode})";
                 var itemStr = $"{globalizatinoStr}{lang}";
                 <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@itemStr</li>
@@ -28,7 +28,7 @@
         <ul id="ulImages">
             @foreach (var item in Model.Images)
             {
-                <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@HttpContext.GetGlobalResourceObject("Submit", item.KeyInGlobalizationResources)</li>
+                <li data-name="@item.Name" data-value="@item.Value" data-type="@item.Type" data-lang="@item.LanguageAndCountryCode">@HttpContext.GetGlobalResourceObject("AppVerify", item.KeyInGlobalizationResources)</li>
             }
         </ul>
         <h3>Packages</h3>
