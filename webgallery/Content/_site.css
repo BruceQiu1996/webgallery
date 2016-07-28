@@ -113,7 +113,8 @@ footer {
     }
 
         footer .language-selector select {
-            margin-left: 10px;
+            margin-left: 3px;
+            margin-top: 2.5px;
         }
 
     footer ul {
