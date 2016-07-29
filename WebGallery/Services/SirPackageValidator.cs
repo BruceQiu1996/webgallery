@@ -170,18 +170,19 @@ namespace WebGallery.Services.SIR
         public ValidationResult Result { get; set; } = ValidationResult.Fail;
         public string ErrorMessage { get; set; } = string.Empty;
 
-        public PackageValidation(string packageUrl, string sha1HashToValidate, string workingFolder)
+        public PackageValidation(string packagePath, string sha1HashToValidate, string workingFolder)
         {
-            PackagePath = packageUrl;
+            PackagePath = packagePath;
             Sha1HashToValidate = sha1HashToValidate;
             WorkingFolder = workingFolder;
         }
 
-        public static PackageValidation Fail(string packageUrl, string sha1HashToValidate, string workingFolder)
+        public static PackageValidation Fail(string packageUrl, string sha1HashToValidate, string workingFolder, string errorMessage)
         {
             return new PackageValidation(packageUrl, sha1HashToValidate, workingFolder)
             {
                 Result = ValidationResult.Fail,
+                ErrorMessage = errorMessage,
             };
         }
     }

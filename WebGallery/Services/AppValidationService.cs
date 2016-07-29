@@ -83,7 +83,7 @@ namespace WebGallery.Services
             {
                 if (string.IsNullOrWhiteSpace(packageUrl))
                 {
-                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder));
+                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder, "The package URL is empty or contains white space(s)."));
                 }
 
                 var packageFileName = Path.GetFileName(packageUrl);
@@ -93,7 +93,7 @@ namespace WebGallery.Services
                 var packageZipFile = StreamHelper.DownloadFrom(packageUrl, tempPackagePath);
                 if (packageZipFile == null)
                 {
-                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder));
+                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder, "This package can't be downloaded for validating."));
                 }
 
                 // update FileSize for the package specified by the url
