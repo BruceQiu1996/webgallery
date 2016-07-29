@@ -35,6 +35,17 @@ namespace WebGallery
                 catch { }
             }
 
+            // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
+            if (Thread.CurrentThread.CurrentCulture.Name.ToLower() == "zh-cn")
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-chs");
+            }
+            if (Thread.CurrentThread.CurrentCulture.Name.ToLower() == "zh-tw")
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-cht");
+            }
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+
             return DependencyResolver.Current.GetService(controllerType) as IController;
         }
     }
