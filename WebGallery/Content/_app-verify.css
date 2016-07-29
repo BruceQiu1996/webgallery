@@ -64,12 +64,12 @@
 .validation-validating {
     color: Black;
     font-weight: bold;
-    background: transparent url(images/validating.gif) center left no-repeat;
+    background: url(../Content/images/validating.gif) center left no-repeat;
 }
 
 .validation-pass {
     color: Green;
-    background: transparent url(images/validating-pass.gif) center left no-repeat;
+    background: url(../Content/images/validating-pass.gif) center left no-repeat;
 }
 
 .validation-unknown {
@@ -78,7 +78,7 @@
 
 .validation-fail {
     color: Red;
-    background: transparent url(images/validating-fail.gif) center left no-repeat;
+    background: url(../Content/images/validating-fail.gif) center left no-repeat;
 }
 
 #panelPass input[type=submit] {
