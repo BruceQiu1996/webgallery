@@ -50,9 +50,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\AppGallerySIR.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.9.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetZip.1.9.9\lib\net20\Ionic.Zip.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\Libs\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -976,13 +975,11 @@
     <Compile Include="Services\SubmitterService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\AzureStorageHelper.cs" />
-    <Compile Include="Utilities\HashHelper.cs" />
     <Compile Include="Utilities\ImageHelper.cs" />
     <Compile Include="Utilities\MemoryTributary.cs" />
     <Compile Include="Utilities\SendGridEmailHelper.cs" />
     <Compile Include="Utilities\StreamHelper.cs" />
     <Compile Include="Utilities\UrlHelper.cs" />
-    <Compile Include="Utilities\ZipFileHelper.cs" />
     <Compile Include="ViewModels\AccountMeViewModel.cs" />
     <Compile Include="ViewModels\AccountDetailViewModel.cs" />
     <Compile Include="ViewModels\AppCategorizeViewModel.cs" />
@@ -1218,6 +1215,9 @@
     <Content Include="Scripts\_app_submit.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\_super-submitters.js" />
+    <Content Include="SIR\temp\readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1265,9 +1265,6 @@
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
-    <None Include="SIR\Parameters.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\App\Publish.cshtml" />
     <Content Include="Views\Shared\CanNotBePublished.cshtml" />
   </ItemGroup>
@@ -1919,6 +1916,7 @@
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

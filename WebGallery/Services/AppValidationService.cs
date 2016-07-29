@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Models;
@@ -84,22 +86,37 @@ namespace WebGallery.Services
                     return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder));
                 }
 
-                // start SIR validation
-                var packageValidation = new PackageValidation(packageUrl, sha1HashToValidate, workingFolder);
-                var validator = new SirPackageValidator(packageValidation);
-                validator.Validate();
+                var packageFileName = Path.GetFileName(packageUrl);
+                var tempPackagePath = Path.Combine(workingFolder, $@"SIR\temp\{packageFileName}");
 
-                // maybe it's not a good idea to update file size here
-                using (var stream = StreamHelper.FromUrl(packageUrl))
+                // download this package and save it under ~\SIR\temp\
+                var packageZipFile = StreamHelper.DownloadFrom(packageUrl, tempPackagePath);
+                if (packageZipFile == null)
                 {
-                    if (stream != null)
-                    {
-                        // update FileSize for the package specified by the url
-                        UpdateFileSizeForPackage(packageUrl, (int)stream.Length, submissionId);
-                    }
+                    return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder));
                 }
 
-                return Task.FromResult(validator.PackageValidation);
+                // update FileSize for the package specified by the url
+                UpdateFileSizeForPackage(packageUrl, (int)packageZipFile.Length, submissionId);
+
+                // start SIR validation
+                var packageValidation = new PackageValidation(tempPackagePath, sha1HashToValidate, workingFolder);
+                var validator = new SirPackageValidator(packageValidation);
+                try
+                {
+                    validator.Validate();
+                }
+                catch (Exception ex)
+                {
+                    packageValidation.ErrorMessage = ex.Message;
+                    packageValidation.Result = AppGallery.SIR.ILog.ValidationResult.Fail;
+                }
+
+                // try to delete the package zip file
+                try { packageZipFile.Delete(); }
+                catch { } // it's okay if deleting throws exceptions.
+
+                return Task.FromResult(packageValidation);
             }
         }
         private static string Lock_Verify_Package = "The lock for package verification.";

@@ -20,6 +20,7 @@
 
     .validation-panel table {
         border: 1px solid rgba(83, 85, 82, 1);
+        margin-right: 20px;
     }
 
         .validation-panel table th,
@@ -32,6 +33,13 @@
             background-color: rgba(83, 85, 82, 1);
             color: white;
         }
+
+            .validation-panel table thead tr th:nth-child(3),
+            .validation-panel table tbody tr td:nth-child(3) {
+                width: 70px;
+                padding-left: 10px;
+                text-align: left;
+            }
 
         .validation-panel table tbody td.pass {
             background-color: green;
