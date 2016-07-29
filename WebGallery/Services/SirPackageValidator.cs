@@ -28,7 +28,7 @@ namespace WebGallery.Services.SIR
         {
             var packageValidationManager = new PackageValidationManager
             {
-                SourcePath = PackageValidation.PackageUrl,
+                SourcePath = PackageValidation.PackagePath,
                 SkipInstallation = true,
                 SkipReportGeneration = true,
             };
@@ -41,7 +41,7 @@ namespace WebGallery.Services.SIR
                 packageValidationManager.ValidationStatusUpdated += new PackageValidationManager.ValidationStatusUpdatedHandler(PackageValidationManager_ValidationStatusUpdated);
                 packageValidationManager.ValidationCompleted += new PackageValidationManager.ValidationCompletedHandler(PackageValidationManager_ValidationCompleted);
 
-                packageValidationManager.ValidatePackage(PackageValidation.PackageUrl);
+                packageValidationManager.ValidatePackage(PackageValidation.PackagePath);
             }
             else
             {
@@ -88,10 +88,6 @@ namespace WebGallery.Services.SIR
             configurationError = string.Empty;
             try
             {
-                if (ConfigurationManager.AppSettings["parameterSchemaFile"] != null)
-                {
-                    packageValidationManager.ParameterSchemaFile = Path.Combine(workingFolder, ConfigurationManager.AppSettings["parameterSchemaFile"]);
-                }
                 if (ConfigurationManager.AppSettings["unzippedFolderLocation"] != null)
                 {
                     packageValidationManager.UnzippedFolderLocation = Path.Combine(workingFolder, ConfigurationManager.AppSettings["unzippedFolderLocation"]);
@@ -163,7 +159,7 @@ namespace WebGallery.Services.SIR
 
     public class PackageValidation
     {
-        public string PackageUrl { get; private set; }
+        public string PackagePath { get; private set; }
         public string Sha1HashToValidate { get; private set; }
         public string WorkingFolder { get; private set; }
 
@@ -171,12 +167,12 @@ namespace WebGallery.Services.SIR
         public string SHA { get; set; } = string.Empty;
 
         public Queue<ValidationEvent> ValidationEvents { get; set; } = new Queue<ValidationEvent>();
-        public ValidationResult Result { get; set; }
+        public ValidationResult Result { get; set; } = ValidationResult.Fail;
         public string ErrorMessage { get; set; } = string.Empty;
 
         public PackageValidation(string packageUrl, string sha1HashToValidate, string workingFolder)
         {
-            PackageUrl = packageUrl;
+            PackagePath = packageUrl;
             Sha1HashToValidate = sha1HashToValidate;
             WorkingFolder = workingFolder;
         }

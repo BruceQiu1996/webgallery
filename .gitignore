@@ -35,8 +35,3 @@ bld/
 **/webappgalleryprod - FTP.pubxml.user
 **/webappgalleryprod - Web Deploy.pubxml.user
 **/webgalleryprod.pubxml.user
-
-# SIR outputs
-**/SIR/temp/*
-**/SIR/logs/*
-**/SIR/reports/*

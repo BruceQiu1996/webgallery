@@ -1,0 +1,1 @@
+﻿This folder is used as a temporary store for package zip files in the process of SIR validating.
