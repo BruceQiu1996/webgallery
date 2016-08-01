@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<feed
-    xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom">
   <webpiFile version="5.0.0.0" />
   <title>Web Platform Installer 5.0 Application Feed</title>
   <link rel="self" href="http://www.microsoft.com/web/webpi/5.0/webapplicationlist.xml" />
@@ -81,7 +80,6 @@
       <name>English</name>
     </language>
   </languages>
-
   <!-- SmartStoreNET-->
   <entry type="application">
     <productId>SmartStoreNET</productId>
@@ -6324,7 +6322,7 @@
     <link href="http://mayando.codeplex.com/Thread/List.aspx" />
     <images>
       <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/mayando-logo</icon>
-      <screenshot>https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=cccbad94-c7bf-4062-b511-641053236975</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/mayando-logo</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/mayando-screenshot3</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/mayando-screenshot2</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/mayando-screenshot4</screenshot>
@@ -6533,7 +6531,7 @@
     <link href="http://www.xpressengine.com/qna" />
     <images>
       <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/xpressengine-logo</icon>
-      <screenshot>https://www.microsoft.com/web/handlers/webpi.ashx?command=getimage&amp;guid=b267c4a7-3bfa-4041-9667-b551d375a3d5</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/xpressengine-logo</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/xpressengine-screenshot2</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/xpressengine-screenshot1</screenshot>
       <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/xpressengine-screenshot5</screenshot>
