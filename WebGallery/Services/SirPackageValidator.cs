@@ -42,6 +42,16 @@ namespace WebGallery.Services.SIR
                 packageValidationManager.ValidationCompleted += new PackageValidationManager.ValidationCompletedHandler(PackageValidationManager_ValidationCompleted);
 
                 packageValidationManager.ValidatePackage(PackageValidation.PackagePath);
+
+                // since some validation items should be ignored and not be added to ValidationItems, if no one in validationItems is "Fail", the validaton should be "Pass" 
+                PackageValidation.Result = ValidationResult.Pass;
+                foreach (var item in PackageValidation.ValidationItems)
+                {
+                    if (item.Type == LogEventType.Fail)
+                    {
+                        PackageValidation.Result = ValidationResult.Fail;
+                    }
+                }
             }
             else
             {
@@ -58,7 +68,20 @@ namespace WebGallery.Services.SIR
                     // ignore installation events
                     break;
                 default:
-                    PackageValidation.ValidationEvents.Enqueue(e.ValidationEvent);
+
+                    // these errors should be ignored
+                    // 1.Literal String replacements will render application unusable after publish, Absolute Regular Expressions should be used in TextFile match
+                    // 2.Missing required provider: setacl
+                    if (e.ValidationEvent.Message.Contains("Literal String replacements will render application unusable after publish, Absolute Regular Expressions should be used in TextFile match") ||
+                        e.ValidationEvent.Message.Contains("Missing required provider: setacl"))
+                    {
+                        PackageValidation.ValidationItems.Enqueue(new ValidationItem { ValidationEvent = e.ValidationEvent, Type = LogEventType.Informational });
+                    }
+                    else
+                    {
+                        PackageValidation.ValidationItems.Enqueue(new ValidationItem { ValidationEvent = e.ValidationEvent, Type = e.ValidationEvent.Type });
+                    }
+
                     break;
             }
         }
@@ -70,7 +93,7 @@ namespace WebGallery.Services.SIR
 
             // validate SHA-1 hash
             var sha1HashValidationEvent = ValidateSha1Hash(PackageValidation.SHA, PackageValidation.Sha1HashToValidate);
-            PackageValidation.ValidationEvents.Enqueue(sha1HashValidationEvent);
+            PackageValidation.ValidationItems.Enqueue(new ValidationItem { ValidationEvent = sha1HashValidationEvent, Type = sha1HashValidationEvent.Type });
 
             PackageValidation.Result = (sha1HashValidationEvent.Type == LogEventType.Fail) ? ValidationResult.Fail : e.Result;
         }
@@ -157,6 +180,12 @@ namespace WebGallery.Services.SIR
         }
     }
 
+    public class ValidationItem
+    {
+        public ValidationEvent ValidationEvent { get; set; }
+        public LogEventType Type { get; set; }
+    }
+
     public class PackageValidation
     {
         public string PackagePath { get; private set; }
@@ -166,7 +195,7 @@ namespace WebGallery.Services.SIR
         public string MD5 { get; set; } = string.Empty;
         public string SHA { get; set; } = string.Empty;
 
-        public Queue<ValidationEvent> ValidationEvents { get; set; } = new Queue<ValidationEvent>();
+        public Queue<ValidationItem> ValidationItems { get; set; } = new Queue<ValidationItem>();
         public ValidationResult Result { get; set; } = ValidationResult.Fail;
         public string ErrorMessage { get; set; } = string.Empty;
 
