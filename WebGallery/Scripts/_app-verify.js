@@ -112,18 +112,20 @@ verifyPackages = function () {
         $.ajax(ajaxOption).done(function (verification) {
             updateValidationItems(verification.Key);
 
-            // generate a report with verification.PackageValidation.ValidationEvents
+            // generate a report with verification.PackageValidation.ValidationItems
             var html = "<li>";
-            if (verification.PackageValidation.ValidationEvents.length == 0) {
+            if (verification.PackageValidation.ValidationItems.length == 0) {
                 html += "<span class='text-danger'>" + verification.PackageValidation.ErrorMessage + "</span>";
             }
             else {
                 html += "<table>";
                 html += "<thead><tr><th>Result</th><th>File Name</th><th>Line #</th><th>Message</th></tr></thead>";
                 html += "<tbody>";
-                for (var i = 0; i < verification.PackageValidation.ValidationEvents.length; i++) {
-                    var event = verification.PackageValidation.ValidationEvents[i];
-                    var resultStr = getResultString(event.Type);
+                for (var i = 0; i < verification.PackageValidation.ValidationItems.length; i++) {
+                    var event = verification.PackageValidation.ValidationItems[i].ValidationEvent;
+
+                    // the Type of ValidationItem is different with ValidationEvent 
+                    var resultStr = getResultString(verification.PackageValidation.ValidationItems[i].Type);
                     var targetStr = event.Target == null ? "" : event.Target;
                     var locationStr = event.Location == null ? "" : event.Location;
                     html += "<tr><td class='" + resultStr.toLowerCase() + "'>" + resultStr + "</td><td>" + targetStr + "</td><td>" + locationStr + "</td><td>" + event.Message + "</td></tr>";
