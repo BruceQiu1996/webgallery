@@ -11,7 +11,7 @@
     <h2>Your are going to publish: @Html.RouteLink(Model.Submission.Nickname + " " + Model.Submission.Version, SiteRouteNames.App_Preview, new { submisionId = Model.Submission.SubmissionID })</h2>
 
     <h3>@Model.Submission.AppName</h3>
-    <img src="@Model.Submission.LogoUrl" />
+    <div><img src="@Model.Submission.LogoUrl" /></div>
 
     <div class="publish-confirm">
         <p><span style="@displayOrNot"> The status of this app is <strong>@Model.Submission.Status</strong>. </span> Are you sure to publish it? </p>
