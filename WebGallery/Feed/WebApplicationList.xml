@@ -6739,6 +6739,57 @@
     <pageName>a_webshop</pageName>
     <productFamily resourceName="Applications">Applications</productFamily>
   </entry>
+  <!--PiwikAD-->
+  <entry type="application">
+    <productId>PiwikAD</productId>
+    <title resourceName="Entry_PiwikAD_Title">Piwik</title>
+    <id>http://www.microsoft.com/web/webpi/2.0/PiwikAD</id>
+    <summary resourceName="Entry_PiwikAD_Summary">Piwik is an open analytics platform currently used by individuals, companies and governments all over the world. With Piwik, your data will always be yours. Get detailed reports on your website visitors, the pages they visit, the languages they speak, the files they download, track your campaigns, ecommerce carts and products, and mobile apps. Piwik has more than 200 features and is easy to use.</summary>
+    <updated>2016-08-03T00:00:00Z</updated>
+    <published>2016-08-03T09:23:44Z</published>
+    <longSummary resourceName="Entry_PiwikAD_LongSummary">Liberating Web Analytics Piwik is the leading open source web analytics platform that gives you valuable insights on your website's visitors, your marketing campaigns and much more, so you can optimize your online strategy and experience of your users. Get to know more about your users and their behaviour on your website – where they came from (referrers), which pages are most popular, how often they visit and which marketing campaigns have been successful. Whether you are an individual blogger, a small business, or a large corporation, Piwik helps you gain valuable insights to help your business or readership grow. Piwik will always respect your and your users privacy, while giving you full control of your data.</longSummary>
+    <version>2.16.2</version>
+    <link href="http://forum.piwik.org" />
+    <author>
+      <name>AppDirect</name>
+      <uri>http://www.appdirect.com/</uri>
+    </author>
+    <images>
+      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/PiwikAD-logo</icon>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/PiwikAD-screenshot1</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/PiwikAD-screenshot2</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/PiwikAD-screenshot3</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/PiwikAD-screenshot4</screenshot>
+    </images>
+    <keywords>
+      <keywordId>Tools</keywordId>
+    </keywords>
+    <dependency>
+      <and>
+        <dependency idref="PHP55App" />
+        <dependency idref="MySQLApp" />
+      </and>
+    </dependency>
+    <installers>
+      <installer>
+        <id>1</id>
+        <languageId>en</languageId>
+        <osList idref="SupportedAppPlatforms" />
+        <installerFile>
+          <fileSize>16526916</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=PiwikAD&amp;version=2.16.2&amp;applang=en</trackingURL>
+          <installerURL>http://builds.piwik.org/WebAppGallery/piwik-2.16.2-WAG.zip</installerURL>
+          <sha1>250dd8dd4e5e8d0df20cd092f40a35d217dda899</sha1>
+        </installerFile>
+        <msDeploy />
+        <helpLink>http://forum.piwik.org</helpLink>
+      </installer>
+    </installers>
+    <addToFeedDate>2016-08-03T09:23:44Z</addToFeedDate>
+    <newCategory resourceName="NewWebApplications">New Web Applications</newCategory>
+    <pageName>PiwikAD</pageName>
+    <productFamily resourceName="Applications">Applications</productFamily>
+  </entry>
   <entry>
     <productId>GenericPHP53App</productId>
     <title resourceName="Entry_GenericPHP53App_Title">PHP</title>
