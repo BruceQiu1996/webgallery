@@ -311,6 +311,7 @@ namespace WebGallery.Services
             using (var db = new WebGalleryDbContext())
             {
                 int[] stateIdsNotLocked = { 1, // "Pending Review"
+                                            2, // "Testing"
                                             3, // "Testing Failed"
                                             5, // "Rejected"
                                             7, // "Published"
