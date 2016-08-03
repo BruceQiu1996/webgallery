@@ -398,22 +398,16 @@ namespace WebGallery.Controllers
         [RequireSubmittership]
         public async Task<ActionResult> Publish(int submissionId, string returnUrl)
         {
-            if (!User.IsSuperSubmitter() && !(await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, submissionId)))
+            if (!User.IsSuperSubmitter())
             {
                 return RedirectToRoute(SiteRouteNames.Portal);
-            }
-
-            var CanBePublished = await _appService.CanBePublishedAsync(submissionId);
-            if (!User.IsSuperSubmitter() && !CanBePublished)
-            {
-                return View("CanNotBePublished");
             }
 
             var model = new AppPublishViewModel
             {
                 Submission = await _appService.GetPublishingSubmissionAsync(submissionId),
                 Packages = await _appService.GetPackagesAsync(submissionId),
-                IsWarning = !CanBePublished
+                IsWarning = !(await _appService.CanBePublishedAsync(submissionId))
             };
             ViewBag.ReturnUrl = returnUrl;
 

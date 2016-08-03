@@ -1,4 +1,11 @@
-﻿.content > img {
+﻿.content > div:first-of-type {
+    margin-top:20px;
+    height: 200px;
+    width: 40%;
+    text-align: center;
+}
+
+.content > div > img {
     max-height: 200px;
     max-width: 200px;
 }
