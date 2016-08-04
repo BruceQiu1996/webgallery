@@ -59,6 +59,7 @@
                             <div class="actions-panel">
                                 <ul>
                                     <li>@Html.RouteLink("edit", SiteRouteNames.App_Edit, new { submissionId = submission.SubmissionID })</li>
+                                    <li>@Html.RouteLink(Resources.Portal.DashboardStatusCheckerBtnText, SiteRouteNames.App_Verify, new { submissionId = submission.SubmissionID })</li>
                                     <li>@Html.RouteLink("owners", SiteRouteNames.App_Owners, new { submissionId = submission.SubmissionID })</li>
                                     <li>@Html.RouteLink("preview in gallery", SiteRouteNames.App_Preview, new { submissionId = submission.SubmissionID })</li>
                                     <li>@Html.RouteLink("publish", SiteRouteNames.App_Publish, new { submissionId = submission.SubmissionID, returnUrl = Request.Url })</li>

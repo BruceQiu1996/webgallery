@@ -25,8 +25,9 @@ namespace WebGallery.Utilities
             }
             catch (Exception e)
             {
+                var x = e.ToString();
                 // The HResult of InnerException {"Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host."} is -2146232800
-                if (e.InnerException != null && e.InnerException.HResult == -2146232800)
+                if ((e.InnerException != null && e.InnerException.HResult == -2146232800) || e.Message.Contains("Section=ResponseHeader Detail=CR"))
                 {
                     statusCode = HttpStatusCode.OK;
                 }

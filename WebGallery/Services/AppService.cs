@@ -313,7 +313,9 @@ namespace WebGallery.Services
                 int[] stateIdsNotLocked = { 1, // "Pending Review"
                                             2, // "Testing"
                                             3, // "Testing Failed"
+                                            4, // "Testing Passed"
                                             5, // "Rejected"
+                                            6, // "Ready to Publish"
                                             7, // "Published"
                 };
                 var submissionState = (from state in db.SubmissionStates
