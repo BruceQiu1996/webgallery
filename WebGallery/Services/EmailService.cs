@@ -20,6 +20,11 @@ namespace WebGallery.Services
             SendMessageForSubmission(submitter, submission, "VERIFIED", urlAuthority, htmlEncode);
         }
 
+        public void SendMessageForSubmissionPublished(Submitter submitter, Submission submission, string urlAuthority, Func<string, string> htmlEncode)
+        {
+            SendMessageForSubmission(submitter, submission, "PUBLISHED", urlAuthority, htmlEncode);
+        }
+
         public void SendMessageForSubmission(Submitter submitter, Submission submission, string action, string urlAuthority, Func<string, string> htmlEncode)
         {
             if (submitter == null || submission == null) return;
@@ -120,10 +125,15 @@ namespace WebGallery.Services
                 // Second, send email externally (to the app owners). Here, we don't include the XML.
                 foreach (var owner in owners)
                 {
+                    var note = string.Empty;
+                    switch (action)
+                    {
+                        case "VERIFIED": note = BuildSubmissionNote(htmlEncode(owner.FullName), from.Address, submission.Nickname, submission.Version, urlAuthority); break;
+                        case "PUBLISHED": note = BuildPublishNote(htmlEncode(owner.FullName), submission.Nickname, submission.Version, urlAuthority); break;
+                        default: break;
+                    }
                     to = owner.EMail;
-                    body = BuildSubmissionNote(htmlEncode(owner.FullName), from.Address, submission.Nickname, submission.Version, urlAuthority)
-                        + BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
-
+                    body = note + BuildBody(submitter, contactInfo, submission, categoryName1, categoryName2, frameworkName, metadata, packages, action, urlAuthority);
                     SendGridEmailHelper.SendAsync(subject, BuildHtmlStyles() + body, from.Address, from.DisplayName, to);
                 }
             }
@@ -242,6 +252,13 @@ namespace WebGallery.Services
                 + $"<p>We also want to confirm the submission information that we received from {eMailAddressOfSubmitter} about {appID} {appVersion} in the Windows Web Application Gallery.  If the information below in this email is incorrect, please email appgal@microsoft.com so we can make changes.</p>"
                 + "<p>Thanks,<br />The Web Application Gallery team</p>"
                 + "<p>PS:  Microsoft respects your privacy.  If you feel you’ve received this e-mail in error, contact us at <a href='mailto:appgal@microsoft.com'>appgal@microsoft.com</a>.</p>"
+                + "<hr /><br /><br />";
+        }
+
+        private string BuildPublishNote(string who, string appID, string appVersion, string urlAuthority)
+        {
+            return $"<p>Hello {who},</p>"
+                + $"<p>The application <a href='https://{urlAuthority}/apps/{appID}'>{appID} {appVersion}</a> has been published in Web PI. Please report any issue to <a href='mailto:appgal@microsoft.com'>appgal@microsoft.com</a>.</p>"
                 + "<hr /><br /><br />";
         }
 
