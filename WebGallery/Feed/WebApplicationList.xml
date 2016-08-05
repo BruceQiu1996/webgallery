@@ -6739,6 +6739,59 @@
     <pageName>a_webshop</pageName>
     <productFamily resourceName="Applications">Applications</productFamily>
   </entry>
+  <!--OpenAtrium-->
+  <entry type="application">
+    <productId>OpenAtrium</productId>
+    <title resourceName="Entry_OpenAtrium_Title">Open Atrium</title>
+    <id>http://www.microsoft.com/web/webpi/2.0/OpenAtrium</id>
+    <summary resourceName="Entry_OpenAtrium_Summary">Communicate securely, share assets and accomplish work together online.</summary>
+    <updated>2016-08-03T00:00:00Z</updated>
+    <published>2016-08-04T20:38:17Z</published>
+    <longSummary resourceName="Entry_OpenAtrium_LongSummary">Open Atrium is an intranet in a box that has group spaces to allow different teams to have their own conversations and collaboration.</longSummary>
+    <version>7.x-2.66</version>
+    <link href="http://docs.openatrium.com" />
+    <author>
+      <name>AppDirect</name>
+      <uri>http://www.appdirect.com</uri>
+    </author>
+    <images>
+      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-logo</icon>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot1</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot2</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot3</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot4</screenshot>
+    </images>
+    <keywords>
+      <keywordId>Tools</keywordId>
+    </keywords>
+    <dependency>
+      <and>
+        <dependency idref="PHP55App" />
+        <dependency idref="MySQLApp" />
+      </and>
+    </dependency>
+    <installers>
+      <installer>
+        <id>1</id>
+        <languageId>en</languageId>
+        <osList idref="SupportedAppPlatforms" />
+        <installerFile>
+          <fileSize>38573124</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=OpenAtrium&amp;version=7.x-2.66&amp;applang=en</trackingURL>
+          <installerURL>http://closest.repo.standingcloud.net/repo/azure/packages/openatrium-7.x-2.66.zip</installerURL>
+          <sha1>76c75c29fc547f1f63357f61924db781d6985e5d</sha1>
+        </installerFile>
+        <msDeploy>
+          <startPage />
+        </msDeploy>
+        <helpLink>http://docs.openatrium.com</helpLink>
+      </installer>
+    </installers>
+    <addToFeedDate>2016-08-04T20:38:17Z</addToFeedDate>
+    <newCategory resourceName="NewWebApplications">New Web Applications</newCategory>
+    <pageName>OpenAtrium</pageName>
+    <productFamily resourceName="Applications">Applications</productFamily>
+  </entry>
   <entry>
     <productId>GenericPHP53App</productId>
     <title resourceName="Entry_GenericPHP53App_Title">PHP</title>
