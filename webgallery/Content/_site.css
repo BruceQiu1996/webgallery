@@ -112,6 +112,10 @@ footer {
         float: left;
     }
 
+    footer .language-selector form {
+        display:inline-block;
+    }
+
         footer .language-selector select {
             margin-left: 3px;
             margin-top: 2.5px;
