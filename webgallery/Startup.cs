@@ -41,14 +41,19 @@ namespace WebGallery
                 // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
                 if (languages != null && languages.Length > 0)
                 {
-                    switch (languages[0].ToLower())
+                    var lang = languages[0];
+                    if (lang.Contains(";"))
+                    {
+                        lang = lang.Substring(0, lang.IndexOf(';'));
+                    }
+                    switch (lang.ToLower())
                     {
                         case "zh-cn": Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-chs"); break;
                         case "zh-tw": Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-cht"); break;
                         default:
                             try
                             {
-                                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languages[0]);
+                                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(lang);
                             }
                             catch { }
                             break;
