@@ -23,10 +23,20 @@ namespace WebGallery.Utilities
                     response.Close();
                 }
             }
+
+            catch (WebException we)
+            {
+                // the exception "The server committed a protocol violation" can also prove that the remote server is exist
+                if (we.Status == WebExceptionStatus.ServerProtocolViolation)
+                {
+                    statusCode = HttpStatusCode.OK;
+                }
+            }
+
             catch (Exception e)
             {
                 // The HResult of InnerException {"Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host."} is -2146232800
-                if ((e.InnerException != null && e.InnerException.HResult == -2146232800) || e.Message.Contains("Section=ResponseHeader Detail=CR"))
+                if (e.InnerException != null && e.InnerException.HResult == -2146232800)
                 {
                     statusCode = HttpStatusCode.OK;
                 }
