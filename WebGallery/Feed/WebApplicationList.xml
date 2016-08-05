@@ -1869,28 +1869,25 @@
     <title resourceName="Entry_nopCommerce_Title">nopCommerce</title>
     <id>http://www.microsoft.com/web/webpi/2.0/nopCommerce</id>
     <summary resourceName="Entry_nopCommerce_Summary">nopCommerce is a fully customizable shopping cart. A solution with comprehensive features that is easy to use for new online businesses, yet powerful enough for the most demanding e-commerce expert.</summary>
-    <updated>2016-01-19T04:56:41Z</updated>
-    <published>2016-01-19T04:56:41Z</published>
+    <updated>2016-08-05T00:00:00Z</updated>
+    <published>2016-08-05T09:45:16Z</published>
     <longSummary resourceName="Entry_nopCommerce_LongSummary">nopCommerce is the leading ASP.NET online shop e-commerce solution. nopCommerce can be installed and set-up by anyone with the most basic web site building and computer skills. nopCommerce is a secure, scalable and extendable e-commerce platform. It has user friendly administration tools to manage your storefront, customers, wish lists, discounts, and coupons. It also has multi-store and multi-vendor support, flexible tax support, multi-lingual support, and hundreds of other features. Support for the most popular gateways: Authorize.net, PayPal, and more.</longSummary>
-    <version>3.70</version>
+    <version>3.80</version>
     <link href="http://www.nopcommerce.com/boards/" />
-    <images>
-      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/nopcommerce-logo</icon>
-    </images>
-    <keywords>
-      <keywordId>eCommerce</keywordId>
-      <keywordId>Forums</keywordId>
-      <keywordId>SQL</keywordId>
-    </keywords>
     <author>
       <name>nopCommerce</name>
       <uri>http://www.nopcommerce.com</uri>
     </author>
+    <images>
+      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/nopCommerce-logo</icon>
+    </images>
+    <keywords>
+      <keywordId>eCommerce</keywordId>
+    </keywords>
     <dependency>
       <and>
-        <dependency idref="MVC4App" />
-        <dependency idref="SQL_ASPNET45App" />
-        <dependency idref="ASPNET4App" />
+        <dependency idref="MVC4ASPNET45App" />
+        <dependency idref="SQLApp" />
       </and>
     </dependency>
     <installers>
@@ -1899,26 +1896,29 @@
         <languageId>en</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=en</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=en</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
         <id>2</id>
-        <!--Language ar not supported . Hence changed to 'en' for testing purposes -->
-        <languageId>en</languageId>
+        <languageId>ar</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=ar</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ar</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1926,12 +1926,14 @@
         <languageId>zh-cn</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=zh-cn</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=zh-cn</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1939,12 +1941,14 @@
         <languageId>zh-tw</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=zh-tw</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=zh-tw</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1952,12 +1956,14 @@
         <languageId>cs</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=cs</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=cs</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1965,12 +1971,14 @@
         <languageId>fr</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=fr</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=fr</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1978,12 +1986,14 @@
         <languageId>de</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=de</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=de</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -1991,12 +2001,14 @@
         <languageId>he</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=he</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=he</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2004,12 +2016,14 @@
         <languageId>it</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=it</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=it</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2017,12 +2031,14 @@
         <languageId>ja</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=ja</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ja</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2030,12 +2046,14 @@
         <languageId>ko</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=ko</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ko</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2043,12 +2061,14 @@
         <languageId>pl</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=pl</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pl</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2056,12 +2076,14 @@
         <languageId>pt-br</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=pt-br</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pt-br</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2069,12 +2091,14 @@
         <languageId>ru</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=ru</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ru</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2082,12 +2106,14 @@
         <languageId>es</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=es</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=es</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
       <installer>
@@ -2095,12 +2121,29 @@
         <languageId>tr</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>33009</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.70&amp;applang=tr</trackingURL>
-          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.70/nopCommerce_3.70_WPI.zip</installerURL>
-          <sha1>a2e6052718c7ce5b8d4b0770572d9c015da58527</sha1>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=tr</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
+        <helpLink>http://www.nopcommerce.com/boards/</helpLink>
+      </installer>
+      <installer>
+        <id>17</id>
+        <languageId>pt-pt</languageId>
+        <osList idref="SupportedAppPlatforms" />
+        <installerFile>
+          <fileSize>41091586</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pt-pt</trackingURL>
+          <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
+          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+        </installerFile>
+        <msDeploy>
+          <startPage>/</startPage>
+        </msDeploy>
         <helpLink>http://www.nopcommerce.com/boards/</helpLink>
       </installer>
     </installers>
@@ -6737,6 +6780,59 @@
     </installers>
     <addToFeedDate>04-07-2015</addToFeedDate>
     <pageName>a_webshop</pageName>
+    <productFamily resourceName="Applications">Applications</productFamily>
+  </entry>
+  <!--OpenAtrium-->
+  <entry type="application">
+    <productId>OpenAtrium</productId>
+    <title resourceName="Entry_OpenAtrium_Title">Open Atrium</title>
+    <id>http://www.microsoft.com/web/webpi/2.0/OpenAtrium</id>
+    <summary resourceName="Entry_OpenAtrium_Summary">Communicate securely, share assets and accomplish work together online.</summary>
+    <updated>2016-08-03T00:00:00Z</updated>
+    <published>2016-08-04T20:38:17Z</published>
+    <longSummary resourceName="Entry_OpenAtrium_LongSummary">Open Atrium is an intranet in a box that has group spaces to allow different teams to have their own conversations and collaboration.</longSummary>
+    <version>7.x-2.66</version>
+    <link href="http://docs.openatrium.com" />
+    <author>
+      <name>AppDirect</name>
+      <uri>http://www.appdirect.com</uri>
+    </author>
+    <images>
+      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-logo</icon>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot1</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot2</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot3</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/OpenAtrium-screenshot4</screenshot>
+    </images>
+    <keywords>
+      <keywordId>Tools</keywordId>
+    </keywords>
+    <dependency>
+      <and>
+        <dependency idref="PHP55App" />
+        <dependency idref="MySQLApp" />
+      </and>
+    </dependency>
+    <installers>
+      <installer>
+        <id>1</id>
+        <languageId>en</languageId>
+        <osList idref="SupportedAppPlatforms" />
+        <installerFile>
+          <fileSize>38573124</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=OpenAtrium&amp;version=7.x-2.66&amp;applang=en</trackingURL>
+          <installerURL>http://closest.repo.standingcloud.net/repo/azure/packages/openatrium-7.x-2.66.zip</installerURL>
+          <sha1>76c75c29fc547f1f63357f61924db781d6985e5d</sha1>
+        </installerFile>
+        <msDeploy>
+          <startPage />
+        </msDeploy>
+        <helpLink>http://docs.openatrium.com</helpLink>
+      </installer>
+    </installers>
+    <addToFeedDate>2016-08-04T20:38:17Z</addToFeedDate>
+    <newCategory resourceName="NewWebApplications">New Web Applications</newCategory>
+    <pageName>OpenAtrium</pageName>
     <productFamily resourceName="Applications">Applications</productFamily>
   </entry>
   <entry>
