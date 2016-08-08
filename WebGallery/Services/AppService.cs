@@ -901,99 +901,103 @@ namespace WebGallery.Services
             }
         }
 
+        private static string Lock_WebApplicationList_Feed = "The lock for WebApplicatonList.xml feed.";
 
         public Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls, IList<string> dependencies)
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
-            var xdoc = XDocument.Load(path);
-            var ns = xdoc.Root.GetDefaultNamespace();
-            var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
-                            where e.Element(ns + "productId").Value.ToLower() == submission.Nickname.ToLower() && e.Attribute("type") != null && e.Attribute("type").Value == "application"
-                            select e).FirstOrDefault();
-
-            // a new entry should be created to 
-            // create images element
-            var imagesElement = new XElement(ns + "images");
-
-            // first, add icon to images element
-            imagesElement.Add(new XElement(ns + "icon", imageUrls.ElementAtOrDefault(0)));
-
-            // add screenshots if exist
-            for (int i = 1; i < imageUrls.Count; i++)
+            lock (Lock_WebApplicationList_Feed)
             {
-                imagesElement.Add(new XElement(ns + "screenshot", imageUrls.ElementAtOrDefault(i)));
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+                var xdoc = XDocument.Load(path);
+                var ns = xdoc.Root.GetDefaultNamespace();
+                var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
+                                where e.Element(ns + "productId").Value.ToLower() == submission.Nickname.ToLower() && e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                                select e).FirstOrDefault();
+
+                // a new entry should be created to 
+                // create images element
+                var imagesElement = new XElement(ns + "images");
+
+                // first, add icon to images element
+                imagesElement.Add(new XElement(ns + "icon", imageUrls.ElementAtOrDefault(0)));
+
+                // add screenshots if exist
+                for (int i = 1; i < imageUrls.Count; i++)
+                {
+                    imagesElement.Add(new XElement(ns + "screenshot", imageUrls.ElementAtOrDefault(i)));
+                }
+
+                //create keywords element
+                var keywordsElement = new XElement(ns + "keywords");
+                foreach (var c in categories)
+                {
+                    var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
+                    keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
+                }
+
+                //create dependency element
+                var dependencyElement = new XElement(ns + "dependency", new XElement(ns + "and"));
+                foreach (var dependency in dependencies)
+                {
+                    dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
+                }
+
+                //create installers element
+                var installersElement = new XElement(ns + "installers");
+                for (int i = 0; i < packages.Count(); i++)
+                {
+                    installersElement.Add(new XElement(ns + "installer",
+                        new XElement(ns + "id", (i + 1).ToString()),
+                        new XElement(ns + "languageId", Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
+                        new XElement(ns + "osList", new XAttribute("idref", "SupportedAppPlatforms")),
+                        new XElement(ns + "installerFile",
+                        new XElement(ns + "fileSize", packages[i].FileSize.HasValue ? (packages[i].FileSize.Value / 1024).ToString() : "0"),
+                        new XElement(ns + "trackingURL", ConfigurationManager.AppSettings["WebPIHandlerLink"] + "?command=incrementappdownloadcount&appid=" + submission.Nickname + "&version=" + HttpUtility.UrlEncode(submission.Version) + "&applang=" + Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
+                        new XElement(ns + "installerURL", packages[i].PackageURL),
+                        new XElement(ns + "sha1", packages[i].SHA1Hash)),
+                        new XElement(ns + "msDeploy", new XElement(ns + "startPage", packages[i].StartPage)),
+                        new XElement(ns + "helpLink", submission.SupportURL)));
+                }
+
+                // create a new entry element
+                var newEntry = new XElement(ns + "entry", new XAttribute("type", "application"),
+                    new XElement(ns + "productId", submission.Nickname),
+                    new XElement(ns + "title", metadata.Name, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Title")),
+                    new XElement(ns + "id", ConfigurationManager.AppSettings["WebPI2.0Link"] + submission.Nickname),
+                    new XElement(ns + "summary", metadata.BriefDescription, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Summary")),
+                    new XElement(ns + "updated", submission.ReleaseDate.ToUniversalTime().ToString("u").Replace(" ", "T")),
+                    new XElement(ns + "published", DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T")),
+                    new XElement(ns + "longSummary", metadata.Description, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_LongSummary")),
+                    new XElement(ns + "version", submission.Version),
+                    new XElement(ns + "link", new XAttribute("href", submission.SupportURL)),
+                    new XElement(ns + "author",
+                    new XElement(ns + "name", submission.SubmittingEntity),
+                    new XElement(ns + "uri", submission.SubmittingEntityURL)),
+                    imagesElement,
+                    keywordsElement,
+                    dependencyElement,
+                    installersElement,
+
+                    // addToFeedDate is used to record the first time an app added to feed, if there is not exist the same app in feed already, the current datetime should be used 
+                    new XElement(ns + "addToFeedDate", oldEntry == null ? DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T") : oldEntry.Element(ns + "addToFeedDate").Value),
+                    new XElement(ns + "pageName", submission.Nickname),
+                    new XElement(ns + "productFamily", "Applications", new XAttribute("resourceName", "Applications")));
+
+                // if there is not exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
+                if (oldEntry == null)
+                {
+                    newEntry.Element(ns + "addToFeedDate").AddAfterSelf(new XElement(ns + "newCategory", "New Web Applications", new XAttribute("resourceName", "NewWebApplications")));
+                    xdoc.Root.Elements(ns + "entry").Last(x => x.Attribute("type") != null && x.Attribute("type").Value == "application").AddAfterSelf(new XComment(submission.Nickname), newEntry);
+                }
+                else
+                {
+                    oldEntry.ReplaceWith(newEntry);
+                }
+
+                xdoc.Save(path);
+
+                return Task.FromResult(0);
             }
-
-            //create keywords element
-            var keywordsElement = new XElement(ns + "keywords");
-            foreach (var c in categories)
-            {
-                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
-                keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
-            }
-
-            //create dependency element
-            var dependencyElement = new XElement(ns + "dependency", new XElement(ns + "and"));
-            foreach (var dependency in dependencies)
-            {
-                dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
-            }
-
-            //create installers element
-            var installersElement = new XElement(ns + "installers");
-            for (int i = 0; i < packages.Count(); i++)
-            {
-                installersElement.Add(new XElement(ns + "installer",
-                    new XElement(ns + "id", (i + 1).ToString()),
-                    new XElement(ns + "languageId", Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
-                    new XElement(ns + "osList", new XAttribute("idref", "SupportedAppPlatforms")),
-                    new XElement(ns + "installerFile",
-                    new XElement(ns + "fileSize", packages[i].FileSize.HasValue ? (packages[i].FileSize.Value / 1024).ToString() : "0"),
-                    new XElement(ns + "trackingURL", ConfigurationManager.AppSettings["WebPIHandlerLink"] + "?command=incrementappdownloadcount&appid=" + submission.Nickname + "&version=" + HttpUtility.UrlEncode(submission.Version) + "&applang=" + Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
-                    new XElement(ns + "installerURL", packages[i].PackageURL),
-                    new XElement(ns + "sha1", packages[i].SHA1Hash)),
-                    new XElement(ns + "msDeploy", new XElement(ns + "startPage", packages[i].StartPage)),
-                    new XElement(ns + "helpLink", submission.SupportURL)));
-            }
-
-            // create a new entry element
-            var newEntry = new XElement(ns + "entry", new XAttribute("type", "application"),
-                new XElement(ns + "productId", submission.Nickname),
-                new XElement(ns + "title", metadata.Name, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Title")),
-                new XElement(ns + "id", ConfigurationManager.AppSettings["WebPI2.0Link"] + submission.Nickname),
-                new XElement(ns + "summary", metadata.BriefDescription, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Summary")),
-                new XElement(ns + "updated", submission.ReleaseDate.ToUniversalTime().ToString("u").Replace(" ", "T")),
-                new XElement(ns + "published", DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T")),
-                new XElement(ns + "longSummary", metadata.Description, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_LongSummary")),
-                new XElement(ns + "version", submission.Version),
-                new XElement(ns + "link", new XAttribute("href", submission.SupportURL)),
-                new XElement(ns + "author",
-                new XElement(ns + "name", submission.SubmittingEntity),
-                new XElement(ns + "uri", submission.SubmittingEntityURL)),
-                imagesElement,
-                keywordsElement,
-                dependencyElement,
-                installersElement,
-
-                // addToFeedDate is used to record the first time an app added to feed, if there is not exist the same app in feed already, the current datetime should be used 
-                new XElement(ns + "addToFeedDate", oldEntry == null ? DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T") : oldEntry.Element(ns + "addToFeedDate").Value),
-                new XElement(ns + "pageName", submission.Nickname),
-                new XElement(ns + "productFamily", "Applications", new XAttribute("resourceName", "Applications")));
-
-            // if there is not exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
-            if (oldEntry == null)
-            {
-                newEntry.Element(ns + "addToFeedDate").AddAfterSelf(new XElement(ns + "newCategory", "New Web Applications", new XAttribute("resourceName", "NewWebApplications")));
-                xdoc.Root.Elements(ns + "entry").Last(x => x.Attribute("type") != null && x.Attribute("type").Value == "application").AddAfterSelf(new XComment(submission.Nickname), newEntry);
-            }
-            else
-            {
-                oldEntry.ReplaceWith(newEntry);
-            }
-
-            xdoc.Save(path);
-
-            return Task.FromResult(0);
         }
 
         public Task<IList<KeyValuePair<string, string>>> GetSupportedLanguagesFromFeedAsync()
