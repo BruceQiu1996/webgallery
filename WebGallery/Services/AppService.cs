@@ -948,7 +948,7 @@ namespace WebGallery.Services
                     new XElement(ns + "languageId", Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
                     new XElement(ns + "osList", new XAttribute("idref", "SupportedAppPlatforms")),
                     new XElement(ns + "installerFile",
-                    new XElement(ns + "fileSize", packages[i].FileSize.HasValue ? packages[i].FileSize.Value.ToString() : string.Empty),
+                    new XElement(ns + "fileSize", packages[i].FileSize.HasValue ? (packages[i].FileSize.Value / 1024).ToString() : "0"),
                     new XElement(ns + "trackingURL", ConfigurationManager.AppSettings["WebPIHandlerLink"] + "?command=incrementappdownloadcount&appid=" + submission.Nickname + "&version=" + HttpUtility.UrlEncode(submission.Version) + "&applang=" + Language.ReverseAppLanguageCodeDictionary[packages[i].Language]),
                     new XElement(ns + "installerURL", packages[i].PackageURL),
                     new XElement(ns + "sha1", packages[i].SHA1Hash)),
