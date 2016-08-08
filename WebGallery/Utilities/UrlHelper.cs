@@ -34,6 +34,10 @@ namespace WebGallery.Utilities
                 }
             }
 
+            catch
+            {
+            }
+
             return statusCode == HttpStatusCode.OK;
         }
     }
