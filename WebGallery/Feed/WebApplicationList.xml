@@ -1870,7 +1870,7 @@
     <id>http://www.microsoft.com/web/webpi/2.0/nopCommerce</id>
     <summary resourceName="Entry_nopCommerce_Summary">nopCommerce is a fully customizable shopping cart. A solution with comprehensive features that is easy to use for new online businesses, yet powerful enough for the most demanding e-commerce expert.</summary>
     <updated>2016-08-05T00:00:00Z</updated>
-    <published>2016-08-05T09:45:16Z</published>
+    <published>2016-08-05T11:47:25Z</published>
     <longSummary resourceName="Entry_nopCommerce_LongSummary">nopCommerce is the leading ASP.NET online shop e-commerce solution. nopCommerce can be installed and set-up by anyone with the most basic web site building and computer skills. nopCommerce is a secure, scalable and extendable e-commerce platform. It has user friendly administration tools to manage your storefront, customers, wish lists, discounts, and coupons. It also has multi-store and multi-vendor support, flexible tax support, multi-lingual support, and hundreds of other features. Support for the most popular gateways: Authorize.net, PayPal, and more.</longSummary>
     <version>3.80</version>
     <link href="http://www.nopcommerce.com/boards/" />
@@ -1896,10 +1896,10 @@
         <languageId>en</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=en</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1911,10 +1911,10 @@
         <languageId>ar</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ar</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1926,10 +1926,10 @@
         <languageId>zh-cn</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=zh-cn</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1941,10 +1941,10 @@
         <languageId>zh-tw</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=zh-tw</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1956,10 +1956,10 @@
         <languageId>cs</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=cs</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1971,10 +1971,10 @@
         <languageId>fr</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=fr</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -1986,10 +1986,10 @@
         <languageId>de</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=de</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2001,10 +2001,10 @@
         <languageId>he</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=he</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2016,10 +2016,10 @@
         <languageId>it</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=it</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2031,10 +2031,10 @@
         <languageId>ja</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ja</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2046,10 +2046,10 @@
         <languageId>ko</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ko</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2061,10 +2061,10 @@
         <languageId>pl</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pl</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2076,10 +2076,10 @@
         <languageId>pt-br</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pt-br</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2091,10 +2091,10 @@
         <languageId>ru</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=ru</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2106,10 +2106,10 @@
         <languageId>es</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=es</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2121,10 +2121,10 @@
         <languageId>tr</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=tr</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -2136,10 +2136,10 @@
         <languageId>pt-pt</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>41091586</fileSize>
+          <fileSize>41091545</fileSize>
           <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=nopCommerce&amp;version=3.80&amp;applang=pt-pt</trackingURL>
           <installerURL>https://github.com/nopSolutions/nopCommerce/releases/download/release-3.80/nopCommerce_3.80_WPI.zip</installerURL>
-          <sha1>3dbccee7a0580a77ae6b0bea74148694acb8405b</sha1>
+          <sha1>09876b4c4eccbd3781121279dcab9c7886d5b50b</sha1>
         </installerFile>
         <msDeploy>
           <startPage>/</startPage>
@@ -5621,46 +5621,35 @@
     <productId>Piwik</productId>
     <title resourceName="Entry_Piwik_Title">Piwik</title>
     <id>http://www.microsoft.com/web/webpi/2.0/Piwik</id>
-    <summary resourceName="Entry_Piwik_Summary">
-      Piwik is an open analytics platform currently used by individuals, companies and governments all over the world. With Piwik, your data will always be yours.
-
-      Get detailed reports on your website visitors, the pages they visit, the languages they speak, the files they download, track your campaigns, ecommerce carts and products, and mobile apps. Piwik has more than 200 features and is easy to use
-    </summary>
-    <updated>2015-11-02T19:45:03Z</updated>
-    <published>2015-11-02T19:45:03Z</published>
-    <longSummary resourceName="Entry_Piwik_LongSummary">
-      Liberating Web Analytics
-
-      Piwik is the leading open source web analytics platform that gives you valuable insights on your website's visitors, your marketing campaigns and much more, so you can optimize your online strategy and experience of your users.
-
-      Get to know more about your users and their behaviour on your website – where they came from (referrers), which pages are most popular, how often they visit and which marketing campaigns have been successful.
-
-      Whether you are an individual blogger, a small business, or a large corporation, Piwik helps you gain valuable insights to help your business or readership grow.
-
-      Piwik will always respect your and your users privacy, while giving you full control of your data.
-
-
-    </longSummary>
-    <version>2.15.0</version>
+    <summary resourceName="Entry_Piwik_Summary">Piwik is an open analytics platform currently used by individuals, companies and governments all over the world. With Piwik, your data will always be yours.
+Get detailed reports on your website visitors, the pages they visit, the languages they speak, the files they download, track your campaigns, ecommerce carts and products, and mobile apps. Piwik has more than 200 features and is easy to use</summary>
+    <updated>2015-10-22T00:00:00Z</updated>
+    <published>2016-08-05T19:24:37Z</published>
+    <longSummary resourceName="Entry_Piwik_LongSummary">Liberating Web Analytics
+Piwik is the leading open source web analytics platform that gives you valuable insights on your website's visitors, your marketing campaigns and much more, so you can optimize your online strategy and experience of your users.
+Get to know more about your users and their behaviour on your website – where they came from (referrers), which pages are most popular, how often they visit and which marketing campaigns have been successful.
+Whether you are an individual blogger, a small business, or a large corporation, Piwik helps you gain valuable insights to help your business or readership grow.
+Piwik will always respect your and your users privacy, while giving you full control of your data. 
+</longSummary>
+    <version>2.16.2</version>
     <link href="http://forum.piwik.org" />
-    <images>
-      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/piwik-logo</icon>
-      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/piwik-screenshot1</screenshot>
-      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/piwik-screenshot2</screenshot>
-      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/piwik-screenshot3</screenshot>
-      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/piwik-screenshot4</screenshot>
-    </images>
-    <keywords>
-      <keywordId>Tools</keywordId>
-      <keywordId>MySQL</keywordId>
-    </keywords>
     <author>
       <name>Piwik</name>
       <uri>http://piwik.org/</uri>
     </author>
+    <images>
+      <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/Piwik-logo</icon>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/Piwik-screenshot1</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/Piwik-screenshot2</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/Piwik-screenshot3</screenshot>
+      <screenshot>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/Piwik-screenshot4</screenshot>
+    </images>
+    <keywords>
+      <keywordId>Tools</keywordId>
+    </keywords>
     <dependency>
       <and>
-        <dependency idref="PHP55App" />
+        <dependency idref="PHP54App" />
         <dependency idref="MySQLApp" />
       </and>
     </dependency>
@@ -5670,12 +5659,14 @@
         <languageId>en</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>16187</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Piwik&amp;version=2.15.0&amp;applang=en</trackingURL>
-          <installerURL>http://builds.piwik.org/WebAppGallery/piwik-2.15.0-WAG.zip</installerURL>
-          <sha1>43f253a366f5d84187e887bd75dcaa36fe60384e</sha1>
+          <fileSize>16526916</fileSize>
+          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Piwik&amp;version=2.16.2&amp;applang=en</trackingURL>
+          <installerURL>http://builds.piwik.org/WebAppGallery/piwik-2.16.2-WAG.zip</installerURL>
+          <sha1>250dd8dd4e5e8d0df20cd092f40a35d217dda899</sha1>
         </installerFile>
-        <msDeploy />
+        <msDeploy>
+          <startPage />
+        </msDeploy>
         <helpLink>http://forum.piwik.org</helpLink>
       </installer>
     </installers>
