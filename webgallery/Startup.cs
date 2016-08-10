@@ -21,7 +21,22 @@ namespace WebGallery
     {
         public IController Create(RequestContext requestContext, Type controllerType)
         {
-            string languageCode = string.Empty;
+            var languageCode = GetLanguageCode(requestContext);
+
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languageCode);
+            }
+            catch { }
+
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+
+            return DependencyResolver.Current.GetService(controllerType) as IController;
+        }
+
+        private static string GetLanguageCode(RequestContext requestContext)
+        {
+            var languageCode = string.Empty;
             var cookie = requestContext.HttpContext.Request.Cookies["LanguagePreference"];
             if (cookie != null && !string.IsNullOrWhiteSpace(cookie.Value))
             {
@@ -44,15 +59,7 @@ namespace WebGallery
                 }
             }
 
-            try
-            {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languageCode);
-            }
-            catch { }
-
-            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
-
-            return DependencyResolver.Current.GetService(controllerType) as IController;
+            return languageCode;
         }
     }
 }
