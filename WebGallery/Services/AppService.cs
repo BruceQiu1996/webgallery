@@ -914,14 +914,14 @@ namespace WebGallery.Services
                                 where e.Element(ns + "productId").Value.ToLower() == submission.Nickname.ToLower() && e.Attribute("type") != null && e.Attribute("type").Value == "application"
                                 select e).FirstOrDefault();
 
-                // a new entry should be created to 
+                // create component elements of a new entry
                 // create images element
                 var imagesElement = new XElement(ns + "images");
 
-                // first, add icon to images element
+                // first, add the icon element to images element
                 imagesElement.Add(new XElement(ns + "icon", imageUrls.ElementAtOrDefault(0)));
 
-                // add screenshots if exist
+                // add screenshot elements
                 for (int i = 1; i < imageUrls.Count; i++)
                 {
                     imagesElement.Add(new XElement(ns + "screenshot", imageUrls.ElementAtOrDefault(i)));
@@ -959,7 +959,7 @@ namespace WebGallery.Services
                         new XElement(ns + "helpLink", submission.SupportURL)));
                 }
 
-                // create a new entry element
+                // create a new entry element, it contains the images element, keywords element, dependency element and installers element which have been created above
                 var newEntry = new XElement(ns + "entry", new XAttribute("type", "application"),
                     new XElement(ns + "productId", submission.Nickname),
                     new XElement(ns + "title", metadata.Name, new XAttribute("resourceName", "Entry_" + submission.Nickname + "_Title")),
@@ -978,12 +978,12 @@ namespace WebGallery.Services
                     dependencyElement,
                     installersElement,
 
-                    // addToFeedDate is used to record the first time an app added to feed, if there is not exist the same app in feed already, the current datetime should be used 
+                    // addToFeedDate element is used to record the first time an app added to feed, if there doesn't exist the same app in feed already, its value should be current datetime 
                     new XElement(ns + "addToFeedDate", oldEntry == null ? DateTime.Now.ToUniversalTime().ToString("u").Replace(" ", "T") : oldEntry.Element(ns + "addToFeedDate").Value),
                     new XElement(ns + "pageName", submission.Nickname),
                     new XElement(ns + "productFamily", "Applications", new XAttribute("resourceName", "Applications")));
 
-                // if there is not exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
+                // if there doesn't exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
                 if (oldEntry == null)
                 {
                     newEntry.Element(ns + "addToFeedDate").AddAfterSelf(new XElement(ns + "newCategory", "New Web Applications", new XAttribute("resourceName", "NewWebApplications")));
@@ -991,6 +991,7 @@ namespace WebGallery.Services
                 }
                 else
                 {
+                    // if there already exist the same app in feed, just replace the old entry with the new entry 
                     oldEntry.ReplaceWith(newEntry);
                 }
 
