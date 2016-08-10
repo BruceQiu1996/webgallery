@@ -7,7 +7,7 @@ namespace WebGallery.ViewModels
     {
         public Submission Submission { get; set; }
         public IList<Package> Packages { get; set; }
-        public bool IsWarning { get; set; }
+        public bool DisplayWarning { get; set; }
 
     }
 }

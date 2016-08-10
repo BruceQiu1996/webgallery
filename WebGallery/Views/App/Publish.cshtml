@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var createDate = Model.Submission.Created.HasValue ? Model.Submission.Created.Value.ToShortDateString() : "---";
     var updatedDate = Model.Submission.Updated.HasValue ? Model.Submission.Updated.Value.ToShortDateString() : "---";
-    var displayOrNot = Model.IsWarning ? string.Empty : "display:none";
+    var displayOrNot = Model.DisplayWarning ? string.Empty : "display:none";
 }
 <div class="content">
     <h2>Your are going to publish: @Html.RouteLink(Model.Submission.Nickname + " " + Model.Submission.Version, SiteRouteNames.App_Preview, new { submisionId = Model.Submission.SubmissionID })</h2>
