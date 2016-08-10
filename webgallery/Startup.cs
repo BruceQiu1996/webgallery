@@ -21,34 +21,34 @@ namespace WebGallery
     {
         public IController Create(RequestContext requestContext, Type controllerType)
         {
-            try
+            string languageCode = string.Empty;
+            var cookie = requestContext.HttpContext.Request.Cookies["LanguagePreference"];
+            if (cookie != null && !string.IsNullOrWhiteSpace(cookie.Value))
             {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(requestContext.HttpContext.Request.Cookies["LanguagePreference"].Value);
+                languageCode = cookie.Value;
             }
-
-            // if language preference can't be got from cookie for any reason, Request.UserLanguages should be used
-            catch
+            else
             {
                 var languages = requestContext.HttpContext.Request.UserLanguages;
                 if (languages != null && languages.Length > 0)
                 {
-                    var lang = languages[0].Contains(";") ? languages[0].Substring(0, languages[0].IndexOf(';')) : languages[0];
+                    languageCode = languages[0].Contains(";") ? languages[0].Substring(0, languages[0].IndexOf(';')) : languages[0];
 
                     // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
-                    switch (lang.ToLower())
+                    switch (languageCode.ToLower())
                     {
-                        case "zh-cn": lang = "zh-chs"; break;
-                        case "zh-tw": lang = "zh-cht"; break;
+                        case "zh-cn": languageCode = "zh-chs"; break;
+                        case "zh-tw": languageCode = "zh-cht"; break;
                         default: break;
                     }
-
-                    try
-                    {
-                        Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(lang);
-                    }
-                    catch { }
                 }
             }
+
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languageCode);
+            }
+            catch { }
 
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 
