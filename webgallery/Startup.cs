@@ -21,46 +21,36 @@ namespace WebGallery
     {
         public IController Create(RequestContext requestContext, Type controllerType)
         {
-            var cookie = requestContext.HttpContext.Request.Cookies["LanguagePreference"];
-            if (cookie != null && !string.IsNullOrWhiteSpace(cookie.Value))
+            try
             {
-                try
-                {
-                    var culture = CultureInfo.GetCultureInfo(cookie.Value);
-                    Thread.CurrentThread.CurrentCulture = culture;
-                    Thread.CurrentThread.CurrentUICulture = culture;
-                }
-
-                // If the cookie.Value can't be used to get a CultureInfo, we keep the CurrentCulture unchanged
-                catch { }
+                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(requestContext.HttpContext.Request.Cookies["LanguagePreference"].Value);
             }
-            else
+
+            // if language preference can't be got from cookie for any reason, Request.UserLanguages should be used
+            catch
             {
                 var languages = requestContext.HttpContext.Request.UserLanguages;
-
-                // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
                 if (languages != null && languages.Length > 0)
                 {
-                    var lang = languages[0];
-                    if (lang.Contains(";"))
-                    {
-                        lang = lang.Substring(0, lang.IndexOf(';'));
-                    }
+                    var lang = languages[0].Contains(";") ? languages[0].Substring(0, languages[0].IndexOf(';')) : languages[0];
+
+                    // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
                     switch (lang.ToLower())
                     {
-                        case "zh-cn": Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-chs"); break;
-                        case "zh-tw": Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-cht"); break;
-                        default:
-                            try
-                            {
-                                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(lang);
-                            }
-                            catch { }
-                            break;
+                        case "zh-cn": lang = "zh-chs"; break;
+                        case "zh-tw": lang = "zh-cht"; break;
+                        default: break;
                     }
+
+                    try
+                    {
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(lang);
+                    }
+                    catch { }
                 }
-                Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
             }
+
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 
             return DependencyResolver.Current.GetService(controllerType) as IController;
         }
