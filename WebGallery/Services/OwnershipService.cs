@@ -81,38 +81,10 @@ namespace WebGallery.Services
             }
         }
 
-        public Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation, string microsoftAccount)
+        public Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation)
         {
             using (var db = new WebGalleryDbContext())
             {
-                // if the invited user is not a submitter, we add a new submitter and contact detail to database
-                if (invitee == null)
-                {
-                    var submitter = db.Submitters.FirstOrDefault(s => s.MicrosoftAccount == microsoftAccount);
-                    if (submitter == null)
-                    {
-                        submitter = new Submitter
-                        {
-                            MicrosoftAccount = microsoftAccount,
-                            PersonalID = string.Empty,
-                            PersonalIDType = 1,
-                            IsSuperSubmitter = false
-                        };
-                        db.Submitters.Add(submitter);
-
-                        // save changes to database and get the submitterID
-                        db.SaveChanges();
-
-                        db.SubmittersContactDetails.Add(new SubmittersContactDetail
-                        {
-                            SubmitterID = submitter.SubmitterID,
-                            FirstName = invitation.FirstName,
-                            LastName = invitation.LastName,
-                        });
-                    }
-                    invitee = submitter;
-                }
-
                 // remove invitation
                 db.UnconfirmedSubmissionOwners.RemoveRange(from u in db.UnconfirmedSubmissionOwners
                                                            where u.RequestID == invitation.RequestID

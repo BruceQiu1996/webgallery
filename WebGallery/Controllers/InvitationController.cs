@@ -90,6 +90,7 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
+        [RequireSubmittership]
         public async Task<ActionResult> Detail(Guid? invitationGuid)
         {
             if (!invitationGuid.HasValue) return View("ResourceNotFound");
@@ -131,6 +132,7 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittership]
         public async Task<ActionResult> Accept(Guid invitationGuid)
         {
             var invitation = await _ownershipService.GetInvitationAsync(invitationGuid);
@@ -146,7 +148,7 @@ namespace WebGallery.Controllers
             }
 
             var invitee = User.GetSubmittership();
-            await _ownershipService.CreateAsync(invitee, submission, invitation, User.GetEmailAddress());
+            await _ownershipService.CreateAsync(invitee, submission, invitation);
 
             return RedirectToRoute(SiteRouteNames.Portal);
         }

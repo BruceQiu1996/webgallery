@@ -16,7 +16,7 @@ namespace WebGallery.Services
 
         Task RemoveInvitationAsync(Guid invitationGuid);
 
-        Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation, string microsoftAccount);
+        Task CreateAsync(Submitter invitee, Submission submission, UnconfirmedSubmissionOwner invitation);
 
         Task RemoveAsync(int submitterId, int submissionId);
     }
