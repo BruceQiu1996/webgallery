@@ -407,7 +407,7 @@ namespace WebGallery.Controllers
             {
                 Submission = await _appService.GetPublishingSubmissionAsync(submissionId),
                 Packages = await _appService.GetPackagesAsync(submissionId),
-                IsWarning = !(await _appService.CanBePublishedAsync(submissionId))
+                DisplayWarning = !(await _appService.CanBePublishedAsync(submissionId))
             };
             ViewBag.ReturnUrl = returnUrl;
 
