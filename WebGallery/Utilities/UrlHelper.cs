@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 
 namespace WebGallery.Utilities
 {
@@ -23,7 +22,6 @@ namespace WebGallery.Utilities
                     response.Close();
                 }
             }
-
             catch (WebException e)
             {
                 // the exception "The server committed a protocol violation" can also prove that the remote server is exist
@@ -33,10 +31,7 @@ namespace WebGallery.Utilities
                     statusCode = HttpStatusCode.OK;
                 }
             }
-
-            catch
-            {
-            }
+            catch { }
 
             return statusCode == HttpStatusCode.OK;
         }
