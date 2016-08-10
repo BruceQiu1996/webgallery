@@ -26,7 +26,7 @@ namespace WebGallery
                 Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(requestContext.HttpContext.Request.Cookies["LanguagePreference"].Value);
             }
 
-            // If the cookie is null or value of cookie can't be used to get a CultureInfo, the user language of request should be used
+            // if language preference can't be got from cookie for any reason, Request.UserLanguages should be used
             catch
             {
                 var languages = requestContext.HttpContext.Request.UserLanguages;
