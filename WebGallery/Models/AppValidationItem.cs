@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace WebGallery.Models
+﻿namespace WebGallery.Models
 {
     public class AppValidationItem
     {
