@@ -22,12 +22,14 @@ namespace WebGallery
         public IController Create(RequestContext requestContext, Type controllerType)
         {
             var languageCode = GetLanguageCode(requestContext);
-
-            try
+            if (!string.IsNullOrEmpty(languageCode))
             {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languageCode);
+                try
+                {
+                    Thread.CurrentThread.CurrentCulture = new CultureInfo(languageCode);
+                }
+                catch { }
             }
-            catch { }
 
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 
