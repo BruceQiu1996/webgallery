@@ -400,28 +400,6 @@ table tr td.parent-of-table
             var subject = $"Ticket #{issue.IssueID} [{Enum.GetName(typeof(IssueType), issue.IssueType)}]";
             var from = GetFromMailAddress();
 
-            // first, send email to the user who reported the issue
-            var messageBodyToUser = new StringBuilder();
-            messageBodyToUser.Append($"<p>Hello {issue.ReporterFirstName} {issue.ReporterLastName}</p>");
-            messageBodyToUser.Append("<p>Thank you for contacting Web App Gallery team! Your request has been received, and is being reviewed by our team.  If you haven’t already, please check out our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery'>documentation</a> or our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery/frequently-asked-questions'>FAQ</a> where you can find answers to the most common questions.</p>");
-            messageBodyToUser.Append("<p>Please expect a response from us in 3-5 business days.</p>");
-            messageBodyToUser.Append("<p>Thanks</p>");
-            messageBodyToUser.Append("<p>App Gallery Team</p>");
-
-            SendGridEmailHelper.SendAsync(subject, messageBodyToUser.ToString(), from.Address, from.DisplayName, issue.ReporterEmail);
-
-            // second, send email to Microsoft and/or the app owners
-            var messageBodyToMicrosoftOrOwners = new StringBuilder();
-            messageBodyToMicrosoftOrOwners.Append("<p>Hello</p>");
-            messageBodyToMicrosoftOrOwners.Append($"<p>An issue was reported by <a href='mailto:{issue.ReporterEmail}'>{issue.ReporterFirstName} {issue.ReporterLastName}</a>.</p>");
-            messageBodyToMicrosoftOrOwners.Append("<p><table cellpadding='0' cellspacing='0'>");
-            var appIdStatement = string.IsNullOrWhiteSpace(issue.AppId) ? string.Empty : $" for the app: {issue.AppId}";
-            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Category</th><td>{Enum.GetName(typeof(IssueType), issue.IssueType)}{appIdStatement}</td></tr>");
-            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Details</th><td>{issue.IssueDescription}</td></tr>");
-            messageBodyToMicrosoftOrOwners.Append("</table></p>");
-            messageBodyToMicrosoftOrOwners.Append("<p>Thanks</p>");
-            messageBodyToMicrosoftOrOwners.Append("<p>App Gallery Team</p>");
-
             // set the table's style
             var style = @"
 <style>
@@ -443,6 +421,47 @@ table tr td
 }
 </style>
 ";
+
+            // first, send email to the user who reported the issue
+            var messageBodyToUser = new StringBuilder();
+            messageBodyToUser.Append($"<p>Hello {issue.ReporterFirstName} {issue.ReporterLastName}</p>");
+
+            // the type of app issue is 2
+            if (issue.IssueType == 2)
+            {
+                messageBodyToUser.Append(style);
+                messageBodyToUser.Append("<p>Please share the following details to help resolve the issue.</p>");
+                messageBodyToUser.Append("<ol><li>Share the logs in %localappdata%\\microsoft\\Web Platform Installer\\logs folder</li>");
+                messageBodyToUser.Append("<li>Screenshots on the error</li>");
+                messageBodyToUser.Append("<li>Steps to reproduce the error</li></ol>");
+                messageBodyToUser.Append("<p>Here is the expected response time to address your issue.</p>");
+                messageBodyToUser.Append("<p><table cellpadding='0' cellspacing='0'>");
+                messageBodyToUser.Append("<tr><th>Issue Type</th><th>Response time Service level agreement (SLA)</th></tr>");
+                messageBodyToUser.Append("<tr><td>Submission portal issue</td><td>1-3 days</td></tr>");
+                messageBodyToUser.Append("<tr><td>Application Issue</td><td>The application owner will get back to you on the issue. </td></tr>");
+                messageBodyToUser.Append("</table></p>");
+            }
+            else
+            {
+                messageBodyToUser.Append("<p>Thank you for contacting Web App Gallery team! Your request has been received, and is being reviewed by our team.  If you haven’t already, please check out our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery'>documentation</a> or our <a href='http://www.iis.net/learn/develop/windows-web-application-gallery/frequently-asked-questions'>FAQ</a> where you can find answers to the most common questions.</p>");
+                messageBodyToUser.Append("<p>Please expect a response from us in 3-5 business days</p>");
+            }
+            messageBodyToUser.Append("<p>Thanks</p>");
+            messageBodyToUser.Append("<p>App Gallery Team</p>");
+
+            SendGridEmailHelper.SendAsync(subject, messageBodyToUser.ToString(), from.Address, from.DisplayName, issue.ReporterEmail);
+
+            // second, send email to Microsoft and/or the app owners
+            var messageBodyToMicrosoftOrOwners = new StringBuilder();
+            messageBodyToMicrosoftOrOwners.Append("<p>Hello</p>");
+            messageBodyToMicrosoftOrOwners.Append($"<p>An issue was reported by <a href='mailto:{issue.ReporterEmail}'>{issue.ReporterFirstName} {issue.ReporterLastName}</a>.</p>");
+            messageBodyToMicrosoftOrOwners.Append("<p><table cellpadding='0' cellspacing='0'>");
+            var appIdStatement = string.IsNullOrWhiteSpace(issue.AppId) ? string.Empty : $" for the app: {issue.AppId}";
+            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Category</th><td>{Enum.GetName(typeof(IssueType), issue.IssueType)}{appIdStatement}</td></tr>");
+            messageBodyToMicrosoftOrOwners.Append($"<tr><th>Issue Details</th><td>{issue.IssueDescription}</td></tr>");
+            messageBodyToMicrosoftOrOwners.Append("</table></p>");
+            messageBodyToMicrosoftOrOwners.Append("<p>Thanks</p>");
+            messageBodyToMicrosoftOrOwners.Append("<p>App Gallery Team</p>");
 
             // get the email addresses of the owners of the app in this issue
             var emailAddressesOfOwners = string.Empty;
