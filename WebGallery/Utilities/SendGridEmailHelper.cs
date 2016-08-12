@@ -36,7 +36,7 @@ namespace WebGallery.Utilities
             message.Subject = subject;
             message.Html = body;
             message.From = new MailAddress(from, fromName);
-            message.AddTo(to.Trim().Trim(',').Replace(';', ',').Split(',').Distinct());
+            message.AddTo(to.Trim().Trim(',').Replace(';', ',').Split(',').Distinct().Where(e => !string.IsNullOrWhiteSpace(e)));
             if (!string.IsNullOrWhiteSpace(cc)) message.AddCc(cc);
 
             return message;
