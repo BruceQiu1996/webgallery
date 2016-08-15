@@ -939,7 +939,14 @@ namespace WebGallery.Services
                 var dependencyElement = new XElement(ns + "dependency", new XElement(ns + "and"));
                 foreach (var dependency in dependencies)
                 {
-                    dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
+                    if (dependency == "IISURLRewriter")
+                    {
+                        dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XElement(ns + "productId", "UrlRewrite2")));
+                    }
+                    else
+                    {
+                        dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
+                    }
                 }
 
                 //create installers element
