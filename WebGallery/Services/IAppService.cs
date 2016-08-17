@@ -83,6 +83,6 @@ namespace WebGallery.Services
 
         Task<IList<string>> PulishImageUploadAsync(Submission submission, IAppImageStorageService imageStorageService);
 
-        Task<bool> ValidateAppIdAcceptedAsync(string nickname);
+        Task<bool> ValidateAppIdAcceptedAsync(string nickName);
     }
 }
