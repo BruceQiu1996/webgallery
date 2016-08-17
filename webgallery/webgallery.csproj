@@ -1266,6 +1266,7 @@
     <Content Include="Views\Manage\SuperSubmitters.cshtml" />
     <Content Include="Views\Issue\Report.cshtml" />
     <Content Include="Views\App\Publish.cshtml" />
+    <Content Include="Views\Shared\NoNewApps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
