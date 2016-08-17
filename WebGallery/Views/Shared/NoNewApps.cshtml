@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "AppIdNotAccepted";
+    ViewBag.Title = "NoNewApps";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="content">
-    <h2>New Applications won't be Accepted</h2>
+    <h2>New Applications no longer Accepted</h2>
     <p>Sorry for the inconvenience. We are currently no longer accepting new applications for Web Platform Installer. The current submission portal is only to be used for maintenance of existing applications in Web PI .</p>
     @Html.RouteLink("Go to My Portal", SiteRouteNames.Portal, null, new { @class = "btn btn-default" })
 </div>

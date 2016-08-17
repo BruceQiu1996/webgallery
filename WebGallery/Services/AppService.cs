@@ -1138,22 +1138,20 @@ namespace WebGallery.Services
             return Task.FromResult<IList<string>>(publishUrls);
         }
 
-        public Task<bool> ValidateAppIdAcceptedAsync(string nickName)
+        public Task<bool> IsNewAppAsync(string nickName)
         {
-            return Task.FromResult(AcceptedAppIds.Contains(nickName));
+            return Task.FromResult(GetPublishedAppIds().Contains(nickName, StringComparer.OrdinalIgnoreCase));
         }
 
-        private static List<string> AcceptedAppIds
+        private static IList<string> GetPublishedAppIds()
         {
-            get
-            {
-                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
-                var xdoc = XDocument.Load(path);
-                var ns = xdoc.Root.GetDefaultNamespace();
-                return (from e in xdoc.Root.Elements(ns + "entry")
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application"
-                        select e.Element(ns + "productId").Value).ToList();
-            }
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+            var xdoc = XDocument.Load(path);
+            var ns = xdoc.Root.GetDefaultNamespace();
+
+            return (from e in xdoc.Root.Elements(ns + "entry")
+                    where e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                    select e.Element(ns + "productId").Value).ToList();
         }
     } // class
 

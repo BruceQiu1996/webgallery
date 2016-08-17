@@ -112,10 +112,10 @@ namespace WebGallery.Controllers
 
         private async Task<ActionResult> Create(AppSubmitViewModel model)
         {
-            // check if the appId is accepted to be submitted
-            if (!await _appService.ValidateAppIdAcceptedAsync(model.Submission.Nickname))
+            // new apps is no longer accepted for Web PI
+            if (!await _appService.IsNewAppAsync(model.Submission.Nickname))
             {
-                return View("AppIdNotAccepted");
+                return View("NoNewApps");
             }
 
             // final check
@@ -199,10 +199,10 @@ namespace WebGallery.Controllers
                 return View("NeedPermission");
             }
 
-            // check if the appId is accepted to be submitted
-            if (!await _appService.ValidateAppIdAcceptedAsync(model.Submission.Nickname))
+            // new apps is no longer accepted for Web PI
+            if (!await _appService.IsNewAppAsync(model.Submission.Nickname))
             {
-                return View("AppIdNotAccepted");
+                return View("NoNewApps");
             }
 
             // final check
