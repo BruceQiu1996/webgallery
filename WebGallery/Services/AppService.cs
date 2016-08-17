@@ -1140,7 +1140,7 @@ namespace WebGallery.Services
 
         public Task<bool> IsNewAppAsync(string nickName)
         {
-            return Task.FromResult(GetPublishedAppIds().Contains(nickName, StringComparer.OrdinalIgnoreCase));
+            return Task.FromResult(!GetPublishedAppIds().Contains(nickName, StringComparer.OrdinalIgnoreCase));
         }
 
         private static IList<string> GetPublishedAppIds()
