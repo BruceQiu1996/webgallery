@@ -112,7 +112,7 @@ namespace WebGallery.Controllers
 
         private async Task<ActionResult> Create(AppSubmitViewModel model)
         {
-            // new apps is no longer accepted for Web PI
+            // new apps are no longer accepted for Web PI
             if (await _appService.IsNewAppAsync(model.Submission.Nickname))
             {
                 return View("NoNewApps");
@@ -199,7 +199,7 @@ namespace WebGallery.Controllers
                 return View("NeedPermission");
             }
 
-            // new apps is no longer accepted for Web PI
+            // new apps are no longer accepted for Web PI
             if (await _appService.IsNewAppAsync(model.Submission.Nickname))
             {
                 return View("NoNewApps");
