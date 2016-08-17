@@ -82,5 +82,7 @@ namespace WebGallery.Services
         Task<IList<string>> GetDependenciesAsync(Submission submission);
 
         Task<IList<string>> PulishImageUploadAsync(Submission submission, IAppImageStorageService imageStorageService);
+
+        Task<bool> ValidateAppIdAcceptedAsync(string nickname);
     }
 }

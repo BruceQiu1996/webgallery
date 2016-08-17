@@ -112,6 +112,12 @@ namespace WebGallery.Controllers
 
         private async Task<ActionResult> Create(AppSubmitViewModel model)
         {
+            // check if the appId is accepted to be submitted
+            if (!await _appService.ValidateAppIdAcceptedAsync(model.Submission.Nickname))
+            {
+                return View("AppIdNotAccepted");
+            }
+
             // final check
             var finalCheck = _appService.ValidateAppIdCharacters(model.Submission.Nickname)
                                 && await _appService.ValidateAppIdVersionIsUniqueAsync(model.Submission.Nickname, model.Submission.Version, model.Submission.SubmissionID);
@@ -191,6 +197,12 @@ namespace WebGallery.Controllers
             if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, model.Submission.SubmissionID))
             {
                 return View("NeedPermission");
+            }
+
+            // check if the appId is accepted to be submitted
+            if (!await _appService.ValidateAppIdAcceptedAsync(model.Submission.Nickname))
+            {
+                return View("AppIdNotAccepted");
             }
 
             // final check
