@@ -12,7 +12,8 @@
 
     // add date picker
     $("#appSubmitContainer .datefield").datepicker({
-        todayBtn: "linked"
+        todayBtn: "linked",
+        language: $("#UICulture").val().toLowerCase() == "zh-chs" ? "zh-CN" : ($("#UICulture").val().toLowerCase() == "zh-cht" ? "zh-TW" : $("#UICulture").val())
     });
 
     // bind warning changes logic for those textboxes in packageTabContainer

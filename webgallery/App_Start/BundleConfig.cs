@@ -50,7 +50,8 @@ namespace WebGallery
             // app.submit
             bundles.Add(new ScriptBundle("~/js/app_submit").Include(
                         "~/scripts/_app_submit.js",
-                        "~/scripts/bootstrap-datepicker*"));
+                        "~/scripts/bootstrap-datepicker*",
+                        "~/scripts/locales/bootstrap-datepicker*"));
             bundles.Add(new StyleBundle("~/css/app_submit").Include(
                       "~/Content/_app_submit.css",
                       "~/Content/_tab.css",
