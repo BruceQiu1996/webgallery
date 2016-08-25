@@ -136,7 +136,7 @@
     <div class="clearfix">
         <label for="ReleaseDate" class="textbox-label">@Resources.AppSubmit.ReleaseDateLabel</label>
         <input type="text" name="Submission.ReleaseDate" id="ReleaseDate" value="@Model.Submission.ReleaseDate.ToShortDateString()" class="textbox datefield" placeholder="@DateTime.Now.ToShortDateString()" data-title="@Resources.AppSubmit.ReleaseDateLabel" data-msg-required="@Resources.AppSubmit.RequiredText" />
-        <input type="hidden" id="UICulture" value="@UICulture"/>
+        <input type="hidden" id="datepickerLanguage" value="@UICulture" />
         <div class="explanation">
             <div class="explanation-inner">@Resources.AppSubmit.ReleaseDateExplanation</div>
         </div>

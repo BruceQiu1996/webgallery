@@ -11,10 +11,7 @@
     $("#appSubmitContainer input:text,textarea,select,input:file").focusout(function () { $(this).nextAll(".explanation:first").hide(); });
 
     // add date picker
-    $("#appSubmitContainer .datefield").datepicker({
-        todayBtn: "linked",
-        language: $("#UICulture").val().toLowerCase() == "zh-chs" ? "zh-CN" : ($("#UICulture").val().toLowerCase() == "zh-cht" ? "zh-TW" : $("#UICulture").val())
-    });
+    addDatepicker("#appSubmitContainer .datefield");
 
     // bind warning changes logic for those textboxes in packageTabContainer
     $("#packageTabContainer :text").change(function () { warnIfPackageInfoChanges(); });
@@ -683,4 +680,11 @@ function resetFileUploader(sender) {
         $(fuHtml).insertBefore(thePanel.children(":first"));
         thePanel.children(":first").change(function () { validate(); });
     }
+}
+
+function addDatepicker(element) {
+    $(element).datepicker({
+        todayBtn: "linked",
+        language: $("#datepickerLanguage").val().toLowerCase() == "zh-chs" ? "zh-CN" : ($("#datepickerLanguage").val().toLowerCase() == "zh-cht" ? "zh-TW" : $("#datepickerLanguage").val())
+    });
 }
