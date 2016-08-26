@@ -167,7 +167,7 @@
             <option value="">@Resources.AppSubmit.DropdownNoChoiceText</option>
             @foreach (var c in ViewBag.Categories)
             {
-                if (c.CategoryID == Model.Submission.CategoryID1.AsInt())
+                if (c.CategoryID == Model.Submission.CategoryID2.AsInt())
                 {
                     <option selected="selected" value="@c.CategoryID">@c.Name</option>
                 }
