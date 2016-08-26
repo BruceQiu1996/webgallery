@@ -936,17 +936,17 @@ namespace WebGallery.Services
                 }
 
                 //create dependency element
-                var dependencyElement = new XElement(ns + "dependency", new XElement(ns + "and"));
-                foreach (var dependency in dependencies)
+                var dependencyElement = new XElement(ns + "dependency");
+                if (dependencies.Count() == 1)
                 {
-                    if (dependency == "IISURLRewriter")
-                    {
-                        dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XElement(ns + "productId", "UrlRewrite2")));
-                    }
-                    else
-                    {
-                        dependencyElement.Element(ns + "and").Add(new XElement(ns + "dependency", new XAttribute("idref", dependency)));
-                    }
+                    dependencyElement.SetAttributeValue("idref", dependencies.First());
+                }
+
+                if (dependencies.Count() > 1)
+                {
+                    dependencyElement.Add(new XElement(ns + "and",
+                        from d in dependencies
+                        select d.Equals("IISURLRewriter", StringComparison.OrdinalIgnoreCase) ? new XElement(ns + "dependency", new XElement(ns + "productId", "UrlRewrite2")) : new XElement(ns + "dependency", new XAttribute("idref", d))));
                 }
 
                 //create installers element
