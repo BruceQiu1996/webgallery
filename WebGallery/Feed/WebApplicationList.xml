@@ -5478,7 +5478,7 @@ A very strong emphasis on quality, documentation, flexibility and developer comm
             <keywordId>Blogs</keywordId>
             <keywordId>ContentMgmt</keywordId>
         </keywords>
-        <dependency idref="ASPNET45App" />
+        <dependency idref="ASPNET4App" />
         <installers>
             <installer>
                 <id>1</id>
@@ -5649,6 +5649,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </images>
         <keywords>
             <keywordId>Tools</keywordId>
+            <keywordId>MySQL</keywordId>
         </keywords>
         <dependency>
             <and>
@@ -6800,6 +6801,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </images>
         <keywords>
             <keywordId>Tools</keywordId>
+            <keywordId>MySQL</keywordId>
         </keywords>
         <dependency>
             <and>
@@ -6856,11 +6858,13 @@ If you have a SaaS and need a recurring billing software, try ZB! </longSummary>
         </images>
         <keywords>
             <keywordId>eCommerce</keywordId>
+            <keywordId>SQL</keywordId>
         </keywords>
         <dependency>
             <and>
-                <dependency idref="MVC4ASPNET45App" />
-                <dependency idref="SQLApp" />
+                <dependency idref="MVC4App" />
+                <dependency idref="SQL_ASPNET45App" />
+                <dependency idref="ASPNET4App" />
                 <dependency>
                     <productId>UrlRewrite2</productId>
                 </dependency>
