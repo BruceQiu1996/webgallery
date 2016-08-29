@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<feed
-    xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom">
     <webpiFile version="5.0.0.0" />
     <title>Web Platform Installer 5.0 Application Feed</title>
     <link rel="self" href="http://www.microsoft.com/web/webpi/5.0/webapplicationlist.xml" />
