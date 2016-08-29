@@ -5796,25 +5796,32 @@ Piwik will always respect your and your users privacy, while giving you full con
   </entry>
   <!-- phpBB-->
   <entry type="application">
-    <productId>phpbb</productId>
-    <title resourceName="Entry_phpbb_Title">PublishTesting</title>
-    <id>http://www.microsoft.com/web/webpi/2.0/phpbb</id>
-    <summary resourceName="Entry_phpbb_Summary">we test it.</summary>
-    <updated>2016-07-06T16:00:00Z</updated>
-    <published>2016-08-29T06:46:18Z</published>
-    <longSummary resourceName="Entry_phpbb_LongSummary">We are for testing.</longSummary>
-    <version>3.4.5.6</version>
-    <link href="http://support.dotnetnuke.com" />
-    <author>
-      <name>sharpe</name>
-      <uri>https://moodle.org</uri>
-    </author>
+    <productId>phpBB</productId>
+    <title resourceName="Entry_phpBB_Title">phpBB</title>
+    <id>http://www.microsoft.com/web/webpi/2.0/phpBB</id>
+    <summary resourceName="Entry_phpBB_Summary">Since its creation in 2000, phpBB™ has become the most widely used Open Source forum solution. Like its predecessors, phpBB™ 3.0 “Olympus” has an easy to use administration panel and a user friendly installation process, which allows you to have a forum set up in minutes.</summary>
+    <updated>2016-04-29T20:24:59Z</updated>
+    <published>2016-04-29T20:24:59Z</published>
+    <longSummary resourceName="Entry_phpBB_LongSummary">
+      Millions of people use phpBB on a daily basis, making it the most widely used opensource bulletin board system in the world. Whether you want to stay in touch with a small group of friends or are looking to set up a large multi-category board for a corporate website, phpBB has the features you need built in.
+
+      Newer users will appreciate phpBB's extensive administration panel, which allows the customization of even the most intricate features without having to edit code directly, while advanced users will value the ease with which phpBB can be integrated into existing systems.
+    </longSummary>
+    <version>3.1.9</version>
+    <link href="http://www.phpbb.com/support/" />
     <images>
       <icon>https://webgalleryappimages.blob.core.windows.net/logos-screenshots/phpbb-logo</icon>
     </images>
     <keywords>
-      <keywordId>AppFrameworks</keywordId>
+      <keywordId>Forums</keywordId>
+      <keywordId>PHP</keywordId>
+      <keywordId>SQL</keywordId>
+      <keywordId>MySQL</keywordId>
     </keywords>
+    <author>
+      <name>phpBB</name>
+      <uri>http://www.phpbb.com/</uri>
+    </author>
     <dependency idref="PHP53_MySQL_SQL_App" />
     <installers>
       <installer>
@@ -5822,19 +5829,19 @@ Piwik will always respect your and your users privacy, while giving you full con
         <languageId>en</languageId>
         <osList idref="SupportedAppPlatforms" />
         <installerFile>
-          <fileSize>8224</fileSize>
-          <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=phpbb&amp;version=3.4.5.6&amp;applang=en</trackingURL>
-          <installerURL>https://github.com/AtoordPressage/blob/mapress-4.5.3-IIS.zip?raw=true</installerURL>
-          <sha1>7ad5d45264e5039894a6fa9ffc7e335b467b669a</sha1>
+          <fileSize>4029</fileSize>
+          <trackingURL>http://www.microsoft.com/web/handlers/webpi.ashx?command=incrementappdownloadcount&amp;appid=phpBB&amp;version=3.1.9&amp;applang=en</trackingURL>
+          <installerURL>https://github.com/Atomthin/PhpBB_Windows_GalleryPackage/blob/master/phpBB-3.1.9.webpi.zip?raw=true</installerURL>
+          <sha1>8e36d51dd460e02d743548cfbf431685bf2edb87</sha1>
         </installerFile>
         <msDeploy>
-          <startPage>index.php</startPage>
+          <startPage>/install/index.php?mode=install&amp;language=en&amp;sub=database</startPage>
         </msDeploy>
-        <helpLink>http://support.dotnetnuke.com</helpLink>
+        <helpLink>http://www.phpbb.com/support/</helpLink>
       </installer>
     </installers>
     <addToFeedDate>09-24-2012</addToFeedDate>
-    <pageName>phpbb</pageName>
+    <pageName>phpBB</pageName>
     <productFamily resourceName="Applications">Applications</productFamily>
   </entry>
   <!-- Moodle-->
