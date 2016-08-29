@@ -448,7 +448,7 @@ namespace WebGallery.Controllers
             await _appService.UpdateStatusAsync(submissionId, 7);
 
             // send email
-            //_emailService.SendMessageForSubmissionPublished(User.GetSubmittership(), submission, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
+            _emailService.SendMessageForSubmissionPublished(User.GetSubmittership(), submission, HttpContext.Request.Url.Authority, html => { return HttpContext.Server.HtmlEncode(html); });
 
             // once a new app is published, it will appeared at the first page of gallery
             return RedirectToRoute(SiteRouteNames.Gallery);
