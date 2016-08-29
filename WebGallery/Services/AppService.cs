@@ -927,12 +927,28 @@ namespace WebGallery.Services
                     imagesElement.Add(new XElement(ns + "screenshot", imageUrls.ElementAtOrDefault(i)));
                 }
 
-                //create keywords element
+                //create keywords element, it contains categories and database servers
                 var keywordsElement = new XElement(ns + "keywords");
                 foreach (var c in categories)
                 {
                     var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
                     keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
+                }
+
+                //add database server keywords
+                if (!string.IsNullOrWhiteSpace(submission.DatabaseServerIDs))
+                {
+                    foreach (var id in submission.DatabaseServerIDs.Split('|'))
+                    {
+                        // in database the database server IDs of SQL, MySQL and SQL CE are 1, 2 and 4
+                        switch (id)
+                        {
+                            case "1": keywordsElement.Add(new XElement(ns + "keywordId", "SQL")); break;
+                            case "2": keywordsElement.Add(new XElement(ns + "keywordId", "MySQL")); break;
+                            case "4": keywordsElement.Add(new XElement(ns + "keywordId", "SQLCE")); break;
+                            default: break;
+                        }
+                    }
                 }
 
                 //create installers element
