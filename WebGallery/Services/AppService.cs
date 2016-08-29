@@ -903,7 +903,7 @@ namespace WebGallery.Services
 
         private static string Lock_WebApplicationList_Feed = "The lock for WebApplicatonList.xml feed.";
 
-        public Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls, IList<string> dependencies)
+        public Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls)
         {
             lock (Lock_WebApplicationList_Feed)
             {
@@ -933,20 +933,6 @@ namespace WebGallery.Services
                 {
                     var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
                     keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
-                }
-
-                //create dependency element
-                var dependencyElement = new XElement(ns + "dependency");
-                if (dependencies.Count() == 1)
-                {
-                    dependencyElement.SetAttributeValue("idref", dependencies.First());
-                }
-
-                if (dependencies.Count() > 1)
-                {
-                    dependencyElement.Add(new XElement(ns + "and",
-                        from d in dependencies
-                        select d.Equals("IISURLRewriter", StringComparison.OrdinalIgnoreCase) ? new XElement(ns + "dependency", new XElement(ns + "productId", "UrlRewrite2")) : new XElement(ns + "dependency", new XAttribute("idref", d))));
                 }
 
                 //create installers element
@@ -982,7 +968,9 @@ namespace WebGallery.Services
                     new XElement(ns + "uri", submission.SubmittingEntityURL)),
                     imagesElement,
                     keywordsElement,
-                    dependencyElement,
+
+                    // use the same dependency as original feed, for only the existing applications are updated and new versions of framework won't be added
+                    oldEntry.Element(ns + "dependency"),
                     installersElement,
 
                     // addToFeedDate element is used to record the first time an app added to feed, if there doesn't exist the same app in feed already, its value should be current datetime 
@@ -990,18 +978,8 @@ namespace WebGallery.Services
                     new XElement(ns + "pageName", submission.Nickname),
                     new XElement(ns + "productFamily", "Applications", new XAttribute("resourceName", "Applications")));
 
-                // if there doesn't exist the same app in feed already, a new entry should be added to feed, and an element "newCategory" should be added to this entry
-                if (oldEntry == null)
-                {
-                    newEntry.Element(ns + "addToFeedDate").AddAfterSelf(new XElement(ns + "newCategory", "New Web Applications", new XAttribute("resourceName", "NewWebApplications")));
-                    xdoc.Root.Elements(ns + "entry").Last(x => x.Attribute("type") != null && x.Attribute("type").Value == "application").AddAfterSelf(new XComment(submission.Nickname), newEntry);
-                }
-                else
-                {
-                    // if there already exist the same app in feed, just replace the old entry with the new entry 
-                    oldEntry.ReplaceWith(newEntry);
-                }
-
+                // new applications won't be accepted to add to feed, so just replace the old entry
+                oldEntry.ReplaceWith(newEntry);
                 xdoc.Save(path);
 
                 return Task.FromResult(0);

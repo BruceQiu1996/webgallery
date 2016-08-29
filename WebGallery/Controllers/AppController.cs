@@ -442,8 +442,7 @@ namespace WebGallery.Controllers
                 (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
                 await _appService.GetPackagesAsync(submissionId),
-                await _appService.PulishImageUploadAsync(submission, new AppImageAzureStorageService()),
-                await _appService.GetDependenciesAsync(submission));
+                await _appService.PulishImageUploadAsync(submission, new AppImageAzureStorageService()));
 
             // the stateID in database of "published" is 7
             await _appService.UpdateStatusAsync(submissionId, 7);
