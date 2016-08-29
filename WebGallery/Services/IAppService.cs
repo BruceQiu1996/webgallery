@@ -73,7 +73,7 @@ namespace WebGallery.Services
 
         Task<SubmissionLocalizedMetaData> GetLocalizedMetadataAsync(IList<SubmissionLocalizedMetaData> metadatas, string preferredLanguage);
 
-        Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls, IList<string> dependencies);
+        Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls);
 
         Task<Submission> GetPublishingSubmissionAsync(int submissionId);
 
