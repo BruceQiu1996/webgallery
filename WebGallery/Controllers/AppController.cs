@@ -439,7 +439,7 @@ namespace WebGallery.Controllers
 
             var submission = await _appService.GetSubmissionAsync(submissionId);
             await _appService.PublishAsync(submission,
-                (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US),
+                (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language)),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
                 await _appService.GetPackagesAsync(submissionId),
                 await _appService.PulishImageUploadAsync(submission, new AppImageAzureStorageService()));

@@ -108,17 +108,17 @@ namespace WebGallery.Controllers
             Requires(model.ContactDetail.Address1, "ContactDetail.Address1", "*");
             Requires(model.ContactDetail.EMail, "ContactDetail.EMail", "*");
 
-            if (model.ContactDetail.Country == "0")
+            if ("0".Equals(model.ContactDetail.Country))
             {
                 ModelState.AddModelError("ContactDetail.Country", "*");
             }
 
-            if (model.ContactDetail.Country == "USA" && string.IsNullOrWhiteSpace(model.ContactDetail.ZipOrRegionCode))
+            if ("USA".Equals(model.ContactDetail.Country) && string.IsNullOrWhiteSpace(model.ContactDetail.ZipOrRegionCode))
             {
                 ModelState.AddModelError("ContactDetail.ZipOrRegionCode", "*");
             }
 
-            if (model.ContactDetail.Country == "USA" && string.IsNullOrWhiteSpace(model.ContactDetail.StateOrProvince))
+            if ("USA".Equals(model.ContactDetail.Country) && string.IsNullOrWhiteSpace(model.ContactDetail.StateOrProvince))
             {
                 ModelState.AddModelError("State", "*");
             }

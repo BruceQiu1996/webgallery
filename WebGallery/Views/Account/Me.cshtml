@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var prefixList = UICulture.Substring(0, 2) == "ja" ? new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } } :
+    var prefixList = "ja".Equals(UICulture.Substring(0, 2)) ? new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } } :
         new List<SelectListItem> { new SelectListItem { Value = "Prefix", Text = Resources.AccountMe.PrefixDefaultText }, new SelectListItem { Value = "Mr.", Text = Resources.AccountMe.PrefixMrText }, new SelectListItem { Value = "Mrs.", Text = Resources.AccountMe.PrefixMrsText }, new SelectListItem { Value = "Ms.", Text = Resources.AccountMe.PrefixMsText }, new SelectListItem { Value = "Miss", Text = Resources.AccountMe.PrefixMissText }, new SelectListItem { Value = "Dr.", Text = Resources.AccountMe.PrefixDrText } };
 }
 <div class="content">
@@ -83,7 +83,7 @@
 
             var displayStates = string.Empty;
             var displayProvince = string.Empty;
-            if (Model.ContactDetail != null && Model.ContactDetail.Country == "USA")
+            if (Model.ContactDetail != null && "USA".Equals(Model.ContactDetail.Country))
             {
                 displayProvince = "dispaly:none";
             }

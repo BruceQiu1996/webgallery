@@ -533,10 +533,10 @@ namespace WebGallery.Services
             var ns = xdoc.Root.GetDefaultNamespace();
 
             // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || ("zh-chs".Equals(preferredLanguage) && "zh-cn".Equals(r.Element(ns + "culture").Value)) || ("zh-cht".Equals(preferredLanguage) && "zh-tw".Equals(r.Element(ns + "culture").Value)));
 
             // If there is not exist a feed fit preferred Language or the culture is "en", Enlish metadata should be used
-            bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            bool useEnglishMetaData = resourceElement == null || "en".Equals(resourceElement.Element(ns + "culture").Value);
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
             // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
@@ -558,9 +558,9 @@ namespace WebGallery.Services
 
                                               // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || (supportedLanguage.Equals("zh-chs", StringComparison.OrdinalIgnoreCase) && l.Value == "zh-cn") || (supportedLanguage.Equals("zh-cht", StringComparison.OrdinalIgnoreCase) && l.Value == "zh-tw")
+                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || (supportedLanguage.Equals("zh-chs", StringComparison.OrdinalIgnoreCase) && "zh-cn".Equals(l.Value)) || (supportedLanguage.Equals("zh-cht", StringComparison.OrdinalIgnoreCase) && "zh-tw".Equals(l.Value))
                                           select l.Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
+                        where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
                         select new
                         {
@@ -593,10 +593,10 @@ namespace WebGallery.Services
             var ns = xdoc.Root.GetDefaultNamespace();
 
             // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || ("zh-chs".Equals(preferredLanguage) && "zh-cn".Equals(r.Element(ns + "culture").Value)) || ("zh-cht".Equals(preferredLanguage) && "zh-tw".Equals(r.Element(ns + "culture").Value)));
 
             // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
-            bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            bool useEnglish = resourceElement == null || "en".Equals(resourceElement.Element(ns + "culture").Value);
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
             var element = (from e in xdoc.Root.Descendants(ns + "entry")
@@ -654,10 +654,10 @@ namespace WebGallery.Services
             var ns = xdoc.Root.GetDefaultNamespace();
 
             // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || ("zh-chs".Equals(preferredLanguage) && "zh-cn".Equals(r.Element(ns + "culture").Value)) || ("zh-cht".Equals(preferredLanguage) && "zh-tw".Equals(r.Element(ns + "culture").Value)));
 
             // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
-            bool useEnglishMetaData = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            bool useEnglishMetaData = resourceElement == null || "en".Equals(resourceElement.Element(ns + "culture").Value);
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
             var metadata = (from e in xdoc.Root.Descendants(ns + "entry")
@@ -703,10 +703,10 @@ namespace WebGallery.Services
             var ns = xdoc.Root.GetDefaultNamespace();
 
             // Another xml feed also should be load according to the preferred Language, first, check whether there exist a feed fit preferred Language
-            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || (preferredLanguage == "zh-chs" && r.Element(ns + "culture").Value == "zh-cn") || (preferredLanguage == "zh-cht" && r.Element(ns + "culture").Value == "zh-tw"));
+            var resourceElement = xdoc.Root.Element(ns + "resourcesList").Elements(ns + "resources").FirstOrDefault(r => preferredLanguage.Contains(r.Element(ns + "culture").Value) || ("zh-chs".Equals(preferredLanguage) && "zh-cn".Equals(r.Element(ns + "culture").Value)) || ("zh-cht".Equals(preferredLanguage) && "zh-tw".Equals(r.Element(ns + "culture").Value)));
 
             // If there is not exist a feed fit preferred Language or the culture is "en", Enlish feed should be used
-            bool useEnglish = resourceElement == null || resourceElement.Element(ns + "culture").Value == "en";
+            bool useEnglish = resourceElement == null || "en".Equals(resourceElement.Element(ns + "culture").Value);
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
             var localizedCategories = new List<ProductOrAppCategory>();
             foreach (var c in categories)
@@ -727,7 +727,7 @@ namespace WebGallery.Services
         {
             // This method is used to get the best suited metadata to show when matadatas are extracted from database
             // The most suited metadata is the one whose language is exactly the same with preferred Language
-            var metadata = metadatas.FirstOrDefault(m => m.Language.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
+            var metadata = metadatas.FirstOrDefault(m => m.Language.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || ("zh-chs".Equals(m.Language) && "zh-cn".Equals(preferredLanguage)) || ("zh-cht".Equals(m.Language) && "zh-tw".Equals(preferredLanguage)));
 
             // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
             if (metadatas == null)
@@ -738,7 +738,7 @@ namespace WebGallery.Services
             // If we still can't find metadata who has the same parent culture with preferred Language, then we use English
             if (metadata == null)
             {
-                metadata = metadatas.FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US);
+                metadata = metadatas.FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language));
             }
 
             // If we still can't find metadata in English, we use the first metadata of all
@@ -912,7 +912,7 @@ namespace WebGallery.Services
                 var xdoc = XDocument.Load(path);
                 var ns = xdoc.Root.GetDefaultNamespace();
                 var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
-                                where e.Element(ns + "productId").Value.Equals(submission.Nickname, StringComparison.OrdinalIgnoreCase) && e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                                where e.Element(ns + "productId").Value.Equals(submission.Nickname, StringComparison.OrdinalIgnoreCase) && e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
                                 select e).FirstOrDefault();
 
                 // create component elements of a new entry
@@ -1015,7 +1015,7 @@ namespace WebGallery.Services
                 // If there is no apps in feed support the language ,we won't show it.
                 // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                 // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                if (languageIds.Any(i => s.Name.Contains(i) || (s.Name == "zh-chs" && i == "zh-cn") || (s.Name == "zh-cht" && i == "zh-tw")))
+                if (languageIds.Any(i => s.Name.Contains(i) || ("zh-chs".Equals(s.Name) && "zh-cn".Equals(i)) || ("zh-cht".Equals(s.Name) && "zh-tw".Equals(i))))
                 {
                     // We don't want to include any long explanations next to the country. For example, in .Net 4, es-es comes out as
                     // Español (España, alfabetización internacional)
@@ -1145,7 +1145,7 @@ namespace WebGallery.Services
             var ns = xdoc.Root.GetDefaultNamespace();
 
             return (from e in xdoc.Root.Elements(ns + "entry")
-                    where e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                    where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
                     select e.Element(ns + "productId").Value).ToList();
         }
     } // class
