@@ -248,7 +248,7 @@ namespace WebGallery.Controllers
             var pageSize = 20;
             var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             category = string.IsNullOrWhiteSpace(category) ? "all" : category.Trim();
-            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
+            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage.ToLowerInvariant();
 
             var model = new AppCategorizeViewModel
             {
@@ -268,12 +268,14 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Gallery(string keyword, int? page, string supportedLanguage = Language.CODE_ENGLISH_US)
+        public async Task<ActionResult> Gallery(string keyword, int? page, string supportedLanguage)
         {
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
             var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
+            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage.ToLowerInvariant();
+
             var model = new AppGalleryViewModel
             {
                 AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),

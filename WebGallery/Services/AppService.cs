@@ -558,7 +558,7 @@ namespace WebGallery.Services
 
                                               // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || (supportedLanguage.Equals("zh-chs", StringComparison.OrdinalIgnoreCase) && "zh-cn".Equals(l.Value)) || (supportedLanguage.Equals("zh-cht", StringComparison.OrdinalIgnoreCase) && "zh-tw".Equals(l.Value))
+                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || ("zh-chs".Equals(supportedLanguage) && "zh-cn".Equals(l.Value)) || ("zh-cht".Equals(supportedLanguage) && "zh-tw".Equals(l.Value))
                                           select l.Value
                         where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
