@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
+using WebGallery.Extensions;
 using WebGallery.Models;
 
 namespace WebGallery.Services
@@ -23,8 +24,8 @@ namespace WebGallery.Services
                 using (var db = new WebGalleryDbContext())
                 {
                     var submission = db.Submissions.FirstOrDefault(
-                            s => string.Compare(s.Nickname, appId, StringComparison.InvariantCultureIgnoreCase) == 0
-                            && string.Compare(s.Version, version, StringComparison.InvariantCultureIgnoreCase) == 0);
+                            s => string.Equals(s.Nickname, appId, StringComparison.OrdinalIgnoreCase)
+                            && string.Equals(s.Version, version, StringComparison.OrdinalIgnoreCase));
 
                     // if not found, then it's unique
                     if (submission == null) return Task.FromResult(true);
@@ -433,8 +434,8 @@ namespace WebGallery.Services
         {
             // We always want "Microsoft SQL Driver for PHP" immediately after SQL Server Express because the 2 are related.
             // See the line #1074 in the old AppSubmit.aspx.cs            
-            var sqlServerExpress = dbServers.FirstOrDefault(d => string.Compare("SQL Server Express", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
-            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => string.Compare("Microsoft SQL Driver for PHP", d.Name, StringComparison.OrdinalIgnoreCase) == 0);
+            var sqlServerExpress = dbServers.FirstOrDefault(d => string.Equals("SQL Server Express", d.Name, StringComparison.OrdinalIgnoreCase));
+            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => string.Equals("Microsoft SQL Driver for PHP", d.Name, StringComparison.OrdinalIgnoreCase));
 
             if (sqlServerExpress != null && microsoftSqlDriverForPhp != null)
             {
@@ -540,7 +541,7 @@ namespace WebGallery.Services
 
             // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where category.ToLower() == "all" || x.Value.ToLower() == category.ToLower()
+                              where category.Equals("all", StringComparison.OrdinalIgnoreCase) || category.Equals(x.Value, StringComparison.OrdinalIgnoreCase)
                               select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
@@ -551,15 +552,15 @@ namespace WebGallery.Services
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
 
                                              // in database, categories have "Templates", but it's not exist in feed, if a user published a app whose category is "Templates", its keywords should contain "Templates" and it must can be shown on gallery
-                                         where categoryIds.Contains(c.Value) || ((category.ToLower() == "all" || category.ToLower() == "templates") && c.Value.ToLower() == "templates")
+                                         where categoryIds.Contains(c.Value) || ((category.Equals("all", StringComparison.OrdinalIgnoreCase) || category.Equals("templates", StringComparison.OrdinalIgnoreCase)) && c.Value.Equals("templates", StringComparison.OrdinalIgnoreCase))
                                          select c.Value
                         let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
 
                                               // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                                          where supportedLanguage.Contains(l.Value) || (supportedLanguage == "zh-chs" && l.Value == "zh-cn") || (supportedLanguage == "zh-cht" && l.Value == "zh-tw")
+                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || (supportedLanguage.Equals("zh-chs", StringComparison.OrdinalIgnoreCase) && l.Value == "zh-cn") || (supportedLanguage.Equals("zh-cht", StringComparison.OrdinalIgnoreCase) && l.Value == "zh-tw")
                                           select l.Value
-                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.ToLower().Contains(keyword.Trim().ToLower())) && categories.Count() > 0 && languageIds.Count() > 0
+                        where e.Attribute("type") != null && e.Attribute("type").Value == "application" && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
                         select new
                         {
@@ -599,7 +600,7 @@ namespace WebGallery.Services
             var subFeed = useEnglish ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
             var element = (from e in xdoc.Root.Descendants(ns + "entry")
-                           where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
+                           where e.Element(ns + "productId").Value.Equals(appId, StringComparison.OrdinalIgnoreCase)
                            select e).FirstOrDefault();
             Submission submission = null;
             if (element != null)
@@ -616,7 +617,7 @@ namespace WebGallery.Services
                 }
 
                 // special case: the category template exist in database, but there is no such item in keywords element in feed, still, it should also be shown in app preview page
-                if (element.Element(ns + "keywords").Elements(ns + "keywordId").Any(k => k.Value.ToLower() == "templates"))
+                if (element.Element(ns + "keywords").Elements(ns + "keywordId").Any(k => k.Value.Equals("templates", StringComparison.OrdinalIgnoreCase)))
                 {
                     categories.Add(new ProductOrAppCategory { Name = "Templates", LocalizedName = "Templates" });
                 }
@@ -660,7 +661,7 @@ namespace WebGallery.Services
             var subFeed = useEnglishMetaData ? null : XDocument.Load(resourceElement.Element(ns + "url").Value);
 
             var metadata = (from e in xdoc.Root.Descendants(ns + "entry")
-                            where e.Element(ns + "productId").Value.ToLower() == (string.IsNullOrWhiteSpace(appId) ? string.Empty : appId.ToLower())
+                            where e.Element(ns + "productId").Value.Equals(appId, StringComparison.OrdinalIgnoreCase)
                             select new
                             {
                                 title = e.Element(ns + "title").Value,
@@ -710,7 +711,7 @@ namespace WebGallery.Services
             var localizedCategories = new List<ProductOrAppCategory>();
             foreach (var c in categories)
             {
-                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
+                var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.Equals(c.Name, StringComparison.OrdinalIgnoreCase));
                 var localizedName = useEnglish || keyword == null ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == keyword.Attribute("resourceName").Value);
                 localizedCategories.Add(new ProductOrAppCategory
                 {
@@ -726,12 +727,12 @@ namespace WebGallery.Services
         {
             // This method is used to get the best suited metadata to show when matadatas are extracted from database
             // The most suited metadata is the one whose language is exactly the same with preferred Language
-            var metadata = metadatas.FirstOrDefault(m => m.Language.ToLower() == preferredLanguage.ToLower() || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
+            var metadata = metadatas.FirstOrDefault(m => m.Language.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || (m.Language == "zh-chs" && preferredLanguage == "zh-cn") || (m.Language == "zh-cht" && preferredLanguage == "zh-tw"));
 
             // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
             if (metadatas == null)
             {
-                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2) == preferredLanguage.Substring(0, 2));
+                metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2).Equals(preferredLanguage.Substring(0, 2)));
             }
 
             // If we still can't find metadata who has the same parent culture with preferred Language, then we use English
@@ -911,7 +912,7 @@ namespace WebGallery.Services
                 var xdoc = XDocument.Load(path);
                 var ns = xdoc.Root.GetDefaultNamespace();
                 var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
-                                where e.Element(ns + "productId").Value.ToLower() == submission.Nickname.ToLower() && e.Attribute("type") != null && e.Attribute("type").Value == "application"
+                                where e.Element(ns + "productId").Value.Equals(submission.Nickname, StringComparison.OrdinalIgnoreCase) && e.Attribute("type") != null && e.Attribute("type").Value == "application"
                                 select e).FirstOrDefault();
 
                 // create component elements of a new entry
@@ -931,7 +932,7 @@ namespace WebGallery.Services
                 var keywordsElement = new XElement(ns + "keywords");
                 foreach (var c in categories)
                 {
-                    var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.ToLower() == c.Name.ToLower());
+                    var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.Equals(c.Name, StringComparison.OrdinalIgnoreCase));
                     keywordsElement.Add(new XElement(ns + "keywordId", keyword == null ? c.Name : keyword.Attribute("id").Value));
                 }
 

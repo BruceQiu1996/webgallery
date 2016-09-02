@@ -27,7 +27,7 @@
             @for (var i = 0; i < ViewBag.Languages.Count; i++)
             {
                 var lang = ViewBag.Languages[i];
-                var metadata = Model.MetadataList.FirstOrDefault(m => string.Compare(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                var metadata = Model.MetadataList.FirstOrDefault(m => string.Equals(m.Language, lang.Name, StringComparison.OrdinalIgnoreCase))
                     ?? new WebGallery.Models.SubmissionLocalizedMetaData
                     {
                         MetadataID = 0,

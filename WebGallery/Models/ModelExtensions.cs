@@ -71,7 +71,7 @@ namespace WebGallery.Models
         private static string MakeFullName(string prefix, string first, string middle, string last, string suffix)
         {
             var fullname = "";
-            if (!string.IsNullOrEmpty(prefix) && !prefix.ToLowerInvariant().Equals("prefix"))
+            if (!string.IsNullOrWhiteSpace(prefix) && !prefix.Equals("prefix", StringComparison.OrdinalIgnoreCase))
             {
                 fullname += prefix + " ";
             }
@@ -91,7 +91,7 @@ namespace WebGallery.Models
                 fullname += last + " ";
             }
 
-            if (!string.IsNullOrEmpty(suffix) && !suffix.ToLowerInvariant().Equals("suffix"))
+            if (!string.IsNullOrWhiteSpace(suffix) && !suffix.Equals("suffix", StringComparison.OrdinalIgnoreCase))
             {
                 fullname += suffix;
             }

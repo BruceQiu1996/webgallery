@@ -10,20 +10,20 @@
 
 <div class="content">
     <div class="panel-summary">
-        @if (Model.CurrentCategory.Name.ToLower() == "all")
+        @if (string.Equals(Model.CurrentCategory.Name,"all", StringComparison.OrdinalIgnoreCase))
         {
-            <span>There are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
+        <span>There are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
         }
         else
         {
-            <span>Under "<strong>@Model.CurrentCategory.LocalizedName</strong>", there are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
+        <span>Under "<strong>@Model.CurrentCategory.LocalizedName</strong>", there are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
         }
     </div>
     <div class="panel-lang-selector">
         @using (Html.BeginRouteForm(SiteRouteNames.App_Categorize, new { category = Model.CurrentCategory.Name }))
         {
-            <strong>@Resources.Categorize.ApplicationsIn</strong>
-            @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
+        <strong>@Resources.Categorize.ApplicationsIn</strong>
+        @Html.DropDownList("supportedLanguage", new SelectList(Model.SupportedLanguages, "Value", "Key", Model.CurrentSupportedLanguage))
         }
     </div>
     <hr />
@@ -34,33 +34,33 @@
         </div>
         <hr />
         @{
-            foreach (var c in Model.Categories)
-            {
-                <div>
-                    @Html.RouteLink(c.LocalizedName, SiteRouteNames.App_Categorize, new { category = c.Name, supportedLanguage = Model.CurrentSupportedLanguage })
-                </div>
-                <hr />
-            }
+        foreach (var c in Model.Categories)
+        {
+        <div>
+            @Html.RouteLink(c.LocalizedName, SiteRouteNames.App_Categorize, new { category = c.Name, supportedLanguage = Model.CurrentSupportedLanguage })
+        </div>
+        <hr />
+        }
         }
     </div>
     <div class="app-list">
         @foreach (var app in Model.Submissions)
         {
-            var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
-            var description = app.BriefDescription.Length > 210 ? app.BriefDescription.Substring(0, 210) + "..." : app.BriefDescription;
+        var logourl = string.IsNullOrWhiteSpace(app.LogoUrl) ? "~/Content/images/no-logo.png" : app.LogoUrl;
+        var description = app.BriefDescription.Length > 210 ? app.BriefDescription.Substring(0, 210) + "..." : app.BriefDescription;
 
+        <div>
             <div>
-                <div>
-                    <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src="@Url.Content(logourl)" class="small-icon" /></a>
-                </div>
-                <div>
-                    @Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })
-                    <span>@app.Version</span>
-                    <span>@app.ReleaseDate.ToShortDateString() @Resources.Categorize.AddedTitle </span>
-                    <p>@description @Html.RouteLink(Resources.Categorize.MoreInformation, SiteRouteNames.App_View, new { appId = app.Nickname })</p>
-                </div>
-                <hr />
+                <a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })"><img src="@Url.Content(logourl)" class="small-icon" /></a>
             </div>
+            <div>
+                @Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })
+                <span>@app.Version</span>
+                <span>@app.ReleaseDate.ToShortDateString() @Resources.Categorize.AddedTitle </span>
+                <p>@description @Html.RouteLink(Resources.Categorize.MoreInformation, SiteRouteNames.App_View, new { appId = app.Nickname })</p>
+            </div>
+            <hr />
+        </div>
         }
     </div>
 
