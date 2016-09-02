@@ -541,7 +541,7 @@ namespace WebGallery.Services
 
             // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where category.Equals("all", StringComparison.OrdinalIgnoreCase) || category.Equals(x.Value, StringComparison.OrdinalIgnoreCase)
+                              where category.Equals("all", StringComparison.OrdinalIgnoreCase) || x.Value.Equals(category, StringComparison.OrdinalIgnoreCase)
                               select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
@@ -558,7 +558,7 @@ namespace WebGallery.Services
 
                                               // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
                                               // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                                          where supportedLanguage.Contains(l.Value, StringComparison.OrdinalIgnoreCase) || ("zh-chs".Equals(supportedLanguage) && "zh-cn".Equals(l.Value)) || ("zh-cht".Equals(supportedLanguage) && "zh-tw".Equals(l.Value))
+                                          where supportedLanguage.Contains(l.Value) || ("zh-chs".Equals(supportedLanguage) && "zh-cn".Equals(l.Value)) || ("zh-cht".Equals(supportedLanguage) && "zh-tw".Equals(l.Value))
                                           select l.Value
                         where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
                         orderby releaseDate descending
