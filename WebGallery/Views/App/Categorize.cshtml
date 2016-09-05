@@ -10,7 +10,7 @@
 
 <div class="content">
     <div class="panel-summary">
-        @if (string.Equals(Model.CurrentCategory.Name,"all", StringComparison.OrdinalIgnoreCase))
+        @if ("all".Equals(Model.CurrentCategory.Name, StringComparison.OrdinalIgnoreCase))
         {
         <span>There are <strong>@Model.TotalCount</strong> apps in total. Display results <strong>@firstIndex</strong> - <strong>@lastIndex</strong>.</span>
         }

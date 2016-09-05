@@ -19,8 +19,8 @@
         <tbody>
             @foreach (var s in Model.SuperSubmitters)
             {
-                var prefix = string.Equals(s.Prefix, "Prefix", StringComparison.OrdinalIgnoreCase) ? string.Empty : s.Prefix;
-                var suffix = string.Equals(s.Suffix, "Suffix", StringComparison.OrdinalIgnoreCase) ? string.Empty : s.Suffix;
+                var prefix = "Prefix".Equals(s.Prefix, StringComparison.OrdinalIgnoreCase) ? string.Empty : s.Prefix;
+                var suffix = "Suffix".Equals(s.Suffix, StringComparison.OrdinalIgnoreCase) ? string.Empty : s.Suffix;
                 <tr>
                     <td><a href="@Url.RouteUrl(SiteRouteNames.Profile_View, new { submitterId = s.SubmitterID })">@prefix @s.FirstName @s.MiddleName @s.LastName @suffix</a></td>
                     <td>@s.EMail</td>

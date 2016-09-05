@@ -27,7 +27,7 @@
             @for (var i = 0; i < ViewBag.Languages.Count; i++)
             {
                 var lang = ViewBag.Languages[i];
-                var package = Model.Packages.FirstOrDefault(p => string.Equals(p.Language, lang.Name, StringComparison.OrdinalIgnoreCase))
+                var package = Model.Packages.FirstOrDefault(p => lang.Name.Equals(p.Language, StringComparison.OrdinalIgnoreCase))
                     ?? new WebGallery.Models.Package
                     {
                         PackageID = 0,

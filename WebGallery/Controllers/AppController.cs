@@ -278,7 +278,7 @@ namespace WebGallery.Controllers
 
             var model = new AppGalleryViewModel
             {
-                AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, "all", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 CurrentSupportedLanguage = supportedLanguage,
                 TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),

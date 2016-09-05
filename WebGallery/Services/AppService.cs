@@ -24,8 +24,8 @@ namespace WebGallery.Services
                 using (var db = new WebGalleryDbContext())
                 {
                     var submission = db.Submissions.FirstOrDefault(
-                            s => string.Equals(s.Nickname, appId, StringComparison.OrdinalIgnoreCase)
-                            && string.Equals(s.Version, version, StringComparison.OrdinalIgnoreCase));
+                            s => s.Nickname.Equals(appId, StringComparison.OrdinalIgnoreCase)
+                            && s.Version.Equals(version, StringComparison.OrdinalIgnoreCase));
 
                     // if not found, then it's unique
                     if (submission == null) return Task.FromResult(true);
@@ -434,8 +434,8 @@ namespace WebGallery.Services
         {
             // We always want "Microsoft SQL Driver for PHP" immediately after SQL Server Express because the 2 are related.
             // See the line #1074 in the old AppSubmit.aspx.cs            
-            var sqlServerExpress = dbServers.FirstOrDefault(d => string.Equals("SQL Server Express", d.Name, StringComparison.OrdinalIgnoreCase));
-            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => string.Equals("Microsoft SQL Driver for PHP", d.Name, StringComparison.OrdinalIgnoreCase));
+            var sqlServerExpress = dbServers.FirstOrDefault(d => "SQL Server Express".Equals(d.Name, StringComparison.OrdinalIgnoreCase));
+            var microsoftSqlDriverForPhp = dbServers.FirstOrDefault(d => "Microsoft SQL Driver for PHP".Equals(d.Name, StringComparison.OrdinalIgnoreCase));
 
             if (sqlServerExpress != null && microsoftSqlDriverForPhp != null)
             {
@@ -541,18 +541,18 @@ namespace WebGallery.Services
 
             // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where category.Equals("all", StringComparison.OrdinalIgnoreCase) || x.Value.Equals(category, StringComparison.OrdinalIgnoreCase)
+                              where "all".Equals(category, StringComparison.OrdinalIgnoreCase) || x.Value.Equals(category, StringComparison.OrdinalIgnoreCase)
                               select x.Attribute("id").Value;
             var query = from e in xdoc.Root.Descendants(ns + "entry")
                         let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
 
                         // If it use metadata from other language, its title and description is extracted from sub feed, but this element may not be found, then we still use them in English instead
-                        let subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "title").Attribute("resourceName").Value)
+                        let subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value.Equals(e.Element(ns + "title").Attribute("resourceName").Value))
                         let title = subTitle == null ? e.Element(ns + "title").Value : subTitle.Value
                         let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
 
                                              // in database, categories have "Templates", but it's not exist in feed, if a user published a app whose category is "Templates", its keywords should contain "Templates" and it must can be shown on gallery
-                                         where categoryIds.Contains(c.Value) || ((category.Equals("all", StringComparison.OrdinalIgnoreCase) || category.Equals("templates", StringComparison.OrdinalIgnoreCase)) && c.Value.Equals("templates", StringComparison.OrdinalIgnoreCase))
+                                         where categoryIds.Contains(c.Value) || (("all".Equals(category, StringComparison.OrdinalIgnoreCase) || "templates".Equals(category, StringComparison.OrdinalIgnoreCase)) && "templates".Equals(c.Value, StringComparison.OrdinalIgnoreCase))
                                          select c.Value
                         let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
 
@@ -570,7 +570,7 @@ namespace WebGallery.Services
                             version = e.Element(ns + "version").Value,
                             logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
                             briefDescription = e.Element(ns + "summary").Value,
-                            subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
+                            subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value.Equals(e.Element(ns + "summary").Attribute("resourceName").Value))
                         };
             count = query.Count();
             var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsEnumerable();
@@ -617,7 +617,7 @@ namespace WebGallery.Services
                 }
 
                 // special case: the category template exist in database, but there is no such item in keywords element in feed, still, it should also be shown in app preview page
-                if (element.Element(ns + "keywords").Elements(ns + "keywordId").Any(k => k.Value.Equals("templates", StringComparison.OrdinalIgnoreCase)))
+                if (element.Element(ns + "keywords").Elements(ns + "keywordId").Any(k => "templates".Equals(k.Value, StringComparison.OrdinalIgnoreCase)))
                 {
                     categories.Add(new ProductOrAppCategory { Name = "Templates", LocalizedName = "Templates" });
                 }
@@ -665,11 +665,11 @@ namespace WebGallery.Services
                             select new
                             {
                                 title = e.Element(ns + "title").Value,
-                                subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "title").Attribute("resourceName").Value),
+                                subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value.Equals(e.Element(ns + "title").Attribute("resourceName").Value)),
                                 longSummary = e.Element(ns + "longSummary").Value,
-                                subLongSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "longSummary").Attribute("resourceName").Value),
+                                subLongSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value.Equals(e.Element(ns + "longSummary").Attribute("resourceName").Value)),
                                 summary = e.Element(ns + "summary").Value,
-                                subSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value == e.Element(ns + "summary").Attribute("resourceName").Value)
+                                subSummary = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(n => n.Attribute("name").Value.Equals(e.Element(ns + "summary").Attribute("resourceName").Value))
                             }).FirstOrDefault();
 
             return Task.FromResult(new SubmissionLocalizedMetaData
@@ -712,7 +712,7 @@ namespace WebGallery.Services
             foreach (var c in categories)
             {
                 var keyword = xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword").FirstOrDefault(e => e.Value.Equals(c.Name, StringComparison.OrdinalIgnoreCase));
-                var localizedName = useEnglish || keyword == null ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value == keyword.Attribute("resourceName").Value);
+                var localizedName = useEnglish || keyword == null ? null : subFeed.Root.Elements("data").FirstOrDefault(l => l.Attribute("name").Value.Equals(keyword.Attribute("resourceName").Value));
                 localizedCategories.Add(new ProductOrAppCategory
                 {
                     Name = c.Name,
