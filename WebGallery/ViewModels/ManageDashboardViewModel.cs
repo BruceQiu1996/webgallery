@@ -1,4 +1,5 @@
 ﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebGallery.Models;
@@ -25,7 +26,7 @@ namespace WebGallery.ViewModels
         {
             get
             {
-                return CurrentSort == "appid" ? "appid_desc" : "appid";
+                return "appid".Equals(CurrentSort, StringComparison.OrdinalIgnoreCase) ? "appid_desc" : "appid";
             }
         }
 
@@ -33,7 +34,7 @@ namespace WebGallery.ViewModels
         {
             get
             {
-                return CurrentSort == "created" ? "created_desc" : "created";
+                return "created".Equals(CurrentSort, StringComparison.OrdinalIgnoreCase) ? "created_desc" : "created";
             }
         }
 
@@ -49,7 +50,7 @@ namespace WebGallery.ViewModels
         {
             get
             {
-                return CurrentSort == "submissionid" ? "submissionid_desc" : "submissionid";
+                return "submissionid".Equals(CurrentSort, StringComparison.OrdinalIgnoreCase) ? "submissionid_desc" : "submissionid";
             }
         }
 
@@ -57,7 +58,7 @@ namespace WebGallery.ViewModels
         {
             get
             {
-                return CurrentSort == "status" ? "status_desc" : "status";
+                return "status".Equals(CurrentSort, StringComparison.OrdinalIgnoreCase) ? "status_desc" : "status";
             }
         }
     }

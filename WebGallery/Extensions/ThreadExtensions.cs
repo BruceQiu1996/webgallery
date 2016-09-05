@@ -6,7 +6,7 @@ namespace WebGallery.Extensions
     {
         public static string GetLanguageCode(this Thread thread)
         {
-            return thread.CurrentUICulture.ToString().ToLower();
+            return thread.CurrentUICulture.ToString().ToLowerInvariant();
         }
     }
 }

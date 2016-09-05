@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Models;
@@ -24,7 +25,7 @@ namespace WebGallery.Services
             using (var db = new WebGalleryDbContext())
             {
                 var submitter = (from s in db.Submitters
-                                 where s.MicrosoftAccount.ToLower() == submitterMicrosoftAccount.ToLower()
+                                 where s.MicrosoftAccount.Equals(submitterMicrosoftAccount, StringComparison.OrdinalIgnoreCase)
                                  select s).FirstOrDefault();
 
                 return Task.FromResult(submitter);
@@ -72,7 +73,7 @@ namespace WebGallery.Services
             using (var db = new WebGalleryDbContext())
             {
                 var submitter = (from s in db.Submitters
-                                 where s.MicrosoftAccount == email
+                                 where s.MicrosoftAccount.Equals(email, StringComparison.OrdinalIgnoreCase)
                                  select s).FirstOrDefault();
                 if (submitter == null)
                 {
@@ -179,7 +180,7 @@ namespace WebGallery.Services
             using (var db = new WebGalleryDbContext())
             {
                 var submitter = (from s in db.Submitters
-                                 where s.MicrosoftAccount == microsoftAccount
+                                 where s.MicrosoftAccount.Equals(microsoftAccount, StringComparison.OrdinalIgnoreCase)
                                  select s).FirstOrDefault();
 
                 // If the super submitter to be added hasn't had a submittership yet, add a new one first in the Submitters table.

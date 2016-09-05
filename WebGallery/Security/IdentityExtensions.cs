@@ -16,7 +16,7 @@ namespace WebGallery.Security
 
         public static string GetName(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == "name").Value;
+            return identity.Claims.First(c => "name".Equals(c.Type)).Value;
         }
 
         public static string GetPreferredUsername(this IPrincipal user)
@@ -26,7 +26,7 @@ namespace WebGallery.Security
 
         public static string GetPreferredUsername(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == "preferred_username").Value;
+            return identity.Claims.First(c => "preferred_username".Equals(c.Type)).Value;
         }
 
         public static string GetEmailAddress(this IPrincipal user)
@@ -36,7 +36,7 @@ namespace WebGallery.Security
 
         public static string GetEmailAddress(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == ClaimTypes.Email).Value;
+            return identity.Claims.First(c => ClaimTypes.Email.Equals(c.Type)).Value;
         }
 
         public static bool IsSubmitter(this IPrincipal user)
@@ -58,7 +58,7 @@ namespace WebGallery.Security
 
         public static Submitter GetSubmittership(this ClaimsIdentity identity)
         {
-            var exists = identity.Claims.Any(c => c.Type == SubmitterClaimTypes.SubmitterId);
+            var exists = identity.Claims.Any(c => SubmitterClaimTypes.SubmitterId.Equals(c.Type));
             if (!exists) return null;
 
             var submitterId = identity.GetSubmitterId();
@@ -74,17 +74,17 @@ namespace WebGallery.Security
 
         private static int GetSubmitterId(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == SubmitterClaimTypes.SubmitterId).Value.ToInt();
+            return identity.Claims.First(c => SubmitterClaimTypes.SubmitterId.Equals(c.Type)).Value.ToInt();
         }
 
         private static bool IsSuperSubmitter(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == SubmitterClaimTypes.IsSuperSubmitter).Value.ToBool();
+            return identity.Claims.First(c => SubmitterClaimTypes.IsSuperSubmitter.Equals(c.Type)).Value.ToBool();
         }
 
         private static string GetMicrosoftAccount(this ClaimsIdentity identity)
         {
-            return identity.Claims.First(c => c.Type == SubmitterClaimTypes.MicrosoftAccount).Value;
+            return identity.Claims.First(c => SubmitterClaimTypes.MicrosoftAccount.Equals(c.Type)).Value;
         }
     }
 }

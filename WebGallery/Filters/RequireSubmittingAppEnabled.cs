@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace WebGallery.Filters
@@ -8,7 +9,7 @@ namespace WebGallery.Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             // Check if submitting app is enabled.
-            if (ConfigurationManager.AppSettings["EnableSubmitApp"].ToLowerInvariant() == "false")
+            if ("false".Equals(ConfigurationManager.AppSettings["EnableSubmitApp"], StringComparison.OrdinalIgnoreCase))
             {
                 filterContext.Result = new ViewResult { ViewName = "SubmittingDisabled" };
             }

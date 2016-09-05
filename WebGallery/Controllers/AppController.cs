@@ -248,7 +248,7 @@ namespace WebGallery.Controllers
             var pageSize = 20;
             var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
             category = string.IsNullOrWhiteSpace(category) ? "all" : category.Trim();
-            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage;
+            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage.ToLowerInvariant();
 
             var model = new AppCategorizeViewModel
             {
@@ -268,15 +268,17 @@ namespace WebGallery.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> Gallery(string keyword, int? page, string supportedLanguage = Language.CODE_ENGLISH_US)
+        public async Task<ActionResult> Gallery(string keyword, int? page, string supportedLanguage)
         {
             var count = 0;
             var pageNumber = page ?? 1;
             var pageSize = 20;
             var preferredLanguage = Thread.CurrentThread.GetLanguageCode();
+            supportedLanguage = string.IsNullOrWhiteSpace(supportedLanguage) ? Language.CODE_ENGLISH_US : supportedLanguage.ToLowerInvariant();
+
             var model = new AppGalleryViewModel
             {
-                AppList = await _appService.GetAppsFromFeedAsync(keyword, "All", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, "all", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 CurrentSupportedLanguage = supportedLanguage,
                 TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),
@@ -439,7 +441,7 @@ namespace WebGallery.Controllers
 
             var submission = await _appService.GetSubmissionAsync(submissionId);
             await _appService.PublishAsync(submission,
-                (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => m.Language == Language.CODE_ENGLISH_US),
+                (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language)),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
                 await _appService.GetPackagesAsync(submissionId),
                 await _appService.PulishImageUploadAsync(submission, new AppImageAzureStorageService()));

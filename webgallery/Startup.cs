@@ -52,7 +52,7 @@ namespace WebGallery
                     languageCode = languages[0].Contains(";") ? languages[0].Substring(0, languages[0].IndexOf(';')) : languages[0];
 
                     // the old site use the old language code "zh-chs", "zh-cht" as resource file suffix, and current code of them are "zh-CN" and "zh-TW"
-                    switch (languageCode.ToLower())
+                    switch (languageCode.ToLowerInvariant())
                     {
                         case "zh-cn": languageCode = "zh-chs"; break;
                         case "zh-tw": languageCode = "zh-cht"; break;

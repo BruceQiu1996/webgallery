@@ -14,8 +14,8 @@ namespace WebGallery.Services
                 var ownerQuery = from o in db.SubmissionOwners
                                  join c in db.SubmittersContactDetails on o.SubmitterID equals c.SubmitterID
                                  where o.SubmissionID == submission.SubmissionID
-                                     && c.FirstName.Equals(firstName, StringComparison.InvariantCultureIgnoreCase)
-                                     && c.LastName.Equals(lastName, StringComparison.InvariantCultureIgnoreCase)
+                                     && c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase)
+                                     && c.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase)
                                  select o;
 
                 return Task.FromResult(ownerQuery.Any());
@@ -27,8 +27,8 @@ namespace WebGallery.Services
             using (var db = new WebGalleryDbContext())
             {
                 var invitationQuery = from i in db.UnconfirmedSubmissionOwners
-                                      where i.FirstName.Equals(firstName, StringComparison.InvariantCultureIgnoreCase)
-                                          && i.LastName.Equals(lastName, StringComparison.InvariantCultureIgnoreCase)
+                                      where i.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase)
+                                          && i.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase)
                                           && i.IsSuperSubmitterRequest == false
                                           && i.SubmissionID == submission.SubmissionID
                                       select i;
