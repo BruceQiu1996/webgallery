@@ -730,7 +730,7 @@ namespace WebGallery.Services
             var metadata = metadatas.FirstOrDefault(m => m.Language.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || ("zh-chs".Equals(m.Language) && "zh-cn".Equals(preferredLanguage)) || ("zh-cht".Equals(m.Language) && "zh-tw".Equals(preferredLanguage)));
 
             // If there don't exist a metadata whose language are the same with preferred Language completely, we can make a mactching according to their parent culture
-            if (metadatas == null)
+            if (metadata == null)
             {
                 metadata = metadatas.FirstOrDefault(m => m.Language.Substring(0, 2).Equals(preferredLanguage.Substring(0, 2)));
             }
