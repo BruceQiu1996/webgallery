@@ -440,6 +440,13 @@ namespace WebGallery.Controllers
             }
 
             var submission = await _appService.GetSubmissionAsync(submissionId);
+
+            // new apps are no longer accepted for Web PI
+            if (await _appService.IsNewAppAsync(submission.Nickname))
+            {
+                return View("NoNewApps");
+            }
+
             await _appService.PublishAsync(submission,
                 (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language)),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
