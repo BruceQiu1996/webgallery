@@ -93,5 +93,10 @@ namespace WebGallery.Controllers
 
             return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
+
+        public ActionResult PublishedApps()
+        {
+            return View();
+        }
     }
 }

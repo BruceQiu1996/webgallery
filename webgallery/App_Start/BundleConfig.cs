@@ -135,6 +135,10 @@ namespace WebGallery
                 "~/Content/_super-submitters.css"));
             bundles.Add(new ScriptBundle("~/js/super-submitters").Include(
                         "~/scripts/_super-submitters.js"));
+
+            // manage.publishedapps
+            bundles.Add(new StyleBundle("~/css/published-apps").Include(
+                "~/Content/_published-apps.css"));
             #endregion
         }
     }
