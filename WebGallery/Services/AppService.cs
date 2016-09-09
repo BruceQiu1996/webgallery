@@ -1148,6 +1148,69 @@ namespace WebGallery.Services
                     where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
                     select e.Element(ns + "productId").Value).ToList();
         }
+
+        public Task DeleteFromFeedAsync(string appId)
+        {
+            lock (Lock_WebApplicationList_Feed)
+            {
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+                var xdoc = XDocument.Load(path);
+                var ns = xdoc.Root.GetDefaultNamespace();
+
+                var entry = (from e in xdoc.Root.Elements(ns + "entry")
+                             where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && e.Element(ns + "productId").Value.Equals(appId, StringComparison.OrdinalIgnoreCase)
+                             select e).FirstOrDefault();
+                if (entry != null)
+                {
+                    entry.Remove();
+                }
+
+                xdoc.Save(path);
+
+                return Task.FromResult(0);
+            }
+        }
+
+        public Task<IList<Submission>> GetPublishedApps(string keyword, int page, int pageSize, string sortOrder, out int count)
+        {
+            var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
+            var ns = xdoc.Root.GetDefaultNamespace();
+
+            var query = from e in xdoc.Root.Elements(ns + "entry")
+                        where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && e.Element(ns + "productId").Value.Contains(keyword, StringComparison.OrdinalIgnoreCase)
+                        select new Submission
+                        {
+                            Nickname = e.Element(ns + "productId").Value,
+                            AppName = e.Element(ns + "title").Value,
+                            Version = e.Element(ns + "version").Value,
+                            SubmittingEntity = e.Element(ns + "author").Element(ns + "name").Value,
+                            SubmittingEntityURL = e.Element(ns + "author").Element(ns + "uri").Value,
+                            Updated = DateTime.Parse(e.Element(ns + "published").Value),
+                            LogoUrl = e.Element(ns + "images").Element(ns + "icon").Value
+                        };
+
+            count = query.Count();
+
+            switch (sortOrder)
+            {
+                case "appid":
+                    query = query.OrderBy(q => q.Nickname);
+                    break;
+                case "appid_desc":
+                    query = query.OrderByDescending(q => q.Nickname);
+                    break;
+                case "updated":
+                    query = query.OrderBy(q => q.Updated);
+                    break;
+                default:
+                    query = query.OrderByDescending(q => q.Updated);
+                    break;
+            }
+
+            var apps = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            return Task.FromResult<IList<Submission>>(apps);
+        }
     } // class
 
     public class TestingStateMissingException : Exception

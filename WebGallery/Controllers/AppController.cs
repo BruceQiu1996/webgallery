@@ -389,6 +389,28 @@ namespace WebGallery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequireSubmittership]
+        public async Task<ActionResult> DeleteFromFeed(string appId, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            if (!await _appService.IsNewAppAsync(appId))
+            {
+                await _appService.DeleteFromFeedAsync(appId);
+            }
+
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.Published_Apps);
+            else
+                return Redirect(returnUrl);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequireSubmittership]
         public async Task<ActionResult> UpdateStatus(int? submissionId, int? statusId, string returnUrl)
         {
             if (!User.IsSuperSubmitter())

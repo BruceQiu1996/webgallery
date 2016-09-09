@@ -94,9 +94,31 @@ namespace WebGallery.Controllers
             return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
 
-        public ActionResult PublishedApps()
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> PublishedApps(string keyword, int? page, int? pageSize, string sortOrder)
         {
-            return View();
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            keyword = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
+            var defaultPageSize = 20;
+            pageSize = pageSize ?? defaultPageSize;
+            page = page ?? 1;
+
+            var count = 0;
+            var apps = await _appService.GetPublishedApps(keyword, page.Value, pageSize.Value, sortOrder, out count);
+            var model = new ManageDashboardViewModel
+            {
+                PageSize = pageSize.Value,
+                Keyword = keyword,
+                CurrentSort = sortOrder,
+                Submissions = new StaticPagedList<Submission>(apps, page.Value, pageSize.Value, count)
+            };
+
+            return View(model);
         }
     }
 }

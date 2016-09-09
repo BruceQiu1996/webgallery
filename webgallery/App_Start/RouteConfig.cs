@@ -45,6 +45,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Edit, url: SiteRouteUrlPatterns.App_Edit, defaults: new { controller = app, action = nameof(AppController.Edit) });
             routes.MapRoute(name: SiteRouteNames.App_Verify, url: SiteRouteUrlPatterns.App_Verify, defaults: new { controller = app, action = nameof(AppController.Verify) });
             routes.MapRoute(name: SiteRouteNames.App_Delete, url: SiteRouteUrlPatterns.App_Delete, defaults: new { controller = app, action = nameof(AppController.Delete) });
+            routes.MapRoute(name: SiteRouteNames.App_Delete_From_Feed, url: SiteRouteUrlPatterns.App_Delete_From_Feed, defaults: new { controller = app, action = nameof(AppController.DeleteFromFeed) });
             routes.MapRoute(name: SiteRouteNames.App_Update_Status, url: SiteRouteUrlPatterns.App_Update_Status, defaults: new { controller = app, action = nameof(AppController.UpdateStatus) });
             routes.MapRoute(name: SiteRouteNames.App_Publish, url: SiteRouteUrlPatterns.App_Publish, defaults: new { controller = app, action = nameof(AppController.Publish) });
             routes.MapRoute(name: SiteRouteNames.App_Categorize, url: SiteRouteUrlPatterns.App_Categorize, defaults: new { controller = app, action = nameof(AppController.Categorize), category = UrlParameter.Optional });
@@ -133,6 +134,7 @@ namespace WebGallery
         public const string Supersubmitter_Add = "admin/supersubmitters/add";
         public const string Supersubmitter_Remove = "admin/supersubmitters/remove";
         public const string Published_Apps = "admin/apps/published";
+        public const string App_Delete_From_Feed = "admin/apps/delete";
 
         // for ajax requests
         public const string App_Url_Verify = "app/urls/verify";
@@ -196,6 +198,7 @@ namespace WebGallery
         public const string Supersubmitter_Add = nameof(Supersubmitter_Add);
         public const string Supersubmitter_Remove = nameof(Supersubmitter_Remove);
         public const string Published_Apps = nameof(Published_Apps);
+        public const string App_Delete_From_Feed = nameof(App_Delete_From_Feed);
 
         // for ajax requests
         public const string App_Url_Verify = nameof(App_Url_Verify);

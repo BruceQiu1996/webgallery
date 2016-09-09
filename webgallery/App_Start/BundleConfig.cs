@@ -139,6 +139,8 @@ namespace WebGallery
             // manage.publishedapps
             bundles.Add(new StyleBundle("~/css/published-apps").Include(
                 "~/Content/_published-apps.css"));
+            bundles.Add(new ScriptBundle("~/js/published-apps").Include(
+                       "~/scripts/_published-apps.js"));
             #endregion
         }
     }

@@ -1150,6 +1150,7 @@
     <Content Include="Scripts\_app-preview.js" />
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_app_submit.js" />
+    <Content Include="Scripts\_published-apps.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\_super-submitters.js" />
     <Content Include="SIR\temp\readme.txt">

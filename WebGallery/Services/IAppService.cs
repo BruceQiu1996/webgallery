@@ -84,5 +84,9 @@ namespace WebGallery.Services
         Task<IList<string>> PulishImageUploadAsync(Submission submission, IAppImageStorageService imageStorageService);
 
         Task<bool> IsNewAppAsync(string nickName);
+
+        Task DeleteFromFeedAsync(string appId);
+
+        Task<IList<Submission>> GetPublishedApps(string keyword, int page, int pageSize, string sortOrder, out int count);
     }
 }
