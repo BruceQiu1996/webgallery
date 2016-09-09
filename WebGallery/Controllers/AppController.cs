@@ -402,7 +402,7 @@ namespace WebGallery.Controllers
             }
 
             if (string.IsNullOrEmpty(returnUrl))
-                return RedirectToRoute(SiteRouteNames.Published_Apps);
+                return RedirectToRoute(SiteRouteNames.Apps_Published);
             else
                 return Redirect(returnUrl);
         }

@@ -93,9 +93,8 @@
             cursor: pointer;
         }
 
-    .confirm-content form input:nth-of-type(3) {
+    .confirm-content input:first-of-type {
         float: left;
-        display: inline-block;
         margin: 0 20px;
     }
 

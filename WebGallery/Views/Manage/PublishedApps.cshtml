@@ -9,8 +9,8 @@
 <div class="content">
     <h2>Published Applications</h2>
     <div class="search-form">
-        @using (Html.BeginRouteForm(SiteRouteNames.Published_Apps, FormMethod.Get))
-            {
+        @using (Html.BeginRouteForm(SiteRouteNames.Apps_Published, FormMethod.Get))
+        {
             <p>List only apps whose App ID contains:@Html.TextBox("keyword")</p>
             <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
         }
@@ -19,11 +19,11 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th>@Html.RouteLink("App ID", SiteRouteNames.Published_Apps, new { keyword = Model.Keyword, sortOrder = Model.AppIdSortParam, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("App ID", SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.AppIdSortParam, pageSize = Model.PageSize })</th>
                     <th>Title</th>
                     <th>Version</th>
                     <th>Author</th>
-                    <th>@Html.RouteLink("Published", SiteRouteNames.Published_Apps, new { keyword = Model.Keyword, sortOrder = Model.UpdatedSortParam, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Published", SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.UpdatedSortParam, pageSize = Model.PageSize })</th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,6 +38,10 @@
                         <td>@app.Updated.Value.ToShortDateString()</td>
                         <td>
                             <input type="button" value="Delete" />
+                            @using (Html.BeginRouteForm(SiteRouteNames.Apps_Published_Delete, new { appId = app.Nickname, returnUrl = Request.Url }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
                             <input type="hidden" value="@app.LogoUrl" />
                         </td>
                     </tr>
@@ -55,18 +59,13 @@
                 <p>Released by<strong>Author</strong></p>
             </div>
             <p>This process only delete the appliction from feed but the record in database won't be affected, go on?</p>
-            @using (Html.BeginRouteForm(SiteRouteNames.App_Delete_From_Feed, new { returnUrl = Request.Url }, FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                <input type="hidden" name="appId" value="appId" />
-                <input type="submit" class="btn btn-primary" value="Delete" />
-            }
+            <input type="button" class="btn btn-primary" value="Delete" />
             <input type="button" class="btn btn-default" value="Cancel" />
         </div>
     </div>
 
     <div>
-        @Html.PagedListPager(Model.Submissions, page => Url.RouteUrl(SiteRouteNames.Published_Apps, new { keyword = Model.Keyword, sortOrder = Model.CurrentSort, page = page, pageSize = Model.PageSize }))
+        @Html.PagedListPager(Model.Submissions, page => Url.RouteUrl(SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.CurrentSort, page = page, pageSize = Model.PageSize }))
         <span>Total Pages: <strong>@Model.Submissions.PageCount</strong></span>
     </div>
 </div>
