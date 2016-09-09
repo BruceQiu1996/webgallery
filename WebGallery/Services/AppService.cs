@@ -1149,7 +1149,7 @@ namespace WebGallery.Services
                     select e.Element(ns + "productId").Value).ToList();
         }
 
-        public Task DeleteFromFeedAsync(string appId)
+        public Task DeleteAppFromFeedAsync(string appId)
         {
             lock (Lock_WebApplicationList_Feed)
             {

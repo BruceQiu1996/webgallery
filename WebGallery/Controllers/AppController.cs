@@ -398,7 +398,7 @@ namespace WebGallery.Controllers
 
             if (!await _appService.IsNewAppAsync(appId))
             {
-                await _appService.DeleteFromFeedAsync(appId);
+                await _appService.DeleteAppFromFeedAsync(appId);
             }
 
             if (string.IsNullOrEmpty(returnUrl))
