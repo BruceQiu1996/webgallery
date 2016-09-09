@@ -32,12 +32,12 @@
                 {
                     <tr>
                         <td>@app.Nickname</td>
-                        <td>@Html.RouteLink(app.AppName, SiteRouteNames.App_View, new { appId = app.Nickname })</td>
+                        <td><a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })" target="_blank">@app.AppName</a></td>
                         <td>@app.Version</td>
-                        <td><a href="@app.SubmittingEntityURL">@app.SubmittingEntity</a></td>
+                        <td><a href="@app.SubmittingEntityURL" target="_blank">@app.SubmittingEntity</a></td>
                         <td>@app.Updated.Value.ToShortDateString()</td>
                         <td>
-                            <a>Delete</a>
+                            <input type="button" value="Delete" />
                             <input type="hidden" value="@app.LogoUrl" />
                         </td>
                     </tr>
@@ -52,9 +52,9 @@
             <div class="app-remove-detail">
                 <div class="icon-box"><img src="~/Content/images/no-logo.png" /></div>
                 <span>AppId Version</span>
-                <p>released by<strong>Author</strong></p>
+                <p>Released by<strong>Author</strong></p>
             </div>
-            <p>This application will be removed permanetly and can not be recovered, go on?</p>
+            <p>This process only delete the appliction from feed but the record in database won't be affected, go on?</p>
             @using (Html.BeginRouteForm(SiteRouteNames.App_Delete_From_Feed, new { returnUrl = Request.Url }, FormMethod.Post))
             {
                 @Html.AntiForgeryToken()

@@ -34,19 +34,32 @@
         }
 
         .apps-table-container table thead tr th:first-child,
-        .apps-table-container thead tr th:nth-child(2),
-        .apps-table-container thead tr th:nth-child(4) {
+        .apps-table-container table thead tr th:nth-child(2),
+        .apps-table-container table thead tr th:nth-child(4) {
             width: 25%;
         }
 
-    .apps-table-container thead tr th:nth-child(3),
-    .apps-table-container thead tr th:nth-child(5) {
-        width: 10%;
-    }
+        .apps-table-container table thead tr th:nth-child(3),
+        .apps-table-container table thead tr th:nth-child(5) {
+            width: 10%;
+        }
 
-    .apps-table-container thead tr th:last-child {
-        width: 5%;
-    }
+        .apps-table-container table thead tr th:last-child {
+            width: 5%;
+        }
+
+        .apps-table-container table tbody tr td input:first-child {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #337ab7;
+        }
+
+            .apps-table-container table tbody tr td input:first-child:hover,
+            .apps-table-container table tbody tr td input:first-child:focus {
+                color: #23527c;
+                text-decoration: underline;
+            }
 
 .confirm-dialog {
     position: fixed;
