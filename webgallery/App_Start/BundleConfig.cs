@@ -137,10 +137,10 @@ namespace WebGallery
                         "~/scripts/_super-submitters.js"));
 
             // manage.feeds
-            bundles.Add(new StyleBundle("~/css/manage_feeds").Include(
-                "~/Content/_manage_feeds.css"));
-            bundles.Add(new ScriptBundle("~/js/manage_feeds").Include(
-                       "~/scripts/_manage_feeds.js"));
+            bundles.Add(new StyleBundle("~/css/manage-feeds").Include(
+                "~/Content/_manage-feeds.css"));
+            bundles.Add(new ScriptBundle("~/js/manage-feeds").Include(
+                       "~/scripts/_manage-feeds.js"));
             #endregion
         }
     }

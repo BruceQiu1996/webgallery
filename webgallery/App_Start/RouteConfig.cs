@@ -68,8 +68,8 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = manage, action = nameof(ManageController.SuperSubmitters) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter_Add, url: SiteRouteUrlPatterns.Supersubmitter_Add, defaults: new { controller = manage, action = nameof(ManageController.AddSuperSubmitter) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter_Remove, url: SiteRouteUrlPatterns.Supersubmitter_Remove, defaults: new { controller = manage, action = nameof(ManageController.RemoveSuperSubmitter) });
-            routes.MapRoute(name: SiteRouteNames.Feeds, url: SiteRouteUrlPatterns.Feeds, defaults: new { controller = manage, action = nameof(ManageController.Feeds) });
-            routes.MapRoute(name: SiteRouteNames.Feeds_App_Delete, url: SiteRouteUrlPatterns.Feeds_App_Delete, defaults: new { controller = manage, action = nameof(ManageController.DeleteAppFromFeed) });
+            routes.MapRoute(name: SiteRouteNames.App_Feed, url: SiteRouteUrlPatterns.App_Feed, defaults: new { controller = manage, action = nameof(ManageController.GetAppsInFeed) });
+            routes.MapRoute(name: SiteRouteNames.App_Feed_Delete, url: SiteRouteUrlPatterns.App_Feed_Delete, defaults: new { controller = manage, action = nameof(ManageController.DeleteAppFromFeed) });
 
             // for ajax requests
             routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyUrl) });
@@ -133,8 +133,8 @@ namespace WebGallery
         public const string Supersubmitter = "admin/supersubmitters";
         public const string Supersubmitter_Add = "admin/supersubmitters/add";
         public const string Supersubmitter_Remove = "admin/supersubmitters/remove";
-        public const string Feeds = "admin/feeds";
-        public const string Feeds_App_Delete = "admin/feeds/apps/{appId}/delete";
+        public const string App_Feed = "admin/apps/in/feed";
+        public const string App_Feed_Delete = "admin/apps/in/feed/{appId}/delete";
 
         // for ajax requests
         public const string App_Url_Verify = "app/urls/verify";
@@ -197,8 +197,8 @@ namespace WebGallery
         public const string Supersubmitter = nameof(Supersubmitter);
         public const string Supersubmitter_Add = nameof(Supersubmitter_Add);
         public const string Supersubmitter_Remove = nameof(Supersubmitter_Remove);
-        public const string Feeds = nameof(Feeds);
-        public const string Feeds_App_Delete = nameof(Feeds_App_Delete);
+        public const string App_Feed = nameof(App_Feed);
+        public const string App_Feed_Delete = nameof(App_Feed_Delete);
 
         // for ajax requests
         public const string App_Url_Verify = nameof(App_Url_Verify);

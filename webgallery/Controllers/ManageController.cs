@@ -1,7 +1,6 @@
 ﻿using PagedList;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using WebGallery.Filters;
 using WebGallery.Models;
 using WebGallery.Security;
 using WebGallery.Services;
@@ -23,7 +22,6 @@ namespace WebGallery.Controllers
         //GET 
         [Authorize]
         [HttpGet]
-        [RequireSubmittership]
         public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder)
         {
             if (!User.IsSuperSubmitter())
@@ -51,7 +49,6 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
-        [RequireSubmittership]
         public async Task<ActionResult> SuperSubmitters()
         {
             if (!User.IsSuperSubmitter())
@@ -70,7 +67,6 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [RequireSubmittership]
         public async Task<ActionResult> RemoveSuperSubmitter(int submitterId)
         {
             if (!User.IsSuperSubmitter())
@@ -86,7 +82,6 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [RequireSubmittership]
         public async Task<ActionResult> AddSuperSubmitter(string microsoftAccount, string firstName, string lastName)
         {
             if (!User.IsSuperSubmitter())
@@ -101,8 +96,7 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
-        [RequireSubmittership]
-        public async Task<ActionResult> Feeds(string keyword, int? page, int? pageSize, string sortOrder)
+        public async Task<ActionResult> GetAppsInFeed(string keyword, int? page, int? pageSize, string sortOrder)
         {
             if (!User.IsSuperSubmitter())
             {
@@ -123,13 +117,12 @@ namespace WebGallery.Controllers
                 Submissions = new StaticPagedList<Submission>(apps, page.Value, pageSize.Value, count)
             };
 
-            return View(model);
+            return View("Feeds", model);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [RequireSubmittership]
         public async Task<ActionResult> DeleteAppFromFeed(string appId, string returnUrl)
         {
             if (!User.IsSuperSubmitter())
@@ -143,7 +136,7 @@ namespace WebGallery.Controllers
             }
 
             if (string.IsNullOrEmpty(returnUrl))
-                return RedirectToRoute(SiteRouteNames.Feeds);
+                return RedirectToRoute(SiteRouteNames.App_Feed);
             else
                 return Redirect(returnUrl);
         }

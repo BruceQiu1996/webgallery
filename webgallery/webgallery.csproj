@@ -1069,7 +1069,7 @@
     <Content Include="Content\images\tab_xp\tab_outer.gif" />
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\_home-index.css" />
-    <Content Include="Content\_manage_feeds.css" />
+    <Content Include="Content\_manage-feeds.css" />
     <Content Include="Content\_super-submitters.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
@@ -1150,7 +1150,7 @@
     <Content Include="Scripts\_app-preview.js" />
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_app_submit.js" />
-    <Content Include="Scripts\_manage_feeds.js" />
+    <Content Include="Scripts\_manage-feeds.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\_super-submitters.js" />
     <Content Include="SIR\temp\readme.txt">
