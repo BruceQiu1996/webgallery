@@ -136,11 +136,11 @@ namespace WebGallery
             bundles.Add(new ScriptBundle("~/js/super-submitters").Include(
                         "~/scripts/_super-submitters.js"));
 
-            // manage.publishedapps
-            bundles.Add(new StyleBundle("~/css/published-apps").Include(
-                "~/Content/_published-apps.css"));
-            bundles.Add(new ScriptBundle("~/js/published-apps").Include(
-                       "~/scripts/_published-apps.js"));
+            // manage.feeds
+            bundles.Add(new StyleBundle("~/css/manage_feeds").Include(
+                "~/Content/_manage_feeds.css"));
+            bundles.Add(new ScriptBundle("~/js/manage_feeds").Include(
+                       "~/scripts/_manage_feeds.js"));
             #endregion
         }
     }

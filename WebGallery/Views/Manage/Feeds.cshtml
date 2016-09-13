@@ -2,16 +2,16 @@
 @model WebGallery.ViewModels.ManageDashboardViewModel
 
 @{
-    ViewBag.Title = "PublishedApps";
+    ViewBag.Title = "Feeds";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="content">
     <h2>Published Applications</h2>
     <div class="search-form">
-        @using (Html.BeginRouteForm(SiteRouteNames.Apps_Published, FormMethod.Get))
+        @using (Html.BeginRouteForm(SiteRouteNames.Feeds, FormMethod.Get))
         {
-            <p>List only apps whose App ID contains:@Html.TextBox("keyword")</p>
+            <p>List only apps whose App ID or name contains:@Html.TextBox("keyword")</p>
             <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
         }
     </div>
@@ -19,11 +19,11 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th>@Html.RouteLink("App ID", SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.AppIdSortParam, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("App ID", SiteRouteNames.Feeds, new { keyword = Model.Keyword, sortOrder = Model.AppIdSortParam, pageSize = Model.PageSize })</th>
                     <th>Title</th>
                     <th>Version</th>
                     <th>Author</th>
-                    <th>@Html.RouteLink("Published", SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.UpdatedSortParam, pageSize = Model.PageSize })</th>
+                    <th>@Html.RouteLink("Published", SiteRouteNames.Feeds, new { keyword = Model.Keyword, sortOrder = Model.UpdatedSortParam, pageSize = Model.PageSize })</th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,10 +35,10 @@
                         <td><a href="@Url.RouteUrl(SiteRouteNames.App_View, new { appId = app.Nickname })" target="_blank">@app.AppName</a></td>
                         <td>@app.Version</td>
                         <td><a href="@app.SubmittingEntityURL" target="_blank">@app.SubmittingEntity</a></td>
-                        <td>@app.Updated.Value.ToShortDateString()</td>
+                        <td>@app.ReleaseDate.ToShortDateString()</td>
                         <td>
                             <input type="button" value="Delete" />
-                            @using (Html.BeginRouteForm(SiteRouteNames.Apps_Published_Delete, new { appId = app.Nickname, returnUrl = Request.Url }, FormMethod.Post))
+                            @using (Html.BeginRouteForm(SiteRouteNames.Feeds_App_Delete, new { appId = app.Nickname, returnUrl = Request.Url }, FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
                             }
@@ -65,15 +65,15 @@
     </div>
 
     <div>
-        @Html.PagedListPager(Model.Submissions, page => Url.RouteUrl(SiteRouteNames.Apps_Published, new { keyword = Model.Keyword, sortOrder = Model.CurrentSort, page = page, pageSize = Model.PageSize }))
+        @Html.PagedListPager(Model.Submissions, page => Url.RouteUrl(SiteRouteNames.Feeds, new { keyword = Model.Keyword, sortOrder = Model.CurrentSort, page = page, pageSize = Model.PageSize }))
         <span>Total Pages: <strong>@Model.Submissions.PageCount</strong></span>
     </div>
 </div>
 @section Styles {
-    @Styles.Render("~/css/published-apps")
+    @Styles.Render("~/css/manage_feeds")
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/js/published-apps")
+    @Scripts.Render("~/js/manage_feeds")
 }

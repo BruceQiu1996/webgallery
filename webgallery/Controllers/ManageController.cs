@@ -1,6 +1,7 @@
 ﻿using PagedList;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using WebGallery.Filters;
 using WebGallery.Models;
 using WebGallery.Security;
 using WebGallery.Services;
@@ -22,6 +23,7 @@ namespace WebGallery.Controllers
         //GET 
         [Authorize]
         [HttpGet]
+        [RequireSubmittership]
         public async Task<ActionResult> Dashboard(string keyword, int? page, int? pageSize, string sortOrder)
         {
             if (!User.IsSuperSubmitter())
@@ -49,6 +51,7 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
+        [RequireSubmittership]
         public async Task<ActionResult> SuperSubmitters()
         {
             if (!User.IsSuperSubmitter())
@@ -67,6 +70,7 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittership]
         public async Task<ActionResult> RemoveSuperSubmitter(int submitterId)
         {
             if (!User.IsSuperSubmitter())
@@ -82,6 +86,7 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequireSubmittership]
         public async Task<ActionResult> AddSuperSubmitter(string microsoftAccount, string firstName, string lastName)
         {
             if (!User.IsSuperSubmitter())
@@ -96,20 +101,20 @@ namespace WebGallery.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> PublishedApps(string keyword, int? page, int? pageSize, string sortOrder)
+        [RequireSubmittership]
+        public async Task<ActionResult> Feeds(string keyword, int? page, int? pageSize, string sortOrder)
         {
             if (!User.IsSuperSubmitter())
             {
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
 
-            keyword = string.IsNullOrWhiteSpace(keyword) ? string.Empty : keyword.Trim();
             var defaultPageSize = 20;
             pageSize = pageSize ?? defaultPageSize;
             page = page ?? 1;
 
             var count = 0;
-            var apps = await _appService.GetPublishedApps(keyword, page.Value, pageSize.Value, sortOrder, out count);
+            var apps = await _appService.GetAppsFromFeedAsync(keyword, "all", "all", Language.CODE_ENGLISH_US, page.Value, pageSize.Value, sortOrder, out count);
             var model = new ManageDashboardViewModel
             {
                 PageSize = pageSize.Value,
@@ -119,6 +124,28 @@ namespace WebGallery.Controllers
             };
 
             return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequireSubmittership]
+        public async Task<ActionResult> DeleteAppFromFeed(string appId, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            if (!await _appService.IsNewAppAsync(appId))
+            {
+                await _appService.DeleteAppFromFeedAsync(appId);
+            }
+
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.Feeds);
+            else
+                return Redirect(returnUrl);
         }
     }
 }

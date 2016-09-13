@@ -12,7 +12,7 @@
         $(".app-remove-detail span").text(appId.text() + " " + appId.next().next().text());
         $(".app-remove-detail p strong").text(" " + appId.next().next().next().children("a").text());
         $(".icon-box img").attr("src", logoUrl);
-        $(".confirm-content span").click(function () {
+        $(".confirm-content span:first").click(function () {
             $(".confirm-dialog").attr("style", "display:none");
         });
         $(".confirm-content input:last").click(function () {
