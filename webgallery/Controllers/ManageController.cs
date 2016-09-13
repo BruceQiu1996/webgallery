@@ -117,7 +117,7 @@ namespace WebGallery.Controllers
                 Submissions = new StaticPagedList<Submission>(apps, page.Value, pageSize.Value, count)
             };
 
-            return View("Feeds", model);
+            return View("AppsInFeed", model);
         }
 
         [Authorize]
