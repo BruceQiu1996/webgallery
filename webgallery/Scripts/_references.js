@@ -6,6 +6,7 @@
 /// <reference path="_app-mine.js" />
 /// <reference path="_app-preview.js" />
 /// <reference path="_app-verify.js" />
+/// <reference path="_manage-apps-in-feed.js" />
 /// <reference path="_manage-dashboard.js" />
 /// <reference path="_super-submitters.js" />
 /// <reference path="ai.0.15.0-build58334.js" />

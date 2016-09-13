@@ -517,17 +517,18 @@ namespace WebGallery.Services
         }
 
         /// <summary>
-        /// Gets a series of apps from WebApplicationList.xml feed
+        /// Gets a series of apps from WebApplicationList.xml feed.
         /// </summary>
         /// <param name="keyword"></param>
         /// <param name="category"></param>
-        /// <param name="supportedLanguage"> Language which is supported by packages of the submisions list </param>
-        /// <param name="preferredLanguage"> Language in which the page displays </param>
+        /// <param name="supportedLanguage">Language which is supported by packages of the submisions list.</param>
+        /// <param name="preferredLanguage">Language in which the page displays.</param>
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
+        /// <param name="sortOrder">The rule which is used to order the applications.</param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, out int count)
+        public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, string sortOrder, out int count)
         {
             var xdoc = XDocument.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]));
             var ns = xdoc.Root.GetDefaultNamespace();
@@ -541,50 +542,56 @@ namespace WebGallery.Services
 
             // The parameter category are the value of xml element keyword, but it's the "id" attribute of xml element keyword who is used in the entry of each app
             var categoryIds = from x in xdoc.Root.Element(ns + "keywords").Elements(ns + "keyword")
-                              where "all".Equals(category, StringComparison.OrdinalIgnoreCase) || x.Value.Equals(category, StringComparison.OrdinalIgnoreCase)
+                              where x.Value.Equals(category, StringComparison.OrdinalIgnoreCase)
                               select x.Attribute("id").Value;
-            var query = from e in xdoc.Root.Descendants(ns + "entry")
-                        let releaseDate = DateTime.Parse(e.Element(ns + "published").Value)
+            var query = from e in xdoc.Root.Elements(ns + "entry")
 
-                        // If it use metadata from other language, its title and description is extracted from sub feed, but this element may not be found, then we still use them in English instead
+                            // If it use metadata from other language, its title and description is extracted from sub feed, but this element may not be found, then we still use them in English instead
                         let subTitle = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value.Equals(e.Element(ns + "title").Attribute("resourceName").Value))
                         let title = subTitle == null ? e.Element(ns + "title").Value : subTitle.Value
-                        let categories = from c in e.Element(ns + "keywords").Elements(ns + "keywordId")
+                        let subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value.Equals(e.Element(ns + "summary").Attribute("resourceName").Value))
+                        where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
+                        && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase) || e.Element(ns + "productId").Value.Contains(keyword.Trim(), StringComparison.OrdinalIgnoreCase))
 
-                                             // in database, categories have "Templates", but it's not exist in feed, if a user published a app whose category is "Templates", its keywords should contain "Templates" and it must can be shown on gallery
-                                         where categoryIds.Contains(c.Value) || (("all".Equals(category, StringComparison.OrdinalIgnoreCase) || "templates".Equals(category, StringComparison.OrdinalIgnoreCase)) && "templates".Equals(c.Value, StringComparison.OrdinalIgnoreCase))
-                                         select c.Value
-                        let languageIds = from l in e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId")
+                        // in database, categories have "Templates", but it's not exist in feed, if a user published a app whose category is "Templates", its keywords should contain "Templates" and it must can be shown on gallery
+                        && ("all".Equals(category, StringComparison.OrdinalIgnoreCase) || e.Element(ns + "keywords").Elements(ns + "keywordId").Any(c => categoryIds.Contains(c.Value) || ("templates".Equals(category, StringComparison.OrdinalIgnoreCase) && "templates".Equals(c.Value, StringComparison.OrdinalIgnoreCase))))
 
-                                              // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
-                                              // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
-                                          where supportedLanguage.Contains(l.Value) || ("zh-chs".Equals(supportedLanguage) && "zh-cn".Equals(l.Value)) || ("zh-cht".Equals(supportedLanguage) && "zh-tw".Equals(l.Value))
-                                          select l.Value
-                        where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && (string.IsNullOrWhiteSpace(keyword) || title.Contains(keyword.Trim(), StringComparison.CurrentCultureIgnoreCase)) && categories.Count() > 0 && languageIds.Count() > 0
-                        orderby releaseDate descending
-                        select new
+                        // The languageIds in feed are always the substring of the relevant language code ,for example,as a laguageId in feed,the language code of "en" is "en-us".
+                        // So this can be a filter condition , but there exist two special cases : the language code of "zh-cn" is "zh-chs" and the language code of "zh-tw" is "zh-cht"
+                        && ("all".Equals(supportedLanguage, StringComparison.OrdinalIgnoreCase) || e.Element(ns + "installers").Elements(ns + "installer").Elements(ns + "languageId").Any(l => supportedLanguage.Contains(l.Value) || ("zh-chs".Equals(supportedLanguage) && "zh-cn".Equals(l.Value)) || ("zh-cht".Equals(supportedLanguage) && "zh-tw".Equals(l.Value))))
+                        select new Submission
                         {
-                            nickName = e.Element(ns + "productId").Value,
-                            releaseDate = releaseDate,
-                            appName = title,
-                            version = e.Element(ns + "version").Value,
-                            logoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
-                            briefDescription = e.Element(ns + "summary").Value,
-                            subBriefDescription = useEnglishMetaData ? null : subFeed.Root.Elements("data").FirstOrDefault(d => d.Attribute("name").Value.Equals(e.Element(ns + "summary").Attribute("resourceName").Value))
+                            Nickname = e.Element(ns + "productId").Value,
+                            ReleaseDate = DateTime.Parse(e.Element(ns + "published").Value),
+                            AppName = title,
+                            Version = e.Element(ns + "version").Value,
+                            SubmittingEntity = e.Element(ns + "author").Element(ns + "name").Value,
+                            SubmittingEntityURL = e.Element(ns + "author").Element(ns + "uri").Value,
+                            LogoUrl = e.Element(ns + "images").Element(ns + "icon") != null ? e.Element(ns + "images").Element(ns + "icon").Value : string.Empty,
+                            BriefDescription = subBriefDescription == null ? e.Element(ns + "summary").Value : subBriefDescription.Value
                         };
             count = query.Count();
-            var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).AsEnumerable();
 
-            return Task.FromResult<IList<Submission>>((from a in apps
-                                                       select new Submission
-                                                       {
-                                                           Nickname = a.nickName,
-                                                           ReleaseDate = a.releaseDate,
-                                                           AppName = a.appName,
-                                                           Version = a.version,
-                                                           LogoUrl = a.logoUrl,
-                                                           BriefDescription = a.subBriefDescription == null ? a.briefDescription : a.subBriefDescription.Value
-                                                       }).ToList());
+            switch (sortOrder)
+            {
+                case "appid":
+                    query = query.OrderBy(q => q.Nickname);
+                    break;
+                case "appid_desc":
+                    query = query.OrderByDescending(q => q.Nickname);
+                    break;
+                case "updated":
+                    query = query.OrderBy(q => q.ReleaseDate);
+                    break;
+                case "updated_desc":
+                default:
+                    query = query.OrderByDescending(q => q.ReleaseDate);
+                    break;
+            }
+
+            var apps = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            return Task.FromResult<IList<Submission>>(apps);
         }
 
         public Task<Submission> GetSubmissionFromFeedAsync(string appId, string preferredLanguage)
@@ -1147,6 +1154,28 @@ namespace WebGallery.Services
             return (from e in xdoc.Root.Elements(ns + "entry")
                     where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
                     select e.Element(ns + "productId").Value).ToList();
+        }
+
+        public Task DeleteAppFromFeedAsync(string appId)
+        {
+            lock (Lock_WebApplicationList_Feed)
+            {
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+                var xdoc = XDocument.Load(path);
+                var ns = xdoc.Root.GetDefaultNamespace();
+
+                var entry = (from e in xdoc.Root.Elements(ns + "entry")
+                             where e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value) && e.Element(ns + "productId").Value.Equals(appId, StringComparison.OrdinalIgnoreCase)
+                             select e).FirstOrDefault();
+                if (entry != null)
+                {
+                    entry.Remove();
+                }
+
+                xdoc.Save(path);
+
+                return Task.FromResult(0);
+            }
         }
     } // class
 

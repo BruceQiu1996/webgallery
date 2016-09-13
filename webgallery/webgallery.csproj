@@ -1069,6 +1069,7 @@
     <Content Include="Content\images\tab_xp\tab_outer.gif" />
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\_home-index.css" />
+    <Content Include="Content\_manage-apps-in-feed.css" />
     <Content Include="Content\_super-submitters.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
@@ -1149,6 +1150,7 @@
     <Content Include="Scripts\_app-preview.js" />
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_app_submit.js" />
+    <Content Include="Scripts\_manage-apps-in-feed.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\_super-submitters.js" />
     <Content Include="SIR\temp\readme.txt">
@@ -1203,6 +1205,7 @@
     <Content Include="Views\Issue\Report.cshtml" />
     <Content Include="Views\App\Publish.cshtml" />
     <Content Include="Views\Shared\NoNewApps.cshtml" />
+    <Content Include="Views\Manage\AppsInFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

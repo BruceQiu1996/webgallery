@@ -93,5 +93,52 @@ namespace WebGallery.Controllers
 
             return RedirectToRoute(SiteRouteNames.Supersubmitter);
         }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> GetAppsInFeed(string keyword, int? page, int? pageSize, string sortOrder)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var defaultPageSize = 20;
+            pageSize = pageSize ?? defaultPageSize;
+            page = page ?? 1;
+
+            var count = 0;
+            var apps = await _appService.GetAppsFromFeedAsync(keyword, "all", "all", Language.CODE_ENGLISH_US, page.Value, pageSize.Value, sortOrder, out count);
+            var model = new ManageDashboardViewModel
+            {
+                PageSize = pageSize.Value,
+                Keyword = keyword,
+                CurrentSort = sortOrder,
+                Submissions = new StaticPagedList<Submission>(apps, page.Value, pageSize.Value, count)
+            };
+
+            return View("AppsInFeed", model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteAppFromFeed(string appId, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            if (!await _appService.IsNewAppAsync(appId))
+            {
+                await _appService.DeleteAppFromFeedAsync(appId);
+            }
+
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.App_Feed);
+            else
+                return Redirect(returnUrl);
+        }
     }
 }

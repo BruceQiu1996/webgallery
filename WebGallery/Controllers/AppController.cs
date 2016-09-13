@@ -252,7 +252,7 @@ namespace WebGallery.Controllers
 
             var model = new AppCategorizeViewModel
             {
-                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
+                Submissions = await _appService.GetAppsFromFeedAsync(string.Empty, category, supportedLanguage, preferredLanguage, pageNumber, pageSize, "updated_desc", out count),
 
                 //We won't show cateogries list with "Templates" and "AppFrameworks" whose CategoryID are 8 and 9 in database 
                 Categories = await _appService.LocalizeCategoriesAsync((await _appService.GetCategoriesAsync()).Where(c => c.CategoryID != 8 && c.CategoryID != 9).ToList(), preferredLanguage),
@@ -278,7 +278,7 @@ namespace WebGallery.Controllers
 
             var model = new AppGalleryViewModel
             {
-                AppList = await _appService.GetAppsFromFeedAsync(keyword, "all", supportedLanguage, preferredLanguage, pageNumber, pageSize, out count),
+                AppList = await _appService.GetAppsFromFeedAsync(keyword, "all", supportedLanguage, preferredLanguage, pageNumber, pageSize, "updated_desc", out count),
                 SupportedLanguages = await _appService.GetSupportedLanguagesFromFeedAsync(),
                 CurrentSupportedLanguage = supportedLanguage,
                 TotalPage = Convert.ToInt32(Math.Ceiling(((double)count / pageSize))),
