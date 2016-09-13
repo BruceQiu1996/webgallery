@@ -517,15 +517,15 @@ namespace WebGallery.Services
         }
 
         /// <summary>
-        /// Gets a series of apps from WebApplicationList.xml feed
+        /// Gets a series of apps from WebApplicationList.xml feed.
         /// </summary>
         /// <param name="keyword"></param>
         /// <param name="category"></param>
-        /// <param name="supportedLanguage"> Language which is supported by packages of the submisions list </param>
-        /// <param name="preferredLanguage"> Language in which the page displays </param>
+        /// <param name="supportedLanguage">Language which is supported by packages of the submisions list.</param>
+        /// <param name="preferredLanguage">Language in which the page displays.</param>
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
-        /// <param name="sortOrder"> The rule which is used to order the applications </param>
+        /// <param name="sortOrder">The rule which is used to order the applications.</param>
         /// <param name="count"></param>
         /// <returns></returns>
         public Task<IList<Submission>> GetAppsFromFeedAsync(string keyword, string category, string supportedLanguage, string preferredLanguage, int pageNumber, int pageSize, string sortOrder, out int count)
