@@ -10,6 +10,7 @@ else
     <table>
         <thead>
             <tr>
+                <th>Inactivate</th>
                 <th>App ID</th>
                 <th>Version</th>
                 <th>Author</th>
@@ -17,7 +18,6 @@ else
                 <th>Updated</th>
                 <th>ID</th>
                 <th>Status</th>
-                <th>Inactivate</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +27,12 @@ else
                     var updatedDate = submission.Updated.HasValue ? submission.Updated.Value.ToShortDateString() : "---";
 
                 <tr>
+                    <td>
+                        @if (!submission.Status.Equals("inactive", StringComparison.OrdinalIgnoreCase))
+                    {
+                            <input type="checkbox" name="submissionIds" value="@submission.SubmissionID" />
+                        }
+                    </td>
                     <td data-toggle="tooltip" title="@submission.Nickname">@submission.Nickname.ToShort(10)</td>
                     <td data-toggle="tooltip" title="@submission.Version">@submission.Version.ToShort(12)</td>
                     <td data-toggle="tooltip" title="@submission.SubmittingEntity">@submission.SubmittingEntity.ToShort(12)</td>
@@ -34,12 +40,6 @@ else
                     <td>@updatedDate</td>
                     <td>@submission.SubmissionID</td>
                     <td data-toggle="tooltip" title="@submission.Status">@submission.Status.ToShort(12)</td>
-                    <td>
-                        @if (!submission.Status.Equals("inactive", StringComparison.OrdinalIgnoreCase))
-                    {
-                            <input type="checkbox" name="submissionIds" value="@submission.SubmissionID" />
-                        }
-                    </td>
                 </tr>
             }
         </tbody>

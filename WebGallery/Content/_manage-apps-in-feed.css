@@ -100,8 +100,11 @@
         }
 
     .confirm-content input[type=submit] {
-        margin-left: 80%;
-        margin-right: 20px;
+        margin: 0 20px 0 10px;
+    }
+
+    .confirm-content form p {
+        margin-left: 10px;
     }
 
 .app-remove-detail {
@@ -164,6 +167,6 @@
                 table-layout: fixed;
             }
 
-                .related-submissions-container table tbody tr td:last-child {
+                .related-submissions-container table tbody tr td:first-child {
                     text-align: center;
                 }
