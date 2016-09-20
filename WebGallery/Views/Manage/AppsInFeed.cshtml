@@ -38,10 +38,6 @@
                         <td>@app.ReleaseDate.ToShortDateString()</td>
                         <td>
                             <input type="button" value="Delete" />
-                            @using (Html.BeginRouteForm(SiteRouteNames.App_Feed_Delete, new { appId = app.Nickname, returnUrl = Request.Url }, FormMethod.Post))
-                            {
-                                @Html.AntiForgeryToken()
-                            }
                             <input type="hidden" value="@app.LogoUrl" />
                         </td>
                     </tr>
@@ -58,9 +54,16 @@
                 <span>AppId Version</span>
                 <p>Released by<strong>Author</strong></p>
             </div>
-            <p>This process only delete the appliction from feed but the record in database won't be affected, go on?</p>
-            <input type="button" class="btn btn-primary" value="Delete" />
-            <input type="button" class="btn btn-default" value="Cancel" />
+            <p>Here are submissions which have the same app ID with the application, you can choose some of them to INACTIVATE. (It's optional)</p>
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="returnUrl" value="@Request.Url" />
+                <div class="related-submissions-container"></div>
+                <p>Once click DELETE, the application will be deleted from feed and the selected submissions will be set INACTIVE.</p>
+                <input type="submit" class="btn btn-primary" value="Delete" />
+                <input type="button" class="btn btn-default" value="Cancel" />
+            }
         </div>
     </div>
 

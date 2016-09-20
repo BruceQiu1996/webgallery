@@ -20,5 +20,16 @@ namespace WebGallery.Extensions
 
             return str.IndexOf(substring, comp) >= 0;
         }
+
+        /// <summary>
+        /// Retrieves a substring start at the first character of the string with a spcified length and make it suffix with "..." if the string is longer than the specified length.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="length">The specified length</param>
+        /// <returns></returns>
+        public static string ToShort(this string str, int length)
+        {
+            return str.Length > length ? str.Substring(0, length) + "..." : str;
+        }
     }
 }

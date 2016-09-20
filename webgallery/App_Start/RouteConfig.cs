@@ -70,6 +70,7 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.Supersubmitter_Remove, url: SiteRouteUrlPatterns.Supersubmitter_Remove, defaults: new { controller = manage, action = nameof(ManageController.RemoveSuperSubmitter) });
             routes.MapRoute(name: SiteRouteNames.App_Feed, url: SiteRouteUrlPatterns.App_Feed, defaults: new { controller = manage, action = nameof(ManageController.GetAppsInFeed) });
             routes.MapRoute(name: SiteRouteNames.App_Feed_Delete, url: SiteRouteUrlPatterns.App_Feed_Delete, defaults: new { controller = manage, action = nameof(ManageController.DeleteAppFromFeed) });
+            routes.MapRoute(name: SiteRouteNames.App_Submissions, url: SiteRouteUrlPatterns.App_Submissions, defaults: new { controller = manage, action = nameof(ManageController.GetSubmissions) });
 
             // for ajax requests
             routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyUrl) });
@@ -135,6 +136,7 @@ namespace WebGallery
         public const string Supersubmitter_Remove = "admin/supersubmitters/remove";
         public const string App_Feed = "admin/apps/in/feed";
         public const string App_Feed_Delete = "admin/apps/in/feed/{appId}/delete";
+        public const string App_Submissions = "admin/apps/{appId}/submissions";
 
         // for ajax requests
         public const string App_Url_Verify = "app/urls/verify";
@@ -199,6 +201,7 @@ namespace WebGallery
         public const string Supersubmitter_Remove = nameof(Supersubmitter_Remove);
         public const string App_Feed = nameof(App_Feed);
         public const string App_Feed_Delete = nameof(App_Feed_Delete);
+        public const string App_Submissions = nameof(App_Submissions);
 
         // for ajax requests
         public const string App_Url_Verify = nameof(App_Url_Verify);

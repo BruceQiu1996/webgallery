@@ -1177,6 +1177,74 @@ namespace WebGallery.Services
                 return Task.FromResult(0);
             }
         }
+
+        public Task<IList<Submission>> GetSubmissionsByAppIdAsync(string appId)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var query = (from s in db.Submissions
+                             join t in db.SubmissionsStatus on s.SubmissionID equals t.SubmissionID
+                             join d in db.SubmissionStates on t.SubmissionStateID equals d.SubmissionStateID
+                             where s.Nickname.Equals(appId, StringComparison.OrdinalIgnoreCase)
+                             select new
+                             {
+                                 SubmissionID = s.SubmissionID,
+                                 Nickname = s.Nickname,
+                                 Version = s.Version,
+                                 SubmittingEntity = s.SubmittingEntity,
+                                 Created = s.Created,
+                                 Updated = s.Updated,
+                                 Status = d.Name
+                             }).ToList();
+
+                return Task.FromResult<IList<Submission>>((from q in query
+                                                           select new Submission
+                                                           {
+                                                               SubmissionID = q.SubmissionID,
+                                                               Nickname = q.Nickname,
+                                                               Version = q.Version,
+                                                               SubmittingEntity = q.SubmittingEntity,
+                                                               Created = q.Created,
+                                                               Updated = q.Updated,
+                                                               Status = q.Status
+                                                           }).ToList());
+            }
+        }
+
+        public Task DeleteAsync(string[] submissionIds)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submissionStatus = from s in db.SubmissionsStatus
+                                       where submissionIds.Contains(s.SubmissionID.ToString())
+                                       select s;
+
+                // Before change the status to "Inactive", the transcations should be recorded
+                var query = (from s in submissionStatus
+                             join t in db.SubmissionStates on s.SubmissionStateID equals t.SubmissionStateID
+                             select new
+                             {
+                                 SubmissionID = s.SubmissionID,
+
+                                 // The task ID of "General" is 1
+                                 SubmissionTaskID = 1,
+                                 Description = "Delete this submission by setting its status to Inactive. Old status: " + t.Name,
+                                 RecordedAt = DateTime.Now
+                             }).AsEnumerable();
+                var transctions = query.Select(q => new SubmissionTransaction { SubmissionID = q.SubmissionID, SubmissionTaskID = q.SubmissionTaskID, Description = q.Description, RecordedAt = q.RecordedAt });
+                db.SubmissionTransactions.AddRange(transctions);
+
+                foreach (var s in submissionStatus)
+                {
+                    // The SubmissionStateID of "Inactive" is 9
+                    s.SubmissionStateID = 9;
+                }
+
+                db.SaveChanges();
+
+                return Task.FromResult(0);
+            }
+        }
     } // class
 
     public class TestingStateMissingException : Exception
