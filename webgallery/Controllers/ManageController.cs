@@ -123,7 +123,7 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteAppFromFeed(string appId, string returnUrl)
+        public async Task<ActionResult> DeleteAppFromFeed(string appId, string[] submissionIds, string returnUrl)
         {
             if (!User.IsSuperSubmitter())
             {
@@ -135,10 +135,28 @@ namespace WebGallery.Controllers
                 await _appService.DeleteAppFromFeedAsync(appId);
             }
 
+            if (submissionIds != null && submissionIds.Length > 0)
+            {
+                await _appService.InactivateSubmissionsAsync(submissionIds);
+            }
+
             if (string.IsNullOrEmpty(returnUrl))
                 return RedirectToRoute(SiteRouteNames.App_Feed);
             else
                 return Redirect(returnUrl);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ShowRelatedSubmissions(string appId)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            return PartialView("_RelatedSubmissionsPartial", await _appService.GetSubmissionsByAppIdAsync(appId));
         }
     }
 }

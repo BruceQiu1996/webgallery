@@ -86,5 +86,9 @@ namespace WebGallery.Services
         Task<bool> IsNewAppAsync(string nickName);
 
         Task DeleteAppFromFeedAsync(string appId);
+
+        Task<IList<Submission>> GetSubmissionsByAppIdAsync(string appId);
+
+        Task InactivateSubmissionsAsync(string[] submissionIds);
     }
 }
