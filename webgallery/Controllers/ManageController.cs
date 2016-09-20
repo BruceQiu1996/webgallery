@@ -147,8 +147,7 @@ namespace WebGallery.Controllers
         }
 
         [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<ActionResult> GetSubmissions(string appId)
         {
             if (!User.IsSuperSubmitter())

@@ -17,12 +17,9 @@
         $(".related-submissions-container").addClass("submissions-loading");
 
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "/admin/apps/" + appId.text() + "/submissions",
             cache: false,
-            data: {
-                __RequestVerificationToken: $(".confirm-content form input[name='__RequestVerificationToken']").val()
-            },
             success: function (viewHTML) {
                 $(".related-submissions-container").removeClass("submissions-loading");
                 $(".related-submissions-container").html(viewHTML);
