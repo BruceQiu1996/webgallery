@@ -89,6 +89,6 @@ namespace WebGallery.Services
 
         Task<IList<Submission>> GetSubmissionsByAppIdAsync(string appId);
 
-        Task InactivateSubmissionsAsync(string[] submissionIds);
+        Task DeleteAsync(string[] submissionIds);
     }
 }

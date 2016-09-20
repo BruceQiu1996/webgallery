@@ -137,7 +137,7 @@ namespace WebGallery.Controllers
 
             if (submissionIds != null && submissionIds.Length > 0)
             {
-                await _appService.InactivateSubmissionsAsync(submissionIds);
+                await _appService.DeleteAsync(submissionIds);
             }
 
             if (string.IsNullOrEmpty(returnUrl))
@@ -149,14 +149,14 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ShowRelatedSubmissions(string appId)
+        public async Task<ActionResult> GetSubmissions(string appId)
         {
             if (!User.IsSuperSubmitter())
             {
                 return View("NeedPermission");
             }
 
-            return PartialView("_RelatedSubmissionsPartial", await _appService.GetSubmissionsByAppIdAsync(appId));
+            return PartialView("AppsInFeed_Submissions_Partial", await _appService.GetSubmissionsByAppIdAsync(appId));
         }
     }
 }

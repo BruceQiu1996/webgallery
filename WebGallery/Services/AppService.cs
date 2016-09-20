@@ -1211,7 +1211,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task InactivateSubmissionsAsync(string[] submissionIds)
+        public Task DeleteAsync(string[] submissionIds)
         {
             using (var db = new WebGalleryDbContext())
             {
@@ -1236,7 +1236,6 @@ namespace WebGallery.Services
 
                 foreach (var s in submissionStatus)
                 {
-
                     // The SubmissionStateID of "Inactive" is 9
                     s.SubmissionStateID = 9;
                 }

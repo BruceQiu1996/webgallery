@@ -18,10 +18,10 @@
 
         $.ajax({
             type: "POST",
-            url: "/admin/apps/in/feed/" + appId.text() + "/submissions",
+            url: "/admin/apps/" + appId.text() + "/submissions",
             cache: false,
             data: {
-                __RequestVerificationToken: $("input[name='__RequestVerificationToken']:first").val()
+                __RequestVerificationToken: $(".confirm-content form input[name='__RequestVerificationToken']").val()
             },
             success: function (viewHTML) {
                 $(".related-submissions-container").removeClass("submissions-loading");

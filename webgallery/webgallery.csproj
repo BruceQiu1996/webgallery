@@ -1206,7 +1206,7 @@
     <Content Include="Views\App\Publish.cshtml" />
     <Content Include="Views\Shared\NoNewApps.cshtml" />
     <Content Include="Views\Manage\AppsInFeed.cshtml" />
-    <Content Include="Views\Manage\_RelatedSubmissionsPartial.cshtml" />
+    <Content Include="Views\Manage\AppsInFeed_Submissions_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
