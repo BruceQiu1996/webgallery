@@ -56,10 +56,10 @@
                 <p>Released by<strong>Author</strong></p>
             </div>
             <p>Here are submissions which may be related with this application, please check off the submissions which you want inactivate, after click DELETE, the submissions checked will be set INACTIVE. </p>
-            @using (Html.BeginRouteForm(SiteRouteNames.App_Feed_Delete, new { returnUrl = Request.Url }, FormMethod.Post))
+            @using (Html.BeginForm(FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                <input type="hidden" name="appId" value="appId" />
+                <input type="hidden" name="returnUrl" value="@Request.Url" />
                 <div class="related-submissions-container"></div>
                 <input type="submit" class="btn btn-primary" value="Delete" />
                 <input type="button" class="btn btn-default" value="Cancel" />

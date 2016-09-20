@@ -9,7 +9,7 @@
         var appId = $(this).parent().siblings("td:first");
         var logoUrl = $(this).siblings("input:last").val();
 
-        $(".confirm-content form input[name='appId']").val(appId.text());
+        $(".confirm-content form").attr("action", "/admin/apps/in/feed/" + appId.text() + "/delete");
         $(".app-remove-detail span").text(appId.text() + " " + appId.next().next().text());
         $(".app-remove-detail p strong").text(" " + appId.next().next().next().children("a").text());
         $(".icon-box img").attr("src", logoUrl);
