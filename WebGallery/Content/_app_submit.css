@@ -339,3 +339,12 @@
 {
     cursor:default !important;
 }
+
+.warning-panel {
+    margin: 20px 50px;
+    border: 2px solid red;
+}
+
+    .warning-panel p {
+        margin: 10px;
+    }

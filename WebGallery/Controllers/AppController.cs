@@ -42,14 +42,13 @@ namespace WebGallery.Controllers
         [RequireBrowserVersion]
         public async Task<ActionResult> New(bool? testMode)
         {
-            if (!testMode.HasValue || !testMode.Value)
-            {
-                return View("NoNewApps");
-            }
+            var model = (testMode.HasValue && testMode.Value)
+                        ? AppSubmitViewModel.Fake()
+                        : AppSubmitViewModel.Empty();
 
             await LoadViewDataForSubmit();
 
-            return View("Submit", AppSubmitViewModel.Fake());
+            return View("Submit", model);
         }
 
         [Authorize]
@@ -59,6 +58,12 @@ namespace WebGallery.Controllers
         [RequireSubmittership]
         public async Task<ActionResult> New(AppSubmitViewModel model)
         {
+            // new apps are no longer accepted for Web PI
+            if (await _appService.IsNewAppAsync(model.Submission.Nickname))
+            {
+                return View("NoNewApps");
+            }
+
             return await Create(model);
         }
 

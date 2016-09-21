@@ -12,6 +12,8 @@ namespace WebGallery.ViewModels
 
         public bool CanEditNickname { get; set; } = true;
 
+        public bool IsNewSubmission { get; set; } = false;
+
         public IList<string> ScreenshotUrls
         {
             get
@@ -61,7 +63,8 @@ namespace WebGallery.ViewModels
                     ReleaseDate = DateTime.Now,
                 },
                 MetadataList = new List<SubmissionLocalizedMetaData>(),
-                Packages = new List<Package>()
+                Packages = new List<Package>(),
+                IsNewSubmission = true
             };
         }
 
