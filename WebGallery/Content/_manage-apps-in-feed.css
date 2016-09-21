@@ -103,6 +103,11 @@
         margin: 0 20px 0 10px;
     }
 
+    .confirm-content p img {
+        width: 20px;
+        margin: 0 0 10px 5px;
+    }
+
     .confirm-content form p {
         margin-left: 10px;
     }
@@ -167,6 +172,7 @@
                 table-layout: fixed;
             }
 
-                .related-submissions-container table tbody tr td:first-child {
+                .related-submissions-container table tbody tr td:first-child,
+                .related-submissions-container table thead tr th:first-child {
                     text-align: center;
                 }
