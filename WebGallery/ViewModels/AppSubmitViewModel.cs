@@ -63,8 +63,7 @@ namespace WebGallery.ViewModels
                     ReleaseDate = DateTime.Now,
                 },
                 MetadataList = new List<SubmissionLocalizedMetaData>(),
-                Packages = new List<Package>(),
-                IsNewSubmission = true
+                Packages = new List<Package>()
             };
         }
 

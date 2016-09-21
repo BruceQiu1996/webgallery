@@ -45,6 +45,7 @@ namespace WebGallery.Controllers
             var model = (testMode.HasValue && testMode.Value)
                         ? AppSubmitViewModel.Fake()
                         : AppSubmitViewModel.Empty();
+            model.IsNewSubmission = true;
 
             await LoadViewDataForSubmit();
 
