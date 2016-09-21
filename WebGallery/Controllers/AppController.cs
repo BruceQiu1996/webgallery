@@ -42,13 +42,14 @@ namespace WebGallery.Controllers
         [RequireBrowserVersion]
         public async Task<ActionResult> New(bool? testMode)
         {
-            var model = (testMode.HasValue && testMode.Value)
-                        ? AppSubmitViewModel.Fake()
-                        : AppSubmitViewModel.Empty();
+            if (!testMode.HasValue || !testMode.Value)
+            {
+                return View("NoNewApps");
+            }
 
             await LoadViewDataForSubmit();
 
-            return View("Submit", model);
+            return View("Submit", AppSubmitViewModel.Fake());
         }
 
         [Authorize]
