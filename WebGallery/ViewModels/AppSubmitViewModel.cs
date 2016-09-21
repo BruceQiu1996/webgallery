@@ -12,6 +12,8 @@ namespace WebGallery.ViewModels
 
         public bool CanEditNickname { get; set; } = true;
 
+        public bool IsNewSubmission { get; set; } = false;
+
         public IList<string> ScreenshotUrls
         {
             get

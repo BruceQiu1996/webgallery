@@ -45,6 +45,7 @@ namespace WebGallery.Controllers
             var model = (testMode.HasValue && testMode.Value)
                         ? AppSubmitViewModel.Fake()
                         : AppSubmitViewModel.Empty();
+            model.IsNewSubmission = true;
 
             await LoadViewDataForSubmit();
 
@@ -58,6 +59,12 @@ namespace WebGallery.Controllers
         [RequireSubmittership]
         public async Task<ActionResult> New(AppSubmitViewModel model)
         {
+            // new apps are no longer accepted for Web PI
+            if (await _appService.IsNewAppAsync(model.Submission.Nickname))
+            {
+                return View("NoNewApps");
+            }
+
             return await Create(model);
         }
 
@@ -112,12 +119,6 @@ namespace WebGallery.Controllers
 
         private async Task<ActionResult> Create(AppSubmitViewModel model)
         {
-            // new apps are no longer accepted for Web PI
-            if (await _appService.IsNewAppAsync(model.Submission.Nickname))
-            {
-                return View("NoNewApps");
-            }
-
             // final check
             var finalCheck = _appService.ValidateAppIdCharacters(model.Submission.Nickname)
                                 && await _appService.ValidateAppIdVersionIsUniqueAsync(model.Submission.Nickname, model.Submission.Version, model.Submission.SubmissionID);
@@ -197,12 +198,6 @@ namespace WebGallery.Controllers
             if (!User.IsSuperSubmitter() && !await _submitterService.IsOwnerAsync(User.GetSubmittership().SubmitterID, model.Submission.SubmissionID))
             {
                 return View("NeedPermission");
-            }
-
-            // new apps are no longer accepted for Web PI
-            if (await _appService.IsNewAppAsync(model.Submission.Nickname))
-            {
-                return View("NoNewApps");
             }
 
             // final check

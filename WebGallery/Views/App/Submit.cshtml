@@ -9,6 +9,12 @@
     <form method="post" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
         <h2 id="Introduction">@Resources.AppSubmit.SubmitTitle</h2>
+        @if (Model.IsNewSubmission)
+        {
+            <div class="warning-panel">
+                <p class="font-weight-800">We are currently no longer accepting new applications for Web Platform Installer. The current submission portal is only to be used for maintenance of existing applications in Web PI .</p>
+            </div>
+        }
         @Html.Partial("Submit_Introduction_Partial")
         @Html.Partial("Submit_Description_Partial", Model)
         @Html.Partial("Submit_Package_Partial", Model)
