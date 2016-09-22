@@ -1,0 +1,68 @@
+﻿@using PagedList.Mvc;
+@model WebGallery.ViewModels.ManageSubmittersViewModel
+
+@{
+    ViewBag.Title = "Submitters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <h2>Submitters</h2>
+    <div class="search-form">
+        @using (Html.BeginRouteForm(SiteRouteNames.Submitter, FormMethod.Get))
+        {
+            <p>List only submitters whose name contains or PUID euqals:@Html.TextBox("keyword", Model.Keyword)</p>
+            <p>Number of submitters to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
+        }
+    </div>
+    <div class="submitters-table-container">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <th>Submissions</th>
+                    <th>PUID</th>
+                    <th>Microsoft Account</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var submitter in Model.Submitters)
+                {
+                    <tr>
+                        <td>@submitter.SubmitterID</td>
+                        <td><a href="@Url.RouteUrl(SiteRouteNames.Profile_View, new { submitterId = submitter.SubmitterID })" target="_blank">@submitter.FullName</a></td>
+                        <td>@submitter.SubmissionAmount</td>
+                        <td>@submitter.PUID</td>
+                        <td>
+                            <span>@submitter.EMail</span>
+                            @using (Html.BeginRouteForm(SiteRouteNames.Submitter_Recover, new { submitterId = submitter.SubmitterID, returnUrl = Request.Url }, FormMethod.Post, new { style = "display:none" }))
+                            {
+                                @Html.AntiForgeryToken();
+                                <input name="microsoftAccount" value="@submitter.EMail" />
+                            }
+                        </td>
+                        <td>
+                            <input type="button" value="Modify" />
+                            <input type="button" style="display:none" value="Save" />
+                            <input type="button" style="display:none" value="Cancel" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            @Html.PagedListPager(Model.Submitters, page => Url.RouteUrl(SiteRouteNames.Submitter, new { page = page, keyword = Model.Keyword, pageSize = Model.PageSize }))
+            <span>Total Pages: <strong>@Model.Submitters.PageCount</strong></span>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/css/manage-submitters")
+}
+
+@section Scripts {
+    @Scripts.Render("~/js/manage-submitters")
+}

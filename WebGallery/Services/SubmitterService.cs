@@ -224,5 +224,60 @@ namespace WebGallery.Services
                 return Task.FromResult(0);
             }
         }
+
+        public Task<IList<SubmittersContactDetail>> GetSubmittersAsync(string keyword, int page, int pageSize, out int count)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var query = from s in db.Submitters
+                            join c in db.SubmittersContactDetails on s.SubmitterID equals c.SubmitterID
+                            join o in db.SubmissionOwners on s.SubmitterID equals o.SubmitterID into ships
+                            where keyword == null || keyword.Trim() == string.Empty || (c.FirstName + " " + c.LastName).ToLower().Contains(keyword.Trim().ToLower()) || s.PersonalID.Equals(keyword.Trim(), StringComparison.OrdinalIgnoreCase)
+                            orderby ships.Count() descending
+                            select new
+                            {
+                                SubmitterId = s.SubmitterID,
+                                Prefix = c.Prefix,
+                                Suffix = c.Suffix,
+                                FirstName = c.FirstName,
+                                LastName = c.LastName,
+                                SubmissionAmount = ships.Count(),
+                                PUID = s.PersonalID,
+                                MicrosoftAccount = s.MicrosoftAccount
+                            };
+
+                count = query.Count();
+                var submitters = query.Skip((page - 1) * pageSize).Take(pageSize).AsEnumerable();
+                return Task.FromResult<IList<SubmittersContactDetail>>(submitters.Select(s => new SubmittersContactDetail
+                {
+                    SubmitterID = s.SubmitterId,
+                    Prefix = s.Prefix,
+                    Suffix = s.Suffix,
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    SubmissionAmount = s.SubmissionAmount,
+                    PUID = s.PUID,
+                    EMail = s.MicrosoftAccount
+                }).ToList());
+            }
+        }
+
+        public Task RecoverSubmitterAsync(int submitterId, string microsoftAccount)
+        {
+            using (var db = new WebGalleryDbContext())
+            {
+                var submitter = (from s in db.Submitters
+                                 where s.SubmitterID == submitterId
+                                 select s).FirstOrDefault();
+                if (submitter != null)
+                {
+                    submitter.MicrosoftAccount = microsoftAccount;
+                }
+
+                db.SaveChanges();
+
+                return Task.FromResult(0);
+            }
+        }
     }
 }

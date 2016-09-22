@@ -995,6 +995,7 @@
     <Compile Include="ViewModels\InvitationDetailViewModel.cs" />
     <Compile Include="ViewModels\IssueReportViewModel.cs" />
     <Compile Include="ViewModels\ManageDashboardViewModel.cs" />
+    <Compile Include="ViewModels\ManageSubmittersViewModel.cs" />
     <Compile Include="ViewModels\ManageSuperSubmittersViewModel.cs" />
     <Compile Include="ViewModels\InvitationSendViewModel.cs" />
     <Compile Include="ViewModels\ViewModelExtensions.cs" />
@@ -1071,6 +1072,7 @@
     <Content Include="Content\images\tab_xp\tab_tab.gif" />
     <Content Include="Content\_home-index.css" />
     <Content Include="Content\_manage-apps-in-feed.css" />
+    <Content Include="Content\_manage-submitters.css" />
     <Content Include="Content\_super-submitters.css" />
     <Content Include="Content\_tab.css" />
     <Content Include="favicon.ico" />
@@ -1153,6 +1155,7 @@
     <Content Include="Scripts\_manage-dashboard.js" />
     <Content Include="Scripts\_app_submit.js" />
     <Content Include="Scripts\_manage-apps-in-feed.js" />
+    <Content Include="Scripts\_manage-submitters.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\_super-submitters.js" />
     <Content Include="SIR\temp\readme.txt">
@@ -1209,6 +1212,7 @@
     <Content Include="Views\Shared\NoNewApps.cshtml" />
     <Content Include="Views\Manage\AppsInFeed.cshtml" />
     <Content Include="Views\Manage\AppsInFeed_Submissions_Partial.cshtml" />
+    <Content Include="Views\Manage\Submitters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
