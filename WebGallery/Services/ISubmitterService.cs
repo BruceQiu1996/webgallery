@@ -23,5 +23,9 @@ namespace WebGallery.Services
         Task RemoveSuperSubmitterAsync(int submitterId);
 
         Task AddSuperSubmitterAsync(string microsoftAccount, string firstName, string lastName);
+
+        Task<IList<SubmittersContactDetail>> GetSubmittersAsync(string keyword, int page, int pageSize, out int count);
+
+        Task RecoverSubmitterAsync(int submitterId, string microsoftAccount);
     }
 }

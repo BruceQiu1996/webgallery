@@ -157,5 +157,48 @@ namespace WebGallery.Controllers
 
             return PartialView("AppsInFeed_Submissions_Partial", await _appService.GetSubmissionsByAppIdAsync(appId));
         }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> Submitters(string keyword, int? page, int? pageSize)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            var defaultPageSize = 20;
+            pageSize = pageSize ?? defaultPageSize;
+            page = page ?? 1;
+
+            var count = 0;
+            var submitters = await _submitterService.GetSubmittersAsync(keyword, page.Value, pageSize.Value, out count);
+            var model = new ManageSubmittersViewModel
+            {
+                PageSize = pageSize.Value,
+                Keyword = keyword,
+                Submitters = new StaticPagedList<SubmittersContactDetail>(submitters, page.Value, pageSize.Value, count)
+            };
+
+            return View("Submitters", model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RecoverSubmitter(int submitterId, string microsoftAccount, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            await _submitterService.RecoverSubmitterAsync(submitterId, microsoftAccount);
+
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.Submitter);
+            else
+                return Redirect(returnUrl);
+        }
     }
 }

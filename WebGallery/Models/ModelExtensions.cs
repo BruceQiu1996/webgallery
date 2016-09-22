@@ -60,6 +60,9 @@ namespace WebGallery.Models
 
     public partial class SubmittersContactDetail
     {
+        public int SubmissionAmount { get; set; }
+        public string PUID { get; set; }
+
         public string FullName
         {
             get

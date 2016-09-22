@@ -141,6 +141,12 @@ namespace WebGallery
                 "~/Content/_manage-apps-in-feed.css"));
             bundles.Add(new ScriptBundle("~/js/manage-apps-in-feed").Include(
                        "~/scripts/_manage-apps-in-feed.js"));
+
+            //manage.submitters
+            bundles.Add(new StyleBundle("~/css/manage-submitters").Include(
+                "~/Content/_manage-submitters.css"));
+            bundles.Add(new ScriptBundle("~/js/manage-submitters").Include(
+                       "~/scripts/_manage-submitters.js"));
             #endregion
         }
     }

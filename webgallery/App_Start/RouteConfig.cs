@@ -71,6 +71,8 @@ namespace WebGallery
             routes.MapRoute(name: SiteRouteNames.App_Feed, url: SiteRouteUrlPatterns.App_Feed, defaults: new { controller = manage, action = nameof(ManageController.GetAppsInFeed) });
             routes.MapRoute(name: SiteRouteNames.App_Feed_Delete, url: SiteRouteUrlPatterns.App_Feed_Delete, defaults: new { controller = manage, action = nameof(ManageController.DeleteAppFromFeed) });
             routes.MapRoute(name: SiteRouteNames.App_Submissions, url: SiteRouteUrlPatterns.App_Submissions, defaults: new { controller = manage, action = nameof(ManageController.GetSubmissions) });
+            routes.MapRoute(name: SiteRouteNames.Submitter, url: SiteRouteUrlPatterns.Submitter, defaults: new { controller = manage, action = nameof(ManageController.Submitters) });
+            routes.MapRoute(name: SiteRouteNames.Submitter_Recover, url: SiteRouteUrlPatterns.Submitter_Recover, defaults: new { controller = manage, action = nameof(ManageController.RecoverSubmitter) });
 
             // for ajax requests
             routes.MapRoute(name: SiteRouteNames.App_Url_Verify, url: SiteRouteUrlPatterns.App_Url_Verify, defaults: new { controller = app, action = nameof(AppController.VerifyUrl) });
@@ -137,6 +139,8 @@ namespace WebGallery
         public const string App_Feed = "admin/apps/in/feed";
         public const string App_Feed_Delete = "admin/apps/in/feed/{appId}/delete";
         public const string App_Submissions = "admin/apps/{appId}/submissions";
+        public const string Submitter = "admin/submitters";
+        public const string Submitter_Recover = "admin/submitters/{submitterId}/recover";
 
         // for ajax requests
         public const string App_Url_Verify = "app/urls/verify";
@@ -202,6 +206,8 @@ namespace WebGallery
         public const string App_Feed = nameof(App_Feed);
         public const string App_Feed_Delete = nameof(App_Feed_Delete);
         public const string App_Submissions = nameof(App_Submissions);
+        public const string Submitter = nameof(Submitter);
+        public const string Submitter_Recover = nameof(Submitter_Recover);
 
         // for ajax requests
         public const string App_Url_Verify = nameof(App_Url_Verify);
