@@ -1,4 +1,8 @@
-﻿.submissions-table-container {
+﻿.intro-panel {
+    margin: 20px 0 30px 0;
+}
+
+.submissions-table-container {
     margin-top: 30px;
 }
 
