@@ -142,7 +142,7 @@
     <value>Sürüm</value>
   </data>
   <data name="MyAppsIntroMsg" xml:space="preserve">
-    <value>&lt;p&gt;Hoş Geldiniz! Bu sayfadan aşağıdakileri yapabilirsiniz:&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/apps/submit" title="submit a new application"&gt;Yeni bir uygulama gönderme.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Önceki gönderilerinizi düzenleme.&lt;/li&gt;&lt;li&gt;Uygulama verilerinizin geçerliliğini test etme.&lt;/li&gt;&lt;li&gt;Gönderileriniz için diğer ortakları belirtme.&lt;/li&gt;&lt;li&gt;&lt;a href="/profile" title="edit your contact information"&gt;İletişim bilgilerinizi&lt;/a&gt; düzenleme.&lt;/li&gt;&lt;/ul&gt;</value>
+    <value>&lt;p&gt;Hoş Geldiniz! Bu sayfadan aşağıdakileri yapabilirsiniz:&lt;p&gt;&lt;ul&gt;&lt;li&gt;Önceki gönderilerinizi düzenleme.&lt;/li&gt;&lt;li&gt;Uygulama verilerinizin geçerliliğini test etme.&lt;/li&gt;&lt;li&gt;Gönderileriniz için diğer ortakları belirtme.&lt;/li&gt;&lt;li&gt;&lt;a href="/profile" title="edit your contact information"&gt;İletişim bilgilerinizi&lt;/a&gt; düzenleme.&lt;/li&gt;&lt;/ul&gt;</value>
   </data>
   <data name="MyAppsTitle" xml:space="preserve">
     <value>Web Uygulama Galerisi Gönderi Portalı</value>

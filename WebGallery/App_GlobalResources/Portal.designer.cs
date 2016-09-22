@@ -151,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Welcome! From this page you can:&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;/apps/submit&quot; title=&quot;submit a new application&quot;&gt;Submit a new application.&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href=&quot;/profile&quot; title=&quot;edit your contact information&quot;&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;.
+        ///   Looks up a localized string similar to &lt;p&gt;Welcome! From this page you can:&lt;p&gt;&lt;ul&gt;&lt;li&gt;Edit your previous submissions.&lt;/li&gt;&lt;li&gt;Test the validity of your application data.&lt;/li&gt;&lt;li&gt;Designate co-owners for your submissions.&lt;/li&gt;&lt;li&gt;Edit your &lt;a href=&quot;/profile&quot; title=&quot;edit your contact information&quot;&gt;contact information&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;.
         /// </summary>
         internal static string MyAppsIntroMsg {
             get {
