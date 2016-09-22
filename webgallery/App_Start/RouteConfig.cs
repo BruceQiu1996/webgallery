@@ -64,6 +64,7 @@ namespace WebGallery
 
             // admin/manage
             var manage = nameof(ManageController).Replace("Controller", string.Empty);
+            routes.MapRoute(name: SiteRouteNames.Admin, url: SiteRouteUrlPatterns.Admin, defaults: new { controller = manage, action = nameof(ManageController.Dashboard) });
             routes.MapRoute(name: SiteRouteNames.Dashboard, url: SiteRouteUrlPatterns.Dashboard, defaults: new { controller = manage, action = nameof(ManageController.Dashboard) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter, url: SiteRouteUrlPatterns.Supersubmitter, defaults: new { controller = manage, action = nameof(ManageController.SuperSubmitters) });
             routes.MapRoute(name: SiteRouteNames.Supersubmitter_Add, url: SiteRouteUrlPatterns.Supersubmitter_Add, defaults: new { controller = manage, action = nameof(ManageController.AddSuperSubmitter) });
@@ -132,6 +133,7 @@ namespace WebGallery
         public const string Invitation_Detail = "ownership/invitations/{invitationGuid}";
 
         // admin/manage
+        public const string Admin = "admin";
         public const string Dashboard = "admin/dashboard";
         public const string Supersubmitter = "admin/supersubmitters";
         public const string Supersubmitter_Add = "admin/supersubmitters/add";
@@ -199,6 +201,7 @@ namespace WebGallery
         public const string Invitation_Detail = nameof(Invitation_Detail);
 
         // admin/manage
+        public const string Admin = nameof(Admin);
         public const string Dashboard = nameof(Dashboard);
         public const string Supersubmitter = nameof(Supersubmitter);
         public const string Supersubmitter_Add = nameof(Supersubmitter_Add);
