@@ -7,9 +7,19 @@
 }
 
 <div class="content">
+    <h2>Dashboard</h2>
+    <div class="intro-panel">
+        <p>Welcome! From this page you can:<p>
+            <ul>
+                <li>Manage all submissions from users.</li>
+                <li>@Html.RouteLink("View and delete all published applications in feed", SiteRouteNames.App_Feed).</li>
+                <li>@Html.RouteLink("Assign and remove super submitters", SiteRouteNames.Supersubmitter).</li>
+                <li>@Html.RouteLink("Manage all users", SiteRouteNames.Submitter).</li>
+            </ul>
+    </div>
     <div class="search-form">
         @using (Html.BeginRouteForm(SiteRouteNames.Dashboard, FormMethod.Get))
-        {
+            {
             <p>List only apps whose App ID contains:@Html.TextBox("keyword", Model.Keyword)</p>
             <p>Number of submission to show at once:@Html.DropDownList("pageSize", new List<SelectListItem> { new SelectListItem { Text = "20", Value = "20" }, new SelectListItem { Text = "50", Value = "50" }, new SelectListItem { Text = "100", Value = "100" } })</p>
         }
