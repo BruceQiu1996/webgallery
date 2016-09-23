@@ -186,14 +186,14 @@ namespace WebGallery.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RecoverSubmitter(int submitterId, string microsoftAccount, string returnUrl)
+        public async Task<ActionResult> UpdateMsa(int submitterId, string microsoftAccount, string returnUrl)
         {
             if (!User.IsSuperSubmitter())
             {
                 return RedirectToRoute(SiteRouteNames.Portal);
             }
 
-            await _submitterService.RecoverSubmitterAsync(submitterId, microsoftAccount);
+            await _submitterService.UpdateMsaAsync(submitterId, microsoftAccount);
 
             if (string.IsNullOrEmpty(returnUrl))
                 return RedirectToRoute(SiteRouteNames.Submitter);
