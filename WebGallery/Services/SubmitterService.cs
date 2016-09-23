@@ -262,7 +262,7 @@ namespace WebGallery.Services
             }
         }
 
-        public Task RecoverSubmitterAsync(int submitterId, string microsoftAccount)
+        public Task UpdateMsaAsync(int submitterId, string microsoftAccount)
         {
             using (var db = new WebGalleryDbContext())
             {

@@ -37,7 +37,7 @@
                         <td>@submitter.PUID</td>
                         <td>
                             <span>@submitter.EMail</span>
-                            @using (Html.BeginRouteForm(SiteRouteNames.Submitter_Recover, new { submitterId = submitter.SubmitterID, returnUrl = Request.Url }, FormMethod.Post, new { style = "display:none" }))
+                            @using (Html.BeginRouteForm(SiteRouteNames.Submitter_Msa_Update, new { submitterId = submitter.SubmitterID, returnUrl = Request.Url }, FormMethod.Post, new { style = "display:none" }))
                             {
                                 @Html.AntiForgeryToken();
                                 <input name="microsoftAccount" value="@submitter.EMail" />

@@ -26,6 +26,6 @@ namespace WebGallery.Services
 
         Task<IList<SubmittersContactDetail>> GetSubmittersAsync(string keyword, int page, int pageSize, out int count);
 
-        Task RecoverSubmitterAsync(int submitterId, string microsoftAccount);
+        Task UpdateMsaAsync(int submitterId, string microsoftAccount);
     }
 }
