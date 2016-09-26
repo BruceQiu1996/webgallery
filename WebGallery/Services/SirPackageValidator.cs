@@ -74,10 +74,12 @@ namespace WebGallery.Services.SIR
                     // 2.Missing required provider: setacl
                     // 3.Parameter <Parameter> should be tagged NoStore
                     // 4.The 'kind' attribute is not declared
+                    // 5.The 'friendlyName' attribute is not declared
                     if (e.ValidationEvent.Message.Contains("Literal String replacements will render application unusable after publish, Absolute Regular Expressions should be used in TextFile match") ||
                         e.ValidationEvent.Message.Contains("Missing required provider: setacl") ||
                         e.ValidationEvent.Message.Contains("should be tagged NoStore") ||
-                        e.ValidationEvent.Message.Contains("The 'kind' attribute is not declared"))
+                        e.ValidationEvent.Message.Contains("The 'kind' attribute is not declared") ||
+                        e.ValidationEvent.Message.Contains("The 'friendlyName' attribute is not declared"))
                     {
                         PackageValidation.ValidationItems.Enqueue(new ValidationItem { ValidationEvent = e.ValidationEvent, Type = LogEventType.Informational });
                     }
