@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WebGallery.Extensions
 {
@@ -31,5 +33,36 @@ namespace WebGallery.Extensions
         {
             return str.Length > length ? str.Substring(0, length) + "..." : str;
         }
+
+        public static bool IsAzureAppId(this string str)
+        {
+            return AppIdsInAzure.Contains(str, StringComparer.OrdinalIgnoreCase);
+        }
+
+        private static List<string> AppIdsInAzure = new List<string>()
+        {
+            "AcquiaDrupal_MySQL", "AcquiaDrupal_SQL", "AzureMLBESWebAppTemplate", "AzureMLWebAppforRRS",
+            "Bakery", "BetterCMS", "BlogEngineNET", "Bottle", "BugNET",
+            "CakePHP", "CompositeC1CMS", "Concrete5", "CustomJettySite", "CustomTomcatSite",
+            "DigitalXperienceAccelerator", "DjangoFX", "DotNetNuke", "Drupal8", "drupalcommercesql_MySQL", "drupalcommercesql_SQL",
+            "eccube", "EmptySite", "Episerver",
+            "FlaskV01",
+            "galleryserverpro", "Ghost",
+            "HTML5Site", "HTMLEmptySite",
+            "Incentive",
+            "JavaCoffeeShop", "Joomla",
+            "Kentico",
+            "Lemoon",
+            "MageliaWebStore", "Magento", "MediaWiki", "MonoX", "Moodle", "MVCForum", "mycv",
+            "NodeJsExpressSite", "NodeJsSite", "NodeJsStarterSite", "nopCommerce", "nService",
+            "OpenAtrium", "OpenCart", "OrchardCMS", "osCommerce", "OWA",
+            "Personal", "PhotoGallery", "phpBB_MySQL", "phpBB_SQL", "PHPEmptySite", "PiwikAD", "pligg", "ProjectNami",
+            "razorCnet",
+            "SageFrame", "ServiceGatewayManagementConsole", "simplecms", "SoNETWebEngine", "StarterSite", "SugarCRMad",
+            "TYPO3CMS62",
+            "Umbraco",
+            "vccommunity",
+            "WordPress", "WordPressJa"
+        };
     }
 }

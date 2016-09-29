@@ -436,12 +436,23 @@ namespace WebGallery.Controllers
 
             var submission = await _appService.GetSubmissionAsync(submissionId);
 
-            // new apps are no longer accepted for Web PI
-            if (await _appService.IsNewAppAsync(submission.Nickname))
+            // for apps in azure only we only change the status of submission to "Ready To Publish" and redirect to user portal
+            // for app neither in feed nor in azure, page will redirected to "no new apps"
+            var isFeedApp = !await _appService.IsNewAppAsync(submission.Nickname);
+            var isAzureApp = submission.Nickname.IsAzureAppId();
+            if (!isFeedApp && !isAzureApp)
             {
                 return View("NoNewApps");
             }
 
+            if (!isFeedApp && isAzureApp)
+            {
+                // the stateID in database of "Ready To Publish" is 6
+                await _appService.UpdateStatusAsync(submissionId, 6);
+                return RedirectToRoute(SiteRouteNames.Portal);
+            }
+
+            // for app in feed (and no matter it is in azure or not), we allow to publish it
             await _appService.PublishAsync(submission,
                 (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language)),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
@@ -526,6 +537,10 @@ namespace WebGallery.Controllers
                 ValidationItems = await _validationService.GetValidationItemsAsync(submission),
                 ShowThanks = showThanks ?? false
             };
+
+            // judge if app is in feed or azure, and bring these flags to view
+            ViewBag.IsFeedApp = !await _appService.IsNewAppAsync(submission.Nickname);
+            ViewBag.IsAzureApp = submission.Nickname.IsAzureAppId();
 
             return View(model);
         }

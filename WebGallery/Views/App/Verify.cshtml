@@ -47,11 +47,29 @@
         {
             @Html.AntiForgeryToken()
             <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
-            <p>
-                This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
-            </p>
-            <input type="submit" value="Publish" />
-            @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
+            if (ViewBag.IsFeedApp == true)
+            {
+                <p>
+                    This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
+                </p>
+            }
+
+            if (!ViewBag.IsFeedApp == true && ViewBag.IsAzureApp == true)
+            {
+                <p>
+                    This app has passed verification, you can submit for us to publish it now.
+                </p>
+            }
+
+            if (ViewBag.IsFeedApp == true || ViewBag.IsAzureApp == true)
+            {
+                <input type="submit" value="Publish" />
+                @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
+            }
+            else
+            {
+                @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
+            }
         }
     </div>
 </div>
