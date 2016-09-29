@@ -81,9 +81,9 @@ namespace WebGallery.Utilities
             {
                 int patience = 240; // seconds until we run out of patience waiting for generating a memory stream/tributary from a response to complete
                 var start = DateTime.Now;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls12;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls | SecurityProtocolType.Tls12;
                 var request = (HttpWebRequest)WebRequest.Create(url);
-                request.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko/20100101 Firefox/12.0";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko/20100101 Firefox/12.0"; // used by IE
                 request.Timeout = 90000; // 1.5 minutes
                 request.AllowAutoRedirect = true;
                 request.Accept = "*/*";
