@@ -527,7 +527,6 @@ namespace WebGallery.Controllers
                 ShowThanks = showThanks ?? false
             };
 
-            // check if the app is new app, bring this flag to view
             ViewBag.IsNewApp = await _appService.IsNewAppAsync(submission.Nickname);
 
             return View(model);
