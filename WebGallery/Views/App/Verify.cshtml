@@ -13,6 +13,7 @@
     <p>@Resources.AppVerify.StatusCheckingIntro</p>
 
     @Html.AntiForgeryToken()
+    <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
     <div class="validation-panel">
         <h3>URLs</h3>
         <ul id="ulUrls">
@@ -43,15 +44,23 @@
         @Html.RouteLink("Go to fix these errors", SiteRouteNames.App_Edit, new { submissionId = Model.Submission.SubmissionID }, new { target = "_blank", })
     </div>
     <div id="panelPass" style="display:none">
-        @using (Html.BeginRouteForm(SiteRouteNames.App_Publish, FormMethod.Post))
+        @if (ViewBag.IsNewApp)
         {
-            @Html.AntiForgeryToken()
-            <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
             <p>
-                This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
+                @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
             </p>
-            <input type="submit" value="Publish" />
-            @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
+        }
+        else
+        {
+            using (Html.BeginRouteForm(SiteRouteNames.App_Publish, new { submissionId = Model.Submission.SubmissionID }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
+                </p>
+                <input type="submit" value="Publish" />
+                @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
+            }
         }
     </div>
 </div>

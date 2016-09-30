@@ -527,6 +527,8 @@ namespace WebGallery.Controllers
                 ShowThanks = showThanks ?? false
             };
 
+            ViewBag.IsNewApp = await _appService.IsNewAppAsync(submission.Nickname);
+
             return View(model);
         }
 
