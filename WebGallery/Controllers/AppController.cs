@@ -436,20 +436,10 @@ namespace WebGallery.Controllers
 
             var submission = await _appService.GetSubmissionAsync(submissionId);
 
-            // for apps in azure only we only change the status of submission to "Ready To Publish" and redirect to user portal
-            // for app neither in feed nor in azure, page will redirected to "no new apps"
-            var isFeedApp = !await _appService.IsNewAppAsync(submission.Nickname);
-            var isAzureApp = submission.Nickname.IsAzureAppId();
-            if (!isFeedApp && !isAzureApp)
+            // new apps are no longer accepted for Web PI
+            if (await _appService.IsNewAppAsync(submission.Nickname))
             {
                 return View("NoNewApps");
-            }
-
-            if (!isFeedApp && isAzureApp)
-            {
-                // the stateID in database of "Ready To Publish" is 6
-                await _appService.UpdateStatusAsync(submissionId, 6);
-                return RedirectToRoute(SiteRouteNames.Portal);
             }
 
             // for app in feed (and no matter it is in azure or not), we allow to publish it
