@@ -442,7 +442,6 @@ namespace WebGallery.Controllers
                 return View("NoNewApps");
             }
 
-            // for app in feed (and no matter it is in azure or not), we allow to publish it
             await _appService.PublishAsync(submission,
                 (await _appService.GetMetadataAsync(submissionId)).FirstOrDefault(m => Language.CODE_ENGLISH_US.Equals(m.Language)),
                 await _appService.GetSubmissionCategoriesAsync(submissionId),
