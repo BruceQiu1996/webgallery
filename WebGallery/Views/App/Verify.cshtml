@@ -49,7 +49,9 @@
             <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
             if (ViewBag.IsNewApp)
             {
-                @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
+                <p>
+                    @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
+                </p>
             }
             else
             {
