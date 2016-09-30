@@ -527,9 +527,8 @@ namespace WebGallery.Controllers
                 ShowThanks = showThanks ?? false
             };
 
-            // judge if app is in feed or azure, and bring these flags to view
-            ViewBag.IsFeedApp = !await _appService.IsNewAppAsync(submission.Nickname);
-            ViewBag.IsAzureApp = submission.Nickname.IsAzureAppId();
+            // judge if the app is new app, bring this flag to view
+            ViewBag.IsNewApp = await _appService.IsNewAppAsync(submission.Nickname);
 
             return View(model);
         }

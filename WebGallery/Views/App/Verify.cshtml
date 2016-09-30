@@ -43,30 +43,22 @@
         @Html.RouteLink("Go to fix these errors", SiteRouteNames.App_Edit, new { submissionId = Model.Submission.SubmissionID }, new { target = "_blank", })
     </div>
     <div id="panelPass" style="display:none">
-        @if (ViewBag.IsFeedApp == true)
+        @using (Html.BeginRouteForm(SiteRouteNames.App_Publish, FormMethod.Post))
         {
-            using (Html.BeginRouteForm(SiteRouteNames.App_Publish, FormMethod.Post))
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
+            if (ViewBag.IsNewApp)
             {
-                @Html.AntiForgeryToken()
-                <input type="hidden" id="hiddenSubmissionId" name="submissionId" value="@Model.Submission.SubmissionID" />
+                @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
+            }
+            else
+            {
                 <p>
                     This app has passed verification, you can publish it to the <a href="@Url.RouteUrl(SiteRouteNames.Gallery)" target="_blank">Gallery</a> now.
                 </p>
                 <input type="submit" value="Publish" />
                 @Html.RouteLink("Not now, I'll publish this later", SiteRouteNames.Portal)
             }
-        }
-
-        @if (ViewBag.IsFeedApp != true && ViewBag.IsAzureApp != true)
-        {
-            <p>
-                Sorry for the inconvenience. We are currently no longer accepting new applications for Web Platform Installer. The current submission portal is only to be used for maintenance of existing applications in Web PI .
-            </p>
-        }
-
-        @if (ViewBag.IsFeedApp != true)
-        {
-            @Html.RouteLink("Go to my portal", SiteRouteNames.Portal)
         }
     </div>
 </div>
