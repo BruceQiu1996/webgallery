@@ -86,7 +86,7 @@ namespace WebGallery.Services
                     return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder, "The package URL is empty or contains white space(s)."));
                 }
 
-                var packageFileName = Path.GetFileName(Path.ChangeExtension(packageUrl, "zip"));
+                var packageFileName = Guid.NewGuid().ToString() + "package.zip";
                 var tempPackagePath = Path.Combine(workingFolder, $@"SIR\temp\{packageFileName}");
 
                 // download this package and save it under ~\SIR\temp\
