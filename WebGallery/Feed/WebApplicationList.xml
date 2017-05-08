@@ -492,7 +492,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -545,7 +545,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -719,7 +719,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -768,7 +768,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -824,7 +824,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -1419,7 +1419,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -1622,7 +1622,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -2532,7 +2532,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -2815,7 +2815,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3028,7 +3028,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3141,7 +3141,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3424,7 +3424,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3473,7 +3473,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3833,7 +3833,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3881,7 +3881,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3943,7 +3943,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -3997,7 +3997,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4154,7 +4154,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4203,7 +4203,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4257,7 +4257,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4348,7 +4348,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4619,7 +4619,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4671,7 +4671,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -4792,7 +4792,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5010,7 +5010,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5063,7 +5063,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5123,7 +5123,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5186,7 +5186,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5248,7 +5248,7 @@
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5306,7 +5306,7 @@
         </related>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5595,7 +5595,7 @@ A very strong emphasis on quality, documentation, flexibility and developer comm
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5875,7 +5875,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -5929,7 +5929,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6174,7 +6174,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6223,7 +6223,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6274,7 +6274,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6587,7 +6587,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6637,7 +6637,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </author>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6805,7 +6805,7 @@ Piwik will always respect your and your users privacy, while giving you full con
         </keywords>
         <dependency>
             <and>
-                <dependency idref="PHP55App" />
+                <dependency idref="PHP56App" />
                 <dependency idref="MySQLApp" />
             </and>
         </dependency>
@@ -6956,7 +6956,7 @@ If you have a SaaS and need a recurring billing software, try ZB! </longSummary>
             <name>Microsoft</name>
             <uri>http://www.microsoft.com</uri>
         </author>
-        <dependency idref="PHP55App" />
+        <dependency idref="PHP56App" />
         <!-- Installers-->
         <installers>
             <installer>
@@ -6989,7 +6989,7 @@ If you have a SaaS and need a recurring billing software, try ZB! </longSummary>
             <name>Microsoft</name>
             <uri>http://www.microsoft.com</uri>
         </author>
-        <dependency idref="PHP55App" />
+        <dependency idref="PHP56App" />
         <!-- Installers-->
         <installers>
             <installer>
