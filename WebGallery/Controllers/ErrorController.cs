@@ -4,9 +4,8 @@ namespace WebGallery.Controllers
 {
     public class ErrorController : Controller
     {
-        public ActionResult Error(string message)
+        public ActionResult Error()
         {
-            ViewBag.Error = message;
             return View();
         }
 

@@ -3,6 +3,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Notifications;
 using Microsoft.Owin.Security.OpenIdConnect;
+using NLog;
 using Owin;
 using System.Configuration;
 using System.IdentityModel.Tokens;
@@ -15,6 +16,8 @@ namespace WebGallery
 {
     public partial class Startup
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // For more information on configuring authentication, 
         // please visit https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-web/
         public void ConfigureAuth(IAppBuilder app)
@@ -44,6 +47,9 @@ namespace WebGallery
                     SecurityTokenValidated = OnSecurityTokenValidated
                 }
             });
+
+            //verification: authticate configuration success and Nlog works
+            logger.Log(LogLevel.Info, "Authenticate Configuration: success");
         }
 
         private async Task OnSecurityTokenValidated(SecurityTokenValidatedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> arg)
@@ -70,7 +76,8 @@ namespace WebGallery
             }
             else
             {
-                notification.Response.Redirect("/error?message=" + notification.Exception.Message);
+                string i = notification.Exception.Message ?? "Error is null.";
+                logger.Log(LogLevel.Error, "AuthenticationFailed Info: {0}", i);
             }
 
             return Task.FromResult(0);

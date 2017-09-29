@@ -8,5 +8,8 @@
 <div class="content">
     <h2 class="text-danger">Sorry, an error occurred while processing your request.</h2>
     <h4>Error:</h4>
-    <p>@(Model == null || Model.Exception == null ? ViewBag.Error : Model.Exception.Message)</p>
+    <p>
+        @(Model == null || Model.Exception == null ? "The resource you're requesting doesn't exist. Please check if the URL is correct."
+        : Model.Exception.Message)<br />
+    </p>
 </div>
