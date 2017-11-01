@@ -10,11 +10,15 @@ using System.Web;
 using System.Xml.Linq;
 using WebGallery.Extensions;
 using WebGallery.Models;
+using NLog;
+using System.Security.Claims;
 
 namespace WebGallery.Services
 {
     public class AppService : IAppService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #region validation
 
         public Task<bool> ValidateAppIdVersionIsUniqueAsync(string appId, string version, int? submissionId)
@@ -867,7 +871,11 @@ namespace WebGallery.Services
 
                 db.SubmissionTransactions.Add(transaction);
                 db.SaveChanges();
-
+                logger.Log(LogLevel.Info, string.Format("User: {0}<{1}> delete submission: {2} by setting its status to Inactive",
+                    ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("name")).
+                    Select(a => a.Value).ToArray().FirstOrDefault().ToString(),
+                    ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("preferred_username")).
+                    Select(a => a.Value).ToArray().FirstOrDefault().ToString(), submissionId));
                 return Task.FromResult(0);
             }
         }
@@ -1173,6 +1181,11 @@ namespace WebGallery.Services
                 }
 
                 xdoc.Save(path);
+                logger.Log(LogLevel.Info, string.Format("User: {0}<{1}> delete app: {2} from feed",
+                    ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("name")).
+                    Select(a => a.Value).ToArray().FirstOrDefault().ToString(),
+                    ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("preferred_username")).
+                    Select(a => a.Value).ToArray().FirstOrDefault().ToString(), appId));
 
                 return Task.FromResult(0);
             }
@@ -1241,6 +1254,13 @@ namespace WebGallery.Services
                 }
 
                 db.SaveChanges();
+
+                foreach (string submissionId in submissionIds)
+                    logger.Log(LogLevel.Info, string.Format("User: {0}<{1}> delete submission: {2} by setting its status to Inactive",
+                        ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("name")).
+                        Select(a => a.Value).ToArray().FirstOrDefault().ToString(),
+                        ClaimsPrincipal.Current.Claims.AsEnumerable().Where(a => a.Type.Equals("preferred_username")).
+                        Select(a => a.Value).ToArray().FirstOrDefault().ToString(), submissionId));
 
                 return Task.FromResult(0);
             }
