@@ -14,6 +14,12 @@ namespace WebGallery.Security
             return (user.Identity as ClaimsIdentity).GetName();
         }
 
+        public static string GetName(this ClaimsPrincipal user)
+        {
+            return user.Claims.Where(a => a.Type.Equals("name")).
+                    Select(a => a.Value).FirstOrDefault().ToString();
+        }
+
         public static string GetName(this ClaimsIdentity identity)
         {
             return identity.Claims.First(c => "name".Equals(c.Type)).Value;
@@ -22,6 +28,12 @@ namespace WebGallery.Security
         public static string GetPreferredUsername(this IPrincipal user)
         {
             return (user.Identity as ClaimsIdentity).GetPreferredUsername();
+        }
+
+        public static string GetPreferredUsername(this ClaimsPrincipal user)
+        {
+            return user.Claims.Where(a => a.Type.Equals("preferred_username")).
+                    Select(a => a.Value).FirstOrDefault().ToString();
         }
 
         public static string GetPreferredUsername(this ClaimsIdentity identity)

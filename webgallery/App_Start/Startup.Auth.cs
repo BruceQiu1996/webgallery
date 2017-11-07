@@ -49,7 +49,7 @@ namespace WebGallery
             });
 
             //verification: authticate configuration success and Nlog works
-            logger.Log(LogLevel.Info, "Authenticate Configuration: success");
+            logger.Info("Authenticate Configuration: success");
         }
 
         private async Task OnSecurityTokenValidated(SecurityTokenValidatedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> arg)

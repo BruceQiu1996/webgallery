@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using WebGallery.Models;
 using WebGallery.Services.SIR;
 using WebGallery.Utilities;
+using NLog;
 
 namespace WebGallery.Services
 {
     public class AppValidationService : IAppValidationService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public Task<List<AppValidationItem>> GetValidationItemsAsync(Submission submission)
         {
             var urlItems = new List<AppValidationItem>
@@ -93,6 +96,7 @@ namespace WebGallery.Services
                 var packageZipFile = StreamHelper.DownloadFrom(packageUrl, tempPackagePath);
                 if (packageZipFile == null)
                 {
+                    logger.Info($"Package: {packageUrl} download fail.");
                     return Task.FromResult(PackageValidation.Fail(packageUrl, sha1HashToValidate, workingFolder, "This package can't be downloaded for validating."));
                 }
 
@@ -110,11 +114,19 @@ namespace WebGallery.Services
                 {
                     packageValidation.ErrorMessage = ex.Message;
                     packageValidation.Result = AppGallery.SIR.ILog.ValidationResult.Fail;
+                    logger.Error(ex, $"An error happened in validating package. Package Url: {packageUrl}");
                 }
 
                 // try to delete the package zip file
-                try { packageZipFile.Delete(); }
-                catch { } // it's okay if deleting throws exceptions.
+                try
+                {
+                    packageZipFile.Delete();
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, $"An error happened in deleting package. Package Url: {packageUrl}");
+
+                } // it's okay if deleting throws exceptions.
 
                 return Task.FromResult(packageValidation);
             }

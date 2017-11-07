@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using NLog;
 
 using DatabaseChoice = AppGallery.SIR.Package.DatabaseChoice;
 using LogEventType = AppGallery.SIR.ILog.LogEvent.LogEventType;
@@ -17,6 +18,7 @@ namespace WebGallery.Services.SIR
 {
     public class SirPackageValidator
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public PackageValidation PackageValidation { get; set; }
 
         public SirPackageValidator(PackageValidation validation)
@@ -178,7 +180,7 @@ namespace WebGallery.Services.SIR
             catch (Exception e)
             {
                 configurationError = "Unexpected exception occurred while parsing configuration: " + e.Message;
-
+                logger.Error(e, "SIR Package Parsing Configuration:");
                 return false;
             }
 

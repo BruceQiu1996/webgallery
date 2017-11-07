@@ -3,11 +3,14 @@ using System;
 using System.Configuration;
 using System.Linq;
 using System.Net.Mail;
+using NLog;
 
 namespace WebGallery.Utilities
 {
     public class SendGridEmailHelper
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public static void SendAsync(string subject, string body, string from, string fromName, string to)
         {
             SendAsync(subject, body, from, fromName, to, null);
@@ -39,6 +42,7 @@ namespace WebGallery.Utilities
             message.AddTo(to.Trim().Trim(',').Replace(';', ',').Split(',').Distinct().Where(e => !string.IsNullOrWhiteSpace(e)));
             if (!string.IsNullOrWhiteSpace(cc)) message.AddCc(cc);
 
+            logger.Info($"SendGrid Email: Email From: {fromName}<{from}> To:{to} Subject:{subject}");
             return message;
         }
     }

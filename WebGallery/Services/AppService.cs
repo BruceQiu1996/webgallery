@@ -10,11 +10,17 @@ using System.Web;
 using System.Xml.Linq;
 using WebGallery.Extensions;
 using WebGallery.Models;
+using NLog;
+using System.Security.Claims;
+using WebGallery.Security;
 
 namespace WebGallery.Services
 {
     public class AppService : IAppService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+
         #region validation
 
         public Task<bool> ValidateAppIdVersionIsUniqueAsync(string appId, string version, int? submissionId)
@@ -868,6 +874,10 @@ namespace WebGallery.Services
                 db.SubmissionTransactions.Add(transaction);
                 db.SaveChanges();
 
+                string claimsPrincipalName = ClaimsPrincipal.Current.GetName();
+                string claimsPrincipalPreferredName = ClaimsPrincipal.Current.GetPreferredUsername();
+                logger.Info($"User: {claimsPrincipalName}<{claimsPrincipalPreferredName}> delete submission: {submissionId} by setting its status to Inactive");
+
                 return Task.FromResult(0);
             }
         }
@@ -1174,6 +1184,9 @@ namespace WebGallery.Services
 
                 xdoc.Save(path);
 
+                string claimsPrincipalName = ClaimsPrincipal.Current.GetName();
+                string claimsPrincipalPreferredName = ClaimsPrincipal.Current.GetPreferredUsername();
+                logger.Info($"User: {claimsPrincipalName}<{claimsPrincipalPreferredName}> delete app: {appId} from feed");
                 return Task.FromResult(0);
             }
         }
@@ -1241,6 +1254,11 @@ namespace WebGallery.Services
                 }
 
                 db.SaveChanges();
+
+                string claimsPrincipalName = ClaimsPrincipal.Current.GetName();
+                string claimsPrincipalPreferredName = ClaimsPrincipal.Current.GetPreferredUsername();
+                foreach (string submissionId in submissionIds)
+                    logger.Info($"User: {claimsPrincipalName}<{claimsPrincipalPreferredName}> delete submission: {submissionId} by setting its status to Inactive");
 
                 return Task.FromResult(0);
             }
