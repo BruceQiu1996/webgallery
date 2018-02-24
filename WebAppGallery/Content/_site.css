@@ -38,6 +38,23 @@ p, select, input, textarea, label, caption {
     color: #4b4b4b;
 }
 
+/*----notication bar----*/
+.note-bar {
+    width: 100%;
+    margin: 0px;
+    padding: 15px 0px;
+    background-color: yellow;
+}
+
+    .note-bar p {
+        font-size: 1.2em;
+    }
+
+    .note-bar button {
+        padding: 3px 5px;
+        box-shadow: rgba(0,0,0,0.6) 1px 1px;
+    }
+
 /*----site header, site logo----*/
 header.webgallery-header {
     min-height: 60px;
@@ -112,9 +129,9 @@ footer {
         float: left;
     }
 
-    footer .language-selector form {
-        display:inline-block;
-    }
+        footer .language-selector form {
+            display: inline-block;
+        }
 
         footer .language-selector select {
             margin-left: 3px;

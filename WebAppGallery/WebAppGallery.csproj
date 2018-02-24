@@ -1134,12 +1134,15 @@
       <DependentUpon>WebGallery.edmx</DependentUpon>
     </Content>
     <Content Include="NLog.config" />
-    <None Include="Properties\PublishProfiles\pub.pubxml" />
+    <None Include="Properties\PublishProfiles\webappgalleryprod-dev-WebDeploy.pubxml" />
+    <None Include="Properties\PublishProfiles\webappgalleryprod-sta-WebDeploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
