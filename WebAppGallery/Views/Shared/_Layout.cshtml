@@ -10,23 +10,24 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("Styles", required: false)
     <script type="text/javascript">
-        function consentToUseCookie() {
-            $.cookie("consentedToUseCookie", "YES", { expires: 365, path: '/' });
-            $(".note-bar").slideUp("slow");
-        }
-
         var appInsights = window.appInsights || function (config) {
             function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
         }({
             instrumentationKey: "bccdb41c-d62b-4d36-aaa9-e0de37878af2"
         });
 
-        window.appInsights = appInsights;
-        appInsights.trackPageView();
+        function consentToUseCookie() {
+            $.cookie("consentedToUseCookie", "YES", { expires: 365, path: '/' });
+            $(".notification-bar").slideUp("slow");
+
+            // After users consent to use of cookies, we enable AI to track page view.
+            window.appInsights = appInsights;
+            appInsights.trackPageView();
+        }
     </script>
 </head>
 <body>
-    <div class="note-bar" style="display:none">
+    <div class="notification-bar" style="display:none">
         <div class="container">
             <p>Cookies are enabled on this site. For details see privacy and cookies <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">https://privacy.microsoft.com/en-us/privacystatement</a>.</p>
             <p>By continuing to use this site you agree to our use of cookies.</p>
@@ -93,11 +94,27 @@
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
+        function enableApplicationInsightsIfUserConsentedToUseOfCookies() {
+            if ($.cookie("consentedToUseCookie")) {
+                // if users consented to use of cookies,
+                // 1. hide the notification bar;
+                // 2. enable AI script to track page view;
+                $(".notification-bar").hide();
+                window.appInsights = appInsights;
+                appInsights.trackPageView();
+            }
+            else {
+                // if users didn't consent to use of cookies (visit the site for the first time, or the "consentedToUseCookie" cookies is expired),
+                // 1. show the notification bar;
+                // 2. remove AI cookies: ai_session, ai_user
+                $(".notification-bar").show();
+                $.removeCookie("ai_session");
+                $.removeCookie("ai_user");
+            }
+        }
+
         $(document).ready(function () {
-            if ($.cookie("consentedToUseCookie"))
-                $(".note-bar").hide();
-            else
-                $(".note-bar").show();
+            enableApplicationInsightsIfUserConsentedToUseOfCookies();
         });
     </script>
 </body>

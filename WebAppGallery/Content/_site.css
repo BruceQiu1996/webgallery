@@ -39,18 +39,18 @@ p, select, input, textarea, label, caption {
 }
 
 /*----notication bar----*/
-.note-bar {
+.notification-bar {
     width: 100%;
     margin: 0px;
     padding: 15px 0px;
     background-color: yellow;
 }
 
-    .note-bar p {
+    .notification-bar p {
         font-size: 1.2em;
     }
 
-    .note-bar button {
+    .notification-bar button {
         padding: 3px 5px;
         box-shadow: rgba(0,0,0,0.6) 1px 1px;
     }
