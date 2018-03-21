@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <webpiFile version="5.0.0.0" />
     <title>Web Platform Installer 5.0 Application Feed</title>
-    <link rel="self" href="http://www.microsoft.com/web/webpi/5.0/webapplicationlist.xml" />
+    <link rel="self" href="https://webgallery.microsoft.com/feed/webapplicationlist.xml" />
     <updated>2013-07-03T22:10:13Z</updated>
     <author>
         <name>Microsoft</name>
     </author>
-    <id>http://www.microsoft.com/web/webpi/5.0/webapplicationlist.xml</id>
+    <id>https://webgallery.microsoft.com/feed/webapplicationlist.xml</id>
     <resourcesList>
         <resources>
             <culture>en</culture>
@@ -3031,10 +3031,10 @@
         <title resourceName="Entry_Joomla_Title">Joomla!</title>
         <id>http://www.microsoft.com/web/webpi/2.0/Joomla</id>
         <summary resourceName="Entry_Joomla_Summary">Joomla! is an award-winning content management system (CMS), which enables you to build Web sites and powerful online applications. Many aspects, including its ease-of-use and extensibility, have made Joomla! the most popular Web site software available. Best of all, Joomla! is an open source solution that is freely available to everyone.</summary>
-        <updated>2018-02-24T00:00:00Z</updated>
-        <published>2018-02-24T09:38:26Z</published>
+        <updated>2018-03-13T00:00:00Z</updated>
+        <published>2018-03-19T10:02:19Z</published>
         <longSummary resourceName="Entry_Joomla_LongSummary">Joomla! is an open source content management system (CMS). Joomla!'s powerful application framework makes it easy for developers to create sophisticated add-ons that extend the power of Joomla! into virtually unlimited directions. The core Joomla! framework enables developers to quickly and easily build Inventory control systems, Data reporting tools, Custom product catalogs, Integrated e-commerce systems, Complex business directories, Reservation systems, Communication tools and many more. Since Joomla! is based on PHP and MySQL, you're building powerful applications on an open platform anyone can use, share, and support.</longSummary>
-        <version>3.8.5</version>
+        <version>3.8.6</version>
         <link href="http://forum.joomla.org" />
         <author>
             <name>Joomla</name>
@@ -3061,10 +3061,10 @@
                 <languageId>en</languageId>
                 <osList idref="SupportedAppPlatforms" />
                 <installerFile>
-                    <fileSize>12771</fileSize>
-                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Joomla&amp;version=3.8.5&amp;applang=en</trackingURL>
-                    <installerURL>https://github.com/OPIG/WindowsWebAppGallery/blob/master/Joomla/Joomla_3.8.5-Stable-Full_Package.zip?raw=true</installerURL>
-                    <sha1>85b3bb1dd0eb7b9de7b2d5e4c151ecb83e55d008</sha1>
+                    <fileSize>12782</fileSize>
+                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Joomla&amp;version=3.8.6&amp;applang=en</trackingURL>
+                    <installerURL>https://github.com/OPIG/WindowsWebAppGallery/blob/master/Joomla/Joomla_3.8.6-Stable-Full_Package.zip?raw=true</installerURL>
+                    <sha1>D40eb2cb7e72f91d852101c608c4692a769939fb</sha1>
                 </installerFile>
                 <msDeploy>
                     <startPage>/index.php</startPage>
@@ -4911,8 +4911,8 @@
         <title resourceName="Entry_YetAnotherForumNET_Title">YetAnotherForum.NET</title>
         <id>http://www.microsoft.com/web/webpi/2.0/YetAnotherForumNET</id>
         <summary resourceName="Entry_YetAnotherForumNET_Summary">YetAnotherForum.NET (YAF) is the Oldest, Most Mature, and Feature Rich Open Source (FREE) Discussion Forum for sites running ASP.NET. </summary>
-        <updated>2018-02-11T00:00:00Z</updated>
-        <published>2018-02-16T09:03:03Z</published>
+        <updated>2018-03-09T00:00:00Z</updated>
+        <published>2018-03-16T09:11:07Z</published>
         <longSummary resourceName="Entry_YetAnotherForumNET_LongSummary">
             # Open Source Apache 2.0 Licensed
             # 100% Managed C# ASP.NET v4.5.2 and Above
@@ -4921,7 +4921,7 @@
             # Integrates into DNN &amp; Other CMSes
             # 24 Language Localizations
         </longSummary>
-        <version>2.2.4.7</version>
+        <version>2.2.4.8</version>
         <link href="http://www.yetanotherforum.net/forum/" />
         <author>
             <name>Ingo Herbote</name>
@@ -4948,10 +4948,10 @@
                 <languageId>en</languageId>
                 <osList idref="SupportedAppPlatforms" />
                 <installerFile>
-                    <fileSize>11189</fileSize>
-                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=YetAnotherForumNET&amp;version=2.2.4.7&amp;applang=en</trackingURL>
-                    <installerURL>https://github.com/YAFNET/YAFNET/releases/download/v2.2.4.7/YAF-v2.2.4.7-Deploy.zip</installerURL>
-                    <sha1>53C3593E85F140F0AE9A5B04902B263345FE1904</sha1>
+                    <fileSize>11190</fileSize>
+                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=YetAnotherForumNET&amp;version=2.2.4.8&amp;applang=en</trackingURL>
+                    <installerURL>https://github.com/YAFNET/YAFNET/releases/download/v2.2.4.8/YAF-v2.2.4.8-Deploy.zip</installerURL>
+                    <sha1>3B2FF5D31E5357B5A7B94E25DBD43DA241DE8607</sha1>
                 </installerFile>
                 <msDeploy>
                     <startPage>/default.aspx</startPage>
@@ -5209,14 +5209,14 @@
         <title resourceName="Entry_Kartris_Title">Kartris</title>
         <id>http://www.microsoft.com/web/webpi/2.0/Kartris</id>
         <summary resourceName="Entry_Kartris_Summary">
-            Kartris is a free, open-source e-commerce platform with a responsive interface. It is coded in VB.NET Web Forms, and the present version is designed to target ASP.NET 4.5 and above.
+            Kartris is a free, open-source e-commerce platform with a responsive interface. It is coded in VB.NET Web Forms, and the present version is designed to target ASP.NET 4.6 and above.
 
             It supports huge product catalogues (1,000,000+ SKUs), has full text relevance searching, unlimited languages and currencies.
         </summary>
         <updated>2017-11-28T00:00:00Z</updated>
-        <published>2018-01-30T16:52:31Z</published>
+        <published>2018-03-16T14:54:01Z</published>
         <longSummary resourceName="Entry_Kartris_LongSummary">
-            Kartris is a free, open-source e-commerce platform with a responsive interface. It is coded in VB.NET Web Forms, and the present version is designed to target ASP.NET 4.5 and above.
+            Kartris is a free, open-source e-commerce platform with a responsive interface. It is coded in VB.NET Web Forms, and the present version is designed to target ASP.NET 4.6 and above.
 
             It supports unlimited languages and currencies and handles over a million SKUs and hundreds of orders per day out of the box.
 
@@ -5228,7 +5228,7 @@
 
             A free data tool provides ways to import data from spreadsheets and older versions, import/export language packs and reset admin passwords. It can also be used via command line, so scripted daily data updates (including product image updates) can be fully automated as scheduled tasks.
         </longSummary>
-        <version>2.9011</version>
+        <version>2.9012</version>
         <link href="https://forum.kartris.com" />
         <author>
             <name>Cactusoft</name>
@@ -5255,10 +5255,10 @@
                 <languageId>en</languageId>
                 <osList idref="SupportedAppPlatforms" />
                 <installerFile>
-                    <fileSize>8897</fileSize>
-                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Kartris&amp;version=2.9011&amp;applang=en</trackingURL>
-                    <installerURL>https://www.kartris.com/Downloads/Releases/kartris2_9011_WPI.zip</installerURL>
-                    <sha1>606092eb7f6ca1f8392b486c2ea040682dc55ac6</sha1>
+                    <fileSize>9158</fileSize>
+                    <trackingURL>https://webpihandler.azurewebsites.net/webpi.ashx?command=incrementappdownloadcount&amp;appid=Kartris&amp;version=2.9012&amp;applang=en</trackingURL>
+                    <installerURL>https://www.kartris.com/Downloads/Releases/kartris2_9012_WPI.zip</installerURL>
+                    <sha1>962cbbf09223485441fbd54cef4957abcda9f049</sha1>
                 </installerFile>
                 <msDeploy>
                     <startPage>/Default.aspx</startPage>
