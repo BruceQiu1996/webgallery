@@ -494,6 +494,31 @@ table tr td
 
         #endregion
 
+        #region send message when rebrand
+
+        public Task SendMessageForRebrand(string appId, string newAppId, string operatorEmailAddress)
+        {
+            // build the body of the email
+            var bodyBuilder = new StringBuilder();
+            bodyBuilder.Append($"<p>Hi,</p>");
+            bodyBuilder.Append($"<p>The app <strong>{appId}</strong> is rebranded with the new Id <strong>{newAppId}</strong> by the operator: <a herf='mailto:{operatorEmailAddress}'>{operatorEmailAddress}</a>.</p>");
+            bodyBuilder.Append("<p>");
+            bodyBuilder.Append("Best regards,<br />");
+            bodyBuilder.Append("Web Application Gallery Team");
+            bodyBuilder.Append("</p>");
+
+            var subject = $"The app {appId} is rebranded with the new Id {newAppId}.";
+            var from = GetFromMailAddress();
+            var to = from;
+            var cc = operatorEmailAddress;
+
+            SendGridEmailHelper.SendAsync(subject, bodyBuilder.ToString(), from.Address, from.DisplayName, to.Address, cc);
+
+            return Task.FromResult(0);
+        }
+
+        #endregion
+
         private static MailAddress GetFromMailAddress()
         {
             var fromSetting = ConfigurationManager.AppSettings["Message:From"];

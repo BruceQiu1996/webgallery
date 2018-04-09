@@ -1,4 +1,6 @@
-﻿using PagedList;
+﻿using NLog;
+using PagedList;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebGallery.Models;
@@ -10,13 +12,16 @@ namespace WebGallery.Controllers
 {
     public class ManageController : Controller
     {
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private IAppService _appService;
         private ISubmitterService _submitterService;
-        public ManageController() : this(new AppService(), new SubmitterService()) { }
-        public ManageController(IAppService appSerivce, ISubmitterService submitterService)
+        private IEmailService _emailService;
+        public ManageController() : this(new AppService(), new SubmitterService(), new EmailService()) { }
+        public ManageController(IAppService appSerivce, ISubmitterService submitterService, IEmailService emailService)
         {
             _appService = appSerivce;
             _submitterService = submitterService;
+            _emailService = emailService;
         }
 
         //GET 
@@ -118,6 +123,45 @@ namespace WebGallery.Controllers
             };
 
             return View("AppsInFeed", model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RebrandApp(string appId, string newAppId, string returnUrl)
+        {
+            if (!User.IsSuperSubmitter())
+            {
+                return View("NeedPermission");
+            }
+
+            try
+            {
+                _logger.Info($"{User.GetEmailAddress()} is rebranding the app {appId} with the new Id {newAppId} ...");
+                await _appService.RebrandAsync(appId, newAppId);
+                _logger.Info($"{User.GetEmailAddress()} is rebranding the app {appId} with the new Id {newAppId} ... done.");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message);
+                throw ex;
+            }
+
+            try
+            {
+                _logger.Info($"Sending message for rebranding ...");
+                await _emailService.SendMessageForRebrand(appId, newAppId, User.GetEmailAddress());
+                _logger.Info($"Sending message for rebranding ... done.");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error occurs in sending message for rebranding.");
+            }
+
+            if (string.IsNullOrEmpty(returnUrl))
+                return RedirectToRoute(SiteRouteNames.App_Feed);
+            else
+                return Redirect(returnUrl);
         }
 
         [Authorize]

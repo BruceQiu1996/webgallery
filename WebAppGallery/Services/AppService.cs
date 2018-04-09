@@ -20,7 +20,6 @@ namespace WebGallery.Services
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-
         #region validation
 
         public Task<bool> ValidateAppIdVersionIsUniqueAsync(string appId, string version, int? submissionId)
@@ -920,6 +919,54 @@ namespace WebGallery.Services
         }
 
         private static string Lock_WebApplicationList_Feed = "The lock for WebApplicatonList.xml feed.";
+
+        public Task RebrandAsync(string appId, string newAppId)
+        {
+            lock (Lock_WebApplicationList_Feed)
+            {
+                newAppId = newAppId?.Trim()
+                    .Replace("\n", string.Empty)
+                    .Replace("\t", string.Empty)
+                    .Replace(" ", string.Empty);
+
+
+                if (newAppId == null)
+                {
+                    throw new ArgumentNullException(nameof(newAppId));
+                }
+
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ConfigurationManager.AppSettings["AppsFeedPath"]);
+                var xdoc = XDocument.Load(path);
+                var ns = xdoc.Root.GetDefaultNamespace();
+                var oldEntry = (from e in xdoc.Root.Elements(ns + "entry")
+                                where e.Element(ns + "productId").Value.Equals(appId, StringComparison.OrdinalIgnoreCase) && e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
+                                select e).FirstOrDefault();
+
+                if (oldEntry == null)
+                {
+                    throw new Exception($"The app doesn't exist in the feed. App Id: {appId}.");
+                }
+
+                var newAppIdAlreadyExists = (from e in xdoc.Root.Elements(ns + "entry")
+                                             where e.Element(ns + "productId").Value.Equals(newAppId, StringComparison.OrdinalIgnoreCase)
+                                             && e.Attribute("type") != null && "application".Equals(e.Attribute("type").Value)
+                                             select e).Any();
+                if (newAppIdAlreadyExists)
+                {
+                    throw new Exception($"New app Id already exists. New app Id: '{newAppId}'.");
+                }
+
+                // update productId
+                logger.Info($"Rebranding app ... [AppId: {appId}][NewAppId: {newAppId}]");
+                oldEntry.SetElementValue(ns + "productId", newAppId);
+
+                // save
+                xdoc.Save(path);
+                logger.Info($"Rebranding app ... done. [AppId: {appId}][NewAppId: {newAppId}]");
+
+                return Task.FromResult(0);
+            }
+        }
 
         public Task PublishAsync(Submission submission, SubmissionLocalizedMetaData metadata, IList<ProductOrAppCategory> categories, IList<Package> packages, IList<string> imageUrls)
         {
