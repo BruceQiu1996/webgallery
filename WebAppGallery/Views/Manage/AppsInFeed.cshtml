@@ -37,6 +37,7 @@
                         <td><a href="@app.SubmittingEntityURL" target="_blank">@app.SubmittingEntity</a></td>
                         <td>@app.ReleaseDate.ToShortDateString()</td>
                         <td>
+                            <input type="button" value="Rebrand" />
                             <input type="button" value="Delete" />
                             <input type="hidden" value="@app.LogoUrl" />
                         </td>
@@ -44,6 +45,37 @@
                 }
             </tbody>
         </table>
+    </div>
+
+    <div class="rebrand-confirm-dialog" style="display:none;">
+        <div class="rebrand-confirm-content">
+            <span>×</span>
+            <div class="rebrand-app-detail">
+                <div class="icon-box"><img src="~/Content/images/no-logo.png" /></div>
+                <span>AppId Version</span>
+                <p>Released by<strong>Author</strong></p>
+            </div>
+            <p>Type new app Id for this app, and then click Rebrand. App Id means the ProductId in the <a href="~/Feed/WebApplicationList.xml" target="_blank">Applications Feed XML file</a>, or the Nickname in the database.</p>
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="returnUrl" value="@Request.Url" />
+                <div class="rebrand-container">
+                    <p>
+                        <label class="textbox-label">Current App Id:</label>
+                        <input type="text" name="appId" value="" class="textbox" readonly />
+                    </p>
+                    <p>
+                        <label class="textbox-label">New App Id:</label>
+                        <input type="text" name="newAppId" value="" class="textbox" required />
+                        <span>Don't contain white-space characters which will be removed.</span>
+                    </p>
+                </div>
+                <p>The new app Id will be updated and stored in the <a href="~/Feed/WebApplicationList.xml" target="_blank">Applications Feed XML file</a>. The app owners and the Admins will receive an email about this udpate.</p>
+                <input type="submit" class="btn btn-primary" value="Rebrand" />
+                <input type="button" class="btn btn-default" value="Cancel" />
+            }
+        </div>
     </div>
 
     <div class="confirm-dialog" style="display:none;">

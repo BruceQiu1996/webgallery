@@ -13,5 +13,7 @@ namespace WebGallery.Services
         Task SendOwnershipInvitation(string emailAddress, UnconfirmedSubmissionOwner unconfirmedSubmissionOwner, string urlAuthority, Func<string, string> htmlEncode);
 
         Task SendMessageForIssueReported(Issue issue, Func<string, string> htmlEncode);
+
+        Task SendMessageForRebrand(string appId, string newAppId, string operatorEmailAddress);
     }
 }
